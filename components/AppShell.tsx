@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, LayoutDashboard, ClipboardCheck, Route, User, Shield } from "lucide-react";
+import { Sparkles, LayoutDashboard, ClipboardCheck, Route, User, Shield, Radar, Brain } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { NavItem } from "./NavItem";
 
@@ -24,9 +24,11 @@ export async function AppShell({ children }: { children: React.ReactNode }) {
           <nav className="mt-7 space-y-2">
             <NavItem href="/dashboard" icon={<LayoutDashboard className="w-4 h-4" />}>Dashboard</NavItem>
             <NavItem href="/daily-test" icon={<ClipboardCheck className="w-4 h-4" />}>Daily Test</NavItem>
+            <NavItem href="/skill-graph" icon={<Radar className="w-4 h-4" />}>Skill Graph</NavItem>
             <NavItem href="/roadmap" icon={<Route className="w-4 h-4" />}>Roadmap</NavItem>
+            <NavItem href="/ai-insights" icon={<Brain className="w-4 h-4" />}>AI Insights</NavItem>
             <NavItem href="/profile" icon={<User className="w-4 h-4" />}>Profile</NavItem>
-            <NavItem href="/admin" icon={<Shield className="w-4 h-4" />}>Admin (placeholder)</NavItem>
+            <NavItem href="/admin" icon={<Shield className="w-4 h-4" />}>Admin</NavItem>
           </nav>
 
           <div className="mt-auto pt-5 border-t border-white/10 text-xs text-zinc-400">
