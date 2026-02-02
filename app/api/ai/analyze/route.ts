@@ -7,10 +7,10 @@ export async function POST() {
     if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
     const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return NextResponse.json({ error: "GEMINI_API_KEY not configured" }, { status: 500 });
+    if (!apiKey) return NextResponse.json({ error: "GEMINI_API_KEY not configured. Add your key to .env.local — get one free at https://aistudio.google.com/apikey" }, { status: 500 });
 
     // Fetch all user data in parallel
-    const [profileRes, scoresRes, roleSkillsRes] = await Promise.all([
+    const [profileRes, scoresRes, roleSkillsRes, attemptsRes, roadmapRes] = await Promise.all([
         supabase.from("profiles").select("*, roles(name, description)").eq("id", user.id).maybeSingle(),
         supabase.from("user_skill_scores").select("score, skills(name, category)").eq("user_id", user.id),
         supabase
@@ -23,11 +23,15 @@ export async function POST() {
                 if (!roleId) return { data: [] };
                 return supabase.from("role_skills").select("weight, skills(name, category)").eq("role_id", roleId);
             }),
+        supabase.from("daily_attempts").select("attempt_date, correct_count, total_count, difficulty_level").eq("user_id", user.id).order("attempt_date", { ascending: false }).limit(10),
+        supabase.from("user_roadmap").select("progress, skills(name)").eq("user_id", user.id),
     ]);
 
     const profile = profileRes.data;
     const userScores = scoresRes.data || [];
     const roleSkills = (roleSkillsRes as any).data || [];
+    const recentAttempts = attemptsRes.data || [];
+    const roadmapItems = roadmapRes.data || [];
 
     // Build context for Gemini
     const skillSummary = userScores.map((s: any) => ({
@@ -50,15 +54,45 @@ export async function POST() {
         return { ...req, userScore, gap };
     });
 
+    // Performance trends
+    const avgScore = recentAttempts.length > 0
+        ? Math.round(recentAttempts.reduce((s: number, a: any) => s + (a.total_count > 0 ? (a.correct_count / a.total_count) * 100 : 0), 0) / recentAttempts.length)
+        : 0;
+    const currentDifficulty = recentAttempts[0]?.difficulty_level || 1;
+
+    // Roadmap progress
+    const roadmapProgress = roadmapItems.map((r: any) => `${r.skills?.name || "Skill"}: ${r.progress || 0}%`).join(", ");
+
+    const isStudent = profile?.user_type === "student" || !profile?.user_type;
+
     const prompt = `You are an AI-powered Skill Gap Analyzer for an EdTech platform. Analyze the following learner data and provide personalized, actionable recommendations.
 
 ## Learner Profile
 - Name: ${profile?.full_name || "Learner"}
-- Course: ${profile?.course || "Not specified"}
+- Type: ${isStudent ? "Student" : "Working Professional"}
+${isStudent
+            ? `- Education: ${profile?.education_level || "N/A"}
+- College: ${profile?.previous_academics?.college || "N/A"}
+- Course: ${profile?.course || "N/A"}
+- CGPA: ${profile?.previous_academics?.cgpa || "N/A"}
+- Graduation Year: ${profile?.graduation_year || "N/A"}`
+            : `- Company: ${profile?.company || "N/A"}
+- Job Title: ${profile?.job_title || "N/A"}
+- Years Experience: ${profile?.years_experience || "N/A"}
+- LinkedIn: ${profile?.linkedin_url || "N/A"}`}
 - Target Role: ${(profile as any)?.roles?.name || "Not selected"}
+- Current Skills (self-reported): ${profile?.current_skills_text || "Not provided"}
 - Strengths (self-reported): ${profile?.strengths || "Not provided"}
 - Weaknesses (self-reported): ${profile?.weaknesses || "Not provided"}
 - Future Plans: ${profile?.future_plans || "Not provided"}
+
+## Test Performance
+- Recent avg score: ${avgScore}%
+- Current difficulty level: ${currentDifficulty}/5
+- Total tests taken: ${recentAttempts.length}
+
+## Roadmap Progress
+${roadmapProgress || "No progress yet"}
 
 ## Current Skill Scores (out of 100)
 ${skillSummary.map((s: any) => `- ${s.skill} (${s.category}): ${s.score}/100`).join("\n")}
@@ -71,7 +105,7 @@ ${gapAnalysis.map((g: any) => `- ${g.skill}: user=${g.userScore}%, benchmark=${g
 
 Please provide your analysis in the following JSON format (return ONLY valid JSON, no markdown):
 {
-  "overallAssessment": "2-3 sentence summary of the learner's current position relative to their target role",
+  "overallAssessment": "2-3 sentence summary of the learner's current position relative to their target role, tailored to their ${isStudent ? "academic background" : "professional experience"}",
   "strengthAreas": ["list of skills they're doing well in"],
   "criticalGaps": [
     {
@@ -80,9 +114,9 @@ Please provide your analysis in the following JSON format (return ONLY valid JSO
       "targetScore": 0,
       "gap": 0,
       "severity": "critical|moderate|minor",
-      "recommendation": "specific actionable recommendation",
+      "recommendation": "specific actionable recommendation tailored to their ${isStudent ? "student" : "professional"} status",
       "resources": [
-        { "title": "Resource name", "type": "course|book|project|practice", "provider": "Platform name", "url": "URL if applicable", "estimatedHours": 0 }
+        { "title": "Resource name", "type": "course|book|project|practice", "provider": "Platform name", "url": "Real URL", "estimatedHours": 0 }
       ]
     }
   ],
@@ -95,7 +129,7 @@ Please provide your analysis in the following JSON format (return ONLY valid JSO
       "milestones": ["milestone 1", "milestone 2"]
     }
   ],
-  "motivationalTip": "A personalized encouraging message based on their profile"
+  "motivationalTip": "A personalized encouraging message based on their profile and progress"
 }`;
 
     try {
@@ -124,7 +158,6 @@ Please provide your analysis in the following JSON format (return ONLY valid JSO
         const geminiData = await geminiRes.json();
         const rawText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
 
-        // Parse the JSON response
         let analysis;
         try {
             analysis = JSON.parse(rawText);
@@ -137,6 +170,8 @@ Please provide your analysis in the following JSON format (return ONLY valid JSO
             meta: {
                 skillCount: skillSummary.length,
                 gapCount: gapAnalysis.filter((g: any) => g.gap > 0).length,
+                avgTestScore: avgScore,
+                difficulty: currentDifficulty,
                 timestamp: new Date().toISOString(),
             },
         });
