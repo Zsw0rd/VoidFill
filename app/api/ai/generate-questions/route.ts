@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { extractGeminiText, parseJsonArray, geminiUrl } from "@/lib/gemini";
 
 export async function POST() {
     const supabase = createClient();
@@ -78,21 +79,18 @@ Return ONLY valid JSON array (no markdown):
 ]`;
 
     try {
-        const geminiRes = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: prompt }] }],
-                    generationConfig: {
-                        temperature: 0.8,
-                        maxOutputTokens: 4096,
-                        responseMimeType: "application/json",
-                    },
-                }),
-            },
-        );
+        const geminiRes = await fetch(geminiUrl(apiKey), {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: {
+                    temperature: 0.8,
+                    maxOutputTokens: 4096,
+                    responseMimeType: "application/json",
+                },
+            }),
+        });
 
         if (!geminiRes.ok) {
             const errText = await geminiRes.text();
@@ -101,12 +99,12 @@ Return ONLY valid JSON array (no markdown):
         }
 
         const geminiData = await geminiRes.json();
-        const rawText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "[]";
+        // Use extractGeminiText to skip 2.5 Flash thinking blocks
+        const rawText = extractGeminiText(geminiData);
+        const questions = parseJsonArray(rawText);
 
-        let questions;
-        try {
-            questions = JSON.parse(rawText);
-        } catch {
+        if (questions.length === 0) {
+            console.error("No questions parsed. Raw preview:", rawText.slice(0, 300));
             return NextResponse.json({ error: "Failed to parse AI response" }, { status: 500 });
         }
 

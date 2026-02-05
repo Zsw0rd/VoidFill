@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { extractGeminiText, parseJsonArray, geminiUrl } from "@/lib/gemini";
 
 export async function POST(req: Request) {
     const supabase = createClient();
@@ -10,66 +11,84 @@ export async function POST(req: Request) {
     if (!apiKey) return NextResponse.json({ error: "GEMINI_API_KEY not configured" }, { status: 500 });
 
     const body = await req.json();
-    const { course_id, course_title, skill_name } = body;
-    if (!course_id || !course_title) {
-        return NextResponse.json({ error: "course_id and course_title required" }, { status: 400 });
+    const { course_title, skill_name, is_skill_assessment } = body;
+
+    if (!course_title) {
+        return NextResponse.json({ error: "course_title required" }, { status: 400 });
     }
 
-    const prompt = `Generate a 5-question assessment quiz for the following course/topic.
+    const questionCount = is_skill_assessment ? 8 : 5;
+    const prompt = is_skill_assessment
+        ? `Generate a ${questionCount}-question skill assessment quiz.
+
+Skill: "${skill_name || "General"}"
+Context: ${course_title}
+
+Test the learner's understanding of this skill area comprehensively. Questions should cover fundamentals, application, and problem-solving.
+
+Return ONLY valid JSON array:
+[
+  {
+    "prompt": "Question text?",
+    "options": ["Option A", "Option B", "Option C", "Option D"],
+    "correct_index": 0,
+    "explanation": "Brief explanation"
+  }
+]`
+        : `Generate a ${questionCount}-question assessment quiz for the following course/topic.
 
 Course: "${course_title}"
 Skill Area: "${skill_name || "General"}"
 
-The assessment should test whether the learner has completed and understood this course material. Questions should range from recall to application.
+Test whether the learner has understood this course material. Range from recall to application.
 
-Return ONLY valid JSON array (no markdown):
+Return ONLY valid JSON array:
 [
   {
-    "prompt": "Question text here?",
+    "prompt": "Question text?",
     "options": ["Option A", "Option B", "Option C", "Option D"],
     "correct_index": 0,
-    "explanation": "Brief explanation of the correct answer"
+    "explanation": "Brief explanation"
   }
 ]`;
 
     try {
-        const geminiRes = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: prompt }] }],
-                    generationConfig: { temperature: 0.7, maxOutputTokens: 2048, responseMimeType: "application/json" },
-                }),
-            },
-        );
+        const geminiRes = await fetch(geminiUrl(apiKey), {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: { temperature: 0.7, maxOutputTokens: 4096, responseMimeType: "application/json" },
+            }),
+        });
 
         if (!geminiRes.ok) {
+            const errText = await geminiRes.text();
+            console.error("Gemini assess error:", errText);
             return NextResponse.json({ error: "Assessment generation failed" }, { status: 502 });
         }
 
         const geminiData = await geminiRes.json();
-        const rawText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "[]";
+        // Use extractGeminiText to skip 2.5 Flash thinking blocks
+        const rawText = extractGeminiText(geminiData);
+        const questions = parseJsonArray(rawText);
 
-        let questions;
-        try {
-            questions = JSON.parse(rawText);
-        } catch {
-            return NextResponse.json({ error: "Failed to parse AI response" }, { status: 500 });
+        if (questions.length === 0) {
+            console.error("Failed to parse assessment. Raw:", rawText.slice(0, 500));
+            return NextResponse.json({ error: "Failed to parse AI assessment response" }, { status: 500 });
         }
 
         return NextResponse.json({
-            course_id,
-            questions: (Array.isArray(questions) ? questions : []).slice(0, 5).map((q: any, i: number) => ({
-                id: `assess_${i}`,
+            questions: questions.slice(0, questionCount).map((q: any, i: number) => ({
+                id: `assess_${Date.now()}_${i}`,
                 prompt: q.prompt || `Question ${i + 1}`,
                 options: q.options?.slice(0, 4) || ["A", "B", "C", "D"],
-                correct_index: q.correct_index ?? 0,
+                correct_index: typeof q.correct_index === "number" ? q.correct_index : 0,
                 explanation: q.explanation || "",
             })),
         });
     } catch (err: any) {
-        return NextResponse.json({ error: "Assessment generation failed", message: err.message }, { status: 500 });
+        console.error("Assessment gen error:", err);
+        return NextResponse.json({ error: "Assessment generation failed", detail: err.message }, { status: 500 });
     }
 }

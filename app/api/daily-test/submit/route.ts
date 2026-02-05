@@ -106,11 +106,30 @@ export async function POST(req: Request) {
 
   // Update skill scores
   if (isAiTest) {
-    // For AI tests, we need to map skill names to skill IDs
+    // For AI tests, we need to map skill names to skill IDs (case-insensitive + fuzzy)
     const skillNames = Object.keys(perSkill);
-    const { data: skills } = await supabase.from("skills").select("id, name").in("name", skillNames);
+    const { data: allSkills } = await supabase.from("skills").select("id, name");
     const nameToId = new Map<string, string>();
-    (skills || []).forEach((s: any) => nameToId.set(s.name, s.id));
+
+    // Build case-insensitive lookup
+    const dbSkills = (allSkills || []).map((s: any) => ({ id: s.id, name: s.name, lower: s.name.toLowerCase().trim() }));
+
+    for (const aiName of skillNames) {
+      const lower = aiName.toLowerCase().trim();
+      // 1. Exact case-insensitive
+      const exact = dbSkills.find(s => s.lower === lower);
+      if (exact) { nameToId.set(aiName, exact.id); continue; }
+      // 2. Substring match
+      const partial = dbSkills.find(s => s.lower.includes(lower) || lower.includes(s.lower));
+      if (partial) { nameToId.set(aiName, partial.id); continue; }
+      // 3. Word overlap
+      const words = lower.split(/[\s.\-_/]+/).filter(w => w.length > 2);
+      const wordMatch = dbSkills.find(s => {
+        const dbWords = s.lower.split(/[\s.\-_/]+/).filter((w: string) => w.length > 2);
+        return words.some(w => dbWords.some((dw: string) => dw.includes(w) || w.includes(dw)));
+      });
+      if (wordMatch) nameToId.set(aiName, wordMatch.id);
+    }
 
     const skillScoreRows: any[] = [];
     for (const [skillName, v] of Object.entries(perSkill)) {
