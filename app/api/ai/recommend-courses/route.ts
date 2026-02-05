@@ -1,6 +1,23 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
+function extractJsonPayload(rawText: string): string {
+    const trimmed = rawText.trim();
+    if (!trimmed) return "[]";
+
+    // Gemini can still occasionally wrap JSON in markdown code fences despite responseMimeType.
+    const fenced = trimmed.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+    if (fenced?.[1]) return fenced[1].trim();
+
+    const firstArrayStart = trimmed.indexOf("[");
+    const lastArrayEnd = trimmed.lastIndexOf("]");
+    if (firstArrayStart !== -1 && lastArrayEnd > firstArrayStart) {
+        return trimmed.slice(firstArrayStart, lastArrayEnd + 1);
+    }
+
+    return trimmed;
+}
+
 export async function POST(req: Request) {
     const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser();
@@ -79,10 +96,11 @@ IMPORTANT:
 
         const geminiData = await geminiRes.json();
         const rawText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "[]";
+        const jsonPayload = extractJsonPayload(rawText);
 
         let recommendations;
         try {
-            recommendations = JSON.parse(rawText);
+            recommendations = JSON.parse(jsonPayload);
         } catch {
             return NextResponse.json({ error: "Failed to parse AI response" }, { status: 500 });
         }
