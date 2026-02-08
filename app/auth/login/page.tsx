@@ -53,7 +53,7 @@ function LoginForm() {
 
         <div className="mt-5 text-sm text-zinc-400">
           New here?{" "}
-          <Link className="text-emerald-300 hover:underline" href="/auth/signup">
+          <Link className="text-zinc-200 hover:underline" href="/auth/signup">
             Create an account
           </Link>
         </div>
