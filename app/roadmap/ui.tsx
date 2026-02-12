@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { createClient } from "@/lib/supabase/browser";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,7 @@ export function RoadmapClient({ role }: { role: any }) {
 
   const roleId = role?.id;
 
-  async function load() {
+  const load = useCallback(async () => {
     setLoading(true);
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
@@ -51,11 +51,11 @@ export function RoadmapClient({ role }: { role: any }) {
     setScores(m);
 
     setLoading(false);
-  }
+  }, [supabase, roleId]);
 
   useEffect(() => {
     load();
-  }, [roleId]);
+  }, [load]);
 
   const computed = useMemo(() => {
     if (!roleSkills.length) return [];
@@ -153,8 +153,8 @@ export function RoadmapClient({ role }: { role: any }) {
                     {x.category === "Strong"
                       ? "Maintain with practice."
                       : x.category === "Moderate"
-                      ? "Add projects + deeper practice."
-                      : "Start fundamentals + guided resources."}
+                        ? "Add projects + deeper practice."
+                        : "Start fundamentals + guided resources."}
                   </div>
                 </CardContent>
               </Card>
