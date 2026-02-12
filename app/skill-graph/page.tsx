@@ -14,12 +14,13 @@ export default async function SkillGraphPage() {
     const roleId = profile.target_role_id;
     const { data: role } = roleId ? await supabase.from("roles").select("*").eq("id", roleId).maybeSingle() : { data: null };
 
-    const [roleSkillsRes, userScoresRes, attemptsRes] = await Promise.all([
+    const [roleSkillsRes, userScoresRes, attemptsRes, practiceRes] = await Promise.all([
         roleId
             ? supabase.from("role_skills").select("skill_id, weight, skills(name)").eq("role_id", roleId)
             : Promise.resolve({ data: [] }),
         supabase.from("user_skill_scores").select("skill_id, score, skills(name)").eq("user_id", user.id),
         supabase.from("daily_attempts").select("attempt_date, attempt_skill_scores(skill_id, score, skills(name))").eq("user_id", user.id).order("attempt_date", { ascending: true }).limit(20),
+        supabase.from("practice_attempts").select("score, difficulty_level, skill_scores, created_at").eq("user_id", user.id).order("created_at", { ascending: true }).limit(30),
     ]);
 
     return (
@@ -30,6 +31,7 @@ export default async function SkillGraphPage() {
                     roleSkills={roleSkillsRes.data || []}
                     userScores={userScoresRes.data || []}
                     attemptHistory={attemptsRes.data || []}
+                    practiceHistory={practiceRes.data || []}
                 />
             </div>
         </AppShell>

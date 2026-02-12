@@ -17,6 +17,7 @@ interface Props {
     roleSkills: any[];
     userScores: any[];
     attemptHistory?: any[];
+    practiceHistory?: any[];
 }
 
 const COLORS_GAP = ["#f43f5e", "#f97316", "#eab308", "#22c55e"];
@@ -29,7 +30,7 @@ function gapColor(gap: number) {
 
 const LINE_COLORS = ["#22c55e", "#3b82f6", "#f97316", "#a855f7", "#ec4899", "#eab308", "#14b8a6", "#f43f5e"];
 
-export function SkillGraphClient({ role, roleSkills, userScores, attemptHistory = [] }: Props) {
+export function SkillGraphClient({ role, roleSkills, userScores, attemptHistory = [], practiceHistory = [] }: Props) {
     const scoreMap = useMemo(() => {
         const m = new Map<string, number>();
         userScores.forEach((s: any) => m.set(s.skill_id, Number(s.score ?? 0)));
@@ -155,6 +156,33 @@ export function SkillGraphClient({ role, roleSkills, userScores, attemptHistory 
                                         {((trendData as any).skillNames || []).map((name: string, i: number) => (
                                             <Line key={name} type="monotone" dataKey={name} stroke={LINE_COLORS[i % LINE_COLORS.length]} strokeWidth={2} dot={{ r: 3 }} connectNulls />
                                         ))}
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </CardContent>
+                        </Card>
+                    )}
+
+                    {/* Practice Test Performance */}
+                    {practiceHistory.length > 0 && (
+                        <Card className="mt-4">
+                            <CardHeader className="p-6 pb-0">
+                                <h2 className="text-xl font-semibold">Practice Test Performance</h2>
+                                <p className="mt-1 text-sm text-zinc-400">Score and difficulty over your practice sessions</p>
+                            </CardHeader>
+                            <CardContent className="p-4 h-[300px]">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <LineChart data={practiceHistory.map((p: any, i: number) => ({
+                                        test: `#${i + 1}`,
+                                        score: p.score,
+                                        difficulty: p.difficulty_level * 20,
+                                    }))} margin={{ left: 10, right: 10 }}>
+                                        <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" />
+                                        <XAxis dataKey="test" tick={{ fill: "#71717a", fontSize: 11 }} />
+                                        <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 11 }} />
+                                        <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 13 }} />
+                                        <Legend />
+                                        <Line type="monotone" dataKey="score" name="Score %" stroke="#22c55e" strokeWidth={2} dot={{ r: 3 }} />
+                                        <Line type="monotone" dataKey="difficulty" name="Difficulty" stroke="#f97316" strokeWidth={2} dot={{ r: 3 }} strokeDasharray="5 5" />
                                     </LineChart>
                                 </ResponsiveContainer>
                             </CardContent>

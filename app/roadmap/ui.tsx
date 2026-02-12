@@ -232,6 +232,13 @@ export function RoadmapClient({ role }: { role: any }) {
       const progress = skillCourses.length > 0 ? Math.round((completedCount / skillCourses.length) * 100) : assessScore;
 
       await supabase.from("user_roadmap").update({ progress }).eq("user_id", user.id).eq("skill_id", skillId);
+
+      // ── Immediately update local state so UI re-renders ──
+      setScores(prev => ({ ...prev, [skillId]: newScore }));
+
+      if (assessTarget.type === "course" && passed && assessTarget.course) {
+        setCourses(prev => prev.map(c => c.id === assessTarget.course!.id ? { ...c, completed: true } : c));
+      }
     }
 
     setAssessResult({ score: assessScore, correct, total, passed });
