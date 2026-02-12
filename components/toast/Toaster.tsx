@@ -8,10 +8,11 @@ export function Toaster() {
   const [items, setItems] = useState<ToastItem[]>([]);
 
   useEffect(() => {
-    return toastBus.subscribe((t) => {
+    const unsub = toastBus.subscribe((t) => {
       setItems((prev) => [...prev, t]);
       setTimeout(() => setItems((prev) => prev.filter((x) => x.id !== t.id)), t.ttlMs);
     });
+    return () => { unsub(); };
   }, []);
 
   if (!items.length) return null;

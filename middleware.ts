@@ -24,30 +24,30 @@ export async function middleware(req: NextRequest) {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        get(name) {
+        get(name: string) {
           return req.cookies.get(name)?.value;
         },
-        set(name, value, options) {
+        set(name: string, value: string, options: any) {
           res.cookies.set({ name, value, ...options });
         },
-        remove(name, options) {
+        remove(name: string, options: any) {
           res.cookies.set({ name, value: "", ...options });
         },
       },
     },
   );
 
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { user } } = await supabase.auth.getUser();
   const pathname = req.nextUrl.pathname;
 
-  if (!session && !isPublic(pathname)) {
+  if (!user && !isPublic(pathname)) {
     const url = req.nextUrl.clone();
     url.pathname = "/auth/login";
     url.searchParams.set("next", pathname);
     return NextResponse.redirect(url);
   }
 
-  if (session && (pathname === "/auth/login" || pathname === "/auth/signup")) {
+  if (user && (pathname === "/auth/login" || pathname === "/auth/signup")) {
     const url = req.nextUrl.clone();
     url.pathname = "/dashboard";
     return NextResponse.redirect(url);
