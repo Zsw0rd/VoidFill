@@ -1,32 +1,42 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/toast/bus";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Bot, User, Plus, MessageCircle, Sparkles } from "lucide-react";
+import { Send, Bot, User, Plus, Sparkles, UserCheck } from "lucide-react";
 
 interface Message {
     id?: string;
-    sender_role: "user" | "ai" | "system";
+    sender_role: string;
     content: string;
     created_at?: string;
 }
 
 interface Props {
-    initialMessages: Message[];
-    initialConversationId: string | null;
-    conversations: { id: string; title: string; created_at: string }[];
+    initialAiMessages: Message[];
+    initialAiConversationId: string | null;
+    mentorInfo: { id: string; name: string } | null;
+    initialHumanMessages: Message[];
+    initialHumanConversationId: string | null;
 }
 
-export function MentorChatUI({ initialMessages, initialConversationId, conversations: initConvs }: Props) {
-    const [messages, setMessages] = useState<Message[]>(initialMessages);
+type ChatMode = "ai" | "human";
+
+export function MentorChatUI({ initialAiMessages, initialAiConversationId, mentorInfo, initialHumanMessages, initialHumanConversationId }: Props) {
+    const [mode, setMode] = useState<ChatMode>("ai");
+    const [aiMessages, setAiMessages] = useState<Message[]>(initialAiMessages);
+    const [humanMessages, setHumanMessages] = useState<Message[]>(initialHumanMessages);
     const [input, setInput] = useState("");
     const [sending, setSending] = useState(false);
-    const [conversationId, setConversationId] = useState<string | null>(initialConversationId);
+    const [aiConvId, setAiConvId] = useState<string | null>(initialAiConversationId);
+    const [humanConvId, setHumanConvId] = useState<string | null>(initialHumanConversationId);
     const bottomRef = useRef<HTMLDivElement>(null);
+
+    const messages = mode === "ai" ? aiMessages : humanMessages;
+    const setMessages = mode === "ai" ? setAiMessages : setHumanMessages;
 
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -40,40 +50,40 @@ export function MentorChatUI({ initialMessages, initialConversationId, conversat
         setInput("");
         setSending(true);
 
-        // Optimistic add
-        const userMsg: Message = { sender_role: "user", content: text, created_at: new Date().toISOString() };
+        const senderRole = mode === "ai" ? "user" : "user";
+        const userMsg: Message = { sender_role: senderRole, content: text, created_at: new Date().toISOString() };
         setMessages(prev => [...prev, userMsg]);
 
         try {
-            const res = await fetch("/api/chat/send", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: text, conversationId }),
-            });
-
-            const data = await res.json();
-            if (!res.ok) {
-                toast("Error", data.error || "Failed to send message");
-                setSending(false);
-                return;
+            if (mode === "ai") {
+                const res = await fetch("/api/chat/send", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: text, conversationId: aiConvId }),
+                });
+                const data = await res.json();
+                if (!res.ok) { toast("Error", data.error || "Failed"); setSending(false); return; }
+                if (data.conversationId && !aiConvId) setAiConvId(data.conversationId);
+                setAiMessages(prev => [...prev, { sender_role: "ai", content: data.reply, created_at: new Date().toISOString() }]);
+            } else {
+                const res = await fetch("/api/chat/mentor-send", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: text, conversationId: humanConvId }),
+                });
+                const data = await res.json();
+                if (!res.ok) { toast("Error", data.error || "Failed"); setSending(false); return; }
+                if (data.conversationId && !humanConvId) setHumanConvId(data.conversationId);
             }
-
-            if (data.conversationId && !conversationId) {
-                setConversationId(data.conversationId);
-            }
-
-            const aiMsg: Message = { sender_role: "ai", content: data.reply, created_at: new Date().toISOString() };
-            setMessages(prev => [...prev, aiMsg]);
-        } catch (err) {
-            toast("Error", "Network error — please try again");
+        } catch {
+            toast("Error", "Network error");
         }
-
         setSending(false);
     }
 
-    function startNewChat() {
-        setMessages([]);
-        setConversationId(null);
+    function startNewAiChat() {
+        setAiMessages([]);
+        setAiConvId(null);
     }
 
     return (
@@ -82,82 +92,101 @@ export function MentorChatUI({ initialMessages, initialConversationId, conversat
                 <div>
                     <h1 className="text-2xl font-semibold flex items-center gap-2">
                         <Sparkles className="w-6 h-6 text-indigo-400" />
-                        AI Mentor — Sage
+                        Mentor Chat
                     </h1>
-                    <p className="text-sm text-zinc-400 mt-1">Your personal education & career mentor</p>
+                    <p className="text-sm text-zinc-400 mt-1">Get help from AI or your assigned mentor</p>
                 </div>
-                <Button onClick={startNewChat} className="text-xs gap-1">
-                    <Plus className="w-3 h-3" /> New Chat
-                </Button>
+                {mode === "ai" && (
+                    <Button onClick={startNewAiChat} className="text-xs gap-1">
+                        <Plus className="w-3 h-3" /> New Chat
+                    </Button>
+                )}
+            </div>
+
+            {/* Mode tabs */}
+            <div className="flex gap-2 mb-4">
+                <button
+                    onClick={() => setMode("ai")}
+                    className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm transition ${mode === "ai"
+                        ? "bg-indigo-500/10 border border-indigo-500/20 text-white"
+                        : "bg-white/5 border border-white/10 text-zinc-400 hover:bg-white/10"
+                        }`}
+                >
+                    <Bot className="w-4 h-4" /> AI Mentor — Sage
+                </button>
+                {mentorInfo ? (
+                    <button
+                        onClick={() => setMode("human")}
+                        className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm transition ${mode === "human"
+                            ? "bg-emerald-500/10 border border-emerald-500/20 text-white"
+                            : "bg-white/5 border border-white/10 text-zinc-400 hover:bg-white/10"
+                            }`}
+                    >
+                        <UserCheck className="w-4 h-4" /> {mentorInfo.name}
+                    </button>
+                ) : (
+                    <div className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm bg-white/5 border border-white/10 text-zinc-600 cursor-not-allowed">
+                        <UserCheck className="w-4 h-4" /> No mentor assigned
+                    </div>
+                )}
             </div>
 
             <Card className="bg-zinc-900/40 backdrop-blur-xl">
                 <CardContent className="p-0">
-                    {/* Messages area */}
-                    <div className="h-[60vh] overflow-y-auto p-4 space-y-4">
+                    <div className="h-[55vh] overflow-y-auto p-4 space-y-4">
                         {messages.length === 0 && (
                             <div className="flex flex-col items-center justify-center h-full text-center">
-                                <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-4">
-                                    <Bot className="w-8 h-8 text-indigo-400" />
+                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${mode === "ai"
+                                    ? "bg-indigo-500/10 border border-indigo-500/20"
+                                    : "bg-emerald-500/10 border border-emerald-500/20"
+                                    }`}>
+                                    {mode === "ai"
+                                        ? <Bot className="w-8 h-8 text-indigo-400" />
+                                        : <UserCheck className="w-8 h-8 text-emerald-400" />
+                                    }
                                 </div>
-                                <h3 className="text-lg font-semibold text-zinc-200">Hi! I&apos;m Sage</h3>
+                                <h3 className="text-lg font-semibold text-zinc-200">
+                                    {mode === "ai" ? "Hi! I'm Sage" : `Chat with ${mentorInfo?.name}`}
+                                </h3>
                                 <p className="text-sm text-zinc-400 mt-2 max-w-sm">
-                                    I&apos;m your AI study mentor. Ask me about learning strategies, career advice,
-                                    skill development, or study techniques!
+                                    {mode === "ai"
+                                        ? "Ask me about learning strategies, career advice, or study techniques!"
+                                        : "Send a message to your mentor for personalized guidance."
+                                    }
                                 </p>
-                                <div className="mt-6 flex flex-wrap justify-center gap-2">
-                                    {[
-                                        "How do I improve my SQL skills?",
-                                        "What should I learn as a beginner?",
-                                        "Tips for staying consistent?",
-                                        "Career advice for Data Analyst",
-                                    ].map((q) => (
-                                        <button
-                                            key={q}
-                                            onClick={() => { setInput(q); }}
-                                            className="text-xs bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-3 py-2 text-zinc-300 transition"
-                                        >
-                                            {q}
-                                        </button>
-                                    ))}
-                                </div>
+                                {mode === "ai" && (
+                                    <div className="mt-6 flex flex-wrap justify-center gap-2">
+                                        {["How do I improve my SQL skills?", "Tips for staying consistent?", "Career advice for Data Analyst"].map((q) => (
+                                            <button key={q} onClick={() => setInput(q)} className="text-xs bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-3 py-2 text-zinc-300 transition">
+                                                {q}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         )}
 
                         <AnimatePresence initial={false}>
-                            {messages.map((m, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 8 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.2 }}
-                                    className={`flex gap-3 ${m.sender_role === "user" ? "flex-row-reverse" : ""}`}
-                                >
-                                    <div className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${m.sender_role === "user"
-                                            ? "bg-emerald-500/10 border border-emerald-500/20"
-                                            : "bg-indigo-500/10 border border-indigo-500/20"
-                                        }`}>
-                                        {m.sender_role === "user"
-                                            ? <User className="w-4 h-4 text-emerald-300" />
-                                            : <Bot className="w-4 h-4 text-indigo-300" />
-                                        }
-                                    </div>
-                                    <div className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${m.sender_role === "user"
-                                            ? "bg-emerald-500/10 border border-emerald-500/15 text-zinc-200"
-                                            : "bg-white/5 border border-white/10 text-zinc-300"
-                                        }`}>
-                                        <div className="whitespace-pre-wrap">{m.content}</div>
-                                    </div>
-                                </motion.div>
-                            ))}
+                            {messages.map((m, i) => {
+                                const isOwnMessage = m.sender_role === "user";
+                                const isAI = m.sender_role === "ai";
+                                return (
+                                    <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}
+                                        className={`flex gap-3 ${isOwnMessage ? "flex-row-reverse" : ""}`}
+                                    >
+                                        <div className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${isOwnMessage ? "bg-emerald-500/10 border border-emerald-500/20" : isAI ? "bg-indigo-500/10 border border-indigo-500/20" : "bg-amber-500/10 border border-amber-500/20"}`}>
+                                            {isOwnMessage ? <User className="w-4 h-4 text-emerald-300" /> : isAI ? <Bot className="w-4 h-4 text-indigo-300" /> : <UserCheck className="w-4 h-4 text-amber-300" />}
+                                        </div>
+                                        <div className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${isOwnMessage ? "bg-emerald-500/10 border border-emerald-500/15 text-zinc-200" : "bg-white/5 border border-white/10 text-zinc-300"}`}>
+                                            <div className="whitespace-pre-wrap">{m.content}</div>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
                         </AnimatePresence>
 
-                        {sending && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="flex gap-3"
-                            >
+                        {sending && mode === "ai" && (
+                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-3">
                                 <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
                                     <Bot className="w-4 h-4 text-indigo-300" />
                                 </div>
@@ -170,27 +199,20 @@ export function MentorChatUI({ initialMessages, initialConversationId, conversat
                                 </div>
                             </motion.div>
                         )}
-
                         <div ref={bottomRef} />
                     </div>
 
-                    {/* Input bar */}
                     <div className="border-t border-white/10 p-4">
                         <form onSubmit={sendMessage} className="flex gap-2">
-                            <Input
-                                value={input}
-                                onChange={(e) => setInput(e.target.value)}
-                                placeholder="Ask Sage about learning, career, study tips..."
-                                disabled={sending}
-                                className="flex-1"
-                                maxLength={2000}
-                            />
+                            <Input value={input} onChange={(e) => setInput(e.target.value)}
+                                placeholder={mode === "ai" ? "Ask Sage about learning, career, study tips..." : `Message ${mentorInfo?.name || "mentor"}...`}
+                                disabled={sending || (mode === "human" && !mentorInfo)} className="flex-1" maxLength={2000} />
                             <Button type="submit" disabled={sending || !input.trim()} className="px-4">
                                 <Send className="w-4 h-4" />
                             </Button>
                         </form>
                         <div className="mt-2 text-[10px] text-zinc-600 text-center">
-                            Sage only discusses education, learning, and career topics. Inappropriate messages are flagged.
+                            {mode === "ai" ? "Sage only discusses education topics. Inappropriate messages are flagged." : "Messages go directly to your mentor."}
                         </div>
                     </div>
                 </CardContent>

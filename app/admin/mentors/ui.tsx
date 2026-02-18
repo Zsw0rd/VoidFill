@@ -86,13 +86,8 @@ export function MentorActions({ allUsers }: { allUsers: any[] }) {
                         <Input value={mentorId} onChange={e => setMentorId(e.target.value)} placeholder="Mentor UUID" className="text-xs" />
                     </div>
                     <div className="space-y-1">
-                        <Label className="text-xs">Student</Label>
-                        <select value={studentId} onChange={e => setStudentId(e.target.value)} className="w-full rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-xs text-zinc-200">
-                            <option value="">Select student...</option>
-                            {allUsers.map((u: any) => (
-                                <option key={u.id} value={u.id}>{u.full_name || u.email}</option>
-                            ))}
-                        </select>
+                        <Label className="text-xs">Student ID (UUID)</Label>
+                        <Input value={studentId} onChange={e => setStudentId(e.target.value)} placeholder="Student UUID" className="text-xs" />
                     </div>
                     <Button onClick={assignStudent} disabled={busy} className="w-full text-xs">
                         {busy ? "Assigning..." : "Assign"}

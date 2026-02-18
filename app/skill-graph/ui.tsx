@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +10,8 @@ import {
     PolarRadiusAxis, Radar, Tooltip,
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Cell,
     LineChart, Line, Legend,
+    AreaChart, Area,
+    PieChart, Pie,
 } from "recharts";
 
 interface Props {
@@ -29,8 +31,20 @@ function gapColor(gap: number) {
 }
 
 const LINE_COLORS = ["#22c55e", "#3b82f6", "#f97316", "#a855f7", "#ec4899", "#eab308", "#14b8a6", "#f43f5e"];
+const PIE_COLORS = ["#22c55e", "#3b82f6", "#f97316", "#a855f7", "#ec4899", "#eab308", "#14b8a6", "#f43f5e"];
+
+type AdditionalGraph = "score_trends" | "practice_perf" | "score_distribution" | "progress_area";
+
+const GRAPH_OPTIONS: { value: AdditionalGraph; label: string }[] = [
+    { value: "score_trends", label: "Score Trends Over Time" },
+    { value: "practice_perf", label: "Practice Test Performance" },
+    { value: "score_distribution", label: "Score Distribution (Pie)" },
+    { value: "progress_area", label: "Cumulative Progress (Area)" },
+];
 
 export function SkillGraphClient({ role, roleSkills, userScores, attemptHistory = [], practiceHistory = [] }: Props) {
+    const [selectedGraph, setSelectedGraph] = useState<AdditionalGraph>("score_trends");
+
     const scoreMap = useMemo(() => {
         const m = new Map<string, number>();
         userScores.forEach((s: any) => m.set(s.skill_id, Number(s.score ?? 0)));
@@ -53,12 +67,11 @@ export function SkillGraphClient({ role, roleSkills, userScores, attemptHistory 
         }).sort((a, b) => b.gap - a.gap);
     }, [roleSkills, scoreMap]);
 
-    // Build trend data from attempt history
+    // Score trends
     const trendData = useMemo(() => {
-        if (!attemptHistory.length) return [];
+        if (!attemptHistory.length) return null;
         const skillNames = new Set<string>();
         const rows: any[] = [];
-
         attemptHistory.forEach((attempt: any) => {
             const row: any = { date: attempt.attempt_date };
             (attempt.attempt_skill_scores || []).forEach((ss: any) => {
@@ -68,8 +81,38 @@ export function SkillGraphClient({ role, roleSkills, userScores, attemptHistory 
             });
             rows.push(row);
         });
-
         return { rows, skillNames: Array.from(skillNames) };
+    }, [attemptHistory]);
+
+    // Practice test data
+    const practiceData = useMemo(() => {
+        return practiceHistory.map((p: any, i: number) => ({
+            test: `#${i + 1}`,
+            score: p.score,
+            difficulty: p.difficulty_level * 20,
+        }));
+    }, [practiceHistory]);
+
+    // Score distribution (pie chart)
+    const distributionData = useMemo(() => {
+        const ranges = { "0-25": 0, "26-50": 0, "51-75": 0, "76-100": 0 };
+        userScores.forEach((s: any) => {
+            const score = Number(s.score ?? 0);
+            if (score <= 25) ranges["0-25"]++;
+            else if (score <= 50) ranges["26-50"]++;
+            else if (score <= 75) ranges["51-75"]++;
+            else ranges["76-100"]++;
+        });
+        return Object.entries(ranges).map(([name, value]) => ({ name, value })).filter(d => d.value > 0);
+    }, [userScores]);
+
+    // Cumulative progress (area chart)
+    const areaData = useMemo(() => {
+        if (!attemptHistory.length) return [];
+        return attemptHistory.map((a: any) => ({
+            date: a.attempt_date,
+            score: a.score ?? 0,
+        }));
     }, [attemptHistory]);
 
     const summaryCards = useMemo(() => {
@@ -94,7 +137,7 @@ export function SkillGraphClient({ role, roleSkills, userScores, attemptHistory 
                 </div>
             ) : (
                 <>
-                    {/* Charts Row */}
+                    {/* ═══════════ Permanent Charts: Radar + Gap ═══════════ */}
                     <div className="mt-8 grid lg:grid-cols-2 gap-4">
                         {/* Radar */}
                         <Card>
@@ -138,56 +181,99 @@ export function SkillGraphClient({ role, roleSkills, userScores, attemptHistory 
                         </Card>
                     </div>
 
-                    {/* Trend Chart */}
-                    {trendData && (trendData as any).rows?.length > 0 && (
-                        <Card className="mt-4">
-                            <CardHeader className="p-6 pb-0">
-                                <h2 className="text-xl font-semibold">Score Trends</h2>
-                                <p className="mt-1 text-sm text-zinc-400">How your skills improved over time</p>
-                            </CardHeader>
-                            <CardContent className="p-4 h-[350px]">
-                                <ResponsiveContainer width="100%" height="100%">
-                                    <LineChart data={(trendData as any).rows} margin={{ left: 10, right: 10 }}>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" />
-                                        <XAxis dataKey="date" tick={{ fill: "#71717a", fontSize: 11 }} />
-                                        <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 11 }} />
-                                        <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 13 }} />
-                                        <Legend />
-                                        {((trendData as any).skillNames || []).map((name: string, i: number) => (
-                                            <Line key={name} type="monotone" dataKey={name} stroke={LINE_COLORS[i % LINE_COLORS.length]} strokeWidth={2} dot={{ r: 3 }} connectNulls />
-                                        ))}
-                                    </LineChart>
-                                </ResponsiveContainer>
-                            </CardContent>
-                        </Card>
-                    )}
+                    {/* ═══════════ Selectable Additional Graph ═══════════ */}
+                    <Card className="mt-4">
+                        <CardHeader className="p-6 pb-0">
+                            <div className="flex items-center justify-between">
+                                <h2 className="text-xl font-semibold">Additional Insights</h2>
+                                <select
+                                    value={selectedGraph}
+                                    onChange={(e) => setSelectedGraph(e.target.value as AdditionalGraph)}
+                                    className="rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-indigo-500/50"
+                                >
+                                    {GRAPH_OPTIONS.map(opt => (
+                                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </CardHeader>
+                        <CardContent className="p-4 h-[350px]">
+                            {/* Score Trends */}
+                            {selectedGraph === "score_trends" && (
+                                trendData && trendData.rows.length > 0 ? (
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <LineChart data={trendData.rows} margin={{ left: 10, right: 10 }}>
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" />
+                                            <XAxis dataKey="date" tick={{ fill: "#71717a", fontSize: 11 }} />
+                                            <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 11 }} />
+                                            <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 13 }} />
+                                            <Legend />
+                                            {trendData.skillNames.map((name: string, i: number) => (
+                                                <Line key={name} type="monotone" dataKey={name} stroke={LINE_COLORS[i % LINE_COLORS.length]} strokeWidth={2} dot={{ r: 3 }} connectNulls />
+                                            ))}
+                                        </LineChart>
+                                    </ResponsiveContainer>
+                                ) : (
+                                    <div className="flex items-center justify-center h-full text-sm text-zinc-500">Take daily tests to see score trends</div>
+                                )
+                            )}
 
-                    {/* Practice Test Performance */}
-                    {practiceHistory.length > 0 && (
-                        <Card className="mt-4">
-                            <CardHeader className="p-6 pb-0">
-                                <h2 className="text-xl font-semibold">Practice Test Performance</h2>
-                                <p className="mt-1 text-sm text-zinc-400">Score and difficulty over your practice sessions</p>
-                            </CardHeader>
-                            <CardContent className="p-4 h-[300px]">
-                                <ResponsiveContainer width="100%" height="100%">
-                                    <LineChart data={practiceHistory.map((p: any, i: number) => ({
-                                        test: `#${i + 1}`,
-                                        score: p.score,
-                                        difficulty: p.difficulty_level * 20,
-                                    }))} margin={{ left: 10, right: 10 }}>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" />
-                                        <XAxis dataKey="test" tick={{ fill: "#71717a", fontSize: 11 }} />
-                                        <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 11 }} />
-                                        <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 13 }} />
-                                        <Legend />
-                                        <Line type="monotone" dataKey="score" name="Score %" stroke="#22c55e" strokeWidth={2} dot={{ r: 3 }} />
-                                        <Line type="monotone" dataKey="difficulty" name="Difficulty" stroke="#f97316" strokeWidth={2} dot={{ r: 3 }} strokeDasharray="5 5" />
-                                    </LineChart>
-                                </ResponsiveContainer>
-                            </CardContent>
-                        </Card>
-                    )}
+                            {/* Practice Performance */}
+                            {selectedGraph === "practice_perf" && (
+                                practiceData.length > 0 ? (
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <LineChart data={practiceData} margin={{ left: 10, right: 10 }}>
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" />
+                                            <XAxis dataKey="test" tick={{ fill: "#71717a", fontSize: 11 }} />
+                                            <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 11 }} />
+                                            <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 13 }} />
+                                            <Legend />
+                                            <Line type="monotone" dataKey="score" name="Score %" stroke="#22c55e" strokeWidth={2} dot={{ r: 3 }} />
+                                            <Line type="monotone" dataKey="difficulty" name="Difficulty" stroke="#f97316" strokeWidth={2} dot={{ r: 3 }} strokeDasharray="5 5" />
+                                        </LineChart>
+                                    </ResponsiveContainer>
+                                ) : (
+                                    <div className="flex items-center justify-center h-full text-sm text-zinc-500">Take practice tests to see performance data</div>
+                                )
+                            )}
+
+                            {/* Score Distribution */}
+                            {selectedGraph === "score_distribution" && (
+                                distributionData.length > 0 ? (
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <PieChart>
+                                            <Pie data={distributionData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} label={({ name, value }: any) => `${name}: ${value}`}>
+                                                {distributionData.map((_: any, i: number) => (
+                                                    <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
+                                                ))}
+                                            </Pie>
+                                            <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 13 }} />
+                                            <Legend />
+                                        </PieChart>
+                                    </ResponsiveContainer>
+                                ) : (
+                                    <div className="flex items-center justify-center h-full text-sm text-zinc-500">No score data available</div>
+                                )
+                            )}
+
+                            {/* Cumulative Progress (Area) */}
+                            {selectedGraph === "progress_area" && (
+                                areaData.length > 0 ? (
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <AreaChart data={areaData} margin={{ left: 10, right: 10 }}>
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" />
+                                            <XAxis dataKey="date" tick={{ fill: "#71717a", fontSize: 11 }} />
+                                            <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 11 }} />
+                                            <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 13 }} />
+                                            <Area type="monotone" dataKey="score" name="Overall Score" stroke="#22c55e" fill="#22c55e" fillOpacity={0.15} strokeWidth={2} />
+                                        </AreaChart>
+                                    </ResponsiveContainer>
+                                ) : (
+                                    <div className="flex items-center justify-center h-full text-sm text-zinc-500">Take daily tests to see progress</div>
+                                )
+                            )}
+                        </CardContent>
+                    </Card>
 
                     {/* Summary Cards */}
                     <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
