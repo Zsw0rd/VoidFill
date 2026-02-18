@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, LayoutDashboard, ClipboardCheck, Route, User, Shield, Radar, Brain, Dumbbell } from "lucide-react";
+import { Sparkles, LayoutDashboard, ClipboardCheck, Route, User, Radar, Brain, Dumbbell, MessageCircle } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { NavItem } from "./NavItem";
 
@@ -29,7 +29,7 @@ export async function AppShell({ children }: { children: React.ReactNode }) {
             <NavItem href="/roadmap" icon={<Route className="w-4 h-4" />}>Roadmap</NavItem>
             <NavItem href="/ai-insights" icon={<Brain className="w-4 h-4" />}>AI Insights</NavItem>
             <NavItem href="/profile" icon={<User className="w-4 h-4" />}>Profile</NavItem>
-            <NavItem href="/admin" icon={<Shield className="w-4 h-4" />}>Admin</NavItem>
+            <NavItem href="/mentor-chat" icon={<MessageCircle className="w-4 h-4" />}>AI Mentor</NavItem>
           </nav>
 
           <div className="mt-auto pt-5 border-t border-white/10 text-xs text-zinc-500">
