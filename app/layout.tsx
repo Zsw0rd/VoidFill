@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Toaster } from "@/components/toast/Toaster";
 
 export const metadata: Metadata = {
-  title: "SkillGap AI",
+  title: "VoidFill",
   description: "AI-Powered Skill Gap Identifier",
 };
 

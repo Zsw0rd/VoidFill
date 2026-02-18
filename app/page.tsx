@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, ArrowRight, Brain, GraduationCap, Map, Shield } from "lucide-react";
+import { ArrowRight, Brain, GraduationCap, Map, Shield } from "lucide-react";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         <div className="rounded-3xl border border-white/15 bg-black/70 shadow-soft backdrop-blur-2xl p-8 md:p-12">
           <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-300">
             <span className="inline-flex items-center gap-2 rounded-full bg-white text-black px-3 py-1 border border-white font-medium">
-              <Sparkles className="w-4 h-4" /> SkillGap AI
+              <span className="text-lg font-bold">V</span> VoidFill
             </span>
             <span className="text-zinc-500">A cleaner, faster way to close skill gaps</span>
           </div>

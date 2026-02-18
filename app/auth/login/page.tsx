@@ -24,9 +24,28 @@ function LoginForm() {
   async function onLogin(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      setBusy(false);
+      return toast("Login failed", error.message);
+    }
+
+    // Block admin/staff from logging in via regular login
+    if (data.user) {
+      const { data: adminRow } = await supabase
+        .from("admin_users")
+        .select("admin_role")
+        .eq("id", data.user.id)
+        .maybeSingle();
+
+      if (adminRow) {
+        await supabase.auth.signOut();
+        setBusy(false);
+        return toast("Admin account detected", "Please use the Admin Login page instead.");
+      }
+    }
+
     setBusy(false);
-    if (error) return toast("Login failed", error.message);
     router.push(next);
   }
 
@@ -55,6 +74,12 @@ function LoginForm() {
           New here?{" "}
           <Link className="text-white hover:underline" href="/auth/signup">
             Create an account
+          </Link>
+        </div>
+        <div className="mt-2 text-sm text-zinc-500">
+          Staff?{" "}
+          <Link className="text-indigo-300 hover:underline" href="/auth/admin-login">
+            Admin Login
           </Link>
         </div>
       </CardContent>
