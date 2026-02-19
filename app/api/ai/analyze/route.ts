@@ -143,7 +143,7 @@ Please provide your analysis in the following JSON format (return ONLY valid JSO
                     contents: [{ parts: [{ text: prompt }] }],
                     generationConfig: {
                         temperature: 0.7,
-                        maxOutputTokens: 4096,
+                        maxOutputTokens: 8192,
                         responseMimeType: "application/json",
                     },
                 }),
