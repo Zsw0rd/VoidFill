@@ -36,7 +36,7 @@ export default async function AdminPage() {
 
             {!isAdmin ? (
               <div className="text-sm text-zinc-400">
-                You’re not an admin. When you add admin users, set <span className="text-zinc-200">profiles.role = 'admin'</span>.
+                You&apos;re not an admin. When you add admin users, set <span className="text-zinc-200">profiles.role = &apos;admin&apos;</span>.
               </div>
             ) : null}
           </CardContent>
