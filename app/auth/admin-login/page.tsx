@@ -45,6 +45,7 @@ function AdminLoginForm() {
 
         setBusy(false);
         toast("Welcome", `Logged in as ${adminUser.admin_role.replace("_", " ")}`);
+        router.refresh();
         router.push("/admin/dashboard");
     }
 
