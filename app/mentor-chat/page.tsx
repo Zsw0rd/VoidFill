@@ -9,7 +9,7 @@ export default async function MentorChatPage() {
     if (!user) redirect("/auth/login");
 
     // Fetch existing AI conversations
-    const { data: conversations } = await supabase
+    const { data: aiConversations } = await supabase
         .from("chat_conversations")
         .select("id, title, created_at")
         .eq("user_id", user.id)
@@ -17,26 +17,64 @@ export default async function MentorChatPage() {
         .order("created_at", { ascending: false })
         .limit(10);
 
-    // Fetch messages for the most recent conversation
-    let messages: any[] = [];
-    let activeConvId: string | null = null;
+    // Fetch AI messages for the most recent conversation
+    let aiMessages: any[] = [];
+    let aiConvId: string | null = null;
 
-    if (conversations && conversations.length > 0) {
-        activeConvId = conversations[0].id;
+    if (aiConversations && aiConversations.length > 0) {
+        aiConvId = aiConversations[0].id;
         const { data: msgs } = await supabase
             .from("chat_messages")
             .select("id, sender_role, content, created_at")
-            .eq("conversation_id", activeConvId)
+            .eq("conversation_id", aiConvId)
             .order("created_at", { ascending: true });
-        messages = msgs || [];
+        aiMessages = msgs || [];
+    }
+
+    // Check if user has a mentor assigned
+    const { data: assignment } = await supabase
+        .from("mentor_assignments")
+        .select("mentor_id, admin_users!mentor_assignments_mentor_id_fkey(display_name)")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+    let mentorInfo: { id: string; name: string } | null = null;
+    let humanMessages: any[] = [];
+    let humanConvId: string | null = null;
+
+    if (assignment) {
+        mentorInfo = {
+            id: assignment.mentor_id,
+            name: (assignment as any).admin_users?.display_name || "Your Mentor",
+        };
+
+        // Fetch human conversation with mentor
+        const { data: humanConv } = await supabase
+            .from("chat_conversations")
+            .select("id")
+            .eq("user_id", user.id)
+            .eq("is_ai", false)
+            .maybeSingle();
+
+        if (humanConv) {
+            humanConvId = humanConv.id;
+            const { data: msgs } = await supabase
+                .from("chat_messages")
+                .select("id, sender_id, sender_role, content, created_at")
+                .eq("conversation_id", humanConv.id)
+                .order("created_at", { ascending: true });
+            humanMessages = msgs || [];
+        }
     }
 
     return (
         <AppShell>
             <MentorChatUI
-                initialMessages={messages}
-                initialConversationId={activeConvId}
-                conversations={conversations || []}
+                initialAiMessages={aiMessages}
+                initialAiConversationId={aiConvId}
+                mentorInfo={mentorInfo}
+                initialHumanMessages={humanMessages}
+                initialHumanConversationId={humanConvId}
             />
         </AppShell>
     );

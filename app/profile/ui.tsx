@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { createClient } from "@/lib/supabase/browser";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -11,13 +11,32 @@ import { toast } from "@/components/toast/bus";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { Upload } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import { Upload, LogOut, User, Pencil, BarChart3, Copy } from "lucide-react";
+import {
+  ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis,
+  PolarRadiusAxis, Radar, Tooltip,
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Legend,
+} from "recharts";
 
-export function ProfileEditor({ initial }: { initial: any }) {
+const LINE_COLORS = ["#22c55e", "#3b82f6", "#f97316", "#a855f7", "#ec4899", "#eab308", "#14b8a6"];
+
+interface Props {
+  initial: any;
+  userId: string;
+  roleSkills: any[];
+  userScores: any[];
+  stats: any;
+  attemptHistory: any[];
+}
+
+export function ProfileEditor({ initial, userId, roleSkills, userScores, stats, attemptHistory }: Props) {
   const supabase = createClient();
   const router = useRouter();
+  const [editMode, setEditMode] = useState(false);
 
   const isStudent = initial.user_type === "student" || !initial.user_type;
+  const roleName = initial.roles?.name || "No role selected";
 
   const [fullName, setFullName] = useState(initial.full_name || "");
   const [phone, setPhone] = useState(initial.phone || "");
@@ -26,22 +45,44 @@ export function ProfileEditor({ initial }: { initial: any }) {
   const [strengths, setStrengths] = useState(initial.strengths || "");
   const [weaknesses, setWeaknesses] = useState(initial.weaknesses || "");
   const [currentSkillsText, setCurrentSkillsText] = useState(initial.current_skills_text || "");
-
-  // Student fields
   const [college, setCollege] = useState(initial.previous_academics?.college || "");
   const [cgpa, setCgpa] = useState(initial.previous_academics?.cgpa?.toString() || "");
   const [educationLevel, setEducationLevel] = useState(initial.education_level || "");
   const [graduationYear, setGraduationYear] = useState(initial.graduation_year?.toString() || "");
-
-  // Professional fields
   const [company, setCompany] = useState(initial.company || "");
   const [jobTitle, setJobTitle] = useState(initial.job_title || "");
   const [yearsExperience, setYearsExperience] = useState(initial.years_experience?.toString() || "");
   const [linkedinUrl, setLinkedinUrl] = useState(initial.linkedin_url || "");
-
-  // Resume
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
+
+  // Radar data
+  const radarData = useMemo(() => {
+    const scoreMap = new Map<string, number>();
+    userScores.forEach((s: any) => scoreMap.set(s.skill_id, Number(s.score ?? 0)));
+    return roleSkills.map((rs: any) => ({
+      skill: rs.skills?.name ?? "?",
+      you: scoreMap.get(rs.skill_id) ?? 0,
+      benchmark: Math.round(Number(rs.weight ?? 0.8) * 100),
+    }));
+  }, [roleSkills, userScores]);
+
+  // Trend data
+  const trendData = useMemo(() => {
+    if (!attemptHistory.length) return null;
+    const skillNames = new Set<string>();
+    const rows: any[] = [];
+    attemptHistory.forEach((attempt: any) => {
+      const row: any = { date: attempt.attempt_date };
+      (attempt.attempt_skill_scores || []).forEach((ss: any) => {
+        const name = ss.skills?.name || "Unknown";
+        skillNames.add(name);
+        row[name] = ss.score;
+      });
+      rows.push(row);
+    });
+    return { rows, skillNames: Array.from(skillNames) };
+  }, [attemptHistory]);
 
   async function save() {
     setBusy(true);
@@ -84,6 +125,7 @@ export function ProfileEditor({ initial }: { initial: any }) {
     setBusy(false);
     if (error) return toast("Save failed", error.message);
     toast("Saved", "Profile updated.");
+    setEditMode(false);
     router.refresh();
   }
 
@@ -93,20 +135,138 @@ export function ProfileEditor({ initial }: { initial: any }) {
     window.location.href = "/";
   }
 
+  function copyUUID() {
+    navigator.clipboard.writeText(userId);
+    toast("Copied", "User ID copied to clipboard");
+  }
+
   return (
-    <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+    <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="space-y-4">
+      {/* ═══════════ Overview Section ═══════════ */}
+      <Card>
+        <CardContent className="p-6">
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-2xl font-bold text-emerald-300 shrink-0">
+              {(fullName || "?")[0].toUpperCase()}
+            </div>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-2xl font-semibold">{fullName || "Unknown"}</h1>
+              <div className="mt-1 text-sm text-zinc-400">{roleName} · {course || "N/A"}</div>
+              <div className="mt-2 flex items-center gap-2">
+                <code className="text-[11px] text-zinc-500 bg-white/5 px-2 py-1 rounded-lg font-mono">{userId}</code>
+                <button onClick={copyUUID} className="text-zinc-500 hover:text-zinc-300 transition" title="Copy UUID">
+                  <Copy className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Badge tone={isStudent ? "good" : "warn"}>{isStudent ? "Student" : "Professional"}</Badge>
+            </div>
+          </div>
+
+          {/* Stats row */}
+          {stats && (
+            <div className="mt-5 grid grid-cols-3 gap-3">
+              <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
+                <div className="text-xl font-bold text-emerald-400">{stats.level}</div>
+                <div className="text-[10px] text-zinc-500 uppercase tracking-wider">Level</div>
+              </div>
+              <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
+                <div className="text-xl font-bold text-indigo-400">{stats.xp}</div>
+                <div className="text-[10px] text-zinc-500 uppercase tracking-wider">XP</div>
+              </div>
+              <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
+                <div className="text-xl font-bold text-orange-400">{stats.streak}🔥</div>
+                <div className="text-[10px] text-zinc-500 uppercase tracking-wider">Streak</div>
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* ═══════════ Skill Radar & Score Trends ═══════════ */}
+      {radarData.length > 0 && (
+        <div className="grid lg:grid-cols-2 gap-4">
+          <Card>
+            <CardHeader className="p-5 pb-0">
+              <h2 className="text-lg font-semibold">Skill Radar</h2>
+            </CardHeader>
+            <CardContent className="p-4 h-[280px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={radarData}>
+                  <PolarGrid stroke="#ffffff10" />
+                  <PolarAngleAxis dataKey="skill" tick={{ fill: "#a1a1aa", fontSize: 10 }} />
+                  <PolarRadiusAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 9 }} />
+                  <Radar name="You" dataKey="you" stroke="#22c55e" fill="#22c55e" fillOpacity={0.25} />
+                  <Radar name="Benchmark" dataKey="benchmark" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.1} />
+                  <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 12 }} />
+                </RadarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+
+          {trendData && trendData.rows.length > 0 ? (
+            <Card>
+              <CardHeader className="p-5 pb-0">
+                <h2 className="text-lg font-semibold">Score Trends</h2>
+              </CardHeader>
+              <CardContent className="p-4 h-[280px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={trendData.rows}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" />
+                    <XAxis dataKey="date" tick={{ fill: "#71717a", fontSize: 10 }} />
+                    <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 10 }} />
+                    <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 12 }} />
+                    <Legend />
+                    {trendData.skillNames.map((name: string, i: number) => (
+                      <Line key={name} type="monotone" dataKey={name} stroke={LINE_COLORS[i % LINE_COLORS.length]} strokeWidth={2} dot={{ r: 2 }} connectNulls />
+                    ))}
+                  </LineChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+          ) : (
+            <Card>
+              <CardContent className="p-5 flex items-center justify-center h-[280px] text-sm text-zinc-500">
+                Take daily tests to see score trends
+              </CardContent>
+            </Card>
+          )}
+        </div>
+      )}
+
+      {/* ═══════════ Skill Scores List ═══════════ */}
+      {userScores.length > 0 && (
+        <Card>
+          <CardHeader className="p-5 pb-2">
+            <h2 className="text-lg font-semibold">Skill Scores</h2>
+          </CardHeader>
+          <CardContent className="p-5 pt-0 space-y-2">
+            {userScores.map((s: any) => (
+              <div key={s.skill_id} className="flex items-center gap-3">
+                <div className="text-xs text-zinc-400 w-28 truncate">{s.skills?.name}</div>
+                <Progress value={s.score} className="flex-1 h-2" />
+                <div className="text-xs font-medium w-10 text-right">{s.score}%</div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      )}
+
+      {/* ═══════════ Edit Profile Section ═══════════ */}
       <Card>
         <CardHeader className="p-6 pb-0">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-semibold">Profile</h1>
-              <p className="mt-1 text-sm text-zinc-400">Keep this updated for better recommendations.</p>
-            </div>
-            <Badge tone={isStudent ? "good" : "warn"}>{isStudent ? "Student" : "Professional"}</Badge>
+            <h2 className="text-lg font-semibold flex items-center gap-2">
+              <Pencil className="w-4 h-4 text-zinc-400" />
+              Edit Profile
+            </h2>
+            <Button variant="soft" onClick={() => setEditMode(!editMode)} className="text-xs">
+              {editMode ? "Cancel" : "Edit"}
+            </Button>
           </div>
         </CardHeader>
-        <CardContent className="p-6 space-y-5">
-          {/* Basic info */}
+        <CardContent className={`p-6 space-y-5 ${!editMode ? "opacity-60 pointer-events-none" : ""}`}>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label>Full name</Label>
@@ -118,7 +278,6 @@ export function ProfileEditor({ initial }: { initial: any }) {
             </div>
           </div>
 
-          {/* Student-specific */}
           {isStudent && (
             <>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -134,10 +293,8 @@ export function ProfileEditor({ initial }: { initial: any }) {
               <div className="grid sm:grid-cols-3 gap-4">
                 <div className="space-y-2">
                   <Label>Education Level</Label>
-                  <select
-                    value={educationLevel} onChange={(e) => setEducationLevel(e.target.value)}
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-emerald-500/50"
-                  >
+                  <select value={educationLevel} onChange={(e) => setEducationLevel(e.target.value)}
+                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-emerald-500/50">
                     <option value="">Select</option>
                     <option value="high_school">High School</option>
                     <option value="undergraduate">Undergraduate</option>
@@ -157,7 +314,6 @@ export function ProfileEditor({ initial }: { initial: any }) {
             </>
           )}
 
-          {/* Professional-specific */}
           {!isStudent && (
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -179,7 +335,6 @@ export function ProfileEditor({ initial }: { initial: any }) {
             </div>
           )}
 
-          {/* Skills & Plans */}
           <div className="space-y-2">
             <Label>Current Skills</Label>
             <Textarea value={currentSkillsText} onChange={(e) => setCurrentSkillsText(e.target.value)} placeholder="e.g. Python (intermediate), React (beginner)..." />
@@ -201,14 +356,11 @@ export function ProfileEditor({ initial }: { initial: any }) {
             <Textarea value={futurePlans} onChange={(e) => setFuturePlans(e.target.value)} />
           </div>
 
-          {/* Resume */}
           <div className="space-y-2">
             <Label>Resume</Label>
             <div className="flex items-center gap-3">
               {initial.resume_url && (
-                <a href={initial.resume_url} target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-300 hover:underline">
-                  Current resume ↗
-                </a>
+                <a href={initial.resume_url} target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-300 hover:underline">Current resume ↗</a>
               )}
               <label className="inline-flex items-center gap-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 text-sm cursor-pointer transition">
                 <Upload className="w-4 h-4" />
@@ -218,10 +370,18 @@ export function ProfileEditor({ initial }: { initial: any }) {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button disabled={busy} onClick={save} className="flex-1">{busy ? "Saving..." : "Save changes"}</Button>
-            <Button variant="soft" onClick={logout} className="flex-1">Logout</Button>
-          </div>
+          {editMode && (
+            <Button disabled={busy} onClick={save} className="w-full">{busy ? "Saving..." : "Save changes"}</Button>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* ═══════════ Logout ═══════════ */}
+      <Card className="bg-white/5">
+        <CardContent className="p-4">
+          <Button variant="soft" onClick={logout} className="w-full gap-2">
+            <LogOut className="w-4 h-4" /> Logout
+          </Button>
         </CardContent>
       </Card>
     </motion.div>
