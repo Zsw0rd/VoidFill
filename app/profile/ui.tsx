@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Upload, LogOut, User, Pencil, BarChart3, Copy } from "lucide-react";
+import { LogOut, User, Pencil, Copy } from "lucide-react";
 import {
   ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis,
   PolarRadiusAxis, Radar, Tooltip,
@@ -53,7 +53,6 @@ export function ProfileEditor({ initial, userId, roleSkills, userScores, stats, 
   const [jobTitle, setJobTitle] = useState(initial.job_title || "");
   const [yearsExperience, setYearsExperience] = useState(initial.years_experience?.toString() || "");
   const [linkedinUrl, setLinkedinUrl] = useState(initial.linkedin_url || "");
-  const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
 
   // Radar data
@@ -89,19 +88,6 @@ export function ProfileEditor({ initial, userId, roleSkills, userScores, stats, 
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) { setBusy(false); return toast("Not logged in", "Please login again."); }
 
-    let resumeUrl = initial.resume_url;
-    if (resumeFile) {
-      const ext = resumeFile.name.split(".").pop();
-      const path = `resumes/${user.id}/${Date.now()}.${ext}`;
-      const { error: uploadError } = await supabase.storage.from("uploads").upload(path, resumeFile, { upsert: true });
-      if (uploadError) {
-        toast("Resume upload failed", uploadError.message);
-      } else {
-        const { data: urlData } = supabase.storage.from("uploads").getPublicUrl(path);
-        resumeUrl = urlData.publicUrl;
-      }
-    }
-
     const update: any = {
       full_name: fullName, phone, course,
       future_plans: futurePlans, strengths, weaknesses,
@@ -118,8 +104,6 @@ export function ProfileEditor({ initial, userId, roleSkills, userScores, stats, 
       update.years_experience = yearsExperience ? Number(yearsExperience) : null;
       update.linkedin_url = linkedinUrl;
     }
-
-    if (resumeUrl) update.resume_url = resumeUrl;
 
     const { error } = await supabase.from("profiles").update(update).eq("id", user.id);
     setBusy(false);
@@ -354,20 +338,6 @@ export function ProfileEditor({ initial, userId, roleSkills, userScores, stats, 
           <div className="space-y-2">
             <Label>Future plans</Label>
             <Textarea value={futurePlans} onChange={(e) => setFuturePlans(e.target.value)} />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Resume</Label>
-            <div className="flex items-center gap-3">
-              {initial.resume_url && (
-                <a href={initial.resume_url} target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-300 hover:underline">Current resume ↗</a>
-              )}
-              <label className="inline-flex items-center gap-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 text-sm cursor-pointer transition">
-                <Upload className="w-4 h-4" />
-                {resumeFile ? resumeFile.name : "Upload new"}
-                <input type="file" accept=".pdf,.doc,.docx" className="hidden" onChange={(e) => setResumeFile(e.target.files?.[0] || null)} />
-              </label>
-            </div>
           </div>
 
           {editMode && (

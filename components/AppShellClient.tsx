@@ -140,7 +140,7 @@ export function AppShellClient({ displayName, children }: Props) {
                                     className="flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-300 transition"
                                 >
                                     <LogOut className="w-3 h-3" />
-                                    Sign out
+                                    Logout
                                 </Link>
                             </div>
                         </motion.aside>
