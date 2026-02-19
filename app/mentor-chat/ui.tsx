@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -36,11 +36,28 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
     const bottomRef = useRef<HTMLDivElement>(null);
 
     const messages = mode === "ai" ? aiMessages : humanMessages;
-    const setMessages = mode === "ai" ? setAiMessages : setHumanMessages;
 
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
+
+    // ═══ Poll for new human mentor messages every 4 seconds ═══
+    const pollHumanMessages = useCallback(async () => {
+        if (!humanConvId) return;
+        try {
+            const res = await fetch(`/api/chat/messages?conversationId=${humanConvId}`);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.messages) setHumanMessages(data.messages);
+            }
+        } catch { /* ignore polling errors */ }
+    }, [humanConvId]);
+
+    useEffect(() => {
+        if (!humanConvId) return;
+        const interval = setInterval(pollHumanMessages, 4000);
+        return () => clearInterval(interval);
+    }, [humanConvId, pollHumanMessages]);
 
     async function sendMessage(e?: React.FormEvent) {
         e?.preventDefault();
@@ -50,9 +67,12 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
         setInput("");
         setSending(true);
 
-        const senderRole = mode === "ai" ? "user" : "user";
-        const userMsg: Message = { sender_role: senderRole, content: text, created_at: new Date().toISOString() };
-        setMessages(prev => [...prev, userMsg]);
+        const userMsg: Message = { sender_role: "user", content: text, created_at: new Date().toISOString() };
+        if (mode === "ai") {
+            setAiMessages(prev => [...prev, userMsg]);
+        } else {
+            setHumanMessages(prev => [...prev, userMsg]);
+        }
 
         try {
             if (mode === "ai") {
@@ -74,6 +94,8 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
                 const data = await res.json();
                 if (!res.ok) { toast("Error", data.error || "Failed"); setSending(false); return; }
                 if (data.conversationId && !humanConvId) setHumanConvId(data.conversationId);
+                // Immediately poll to get the persisted message
+                setTimeout(pollHumanMessages, 500);
             }
         } catch {
             toast("Error", "Network error");

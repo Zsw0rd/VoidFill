@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -38,12 +38,29 @@ export function MentorChatPanel({ mentorId, students, conversations, initialMess
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
+    // ═══ Poll for new messages every 4 seconds ═══
+    const pollMessages = useCallback(async () => {
+        if (!conversationId) return;
+        try {
+            const res = await fetch(`/api/chat/messages?conversationId=${conversationId}`);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.messages) setMessages(data.messages);
+            }
+        } catch { /* ignore */ }
+    }, [conversationId]);
+
+    useEffect(() => {
+        if (!conversationId) return;
+        const interval = setInterval(pollMessages, 4000);
+        return () => clearInterval(interval);
+    }, [conversationId, pollMessages]);
+
     async function loadStudentChat(studentId: string) {
         setSelectedStudent(studentId);
         const conv = conversations.find((c: any) => c.user_id === studentId);
         if (conv) {
             setConversationId(conv.id);
-            // Fetch messages for this conversation
             const res = await fetch(`/api/chat/messages?conversationId=${conv.id}`);
             if (res.ok) {
                 const data = await res.json();
@@ -80,7 +97,11 @@ export function MentorChatPanel({ mentorId, students, conversations, initialMess
             }
             if (data.conversationId && !conversationId) {
                 setConversationId(data.conversationId);
+                // Update conversations list so polling works
+                conversations.push({ id: data.conversationId, user_id: selectedStudent });
             }
+            // Immediate poll to sync
+            setTimeout(pollMessages, 500);
         } catch {
             toast("Error", "Network error");
         }
