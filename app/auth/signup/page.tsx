@@ -58,10 +58,10 @@ export default function SignupPage() {
   return (
     <main className="min-h-screen flex items-center justify-center px-6">
       <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="w-full max-w-md">
-        <Card className="bg-zinc-900/50">
+        <Card className="bg-black/70 border-white/15">
           <CardHeader className="p-6 pb-0">
             <h1 className="text-2xl font-semibold">Create your account</h1>
-            <p className="mt-1 text-sm text-zinc-400">Duolingo vibes, real career outcomes.</p>
+            <p className="mt-1 text-sm text-zinc-500">Duolingo vibes, real career outcomes.</p>
           </CardHeader>
           <CardContent className="p-6">
             <form onSubmit={onSignup} className="space-y-4">
@@ -92,9 +92,9 @@ export default function SignupPage() {
               </Button>
             </form>
 
-            <div className="mt-5 text-sm text-zinc-400">
+            <div className="mt-5 text-sm text-zinc-500">
               Already have an account?{" "}
-              <Link className="text-emerald-300 hover:underline" href="/auth/login">
+              <Link className="text-white hover:underline" href="/auth/login">
                 Login
               </Link>
             </div>

@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["ui-sans-serif", "system-ui", "Inter", "Segoe UI", "Roboto", "Helvetica", "Arial"],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Helvetica", "Arial"],
       },
       boxShadow: {
-        soft: "0 10px 30px rgba(0,0,0,0.12)",
+        soft: "0 20px 50px rgba(0,0,0,0.45)",
       },
       backgroundImage: {
-        glow: "radial-gradient(1200px circle at 20% 20%, rgba(99,102,241,.22), transparent 40%), radial-gradient(900px circle at 80% 10%, rgba(16,185,129,.18), transparent 40%), radial-gradient(1100px circle at 70% 80%, rgba(59,130,246,.16), transparent 40%)",
+        glow: "radial-gradient(1000px circle at 15% 10%, rgba(255,255,255,.12), transparent 40%), radial-gradient(850px circle at 85% 0%, rgba(255,255,255,.08), transparent 40%), linear-gradient(180deg,#0a0a0a 0%, #050505 100%)",
       },
     },
   },
