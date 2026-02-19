@@ -12,8 +12,21 @@ export function createClient() {
         get(name: string) {
           return cookieStore.get(name)?.value;
         },
-        set() { },
-        remove() { },
+        set(name: string, value: string, options: any) {
+          try {
+            cookieStore.set({ name, value, ...options });
+          } catch {
+            // set() can throw in Server Components (read-only context)
+            // This is fine — the middleware handles token refresh
+          }
+        },
+        remove(name: string, options: any) {
+          try {
+            cookieStore.set({ name, value: "", ...options });
+          } catch {
+            // Same as above
+          }
+        },
       },
     },
   );
