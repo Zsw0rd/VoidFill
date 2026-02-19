@@ -24,7 +24,13 @@ export async function POST(req: Request) {
         score: s.score,
     }));
 
-    const weakSkills = skillScores.filter((s: any) => s.score < 50);
+    // Get all role skills — we want resources for ALL of them, not just weak ones
+    const { data: roleSkillRows } = await supabase
+        .from("role_skills")
+        .select("skill_id, weight, skills(name)")
+        .eq("role_id", profile.target_role_id);
+
+    const roleSkillNames = (roleSkillRows || []).map((rs: any) => rs.skills?.name).filter(Boolean);
 
     const prompt = `You are an expert career advisor and course recommender for the "${roleName}" role.
 
@@ -36,15 +42,15 @@ ${profile?.user_type === "professional" ? `- Company: ${profile?.company || "N/A
 SKILL SCORES:
 ${skillScores.map((s: any) => `- ${s.name} (${s.category}): ${s.score}/100`).join("\n")}
 
-WEAK AREAS (priority):
-${weakSkills.map((s: any) => `- ${s.name}: ${s.score}/100`).join("\n") || "None identified"}
-
 CRITICAL: The "skill_name" field in your response MUST exactly match one of these names from our database:
 ${(allSkills || []).map((s: any) => s.name).join(", ")}
 
 Do NOT use any other skill names. Only use the exact names listed above.
 
-For each skill that needs improvement (score < 80), generate 3-5 recommended resources. Return ONLY valid JSON array:
+You MUST generate 3-5 recommended resources for EACH of these skills:
+${roleSkillNames.join(", ")}
+
+Return ONLY valid JSON array with one entry per skill:
 [
   {
     "skill_name": "EXACT skill name from list above",
@@ -63,6 +69,7 @@ For each skill that needs improvement (score < 80), generate 3-5 recommended res
 ]
 
 IMPORTANT:
+- Generate resources for EVERY skill listed, not just weak ones
 - Use REAL course/book URLs from actual platforms (Coursera, Udemy, freeCodeCamp, YouTube, Khan Academy, MIT OCW, etc.)
 - Order resources from easiest to hardest within each skill
 - For books, use Amazon or publisher URLs
@@ -75,7 +82,7 @@ IMPORTANT:
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.7, maxOutputTokens: 4096, responseMimeType: "application/json" },
+                generationConfig: { temperature: 0.7, maxOutputTokens: 8192, responseMimeType: "application/json" },
             }),
         });
 

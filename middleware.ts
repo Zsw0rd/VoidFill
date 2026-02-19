@@ -47,6 +47,21 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  // Protect admin routes — only admin_users can access
+  if (user && pathname.startsWith("/admin")) {
+    const { data: adminUser } = await supabase
+      .from("admin_users")
+      .select("admin_role")
+      .eq("id", user.id)
+      .maybeSingle();
+
+    if (!adminUser) {
+      const url = req.nextUrl.clone();
+      url.pathname = "/dashboard";
+      return NextResponse.redirect(url);
+    }
+  }
+
   if (user && (pathname === "/auth/login" || pathname === "/auth/signup")) {
     const url = req.nextUrl.clone();
     url.pathname = "/dashboard";

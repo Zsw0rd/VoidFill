@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, ArrowRight, Brain, GraduationCap, Map } from "lucide-react";
+import { Sparkles, ArrowRight, Brain, GraduationCap, Map, Shield } from "lucide-react";
 
 export default function Home() {
   return (
@@ -28,6 +28,9 @@ export default function Home() {
             </Link>
             <Link href="/auth/login" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-zinc-900/80 hover:bg-zinc-800 px-5 py-3 font-medium border border-white/15">
               Login
+            </Link>
+            <Link href="/auth/admin-login" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-zinc-900/80 hover:bg-zinc-800 px-5 py-3 font-medium border border-indigo-500/20 text-indigo-300">
+              <Shield className="w-4 h-4" /> Admin Login
             </Link>
           </div>
 
