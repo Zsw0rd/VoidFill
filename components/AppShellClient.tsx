@@ -21,7 +21,7 @@ const NAV_ITEMS = [
     { href: "/skill-graph", icon: Radar, label: "Skill Graph" },
     { href: "/roadmap", icon: Route, label: "Roadmap" },
     { href: "/ai-insights", icon: Brain, label: "AI Insights" },
-    { href: "/mentor-chat", icon: MessageCircle, label: "AI Mentor" },
+    { href: "/mentor-chat", icon: MessageCircle, label: "Mentor" },
 ];
 
 export function AppShellClient({ displayName, children }: Props) {

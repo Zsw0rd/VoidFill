@@ -5,12 +5,15 @@ const PUBLIC_PATHS = [
   "/",
   "/auth/login",
   "/auth/signup",
+  "/auth/admin-login",
+  "/auth/logout",
 ];
 
 function isPublic(pathname: string) {
   if (PUBLIC_PATHS.includes(pathname)) return true;
   if (pathname.startsWith("/_next")) return true;
   if (pathname.startsWith("/favicon")) return true;
+  if (pathname.startsWith("/icon")) return true;
   if (pathname.startsWith("/assets")) return true;
   if (pathname.startsWith("/api")) return true;
   return false;
