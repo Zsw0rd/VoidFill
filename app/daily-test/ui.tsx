@@ -1,47 +1,90 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { createClient } from "@/lib/supabase/browser";
 import { toast } from "@/components/toast/bus";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { Brain, ChevronRight, CheckCircle, XCircle, Sparkles } from "lucide-react";
 
 type Question = {
   id: string;
   prompt: string;
-  options: any;
-  skill_id: string;
+  options: string[];
+  correct_index: number;
+  difficulty: number;
+  skill_name: string;
+  explanation: string;
 };
 
 export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
-  const supabase = createClient();
   const [loading, setLoading] = useState(false);
-  const [stage, setStage] = useState<"start" | "quiz" | "done">("start");
+  const [stage, setStage] = useState<"start" | "quiz" | "review" | "done">("start");
   const [questions, setQuestions] = useState<Question[]>([]);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<any>(null);
+  const [difficulty, setDifficulty] = useState(1);
+  const [difficultyLabel, setDifficultyLabel] = useState("Easy");
 
   const total = questions.length || 10;
-  const progress = stage === "quiz" ? ((index) / total) * 100 : stage === "done" ? 100 : 0;
+  const progress = stage === "quiz" ? ((index) / total) * 100 : stage === "done" || stage === "review" ? 100 : 0;
 
-  useEffect(() => {
-    if (existingAttempt?.completed_at) {
-      setStage("done");
-      setResult(existingAttempt);
-    }
-  }, [existingAttempt]);
+  const diffBadgeTone = difficulty <= 2 ? "good" : difficulty <= 3 ? "warn" : "bad";
+
+  // Check if already completed
+  if (existingAttempt?.completed_at && stage === "start") {
+    return (
+      <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+        <Card>
+          <CardContent className="p-8 text-center">
+            <CheckCircle className="w-12 h-12 text-emerald-400 mx-auto" />
+            <h2 className="mt-4 text-2xl font-semibold">Already completed today!</h2>
+            <p className="mt-2 text-sm text-zinc-400">Score: {existingAttempt.correct_count}/{existingAttempt.total_count} • XP earned: {existingAttempt.xp_earned}</p>
+            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/roadmap" className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center">
+                View roadmap
+              </Link>
+              <Link href="/dashboard" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center">
+                Dashboard
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
 
   async function start() {
     setLoading(true);
+    // Try AI-generated questions first
+    try {
+      const res = await fetch("/api/ai/generate-questions", { method: "POST" });
+      if (res.ok) {
+        const data = await res.json();
+        setQuestions(data.questions || []);
+        setDifficulty(data.difficulty || 1);
+        setDifficultyLabel(data.difficultyLabel || "Easy");
+        setStage("quiz");
+        setIndex(0);
+        setAnswers({});
+        setLoading(false);
+        return;
+      }
+    } catch {
+      // Fallback below
+    }
+
+    // Fallback to database questions
+    const { createClient } = await import("@/lib/supabase/browser");
+    const supabase = createClient();
     const { data, error } = await supabase.rpc("get_random_questions", { p_limit: 10 });
     setLoading(false);
     if (error) return toast("Could not load questions", error.message);
-    setQuestions(data || []);
+    setQuestions((data || []).map((q: any) => ({ ...q, difficulty: 1, skill_name: "General", explanation: "" })));
     setStage("quiz");
     setIndex(0);
     setAnswers({});
@@ -63,13 +106,17 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
 
   async function submit() {
     setLoading(true);
-    const payload = { answers: Object.entries(answers).map(([question_id, selected_index]) => ({ question_id, selected_index })) };
+    const payload = {
+      answers: Object.entries(answers).map(([question_id, selected_index]) => ({ question_id, selected_index })),
+      ai_questions: questions.map(q => ({ id: q.id, correct_index: q.correct_index, skill_name: q.skill_name })),
+      difficulty_level: difficulty,
+    };
     const res = await fetch("/api/daily-test/submit", { method: "POST", body: JSON.stringify(payload) });
     setLoading(false);
     if (!res.ok) return toast("Submit failed", await res.text());
     const data = await res.json();
-    setStage("done");
     setResult(data);
+    setStage("review");
     toast("Done!", `+${data?.xp_earned || 0} XP earned`);
   }
 
@@ -78,38 +125,57 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
       <Card>
         <CardHeader className="p-6 pb-0">
           <div className="flex items-center justify-between gap-3">
-            <h1 className="text-2xl font-semibold">Daily Test</h1>
-            <Link href="/dashboard" className="text-sm text-zinc-400 hover:text-zinc-200">Back</Link>
+            <div>
+              <h1 className="text-2xl font-semibold">Daily Test</h1>
+              <p className="mt-1 text-sm text-zinc-400">AI-powered adaptive assessment</p>
+            </div>
+            <div className="flex items-center gap-2">
+              {stage !== "start" && (
+                <Badge tone={diffBadgeTone as any}>
+                  {difficultyLabel} (Lvl {difficulty})
+                </Badge>
+              )}
+              <Link href="/dashboard" className="text-sm text-zinc-400 hover:text-zinc-200">Back</Link>
+            </div>
           </div>
-          <p className="mt-1 text-sm text-zinc-400">10 quick questions. Real skill signal.</p>
           <div className="mt-4">
             <Progress value={progress} />
           </div>
         </CardHeader>
 
         <CardContent className="p-6">
-          {stage === "start" ? (
+          {stage === "start" && (
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="text-sm text-zinc-300">Your mission for today</div>
-              <div className="mt-1 text-xl font-semibold">Skill check-in</div>
-              <div className="mt-2 text-sm text-zinc-400 leading-relaxed">
-                Finish the test to update your gap categories and roadmap priorities.
-              </div>
-              {existingAttempt?.completed_at ? (
-                <div className="mt-4">
-                  <Badge tone="good">Already completed today</Badge>
+              <div className="flex items-center gap-3">
+                <Brain className="w-8 h-8 text-emerald-300" />
+                <div>
+                  <div className="text-xl font-semibold">AI Skill Assessment</div>
+                  <div className="mt-1 text-sm text-zinc-400">Questions adapt to your skill level</div>
                 </div>
-              ) : (
-                <Button disabled={loading} onClick={start} className="mt-5">
-                  {loading ? "Loading..." : "Start test"}
-                </Button>
-              )}
+              </div>
+              <div className="mt-4 space-y-2 text-sm text-zinc-300">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-emerald-300" /> Questions target your weak areas
+                </div>
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-blue-300" /> Difficulty scales based on performance
+                </div>
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-300" /> Get explanations after each test
+                </div>
+              </div>
+              <Button disabled={loading} onClick={start} className="mt-5">
+                {loading ? "Generating questions..." : "Start AI Test"}
+              </Button>
             </div>
-          ) : null}
+          )}
 
-          {stage === "quiz" && q ? (
+          {stage === "quiz" && q && (
             <div className="space-y-5">
-              <div className="text-sm text-zinc-400">Question {index + 1} of {questions.length}</div>
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-zinc-400">Question {index + 1} of {questions.length}</div>
+                <Badge tone="neutral">{q.skill_name}</Badge>
+              </div>
               <div className="text-xl font-semibold leading-snug">{q.prompt}</div>
 
               <div className="grid gap-3">
@@ -124,7 +190,12 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
                         active ? "border-emerald-400/40 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10",
                       ].join(" ")}
                     >
-                      <div className="font-medium">{opt}</div>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-8 h-8 rounded-full border flex items-center justify-center text-sm font-medium shrink-0 ${active ? "border-emerald-400 text-emerald-300" : "border-white/20 text-zinc-400"}`}>
+                          {String.fromCharCode(65 + i)}
+                        </div>
+                        <div className="font-medium">{opt}</div>
+                      </div>
                     </button>
                   );
                 })}
@@ -133,27 +204,71 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
               <div className="flex items-center justify-between">
                 <div className="text-xs text-zinc-500">Pick one and continue</div>
                 <Button disabled={loading} onClick={next}>
-                  {index + 1 < questions.length ? "Next" : "Finish"}
+                  {index + 1 < questions.length ? (
+                    <>Next <ChevronRight className="w-4 h-4" /></>
+                  ) : "Finish"}
                 </Button>
               </div>
             </div>
-          ) : null}
+          )}
 
-          {stage === "done" ? (
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="text-sm text-zinc-300">Result</div>
-              <div className="mt-1 text-2xl font-semibold">{result?.correct_count ?? 0}/{result?.total_count ?? 10} correct</div>
-              <div className="mt-2 text-sm text-zinc-400">XP earned: {result?.xp_earned ?? 0}</div>
-              <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                <Link href="/roadmap" className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center">
+          {stage === "review" && (
+            <div className="space-y-6">
+              {/* Score Summary */}
+              <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-500/5 to-zinc-900/50 p-6 text-center">
+                <div className="text-4xl font-bold">{result?.correct_count ?? 0}/{result?.total_count ?? 10}</div>
+                <div className="mt-1 text-sm text-zinc-400">Correct answers • +{result?.xp_earned ?? 0} XP earned</div>
+                <div className="mt-3">
+                  <Badge tone={diffBadgeTone as any}>Difficulty: {difficultyLabel}</Badge>
+                </div>
+              </div>
+
+              {/* Per-question review */}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-lg">Question Review</h3>
+                {questions.map((question, qi) => {
+                  const userAnswer = answers[question.id];
+                  const isCorrect = userAnswer === question.correct_index;
+                  return (
+                    <div key={qi} className={`rounded-2xl border p-4 ${isCorrect ? "border-emerald-500/20 bg-emerald-500/5" : "border-rose-500/20 bg-rose-500/5"}`}>
+                      <div className="flex items-start gap-3">
+                        {isCorrect ? (
+                          <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        ) : (
+                          <XCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+                        )}
+                        <div className="flex-1">
+                          <div className="font-medium text-sm">{question.prompt}</div>
+                          <div className="mt-2 text-xs text-zinc-400">
+                            Your answer: <span className={isCorrect ? "text-emerald-300" : "text-rose-300"}>{question.options[userAnswer]}</span>
+                            {!isCorrect && (
+                              <> • Correct: <span className="text-emerald-300">{question.options[question.correct_index]}</span></>
+                            )}
+                          </div>
+                          {question.explanation && (
+                            <div className="mt-2 text-xs text-zinc-300 bg-white/5 rounded-xl p-3">{question.explanation}</div>
+                          )}
+                        </div>
+                        <Badge tone="neutral">{question.skill_name}</Badge>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/roadmap" className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center flex-1">
                   View updated roadmap
                 </Link>
-                <Link href="/dashboard" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center">
-                  Back to dashboard
+                <Link href="/skill-graph" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center flex-1">
+                  See skill graph
+                </Link>
+                <Link href="/dashboard" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center flex-1">
+                  Dashboard
                 </Link>
               </div>
             </div>
-          ) : null}
+          )}
         </CardContent>
       </Card>
     </motion.div>
