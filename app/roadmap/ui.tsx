@@ -273,7 +273,7 @@ export function RoadmapClient({ role }: { role: any }) {
 
       {/* Overall Progress */}
       {role && computed.length > 0 && (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-500/5 to-zinc-900/50 p-5">
+        <div className="mt-6 rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-100/5 to-zinc-900/50 p-5">
           <div className="flex items-center justify-between">
             <div className="font-semibold">Overall Progress</div>
             <div className="text-sm text-zinc-400">{overallProgress}%</div>
@@ -337,7 +337,7 @@ export function RoadmapClient({ role }: { role: any }) {
                         <div className="mt-4 mb-3">
                           <button
                             onClick={() => startSkillAssessment(x.name, x.skill_id)}
-                            className="w-full rounded-xl border border-indigo-500/20 bg-indigo-500/5 hover:bg-indigo-500/10 p-3 transition flex items-center justify-center gap-2 text-indigo-300"
+                            className="w-full rounded-xl border border-zinc-700/20 bg-zinc-700/5 hover:bg-zinc-700/10 p-3 transition flex items-center justify-center gap-2 text-zinc-300"
                           >
                             <ClipboardCheck className="w-4 h-4" />
                             <span className="text-sm font-medium">Take Skill Assessment for {x.name}</span>
@@ -350,18 +350,18 @@ export function RoadmapClient({ role }: { role: any }) {
                               const Icon = typeIcons[course.type] || BookOpen;
                               const courseAssessments = x.assessments.filter((a: any) => a.course_id === course.id);
                               const lastAssessment = courseAssessments[0];
-                              const diffBg = course.difficulty === "beginner" ? "bg-green-500/10 text-green-300" : course.difficulty === "advanced" ? "bg-rose-500/10 text-rose-300" : "bg-amber-500/10 text-amber-300";
+                              const diffBg = course.difficulty === "beginner" ? "bg-zinc-700/10 text-zinc-300" : course.difficulty === "advanced" ? "bg-zinc-700/10 text-zinc-300" : "bg-zinc-600/10 text-zinc-300";
 
                               return (
-                                <div key={ci} className={`rounded-xl border p-4 ${course.completed ? "border-emerald-500/20 bg-emerald-500/5" : "border-white/10 bg-white/5"}`}>
+                                <div key={ci} className={`rounded-xl border p-4 ${course.completed ? "border-zinc-100/20 bg-zinc-100/5" : "border-white/10 bg-white/5"}`}>
                                   <div className="flex items-start gap-3">
-                                    <div className={`rounded-lg p-2 ${course.completed ? "bg-emerald-500/20" : "bg-white/5"}`}>
-                                      <Icon className={`w-5 h-5 ${course.completed ? "text-emerald-300" : "text-zinc-400"}`} />
+                                    <div className={`rounded-lg p-2 ${course.completed ? "bg-zinc-100/20" : "bg-white/5"}`}>
+                                      <Icon className={`w-5 h-5 ${course.completed ? "text-zinc-200" : "text-zinc-400"}`} />
                                     </div>
                                     <div className="flex-1 min-w-0">
                                       <div className="flex items-center gap-2">
                                         <div className="font-medium truncate">{course.title}</div>
-                                        {course.completed && <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />}
+                                        {course.completed && <CheckCircle className="w-4 h-4 text-zinc-200 shrink-0" />}
                                       </div>
                                       <div className="mt-1 text-xs text-zinc-400">{course.provider} {course.estimated_hours ? `• ~${course.estimated_hours}h` : ""}</div>
                                       {course.description && <div className="mt-1 text-xs text-zinc-500">{course.description}</div>}
@@ -369,7 +369,7 @@ export function RoadmapClient({ role }: { role: any }) {
                                         <span className={`text-xs px-2 py-0.5 rounded-full ${diffBg}`}>{course.difficulty}</span>
                                         <span className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-zinc-400">{course.type}</span>
                                         {lastAssessment && (
-                                          <span className={`text-xs px-2 py-0.5 rounded-full ${lastAssessment.passed ? "bg-emerald-500/10 text-emerald-300" : "bg-rose-500/10 text-rose-300"}`}>
+                                          <span className={`text-xs px-2 py-0.5 rounded-full ${lastAssessment.passed ? "bg-zinc-100/10 text-zinc-200" : "bg-zinc-700/10 text-zinc-300"}`}>
                                             Last: {lastAssessment.score}% {lastAssessment.passed ? "Passed" : "Failed"}
                                           </span>
                                         )}
@@ -382,7 +382,7 @@ export function RoadmapClient({ role }: { role: any }) {
                                         </a>
                                       )}
                                       {!course.completed && (
-                                        <button onClick={() => startCourseAssessment(course, x.name, x.skill_id)} className="rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 p-2 transition text-emerald-300" title="Take course assessment">
+                                        <button onClick={() => startCourseAssessment(course, x.name, x.skill_id)} className="rounded-lg bg-zinc-100/10 hover:bg-zinc-100/20 border border-zinc-100/20 p-2 transition text-zinc-200" title="Take course assessment">
                                           <GraduationCap className="w-4 h-4" />
                                         </button>
                                       )}
@@ -445,10 +445,10 @@ export function RoadmapClient({ role }: { role: any }) {
                         <button
                           key={i}
                           onClick={() => setAssessAnswers(a => ({ ...a, [aq.id]: i }))}
-                          className={`text-left rounded-xl border p-3 transition ${active ? "border-emerald-400/40 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10"}`}
+                          className={`text-left rounded-xl border p-3 transition ${active ? "border-zinc-200/40 bg-zinc-100/10" : "border-white/10 bg-white/5 hover:bg-white/10"}`}
                         >
                           <div className="flex items-center gap-2">
-                            <div className={`w-7 h-7 rounded-full border flex items-center justify-center text-xs font-medium ${active ? "border-emerald-400 text-emerald-300" : "border-white/20 text-zinc-400"}`}>
+                            <div className={`w-7 h-7 rounded-full border flex items-center justify-center text-xs font-medium ${active ? "border-zinc-200 text-zinc-200" : "border-white/20 text-zinc-400"}`}>
                               {String.fromCharCode(65 + i)}
                             </div>
                             <span className="text-sm">{opt}</span>
@@ -472,7 +472,7 @@ export function RoadmapClient({ role }: { role: any }) {
 
               {assessResult && (
                 <div className="mt-6 space-y-5 text-center">
-                  <div className={`text-6xl font-bold ${assessResult.passed ? "text-emerald-400" : "text-rose-400"}`}>
+                  <div className={`text-6xl font-bold ${assessResult.passed ? "text-zinc-200" : "text-zinc-300"}`}>
                     {assessResult.score}%
                   </div>
                   <div className="text-lg font-medium">{assessResult.correct}/{assessResult.total} correct</div>
@@ -488,9 +488,9 @@ export function RoadmapClient({ role }: { role: any }) {
                       const userAns = assessAnswers[q.id];
                       const isCorrect = userAns === q.correct_index;
                       return (
-                        <div key={qi} className={`rounded-xl border p-3 text-sm ${isCorrect ? "border-emerald-500/20 bg-emerald-500/5" : "border-rose-500/20 bg-rose-500/5"}`}>
+                        <div key={qi} className={`rounded-xl border p-3 text-sm ${isCorrect ? "border-zinc-100/20 bg-zinc-100/5" : "border-zinc-700/20 bg-zinc-700/5"}`}>
                           <div className="flex items-start gap-2">
-                            {isCorrect ? <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" /> : <XCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />}
+                            {isCorrect ? <CheckCircle className="w-4 h-4 text-zinc-200 shrink-0 mt-0.5" /> : <XCircle className="w-4 h-4 text-zinc-300 shrink-0 mt-0.5" />}
                             <div>
                               <div className="font-medium">{q.prompt}</div>
                               {!isCorrect && <div className="text-xs text-zinc-400 mt-1">Correct answer: {q.options[q.correct_index]}</div>}

@@ -136,7 +136,7 @@ export function ProfileEditor({ initial }: { initial: any }) {
                   <Label>Education Level</Label>
                   <select
                     value={educationLevel} onChange={(e) => setEducationLevel(e.target.value)}
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-emerald-500/50"
+                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-zinc-100/50"
                   >
                     <option value="">Select</option>
                     <option value="high_school">High School</option>
@@ -206,7 +206,7 @@ export function ProfileEditor({ initial }: { initial: any }) {
             <Label>Resume</Label>
             <div className="flex items-center gap-3">
               {initial.resume_url && (
-                <a href={initial.resume_url} target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-300 hover:underline">
+                <a href={initial.resume_url} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-200 hover:underline">
                   Current resume ↗
                 </a>
               )}

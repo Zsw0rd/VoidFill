@@ -8,7 +8,7 @@ export function Progress({ value, className }: { value: number; className?: stri
   return (
     <div className={cn("h-3 w-full rounded-full bg-white/5 border border-white/10 overflow-hidden", className)}>
       <motion.div
-        className="h-full bg-emerald-400/80"
+        className="h-full bg-zinc-200/80"
         initial={{ width: 0 }}
         animate={{ width: `${v}%` }}
         transition={{ type: "spring", stiffness: 160, damping: 22 }}
