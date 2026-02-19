@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { extractGeminiText } from "@/lib/gemini";
 
 export async function POST() {
     const supabase = createClient();
@@ -156,7 +157,8 @@ Please provide your analysis in the following JSON format (return ONLY valid JSO
         }
 
         const geminiData = await geminiRes.json();
-        const rawText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+        // Use extractGeminiText to skip 2.5 Flash thinking blocks
+        const rawText = extractGeminiText(geminiData);
 
         let analysis;
         try {
@@ -165,15 +167,28 @@ Please provide your analysis in the following JSON format (return ONLY valid JSO
             analysis = { overallAssessment: rawText, strengthAreas: [], criticalGaps: [], learningPath: [], motivationalTip: "" };
         }
 
+        const metaData = {
+            skillCount: skillSummary.length,
+            gapCount: gapAnalysis.filter((g: any) => g.gap > 0).length,
+            avgTestScore: avgScore,
+            difficulty: currentDifficulty,
+            timestamp: new Date().toISOString(),
+        };
+
+        // Persist to ai_insights table (upsert — one row per user)
+        await supabase.from("ai_insights").upsert(
+            {
+                user_id: user.id,
+                analysis,
+                meta: metaData,
+                updated_at: new Date().toISOString(),
+            },
+            { onConflict: "user_id" },
+        );
+
         return NextResponse.json({
             analysis,
-            meta: {
-                skillCount: skillSummary.length,
-                gapCount: gapAnalysis.filter((g: any) => g.gap > 0).length,
-                avgTestScore: avgScore,
-                difficulty: currentDifficulty,
-                timestamp: new Date().toISOString(),
-            },
+            meta: metaData,
         });
     } catch (err: any) {
         console.error("AI analysis error:", err);
