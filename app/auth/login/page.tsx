@@ -31,10 +31,10 @@ function LoginForm() {
   }
 
   return (
-    <Card className="bg-zinc-900/50">
+    <Card className="bg-black/70 border-white/15">
       <CardHeader className="p-6 pb-0">
         <h1 className="text-2xl font-semibold">Welcome back</h1>
-        <p className="mt-1 text-sm text-zinc-400">Continue your streak and level up.</p>
+        <p className="mt-1 text-sm text-zinc-500">Continue your streak and level up.</p>
       </CardHeader>
       <CardContent className="p-6">
         <form onSubmit={onLogin} className="space-y-4">
@@ -51,9 +51,9 @@ function LoginForm() {
           </Button>
         </form>
 
-        <div className="mt-5 text-sm text-zinc-400">
+        <div className="mt-5 text-sm text-zinc-500">
           New here?{" "}
-          <Link className="text-emerald-300 hover:underline" href="/auth/signup">
+          <Link className="text-white hover:underline" href="/auth/signup">
             Create an account
           </Link>
         </div>
@@ -66,7 +66,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center px-6">
       <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="w-full max-w-md">
-        <Suspense fallback={<div className="text-zinc-400 text-center">Loading...</div>}>
+        <Suspense fallback={<div className="text-zinc-500 text-center">Loading...</div>}>
           <LoginForm />
         </Suspense>
       </motion.div>
