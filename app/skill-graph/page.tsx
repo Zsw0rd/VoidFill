@@ -14,22 +14,22 @@ export default async function SkillGraphPage() {
     const roleId = profile.target_role_id;
     const { data: role } = roleId ? await supabase.from("roles").select("*").eq("id", roleId).maybeSingle() : { data: null };
 
-    const { data: roleSkills } = roleId
-        ? await supabase.from("role_skills").select("skill_id, weight, skills(name)").eq("role_id", roleId)
-        : { data: [] };
-
-    const { data: userScores } = await supabase
-        .from("user_skill_scores")
-        .select("skill_id, score, skills(name)")
-        .eq("user_id", user.id);
+    const [roleSkillsRes, userScoresRes, attemptsRes] = await Promise.all([
+        roleId
+            ? supabase.from("role_skills").select("skill_id, weight, skills(name)").eq("role_id", roleId)
+            : Promise.resolve({ data: [] }),
+        supabase.from("user_skill_scores").select("skill_id, score, skills(name)").eq("user_id", user.id),
+        supabase.from("daily_attempts").select("attempt_date, attempt_skill_scores(skill_id, score, skills(name))").eq("user_id", user.id).order("attempt_date", { ascending: true }).limit(20),
+    ]);
 
     return (
         <AppShell>
             <div className="max-w-6xl mx-auto">
                 <SkillGraphClient
                     role={role}
-                    roleSkills={roleSkills || []}
-                    userScores={userScores || []}
+                    roleSkills={roleSkillsRes.data || []}
+                    userScores={userScoresRes.data || []}
+                    attemptHistory={attemptsRes.data || []}
                 />
             </div>
         </AppShell>
