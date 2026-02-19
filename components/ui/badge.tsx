@@ -3,10 +3,10 @@ import { cn } from "./cn";
 
 export function Badge({ className, tone = "neutral", ...props }: React.HTMLAttributes<HTMLSpanElement> & { tone?: "neutral" | "good" | "warn" | "bad" }) {
   const styles = {
-    neutral: "bg-white/5 border-white/10 text-zinc-200",
-    good: "bg-emerald-500/15 border-emerald-500/30 text-emerald-200",
-    warn: "bg-amber-500/15 border-amber-500/30 text-amber-200",
-    bad: "bg-rose-500/15 border-rose-500/30 text-rose-200",
+    neutral: "bg-white/5 border-white/15 text-zinc-200",
+    good: "bg-white/10 border-white/25 text-white",
+    warn: "bg-zinc-800 border-zinc-600 text-zinc-100",
+    bad: "bg-zinc-900 border-zinc-700 text-zinc-300",
   }[tone];
 
   return (

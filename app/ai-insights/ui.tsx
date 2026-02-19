@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/components/toast/bus";
 import Link from "next/link";
-import { Brain, Sparkles, Target, BookOpen, TrendingUp, Lightbulb } from "lucide-react";
+import { Brain, Sparkles, Target, BookOpen, TrendingUp, Lightbulb, Clock } from "lucide-react";
 
 type CriticalGap = {
     skill: string;
@@ -37,8 +37,30 @@ type Analysis = {
 
 export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
     const [loading, setLoading] = useState(false);
+    const [initialLoading, setInitialLoading] = useState(true);
     const [analysis, setAnalysis] = useState<Analysis | null>(null);
     const [meta, setMeta] = useState<any>(null);
+    const [lastUpdated, setLastUpdated] = useState<string | null>(null);
+
+    // Load cached insights on mount
+    useEffect(() => {
+        async function loadCached() {
+            try {
+                const res = await fetch("/api/ai/insights");
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.cached) {
+                        setAnalysis(data.analysis);
+                        setMeta(data.meta);
+                        setLastUpdated(data.updatedAt);
+                    }
+                }
+            } catch { /* ignore */ }
+            setInitialLoading(false);
+        }
+        if (hasRole) loadCached();
+        else setInitialLoading(false);
+    }, [hasRole]);
 
     async function analyze() {
         setLoading(true);
@@ -53,11 +75,17 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
             const data = await res.json();
             setAnalysis(data.analysis);
             setMeta(data.meta);
+            setLastUpdated(new Date().toISOString());
             toast("Analysis complete", "Gemini AI has analyzed your skill gaps!");
         } catch (err: any) {
             toast("Network error", err.message);
         }
         setLoading(false);
+    }
+
+    function formatDate(iso: string) {
+        const d = new Date(iso);
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit" });
     }
 
     return (
@@ -71,6 +99,12 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                     <p className="mt-2 text-sm text-zinc-400">
                         Get AI-powered analysis of your skill gaps with personalized learning recommendations.
                     </p>
+                    {lastUpdated && (
+                        <div className="mt-1 flex items-center gap-1.5 text-xs text-zinc-500">
+                            <Clock className="w-3 h-3" />
+                            Last analyzed: {formatDate(lastUpdated)}
+                        </div>
+                    )}
                 </div>
                 {hasRole && (
                     <Button disabled={loading} onClick={analyze}>
@@ -86,7 +120,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                 </div>
             )}
 
-            {loading && (
+            {(loading || initialLoading) && (
                 <div className="mt-8 space-y-4">
                     {[...Array(4)].map((_, i) => (
                         <div key={i} className="rounded-3xl border border-white/10 bg-zinc-900/50 p-6 animate-pulse">
@@ -98,7 +132,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                 </div>
             )}
 
-            {analysis && !loading && (
+            {analysis && !loading && !initialLoading && (
                 <div className="mt-8 space-y-6">
                     {/* Overall Assessment */}
                     <Card className="border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-zinc-900/50">
@@ -257,7 +291,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                 </div>
             )}
 
-            {!analysis && !loading && hasRole && (
+            {!analysis && !loading && !initialLoading && hasRole && (
                 <div className="mt-8">
                     <Card>
                         <CardContent className="p-8 text-center">
