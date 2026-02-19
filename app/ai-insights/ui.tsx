@@ -116,7 +116,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
 
             {!hasRole && (
                 <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6 text-zinc-300">
-                    Go to <Link href="/onboarding" className="text-emerald-300 hover:underline">onboarding</Link> and pick a target role to unlock AI analysis.
+                    Go to <Link href="/onboarding" className="text-zinc-200 hover:underline">onboarding</Link> and pick a target role to unlock AI analysis.
                 </div>
             )}
 
@@ -135,10 +135,10 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
             {analysis && !loading && !initialLoading && (
                 <div className="mt-8 space-y-6">
                     {/* Overall Assessment */}
-                    <Card className="border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-zinc-900/50">
+                    <Card className="border-zinc-100/20 bg-gradient-to-br from-zinc-100/5 to-zinc-900/50">
                         <CardHeader className="p-6 pb-0">
                             <div className="flex items-center gap-2">
-                                <Sparkles className="w-5 h-5 text-emerald-300" />
+                                <Sparkles className="w-5 h-5 text-zinc-200" />
                                 <h2 className="text-xl font-semibold">Overall Assessment</h2>
                             </div>
                         </CardHeader>
@@ -159,7 +159,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                         <Card>
                             <CardHeader className="p-6 pb-0">
                                 <div className="flex items-center gap-2">
-                                    <TrendingUp className="w-5 h-5 text-emerald-300" />
+                                    <TrendingUp className="w-5 h-5 text-zinc-200" />
                                     <h2 className="text-xl font-semibold">Your Strengths</h2>
                                 </div>
                             </CardHeader>
@@ -178,7 +178,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                         <Card>
                             <CardHeader className="p-6 pb-0">
                                 <div className="flex items-center gap-2">
-                                    <Target className="w-5 h-5 text-rose-300" />
+                                    <Target className="w-5 h-5 text-zinc-300" />
                                     <h2 className="text-xl font-semibold">Skill Gaps &amp; Recommendations</h2>
                                 </div>
                                 <p className="mt-1 text-sm text-zinc-400">Prioritized by severity and impact on your target role.</p>
@@ -208,7 +208,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                                                             <div>
                                                                 <div className="text-sm font-medium">
                                                                     {r.url ? (
-                                                                        <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:underline">
+                                                                        <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-zinc-200 hover:underline">
                                                                             {r.title}
                                                                         </a>
                                                                     ) : (
@@ -236,18 +236,18 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                         <Card>
                             <CardHeader className="p-6 pb-0">
                                 <div className="flex items-center gap-2">
-                                    <BookOpen className="w-5 h-5 text-blue-300" />
+                                    <BookOpen className="w-5 h-5 text-zinc-300" />
                                     <h2 className="text-xl font-semibold">Personalized Learning Path</h2>
                                 </div>
                             </CardHeader>
                             <CardContent className="p-6">
                                 <div className="relative">
-                                    <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-500/50 via-blue-500/50 to-purple-500/50" />
+                                    <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-zinc-100/50 via-zinc-700/50 to-zinc-700/50" />
                                     <div className="space-y-6">
                                         {analysis.learningPath.map((phase, i) => (
                                             <div key={i} className="relative pl-10">
-                                                <div className="absolute left-2 top-1 w-5 h-5 rounded-full bg-zinc-800 border-2 border-emerald-400/60 flex items-center justify-center">
-                                                    <span className="text-[10px] font-bold text-emerald-300">{phase.phase}</span>
+                                                <div className="absolute left-2 top-1 w-5 h-5 rounded-full bg-zinc-800 border-2 border-zinc-200/60 flex items-center justify-center">
+                                                    <span className="text-[10px] font-bold text-zinc-200">{phase.phase}</span>
                                                 </div>
                                                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                                                     <div className="flex items-center justify-between gap-2">
@@ -259,7 +259,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                                                         <div className="mt-3 space-y-1">
                                                             {phase.milestones.map((m, mi) => (
                                                                 <div key={mi} className="flex items-center gap-2 text-sm text-zinc-400">
-                                                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/60 shrink-0" />
+                                                                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-200/60 shrink-0" />
                                                                     {m}
                                                                 </div>
                                                             ))}
@@ -276,12 +276,12 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
 
                     {/* Motivational Tip */}
                     {analysis.motivationalTip && (
-                        <Card className="border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-zinc-900/50">
+                        <Card className="border-zinc-600/20 bg-gradient-to-br from-zinc-600/5 to-zinc-900/50">
                             <CardContent className="p-6">
                                 <div className="flex items-start gap-3">
-                                    <Lightbulb className="w-5 h-5 text-amber-300 shrink-0 mt-0.5" />
+                                    <Lightbulb className="w-5 h-5 text-zinc-300 shrink-0 mt-0.5" />
                                     <div>
-                                        <div className="font-semibold text-amber-200">Motivational Tip</div>
+                                        <div className="font-semibold text-zinc-200">Motivational Tip</div>
                                         <p className="mt-1 text-sm text-zinc-300 leading-relaxed">{analysis.motivationalTip}</p>
                                     </div>
                                 </div>

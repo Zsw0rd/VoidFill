@@ -56,7 +56,7 @@ export default async function DashboardPage() {
               <Badge tone={isStudent ? "good" : "warn"}>{isStudent ? "Student" : "Professional"}</Badge>
             </div>
           </div>
-          <Link href="/daily-test" className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center">
+          <Link href="/daily-test" className="rounded-2xl bg-zinc-100/90 hover:bg-zinc-100 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center">
             Take today&apos;s test
           </Link>
         </div>
@@ -75,10 +75,10 @@ export default async function DashboardPage() {
             <CardHeader className="p-6 pb-0">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-emerald-300" />
+                  <TrendingUp className="w-5 h-5 text-zinc-200" />
                   <h2 className="text-xl font-semibold">Focus Skills</h2>
                 </div>
-                <Link href="/skill-graph" className="text-sm text-emerald-300 hover:underline">Skill graph</Link>
+                <Link href="/skill-graph" className="text-sm text-zinc-200 hover:underline">Skill graph</Link>
               </div>
               <p className="mt-1 text-sm text-zinc-400">Your lowest scoring skills need attention.</p>
             </CardHeader>
@@ -103,10 +103,10 @@ export default async function DashboardPage() {
             <CardHeader className="p-6 pb-0">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Route className="w-5 h-5 text-blue-300" />
+                  <Route className="w-5 h-5 text-zinc-300" />
                   <h2 className="text-xl font-semibold">Roadmap Progress</h2>
                 </div>
-                <Link href="/roadmap" className="text-sm text-emerald-300 hover:underline">Full roadmap</Link>
+                <Link href="/roadmap" className="text-sm text-zinc-200 hover:underline">Full roadmap</Link>
               </div>
             </CardHeader>
             <CardContent className="p-6 space-y-4">
@@ -122,7 +122,7 @@ export default async function DashboardPage() {
                 ))
               ) : (
                 <div className="text-sm text-zinc-400">
-                  Generate a roadmap from the <Link href="/roadmap" className="text-emerald-300 hover:underline">Roadmap page</Link>.
+                  Generate a roadmap from the <Link href="/roadmap" className="text-zinc-200 hover:underline">Roadmap page</Link>.
                 </div>
               )}
             </CardContent>
@@ -132,7 +132,7 @@ export default async function DashboardPage() {
           <Card>
             <CardHeader className="p-6 pb-0">
               <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-amber-300" />
+                <Calendar className="w-5 h-5 text-zinc-300" />
                 <h2 className="text-xl font-semibold">Recent Activity</h2>
               </div>
             </CardHeader>
@@ -169,19 +169,19 @@ export default async function DashboardPage() {
             </CardHeader>
             <CardContent className="p-6 grid grid-cols-2 gap-3">
               <Link href="/daily-test" className="rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 p-4 transition text-center">
-                <ClipboardCheck className="w-6 h-6 text-emerald-300 mx-auto" />
+                <ClipboardCheck className="w-6 h-6 text-zinc-200 mx-auto" />
                 <div className="mt-2 text-sm font-medium">Daily Test</div>
               </Link>
               <Link href="/skill-graph" className="rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 p-4 transition text-center">
-                <Radar className="w-6 h-6 text-indigo-300 mx-auto" />
+                <Radar className="w-6 h-6 text-zinc-300 mx-auto" />
                 <div className="mt-2 text-sm font-medium">Skill Graph</div>
               </Link>
               <Link href="/roadmap" className="rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 p-4 transition text-center">
-                <Route className="w-6 h-6 text-blue-300 mx-auto" />
+                <Route className="w-6 h-6 text-zinc-300 mx-auto" />
                 <div className="mt-2 text-sm font-medium">Roadmap</div>
               </Link>
               <Link href="/ai-insights" className="rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 p-4 transition text-center">
-                <Brain className="w-6 h-6 text-amber-300 mx-auto" />
+                <Brain className="w-6 h-6 text-zinc-300 mx-auto" />
                 <div className="mt-2 text-sm font-medium">AI Insights</div>
               </Link>
             </CardContent>

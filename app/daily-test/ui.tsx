@@ -41,11 +41,11 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
       <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
         <Card>
           <CardContent className="p-8 text-center">
-            <CheckCircle className="w-12 h-12 text-emerald-400 mx-auto" />
+            <CheckCircle className="w-12 h-12 text-zinc-200 mx-auto" />
             <h2 className="mt-4 text-2xl font-semibold">Already completed today!</h2>
             <p className="mt-2 text-sm text-zinc-400">Score: {existingAttempt.correct_count}/{existingAttempt.total_count} • XP earned: {existingAttempt.xp_earned}</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/roadmap" className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center">
+              <Link href="/roadmap" className="rounded-2xl bg-zinc-100/90 hover:bg-zinc-100 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center">
                 View roadmap
               </Link>
               <Link href="/dashboard" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center">
@@ -147,7 +147,7 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
           {stage === "start" && (
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
               <div className="flex items-center gap-3">
-                <Brain className="w-8 h-8 text-emerald-300" />
+                <Brain className="w-8 h-8 text-zinc-200" />
                 <div>
                   <div className="text-xl font-semibold">AI Skill Assessment</div>
                   <div className="mt-1 text-sm text-zinc-400">Questions adapt to your skill level</div>
@@ -155,13 +155,13 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
               </div>
               <div className="mt-4 space-y-2 text-sm text-zinc-300">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-emerald-300" /> Questions target your weak areas
+                  <Sparkles className="w-4 h-4 text-zinc-200" /> Questions target your weak areas
                 </div>
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-blue-300" /> Difficulty scales based on performance
+                  <Sparkles className="w-4 h-4 text-zinc-300" /> Difficulty scales based on performance
                 </div>
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-amber-300" /> Get explanations after each test
+                  <Sparkles className="w-4 h-4 text-zinc-300" /> Get explanations after each test
                 </div>
               </div>
               <Button disabled={loading} onClick={start} className="mt-5">
@@ -187,11 +187,11 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
                       onClick={() => pick(i)}
                       className={[
                         "text-left rounded-2xl border p-4 transition",
-                        active ? "border-emerald-400/40 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10",
+                        active ? "border-zinc-200/40 bg-zinc-100/10" : "border-white/10 bg-white/5 hover:bg-white/10",
                       ].join(" ")}
                     >
                       <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-full border flex items-center justify-center text-sm font-medium shrink-0 ${active ? "border-emerald-400 text-emerald-300" : "border-white/20 text-zinc-400"}`}>
+                        <div className={`w-8 h-8 rounded-full border flex items-center justify-center text-sm font-medium shrink-0 ${active ? "border-zinc-200 text-zinc-200" : "border-white/20 text-zinc-400"}`}>
                           {String.fromCharCode(65 + i)}
                         </div>
                         <div className="font-medium">{opt}</div>
@@ -215,7 +215,7 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
           {stage === "review" && (
             <div className="space-y-6">
               {/* Score Summary */}
-              <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-500/5 to-zinc-900/50 p-6 text-center">
+              <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-100/5 to-zinc-900/50 p-6 text-center">
                 <div className="text-4xl font-bold">{result?.correct_count ?? 0}/{result?.total_count ?? 10}</div>
                 <div className="mt-1 text-sm text-zinc-400">Correct answers • +{result?.xp_earned ?? 0} XP earned</div>
                 <div className="mt-3">
@@ -230,19 +230,19 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
                   const userAnswer = answers[question.id];
                   const isCorrect = userAnswer === question.correct_index;
                   return (
-                    <div key={qi} className={`rounded-2xl border p-4 ${isCorrect ? "border-emerald-500/20 bg-emerald-500/5" : "border-rose-500/20 bg-rose-500/5"}`}>
+                    <div key={qi} className={`rounded-2xl border p-4 ${isCorrect ? "border-zinc-100/20 bg-zinc-100/5" : "border-zinc-700/20 bg-zinc-700/5"}`}>
                       <div className="flex items-start gap-3">
                         {isCorrect ? (
-                          <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-zinc-200 shrink-0 mt-0.5" />
                         ) : (
-                          <XCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+                          <XCircle className="w-5 h-5 text-zinc-300 shrink-0 mt-0.5" />
                         )}
                         <div className="flex-1">
                           <div className="font-medium text-sm">{question.prompt}</div>
                           <div className="mt-2 text-xs text-zinc-400">
-                            Your answer: <span className={isCorrect ? "text-emerald-300" : "text-rose-300"}>{question.options[userAnswer]}</span>
+                            Your answer: <span className={isCorrect ? "text-zinc-200" : "text-zinc-300"}>{question.options[userAnswer]}</span>
                             {!isCorrect && (
-                              <> • Correct: <span className="text-emerald-300">{question.options[question.correct_index]}</span></>
+                              <> • Correct: <span className="text-zinc-200">{question.options[question.correct_index]}</span></>
                             )}
                           </div>
                           {question.explanation && (
@@ -257,7 +257,7 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/roadmap" className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center flex-1">
+                <Link href="/roadmap" className="rounded-2xl bg-zinc-100/90 hover:bg-zinc-100 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center flex-1">
                   View updated roadmap
                 </Link>
                 <Link href="/skill-graph" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center flex-1">

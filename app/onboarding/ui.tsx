@@ -136,7 +136,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
             </div>
             <div className="flex items-center gap-1.5">
               {[...Array(totalSteps)].map((_, i) => (
-                <div key={i} className={`h-2 rounded-full transition-all ${i < step ? "w-8 bg-emerald-400" : "w-2 bg-white/10"}`} />
+                <div key={i} className={`h-2 rounded-full transition-all ${i < step ? "w-8 bg-zinc-200" : "w-2 bg-white/10"}`} />
               ))}
             </div>
           </div>
@@ -153,11 +153,11 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                     onClick={() => setUserType("student")}
                     className={[
                       "flex items-start gap-4 text-left rounded-2xl border p-5 transition",
-                      userType === "student" ? "border-emerald-400/40 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10",
+                      userType === "student" ? "border-zinc-200/40 bg-zinc-100/10" : "border-white/10 bg-white/5 hover:bg-white/10",
                     ].join(" ")}
                   >
-                    <div className={`rounded-xl p-3 ${userType === "student" ? "bg-emerald-500/20" : "bg-white/5"}`}>
-                      <GraduationCap className="w-6 h-6 text-emerald-300" />
+                    <div className={`rounded-xl p-3 ${userType === "student" ? "bg-zinc-100/20" : "bg-white/5"}`}>
+                      <GraduationCap className="w-6 h-6 text-zinc-200" />
                     </div>
                     <div>
                       <div className="font-semibold text-lg">Student</div>
@@ -169,11 +169,11 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                     onClick={() => setUserType("professional")}
                     className={[
                       "flex items-start gap-4 text-left rounded-2xl border p-5 transition",
-                      userType === "professional" ? "border-blue-400/40 bg-blue-500/10" : "border-white/10 bg-white/5 hover:bg-white/10",
+                      userType === "professional" ? "border-zinc-400/40 bg-zinc-700/10" : "border-white/10 bg-white/5 hover:bg-white/10",
                     ].join(" ")}
                   >
-                    <div className={`rounded-xl p-3 ${userType === "professional" ? "bg-blue-500/20" : "bg-white/5"}`}>
-                      <Briefcase className="w-6 h-6 text-blue-300" />
+                    <div className={`rounded-xl p-3 ${userType === "professional" ? "bg-zinc-700/20" : "bg-white/5"}`}>
+                      <Briefcase className="w-6 h-6 text-zinc-300" />
                     </div>
                     <div>
                       <div className="font-semibold text-lg">Professional</div>
@@ -205,7 +205,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                         <select
                           value={educationLevel}
                           onChange={(e) => setEducationLevel(e.target.value)}
-                          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-emerald-500/50"
+                          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-zinc-100/50"
                         >
                           <option value="">Select</option>
                           <option value="high_school">High School</option>
@@ -266,7 +266,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                           onClick={() => setTargetRoleId(r.id)}
                           className={[
                             "text-left rounded-2xl border p-4 transition",
-                            active ? "border-emerald-400/40 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10",
+                            active ? "border-zinc-200/40 bg-zinc-100/10" : "border-white/10 bg-white/5 hover:bg-white/10",
                           ].join(" ")}
                         >
                           <div className="font-semibold">{r.name}</div>
@@ -320,15 +320,15 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                     />
                   </label>
                   {resumeFile && (
-                    <div className="mt-3 text-sm text-emerald-300">
+                    <div className="mt-3 text-sm text-zinc-200">
                       ✓ {resumeFile.name} selected ({(resumeFile.size / 1024).toFixed(0)} KB)
                     </div>
                   )}
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-500/5 to-zinc-900/50 p-5">
+                <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-100/5 to-zinc-900/50 p-5">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-emerald-300" />
+                    <Sparkles className="w-5 h-5 text-zinc-200" />
                     <div className="font-semibold">What happens next?</div>
                   </div>
                   <p className="mt-2 text-sm text-zinc-400 leading-relaxed">

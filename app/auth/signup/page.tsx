@@ -94,7 +94,7 @@ export default function SignupPage() {
 
             <div className="mt-5 text-sm text-zinc-400">
               Already have an account?{" "}
-              <Link className="text-emerald-300 hover:underline" href="/auth/login">
+              <Link className="text-zinc-200 hover:underline" href="/auth/login">
                 Login
               </Link>
             </div>
