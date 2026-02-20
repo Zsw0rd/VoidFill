@@ -173,7 +173,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                     <div className="grid sm:grid-cols-3 gap-4">
                       <div className="space-y-2"><Label>Education Level *</Label>
                         <select value={educationLevel} onChange={e => setEducationLevel(e.target.value)}
-                          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-emerald-500/50">
+                          className="w-full rounded-2xl border border-white/10 bg-zinc-900 text-zinc-200 px-4 py-3 text-sm outline-none focus:border-emerald-500/50" style={{ colorScheme: 'dark' }}>
                           <option value="">Select</option><option value="high_school">High School</option><option value="undergraduate">Undergraduate</option><option value="postgraduate">Postgraduate</option><option value="phd">PhD</option>
                         </select>
                       </div>

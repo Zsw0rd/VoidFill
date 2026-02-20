@@ -175,17 +175,19 @@ export function ProfileEditor({ initial, userId, roleSkills, userScores, stats, 
             <CardHeader className="p-5 pb-0">
               <h2 className="text-lg font-semibold">Skill Radar</h2>
             </CardHeader>
-            <CardContent className="p-4 h-[280px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <RadarChart data={radarData}>
-                  <PolarGrid stroke="#ffffff10" />
-                  <PolarAngleAxis dataKey="skill" tick={{ fill: "#a1a1aa", fontSize: 10 }} />
-                  <PolarRadiusAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 9 }} />
-                  <Radar name="You" dataKey="you" stroke="#22c55e" fill="#22c55e" fillOpacity={0.25} />
-                  <Radar name="Benchmark" dataKey="benchmark" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.1} />
-                  <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 12 }} />
-                </RadarChart>
-              </ResponsiveContainer>
+            <CardContent className="p-4 pt-0">
+              <div style={{ height: 220 }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="65%">
+                    <PolarGrid stroke="#ffffff0a" />
+                    <PolarAngleAxis dataKey="skill" tick={{ fill: "#a1a1aa", fontSize: 9 }} />
+                    <PolarRadiusAxis domain={[0, 100]} tick={{ fill: "#52525b", fontSize: 8 }} axisLine={false} />
+                    <Radar name="You" dataKey="you" stroke="#34d399" strokeWidth={2} fill="#34d399" fillOpacity={0.15} dot={{ r: 3, fill: "#34d399" }} />
+                    <Radar name="Benchmark" dataKey="benchmark" stroke="#60a5fa" strokeWidth={1.5} fill="#60a5fa" fillOpacity={0.06} dot={false} />
+                    <Tooltip contentStyle={{ background: "#1a1a1d", border: "1px solid #ffffff12", borderRadius: 10, fontSize: 11, padding: "8px 12px" }} />
+                  </RadarChart>
+                </ResponsiveContainer>
+              </div>
             </CardContent>
           </Card>
 
@@ -194,24 +196,26 @@ export function ProfileEditor({ initial, userId, roleSkills, userScores, stats, 
               <CardHeader className="p-5 pb-0">
                 <h2 className="text-lg font-semibold">Score Trends</h2>
               </CardHeader>
-              <CardContent className="p-4 h-[280px]">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={trendData.rows}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" />
-                    <XAxis dataKey="date" tick={{ fill: "#71717a", fontSize: 10 }} />
-                    <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 10 }} />
-                    <Tooltip contentStyle={{ background: "#18181b", border: "1px solid #ffffff15", borderRadius: 12, fontSize: 12 }} />
-                    <Legend />
-                    {trendData.skillNames.map((name: string, i: number) => (
-                      <Line key={name} type="monotone" dataKey={name} stroke={LINE_COLORS[i % LINE_COLORS.length]} strokeWidth={2} dot={{ r: 2 }} connectNulls />
-                    ))}
-                  </LineChart>
-                </ResponsiveContainer>
+              <CardContent className="p-4 pt-0">
+                <div style={{ height: 220 }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={trendData.rows} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#ffffff06" />
+                      <XAxis dataKey="date" tick={{ fill: "#71717a", fontSize: 9 }} axisLine={false} tickLine={false} />
+                      <YAxis domain={[0, 100]} tick={{ fill: "#71717a", fontSize: 9 }} axisLine={false} tickLine={false} />
+                      <Tooltip contentStyle={{ background: "#1a1a1d", border: "1px solid #ffffff12", borderRadius: 10, fontSize: 11, padding: "8px 12px" }} />
+                      <Legend iconSize={8} wrapperStyle={{ fontSize: 10 }} />
+                      {trendData.skillNames.map((name: string, i: number) => (
+                        <Line key={name} type="monotone" dataKey={name} stroke={LINE_COLORS[i % LINE_COLORS.length]} strokeWidth={2} dot={{ r: 2 }} connectNulls />
+                      ))}
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
               </CardContent>
             </Card>
           ) : (
             <Card>
-              <CardContent className="p-5 flex items-center justify-center h-[280px] text-sm text-zinc-500">
+              <CardContent className="p-5 flex items-center justify-center text-sm text-zinc-600" style={{ height: 220 }}>
                 Take daily tests to see score trends
               </CardContent>
             </Card>
@@ -278,7 +282,7 @@ export function ProfileEditor({ initial, userId, roleSkills, userScores, stats, 
                 <div className="space-y-2">
                   <Label>Education Level</Label>
                   <select value={educationLevel} onChange={(e) => setEducationLevel(e.target.value)}
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-emerald-500/50">
+                    className="w-full rounded-2xl border border-white/10 bg-zinc-900 text-zinc-200 px-4 py-3 text-sm outline-none focus:border-emerald-500/50" style={{ colorScheme: 'dark' }}>
                     <option value="">Select</option>
                     <option value="high_school">High School</option>
                     <option value="undergraduate">Undergraduate</option>
