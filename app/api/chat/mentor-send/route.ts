@@ -73,7 +73,7 @@ export async function POST(req: Request) {
     // Verify the conversation exists and check authorization
     const { data: conv } = await supabase
         .from("chat_conversations")
-        .select("user_id")
+        .select("user_id, mentor_id")
         .eq("id", convId)
         .maybeSingle();
 
@@ -87,6 +87,14 @@ export async function POST(req: Request) {
             .eq("user_id", conv.user_id)
             .maybeSingle();
         if (!assignment) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+
+        if (!conv.mentor_id) {
+            await supabase
+                .from("chat_conversations")
+                .update({ mentor_id: user.id })
+                .eq("id", convId)
+                .is("mentor_id", null);
+        }
     } else {
         if (conv.user_id !== user.id) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
     }

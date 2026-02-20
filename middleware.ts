@@ -20,7 +20,7 @@ function isPublic(pathname: string) {
 }
 
 export async function middleware(req: NextRequest) {
-  let res = NextResponse.next({
+  const res = NextResponse.next({
     request: { headers: new Headers(req.headers) },
   });
 
@@ -33,19 +33,13 @@ export async function middleware(req: NextRequest) {
           return req.cookies.get(name)?.value;
         },
         set(name: string, value: string, options: any) {
-          // Set cookie on the request for downstream server components
+          // Keep request cookies in sync for downstream handlers in the same request.
           req.cookies.set({ name, value, ...options });
-          // Set cookie on the response for the browser
-          res = NextResponse.next({
-            request: { headers: new Headers(req.headers) },
-          });
+          // Persist cookie to browser response.
           res.cookies.set({ name, value, ...options });
         },
         remove(name: string, options: any) {
           req.cookies.set({ name, value: "", ...options });
-          res = NextResponse.next({
-            request: { headers: new Headers(req.headers) },
-          });
           res.cookies.set({ name, value: "", ...options });
         },
       },
