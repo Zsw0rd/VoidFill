@@ -41,21 +41,24 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
-    // ═══ Poll for new human mentor messages every 4 seconds ═══
+    // ═══ Poll for human mentor messages every 3 seconds ═══
     const pollHumanMessages = useCallback(async () => {
-        if (!humanConvId) return;
+        const cid = humanConvId;
+        if (!cid) return;
         try {
-            const res = await fetch(`/api/chat/messages?conversationId=${humanConvId}`);
+            const res = await fetch(`/api/chat/messages?conversationId=${cid}`);
             if (res.ok) {
                 const data = await res.json();
-                if (data.messages) setHumanMessages(data.messages);
+                if (data.messages && Array.isArray(data.messages)) {
+                    setHumanMessages(data.messages);
+                }
             }
-        } catch { /* ignore polling errors */ }
+        } catch { /* ignore */ }
     }, [humanConvId]);
 
     useEffect(() => {
         if (!humanConvId) return;
-        const interval = setInterval(pollHumanMessages, 4000);
+        const interval = setInterval(pollHumanMessages, 3000);
         return () => clearInterval(interval);
     }, [humanConvId, pollHumanMessages]);
 
@@ -67,15 +70,10 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
         setInput("");
         setSending(true);
 
-        const userMsg: Message = { sender_role: "user", content: text, created_at: new Date().toISOString() };
         if (mode === "ai") {
-            setAiMessages(prev => [...prev, userMsg]);
-        } else {
-            setHumanMessages(prev => [...prev, userMsg]);
-        }
-
-        try {
-            if (mode === "ai") {
+            // Optimistic add
+            setAiMessages(prev => [...prev, { sender_role: "user", content: text, created_at: new Date().toISOString() }]);
+            try {
                 const res = await fetch("/api/chat/send", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -83,9 +81,16 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
                 });
                 const data = await res.json();
                 if (!res.ok) { toast("Error", data.error || "Failed"); setSending(false); return; }
-                if (data.conversationId && !aiConvId) setAiConvId(data.conversationId);
+                if (data.conversationId) setAiConvId(data.conversationId);
                 setAiMessages(prev => [...prev, { sender_role: "ai", content: data.reply, created_at: new Date().toISOString() }]);
-            } else {
+            } catch {
+                toast("Error", "Network error");
+            }
+        } else {
+            // Human mentor: send and then poll to sync
+            // Add optimistic message
+            setHumanMessages(prev => [...prev, { sender_role: "user", content: text, created_at: new Date().toISOString() }]);
+            try {
                 const res = await fetch("/api/chat/mentor-send", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -93,12 +98,23 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
                 });
                 const data = await res.json();
                 if (!res.ok) { toast("Error", data.error || "Failed"); setSending(false); return; }
-                if (data.conversationId && !humanConvId) setHumanConvId(data.conversationId);
-                // Immediately poll to get the persisted message
-                setTimeout(pollHumanMessages, 500);
+                // Update convId (extremely important for first message)
+                if (data.conversationId) {
+                    setHumanConvId(data.conversationId);
+                    // Fetch all messages for this conversation to sync
+                    setTimeout(async () => {
+                        try {
+                            const r = await fetch(`/api/chat/messages?conversationId=${data.conversationId}`);
+                            if (r.ok) {
+                                const d = await r.json();
+                                if (d.messages) setHumanMessages(d.messages);
+                            }
+                        } catch { }
+                    }, 500);
+                }
+            } catch {
+                toast("Error", "Network error");
             }
-        } catch {
-            toast("Error", "Network error");
         }
         setSending(false);
     }
@@ -114,7 +130,7 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
                 <div>
                     <h1 className="text-2xl font-semibold flex items-center gap-2">
                         <Sparkles className="w-6 h-6 text-indigo-400" />
-                        Mentor Chat
+                        Mentor
                     </h1>
                     <p className="text-sm text-zinc-400 mt-1">Get help from AI or your assigned mentor</p>
                 </div>
@@ -158,33 +174,15 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
                     <div className="h-[55vh] overflow-y-auto p-4 space-y-4">
                         {messages.length === 0 && (
                             <div className="flex flex-col items-center justify-center h-full text-center">
-                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${mode === "ai"
-                                    ? "bg-indigo-500/10 border border-indigo-500/20"
-                                    : "bg-emerald-500/10 border border-emerald-500/20"
-                                    }`}>
-                                    {mode === "ai"
-                                        ? <Bot className="w-8 h-8 text-indigo-400" />
-                                        : <UserCheck className="w-8 h-8 text-emerald-400" />
-                                    }
+                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${mode === "ai" ? "bg-indigo-500/10 border border-indigo-500/20" : "bg-emerald-500/10 border border-emerald-500/20"}`}>
+                                    {mode === "ai" ? <Bot className="w-8 h-8 text-indigo-400" /> : <UserCheck className="w-8 h-8 text-emerald-400" />}
                                 </div>
                                 <h3 className="text-lg font-semibold text-zinc-200">
                                     {mode === "ai" ? "Hi! I'm Sage" : `Chat with ${mentorInfo?.name}`}
                                 </h3>
                                 <p className="text-sm text-zinc-400 mt-2 max-w-sm">
-                                    {mode === "ai"
-                                        ? "Ask me about learning strategies, career advice, or study techniques!"
-                                        : "Send a message to your mentor for personalized guidance."
-                                    }
+                                    {mode === "ai" ? "Ask me about learning strategies, career advice, or study techniques!" : "Send a message to your mentor for personalized guidance."}
                                 </p>
-                                {mode === "ai" && (
-                                    <div className="mt-6 flex flex-wrap justify-center gap-2">
-                                        {["How do I improve my SQL skills?", "Tips for staying consistent?", "Career advice for Data Analyst"].map((q) => (
-                                            <button key={q} onClick={() => setInput(q)} className="text-xs bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-3 py-2 text-zinc-300 transition">
-                                                {q}
-                                            </button>
-                                        ))}
-                                    </div>
-                                )}
                             </div>
                         )}
 
@@ -193,11 +191,10 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
                                 const isOwnMessage = m.sender_role === "user";
                                 const isAI = m.sender_role === "ai";
                                 return (
-                                    <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}
-                                        className={`flex gap-3 ${isOwnMessage ? "flex-row-reverse" : ""}`}
-                                    >
+                                    <motion.div key={m.id || `${i}-${m.created_at}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}
+                                        className={`flex gap-3 ${isOwnMessage ? "flex-row-reverse" : ""}`}>
                                         <div className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${isOwnMessage ? "bg-emerald-500/10 border border-emerald-500/20" : isAI ? "bg-indigo-500/10 border border-indigo-500/20" : "bg-amber-500/10 border border-amber-500/20"}`}>
-                                            {isOwnMessage ? <User className="w-4 h-4 text-emerald-300" /> : isAI ? <Bot className="w-4 h-4 text-indigo-300" /> : <UserCheck className="w-4 h-4 text-amber-300" />}
+                                            {isOwnMessage ? <User className="w-4 h-4 text-emerald-300" /> : isAI ? <Bot className="w-4 h-4 text-indigo-300" /> : <UserCheck className="w-4 h.4 text-amber-300" />}
                                         </div>
                                         <div className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${isOwnMessage ? "bg-emerald-500/10 border border-emerald-500/15 text-zinc-200" : "bg-white/5 border border-white/10 text-zinc-300"}`}>
                                             <div className="whitespace-pre-wrap">{m.content}</div>
@@ -209,9 +206,7 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
 
                         {sending && mode === "ai" && (
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-3">
-                                <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
-                                    <Bot className="w-4 h-4 text-indigo-300" />
-                                </div>
+                                <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center"><Bot className="w-4 h-4 text-indigo-300" /></div>
                                 <div className="bg-white/5 border border-white/10 rounded-2xl px-4 py-3">
                                     <div className="flex gap-1">
                                         <span className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "0ms" }} />
@@ -229,9 +224,7 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
                             <Input value={input} onChange={(e) => setInput(e.target.value)}
                                 placeholder={mode === "ai" ? "Ask Sage about learning, career, study tips..." : `Message ${mentorInfo?.name || "mentor"}...`}
                                 disabled={sending || (mode === "human" && !mentorInfo)} className="flex-1" maxLength={2000} />
-                            <Button type="submit" disabled={sending || !input.trim()} className="px-4">
-                                <Send className="w-4 h-4" />
-                            </Button>
+                            <Button type="submit" disabled={sending || !input.trim()} className="px-4"><Send className="w-4 h-4" /></Button>
                         </form>
                         <div className="mt-2 text-[10px] text-zinc-600 text-center">
                             {mode === "ai" ? "Sage only discusses education topics. Inappropriate messages are flagged." : "Messages go directly to your mentor."}
