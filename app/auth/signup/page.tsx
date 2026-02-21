@@ -52,6 +52,7 @@ export default function SignupPage() {
     if (pErr) return toast("Profile create failed", pErr.message);
 
     toast("Account created", "Let’s finish your profile.");
+    router.refresh();
     router.push("/onboarding");
   }
 

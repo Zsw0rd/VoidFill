@@ -46,6 +46,7 @@ function LoginForm() {
     }
 
     setBusy(false);
+    router.refresh();
     router.push(next);
   }
 
