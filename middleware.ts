@@ -20,7 +20,9 @@ function isPublic(pathname: string) {
 }
 
 export async function middleware(req: NextRequest) {
-  const res = NextResponse.next();
+  let res = NextResponse.next({
+    request: { headers: new Headers(req.headers) },
+  });
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -31,15 +33,26 @@ export async function middleware(req: NextRequest) {
           return req.cookies.get(name)?.value;
         },
         set(name: string, value: string, options: any) {
+          // Set cookie on the request for downstream server components
+          req.cookies.set({ name, value, ...options });
+          // Set cookie on the response for the browser
+          res = NextResponse.next({
+            request: { headers: new Headers(req.headers) },
+          });
           res.cookies.set({ name, value, ...options });
         },
         remove(name: string, options: any) {
+          req.cookies.set({ name, value: "", ...options });
+          res = NextResponse.next({
+            request: { headers: new Headers(req.headers) },
+          });
           res.cookies.set({ name, value: "", ...options });
         },
       },
     },
   );
 
+  // IMPORTANT: getUser() refreshes the session token if expired
   const { data: { user } } = await supabase.auth.getUser();
   const pathname = req.nextUrl.pathname;
 
@@ -50,7 +63,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Protect admin routes — only admin_users can access
+  // Protect admin routes
   if (user && pathname.startsWith("/admin")) {
     const { data: adminUser } = await supabase
       .from("admin_users")
