@@ -48,7 +48,7 @@ export default async function MentorChatPage() {
             name: (assignment as any).admin_users?.display_name || "Your Mentor",
         };
 
-        // Fetch human conversation with mentor
+        // Look for existing human conversation
         const { data: humanConv } = await supabase
             .from("chat_conversations")
             .select("id")
@@ -58,10 +58,22 @@ export default async function MentorChatPage() {
 
         if (humanConv) {
             humanConvId = humanConv.id;
+        } else {
+            // Auto-create conversation so mentor always has one to discover
+            // This runs under the student's auth context, so RLS allows it
+            const { data: newConv } = await supabase
+                .from("chat_conversations")
+                .insert({ user_id: user.id, is_ai: false, title: "Mentor Chat" })
+                .select("id")
+                .single();
+            if (newConv) humanConvId = newConv.id;
+        }
+
+        if (humanConvId) {
             const { data: msgs } = await supabase
                 .from("chat_messages")
                 .select("id, sender_id, sender_role, content, created_at")
-                .eq("conversation_id", humanConv.id)
+                .eq("conversation_id", humanConvId)
                 .order("created_at", { ascending: true });
             humanMessages = msgs || [];
         }

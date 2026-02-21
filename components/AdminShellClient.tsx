@@ -103,7 +103,7 @@ export function AdminShellClient({ displayName, role, children }: Props) {
                                     <div className="text-sm text-zinc-200 truncate mt-1">{displayName}</div>
                                 </div>
                                 <Link href="/auth/logout" className="flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-300 transition">
-                                    <LogOut className="w-3 h-3" /> Sign out
+                                    <LogOut className="w-3 h-3" /> Logout
                                 </Link>
                             </div>
                         </motion.aside>

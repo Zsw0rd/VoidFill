@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/toast/bus";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, User, GraduationCap, MessageCircle } from "lucide-react";
+import { Send, User, GraduationCap, MessageCircle, Trash2 } from "lucide-react";
 
 interface Message {
     id?: string;
@@ -32,42 +32,40 @@ export function MentorChatPanel({ mentorId, students, conversations: initialConv
     const [input, setInput] = useState("");
     const [sending, setSending] = useState(false);
     const [conversationId, setConversationId] = useState<string | null>(initialConversationId);
-    const [conversations, setConversations] = useState<any[]>(initialConversations);
+    const [clearPending, setClearPending] = useState(false);
+    const [clearRequestedByMe, setClearRequestedByMe] = useState(false);
     const bottomRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
-    // ═══ Poll: discover new conversations + fetch messages ═══
+    // Poll: discover conversations + fetch messages + check clear status
     const pollMessages = useCallback(async () => {
-        // Always try to discover conversations for the current student
-        if (selectedStudent) {
-            try {
-                const discoverRes = await fetch(`/api/chat/mentor-conversations?studentId=${selectedStudent}`);
-                if (discoverRes.ok) {
-                    const discoverData = await discoverRes.json();
-                    if (discoverData.conversationId) {
-                        setConversationId(prev => {
-                            if (prev !== discoverData.conversationId) {
-                                // New conversation discovered
-                                return discoverData.conversationId;
-                            }
-                            return prev;
-                        });
-
-                        // Fetch messages for this conversation
-                        const msgRes = await fetch(`/api/chat/messages?conversationId=${discoverData.conversationId}`);
-                        if (msgRes.ok) {
-                            const msgData = await msgRes.json();
-                            if (msgData.messages && Array.isArray(msgData.messages)) {
-                                setMessages(msgData.messages);
-                            }
-                        }
+        if (!selectedStudent) return;
+        try {
+            const discoverRes = await fetch(`/api/chat/mentor-conversations?studentId=${selectedStudent}`);
+            if (discoverRes.ok) {
+                const discoverData = await discoverRes.json();
+                if (discoverData.conversationId) {
+                    const cid = discoverData.conversationId;
+                    setConversationId(cid);
+                    const [msgRes, clearRes] = await Promise.all([
+                        fetch(`/api/chat/messages?conversationId=${cid}`),
+                        fetch(`/api/chat/clear?conversationId=${cid}`),
+                    ]);
+                    if (msgRes.ok) {
+                        const msgData = await msgRes.json();
+                        if (msgData.messages) setMessages(msgData.messages);
+                    }
+                    if (clearRes.ok) {
+                        const clearData = await clearRes.json();
+                        setClearPending(clearData.clearPending);
+                        setClearRequestedByMe(clearData.requestedByMe);
                     }
                 }
-            } catch { /* ignore */ }
-        }
+            }
+        } catch { /* ignore */ }
     }, [selectedStudent]);
 
     useEffect(() => {
@@ -79,8 +77,8 @@ export function MentorChatPanel({ mentorId, students, conversations: initialConv
         setSelectedStudent(studentId);
         setMessages([]);
         setConversationId(null);
-
-        // Try to find existing conversation
+        setClearPending(false);
+        setClearRequestedByMe(false);
         try {
             const res = await fetch(`/api/chat/mentor-conversations?studentId=${studentId}`);
             if (res.ok) {
@@ -101,42 +99,46 @@ export function MentorChatPanel({ mentorId, students, conversations: initialConv
         e?.preventDefault();
         const text = input.trim();
         if (!text || sending || !selectedStudent) return;
-
         setInput("");
         setSending(true);
-
-        // Optimistic add
         setMessages(prev => [...prev, { sender_role: "mentor", content: text, sender_id: mentorId, created_at: new Date().toISOString() }]);
-
         try {
             const res = await fetch("/api/chat/mentor-send", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
+                method: "POST", headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: text, conversationId, targetUserId: selectedStudent }),
             });
             const data = await res.json();
-            if (!res.ok) {
-                toast("Error", data.error || "Failed to send");
-                setSending(false);
-                return;
-            }
-            if (data.conversationId) {
-                setConversationId(data.conversationId);
-                // Sync messages
-                setTimeout(async () => {
-                    try {
-                        const r = await fetch(`/api/chat/messages?conversationId=${data.conversationId}`);
-                        if (r.ok) {
-                            const d = await r.json();
-                            if (d.messages) setMessages(d.messages);
-                        }
-                    } catch { }
-                }, 500);
-            }
-        } catch {
-            toast("Error", "Network error");
-        }
+            if (!res.ok) { toast("Error", data.error || "Failed to send"); setSending(false); return; }
+            if (data.conversationId) setConversationId(data.conversationId);
+            setTimeout(() => pollMessages(), 500);
+        } catch { toast("Error", "Network error"); }
         setSending(false);
+    }
+
+    async function requestClearChat() {
+        if (!conversationId) return;
+        try {
+            const res = await fetch("/api/chat/clear", {
+                method: "POST", headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ conversationId, action: "request" }),
+            });
+            if (res.ok) { toast("Request Sent", "Waiting for student to accept."); setClearPending(true); setClearRequestedByMe(true); }
+        } catch { toast("Error", "Failed"); }
+    }
+
+    async function respondClearChat(accept: boolean) {
+        if (!conversationId) return;
+        try {
+            const res = await fetch("/api/chat/clear", {
+                method: "POST", headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ conversationId, action: accept ? "accept" : "reject" }),
+            });
+            if (res.ok) {
+                if (accept) { setMessages([]); toast("Cleared", "Chat cleared."); }
+                else toast("Rejected", "Clear request rejected.");
+                setClearPending(false); setClearRequestedByMe(false);
+            }
+        } catch { toast("Error", "Failed"); }
     }
 
     const studentName = students.find(s => s.id === selectedStudent)?.name || "Student";
@@ -144,8 +146,7 @@ export function MentorChatPanel({ mentorId, students, conversations: initialConv
     return (
         <div className="max-w-4xl mx-auto">
             <h1 className="text-2xl font-semibold flex items-center gap-2">
-                <MessageCircle className="w-6 h-6 text-indigo-400" />
-                Student Chats
+                <MessageCircle className="w-6 h-6 text-indigo-400" /> Student Chats
             </h1>
             <p className="text-sm text-zinc-400 mt-1">Chat with your assigned students</p>
 
@@ -153,47 +154,55 @@ export function MentorChatPanel({ mentorId, students, conversations: initialConv
                 {/* Student selector */}
                 <div className="md:w-48 flex md:flex-col gap-2 overflow-x-auto md:overflow-visible shrink-0">
                     {students.map(s => (
-                        <button
-                            key={s.id}
-                            onClick={() => loadStudentChat(s.id)}
-                            className={`whitespace-nowrap text-left rounded-xl px-3 py-2.5 text-sm transition ${selectedStudent === s.id
-                                ? "bg-indigo-500/10 border border-indigo-500/20 text-white"
-                                : "bg-white/5 border border-white/10 text-zinc-400 hover:bg-white/10"
-                                }`}
-                        >
+                        <button key={s.id} onClick={() => loadStudentChat(s.id)}
+                            className={`whitespace-nowrap text-left rounded-xl px-3 py-2.5 text-sm transition ${selectedStudent === s.id ? "bg-indigo-500/10 border border-indigo-500/20 text-white" : "bg-white/5 border border-white/10 text-zinc-400 hover:bg-white/10"}`}>
                             <div className="flex items-center gap-2">
                                 <GraduationCap className="w-4 h-4 shrink-0" />
                                 <span className="truncate">{s.name}</span>
                             </div>
                         </button>
                     ))}
-                    {students.length === 0 && (
-                        <div className="text-xs text-zinc-500 p-2">No students assigned</div>
-                    )}
+                    {students.length === 0 && <div className="text-xs text-zinc-500 p-2">No students assigned</div>}
                 </div>
 
                 {/* Chat area */}
                 <Card className="flex-1 bg-zinc-900/40 backdrop-blur-xl">
                     <CardContent className="p-0">
-                        <div className="px-4 py-3 border-b border-white/10">
+                        <div className="px-4 py-3 border-b border-white/10 flex items-center justify-between">
                             <div className="text-sm font-medium">{studentName}</div>
+                            {conversationId && messages.length > 0 && !clearPending && (
+                                <Button variant="soft" onClick={requestClearChat} className="text-xs gap-1 text-rose-400">
+                                    <Trash2 className="w-3 h-3" /> Clear
+                                </Button>
+                            )}
                         </div>
+
+                        {/* Clear chat notification */}
+                        {clearPending && !clearRequestedByMe && (
+                            <div className="mx-4 mt-3 rounded-xl border border-amber-500/20 bg-amber-500/10 p-3">
+                                <p className="text-sm text-amber-200">Student has requested to clear this chat.</p>
+                                <div className="mt-2 flex gap-2">
+                                    <Button onClick={() => respondClearChat(true)} className="text-xs bg-rose-500/20 text-rose-300 hover:bg-rose-500/30">Accept & Clear</Button>
+                                    <Button variant="soft" onClick={() => respondClearChat(false)} className="text-xs">Reject</Button>
+                                </div>
+                            </div>
+                        )}
+                        {clearPending && clearRequestedByMe && (
+                            <div className="mx-4 mt-3 rounded-xl border border-amber-500/20 bg-amber-500/10 p-3 text-sm text-amber-300">
+                                ⏳ Waiting for student to accept clear request...
+                            </div>
+                        )}
 
                         <div className="h-[50vh] overflow-y-auto p-4 space-y-3">
                             {messages.length === 0 && (
                                 <div className="flex items-center justify-center h-full text-sm text-zinc-500">
-                                    No messages yet. Start the conversation!
+                                    {conversationId ? "No messages yet. Start the conversation!" : "Student hasn't opened chat yet."}
                                 </div>
                             )}
-
                             <AnimatePresence initial={false}>
                                 {messages.map((m, i) => (
-                                    <motion.div
-                                        key={m.id || `${i}-${m.created_at}`}
-                                        initial={{ opacity: 0, y: 6 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        className={`flex gap-2 ${m.sender_role === "mentor" ? "flex-row-reverse" : ""}`}
-                                    >
+                                    <motion.div key={m.id || `${i}-${m.created_at}`} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+                                        className={`flex gap-2 ${m.sender_role === "mentor" ? "flex-row-reverse" : ""}`}>
                                         <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${m.sender_role === "mentor" ? "bg-indigo-500/10 border border-indigo-500/20" : "bg-emerald-500/10 border border-emerald-500/20"}`}>
                                             {m.sender_role === "mentor" ? <User className="w-3.5 h-3.5 text-indigo-300" /> : <GraduationCap className="w-3.5 h-3.5 text-emerald-300" />}
                                         </div>
@@ -208,7 +217,7 @@ export function MentorChatPanel({ mentorId, students, conversations: initialConv
 
                         <div className="border-t border-white/10 p-3">
                             <form onSubmit={sendMessage} className="flex gap-2">
-                                <Input value={input} onChange={e => setInput(e.target.value)} placeholder={`Message ${studentName}...`} disabled={sending || !selectedStudent} className="flex-1 text-sm" maxLength={2000} />
+                                <Input value={input} onChange={e => setInput(e.target.value)} placeholder={`Message ${studentName}...`} disabled={sending || !selectedStudent || !conversationId} className="flex-1 text-sm" maxLength={2000} />
                                 <Button type="submit" disabled={sending || !input.trim()} className="px-3"><Send className="w-4 h-4" /></Button>
                             </form>
                         </div>

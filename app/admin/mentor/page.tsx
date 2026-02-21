@@ -4,6 +4,7 @@ import { AdminShell } from "@/components/AdminShell";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { MentorDashboardCharts } from "./charts";
 
 export default async function MentorPage() {
     const supabase = createClient();
@@ -26,8 +27,10 @@ export default async function MentorPage() {
 
     const studentIds = (assignments || []).map((a: any) => a.user_id);
 
-    // Fetch student education data (not personal)
     let students: any[] = [];
+    let avgSkillData: { skill: string; avgScore: number }[] = [];
+    let studentProgressData: { name: string; xp: number; level: number }[] = [];
+
     if (studentIds.length > 0) {
         const { data: profiles } = await supabase
             .from("profiles")
@@ -70,6 +73,27 @@ export default async function MentorPage() {
             stats: statsMap.get(p.id),
             recentAttempts: (attemptMap.get(p.id) || []).slice(0, 5),
         }));
+
+        // Compute chart data: average score per skill across all students
+        const skillTotals = new Map<string, { sum: number; count: number }>();
+        (scores || []).forEach((s: any) => {
+            const name = s.skills?.name || "Unknown";
+            const existing = skillTotals.get(name) || { sum: 0, count: 0 };
+            existing.sum += s.score;
+            existing.count += 1;
+            skillTotals.set(name, existing);
+        });
+        avgSkillData = Array.from(skillTotals.entries()).map(([skill, { sum, count }]) => ({
+            skill,
+            avgScore: Math.round(sum / count),
+        }));
+
+        // Student progress bar chart data
+        studentProgressData = students.map(s => ({
+            name: s.full_name || s.id.slice(0, 8),
+            xp: s.stats?.xp || 0,
+            level: s.stats?.level || 1,
+        }));
     }
 
     return (
@@ -80,11 +104,13 @@ export default async function MentorPage() {
                     {students.length > 0 ? `${students.length} assigned students` : "No students assigned yet"}
                 </p>
 
+                {/* Charts */}
+                <MentorDashboardCharts avgSkillData={avgSkillData} studentProgressData={studentProgressData} />
+
                 <div className="mt-6 space-y-4">
                     {students.map((s: any) => {
                         const avgScore = s.scores.length > 0
-                            ? Math.round(s.scores.reduce((sum: number, sc: any) => sum + sc.score, 0) / s.scores.length)
-                            : 0;
+                            ? Math.round(s.scores.reduce((sum: number, sc: any) => sum + sc.score, 0) / s.scores.length) : 0;
 
                         return (
                             <Card key={s.id} className="bg-white/5">
@@ -111,7 +137,6 @@ export default async function MentorPage() {
                                         </div>
                                     </div>
 
-                                    {/* Skill scores */}
                                     <div className="space-y-2">
                                         {s.scores.map((sc: any) => (
                                             <div key={sc.skill_id} className="flex items-center gap-3">
@@ -122,7 +147,6 @@ export default async function MentorPage() {
                                         ))}
                                     </div>
 
-                                    {/* Recent attempts */}
                                     {s.recentAttempts.length > 0 && (
                                         <div className="mt-3 flex gap-2">
                                             <span className="text-[10px] text-zinc-500">Recent:</span>
