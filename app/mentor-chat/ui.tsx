@@ -36,6 +36,7 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
     const [clearPending, setClearPending] = useState(false);
     const [clearRequestedByMe, setClearRequestedByMe] = useState(false);
     const bottomRef = useRef<HTMLDivElement>(null);
+    const pollActiveRef = useRef(true);
 
     const messages = mode === "ai" ? aiMessages : humanMessages;
 
@@ -43,14 +44,24 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
-    // Poll for human messages + clear status
+    // Cleanup on unmount
+    useEffect(() => {
+        return () => { pollActiveRef.current = false; };
+    }, []);
+
+    // Poll for human messages + clear status (stops on 401 / unmount)
     const pollHumanMessages = useCallback(async () => {
-        if (!humanConvId) return;
+        if (!humanConvId || !pollActiveRef.current) return;
         try {
             const [msgRes, clearRes] = await Promise.all([
                 fetch(`/api/chat/messages?conversationId=${humanConvId}`),
                 fetch(`/api/chat/clear?conversationId=${humanConvId}`),
             ]);
+            // Stop polling if unauthorized (user logged out)
+            if (msgRes.status === 401 || clearRes.status === 401) {
+                pollActiveRef.current = false;
+                return;
+            }
             if (msgRes.ok) {
                 const data = await msgRes.json();
                 if (data.messages) setHumanMessages(data.messages);
@@ -60,12 +71,14 @@ export function MentorChatUI({ initialAiMessages, initialAiConversationId, mento
                 setClearPending(clearData.clearPending);
                 setClearRequestedByMe(clearData.requestedByMe);
             }
-        } catch { /* ignore */ }
+        } catch { /* ignore network errors */ }
     }, [humanConvId]);
 
     useEffect(() => {
         if (!humanConvId) return;
-        const interval = setInterval(pollHumanMessages, 3000);
+        const interval = setInterval(() => {
+            if (pollActiveRef.current) pollHumanMessages();
+        }, 3000);
         return () => clearInterval(interval);
     }, [humanConvId, pollHumanMessages]);
 
