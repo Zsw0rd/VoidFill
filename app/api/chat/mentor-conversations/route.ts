@@ -16,22 +16,46 @@ export async function GET(req: Request) {
     if (!studentId) return NextResponse.json({ error: "studentId required" }, { status: 400 });
 
     // Verify caller is a mentor assigned to this student
-    const { data: assignment } = await supabase
+    const { data: assignmentRows } = await supabase
         .from("mentor_assignments")
         .select("id")
         .eq("mentor_id", user.id)
         .eq("user_id", studentId)
-        .maybeSingle();
+        .limit(1);
 
+    const assignment = assignmentRows?.[0];
     if (!assignment) return NextResponse.json({ error: "Not assigned to this student" }, { status: 403 });
 
-    // Find human conversation for this student
-    const { data: conv } = await supabase
+    // Prefer the conversation already linked to this mentor.
+    const { data: mentorConversations } = await supabase
         .from("chat_conversations")
-        .select("id")
+        .select("id, mentor_id")
         .eq("user_id", studentId)
         .eq("is_ai", false)
-        .maybeSingle();
+        .eq("mentor_id", user.id)
+        .order("created_at", { ascending: true })
+        .limit(1);
+
+    let conv = mentorConversations?.[0] ?? null;
+
+    if (!conv) {
+        const { data: conversations } = await supabase
+            .from("chat_conversations")
+            .select("id, mentor_id")
+            .eq("user_id", studentId)
+            .eq("is_ai", false)
+            .order("created_at", { ascending: true })
+            .limit(1);
+
+        conv = conversations?.[0] ?? null;
+    }
+
+    if (conv && !conv.mentor_id) {
+        await supabase
+            .from("chat_conversations")
+            .update({ mentor_id: user.id })
+            .eq("id", conv.id);
+    }
 
     return NextResponse.json({ conversationId: conv?.id || null });
 }
