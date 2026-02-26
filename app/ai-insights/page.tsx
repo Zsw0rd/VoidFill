@@ -12,7 +12,7 @@ export default async function AIInsightsPage() {
     if (!profile?.onboarded) redirect("/onboarding");
 
     return (
-        <AppShell>
+        <AppShell displayName={profile.full_name || user.email || "User"}>
             <div className="max-w-6xl mx-auto">
                 <AIInsightsClient hasRole={!!profile.target_role_id} />
             </div>

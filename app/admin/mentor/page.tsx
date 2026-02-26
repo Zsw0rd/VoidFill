@@ -97,7 +97,7 @@ export default async function MentorPage() {
     }
 
     return (
-        <AdminShell role={adminUser.admin_role}>
+        <AdminShell role={adminUser.admin_role} displayName={adminUser.display_name || user.email || "Admin"}>
             <div className="max-w-5xl mx-auto">
                 <h1 className="text-3xl font-semibold">My Students</h1>
                 <p className="mt-2 text-sm text-zinc-400">

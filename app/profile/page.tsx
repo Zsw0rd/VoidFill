@@ -38,7 +38,7 @@ export default async function ProfilePage() {
     .limit(20);
 
   return (
-    <AppShell>
+    <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="max-w-4xl mx-auto">
         <ProfileEditor
           initial={profile}

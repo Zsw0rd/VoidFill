@@ -21,7 +21,7 @@ export default async function DailyTestPage() {
     .maybeSingle();
 
   return (
-    <AppShell>
+    <AppShell displayName={user.email || "User"}>
       <div className="max-w-4xl mx-auto">
         <DailyTestClient existingAttempt={existing} />
       </div>

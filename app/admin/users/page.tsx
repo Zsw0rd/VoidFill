@@ -11,7 +11,7 @@ export default async function AdminUsersPage() {
 
     const { data: adminUser } = await supabase
         .from("admin_users")
-        .select("admin_role")
+        .select("admin_role, display_name")
         .eq("id", user.id)
         .maybeSingle();
 
@@ -37,7 +37,7 @@ export default async function AdminUsersPage() {
     });
 
     return (
-        <AdminShell role={adminUser.admin_role}>
+        <AdminShell role={adminUser.admin_role} displayName={adminUser.display_name || user.email || "Admin"}>
             <div className="max-w-5xl mx-auto">
                 <h1 className="text-3xl font-semibold">All Users</h1>
                 <p className="mt-2 text-sm text-zinc-400">{(profiles || []).length} registered users</p>

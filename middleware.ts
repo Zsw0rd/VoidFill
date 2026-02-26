@@ -1,25 +1,24 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 
-const PUBLIC_PATHS = [
-  "/",
+const AUTH_REDIRECT_PATHS = new Set([
   "/auth/login",
   "/auth/signup",
-  "/auth/admin-login",
-  "/auth/logout",
-];
+]);
 
-function isPublic(pathname: string) {
-  if (PUBLIC_PATHS.includes(pathname)) return true;
-  if (pathname.startsWith("/_next")) return true;
-  if (pathname.startsWith("/favicon")) return true;
-  if (pathname.startsWith("/icon")) return true;
-  if (pathname.startsWith("/assets")) return true;
-  if (pathname.startsWith("/api")) return true;
-  return false;
+function needsSessionCheck(pathname: string) {
+  return pathname.startsWith("/admin") || AUTH_REDIRECT_PATHS.has(pathname);
 }
 
 export async function middleware(req: NextRequest) {
+  const pathname = req.nextUrl.pathname;
+
+  if (!needsSessionCheck(pathname)) {
+    return NextResponse.next({
+      request: { headers: new Headers(req.headers) },
+    });
+  }
+
   const res = NextResponse.next({
     request: { headers: new Headers(req.headers) },
   });
@@ -48,17 +47,15 @@ export async function middleware(req: NextRequest) {
 
   // IMPORTANT: getUser() refreshes the session token if expired
   const { data: { user } } = await supabase.auth.getUser();
-  const pathname = req.nextUrl.pathname;
 
-  if (!user && !isPublic(pathname)) {
-    const url = req.nextUrl.clone();
-    url.pathname = "/auth/login";
-    url.searchParams.set("next", pathname);
-    return NextResponse.redirect(url);
-  }
+  if (pathname.startsWith("/admin")) {
+    if (!user) {
+      const url = req.nextUrl.clone();
+      url.pathname = "/auth/login";
+      url.searchParams.set("next", pathname);
+      return NextResponse.redirect(url);
+    }
 
-  // Protect admin routes
-  if (user && pathname.startsWith("/admin")) {
     const { data: adminUser } = await supabase
       .from("admin_users")
       .select("admin_role")
@@ -72,7 +69,7 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  if (user && (pathname === "/auth/login" || pathname === "/auth/signup")) {
+  if (user && AUTH_REDIRECT_PATHS.has(pathname)) {
     const url = req.nextUrl.clone();
     url.pathname = "/dashboard";
     return NextResponse.redirect(url);
@@ -82,5 +79,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|icon.svg|assets).*)"],
 };

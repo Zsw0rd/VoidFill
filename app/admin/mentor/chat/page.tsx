@@ -57,7 +57,7 @@ export default async function MentorChatPage() {
     }
 
     return (
-        <AdminShell role={adminUser.admin_role}>
+        <AdminShell role={adminUser.admin_role} displayName={adminUser.display_name || user.email || "Admin"}>
             <MentorChatPanel
                 mentorId={user.id}
                 students={students}
