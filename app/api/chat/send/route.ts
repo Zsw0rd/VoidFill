@@ -133,16 +133,19 @@ STUDENT CONTEXT:
         }
 
         // Save AI response
-        const { data: aiMsg } = await supabase
+        const { error: aiInsertErr } = await supabase
             .from("chat_messages")
             .insert({
                 conversation_id: convId,
                 sender_id: null,
                 sender_role: "ai",
                 content: aiResponse.trim(),
-            })
-            .select("id")
-            .single();
+            });
+
+        if (aiInsertErr) {
+            console.error("Failed to save AI response:", aiInsertErr.message);
+            return NextResponse.json({ error: "Failed to save AI response" }, { status: 500 });
+        }
 
         // Run moderation check asynchronously (don't block response)
         moderateMessages(supabase, apiKey, convId, message.trim(), aiResponse.trim()).catch(err => {
