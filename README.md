@@ -139,9 +139,6 @@ Open `http://localhost:3000`.
 - Guards `/admin/**` by checking `admin_users` table
 - Uses Supabase cookie-based server session
 
-## Additional Documentation
-- Detailed analysis and implementation notes: `docs/PROJECT_ANALYSIS.md`
-
 ## Current Scope Notes
 - AI-generated question correctness is currently client-visible in some flows (MVP tradeoff).
 - Admin and mentor features are implemented, with chat moderation and assignment support.
