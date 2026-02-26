@@ -1,4 +1,4 @@
-# SkillGap AI
+# VoidFill - AI Skill Gap Analyser
 
 AI-powered skill-gap tracking platform built with Next.js + Supabase.
 
