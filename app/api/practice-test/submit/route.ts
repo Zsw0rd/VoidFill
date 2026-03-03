@@ -80,9 +80,28 @@ export async function POST(req: Request) {
         await supabase.from("user_skill_scores").upsert(upserts, { onConflict: "user_id,skill_id" });
     }
 
-    // Update roadmap progress based on new skill scores
+    // Blend skill mastery and completed roadmap leaves into one branch progress value.
+    const roadmapSkillIds = skillScoreEntries.map((entry) => entry.skill_id);
+    const { data: roadmapCourses } = roadmapSkillIds.length
+        ? await supabase
+            .from("roadmap_courses")
+            .select("skill_id, completed")
+            .eq("user_id", user.id)
+            .in("skill_id", roadmapSkillIds)
+        : { data: [] as any[] };
+
+    const courseProgressBySkill = new Map<string, { total: number; completed: number }>();
+    (roadmapCourses || []).forEach((course: any) => {
+        const existing = courseProgressBySkill.get(course.skill_id) || { total: 0, completed: 0 };
+        existing.total += 1;
+        if (course.completed) existing.completed += 1;
+        courseProgressBySkill.set(course.skill_id, existing);
+    });
+
     for (const entry of skillScoreEntries) {
-        const progress = Math.min(100, entry.score);
+        const stats = courseProgressBySkill.get(entry.skill_id);
+        const courseProgress = stats?.total ? Math.round((stats.completed / stats.total) * 100) : 0;
+        const progress = Math.min(100, Math.round(entry.score * 0.68 + courseProgress * 0.32));
         await supabase.from("user_roadmap")
             .update({ progress, updated_at: new Date().toISOString() })
             .eq("user_id", user.id)

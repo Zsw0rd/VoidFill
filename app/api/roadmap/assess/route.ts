@@ -17,14 +17,14 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "course_title required" }, { status: 400 });
     }
 
-    const questionCount = is_skill_assessment ? 8 : 5;
+    const questionCount = is_skill_assessment ? 10 : 12;
     const prompt = is_skill_assessment
         ? `Generate a ${questionCount}-question skill assessment quiz.
 
 Skill: "${skill_name || "General"}"
 Context: ${course_title}
 
-Test the learner's understanding of this skill area comprehensively. Questions should cover fundamentals, application, and problem-solving.
+Test the learner's understanding of this skill area comprehensively. Questions should cover fundamentals, application, and problem-solving. Make the quiz strong enough for a completion gate.
 
 Return ONLY valid JSON array:
 [
@@ -40,7 +40,7 @@ Return ONLY valid JSON array:
 Course: "${course_title}"
 Skill Area: "${skill_name || "General"}"
 
-Test whether the learner has understood this course material. Range from recall to application.
+Test whether the learner has understood this course material deeply enough to mark the course complete. Range from recall to application and practical judgment.
 
 Return ONLY valid JSON array:
 [
