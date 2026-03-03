@@ -121,10 +121,7 @@ IMPORTANT:
             return undefined;
         }
 
-        // Delete old recommendations
-        await supabase.from("roadmap_courses").delete().eq("user_id", user.id);
-
-        // Insert new ones with fuzzy matching
+        // Build replacement rows before touching existing recommendations.
         const coursesToInsert: any[] = [];
         const unmatchedSkills: string[] = [];
 
@@ -158,20 +155,62 @@ IMPORTANT:
             console.warn("Unmatched skill names from AI:", unmatchedSkills);
         }
 
-        if (coursesToInsert.length > 0) {
-            const { error: insertErr } = await supabase.from("roadmap_courses").insert(coursesToInsert);
-            if (insertErr) {
-                console.error("Insert error:", insertErr);
-                return NextResponse.json({ error: "Failed to save recommendations" }, { status: 500 });
+        if (coursesToInsert.length === 0) {
+            return NextResponse.json({
+                saved: 0,
+                unmatched: unmatchedSkills,
+                message: "No matching skills found. Please take a daily test first.",
+            });
+        }
+
+        const { data: existingCourses, error: existingErr } = await supabase
+            .from("roadmap_courses")
+            .select("skill_id, title, type, provider, url, estimated_hours, difficulty, description, sort_order, completed")
+            .eq("user_id", user.id);
+
+        if (existingErr) {
+            console.error("Fetch existing recommendations error:", existingErr);
+            return NextResponse.json({ error: "Failed to load existing recommendations" }, { status: 500 });
+        }
+
+        const { error: deleteErr } = await supabase.from("roadmap_courses").delete().eq("user_id", user.id);
+        if (deleteErr) {
+            console.error("Delete error:", deleteErr);
+            return NextResponse.json({ error: "Failed to replace recommendations" }, { status: 500 });
+        }
+
+        const { error: insertErr } = await supabase.from("roadmap_courses").insert(coursesToInsert);
+        if (insertErr) {
+            console.error("Insert error:", insertErr);
+
+            if (existingCourses && existingCourses.length > 0) {
+                const restoreRows = existingCourses.map((course: any) => ({
+                    user_id: user.id,
+                    skill_id: course.skill_id,
+                    title: course.title,
+                    type: course.type,
+                    provider: course.provider,
+                    url: course.url,
+                    estimated_hours: course.estimated_hours,
+                    difficulty: course.difficulty,
+                    description: course.description,
+                    sort_order: course.sort_order,
+                    completed: course.completed,
+                }));
+
+                const { error: restoreErr } = await supabase.from("roadmap_courses").insert(restoreRows);
+                if (restoreErr) {
+                    console.error("Restore error:", restoreErr);
+                }
             }
+
+            return NextResponse.json({ error: "Failed to save recommendations" }, { status: 500 });
         }
 
         return NextResponse.json({
             saved: coursesToInsert.length,
             unmatched: unmatchedSkills,
-            message: coursesToInsert.length > 0
-                ? `${coursesToInsert.length} resources saved.`
-                : "No matching skills found. Please take a daily test first.",
+            message: `${coursesToInsert.length} resources saved.`,
         });
     } catch (err: any) {
         console.error("AI recommend error:", err);

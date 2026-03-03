@@ -46,13 +46,18 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Invalid conversation" }, { status: 403 });
     }
 
-    // Save user message
-    await supabase.from("chat_messages").insert({
+    // Save the user message before generating the AI reply so history stays consistent.
+    const { error: userInsertErr } = await supabase.from("chat_messages").insert({
         conversation_id: convId,
         sender_id: user.id,
         sender_role: "user",
         content: message.trim(),
     });
+
+    if (userInsertErr) {
+        console.error("Failed to save user message:", userInsertErr.message);
+        return NextResponse.json({ error: "Failed to save message" }, { status: 500 });
+    }
 
     // Fetch recent chat history for context
     const { data: history } = await supabase

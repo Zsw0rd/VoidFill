@@ -34,19 +34,13 @@ Set values in `.env.local`:
 - `GEMINI_API_KEY` (required for AI features)
 - `NEXT_PUBLIC_SITE_URL` (optional, used for logout redirect in `app/auth/logout/route.ts`)
 
-### 4) Initialize the database (SQL order)
-Run these in Supabase SQL editor in this order:
-1. `supabase/schema.sql`
-2. `supabase/seed.sql`
-3. `supabase/migrations/001_profile_enhancements.sql`
-4. `supabase/migrations/002_roadmap_courses.sql`
-5. `supabase/migrations/003_ai_questions.sql`
-6. `supabase/migrations/004_ai_insights.sql`
-7. `supabase/migrations/005_practice_tests.sql`
-8. `supabase/admin/006_chat.sql`
+### 4) Initialize the database
+Use `supabase/actualused/used.sql` in Supabase SQL Editor.
 
-Optional:
-9. `supabase/admin/admin_seed.sql` (after you create an auth user for super admin)
+Notes:
+- `supabase/actualused/used.sql` is the authoritative SQL used by this project.
+- The other SQL files under `supabase/` are retained as reference/history and are not the active setup path.
+- `supabase/admin/admin_seed.sql` is still optional, after you create an auth user for super admin.
 
 ### 5) Storage setup (required for resume upload)
 Create Supabase Storage bucket:

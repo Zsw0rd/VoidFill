@@ -3,13 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import { createClient } from "@/lib/supabase/browser";
+import { toast } from "@/components/toast/bus";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { toast } from "@/components/toast/bus";
-import { motion } from "framer-motion";
 
 export default function SignupPage() {
   const supabase = createClient();
@@ -51,7 +51,7 @@ export default function SignupPage() {
     setBusy(false);
     if (pErr) return toast("Profile create failed", pErr.message);
 
-    toast("Account created", "Let’s finish your profile.");
+    toast("Account created", "Let's finish your profile.");
     router.refresh();
     router.push("/onboarding");
   }
@@ -70,7 +70,7 @@ export default function SignupPage() {
                 <Label>Full name</Label>
                 <Input value={fullName} onChange={(e) => setFullName(e.target.value)} required placeholder="Your name" />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label>Course</Label>
                   <Input value={course} onChange={(e) => setCourse(e.target.value)} required placeholder="BCA / MCA / ..." />
