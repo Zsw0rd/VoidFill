@@ -17,7 +17,7 @@ export default async function RoadmapPage() {
   return (
     <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="max-w-6xl mx-auto">
-        <RoadmapClient role={role} />
+        <RoadmapClient role={role} initialViewMode={profile.roadmap_view_mode || "tree"} />
       </div>
     </AppShell>
   );

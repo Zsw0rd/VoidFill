@@ -52,6 +52,7 @@ export async function POST() {
       skill_id: r.skill_id,
       category: cat,
       priority: p,
+      progress: Math.round(score * 0.68),
       status: "todo",
       updated_at: new Date().toISOString(),
     };
