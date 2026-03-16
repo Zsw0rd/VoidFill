@@ -69,7 +69,7 @@ export default async function AdminDashboardPage() {
     const levelDistribution = levelLabels.map((label, i) => ({ level: label, count: levelBuckets[i] }));
 
     return (
-        <AdminShell role={adminUser.admin_role}>
+        <AdminShell role={adminUser.admin_role} displayName={adminUser.display_name || user.email || "Admin"}>
             <div className="max-w-5xl mx-auto">
                 <div className="flex items-center gap-3">
                     <h1 className="text-3xl font-semibold">Admin Dashboard</h1>

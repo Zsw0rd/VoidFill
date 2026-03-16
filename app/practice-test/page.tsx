@@ -28,7 +28,7 @@ export default async function PracticeTestPage() {
     const skillNames = (roleSkills || []).map((rs: any) => rs.skills?.name).filter(Boolean);
 
     return (
-        <AppShell>
+        <AppShell displayName={profile.full_name || user.email || "User"}>
             <div className="max-w-4xl mx-auto">
                 <PracticeTestClient
                     recentAttempts={recentAttempts || []}

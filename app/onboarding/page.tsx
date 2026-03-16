@@ -14,7 +14,7 @@ export default async function OnboardingPage() {
   const { data: roles } = await supabase.from("roles").select("id,name,description").order("name");
 
   return (
-    <AppShell>
+    <AppShell displayName={profile?.full_name || user.email || "User"}>
       <div className="max-w-3xl mx-auto">
         <OnboardingForm roles={roles || []} />
       </div>

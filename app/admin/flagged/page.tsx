@@ -11,7 +11,7 @@ export default async function AdminFlaggedPage() {
 
     const { data: adminUser } = await supabase
         .from("admin_users")
-        .select("admin_role")
+        .select("admin_role, display_name")
         .eq("id", user.id)
         .maybeSingle();
 
@@ -26,7 +26,7 @@ export default async function AdminFlaggedPage() {
         .limit(50);
 
     return (
-        <AdminShell role={adminUser.admin_role}>
+        <AdminShell role={adminUser.admin_role} displayName={adminUser.display_name || user.email || "Admin"}>
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-3xl font-semibold">Flagged Messages</h1>
                 <p className="mt-2 text-sm text-zinc-400">{(flagged || []).length} messages flagged by AI moderation</p>

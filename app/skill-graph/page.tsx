@@ -24,7 +24,7 @@ export default async function SkillGraphPage() {
     ]);
 
     return (
-        <AppShell>
+        <AppShell displayName={profile.full_name || user.email || "User"}>
             <div className="max-w-6xl mx-auto">
                 <SkillGraphClient
                     role={role}

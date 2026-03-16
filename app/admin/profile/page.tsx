@@ -17,7 +17,7 @@ export default async function AdminProfilePage() {
     if (!adminRow) redirect("/auth/admin-login");
 
     return (
-        <AdminShell role={adminRow.admin_role}>
+        <AdminShell role={adminRow.admin_role} displayName={adminRow.display_name || user.email || "Admin"}>
             <AdminProfileEditor
                 userId={user.id}
                 email={user.email || ""}

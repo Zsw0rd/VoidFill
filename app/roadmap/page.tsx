@@ -15,7 +15,7 @@ export default async function RoadmapPage() {
   const { data: role } = roleId ? await supabase.from("roles").select("*").eq("id", roleId).maybeSingle() : { data: null };
 
   return (
-    <AppShell>
+    <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="max-w-6xl mx-auto">
         <RoadmapClient role={role} />
       </div>

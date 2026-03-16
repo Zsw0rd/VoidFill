@@ -41,7 +41,7 @@ export default async function DashboardPage() {
   const isStudent = profile.user_type === "student" || !profile.user_type;
 
   return (
-    <AppShell>
+    <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">

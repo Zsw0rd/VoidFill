@@ -12,7 +12,7 @@ export default async function AdminMentorsPage() {
 
     const { data: adminUser } = await supabase
         .from("admin_users")
-        .select("admin_role")
+        .select("admin_role, display_name")
         .eq("id", user.id)
         .maybeSingle();
 
@@ -42,7 +42,7 @@ export default async function AdminMentorsPage() {
     });
 
     return (
-        <AdminShell role={adminUser.admin_role}>
+        <AdminShell role={adminUser.admin_role} displayName={adminUser.display_name || user.email || "Admin"}>
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-3xl font-semibold">Staff & Mentors</h1>
                 <p className="mt-2 text-sm text-zinc-400">Manage admin users and mentor assignments</p>

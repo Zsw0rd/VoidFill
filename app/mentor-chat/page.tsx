@@ -107,7 +107,7 @@ export default async function MentorChatPage() {
     }
 
     return (
-        <AppShell>
+        <AppShell displayName={user.email || "User"}>
             <MentorChatUI
                 initialAiMessages={aiMessages}
                 initialAiConversationId={aiConvId}
