@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { createAdminClient } from "@/lib/supabase/admin";
 
 async function getConversationIfAuthorized(supabase: ReturnType<typeof createClient>, conversationId: string, userId: string) {
-    const { data: conv } = await supabase
+    const { data: conversationRows } = await supabase
         .from("chat_conversations")
         .select("id, user_id, clear_requested_by")
         .eq("id", conversationId)
         .eq("is_ai", false)
-        .maybeSingle();
+        .limit(1);
+
+    const conv = conversationRows?.[0] ?? null;
 
     if (!conv) return { conv: null, isMentor: false };
 
@@ -29,7 +30,6 @@ async function getConversationIfAuthorized(supabase: ReturnType<typeof createCli
 
 export async function POST(req: Request) {
     const supabase = createClient();
-    const admin = createAdminClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
@@ -40,11 +40,15 @@ export async function POST(req: Request) {
     if (!conv) return NextResponse.json({ error: "Conversation not found" }, { status: 404 });
 
     if (action === "request") {
-        const { error } = await admin
+        const { error } = await supabase
             .from("chat_conversations")
             .update({ clear_requested_by: user.id })
             .eq("id", conversationId);
-        if (error) return NextResponse.json({ error: "Failed to request clear" }, { status: 500 });
+        if (error) {
+            return NextResponse.json({
+                error: "Failed to request clear. Apply the chat policy update in supabase/actualused/used.sql and try again.",
+            }, { status: error.code === "42501" ? 403 : 500 });
+        }
         return NextResponse.json({ status: "requested" });
     }
 
@@ -56,10 +60,10 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "No clear request pending" }, { status: 400 });
         }
 
-        const { error: deleteErr } = await admin.from("chat_messages").delete().eq("conversation_id", conversationId);
+        const { error: deleteErr } = await supabase.from("chat_messages").delete().eq("conversation_id", conversationId);
         if (deleteErr) return NextResponse.json({ error: "Failed to clear chat" }, { status: 500 });
 
-        const { error: clearErr } = await admin
+        const { error: clearErr } = await supabase
             .from("chat_conversations")
             .update({ clear_requested_by: null })
             .eq("id", conversationId);
@@ -69,7 +73,7 @@ export async function POST(req: Request) {
     }
 
     if (action === "reject") {
-        const { error } = await admin
+        const { error } = await supabase
             .from("chat_conversations")
             .update({ clear_requested_by: null })
             .eq("id", conversationId);

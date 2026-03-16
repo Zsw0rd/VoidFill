@@ -8,12 +8,13 @@ export default async function MentorChatPage() {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) redirect("/auth/login");
 
-    const { data: adminUser } = await supabase
+    const { data: adminRows } = await supabase
         .from("admin_users")
         .select("admin_role, display_name")
         .eq("id", user.id)
-        .maybeSingle();
+        .limit(1);
 
+    const adminUser = adminRows?.[0];
     if (!adminUser) redirect("/dashboard");
 
     // Fetch assigned students
@@ -39,6 +40,7 @@ export default async function MentorChatPage() {
             .select("id, user_id, title, created_at")
             .in("user_id", studentIds)
             .eq("is_ai", false)
+            .eq("mentor_id", user.id)
             .order("created_at", { ascending: false });
 
         conversations = convs || [];
