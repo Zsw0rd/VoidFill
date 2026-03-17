@@ -1173,3 +1173,50 @@ begin
       check (roadmap_view_mode in ('tree', 'list'));
   end if;
 end $$;
+
+-- 008_chat_ai_message_insert_fix.sql
+-- Keeps the original mentor-student chat policy intact and then overrides it
+-- to allow AI/system rows only inside the owner's AI conversations.
+
+drop policy if exists "chat_msg_insert" on public.chat_messages;
+
+create policy "chat_msg_insert"
+on public.chat_messages
+for insert to authenticated
+with check (
+  exists (
+    select 1
+    from public.chat_conversations cc
+    where cc.id = conversation_id
+      and (
+        (
+          cc.is_ai = true
+          and cc.user_id = auth.uid()
+          and (
+            (sender_role = 'user' and sender_id = auth.uid())
+            or (sender_role in ('ai', 'system') and sender_id is null)
+          )
+        )
+        or (
+          cc.is_ai = false
+          and (
+            (cc.user_id = auth.uid() and sender_role = 'user' and sender_id = auth.uid())
+            or (
+              (
+                cc.mentor_id = auth.uid()
+                or exists (
+                  select 1
+                  from public.mentor_assignments ma
+                  where ma.user_id = cc.user_id
+                    and ma.mentor_id = auth.uid()
+                )
+                or public.is_admin()
+              )
+              and sender_role = 'mentor'
+              and sender_id = auth.uid()
+            )
+          )
+        )
+      )
+  )
+);

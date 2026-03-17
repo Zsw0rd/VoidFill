@@ -25,3 +25,46 @@ a:hover { @apply text-white; }
 ::selection {
   @apply bg-white text-black;
 }
+
+.ambient-light {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.42) 34%, rgba(255,255,255,0.08) 62%, transparent 76%);
+  box-shadow: 0 0 28px rgba(255,255,255,0.12);
+  mix-blend-mode: screen;
+  opacity: 0.12;
+  filter: blur(0.5px) brightness(0.9);
+  animation:
+    ambient-drift var(--ambient-drift-duration, 16s) ease-in-out infinite,
+    ambient-shimmer var(--ambient-pulse-duration, 8s) ease-in-out infinite alternate;
+  animation-delay: var(--ambient-delay, 0s), var(--ambient-delay, 0s);
+  will-change: transform, opacity, filter;
+}
+
+@keyframes ambient-drift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(var(--ambient-drift-x, 16px), var(--ambient-drift-y, -12px), 0);
+  }
+}
+
+@keyframes ambient-shimmer {
+  0% {
+    opacity: 0.08;
+    filter: blur(0.5px) brightness(0.82);
+  }
+  100% {
+    opacity: var(--ambient-opacity, 0.2);
+    filter: blur(1.4px) brightness(1.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-light {
+    animation: none;
+    opacity: 0.14;
+    filter: blur(0.8px) brightness(1);
+  }
+}

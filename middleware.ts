@@ -51,7 +51,7 @@ export async function middleware(req: NextRequest) {
   if (pathname.startsWith("/admin")) {
     if (!user) {
       const url = req.nextUrl.clone();
-      url.pathname = "/auth/login";
+      url.pathname = "/auth/admin-login";
       url.searchParams.set("next", pathname);
       return NextResponse.redirect(url);
     }
