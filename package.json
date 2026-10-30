@@ -4,9 +4,21 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "next dev",
+    "dev:ml": "node scripts/ml.mjs serve",
+    "ml:setup": "node scripts/ml.mjs setup",
+    "ml:prepare": "node scripts/ml.mjs prepare",
+    "ml:train": "node scripts/ml.mjs train",
+    "ml:train-expanded": "node scripts/ml.mjs train-expanded",
+    "ml:train-large": "node scripts/ml.mjs train-large",
+    "ml:activate-large": "node scripts/ml.mjs activate-large",
+    "test:demo": "node scripts/test-demo.mjs",
+    "test": "node --import tsx --test tests/assessments.test.ts tests/localMl.test.ts tests/submissions.test.ts",
+    "test:integration": "node --import tsx --test tests/local-integration.test.ts",
+    "test:ml": "node scripts/ml.mjs test",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/dev.mjs --production",
     "lint": "next lint"
   },
   "dependencies": {
@@ -31,6 +43,7 @@
     "eslint-config-next": "^14.2.10",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
+    "tsx": "^4.23.15",
     "typescript": "^5.6.2"
   }
 }

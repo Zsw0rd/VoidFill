@@ -14,16 +14,17 @@ type Question = {
   id: string;
   prompt: string;
   options: string[];
-  correct_index: number;
+  correct_index?: number;
   difficulty: number;
   skill_name: string;
-  explanation: string;
+  explanation?: string;
 };
 
 export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
   const [loading, setLoading] = useState(false);
   const [stage, setStage] = useState<"start" | "quiz" | "review" | "done">("start");
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [assessmentToken, setAssessmentToken] = useState("");
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<any>(null);
@@ -60,34 +61,23 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
 
   async function start() {
     setLoading(true);
-    // Try AI-generated questions first
     try {
       const res = await fetch("/api/ai/generate-questions", { method: "POST" });
-      if (res.ok) {
-        const data = await res.json();
-        setQuestions(data.questions || []);
-        setDifficulty(data.difficulty || 1);
-        setDifficultyLabel(data.difficultyLabel || "Easy");
-        setStage("quiz");
-        setIndex(0);
-        setAnswers({});
-        setLoading(false);
-        return;
-      }
-    } catch {
-      // Fallback below
+      const data = await res.json();
+      if (!res.ok) return toast("Could not load questions", data.error || "Please try again.");
+      if (!data.questions?.length || !data.assessment_token) return toast("No questions available", "Please try again.");
+      setQuestions(data.questions);
+      setAssessmentToken(data.assessment_token);
+      setDifficulty(data.difficulty || 1);
+      setDifficultyLabel(data.difficultyLabel || "Easy");
+      setStage("quiz");
+      setIndex(0);
+      setAnswers({});
+    } catch (error: any) {
+      toast("Could not load questions", error.message || "Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    // Fallback to database questions
-    const { createClient } = await import("@/lib/supabase/browser");
-    const supabase = createClient();
-    const { data, error } = await supabase.rpc("get_random_questions", { p_limit: 10 });
-    setLoading(false);
-    if (error) return toast("Could not load questions", error.message);
-    setQuestions((data || []).map((q: any) => ({ ...q, difficulty: 1, skill_name: "General", explanation: "" })));
-    setStage("quiz");
-    setIndex(0);
-    setAnswers({});
   }
 
   const q = questions[index];
@@ -106,18 +96,20 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
 
   async function submit() {
     setLoading(true);
-    const payload = {
-      answers: Object.entries(answers).map(([question_id, selected_index]) => ({ question_id, selected_index })),
-      ai_questions: questions.map(q => ({ id: q.id, correct_index: q.correct_index, skill_name: q.skill_name })),
-      difficulty_level: difficulty,
-    };
-    const res = await fetch("/api/daily-test/submit", { method: "POST", body: JSON.stringify(payload) });
-    setLoading(false);
-    if (!res.ok) return toast("Submit failed", await res.text());
-    const data = await res.json();
-    setResult(data);
-    setStage("review");
-    toast("Done!", `+${data?.xp_earned || 0} XP earned`);
+    try {
+      const payload = { assessment_token: assessmentToken, answers: questions.map(q => ({ question_id: q.id, selected_index: answers[q.id] ?? -1 })) };
+      const res = await fetch("/api/daily-test/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      const data = await res.json();
+      if (!res.ok) return toast("Submit failed", data.error || "Please try again.");
+      setQuestions(current => current.map(q => ({ ...q, ...data.review?.find((r: any) => r.id === q.id) })));
+      setResult(data);
+      setStage("review");
+      toast("Done!", `+${data?.xp_earned || 0} XP earned`);
+    } catch (error: any) {
+      toast("Submit failed", error.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -127,7 +119,7 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
           <div className="flex items-center justify-between gap-3">
             <div>
               <h1 className="text-2xl font-semibold">Daily Test</h1>
-              <p className="mt-1 text-sm text-zinc-400">AI-powered adaptive assessment</p>
+              <p className="mt-1 text-sm text-zinc-400">Adaptive practice from an open learning question bank</p>
             </div>
             <div className="flex items-center gap-2">
               {stage !== "start" && (
@@ -165,7 +157,7 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
                 </div>
               </div>
               <Button disabled={loading} onClick={start} className="mt-5">
-                {loading ? "Generating questions..." : "Start AI Test"}
+                {loading ? "Preparing questions..." : "Start Test"}
               </Button>
             </div>
           )}
@@ -241,7 +233,7 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
                           <div className="font-medium text-sm">{question.prompt}</div>
                           <div className="mt-2 text-xs text-zinc-400">
                             Your answer: <span className={isCorrect ? "text-emerald-300" : "text-rose-300"}>{question.options[userAnswer]}</span>
-                            {!isCorrect && (
+                            {!isCorrect && question.correct_index !== undefined && (
                               <> • Correct: <span className="text-emerald-300">{question.options[question.correct_index]}</span></>
                             )}
                           </div>

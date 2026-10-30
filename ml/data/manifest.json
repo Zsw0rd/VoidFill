@@ -1,0 +1,42 @@
+{
+  "sources": [
+    {
+      "repository": "https://github.com/microsoft/Web-Dev-For-Beginners",
+      "revision": "afcbf7b9134080479c6e6a247e8df5cacabe79a0",
+      "license": "MIT",
+      "lessons": 37,
+      "quiz_files": 1
+    },
+    {
+      "repository": "https://github.com/microsoft/ML-For-Beginners",
+      "revision": "653bc95f0df772b6910c5aab8a7d9db351d454e5",
+      "license": "MIT",
+      "lessons": 37,
+      "quiz_files": 1
+    },
+    {
+      "repository": "https://github.com/microsoft/Data-Science-For-Beginners",
+      "revision": "0c7e46a0db1d6925982d6323b246299b3855ce32",
+      "license": "MIT",
+      "lessons": 32,
+      "quiz_files": 6
+    },
+    {
+      "repository": "https://github.com/microsoft/AI-For-Beginners",
+      "revision": "49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e",
+      "license": "MIT",
+      "lessons": 42,
+      "quiz_files": 24
+    }
+  ],
+  "resources": 158,
+  "questions": 611,
+  "training_pairs": 551,
+  "rejected": {
+    "invalid_question": 0,
+    "unlinked_quiz": 4,
+    "duplicate_question": 1
+  },
+  "supervision": "Original author quiz-to-lesson links. Supplementary authored questions are excluded from training/evaluation.",
+  "limitations": "Small English beginner curriculum dataset; no learner outcome labels. Source answers have not been independently expert-reviewed; difficulty labels are heuristic."
+}

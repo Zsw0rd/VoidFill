@@ -1,0 +1,144 @@
+{
+  "model": "voidfill-curriculum-minilm-v1",
+  "base_model": {
+    "id": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+  },
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "seed": 42,
+  "epochs": 8,
+  "batch_size": 16,
+  "learning_rate": 2e-05,
+  "objective": "MultipleNegativesRankingLoss; no duplicate positive lesson within a batch",
+  "split": "70/15/15 by lesson ID; all quizzes for a held-out lesson stay outside training. Candidate lesson descriptions remain in the retrieval corpus.",
+  "split_counts": {
+    "train": {
+      "queries": 383,
+      "lessons": 65
+    },
+    "validation": {
+      "queries": 81,
+      "lessons": 14
+    },
+    "test": {
+      "queries": 87,
+      "lessons": 14
+    }
+  },
+  "selection": "Best validation MRR; no test-based model selection",
+  "baseline": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.469136,
+      "recall_at_5": 0.814815,
+      "mrr": 0.621047
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.413793,
+      "recall_at_5": 0.643678,
+      "mrr": 0.522698
+    }
+  },
+  "fine_tuned": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.54321,
+      "recall_at_5": 0.790123,
+      "mrr": 0.669425
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.45977,
+      "recall_at_5": 0.735632,
+      "mrr": 0.569763
+    }
+  },
+  "max_abs_parameter_change": 0.0005880557000637054,
+  "training_seconds": 24.0,
+  "training_data_sha256": "a0cd010504b05749478d39f49f6079df763c60dc0910d3bc279fab8b52046975",
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.864672,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.530864,
+        "recall_at_5": 0.82716,
+        "mrr": 0.665643
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.471554,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.54321,
+        "recall_at_5": 0.790123,
+        "mrr": 0.669425
+      }
+    },
+    {
+      "epoch": 3,
+      "loss": 0.303668,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.518519,
+        "recall_at_5": 0.814815,
+        "mrr": 0.654182
+      }
+    },
+    {
+      "epoch": 4,
+      "loss": 0.216933,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.481481,
+        "recall_at_5": 0.790123,
+        "mrr": 0.62989
+      }
+    },
+    {
+      "epoch": 5,
+      "loss": 0.1419,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.493827,
+        "recall_at_5": 0.790123,
+        "mrr": 0.63479
+      }
+    },
+    {
+      "epoch": 6,
+      "loss": 0.118466,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.45679,
+        "recall_at_5": 0.777778,
+        "mrr": 0.617722
+      }
+    },
+    {
+      "epoch": 7,
+      "loss": 0.080474,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.469136,
+        "recall_at_5": 0.777778,
+        "mrr": 0.621757
+      }
+    },
+    {
+      "epoch": 8,
+      "loss": 0.055767,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.481481,
+        "recall_at_5": 0.802469,
+        "mrr": 0.624458
+      }
+    }
+  ],
+  "limitations": "Measures exact linked-lesson retrieval, not learner improvement or question correctness. Small historical English beginner corpus; related lessons can both be useful. Supplementary questions are excluded from these metrics."
+}

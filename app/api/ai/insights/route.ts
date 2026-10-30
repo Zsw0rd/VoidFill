@@ -17,7 +17,7 @@ export async function GET() {
         return NextResponse.json({ error: "Failed to load insights" }, { status: 500 });
     }
 
-    if (!data) {
+    if (!data || data.meta?.engine !== "local-ml") {
         return NextResponse.json({ cached: false });
     }
 

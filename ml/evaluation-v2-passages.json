@@ -1,0 +1,158 @@
+{
+  "model": "voidfill-curriculum-minilm-v2",
+  "retrieval": "passages-v1",
+  "previous_intro_only": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.54321,
+      "recall_at_5": 0.790123,
+      "mrr": 0.669425
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.45977,
+      "recall_at_5": 0.735632,
+      "mrr": 0.569763
+    }
+  },
+  "previous_passages": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.679012,
+      "recall_at_5": 0.925926,
+      "mrr": 0.784222
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.678161,
+      "recall_at_5": 0.908046,
+      "mrr": 0.777544
+    }
+  },
+  "fine_tuned": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.703704,
+      "recall_at_5": 0.962963,
+      "mrr": 0.81391
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.689655,
+      "recall_at_5": 0.873563,
+      "mrr": 0.779927
+    }
+  },
+  "expanded_dataset": {
+    "dataset": "sentence-transformers/stackexchange-duplicates",
+    "revision": "1c9657aec12d9e101667bb9593efcc623c4a68ff",
+    "url": "https://huggingface.co/datasets/sentence-transformers/stackexchange-duplicates",
+    "upstream": "https://data.stackexchange.com/apple/query/fork/1456963",
+    "rights": "Stack Exchange user content; CC BY-SA (version varies with post date). Dataset does not preserve per-post authors/URLs. Raw records and checkpoint are local research artifacts; resolve attribution before redistributing them. Not added to product question bank.",
+    "raw_pairs": 304525,
+    "technical_unique_pairs": 13048,
+    "auxiliary_train": 12048,
+    "auxiliary_validation": 1000,
+    "curriculum_train": 383,
+    "sha256": "3f712c7636d78b998ff4c29a9f7d8bccaef27bf6318d060891a155d87783c2fe",
+    "filter": "\\b(python|pandas|numpy|sql|mysql|postgresql|javascript|html|css|git|github|algorithm|data structure|machine learning|neural network|regression|classification|matplotlib|seaborn|reactjs|react.js|django|flask)\\b",
+    "seed": 42,
+    "split": "globally unique normalized title endpoints; 1000 auxiliary validation pairs; frozen disjoint curriculum lesson split"
+  },
+  "task_training_examples": 2832,
+  "task_training_groups": 65,
+  "selected_epoch": 5,
+  "selection": "8 predefined adaptation epochs; best validation MRR vs frozen v1 passage incumbent. Test read after selection. Legacy previously reported test remains a small regression benchmark.",
+  "self_supervision": "Source headings/excerpts from training lessons only; author quiz-to-lesson links with v1-selected source passages. Not new independently labelled questions.",
+  "training_seconds": 188.5,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.39471,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.679012,
+        "recall_at_5": 0.950617,
+        "mrr": 0.798119
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.249543,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.641975,
+        "recall_at_5": 0.962963,
+        "mrr": 0.780115
+      }
+    },
+    {
+      "epoch": 3,
+      "loss": 0.198241,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.654321,
+        "recall_at_5": 0.950617,
+        "mrr": 0.787145
+      }
+    },
+    {
+      "epoch": 4,
+      "loss": 0.147505,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.666667,
+        "recall_at_5": 0.962963,
+        "mrr": 0.793465
+      }
+    },
+    {
+      "epoch": 5,
+      "loss": 0.120649,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.703704,
+        "recall_at_5": 0.962963,
+        "mrr": 0.81391
+      }
+    },
+    {
+      "epoch": 6,
+      "loss": 0.096772,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.691358,
+        "recall_at_5": 0.962963,
+        "mrr": 0.811734
+      }
+    },
+    {
+      "epoch": 7,
+      "loss": 0.071272,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.679012,
+        "recall_at_5": 0.975309,
+        "mrr": 0.803841
+      }
+    },
+    {
+      "epoch": 8,
+      "loss": 0.054838,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.666667,
+        "recall_at_5": 0.975309,
+        "mrr": 0.793351
+      }
+    }
+  ],
+  "limitations": "Measures lesson retrieval on 87 historical English questions, not learner improvement, difficulty calibration or resume parser accuracy. Duplicate dataset attribution must be resolved before redistribution. Source passages are indexed at inference, including held-out candidate lessons, but held-out questions and training passages do not enter fitting.",
+  "seed": 43,
+  "adaptation_epochs": 8,
+  "adaptation_batch_size": 24,
+  "adaptation_learning_rate": 8e-06,
+  "passage_words": 140,
+  "passage_stride": 110,
+  "max_abs_parameter_change_from_v1": 0.0018077343702316284
+}

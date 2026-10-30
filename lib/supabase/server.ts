@@ -1,8 +1,12 @@
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
+import { createDemoClient } from "@/lib/demo/client";
+import { demoService, DEMO_COOKIE } from "@/lib/demo/server";
 
 export function createClient() {
   const cookieStore = cookies();
+  const token = cookieStore.get(DEMO_COOKIE)?.value;
+  if (token) return createDemoClient((operation, body) => demoService(operation, body, token), token) as unknown as ReturnType<typeof createServerClient>;
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

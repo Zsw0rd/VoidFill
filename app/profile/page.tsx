@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { createClient } from "@/lib/supabase/server";
 import { ProfileEditor } from "./ui";
+import Link from "next/link";
 
 export default async function ProfilePage() {
   const supabase = createClient();
@@ -40,6 +41,7 @@ export default async function ProfilePage() {
   return (
     <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="max-w-4xl mx-auto">
+        <div className="py-4"><Link href="/resume" className="text-emerald-300 underline">Upload and review your resume</Link></div>
         <ProfileEditor
           initial={profile}
           userId={user.id}

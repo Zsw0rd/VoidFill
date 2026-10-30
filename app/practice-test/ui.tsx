@@ -14,10 +14,10 @@ type Question = {
     id: string;
     prompt: string;
     options: string[];
-    correct_index: number;
+    correct_index?: number;
     difficulty: number;
     skill_name: string;
-    explanation: string;
+    explanation?: string;
 };
 
 interface Props {
@@ -32,6 +32,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
     const [stage, setStage] = useState<"start" | "quiz" | "review" | "done">("start");
     const [loading, setLoading] = useState(false);
     const [questions, setQuestions] = useState<Question[]>([]);
+    const [assessmentToken, setAssessmentToken] = useState("");
     const [index, setIndex] = useState(0);
     const [answers, setAnswers] = useState<Record<string, number>>({});
     const [result, setResult] = useState<any>(null);
@@ -55,6 +56,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
+                    purpose: "practice",
                     course_title: courseTitle,
                     skill_name: skillNames.join(", "),
                     is_skill_assessment: true,
@@ -69,10 +71,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
             }
 
             const data = await res.json();
-            const qs = (data.questions || []).map((q: any) => ({
-                ...q,
-                skill_name: q.skill_name || skillNames[0] || "General",
-            }));
+            const qs = data.questions || [];
 
             if (qs.length === 0) {
                 toast("No questions generated", "Please try again.");
@@ -81,6 +80,8 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
             }
 
             setQuestions(qs);
+            setAssessmentToken(data.assessment_token);
+            setDifficulty(data.difficulty || 1);
             setStage("quiz");
         } catch (err: any) {
             toast("Network error", err.message);
@@ -96,19 +97,12 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                 selected_index: answers[q.id] ?? -1,
             }));
 
-            const aiQs = questions.map((q) => ({
-                id: q.id,
-                correct_index: q.correct_index,
-                skill_name: q.skill_name,
-            }));
-
             const res = await fetch("/api/practice-test/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     answers: answerPayload,
-                    ai_questions: aiQs,
-                    difficulty_level: difficulty,
+                    assessment_token: assessmentToken,
                 }),
             });
 
@@ -120,6 +114,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
             }
 
             setResult(data);
+            setQuestions(current => current.map(q => ({ ...q, ...data.review?.find((r: any) => r.id === q.id) })));
             setStage("done");
 
             // Adjust difficulty for next test
@@ -142,6 +137,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
     function resetTest() {
         setStage("start");
         setQuestions([]);
+        setAssessmentToken("");
         setAnswers({});
         setResult(null);
         setIndex(0);
@@ -205,7 +201,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                             <Dumbbell className="w-12 h-12 text-zinc-600 mx-auto" />
                             <h3 className="mt-4 text-lg font-semibold">Ready to Practice</h3>
                             <p className="mt-2 text-sm text-zinc-400 max-w-md mx-auto">
-                                AI generates 8 questions from your roadmap skills. Score ≥80% to increase difficulty; &lt;40% to decrease it.
+                                Practice questions selected for your roadmap skills. Score ≥80% to increase difficulty; &lt;40% to decrease it.
                                 {skillNames.length > 0 && (
                                     <span className="block mt-2 text-xs text-zinc-500">
                                         Skills: {skillNames.join(", ")}
@@ -227,7 +223,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                     <Card>
                         <CardContent className="p-8 text-center">
                             <Loader2 className="w-8 h-8 animate-spin text-emerald-400 mx-auto" />
-                            <div className="mt-4 text-sm text-zinc-400">Generating questions...</div>
+                            <div className="mt-4 text-sm text-zinc-400">Preparing questions...</div>
                         </CardContent>
                     </Card>
                 </div>
@@ -322,7 +318,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                                             {isCorrect ? <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" /> : <XCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />}
                                             <div>
                                                 <div className="font-medium">{q.prompt}</div>
-                                                {!isCorrect && <div className="text-xs text-zinc-400 mt-1">Correct: {q.options[q.correct_index]}</div>}
+                                                {!isCorrect && q.correct_index !== undefined && <div className="text-xs text-zinc-400 mt-1">Correct: {q.options[q.correct_index]}</div>}
                                                 {q.explanation && <div className="text-xs text-zinc-300 mt-1">{q.explanation}</div>}
                                                 <div className="text-xs text-zinc-500 mt-1">Skill: {q.skill_name}</div>
                                             </div>

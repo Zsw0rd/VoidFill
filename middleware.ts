@@ -12,6 +12,19 @@ function needsSessionCheck(pathname: string) {
 
 export async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
+  if (req.cookies.has("vf_demo_session")) {
+    if (pathname.startsWith("/admin")) return NextResponse.redirect(new URL("/dashboard", req.url));
+    const result = NextResponse.next();
+    result.headers.set("X-Robots-Tag", "noindex, nofollow");
+    result.headers.set("Referrer-Policy", "no-referrer");
+    return result;
+  }
+  if (pathname.startsWith("/demo/")) {
+    const result = NextResponse.next();
+    result.headers.set("X-Robots-Tag", "noindex, nofollow");
+    result.headers.set("Referrer-Policy", "no-referrer");
+    return result;
+  }
 
   if (!needsSessionCheck(pathname)) {
     return NextResponse.next({

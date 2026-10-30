@@ -1,0 +1,303 @@
+{
+  "model": "voidfill-bge-base-v3",
+  "architecture": "BAAI/bge-base-en-v1.5",
+  "base_model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+  "parameters": 109482240,
+  "previous_parameters": 22713216,
+  "parameter_ratio": 4.82,
+  "embedding_dimensions": 768,
+  "max_seq_length": 256,
+  "query_prefix": "Represent this sentence for searching relevant passages: ",
+  "topic_min_similarity": 0.72,
+  "topic_min_margin": 0.04,
+  "retrieval": "passages-v1",
+  "passage_words": 140,
+  "passage_stride": 110,
+  "dataset": {
+    "dataset": "flax-sentence-embeddings/stackexchange_title_best_voted_answer_jsonl",
+    "revision": "88957a0e825f49aeb2a7bfd828cb46b79010b286",
+    "url": "https://huggingface.co/datasets/flax-sentence-embeddings/stackexchange_title_best_voted_answer_jsonl",
+    "dataset_card_license": "CC-BY-NC-SA-4.0",
+    "usage": "Local noncommercial academic research. Export lacks per-post author/URL attribution. Resolve attribution and applicable rights before commercial use or redistribution of data/derived weights. No records enter product questions or resources.",
+    "source_files": [
+      {
+        "site": "dba",
+        "filename": "dba.stackexchange.com.jsonl.gz",
+        "sha256": "f0de07ff90dc041f95107b8aa23a63135afff3a624b0be4b3d800e64a828490b",
+        "eligible": 69795,
+        "selected": 14000
+      },
+      {
+        "site": "stats",
+        "filename": "stats.stackexchange.com.jsonl.gz",
+        "sha256": "bee458ccd1ca2e33fae09ded1631cfff3e6f4dd2ae4dd06f0bcada6166b032c2",
+        "eligible": 114432,
+        "selected": 14000
+      },
+      {
+        "site": "cs",
+        "filename": "cs.stackexchange.com.jsonl.gz",
+        "sha256": "970b2425d290bcda4f6dca581add5894f63c5ef4767285dade1b22270f75c79f",
+        "eligible": 29520,
+        "selected": 12000
+      },
+      {
+        "site": "datascience",
+        "filename": "datascience.stackexchange.com.jsonl.gz",
+        "sha256": "372ba82aeb6fbb6fb7cd4c61ed60bcd46fcc79f15e77d1efd8d20998dff51c9d",
+        "eligible": 19802,
+        "selected": 11000
+      },
+      {
+        "site": "softwareengineering",
+        "filename": "softwareengineering.stackexchange.com.jsonl.gz",
+        "sha256": "4d44dcae9c2bc5d4ece3bc40acb3326be333999a6f263943fa8914e8f787dbed",
+        "eligible": 50958,
+        "selected": 10000
+      },
+      {
+        "site": "webmasters",
+        "filename": "webmasters.stackexchange.com.jsonl.gz",
+        "sha256": "35a93a2871716e3537a84cff893a7ec571c0a2a923135c937957ae57020aac88",
+        "eligible": 29281,
+        "selected": 8000
+      },
+      {
+        "site": "ai",
+        "filename": "ai.stackexchange.com.jsonl.gz",
+        "sha256": "0cb427d4659ff973e5fd80c836b083bf0489269eb78539be70a5403d7244cebc",
+        "eligible": 5659,
+        "selected": 4000
+      }
+    ],
+    "splits": {
+      "train": 70072,
+      "validation": 1448,
+      "test": 1480
+    },
+    "split_rule": "normalized titles and full answers deduplicated globally; SHA256 title hash buckets 96/2/2; all frozen curriculum query strings excluded; no external test rows used in fitting or selection",
+    "curriculum_examples": 1966,
+    "curriculum_training_lessons": 114,
+    "curriculum_heldout_lessons": 28,
+    "curriculum_supervision": {
+      "source heading": 644,
+      "source excerpt": 939,
+      "author quiz link": 383
+    },
+    "rejected": {
+      "length": 4820,
+      "credential_like_text": 230,
+      "duplicate_or_curriculum_overlap": 603
+    },
+    "seed": 47,
+    "prepared_sha256": {
+      "train": "6202b37415ebd3e87f483e5cb7b6eec0e5f0150dd7a7640b933b97bb19a204a6",
+      "validation": "864f0df2226b3619b1be7929af1fbd2010edf8d95c8e5f6e88e5492c3094fb06",
+      "test": "f4952db59c189957e48dd93a00a6c6428080b9cca1c7bbe4580ee5664832e2a3",
+      "curriculum": "59883df1ec1ee0a3fc7c682fe07b7e08fdc7284536fa571e1493cb6b03f364dd"
+    }
+  },
+  "task_training_examples": 2732,
+  "task_training_groups": 114,
+  "task_examples_sha256": "b1fb875b2deefe5a3661a78983f948221d6d6b155eecd80f3a6aa8f743fee561",
+  "previous": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.703704,
+      "recall_at_5": 0.962963,
+      "mrr": 0.81391
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.689655,
+      "recall_at_5": 0.873563,
+      "mrr": 0.779927
+    }
+  },
+  "larger_base": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.777778,
+      "recall_at_5": 0.938272,
+      "mrr": 0.856722
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.747126,
+      "recall_at_5": 0.91954,
+      "mrr": 0.823101
+    }
+  },
+  "external_answer_retrieval": {
+    "previous": {
+      "queries": 1000,
+      "candidate_answers": 1000,
+      "recall_at_1": 0.633,
+      "recall_at_5": 0.838,
+      "mrr": 0.727604
+    },
+    "larger_base": {
+      "queries": 1000,
+      "candidate_answers": 1000,
+      "recall_at_1": 0.63,
+      "recall_at_5": 0.811,
+      "mrr": 0.709151
+    },
+    "selected": {
+      "queries": 1000,
+      "candidate_answers": 1000,
+      "recall_at_1": 0.63,
+      "recall_at_5": 0.811,
+      "mrr": 0.709151
+    }
+  },
+  "selected_stage": "pretrained base",
+  "fine_tuned_weights_selected": false,
+  "max_abs_parameter_change_from_base": 0.0,
+  "selection": "Best validation MRR among pretrained BGE base, QA stage and six predefined curriculum epochs; no test-based selection. Promotion eligibility uses validation only versus incumbent v2.",
+  "eligible_for_promotion": true,
+  "history": [
+    {
+      "stage": "technical-qa-step-600",
+      "loss": 0.653643,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.765432,
+        "recall_at_5": 0.950617,
+        "mrr": 0.848288
+      }
+    },
+    {
+      "stage": "technical-qa-step-1200",
+      "loss": 0.596746,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.765432,
+        "recall_at_5": 0.938272,
+        "mrr": 0.850699
+      }
+    },
+    {
+      "stage": "technical-qa-step-1800",
+      "loss": 0.564117,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.765432,
+        "recall_at_5": 0.938272,
+        "mrr": 0.851558
+      }
+    },
+    {
+      "stage": "technical-qa-step-2400",
+      "loss": 0.541231,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.753086,
+        "recall_at_5": 0.938272,
+        "mrr": 0.84535
+      }
+    },
+    {
+      "stage": "technical-qa-complete",
+      "loss": 0.524071,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.753086,
+        "recall_at_5": 0.938272,
+        "mrr": 0.845292
+      }
+    },
+    {
+      "stage": "curriculum-epoch-1",
+      "loss": 0.665076,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.753086,
+        "recall_at_5": 0.938272,
+        "mrr": 0.837914
+      }
+    },
+    {
+      "stage": "curriculum-epoch-2",
+      "loss": 0.408336,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.740741,
+        "recall_at_5": 0.938272,
+        "mrr": 0.832721
+      }
+    },
+    {
+      "stage": "curriculum-epoch-3",
+      "loss": 0.284705,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.691358,
+        "recall_at_5": 0.938272,
+        "mrr": 0.803836
+      }
+    },
+    {
+      "stage": "curriculum-epoch-4",
+      "loss": 0.209499,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.753086,
+        "recall_at_5": 0.950617,
+        "mrr": 0.842411
+      }
+    },
+    {
+      "stage": "curriculum-epoch-5",
+      "loss": 0.151566,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.691358,
+        "recall_at_5": 0.938272,
+        "mrr": 0.801235
+      }
+    },
+    {
+      "stage": "curriculum-epoch-6",
+      "loss": 0.118596,
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.654321,
+        "recall_at_5": 0.938272,
+        "mrr": 0.782912
+      }
+    }
+  ],
+  "seed": 47,
+  "learning_rates": {
+    "qa": 1e-06,
+    "curriculum": 5e-06
+  },
+  "qa_epochs": 1,
+  "curriculum_epochs": 6,
+  "batch_sizes": {
+    "qa": 24,
+    "curriculum": 16
+  },
+  "precision": "CUDA fp16 autocast, fp32 parameters and AdamW states",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "peak_training_gpu_bytes": 6524793344,
+  "training_seconds": 1930.3,
+  "limitations": "The 87-query lesson benchmark is a previously reported regression set, not a new blind test. External QA test is disjoint from this run's fine-tuning but overlap with original model pretraining cannot be excluded. Headings/excerpts and mined passages are weak supervision. Metrics measure retrieval, not learner competence, question-bank correctness, resume extraction or career suitability. Dataset card restricts new QA data to CC-BY-NC-SA-4.0; resolve rights/attribution before commercial use or redistribution.",
+  "selected": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.777778,
+      "recall_at_5": 0.938272,
+      "mrr": 0.856722
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.747126,
+      "recall_at_5": 0.91954,
+      "mrr": 0.823101
+    }
+  },
+  "fine_tuning_observation": "No fine-tuned checkpoint exceeded pretrained BGE validation MRR; selected weights are unchanged from the pretrained source."
+}

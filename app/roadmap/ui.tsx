@@ -207,6 +207,7 @@ export function RoadmapClient({
   const [generatingCourses, setGeneratingCourses] = useState(false);
   const [assessTarget, setAssessTarget] = useState<AssessmentTarget>(null);
   const [assessQuestions, setAssessQuestions] = useState<any[]>([]);
+  const [assessToken, setAssessToken] = useState("");
   const [assessIndex, setAssessIndex] = useState(0);
   const [assessAnswers, setAssessAnswers] = useState<Record<string, number>>({});
   const [assessLoading, setAssessLoading] = useState(false);
@@ -456,12 +457,14 @@ export function RoadmapClient({
     setAssessResult(null);
     setAssessAnswers({});
     setAssessIndex(0);
+    setAssessToken("");
+    setAssessQuestions([]);
 
     try {
       const res = await fetch("/api/roadmap/assess", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ course_id: course.id, course_title: course.title, skill_name: skillName }),
+        body: JSON.stringify({ purpose: "course", course_id: course.id }),
       });
 
       if (!res.ok) {
@@ -471,6 +474,7 @@ export function RoadmapClient({
 
       const data = await res.json();
       setAssessQuestions(data.questions || []);
+      setAssessToken(data.assessment_token || "");
     } finally {
       setAssessLoading(false);
     }
@@ -482,18 +486,16 @@ export function RoadmapClient({
     setAssessResult(null);
     setAssessAnswers({});
     setAssessIndex(0);
+    setAssessToken("");
+    setAssessQuestions([]);
 
     try {
-      const skillCourses = courses.filter((course) => course.skill_id === skillId);
-      const courseTitles = skillCourses.map((course) => course.title).join(", ");
-
       const res = await fetch("/api/roadmap/assess", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          skill_name: skillName,
-          course_title: `Skill assessment for ${skillName}${courseTitles ? ` covering: ${courseTitles}` : ""}`,
-          is_skill_assessment: true,
+          purpose: "skill",
+          skill_id: skillId,
         }),
       });
 
@@ -504,105 +506,47 @@ export function RoadmapClient({
 
       const data = await res.json();
       setAssessQuestions(data.questions || []);
+      setAssessToken(data.assessment_token || "");
     } finally {
       setAssessLoading(false);
     }
   }
 
   async function submitAssessment() {
-    if (!assessTarget) return;
-
-    const total = assessQuestions.length;
-    let correct = 0;
-    assessQuestions.forEach((question) => {
-      if (assessAnswers[question.id] === question.correct_index) correct += 1;
-    });
-
-    const assessScore = Math.round((correct / Math.max(total, 1)) * 100);
-    const passThreshold = assessTarget.type === "course" ? COURSE_PASS_THRESHOLD : SKILL_PASS_THRESHOLD;
-    const passed = assessScore >= passThreshold;
-
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) return;
-
-    if (assessTarget.type === "course" && assessTarget.course) {
-      const { error: assessmentInsertError } = await supabase.from("course_assessments").insert({
-        user_id: user.id,
-        course_id: assessTarget.course.id,
-        score: assessScore,
-        total,
-        passed,
-        answers: assessAnswers,
+    if (!assessTarget || assessLoading || !assessToken) return;
+    setAssessLoading(true);
+    try {
+      const res = await fetch("/api/roadmap/submit-assessment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          purpose: assessTarget.type,
+          assessment_token: assessToken,
+          answers: assessQuestions.map(question => ({ question_id: question.id, selected_index: assessAnswers[question.id] ?? -1 })),
+        }),
       });
-
-      if (assessmentInsertError) {
-        toast("Save failed", assessmentInsertError.message);
-        return;
+      const data = await res.json();
+      if (!res.ok) return toast("Assessment failed", data.error || "Please try again.");
+      setAssessQuestions(current => current.map(q => ({ ...q, ...data.review?.find((r: any) => r.id === q.id) })));
+      setScores(current => {
+        const next = { ...current };
+        (data.skillScores || []).forEach((s: any) => { next[s.skill_id] = s.score; });
+        return next;
+      });
+      if (assessTarget.type === "course" && data.passed && assessTarget.course) {
+        setCourses(current => current.map(course => course.id === assessTarget.course?.id ? { ...course, completed: true } : course));
       }
-
-      if (passed) {
-        const { error: courseUpdateError } = await supabase
-          .from("roadmap_courses")
-          .update({ completed: true })
-          .eq("id", assessTarget.course.id);
-
-        if (courseUpdateError) {
-          toast("Course update failed", courseUpdateError.message);
-          return;
-        }
-      }
+      setAssessResult({ score: data.score, correct: data.correct, total: data.total, passed: data.passed });
+    } catch (error: any) {
+      toast("Assessment failed", error.message || "Please try again.");
+    } finally {
+      setAssessLoading(false);
     }
-
-    if (assessTarget.skillId) {
-      const skillId = assessTarget.skillId;
-      const previousScore = scores[skillId] ?? 0;
-      const nextScore = Math.round(previousScore * 0.7 + assessScore * 0.3);
-
-      const { error: skillScoreError } = await supabase.from("user_skill_scores").upsert(
-        { user_id: user.id, skill_id: skillId, score: nextScore, updated_at: new Date().toISOString() },
-        { onConflict: "user_id,skill_id" },
-      );
-
-      if (skillScoreError) {
-        toast("Skill update failed", skillScoreError.message);
-        return;
-      }
-
-      const skillCourses = courses.filter((course) => course.skill_id === skillId);
-      const completedCount = skillCourses.filter((course) => {
-        if (course.completed) return true;
-        return assessTarget.type === "course" && passed && course.id === assessTarget.course?.id;
-      }).length;
-      const courseProgress = skillCourses.length ? Math.round((completedCount / skillCourses.length) * 100) : 0;
-      const branchProgress = clamp(Math.round(nextScore * 0.68 + courseProgress * 0.32), 0, 100);
-
-      const { error: roadmapUpdateError } = await supabase
-        .from("user_roadmap")
-        .update({ progress: branchProgress, updated_at: new Date().toISOString() })
-        .eq("user_id", user.id)
-        .eq("skill_id", skillId);
-
-      if (roadmapUpdateError) {
-        toast("Roadmap update failed", roadmapUpdateError.message);
-        return;
-      }
-
-      setScores((current) => ({ ...current, [skillId]: nextScore }));
-
-      if (assessTarget.type === "course" && passed && assessTarget.course) {
-        setCourses((current) =>
-          current.map((course) => (course.id === assessTarget.course?.id ? { ...course, completed: true } : course)),
-        );
-      }
-    }
-
-    setAssessResult({ score: assessScore, correct, total, passed });
   }
 
   function closeAssessment() {
     setAssessTarget(null);
+    setAssessToken("");
     setAssessQuestions([]);
     setAssessResult(null);
     void load();
@@ -1754,7 +1698,7 @@ function SkillDetailPanel(_: {
           <div className="text-left">
             <div className="font-medium">Take Skill Assessment</div>
             <div className="text-sm text-indigo-200/70">
-              Push this branch forward with a focused Gemini test for {skill.name}. Passing is {SKILL_PASS_THRESHOLD}%.
+              Push this branch forward with a focused skill test for {skill.name}. Passing is {SKILL_PASS_THRESHOLD}%.
             </div>
           </div>
         </button>
@@ -1839,7 +1783,7 @@ function SkillDetailPanel(_: {
                     </div>
                     {!completed && (
                       <div className="mt-2 text-xs text-zinc-500">
-                        Mark complete runs a Gemini assessment on this course. The leaf is only completed after scoring {COURSE_PASS_THRESHOLD}% or higher.
+                        Mark complete runs an assessment on this course. The leaf is only completed after scoring {COURSE_PASS_THRESHOLD}% or higher.
                       </div>
                     )}
                   </div>

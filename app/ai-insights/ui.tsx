@@ -15,6 +15,7 @@ type CriticalGap = {
     targetScore: number;
     gap: number;
     severity: string;
+    assessed?: boolean;
     recommendation: string;
     resources: { title: string; type: string; provider: string; url?: string; estimatedHours?: number }[];
 };
@@ -76,7 +77,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
             setAnalysis(data.analysis);
             setMeta(data.meta);
             setLastUpdated(new Date().toISOString());
-            toast("Analysis complete", "Gemini AI has analyzed your skill gaps!");
+            toast("Analysis complete", "Your skill gaps and learning recommendations are ready.");
         } catch (err: any) {
             toast("Network error", err.message);
         }
@@ -94,7 +95,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                 <div>
                     <div className="flex items-center gap-3">
                         <h1 className="text-3xl font-semibold">AI Insights</h1>
-                        <Badge tone="good">Powered by Gemini</Badge>
+                        <Badge tone="good">Personalized learning insights</Badge>
                     </div>
                     <p className="mt-2 text-sm text-zinc-400">
                         Get AI-powered analysis of your skill gaps with personalized learning recommendations.
@@ -185,14 +186,14 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                             </CardHeader>
                             <CardContent className="p-6 space-y-4">
                                 {analysis.criticalGaps.map((g, i) => {
-                                    const tone = g.severity === "critical" ? "bad" : g.severity === "moderate" ? "warn" : "good";
+                                    const tone = g.severity === "unassessed" ? "neutral" : g.severity === "critical" ? "bad" : g.severity === "moderate" ? "warn" : "good";
                                     return (
                                         <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-5">
                                             <div className="flex items-start justify-between gap-3">
                                                 <div>
                                                     <div className="text-lg font-semibold">{g.skill}</div>
                                                     <div className="mt-1 text-sm text-zinc-400">
-                                                        Score: {g.currentScore}% → Target: {g.targetScore}% | Gap: {g.gap} pts
+                                                        {g.assessed === false ? "Baseline assessment needed" : `Score: ${g.currentScore}% → Target: ${g.targetScore}% | Gap: ${g.gap} pts`}
                                                     </div>
                                                 </div>
                                                 <Badge tone={tone as any}>{g.severity}</Badge>
@@ -298,7 +299,7 @@ export function AIInsightsClient({ hasRole }: { hasRole: boolean }) {
                             <Brain className="w-12 h-12 text-zinc-600 mx-auto" />
                             <h3 className="mt-4 text-lg font-semibold">Ready for AI Analysis</h3>
                             <p className="mt-2 text-sm text-zinc-400 max-w-md mx-auto">
-                                Click &quot;Analyze My Skills&quot; to get personalized gap analysis, learning recommendations, and a custom roadmap powered by Google Gemini AI.
+                                Click &quot;Analyze My Skills&quot; to review your assessed gaps and find learning resources for your target role.
                             </p>
                             <Button onClick={analyze} className="mt-6">
                                 <Brain className="w-4 h-4" />

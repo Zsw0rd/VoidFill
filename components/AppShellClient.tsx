@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     LayoutDashboard, ClipboardCheck, Dumbbell, Radar, Route, Brain, MessageCircle,
-    User, LogOut, Menu, X
+    User, LogOut, Menu, X, FileUp
 } from "lucide-react";
 
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
 
 const NAV_ITEMS = [
     { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+    { href: "/resume", icon: FileUp, label: "Resume" },
     { href: "/daily-test", icon: ClipboardCheck, label: "Daily Test" },
     { href: "/practice-test", icon: Dumbbell, label: "Practice Test" },
     { href: "/skill-graph", icon: Radar, label: "Skill Graph" },
