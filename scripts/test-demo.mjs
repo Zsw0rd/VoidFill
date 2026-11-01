@@ -23,6 +23,12 @@ try {
   const userB = (await call(b, "/api/demo/user")).data.user;
   assert.notEqual(userA.id, userB.id);
   for (const jar of [a, b]) await call(jar, "/api/demo/lease", { tab: "http-test" });
+  // Personal goals retain a supported track so lessons remain available.
+  const originalProfile = (await call(a, "/api/demo/db", { table: "profiles", filters: [{ column: "id", op: "eq", value: userA.id }], single: "required" })).data;
+  await call(a, "/api/demo/db", { table: "profiles", operation: "update", filters: [{ column: "id", op: "eq", value: userA.id }], values: { custom_target_role: "Accessible learning tools builder", target_role_id: originalProfile.target_role_id } });
+  const personalProfile = (await call(a, "/api/demo/db", { table: "profiles", filters: [{ column: "id", op: "eq", value: userA.id }], single: "required" })).data;
+  assert.equal(personalProfile.custom_target_role, "Accessible learning tools builder");
+  assert.equal(personalProfile.target_role_id, originalProfile.target_role_id);
   for (const page of ["resume", "dashboard", "daily-test", "practice-test", "roadmap", "skill-graph", "ai-insights", "mentor-chat", "profile"]) {
     const response = await fetch(base + "/" + page, { headers: { Cookie: a.cookie }, redirect: "manual" });
     assert.equal(response.status, 200, `${page}: ${response.status}`);
@@ -69,7 +75,7 @@ try {
   // No service requests are made during this wait: expiry must run by itself.
   await new Promise(resolve => setTimeout(resolve, 15000));
   assert.equal((await fetch(base + "/api/demo/user", { method: "POST", headers: { Cookie: b.cookie } })).status, 401);
-  console.log("Demo integration passed: 9 learner pages, PDF ingestion, profile apply, recommendations, course completion, insights, daily/practice grading, replay, isolation, deletion and lease expiry.");
+  console.log("Demo integration passed: 9 learner pages, personal goal with learning track, PDF ingestion, profile apply, recommendations, course completion, insights, daily/practice grading, replay, isolation, deletion and lease expiry.");
 } finally {
   for (const jar of [a, b]) await fetch(base + "/api/demo/end", { method: "POST", headers: { Cookie: jar.cookie } }).catch(() => {});
 }

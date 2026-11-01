@@ -64,6 +64,18 @@ class GuestStore:
     def digest(token):
         return hashlib.sha256(token.encode()).hexdigest()
 
+    def create_staff(self, persona):
+        from ml.staff_demo import seed
+        if not isinstance(persona, str) or persona not in {"admin", "mentor", "mentor2"}:
+            raise HTTPException(400, "Unknown demo staff account")
+        with self.lock:
+            result = self.create()
+            session = self.get(result["token"])
+            user, role, tables = seed(persona)
+            user["app_metadata"] = {"demo_staff_role": role}
+            session.update(user=user, staff_role=role, tables=tables)
+            return {"token": result["token"], "user": user}
+
     def get(self, token):
         self.purge()
         session = self.sessions.get(self.digest(token))
@@ -116,16 +128,22 @@ class GuestStore:
             session = self.get(token)
             table = query.get("table")
             operation = query.get("operation", "select")
+            staff = bool(session.get("staff_role"))
             if table not in TABLES | set(CATALOG) | EMPTY:
                 raise HTTPException(403, "Table unavailable in demo")
-            if table not in TABLES and operation != "select":
+            if table not in TABLES and not (staff and table in EMPTY) and operation != "select":
                 raise HTTPException(403, "Demo catalogue is read only")
-            tables = {**session["tables"], **CATALOG}
-            rows = session["tables"].setdefault(table, []) if table in TABLES else tables.get(table, [])
+            from ml.staff_demo import visible_tables, validate_write
+            tables = {**(visible_tables(session) if staff else session["tables"]), **CATALOG}
+            writable = table in TABLES or staff and table in EMPTY
+            rows = session["tables"].setdefault(table, []) if writable else tables.get(table, [])
+            visible = {id(r) for r in tables.get(table, [])} if staff else None
             filters = query.get("filters", [])
             if len(filters) > 30:
                 raise HTTPException(400, "Too many filters")
             def matches(row):
+                if visible is not None and id(row) not in visible:
+                    return False
                 for f in filters:
                     name, op, val = f["column"], f["op"], f.get("value")
                     actual = row.get(name)
@@ -144,7 +162,9 @@ class GuestStore:
                 changed = []
                 for value in values:
                     value = copy.deepcopy(value)
-                    if table == "profiles":
+                    if staff:
+                        validate_write(session, table, operation, value, selected, tables)
+                    elif table == "profiles":
                         value.pop("id", None)
                         if operation != "update":
                             value["id"] = uid
@@ -162,7 +182,7 @@ class GuestStore:
                             raise HTTPException(403, "Attempt unavailable")
                     else:
                         value["user_id"] = uid
-                    if table == "chat_conversations" and not value.get("is_ai", operation == "update"):
+                    if not staff and table == "chat_conversations" and not value.get("is_ai", operation == "update"):
                         raise HTTPException(403, "Live mentor assignment requires an account")
                     conflict = query.get("onConflict", "id").split(",")
                     existing = next((r for r in rows if all(c in value and r.get(c) == value[c] for c in conflict)), None) if operation == "upsert" else None
@@ -179,6 +199,8 @@ class GuestStore:
                         changed.append(row)
                 selected = changed
             elif operation == "delete":
+                if staff:
+                    validate_write(session, table, operation, {}, selected, tables)
                 rows[:] = [r for r in rows if not matches(r)]
             elif operation != "select":
                 raise HTTPException(400, "Unsupported operation")
@@ -225,7 +247,7 @@ def project(row, selection, tables):
                 result[name] = [project(r, sub[:-1], tables) for r in tables.get(alias, []) if r.get("attempt_id") == row.get("id")]
             else:
                 source = "skills" if relation in ("skills", "prerequisite_skill_id", "dependent_skill_id") else "roles" if relation == "roles" else relation
-                key = relation if relation.endswith("_id") else "skill_id" if source == "skills" else "target_role_id" if source == "roles" else relation + "_id"
+                key = relation if relation.endswith("_id") else {"skills": "skill_id", "roles": "target_role_id", "profiles": "user_id", "admin_users": "mentor_id", "chat_conversations": "conversation_id"}.get(source, relation + "_id")
                 match = next((r for r in tables.get(source, []) if r.get("id") == row.get(key)), None)
                 result[name] = project(match, sub[:-1], tables) if match else None
         else:

@@ -6,9 +6,9 @@ export async function GET() {
   return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
 }
 
-export async function POST() {
+export async function POST(request: Request) {
   const supabase = createClient();
   await supabase.auth.signOut();
   if (demoToken()) clearDemoCookies();
-  return NextResponse.redirect(new URL("/", process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"), { status: 303 });
+  return NextResponse.redirect(new URL("/", request.url), { status: 303 });
 }

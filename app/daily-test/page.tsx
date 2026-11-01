@@ -6,10 +6,16 @@ import { isoDate } from "@/lib/date";
 
 export default async function DailyTestPage() {
   const supabase = createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) redirect("/auth/login");
 
-  const { data: profile } = await supabase.from("profiles").select("onboarded").eq("id", user.id).maybeSingle();
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("onboarded, full_name")
+    .eq("id", user.id)
+    .maybeSingle();
   if (!profile?.onboarded) redirect("/onboarding");
 
   const today = isoDate(new Date());
@@ -21,7 +27,7 @@ export default async function DailyTestPage() {
     .maybeSingle();
 
   return (
-    <AppShell displayName={user.email || "User"}>
+    <AppShell displayName={profile?.full_name || user.email || "Learner"}>
       <div className="max-w-4xl mx-auto">
         <DailyTestClient existingAttempt={existing} />
       </div>

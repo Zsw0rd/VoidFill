@@ -8,7 +8,20 @@ import { toast } from "@/components/toast/bus";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { Brain, ChevronRight, CheckCircle, XCircle, Sparkles } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Target,
+  Clock3,
+  BookOpen,
+  Brain,
+  ChevronRight,
+  CheckCircle,
+  XCircle,
+  Sparkles,
+} from "lucide-react";
+
+import { QuestionOptions } from "@/components/QuestionOptions";
 
 type Question = {
   id: string;
@@ -22,7 +35,9 @@ type Question = {
 
 export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
   const [loading, setLoading] = useState(false);
-  const [stage, setStage] = useState<"start" | "quiz" | "review" | "done">("start");
+  const [stage, setStage] = useState<"start" | "quiz" | "review" | "done">(
+    "start",
+  );
   const [questions, setQuestions] = useState<Question[]>([]);
   const [assessmentToken, setAssessmentToken] = useState("");
   const [index, setIndex] = useState(0);
@@ -32,24 +47,44 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
   const [difficultyLabel, setDifficultyLabel] = useState("Easy");
 
   const total = questions.length || 10;
-  const progress = stage === "quiz" ? ((index) / total) * 100 : stage === "done" || stage === "review" ? 100 : 0;
+  const progress =
+    stage === "quiz"
+      ? (index / total) * 100
+      : stage === "done" || stage === "review"
+        ? 100
+        : 0;
 
-  const diffBadgeTone = difficulty <= 2 ? "good" : difficulty <= 3 ? "warn" : "bad";
+  const diffBadgeTone =
+    difficulty <= 2 ? "good" : difficulty <= 3 ? "warn" : "bad";
 
   // Check if already completed
   if (existingAttempt?.completed_at && stage === "start") {
     return (
-      <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35 }}
+      >
         <Card>
           <CardContent className="p-8 text-center">
-            <CheckCircle className="w-12 h-12 text-emerald-400 mx-auto" />
-            <h2 className="mt-4 text-2xl font-semibold">Already completed today!</h2>
-            <p className="mt-2 text-sm text-zinc-400">Score: {existingAttempt.correct_count}/{existingAttempt.total_count} • XP earned: {existingAttempt.xp_earned}</p>
+            <CheckCircle className="w-12 h-12 text-forest mx-auto" />
+            <h1 className="mt-4 page-title">You showed up. That counts.</h1>
+            <p className="mt-2 text-sm text-muted">
+              Today’s assessment: {existingAttempt.correct_count}/
+              {existingAttempt.total_count} • XP earned:{" "}
+              {existingAttempt.xp_earned}
+            </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/roadmap" className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center">
+              <Link
+                href="/roadmap"
+                className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-ink shadow-soft text-center"
+              >
                 View roadmap
               </Link>
-              <Link href="/dashboard" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center">
+              <Link
+                href="/dashboard"
+                className="rounded-2xl bg-paper-soft hover:bg-paper-soft border border-line px-5 py-3 font-medium text-center"
+              >
                 Dashboard
               </Link>
             </div>
@@ -64,8 +99,13 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
     try {
       const res = await fetch("/api/ai/generate-questions", { method: "POST" });
       const data = await res.json();
-      if (!res.ok) return toast("Could not load questions", data.error || "Please try again.");
-      if (!data.questions?.length || !data.assessment_token) return toast("No questions available", "Please try again.");
+      if (!res.ok)
+        return toast(
+          "Could not load questions",
+          data.error || "Please try again.",
+        );
+      if (!data.questions?.length || !data.assessment_token)
+        return toast("No questions available", "Please try again.");
       setQuestions(data.questions);
       setAssessmentToken(data.assessment_token);
       setDifficulty(data.difficulty || 1);
@@ -89,7 +129,8 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
 
   function next() {
     if (!q) return;
-    if (answers[q.id] === undefined) return toast("Pick an option", "Choose one answer to continue.");
+    if (answers[q.id] === undefined)
+      return toast("Pick an option", "Choose one answer to continue.");
     if (index + 1 < questions.length) setIndex((i) => i + 1);
     else submit();
   }
@@ -97,11 +138,27 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
   async function submit() {
     setLoading(true);
     try {
-      const payload = { assessment_token: assessmentToken, answers: questions.map(q => ({ question_id: q.id, selected_index: answers[q.id] ?? -1 })) };
-      const res = await fetch("/api/daily-test/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      const payload = {
+        assessment_token: assessmentToken,
+        answers: questions.map((q) => ({
+          question_id: q.id,
+          selected_index: answers[q.id] ?? -1,
+        })),
+      };
+      const res = await fetch("/api/daily-test/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
       const data = await res.json();
-      if (!res.ok) return toast("Submit failed", data.error || "Please try again.");
-      setQuestions(current => current.map(q => ({ ...q, ...data.review?.find((r: any) => r.id === q.id) })));
+      if (!res.ok)
+        return toast("Submit failed", data.error || "Please try again.");
+      setQuestions((current) =>
+        current.map((q) => ({
+          ...q,
+          ...data.review?.find((r: any) => r.id === q.id),
+        })),
+      );
       setResult(data);
       setStage("review");
       toast("Done!", `+${data?.xp_earned || 0} XP earned`);
@@ -113,13 +170,21 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
   }
 
   return (
-    <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
+    >
       <Card>
         <CardHeader className="p-6 pb-0">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <h1 className="text-2xl font-semibold">Daily Test</h1>
-              <p className="mt-1 text-sm text-zinc-400">Adaptive practice from an open learning question bank</p>
+              <p className="eyebrow mb-3">02 / A daily check-in</p>
+              <h1 className="page-title">A little practice goes a long way.</h1>
+              <p className="mt-1 text-sm text-muted">
+                A focused assessment, shaped around your skills and your next
+                step.
+              </p>
             </div>
             <div className="flex items-center gap-2">
               {stage !== "start" && (
@@ -127,78 +192,120 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
                   {difficultyLabel} (Lvl {difficulty})
                 </Badge>
               )}
-              <Link href="/dashboard" className="text-sm text-zinc-400 hover:text-zinc-200">Back</Link>
+              <Link
+                href="/dashboard"
+                className="text-sm text-muted hover:text-ink"
+              >
+                Back
+              </Link>
             </div>
           </div>
-          <div className="mt-4">
-            <Progress value={progress} />
-          </div>
+          {stage !== "start" && (
+            <div className="mt-5">
+              <Progress value={progress} />
+            </div>
+          )}
         </CardHeader>
 
         <CardContent className="p-6">
           {stage === "start" && (
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="flex items-center gap-3">
-                <Brain className="w-8 h-8 text-emerald-300" />
-                <div>
-                  <div className="text-xl font-semibold">AI Skill Assessment</div>
-                  <div className="mt-1 text-sm text-zinc-400">Questions adapt to your skill level</div>
-                </div>
+            <div className="assessment-start">
+              <span className="icon-tile !bg-surface mb-5">
+                <ClipboardCheckIcon />
+              </span>
+              <h2 className="!text-2xl font-semibold">
+                A clearer picture of where you are.
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-7 text-muted">
+                One assessment each day. Questions focus on your target role and
+                adapt to your recent performance, so every check-in has a
+                purpose.
+              </p>
+              <div className="mt-7 grid sm:grid-cols-3 gap-5 border-y border-forest/15 py-5">
+                {[
+                  {
+                    Icon: Target,
+                    title: "Focused on you",
+                    text: "Practice the skills that need attention.",
+                  },
+                  {
+                    Icon: Clock3,
+                    title: "At your own pace",
+                    text: "Think it through. There’s no timer.",
+                  },
+                  {
+                    Icon: BookOpen,
+                    title: "Learn from each answer",
+                    text: "Review explanations after you finish.",
+                  },
+                ].map(({ Icon, title, text }) => (
+                  <div key={title}>
+                    <Icon size={17} className="text-forest mb-3" />
+                    <h3 className="text-xs font-semibold">{title}</h3>
+                    <p className="mt-2 text-[11px] leading-5 text-muted">
+                      {text}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <div className="mt-4 space-y-2 text-sm text-zinc-300">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-emerald-300" /> Questions target your weak areas
-                </div>
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-blue-300" /> Difficulty scales based on performance
-                </div>
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-amber-300" /> Get explanations after each test
-                </div>
-              </div>
-              <Button disabled={loading} onClick={start} className="mt-5">
-                {loading ? "Preparing questions..." : "Start Test"}
+              <Button loading={loading} onClick={start} className="mt-7">
+                {loading ? (
+                  "Preparing your questions…"
+                ) : (
+                  <>
+                    Begin today’s assessment
+                    <ArrowRight size={15} />
+                  </>
+                )}
               </Button>
+              <p className="mt-3 text-[10px] text-muted">
+                Complete the assessment to update your skill scores and earn XP.
+              </p>
             </div>
           )}
 
           {stage === "quiz" && q && (
             <div className="space-y-5">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-zinc-400">Question {index + 1} of {questions.length}</div>
+                <div className="text-sm text-muted">
+                  Question {index + 1} of {questions.length}
+                </div>
                 <Badge tone="neutral">{q.skill_name}</Badge>
               </div>
-              <div className="text-xl font-semibold leading-snug">{q.prompt}</div>
-
-              <div className="grid gap-3">
-                {(q.options || []).map((opt: string, i: number) => {
-                  const active = answers[q.id] === i;
-                  return (
-                    <button
-                      key={i}
-                      onClick={() => pick(i)}
-                      className={[
-                        "text-left rounded-2xl border p-4 transition",
-                        active ? "border-emerald-400/40 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10",
-                      ].join(" ")}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-full border flex items-center justify-center text-sm font-medium shrink-0 ${active ? "border-emerald-400 text-emerald-300" : "border-white/20 text-zinc-400"}`}>
-                          {String.fromCharCode(65 + i)}
-                        </div>
-                        <div className="font-medium">{opt}</div>
-                      </div>
-                    </button>
-                  );
-                })}
+              <div className="text-xl font-semibold leading-snug">
+                {q.prompt}
               </div>
 
+              <QuestionOptions
+                options={q.options || []}
+                value={answers[q.id]}
+                onChange={pick}
+                disabled={loading}
+              />
+
               <div className="flex items-center justify-between">
-                <div className="text-xs text-zinc-500">Pick one and continue</div>
-                <Button disabled={loading} onClick={next}>
+                <Button
+                  variant="ghost"
+                  disabled={index === 0 || loading}
+                  onClick={() => setIndex((i) => Math.max(0, i - 1))}
+                >
+                  <ArrowLeft size={14} />
+                  Previous
+                </Button>
+                <Button
+                  disabled={loading || answers[q.id] === undefined}
+                  loading={loading}
+                  onClick={next}
+                >
                   {index + 1 < questions.length ? (
-                    <>Next <ChevronRight className="w-4 h-4" /></>
-                  ) : "Finish"}
+                    <>
+                      Next <ChevronRight className="w-4 h-4" />
+                    </>
+                  ) : loading ? (
+                    "Saving your answers…"
+                  ) : (
+                    "Finish assessment"
+                  )}
                 </Button>
               </div>
             </div>
@@ -207,11 +314,17 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
           {stage === "review" && (
             <div className="space-y-6">
               {/* Score Summary */}
-              <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-500/5 to-zinc-900/50 p-6 text-center">
-                <div className="text-4xl font-bold">{result?.correct_count ?? 0}/{result?.total_count ?? 10}</div>
-                <div className="mt-1 text-sm text-zinc-400">Correct answers • +{result?.xp_earned ?? 0} XP earned</div>
+              <div className="rounded-2xl border border-line bg-gradient-to-br from-emerald-500/5 to-paper p-6 text-center">
+                <div className="text-4xl font-bold">
+                  {result?.correct_count ?? 0}/{result?.total_count ?? 10}
+                </div>
+                <div className="mt-1 text-sm text-muted">
+                  Correct answers • +{result?.xp_earned ?? 0} XP earned
+                </div>
                 <div className="mt-3">
-                  <Badge tone={diffBadgeTone as any}>Difficulty: {difficultyLabel}</Badge>
+                  <Badge tone={diffBadgeTone as any}>
+                    Difficulty: {difficultyLabel}
+                  </Badge>
                 </div>
               </div>
 
@@ -222,23 +335,44 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
                   const userAnswer = answers[question.id];
                   const isCorrect = userAnswer === question.correct_index;
                   return (
-                    <div key={qi} className={`rounded-2xl border p-4 ${isCorrect ? "border-emerald-500/20 bg-emerald-500/5" : "border-rose-500/20 bg-rose-500/5"}`}>
+                    <div
+                      key={qi}
+                      className={`rounded-2xl border p-4 ${isCorrect ? "border-emerald-500/20 bg-emerald-500/5" : "border-rose-500/20 bg-rose-500/5"}`}
+                    >
                       <div className="flex items-start gap-3">
                         {isCorrect ? (
-                          <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-forest shrink-0 mt-0.5" />
                         ) : (
-                          <XCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+                          <XCircle className="w-5 h-5 text-rust shrink-0 mt-0.5" />
                         )}
                         <div className="flex-1">
-                          <div className="font-medium text-sm">{question.prompt}</div>
-                          <div className="mt-2 text-xs text-zinc-400">
-                            Your answer: <span className={isCorrect ? "text-emerald-300" : "text-rose-300"}>{question.options[userAnswer]}</span>
-                            {!isCorrect && question.correct_index !== undefined && (
-                              <> • Correct: <span className="text-emerald-300">{question.options[question.correct_index]}</span></>
-                            )}
+                          <div className="font-medium text-sm">
+                            {question.prompt}
+                          </div>
+                          <div className="mt-2 text-xs text-muted">
+                            Your answer:{" "}
+                            <span
+                              className={
+                                isCorrect ? "text-forest" : "text-rust"
+                              }
+                            >
+                              {question.options[userAnswer]}
+                            </span>
+                            {!isCorrect &&
+                              question.correct_index !== undefined && (
+                                <>
+                                  {" "}
+                                  • Correct:{" "}
+                                  <span className="text-forest">
+                                    {question.options[question.correct_index]}
+                                  </span>
+                                </>
+                              )}
                           </div>
                           {question.explanation && (
-                            <div className="mt-2 text-xs text-zinc-300 bg-white/5 rounded-xl p-3">{question.explanation}</div>
+                            <div className="mt-2 text-xs text-muted bg-paper-soft rounded-xl p-3">
+                              {question.explanation}
+                            </div>
                           )}
                         </div>
                         <Badge tone="neutral">{question.skill_name}</Badge>
@@ -249,13 +383,22 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/roadmap" className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-zinc-950 shadow-soft text-center flex-1">
+                <Link
+                  href="/roadmap"
+                  className="rounded-2xl bg-emerald-500/90 hover:bg-emerald-500 px-5 py-3 font-medium text-ink shadow-soft text-center flex-1"
+                >
                   View updated roadmap
                 </Link>
-                <Link href="/skill-graph" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center flex-1">
+                <Link
+                  href="/skill-graph"
+                  className="rounded-2xl bg-paper-soft hover:bg-paper-soft border border-line px-5 py-3 font-medium text-center flex-1"
+                >
                   See skill graph
                 </Link>
-                <Link href="/dashboard" className="rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 font-medium text-center flex-1">
+                <Link
+                  href="/dashboard"
+                  className="rounded-2xl bg-paper-soft hover:bg-paper-soft border border-line px-5 py-3 font-medium text-center flex-1"
+                >
                   Dashboard
                 </Link>
               </div>
@@ -265,4 +408,8 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
       </Card>
     </motion.div>
   );
+}
+
+function ClipboardCheckIcon() {
+  return <Brain size={22} strokeWidth={1.5} />;
 }

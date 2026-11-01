@@ -11,3 +11,5 @@ python-docx>=1.2,<2
 python-multipart>=0.0.22,<1
 rapidocr==3.10.0
 onnxruntime>=1.22,<2
+
+cryptography>=47,<48

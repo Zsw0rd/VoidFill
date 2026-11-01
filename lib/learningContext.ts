@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { LearningError, type LearningSkill } from "./localMl";
+import { roadmapProgress } from "./roadmapProgress";
 
 export async function getLearningContext(supabase: ReturnType<typeof createClient>, userId: string) {
   const [profileRes, scoresRes] = await Promise.all([
@@ -8,7 +9,7 @@ export async function getLearningContext(supabase: ReturnType<typeof createClien
   ]);
   if (profileRes.error || scoresRes.error) throw new LearningError("Could not load learner data.", 500);
   const profile = profileRes.data;
-  if (!profile?.target_role_id) throw new LearningError("Choose a supported target role before starting this activity.", 400);
+  if (!profile?.target_role_id) throw new LearningError("Choose a learning track in your profile before starting this activity.", 400);
   const { data, error } = await supabase.from("role_skills").select("skill_id, weight, skills(name)").eq("role_id", profile.target_role_id);
   if (error) throw new LearningError("Could not load role requirements.", 500);
   const scores = new Map((scoresRes.data || []).map((s) => [s.skill_id, Number(s.score)]));
@@ -45,8 +46,7 @@ export async function applySkillResults(supabase: ReturnType<typeof createClient
   if (error) throw new LearningError("Could not save skill progress.", 500);
   for (const row of rows) {
     const courses = (coursesRes.data || []).filter((c) => c.skill_id === row.skill_id);
-    const courseProgress = courses.length ? courses.filter((c) => c.completed).length / courses.length * 100 : 0;
-    const { error: roadmapError } = await supabase.from("user_roadmap").update({ progress: Math.round(row.score * .68 + courseProgress * .32), updated_at: row.updated_at }).eq("user_id", userId).eq("skill_id", row.skill_id);
+    const { error: roadmapError } = await supabase.from("user_roadmap").update({ progress: roadmapProgress(row.score, courses), updated_at: row.updated_at }).eq("user_id", userId).eq("skill_id", row.skill_id);
     if (roadmapError) throw new LearningError("Could not save roadmap progress.", 500);
   }
   return rows.map((r) => ({ skill_id: r.skill_id, skill_name: results.find((s) => s.skill_id === r.skill_id)!.skill_name, score: r.score }));

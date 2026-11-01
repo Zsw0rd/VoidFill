@@ -6,6 +6,11 @@ increase, comparison and the distinction between pretrained and fine-tuned
 checkpoints. The v2 section below preserves earlier results. Resume
 ingestion and the private guest demo are described in `RESUMES_AND_DEMO.md`.
 
+The production serving export preserves this BGE model in float32 ONNX, uses
+precomputed public embeddings and runs as a private Vercel service. See
+[CLOUD_DEPLOYMENT.md](CLOUD_DEPLOYMENT.md) and the cloud evaluation JSON files
+for configuration and measured quality/performance.
+
 ## What runs locally
 
 All learning routes use a local embedding encoder through the Python service.
@@ -185,8 +190,10 @@ and assessment history. Older recommendations are retained as history.
 
 - The catalogue is primarily English beginner material. It is not a comprehensive
   course catalogue for arbitrary custom careers. Unsupported skills return explicit
-  missing coverage. The existing custom-role onboarding feature still needs role
-  requirements mapped in the database before these learning routes can support it.
+  missing coverage. Personal career goals now retain an explicitly selected,
+  supported learning track for assessments and resources. Existing custom-goal
+  profiles without a track can select one in the profile editor. The app does not
+  claim to generate arbitrary career requirements from a free-text goal.
 - Some skill-specific quizzes contain fewer than the requested number of unique
   questions; the response returns the available count without duplicating questions.
 - Difficulty is estimated from curriculum pre/post position and authored complexity,

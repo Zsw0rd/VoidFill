@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { categoryFromScore, priorityScore } from "@/lib/gapLogic";
+import { roadmapProgress } from "@/lib/roadmapProgress";
 
 export async function POST() {
   const supabase = createClient();
@@ -12,15 +13,17 @@ export async function POST() {
   const roleId = profile?.target_role_id;
   if (!roleId) return NextResponse.json({ error: "no role selected" }, { status: 400 });
 
-  const [rs, deps, us] = await Promise.all([
+  const [rs, deps, us, resources] = await Promise.all([
     supabase.from("role_skills").select("skill_id, weight").eq("role_id", roleId),
     supabase.from("skill_dependencies").select("prerequisite_skill_id, dependent_skill_id"),
     supabase.from("user_skill_scores").select("skill_id, score").eq("user_id", user.id),
+    supabase.from("roadmap_courses").select("skill_id, completed").eq("user_id", user.id),
   ]);
 
   if (rs.error) return NextResponse.json({ error: rs.error.message }, { status: 500 });
   if (deps.error) return NextResponse.json({ error: deps.error.message }, { status: 500 });
   if (us.error) return NextResponse.json({ error: us.error.message }, { status: 500 });
+  if (resources.error) return NextResponse.json({ error: resources.error.message }, { status: 500 });
 
   const roleSkills = rs.data || [];
   const roleSkillIds = new Set(roleSkills.map((r) => r.skill_id));
@@ -52,7 +55,7 @@ export async function POST() {
       skill_id: r.skill_id,
       category: cat,
       priority: p,
-      progress: Math.round(score * 0.68),
+      progress: roadmapProgress(score, (resources.data || []).filter(course => course.skill_id === r.skill_id)),
       status: "todo",
       updated_at: new Date().toISOString(),
     };

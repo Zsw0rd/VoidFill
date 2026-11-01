@@ -24,6 +24,13 @@ export function configure({ createToken = false } = {}) {
     console.log("Created the private demo entry key in .env.local.");
   }
   process.env.PYTHONUTF8 = "1";
+  if (createToken) for (const name of ["DEMO_ADMIN_PASSWORD", "DEMO_MENTOR_PASSWORD", "DEMO_MENTOR2_PASSWORD"]) {
+    if (!process.env[name]) {
+      const password = randomBytes(12).toString("base64url");
+      appendFileSync(join(root, ".env.local"), `\n${name}=${password}\n`, { mode: 0o600 });
+      process.env[name] = password;
+    }
+  }
   process.env.PYTHONIOENCODING = "utf-8";
   process.env.TOKENIZERS_PARALLELISM = "false";
 }

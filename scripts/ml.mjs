@@ -24,6 +24,11 @@ try {
       await run(python, ["-m", "ml.train_large"]);
     }
     else if (command === "activate-large") await run(python, ["-m", "ml.activate_large"]);
+    else if (command === "export-cloud") {
+      await run(python, ["-m", "pip", "install", "-r", "ml/requirements-export.txt"]);
+      await run(python, ["-m", "ml.export_cloud"]);
+      await run(python, ["-m", "ml.package_cloud"]);
+    }
     else if (command === "test") await run(python, ["-m", "pytest", "ml/tests", "-q"]);
     else if (command === "serve") await run(python, serviceArgs());
     else throw new Error("Usage: node scripts/ml.mjs setup|prepare|train|train-expanded|train-large|activate-large|test|serve");

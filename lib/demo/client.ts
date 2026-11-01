@@ -30,14 +30,17 @@ export function createDemoClient(transport: DemoTransport, token?: string) {
       getUser: () => transport("user").catch((e) => ({ data: { user: null }, error: { message: e.message } })),
       signOut: () => transport("end").then(() => ({ error: null })),
     },
-    // Guest sessions never have a live human mentor subscription.
+    // Demo chat uses the existing polling routes; no Supabase realtime channel.
     channel: () => { const channel: any = { on: () => channel, subscribe: () => channel }; return channel; },
     removeChannel: async () => "ok",
   };
 }
 
+let browserClient: ReturnType<typeof createDemoClient> | undefined;
 export function demoBrowserClient() {
-  return createDemoClient(async (operation, body = {}) => {
+  // A stable identity prevents effects depending on the client from reloading
+  // after every state update. The transport still uses the current session cookie.
+  return browserClient ??= createDemoClient(async (operation, body = {}) => {
     const response = await fetch(`/api/demo/${operation === "query" ? "db" : operation}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), cache: "no-store" });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || "Demo session unavailable");

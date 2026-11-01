@@ -36,7 +36,10 @@ Set values in `.env.local`:
 - `GEMINI_API_KEY` (chatbot and its moderation only)
 - `ML_SERVICE_URL` (defaults to `http://127.0.0.1:8010`)
 - `ML_SERVICE_TOKEN` (server-only; `npm run dev` creates one in `.env.local` if absent)
-- `NEXT_PUBLIC_SITE_URL` (optional, used for logout redirect in `app/auth/logout/route.ts`)
+
+Google login/signup is configured through Supabase's Google provider. See
+[authentication configuration and verification](docs/AUTHENTICATION.md) for the
+OAuth client, local callbacks, account routing and current Testing audience.
 
 ### 4) Initialize the database
 Use `supabase/actualused/used.sql` in Supabase SQL Editor.
@@ -74,11 +77,17 @@ Open `http://localhost:3000`.
 [local ML setup and architecture](docs/LOCAL_ML.md) for evaluation results, limitations,
 production configuration, and troubleshooting.
 
+For deployment on Vercel and Supabase without a separate model host, see
+[cloud deployment and model optimization](docs/CLOUD_DEPLOYMENT.md).
+
 ## Scripts
 - `npm run dev`: start the local ML service and development server
 - `npm run dev:web`: start only Next.js (for a separately hosted ML service)
 - `npm run dev:ml`: start only the local ML service
-- `npm test`: assessment security and service-client unit tests
+- `npm test`: assessment security, authentication, roadmap progress and service-client unit tests
+- `npm run test:auth`: callback failures, safe redirects and protected-page integration checks
+- `npm run test:demo`: isolated learner workflow integration checks
+- `npm run test:staff-demo`: staff login, rendering and role-isolation integration checks
 - `npm run test:ml`: tests using the saved local model
 - `npm run test:integration`: actual local model to TypeScript grading integration (service must be running)
 - `npm run build`: production build
@@ -132,6 +141,7 @@ The 109M-parameter model experiment and its fine-tuning results are in
 - `/auth/login`
 - `/auth/signup`
 - `/auth/admin-login`
+- `/auth/callback` (Supabase authentication return)
 
 ### Student/Professional App
 - `/dashboard`
@@ -166,7 +176,7 @@ The 109M-parameter model experiment and its fine-tuning results are in
 
 ## Middleware and Access Control
 - Learner pages and APIs require a Supabase user or a valid temporary demo session
-- Redirects logged-in users away from `/auth/login` and `/auth/signup` to `/dashboard`
+- Redirects logged-in users away from `/auth/login` and `/auth/signup` to the appropriate learner or staff workspace
 - Guards `/admin/**` by checking `admin_users` table
 - Uses Supabase cookie-based server session
 

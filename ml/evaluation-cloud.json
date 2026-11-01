@@ -1,0 +1,61 @@
+{
+  "model": "voidfill-bge-base-v3",
+  "parameters": 109482240,
+  "selected": "onnx-fp32",
+  "baseline": {
+    "validation": {
+      "queries": 81,
+      "recall_at_1": 0.7777777777777778,
+      "recall_at_5": 0.9382716049382716,
+      "mrr": 0.856721536351166
+    },
+    "test": {
+      "queries": 87,
+      "recall_at_1": 0.7471264367816092,
+      "recall_at_5": 0.9195402298850575,
+      "mrr": 0.8231008568046057
+    }
+  },
+  "candidates": {
+    "onnx-fp32": {
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.7777777777777778,
+        "recall_at_5": 0.9382716049382716,
+        "mrr": 0.856721536351166
+      },
+      "eligible": true,
+      "model_bytes": 435781483,
+      "cosine_to_original": 1.0
+    },
+    "onnx-int8": {
+      "validation": {
+        "queries": 81,
+        "recall_at_1": 0.7654320987654321,
+        "recall_at_5": 0.9506172839506173,
+        "mrr": 0.8479938271604939
+      },
+      "eligible": false,
+      "model_bytes": 181576041,
+      "cosine_to_original": 0.9906623959541321
+    }
+  },
+  "selected_test": {
+    "queries": 87,
+    "recall_at_1": 0.7471264367816092,
+    "recall_at_5": 0.9195402298850575,
+    "mrr": 0.8231008568046057
+  },
+  "cpu_threads": 1,
+  "latency": {
+    "torch_cpu": {
+      "median_ms": 84.14245000130904,
+      "p95_ms": 90.70662000067387
+    },
+    "onnx-fp32": {
+      "median_ms": 44.61685000023863,
+      "p95_ms": 50.3368900026544
+    }
+  },
+  "scope": "Same original catalogue, same CLS pooling, normalization, tokenizer and 256-token truncation. CPU timings are local measurements, not Vercel latency guarantees."
+}

@@ -2,6 +2,12 @@
 
 Last reviewed from source: 2026-05-05
 
+This document describes the original main-branch implementation. For the current
+feature branch, use [project and design notes](PROJECT_AND_DESIGN.md),
+[local ML architecture](LOCAL_ML.md), [resume and demo workflows](RESUMES_AND_DEMO.md)
+and [authentication setup](AUTHENTICATION.md). Authentication now includes Google;
+learning assessments and recommendations use the local ML service.
+
 ## 1. Product Overview
 
 VoidFill is an AI-powered skill gap analysis platform for students and working professionals. The site helps a learner choose a target role, measure skill readiness through adaptive tests, generate a prioritized roadmap, get AI course/resource recommendations, review AI insights, and communicate with either an AI mentor or an assigned human mentor.
@@ -43,7 +49,8 @@ Required environment variables:
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Supabase anon key used by browser and server session clients.
 - `GEMINI_API_KEY`: Gemini API key used by all AI endpoints.
 - `SUPABASE_SERVICE_ROLE_KEY`: used only by `lib/supabase/admin.ts`; currently available for admin server workflows if needed.
-- `NEXT_PUBLIC_SITE_URL`: optional logout redirect base URL, defaults to `http://localhost:3000`.
+- Authentication callbacks and logout use the current site origin. The former
+  `NEXT_PUBLIC_SITE_URL` logout override is no longer used.
 
 Local commands:
 

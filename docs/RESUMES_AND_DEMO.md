@@ -1,9 +1,13 @@
 # Resume ingestion and temporary demo
 
+Cloud deployment uses encrypted, expiring Supabase demo snapshots instead of
+process-local memory; see [CLOUD_DEPLOYMENT.md](CLOUD_DEPLOYMENT.md). Statements
+about the local guest database below describe local development.
+
 ## Using the product
 
 Resume ingestion is available at `/resume`, in the learner navigation, and from
-Profile. Upload a valid PDF or DOCX up to 5 MB. PDFs can contain up to 12 pages.
+Profile. Upload a valid PDF or DOCX up to 4 MB. PDFs can contain up to 12 pages.
 The parser supports ordinary ATS documents, text-based designed layouts, DOCX
 tables/textboxes, and scanned PDFs through offline RapidOCR ONNX models.
 
@@ -91,3 +95,28 @@ idempotency, isolation, immediate deletion and background lease expiry. Syntheti
 test fixtures/screenshots under ignored `ml/runtime` are development artifacts,
 not retained user uploads. Normal-account storage still uses Supabase and was not
 modified by these guest tests.
+# Staff demo accounts
+
+The same private `/demo/<key>` page now includes a separate admin/mentor email
+and password form. These credentials work in that form, not Supabase's normal
+staff login. `npm run dev` generates three server-only passwords in `.env.local`:
+`DEMO_ADMIN_PASSWORD`, `DEMO_MENTOR_PASSWORD`, and `DEMO_MENTOR2_PASSWORD`.
+The emails are `admin@demo.voidfill.local`, `mentor@demo.voidfill.local`, and
+`mentor2@demo.voidfill.local`. Rotate the local variables to change the passwords.
+Credentials and the private entry key are never included in source control.
+
+Every staff login gets an independent in-memory workspace. The admin is a demo
+super admin and sees six synthetic learners, two mentors, 42 daily attempts,
+skill scores, XP, streaks, assignments, sample conversations, and two explicitly
+labelled moderation examples. Meera Shah mentors Aarav Sharma, Priya Singh, and
+Rohan Das; Arjun Patel mentors Ananya Rao, Kabir Mehta, and Ishita Sen.
+Mentors see only their assigned learners and can reply through the existing chat
+routes. Admins can demonstrate staff additions using a sample learner UUID and
+mentor assignments. These changes affect that login's copy only; adding a staff
+row does not create an additional login credential.
+
+Existing guest lease, explicit deletion, crash expiry, and two-hour limits apply
+to staff workspaces too. Sample conversations are local simulations: no messages
+are sent to real learners. Separate logins do not share edits or chat messages.
+Run `npm run test:staff-demo` against a running server to check all three logins,
+staff page rendering, access boundaries, sample mappings, and mentor replies.

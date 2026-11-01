@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 from fastapi import HTTPException
 
-MAX_BYTES = 5 * 1024 * 1024
+MAX_BYTES = 4 * 1024 * 1024
 MAX_PAGES = 12
 _ocr = None
 _ocr_lock = threading.Lock()
@@ -46,7 +46,7 @@ def ocr_image(image):
 
 def extract_document(data: bytes, filename: str):
     if not data or len(data) > MAX_BYTES:
-        raise HTTPException(413, "Choose a PDF or DOCX up to 5 MB.")
+        raise HTTPException(413, "Choose a PDF or DOCX up to 4 MB.")
     suffix = Path(filename).suffix.lower()
     warnings, methods = [], []
     pages = 1

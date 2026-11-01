@@ -1,17 +1,27 @@
 import type { Config } from "tailwindcss";
-
 export default {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      colors: {
+        paper: "#f6f5f0",
+        "paper-soft": "#eeeee7",
+        surface: "#ffffff",
+        ink: "#252b27",
+        muted: "#697168",
+        line: "#dddfd5",
+        forest: "#32634b",
+        lime: "#d9ec9b",
+        rust: "#bd482c",
+        peach: "#f8e7df",
+        sky: "#3f617e",
+      },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Helvetica", "Arial"],
+        sans: ["Manrope", "Segoe UI", "Arial", "sans-serif"],
+        display: ["Instrument Serif", "Georgia", "serif"],
       },
       boxShadow: {
-        soft: "0 20px 50px rgba(0,0,0,0.45)",
-      },
-      backgroundImage: {
-        glow: "radial-gradient(1000px circle at 15% 10%, rgba(255,255,255,.12), transparent 40%), radial-gradient(850px circle at 85% 0%, rgba(255,255,255,.08), transparent 40%), linear-gradient(180deg,#0a0a0a 0%, #050505 100%)",
+        soft: "0 3px 0 rgba(37,43,39,0.025), 0 8px 24px rgba(37,43,39,0.035)",
       },
     },
   },

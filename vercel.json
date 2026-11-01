@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "web": {
+      "root": ".",
+      "framework": "nextjs",
+      "installCommand": "npm ci",
+      "buildCommand": "npm run build",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "learning",
+          "format": "url",
+          "env": "ML_SERVICE_URL"
+        }
+      ]
+    },
+    "learning": {
+      "root": ".",
+      "framework": "fastapi",
+      "entrypoint": "ml.cloud:app",
+      "installCommand": "python -m pip install -r ml/requirements-cloud.txt",
+      "buildCommand": "python -m ml.cloud_build",
+      "functions": {
+        "ml/cloud.py": {
+          "maxDuration": 300,
+          "excludeFiles": "{.venv-ml/**,node_modules/**,.next/**,ml/runtime/**,ml/data/raw/**,ml/artifacts/retriever*/**,ml/artifacts/bge-base-source/**,ml/artifacts/catalogue-cache/**,ml/tests/**,tests/**,.env*,.git/**}"
+        }
+      }
+    }
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": { "service": "web" } }]
+}
