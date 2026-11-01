@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { AIInsightsClient } from "./ui";
 
 export default async function AIInsightsPage() {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) redirect("/auth/login");
 

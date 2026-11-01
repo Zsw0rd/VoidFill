@@ -4,7 +4,7 @@ import { AppShell } from "@/components/AppShell";
 import { OnboardingForm } from "./ui";
 
 export default async function OnboardingPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/auth/login");
 

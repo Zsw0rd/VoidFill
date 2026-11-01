@@ -4,8 +4,8 @@ import type { CookieOptions } from "@supabase/ssr";
 import { createDemoClient } from "@/lib/demo/client";
 import { demoService, DEMO_COOKIE } from "@/lib/demo/server";
 
-export function createClient() {
-  const cookieStore = cookies();
+export async function createClient() {
+  const cookieStore = await cookies();
   const token = cookieStore.get(DEMO_COOKIE)?.value;
   if (token)
     return createDemoClient(
@@ -16,8 +16,8 @@ export function createClient() {
   return createAuthServerClient();
 }
 
-export function createAuthServerClient() {
-  const cookieStore = cookies();
+export async function createAuthServerClient() {
+  const cookieStore = await cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

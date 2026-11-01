@@ -4,8 +4,8 @@ import { cookies } from "next/headers";
 
 export const DEMO_COOKIE = "vf_demo_session";
 export const DEMO_MARKER = "vf_demo_active";
-export function demoToken() {
-  return cookies().get(DEMO_COOKIE)?.value;
+export async function demoToken() {
+  return (await cookies()).get(DEMO_COOKIE)?.value;
 }
 
 export function validDemoKey(key: unknown): boolean {
@@ -70,9 +70,10 @@ export function sameOrigin(request: Request) {
   return !origin || origin === new URL(request.url).origin;
 }
 
-export function clearDemoCookies() {
+export async function clearDemoCookies() {
+  const cookieStore = await cookies();
   for (const name of [DEMO_COOKIE, DEMO_MARKER])
-    cookies().set(name, "", {
+    cookieStore.set(name, "", {
       path: "/",
       maxAge: 0,
       sameSite: "strict",

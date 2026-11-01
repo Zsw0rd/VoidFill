@@ -4,7 +4,7 @@ import { AdminShell } from "@/components/AdminShell";
 import { MentorChatPanel } from "./ui";
 
 export default async function MentorChatPage() {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) redirect("/auth/login");
 

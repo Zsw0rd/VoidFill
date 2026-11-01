@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { AdminDashboardCharts } from "./charts";
 
 export default async function AdminDashboardPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

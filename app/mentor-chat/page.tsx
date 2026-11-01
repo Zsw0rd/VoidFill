@@ -4,7 +4,7 @@ import { AppShell } from "@/components/AppShell";
 import { MentorChatUI } from "./ui";
 
 export default async function MentorChatPage() {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) redirect("/auth/login");
 

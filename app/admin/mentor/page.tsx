@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { MentorDashboardCharts } from "./charts";
 
 export default async function MentorPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

@@ -30,7 +30,7 @@ async function boundedBody(request: Request) {
 export async function POST(request: Request) {
   if (!sameOrigin(request))
     return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -96,7 +96,7 @@ const applySchema = z
 export async function PATCH(request: Request) {
   if (!sameOrigin(request))
     return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

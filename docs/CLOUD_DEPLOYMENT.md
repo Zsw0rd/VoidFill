@@ -11,6 +11,15 @@ binding supplies `ML_SERVICE_URL`; the URL helper preserves the binding path.
 The model service also requires the shared server-only `ML_SERVICE_TOKEN`.
 No inference requests depend on the developer's computer.
 
+Next.js 15.5 runs authentication middleware with the Node.js runtime because
+Vercel Services does not support Edge Function output. Server cookies and dynamic
+route parameters use the asynchronous request APIs required by this version.
+Functions target Singapore (`sin1`), matching the Supabase database region.
+
+The dependency refresh also patches runtime validation and CSS processing.
+The remaining npm audit findings are moderate issues in the development lint
+dependency tree; no high or critical findings remain in the checked lockfile.
+
 The learning service uses ONNX Runtime CPU inference with one CPU thread and a
 four-item inference batch limit. It imports no PyTorch or Transformers. The
 original BGE model, CLS pooling, tokenizer, 256-token truncation, normalization,

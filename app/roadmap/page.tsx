@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { RoadmapClient } from "./ui";
 
 export default async function RoadmapPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/auth/login");
 

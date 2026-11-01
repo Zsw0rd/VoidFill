@@ -6,7 +6,7 @@ import { LearningError } from "@/lib/localMl";
 import { persistAssessmentOnce } from "@/lib/submissions";
 
 export async function POST(req: Request) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

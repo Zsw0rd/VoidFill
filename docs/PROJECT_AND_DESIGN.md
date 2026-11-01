@@ -145,8 +145,8 @@ Validation uses TypeScript, Next.js lint/build, the existing assessment/client t
 | --- | --- |
 | `npx tsc --noEmit --pretty false` | Passed |
 | `npm run lint` | Passed without warnings or errors |
-| `npm test` | 24 tests passed, including authentication and retained roadmap progress |
-| Next.js production build | Passed; all 42 routes generated/validated |
+| `npm test` | 28 tests passed, including authentication, retained roadmap progress, cloud replay and private service URLs |
+| Next.js production build | Passed; all 43 routes generated/validated, including the privacy notice |
 | `npm run test:demo` | Passed: nine learner pages, PDF ingestion, profile application, resources, course completion, insights, grading, replay protection, isolation, deletion and lease expiry |
 | `npm run test:staff-demo` | Passed: staff logins, rendering, role boundaries, sample mappings and mentor replies |
 | Browser interaction | Assessment answer selection, backtracking, preserved answers, complete submission and review; directory search, empty results and reset; password visibility; mobile drawer and Escape focus restoration |

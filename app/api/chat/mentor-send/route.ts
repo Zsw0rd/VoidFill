@@ -9,7 +9,7 @@ type ConversationRow = {
 };
 
 async function getFirstHumanConversation(
-    supabase: ReturnType<typeof createClient>,
+    supabase: Awaited<ReturnType<typeof createClient>>,
     studentId: string,
     mentorId?: string | null,
 ) {
@@ -35,7 +35,7 @@ async function getFirstHumanConversation(
  * Body: { message, conversationId?, targetUserId? }
  */
 export async function POST(req: Request) {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 

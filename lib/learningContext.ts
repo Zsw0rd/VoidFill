@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { LearningError, type LearningSkill } from "./localMl";
 import { roadmapProgress } from "./roadmapProgress";
 
-export async function getLearningContext(supabase: ReturnType<typeof createClient>, userId: string) {
+export async function getLearningContext(supabase: Awaited<ReturnType<typeof createClient>>, userId: string) {
   const [profileRes, scoresRes] = await Promise.all([
     supabase.from("profiles").select("target_role_id, custom_target_role, roles(name)").eq("id", userId).maybeSingle(),
     supabase.from("user_skill_scores").select("skill_id, score").eq("user_id", userId),
@@ -22,7 +22,7 @@ export async function getLearningContext(supabase: ReturnType<typeof createClien
   return { role: (profile as any).roles?.name || profile.custom_target_role || "Learner", roleId: profile.target_role_id, skills };
 }
 
-export async function adaptiveDifficulty(supabase: ReturnType<typeof createClient>, userId: string, kind: "daily" | "practice") {
+export async function adaptiveDifficulty(supabase: Awaited<ReturnType<typeof createClient>>, userId: string, kind: "daily" | "practice") {
   const { data, error } = kind === "daily"
     ? await supabase.from("daily_attempts").select("correct_count, total_count, difficulty_level").eq("user_id", userId).not("completed_at", "is", null).order("attempt_date", { ascending: false }).limit(5)
     : await supabase.from("practice_attempts").select("correct_count, total_count, difficulty_level").eq("user_id", userId).order("created_at", { ascending: false }).limit(5);
@@ -33,7 +33,7 @@ export async function adaptiveDifficulty(supabase: ReturnType<typeof createClien
   return Math.min(5, Math.max(1, previous + (average >= 80 ? 1 : average < 40 ? -1 : 0)));
 }
 
-export async function applySkillResults(supabase: ReturnType<typeof createClient>, userId: string, results: { skill_id: string; skill_name: string; score: number }[]) {
+export async function applySkillResults(supabase: Awaited<ReturnType<typeof createClient>>, userId: string, results: { skill_id: string; skill_name: string; score: number }[]) {
   const ids = results.map((r) => r.skill_id);
   const [scoresRes, coursesRes] = await Promise.all([
     supabase.from("user_skill_scores").select("skill_id, score").eq("user_id", userId).in("skill_id", ids),

@@ -30,7 +30,7 @@ export async function GET(request: Request) {
     );
   const code = url.searchParams.get("code");
   if (!code) return failure("invalid_callback");
-  const supabase = createAuthServerClient();
+  const supabase = await createAuthServerClient();
   try {
     const { data, error } = await supabase.auth.exchangeCodeForSession(code);
     if (error || !data.user) return failure("invalid_callback");
@@ -38,11 +38,11 @@ export async function GET(request: Request) {
       next: url.searchParams.get("next"),
       staffOnly: url.searchParams.get("entry") === "staff",
     });
-    const guest = demoToken();
+    const guest = await demoToken();
     if (guest) {
       // Stop a previous temporary workspace from masking the newly authenticated account.
       await demoService("end", {}, guest).catch(() => {});
-      clearDemoCookies();
+      await clearDemoCookies();
     }
     return NextResponse.redirect(new URL(destination, url.origin), {
       headers: {

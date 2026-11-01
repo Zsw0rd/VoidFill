@@ -5,7 +5,7 @@ import { DailyTestClient } from "./ui";
 import { isoDate } from "@/lib/date";
 
 export default async function DailyTestPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

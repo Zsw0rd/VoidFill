@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { MentorActions } from "./ui";
 
 export default async function AdminMentorsPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

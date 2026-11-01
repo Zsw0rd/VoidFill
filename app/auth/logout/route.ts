@@ -7,8 +7,8 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const supabase = createClient();
+  const supabase = await createClient();
   await supabase.auth.signOut();
-  if (demoToken()) clearDemoCookies();
+  if (await demoToken()) await clearDemoCookies();
   return NextResponse.redirect(new URL("/", request.url), { status: 303 });
 }
