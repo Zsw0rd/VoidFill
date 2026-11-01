@@ -43,7 +43,7 @@ def test_query_instruction_is_used_only_for_query_encoding():
     engine = object.__new__(LearningEngine)
     engine.report = {"query_prefix": "Find passages: "}
     calls = []
-    engine.encode = lambda texts: calls.append(texts) or np.zeros((len(texts), 768))
+    engine.encode = lambda texts, *, public=False: calls.append(texts) or np.zeros((len(texts), 768))
     engine.encode_queries(["SQL joins"])
     engine.encode(["A document"])
     assert calls == [["Find passages: SQL joins"], ["A document"]]
@@ -53,7 +53,7 @@ def test_unsupported_topic_stays_unknown_with_high_background_similarity():
     engine = object.__new__(LearningEngine)
     engine.report = {"topic_min_similarity": .72, "topic_min_margin": .04}
     engine.topic_vectors = np.eye(8)
-    engine.encode = lambda texts: np.array([[.69, .66, .65, .64, .63, .62, .61, .60]])
+    engine.encode = lambda texts, *, public=False: np.array([[.69, .66, .65, .64, .63, .62, .61, .60]])
     assert engine.topic("Underwater basket weaving") is None
     assert engine.topic("SQL Fundamentals") == "sql"
 
