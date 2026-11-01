@@ -16,7 +16,8 @@ export default async function AdminUsersPage() {
     .eq("id", user.id)
     .maybeSingle();
 
-  if (!adminUser || adminUser.admin_role === "mentor") redirect("/dashboard");
+  if (!adminUser) redirect("/dashboard");
+  if (adminUser.admin_role === "mentor") redirect("/admin/mentor");
 
   // Fetch all users with their stats and skill scores
   const { data: profiles } = await supabase

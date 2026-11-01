@@ -18,7 +18,8 @@ export default async function AdminMentorsPage() {
     .eq("id", user.id)
     .maybeSingle();
 
-  if (!adminUser || adminUser.admin_role === "mentor") redirect("/dashboard");
+  if (!adminUser) redirect("/dashboard");
+  if (adminUser.admin_role === "mentor") redirect("/admin/mentor");
 
   // Fetch all admin users
   const { data: admins } = await supabase
