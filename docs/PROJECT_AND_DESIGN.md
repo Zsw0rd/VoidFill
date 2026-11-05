@@ -1,6 +1,6 @@
 # VoidFill: project map and UI redesign
 
-Reviewed from the local repository on 1 November 2026. This document describes the code that was inspected, the differences between the available branches, and the design implemented in this workspace.
+Reviewed from the local repository on 1 November 2026 and updated on 5 November 2026. This document describes the inspected branches, application behavior, and the implemented design. Cloud deployment details are in `CLOUD_DEPLOYMENT.md`; the selected Living Atlas design and browser verification are recorded in the project-root `design-qa.md`.
 
 ## Product and users
 
@@ -24,7 +24,7 @@ Three connected workspaces support that loop:
 
 ## Branches reviewed
 
-No branch was merged, reset, force-pushed or published during the redesign. Existing uncommitted local-ML and staff-demo changes were kept.
+The table records the initial branch audit. No branch was merged, reset or force-pushed. Existing local-ML and staff-demo changes were preserved. Subsequent releases from `codex/local-ml-resumes-guest-demo` have been promoted to the existing Vercel production domain.
 
 | Available ref at the start | Inspected state | Relationship to this work |
 | --- | --- | --- |
@@ -40,10 +40,10 @@ The local-ML feature commit changes 93 files against main. The working checkout 
 
 | Layer | Responsibility | Source |
 | --- | --- | --- |
-| Next.js 14 App Router + React 18 | Server pages load authenticated context; client components handle quizzes, charts, forms, chat and roadmap interaction | `app/` |
+| Next.js 15.5 App Router + React 18 | Server pages load authenticated context; client components handle quizzes, charts, forms, chat and roadmap interaction | `app/` |
 | Supabase | Normal-account authentication, Postgres, row-level security, user profiles/progress, staff and chat records | `lib/supabase/`, `supabase/actualused/used.sql` |
 | Route handlers | Authenticated learning requests, sealed assessment grading, chat, resume processing and temporary-demo transport | `app/api/` |
-| Local Python FastAPI service | Embedding retrieval, sourced question selection, recommendations, numerical/template-based insights, resume extraction and isolated demo data | `ml/service.py`, `ml/resume.py`, `ml/guest.py` |
+| Python FastAPI service | Local development or a private Vercel Service: embedding retrieval, sourced question selection, recommendations, numerical/template-based insights, resume extraction and isolated demo data | `ml/service.py`, `ml/resume.py`, `ml/guest.py` |
 | Learning utilities | Role context, score blending, priority calculation, assessment tokens and replay protection | `lib/learningContext.ts`, `gapLogic.ts`, `assessments.ts`, `submissions.ts` |
 | External generative AI | Sage chat and chat moderation use Gemini | `app/api/chat/`, `lib/gemini.ts` |
 | UI | Shared primitives, navigation, notifications and interaction patterns | `components/`, `app/globals.css`, `tailwind.config.ts` |
@@ -78,12 +78,12 @@ The service loads the active checkpoint from `ml/artifacts/retriever`. Training 
 
 The source bank documented in this branch contains 611 questions and 158 learning resources. Training retrieval performance is not a measurement of learner proficiency or resume-field accuracy. The UI avoids treating model suggestions or resume mentions as assessment results.
 
-PDF/DOCX ingestion is limited to 5 MB and 12 PDF pages. Text extraction uses local parsing; scanned PDFs can use offline RapidOCR. Users review the extracted name, skill evidence, sections and suggested career context before applying supported fields.
+PDF/DOCX ingestion is limited to 4 MiB and 12 PDF pages. Text extraction uses server-side parsing; scanned PDFs can use RapidOCR without an external OCR provider. Users review the extracted name, skill evidence, sections and suggested career context before applying supported fields.
 
 ### Temporary demos
 
 - The private entry key stays server-side and is not linked from public navigation.
-- Demo cookies select an isolated in-memory query adapter rather than normal Supabase tables.
+- Demo cookies select an isolated query adapter rather than normal learner tables. Local development keeps temporary snapshots in memory; Vercel uses encrypted snapshots stored in Supabase so requests can survive separate serverless instances.
 - Learner demos begin fresh. Staff demos seed six synthetic learners, two mentors, assessment history, assignments, conversations and labelled moderation examples.
 - Each staff login has its own workspace. Sample messages do not go to real learners.
 - Document leases, explicit ending and expiry remove temporary state. Sessions have a two-hour limit.

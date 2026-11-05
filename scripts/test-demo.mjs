@@ -46,7 +46,7 @@ try {
   }
   await call(a, "/api/roadmap/generate");
   await call(a, "/api/ai/recommend-courses");
-  const courses = await call(a, "/api/demo/db", { table: "roadmap_courses", limit: 1 });
+  const courses = await call(a, "/api/demo/db", { table: "roadmap_courses", orders: [{ column: "sort_order", ascending: true }], limit: 1 });
   assert.ok(courses.data.length);
   const courseTest = await call(a, "/api/roadmap/assess", { purpose: "course", course_id: courses.data[0].id });
   const bank = new Map(JSON.parse(readFileSync(join(root, "ml/data/questions.json"), "utf8")).map(q => [q.id, q.correct_index]));

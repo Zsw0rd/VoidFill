@@ -205,7 +205,9 @@ class GuestStore:
             elif operation != "select":
                 raise HTTPException(400, "Unsupported operation")
             for order in reversed(query.get("orders", [])):
-                selected.sort(key=lambda r: (r.get(order["column"]) is not None, r.get(order["column"]) or ""), reverse=not order.get("ascending", True))
+                # Zero is a real sort value, not a missing value. Replacing it
+                # with "" makes Python compare strings with later integers.
+                selected.sort(key=lambda r: (r.get(order["column"]) is not None, r.get(order["column"]) if r.get(order["column"]) is not None else ""), reverse=not order.get("ascending", True))
             count = len(selected)
             selected = selected[:min(query.get("limit", 1000), 1000)]
             selection = query.get("selection", "*")

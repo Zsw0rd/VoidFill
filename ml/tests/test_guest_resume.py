@@ -31,6 +31,21 @@ def test_session_isolation_and_explicit_deletion():
     assert store.get(b["token"])
 
 
+def test_resource_order_keeps_zero_numeric_and_orders_multiple_skills():
+    store = GuestStore()
+    token = store.create()["token"]
+    store.query(token, {"table": "roadmap_courses", "operation": "insert", "values": [
+        {"title": "Second", "skill_id": SKILLS[0]["id"], "sort_order": 1},
+        {"title": "First", "skill_id": SKILLS[0]["id"], "sort_order": 0},
+        {"title": "Another first", "skill_id": SKILLS[1]["id"], "sort_order": 0},
+        {"title": "Third", "skill_id": SKILLS[0]["id"], "sort_order": 2},
+    ]})
+    rows = store.query(token, {"table": "roadmap_courses", "orders": [{"column": "sort_order", "ascending": True}]})["data"]
+    assert [row["title"] for row in rows] == ["First", "Another first", "Second", "Third"]
+    rows = store.query(token, {"table": "roadmap_courses", "orders": [{"column": "sort_order", "ascending": False}]})["data"]
+    assert [row["sort_order"] for row in rows] == [2, 1, 0, 0]
+
+
 def test_tab_grace_crash_expiry_and_multiple_tabs():
     now = [1000]
     store = GuestStore(clock=lambda: now[0]); token = store.create()["token"]
