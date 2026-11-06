@@ -20,7 +20,7 @@ Data from official O*NET 31.0 provides occupation references; role-specific skil
 - [x] Shared career picker and personal-goal matching with explicit user confirmation; persist known selected skills and experience level without altering earned progress.
 - [x] Consistent requirements across roadmap, assessment context, analytics, resume suggestions and mentoring.
 - [x] Meaningful coverage, mapping, isolation, migration and regression tests; desktop/phone Chrome QA against disposable data.
-- [ ] Apply additive Supabase migration, deploy through existing Vercel project, and verify production flows.
+- [x] Apply additive Supabase migration, deploy through existing Vercel project, and verify production flows.
 
 ## Starting implementation constraints (addressed)
 
@@ -67,3 +67,5 @@ Final consistency fixes: the dashboard filters saved roadmap branches to current
 Final production-mode local career integration passed all 12 pilots plus personal-goal/focus changes, reflection isolation, unchanged scores/XP, cache invalidation and removal of inactive focus from the dashboard. Build and type checking passed after the final atlas icon and copy changes. Vercel publication is the remaining release step.
 
 Vercel preview AgRHfsB6SJLpD2HU1Pmcm1Butv1H rejected the first build because raw-byte fingerprints differed between Windows CRLF files and Linux Git blobs. Fixed fingerprints to use canonical parsed JSON: string values and list order remain significant, formatting and object key order do not. All six fingerprints were independently verified against Git blobs, and 25 career/service/cloud tests passed, including a new CRLF/LF regression. The existing vectors remain valid because parsed content is identical; no guard was removed and no model quality setting changed.
+
+Release completed: production deployment Dn7bBTZY2Tf97yZ53K2bDeXXNtkP serves commit 2c6c9dca18d169574686f5024966b2110f6579b8 on https://void-fill.vercel.app. All four live integration scripts passed (careers, learner, staff, auth). Real signed-in Chrome Career explorer rendered without console warnings/errors. Final full suites: 37 Node and 48 Python tests passed. Screenshot: careers-production-live.png in the task visualization directory. User then requested admin + mentor access for their existing account and continuation of the expansion; tracked in docs/STAFF_ACCESS.md.

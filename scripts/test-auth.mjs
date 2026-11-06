@@ -14,7 +14,7 @@ for (const [path, expected] of [
   assert.equal(target.searchParams.get("error"), expected);
   assert.equal(target.searchParams.get("next"), "/dashboard");
 }
-for (const path of ["/dashboard", "/profile", "/admin/dashboard"]) {
+for (const path of ["/dashboard", "/careers", "/profile", "/admin/dashboard"]) {
   const response = await fetch(base + path, { redirect: "manual" });
   assert.equal(response.status, 307, path);
   const target = new URL(response.headers.get("location"), base);

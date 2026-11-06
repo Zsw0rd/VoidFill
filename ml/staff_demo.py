@@ -62,9 +62,12 @@ def validate_write(session, table, operation, value, selected, tables):
     elif table == "mentor_assignments" and super_admin:
         if operation == "delete":
             return
-        if operation == "insert" and value.get("mentor_id") in {r["id"] for r in tables["admin_users"] if r["admin_role"] == "mentor"} and value.get("user_id") in {r["id"] for r in tables["profiles"]}:
+        if operation == "insert" and value.get("mentor_id") in {r["id"] for r in tables["admin_users"] if r["admin_role"] in {"mentor", "admin", "super_admin"}} and value.get("user_id") in {r["id"] for r in tables["profiles"]}:
             return
     elif table in {"chat_messages", "chat_conversations"}:
+        if table == "chat_conversations" and operation == "insert" and set(value) <= {"user_id", "mentor_id", "is_ai", "title"}:
+            if value.get("mentor_id") == uid and value.get("is_ai") is False and any(row["mentor_id"] == uid and row["user_id"] == value.get("user_id") for row in tables.get("mentor_assignments", [])):
+                return
         conversations = {r["id"] for r in tables.get("chat_conversations", []) if r.get("mentor_id") == uid and not r.get("is_ai")}
         if table == "chat_messages":
             if operation == "insert" and value.get("conversation_id") in conversations and value.get("sender_id") == uid and value.get("sender_role") == "mentor" and set(value) <= {"conversation_id", "sender_id", "sender_role", "content"}:

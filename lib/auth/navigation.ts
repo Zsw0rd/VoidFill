@@ -3,6 +3,7 @@ export const LEARNER_PATHS = new Set([
   "/onboarding",
   "/profile",
   "/resume",
+  "/careers",
   "/daily-test",
   "/practice-test",
   "/roadmap",

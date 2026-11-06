@@ -53,7 +53,7 @@ const learnerGroups = [
   },
 ];
 function staffGroups(role: string) {
-  return [
+  const groups = [
     {
       label: role === "mentor" ? "Mentoring workspace" : "Platform workspace",
       items:
@@ -82,15 +82,19 @@ function staffGroups(role: string) {
             ],
     },
   ];
+  if (role !== "mentor") groups.push({label: "Your mentoring workspace", items: [{href: "/admin/mentor", icon: Users, label: "My learners"}, {href: "/admin/mentor/chat", icon: MessageCircle, label: "Conversations"}]});
+  return groups;
 }
 
 export function WorkspaceShell({
   displayName,
   role,
+  learnerAccess = false,
   children,
 }: {
   displayName: string;
   role?: string;
+  learnerAccess?: boolean;
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
@@ -98,6 +102,7 @@ export function WorkspaceShell({
   const sidebar = useRef<HTMLElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const groups = role ? staffGroups(role) : learnerGroups;
+  const navigationGroups = role && learnerAccess ? [...groups, {label: "Your own growth", items: [{href: "/dashboard", icon: BookOpen, label: "My learning workspace"}]}] : groups;
   const profileHref = role ? "/admin/profile" : "/profile";
   const home = role
     ? role === "mentor"
@@ -105,7 +110,7 @@ export function WorkspaceShell({
       : "/admin/dashboard"
     : "/dashboard";
   const links = [
-    ...groups.flatMap((g) => g.items),
+    ...navigationGroups.flatMap((g) => g.items),
     { href: profileHref, icon: User, label: "My profile" },
   ];
   const current = links
@@ -189,7 +194,7 @@ export function WorkspaceShell({
             : "Make room for growth"}
         </div>
         <nav aria-label="Main navigation" className="pb-6">
-          {groups.map((group) => (
+          {navigationGroups.map((group) => (
             <div key={group.label}>
               <div className="nav-group-label">{group.label}</div>
               {group.items.map((item) => (

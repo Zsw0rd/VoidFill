@@ -6,14 +6,17 @@ import { createClient } from "@/lib/supabase/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { canMentor } from "@/lib/auth/staff";
 import { toast } from "@/components/toast/bus";
 
 export function MentorActions({
   allUsers,
   staff,
+  canManageStaff = false,
 }: {
   allUsers: any[];
   staff: any[];
+  canManageStaff?: boolean;
 }) {
   const supabase = createClient();
   const [addUid, setAddUid] = useState("");
@@ -26,6 +29,7 @@ export function MentorActions({
   const [studentId, setStudentId] = useState("");
 
   async function addStaff() {
+    if (!canManageStaff) return toast("Not authorized", "Only a super administrator can add staff.");
     if (!addUid.trim()) return toast("Missing", "Enter the user ID");
     setBusy("add");
     const { error } = await supabase.from("admin_users").insert({
@@ -60,10 +64,10 @@ export function MentorActions({
   const learners = allUsers.filter(
     (user) => !staff.some((s) => s.id === user.id),
   );
-  const mentors = staff.filter((s) => s.admin_role === "mentor");
+  const mentors = staff.filter((s) => canMentor(s.admin_role));
   return (
     <div className="mt-7 grid lg:grid-cols-2 gap-5">
-      <section className="panel p-6">
+      {canManageStaff && <section className="panel p-6">
         <div className="flex items-center gap-3">
           <span className="icon-tile">
             <UserPlus size={18} />
@@ -150,7 +154,7 @@ export function MentorActions({
             )}
           </Button>
         </div>
-      </section>
+      </section>}
       <section className="panel p-6">
         <div className="flex items-center gap-3">
           <span className="icon-tile">

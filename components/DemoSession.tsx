@@ -1,10 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 export function DemoSession() {
+  const entryPage = usePathname().startsWith("/demo/");
   const [active, setActive] = useState(false);
   const [ending, setEnding] = useState(false);
   useEffect(() => {
-    if (!document.cookie.split("; ").includes("vf_demo_active=1")) return;
+    if (entryPage || !document.cookie.split("; ").includes("vf_demo_active=1")) {
+      setActive(false);
+      return;
+    }
     setActive(true);
     const tab = crypto.randomUUID();
     let stopped = false;
@@ -46,8 +51,8 @@ export function DemoSession() {
       window.removeEventListener("pagehide", release);
       window.removeEventListener("pageshow", resume);
     };
-  }, []);
-  if (!active) return null;
+  }, [entryPage]);
+  if (entryPage || !active) return null;
   return (
     <div className="demo-banner">
       <span>

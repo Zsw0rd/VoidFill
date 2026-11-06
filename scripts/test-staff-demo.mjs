@@ -31,6 +31,22 @@ try {
     }
     const profiles = (await call(jar,"/api/demo/db",{table:"profiles"})).data;
     assert.equal(profiles.length,email.startsWith("admin") ? 6 : 3);
+    if (email.startsWith("admin")) {
+      const learner = profiles[0];
+      await call(jar,"/api/demo/db",{table:"mentor_assignments",operation:"delete",filters:[{column:"user_id",op:"eq",value:learner.id}]});
+      await call(jar,"/api/demo/db",{table:"mentor_assignments",operation:"insert",values:{mentor_id:user.id,user_id:learner.id}});
+      const workspace = await fetch(base+"/admin/mentor",{headers:{Cookie:jar.cookie},redirect:"manual"});
+      assert.equal(workspace.status,200);
+      const html = await workspace.text();
+      assert.ok(html.includes("Platform workspace") && html.includes("Your mentoring workspace"));
+      const lookup = await fetch(base+"/api/chat/mentor-conversations?studentId="+learner.id,{headers:{Cookie:jar.cookie}});
+      assert.equal(lookup.status,200);
+      assert.equal((await lookup.json()).conversationId,null,"Reassignment must not expose another mentor's conversation");
+      await call(jar,"/api/chat/mentor-send",{targetUserId:learner.id,conversationId:null,message:"Synthetic dual-role verification reply"});
+      const messages = (await call(jar,"/api/demo/db",{table:"chat_messages"})).data;
+      assert.ok(messages.some(message=>message.sender_id===user.id && message.sender_role==="mentor" && message.content==="Synthetic dual-role verification reply"));
+      await call(jar,"/api/chat/mentor-send",{targetUserId:profiles[1].id,message:"Synthetic unassigned reply"},403);
+    }
     if (!email.startsWith("admin")) {
       const deny = await fetch(base+"/admin/users",{headers:{Cookie:jar.cookie},redirect:"manual"});
       assert.equal(deny.status,307);
@@ -42,7 +58,7 @@ try {
       assert.ok(messages.some(m=>m.content==="Synthetic demo verification reply" && m.sender_id===user.id));
     }
   }
-  console.log("Staff demo logins, page rendering, role isolation, sample mappings, and mentor replies passed.");
+  console.log("Staff demo logins, dual admin/mentor workspaces, assignment checks, conversation isolation and synthetic mentor replies passed.");
 } finally {
   for (const jar of jars) if (jar.cookie) await call(jar,"/api/demo/end").catch(()=>{});
 }

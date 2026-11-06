@@ -3,6 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import { createClient } from "@/lib/supabase/server";
 import { ProfileEditor } from "./ui";
 import Link from "next/link";
+import { canMentor, isAdministrator } from "@/lib/auth/staff";
 import { loadCareerRequirements } from "@/lib/careerRequirements";
 
 export default async function ProfilePage() {
@@ -24,6 +25,7 @@ export default async function ProfilePage() {
     .select("id,name")
     .order("name");
 
+  const { data: staff } = await supabase.from("admin_users").select("admin_role").eq("id", user.id).maybeSingle();
   const { data: skills } = await supabase.from("skills").select("id,name").order("name");
   const roleSkills = await loadCareerRequirements(supabase, profile);
 
@@ -61,6 +63,7 @@ export default async function ProfilePage() {
             Update from your resume ↗
           </Link>
         </div>
+        {canMentor(staff?.admin_role) && <div className="panel p-5 mb-6 flex flex-wrap items-center gap-4"><p className="text-xs text-muted">Your staff workspaces</p>{isAdministrator(staff?.admin_role) && <Link href="/admin/dashboard" className="secondary-link">Administration ↗</Link>}<Link href="/admin/mentor" className="secondary-link">Mentoring ↗</Link></div>}
         <ProfileEditor
           initial={profile}
           roles={roles || []}

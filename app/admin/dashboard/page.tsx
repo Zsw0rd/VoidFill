@@ -35,8 +35,7 @@ export default async function AdminDashboardPage() {
         .eq("flagged", true),
       supabase
         .from("admin_users")
-        .select("id", { count: "exact", head: true })
-        .eq("admin_role", "mentor"),
+        .select("id", { count: "exact", head: true }),
     ]);
 
   const totalUsers = usersRes.count || 0;
@@ -130,7 +129,7 @@ export default async function AdminDashboardPage() {
           <Card className="bg-paper-soft">
             <CardContent className="p-5">
               <div className="text-2xl font-bold text-sky">{mentorCount}</div>
-              <div className="text-xs text-muted mt-1">Active Mentors</div>
+              <div className="text-xs text-muted mt-1">Mentoring staff</div>
             </CardContent>
           </Card>
           <Card

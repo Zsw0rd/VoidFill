@@ -35,6 +35,7 @@ export async function GET() {
             .select("id, mentor_id")
             .eq("user_id", user.id)
             .eq("is_ai", false)
+            .is("mentor_id", null)
             .order("created_at", { ascending: true })
             .limit(1);
 

@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { z } from "zod";
+import { mentorRequestMode } from "@/lib/auth/staff";
+import { sameOrigin } from "@/lib/demo/server";
+
+const input = z.object({message: z.string().trim().min(1).max(2000), conversationId: z.string().uuid().nullish(), targetUserId: z.string().uuid().optional()}).strict();
 
 type ConversationRow = {
     id: string;
@@ -23,6 +28,8 @@ async function getFirstHumanConversation(
 
     if (mentorId) {
         query = query.eq("mentor_id", mentorId);
+    } else if (mentorId === null) {
+        query = query.is("mentor_id", null);
     }
 
     const { data } = await query;
@@ -35,28 +42,27 @@ async function getFirstHumanConversation(
  * Body: { message, conversationId?, targetUserId? }
  */
 export async function POST(req: Request) {
+    if (!sameOrigin(req)) return NextResponse.json({error: "Invalid origin"}, {status: 403});
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
-    const body = await req.json();
-    const { message, conversationId, targetUserId } = body;
+    const parsed = input.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) return NextResponse.json({error: "Check the message and conversation details."}, {status: 400});
+    const {message, conversationId, targetUserId} = parsed.data;
 
-    if (!message || typeof message !== "string" || message.trim().length === 0) {
-        return NextResponse.json({ error: "Message is required" }, { status: 400 });
-    }
-    if (message.length > 2000) {
-        return NextResponse.json({ error: "Message too long" }, { status: 400 });
-    }
-
-    const { data: adminRows } = await supabase
+    const { data: adminRows, error: staffError } = await supabase
         .from("admin_users")
         .select("admin_role")
         .eq("id", user.id)
         .limit(1);
 
     const adminUser = adminRows?.[0];
-    const isMentor = adminUser?.admin_role === "mentor";
+    if (staffError) return NextResponse.json({error: "Could not verify account access."}, {status: 503});
+    const mode = mentorRequestMode(adminUser?.admin_role, targetUserId);
+    if (mode === "forbidden") return NextResponse.json({error: "Not authorized"}, {status: 403});
+    if (mode === "missing-target") return NextResponse.json({error: "Target user required"}, {status: 400});
+    const isMentor = mode === "mentor";
     let convId = conversationId;
     const studentId = isMentor ? targetUserId : user.id;
 
@@ -100,6 +106,7 @@ export async function POST(req: Request) {
             .limit(1);
 
         conversation = (conversationRows?.[0] as ConversationRow | undefined) ?? null;
+        if (!conversation) return NextResponse.json({error: "Conversation not found"}, {status: 404});
     }
 
     if (conversation?.is_ai) {
@@ -119,7 +126,7 @@ export async function POST(req: Request) {
             conversation = await getFirstHumanConversation(supabase, studentId, user.id);
 
             if (!conversation) {
-                conversation = await getFirstHumanConversation(supabase, studentId);
+                conversation = await getFirstHumanConversation(supabase, studentId, null);
             }
         }
     } else {
@@ -137,7 +144,7 @@ export async function POST(req: Request) {
             }
 
             if (!conversation) {
-                conversation = await getFirstHumanConversation(supabase, studentId);
+                conversation = await getFirstHumanConversation(supabase, studentId, null);
             }
         }
     }

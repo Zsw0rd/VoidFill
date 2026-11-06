@@ -1,3 +1,4 @@
+import { canMentor } from "@/lib/auth/staff";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { AdminShell } from "@/components/AdminShell";
@@ -58,9 +59,7 @@ export default async function AdminMentorsPage() {
           Manage your staff and connect learners with the right mentors.
         </p>
 
-        {adminUser.admin_role === "super_admin" && (
-          <MentorActions allUsers={allUsers || []} staff={admins || []} />
-        )}
+        <MentorActions allUsers={allUsers || []} staff={admins || []} canManageStaff={adminUser.admin_role === "super_admin"} />
 
         <div className="mt-6 space-y-4">
           {(admins || []).map((a: any) => {
@@ -89,11 +88,11 @@ export default async function AdminMentorsPage() {
                             : "warn"
                       }
                     >
-                      {a.admin_role.replace("_", " ")}
+                      {a.admin_role.replace("_", " ")}{a.admin_role !== "mentor" ? " + mentor" : ""}
                     </Badge>
                   </div>
 
-                  {a.admin_role === "mentor" && (
+                  {canMentor(a.admin_role) && (
                     <div className="mt-3 pl-13">
                       <div className="text-xs text-muted mb-1">
                         Assigned students ({assigned.length}):

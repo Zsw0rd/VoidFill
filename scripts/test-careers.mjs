@@ -24,6 +24,7 @@ try {
   }
   const [a, b] = jars;
   const uid = (await call(a, "/api/demo/user")).data.user.id;
+  await call(a, "/api/chat/mentor-send", {targetUserId: uid, message: "Synthetic forged mentor reply"}, 403);
   const roles = (await db(a, "roles")).data;
   const skills = (await db(a, "skills")).data;
   assert.equal(roles.length, 61); assert.equal(skills.length, 55);
