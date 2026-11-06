@@ -29,12 +29,13 @@ test("suggestions are limited to careers actually available in the database", ()
 test("career coverage distinguishes objective knowledge from specialist practice", () => {
   const pilot = careerCatalogue.roles.filter(role => role.release_status === "pilot");
   assert.equal(careerCatalogue.roles.length, 60);
-  assert.equal(pilot.length, 12);
-  assert.equal(pilot.filter(role => careerCatalogue.families.find(family => family.key === role.family)?.kind === "technical").length, 6);
+  assert.equal(pilot.length, 30);
+  assert.equal(pilot.filter(role => careerCatalogue.families.find(family => family.key === role.family)?.kind === "technical").length, 13);
+  assert.equal(new Set(pilot.map(role => role.family)).size, 10);
   for (const role of pilot) assert.equal(careerCoverage(role).review, 0, role.name);
   assert.equal(hasKnowledgeCoverage("Workplace Communication"), true);
-  assert.equal(hasKnowledgeCoverage("UX Research & Interaction Design"), false);
-  assert.ok(careerCoverage(careerForName("UX Designer")!).review > 0);
+  assert.equal(hasKnowledgeCoverage("UX Research & Interaction Design"), true);
+  assert.ok(careerCoverage(careerForName("Payroll Specialist")!).review > 0);
 });
 
 test("learning targets are independent from priority and honor the selected level", () => {

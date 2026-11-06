@@ -1,5 +1,5 @@
 {
-  "version": "2026.11-foundations-1",
+  "version": "2026.11-foundations-2",
   "reviewed_at": "2026-11-06",
   "sources": [
     {
@@ -92,7 +92,26 @@
     "accounting": "Financial accounting assets liabilities equity double entry cash accrual reconciliation financial statements",
     "spreadsheets": "Spreadsheets formulas references filters data validation summaries percentages pivot tables",
     "communication": "Workplace communication clear writing audience active listening feedback meeting notes collaboration",
-    "analysis": "Business analysis requirements stakeholders process mapping root causes acceptance criteria evidence"
+    "analysis": "Business analysis requirements stakeholders process mapping root causes acceptance criteria evidence",
+    "architecture": "Software architecture components interfaces cohesion coupling requirements trade-offs reliability caching queues",
+    "containers": "Containers Docker images volumes ports CI CD reproducible builds deployment health checks rollback secrets",
+    "data-engineering": "Data engineering pipelines ETL ELT schemas idempotency incremental loads orchestration lineage data quality",
+    "cad": "Computer aided design CAD coordinates units layers dimensions constraints orthographic views scale revisions",
+    "manufacturing": "Manufacturing processes materials machining casting forming additive production tolerances capacity flow waste",
+    "quality": "Industrial quality systems inspection variation control charts root cause corrective action measurement traceability",
+    "product": "Product strategy user problems outcomes prioritization hypotheses roadmaps discovery experiments metrics trade-offs",
+    "customer-research": "Customer research research questions recruitment interviews observation consent synthesis sampling bias evidence",
+    "ux": "User experience interaction design task flows prototypes usability feedback information architecture errors research",
+    "accessibility": "Accessibility evaluation keyboard focus labels headings alternative text contrast captions manual testing assistive technology",
+    "visual-design": "Visual design hierarchy typography spacing alignment layout color contrast grids consistency responsive interfaces",
+    "content": "Editorial content strategy audience user needs briefs structure plain language editing evidence governance maintenance",
+    "seo": "Search engine optimization crawl indexing search intent titles descriptions internal links canonical URLs structured data measurement",
+    "research": "Research methods hypotheses variables sampling surveys qualitative quantitative evidence bias correlation causation replication",
+    "financial-analysis": "Financial analysis financial statements ratios margins liquidity cash flow common size variance budgets scenarios",
+    "hr-operations": "People operations onboarding employee records confidentiality service requests offboarding policies data quality escalation",
+    "learning-design": "Learning design measurable objectives assessment alignment practice feedback accessibility transfer evaluation",
+    "inventory": "Inventory logistics stock records receipts dispatch cycle counts reorder points lead time safety stock traceability",
+    "supply-chain": "Supply chain planning demand capacity supply lead time forecasting bottlenecks service risk coordination bullwhip"
   },
   "skills": [
     {
@@ -651,6 +670,452 @@
       }
     },
     {
+      "key": "architecture",
+      "id": "4612078a-1af1-5778-94c9-089404e851eb",
+      "name": "Software Architecture",
+      "category": "Software",
+      "topic": "architecture",
+      "assessment_mode": "objective",
+      "aliases": [
+        "software architecture",
+        "system design"
+      ],
+      "description": "Software architecture components interfaces cohesion coupling requirements trade-offs reliability caching queues",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "containers",
+      "id": "da767b24-106c-5239-acf2-8400accf3e37",
+      "name": "Containerization & CI/CD",
+      "category": "IT",
+      "topic": "containers",
+      "assessment_mode": "objective",
+      "aliases": [
+        "containerization & ci/cd",
+        "docker",
+        "containers",
+        "continuous integration"
+      ],
+      "description": "Containers Docker images volumes ports CI CD reproducible builds deployment health checks rollback secrets",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "data-engineering",
+      "id": "d895380b-8fac-5196-9b41-fea7a95db035",
+      "name": "Data Engineering Pipelines",
+      "category": "Data",
+      "topic": "data-engineering",
+      "assessment_mode": "objective",
+      "aliases": [
+        "data engineering pipelines",
+        "data engineering",
+        "etl",
+        "elt",
+        "data pipelines"
+      ],
+      "description": "Data engineering pipelines ETL ELT schemas idempotency incremental loads orchestration lineage data quality",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "cad",
+      "id": "d0b0e79a-59c3-5aa9-bbc1-efa0940f54ca",
+      "name": "Computer-Aided Design",
+      "category": "Engineering",
+      "topic": "cad",
+      "assessment_mode": "objective",
+      "aliases": [
+        "computer-aided design",
+        "cad",
+        "autocad",
+        "computer aided design",
+        "drafting"
+      ],
+      "description": "Computer aided design CAD coordinates units layers dimensions constraints orthographic views scale revisions",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "manufacturing",
+      "id": "7e3ca02c-e547-5a54-8550-78a4d9069ab9",
+      "name": "Manufacturing Processes",
+      "category": "Engineering",
+      "topic": "manufacturing",
+      "assessment_mode": "objective",
+      "aliases": [
+        "manufacturing processes",
+        "design for manufacturing"
+      ],
+      "description": "Manufacturing processes materials machining casting forming additive production tolerances capacity flow waste",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "quality",
+      "id": "3b8f982f-b6a2-5d25-bb95-151945a15074",
+      "name": "Industrial Quality Systems",
+      "category": "Engineering",
+      "topic": "quality",
+      "assessment_mode": "objective",
+      "aliases": [
+        "industrial quality systems",
+        "quality control",
+        "statistical process control",
+        "quality assurance manufacturing"
+      ],
+      "description": "Industrial quality systems inspection variation control charts root cause corrective action measurement traceability",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "product",
+      "id": "c293517c-8986-5e68-96b7-db66c72f3bff",
+      "name": "Product Strategy",
+      "category": "Product",
+      "topic": "product",
+      "assessment_mode": "objective",
+      "aliases": [
+        "product strategy",
+        "product management",
+        "product roadmap"
+      ],
+      "description": "Product strategy user problems outcomes prioritization hypotheses roadmaps discovery experiments metrics trade-offs",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "customer-research",
+      "id": "b852b598-e588-5b64-8cc1-e75d1585b1b5",
+      "name": "Customer Research",
+      "category": "Business",
+      "topic": "customer-research",
+      "assessment_mode": "objective",
+      "aliases": [
+        "customer research",
+        "customer interviews"
+      ],
+      "description": "Customer research research questions recruitment interviews observation consent synthesis sampling bias evidence",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "ux",
+      "id": "02696082-120b-5108-a060-6cd13e9f6113",
+      "name": "UX Research & Interaction Design",
+      "category": "Design",
+      "topic": "ux",
+      "assessment_mode": "objective",
+      "aliases": [
+        "ux research & interaction design",
+        "ux",
+        "user research",
+        "interaction design",
+        "figma"
+      ],
+      "description": "User experience interaction design task flows prototypes usability feedback information architecture errors research",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "accessibility",
+      "id": "78366e8d-b51b-580b-b378-96be5e3e1df4",
+      "name": "Accessibility Evaluation",
+      "category": "Design",
+      "topic": "accessibility",
+      "assessment_mode": "objective",
+      "aliases": [
+        "accessibility evaluation",
+        "accessibility",
+        "wcag",
+        "a11y"
+      ],
+      "description": "Accessibility evaluation keyboard focus labels headings alternative text contrast captions manual testing assistive technology",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "visual-design",
+      "id": "06075c7b-78bb-5b7d-a770-fe6ac01ed36d",
+      "name": "Visual Design",
+      "category": "Design",
+      "topic": "visual-design",
+      "assessment_mode": "objective",
+      "aliases": [
+        "visual design",
+        "typography",
+        "design systems"
+      ],
+      "description": "Visual design hierarchy typography spacing alignment layout color contrast grids consistency responsive interfaces",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "content",
+      "id": "179f3186-9f81-5680-83c2-e89188020376",
+      "name": "Editorial & Content Strategy",
+      "category": "Marketing",
+      "topic": "content",
+      "assessment_mode": "objective",
+      "aliases": [
+        "editorial & content strategy",
+        "content strategy",
+        "content writing",
+        "copywriting",
+        "editorial"
+      ],
+      "description": "Editorial content strategy audience user needs briefs structure plain language editing evidence governance maintenance",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "seo",
+      "id": "38a73c7d-160a-5afd-9a62-3fd07ee27433",
+      "name": "Search Engine Optimization",
+      "category": "Marketing",
+      "topic": "seo",
+      "assessment_mode": "objective",
+      "aliases": [
+        "search engine optimization",
+        "seo"
+      ],
+      "description": "Search engine optimization crawl indexing search intent titles descriptions internal links canonical URLs structured data measurement",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "research",
+      "id": "392f9c39-4899-5123-8451-a08fd5d32d97",
+      "name": "Research Methods",
+      "category": "Shared",
+      "topic": "research",
+      "assessment_mode": "objective",
+      "aliases": [
+        "research methods",
+        "qualitative research",
+        "quantitative research"
+      ],
+      "description": "Research methods hypotheses variables sampling surveys qualitative quantitative evidence bias correlation causation replication",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "financial-analysis",
+      "id": "a9f8e357-30d3-5161-8c63-82b1b2b2d67e",
+      "name": "Financial Analysis",
+      "category": "Finance",
+      "topic": "financial-analysis",
+      "assessment_mode": "objective",
+      "aliases": [
+        "financial analysis",
+        "financial modeling",
+        "financial modelling"
+      ],
+      "description": "Financial analysis financial statements ratios margins liquidity cash flow common size variance budgets scenarios",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "hr-operations",
+      "id": "017c546a-6197-50d2-ba16-ab24abba09fd",
+      "name": "People Operations",
+      "category": "People",
+      "topic": "hr-operations",
+      "assessment_mode": "objective",
+      "aliases": [
+        "people operations",
+        "hr operations",
+        "employee onboarding"
+      ],
+      "description": "People operations onboarding employee records confidentiality service requests offboarding policies data quality escalation",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "learning-design",
+      "id": "26765c6a-4773-50d8-b4c9-6008dcef6483",
+      "name": "Learning Design",
+      "category": "People",
+      "topic": "learning-design",
+      "assessment_mode": "objective",
+      "aliases": [
+        "learning design",
+        "instructional design",
+        "training design"
+      ],
+      "description": "Learning design measurable objectives assessment alignment practice feedback accessibility transfer evaluation",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "inventory",
+      "id": "41c8d342-ef11-5d81-b6b0-c37598d04875",
+      "name": "Inventory & Logistics",
+      "category": "Operations",
+      "topic": "inventory",
+      "assessment_mode": "objective",
+      "aliases": [
+        "inventory & logistics",
+        "inventory management",
+        "logistics",
+        "stock control"
+      ],
+      "description": "Inventory logistics stock records receipts dispatch cycle counts reorder points lead time safety stock traceability",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
+      "key": "supply-chain",
+      "id": "5c4b0ea0-f8f5-5de2-87bf-7874eac2fdd0",
+      "name": "Supply Chain Planning",
+      "category": "Operations",
+      "topic": "supply-chain",
+      "assessment_mode": "objective",
+      "aliases": [
+        "supply chain planning",
+        "supply chain",
+        "demand planning",
+        "supply planning"
+      ],
+      "description": "Supply chain planning demand capacity supply lead time forecasting bottlenecks service risk coordination bullwhip",
+      "coverage": {
+        "questions": 20,
+        "resources": 3,
+        "levels": [
+          1,
+          2
+        ],
+        "scope": "foundation knowledge; practical ability requires separate evidence"
+      }
+    },
+    {
       "key": "react",
       "id": "97f6d3e0-2ddc-5da3-8112-20d2c1f22d21",
       "name": "React Development",
@@ -664,27 +1129,6 @@
         "next.js"
       ],
       "description": "Specialist learning and practical work in react development. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "containers",
-      "id": "da767b24-106c-5239-acf2-8400accf3e37",
-      "name": "Containerization & CI/CD",
-      "category": "IT",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "containerization & ci/cd",
-        "docker",
-        "containers",
-        "continuous integration"
-      ],
-      "description": "Specialist learning and practical work in containerization & ci/cd. Additional assessment content is being developed.",
       "coverage": {
         "questions": 0,
         "resources": 0,
@@ -711,42 +1155,6 @@
       }
     },
     {
-      "key": "architecture",
-      "id": "4612078a-1af1-5778-94c9-089404e851eb",
-      "name": "Software Architecture",
-      "category": "Software",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "software architecture"
-      ],
-      "description": "Specialist learning and practical work in software architecture. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "data-engineering",
-      "id": "d895380b-8fac-5196-9b41-fea7a95db035",
-      "name": "Data Engineering Pipelines",
-      "category": "Data",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "data engineering pipelines"
-      ],
-      "description": "Specialist learning and practical work in data engineering pipelines. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
       "key": "ml-operations",
       "id": "5b43b80b-2c14-52be-a369-f8a5bdeeafa1",
       "name": "ML Operations",
@@ -757,136 +1165,6 @@
         "ml operations"
       ],
       "description": "Specialist learning and practical work in ml operations. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "research",
-      "id": "392f9c39-4899-5123-8451-a08fd5d32d97",
-      "name": "Research Methods",
-      "category": "Shared",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "research methods"
-      ],
-      "description": "Specialist learning and practical work in research methods. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "ux",
-      "id": "02696082-120b-5108-a060-6cd13e9f6113",
-      "name": "UX Research & Interaction Design",
-      "category": "Design",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "ux research & interaction design",
-        "ux",
-        "user research",
-        "interaction design",
-        "figma"
-      ],
-      "description": "Specialist learning and practical work in ux research & interaction design. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "visual-design",
-      "id": "06075c7b-78bb-5b7d-a770-fe6ac01ed36d",
-      "name": "Visual Design",
-      "category": "Design",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "visual design"
-      ],
-      "description": "Specialist learning and practical work in visual design. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "product",
-      "id": "c293517c-8986-5e68-96b7-db66c72f3bff",
-      "name": "Product Strategy",
-      "category": "Product",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "product strategy"
-      ],
-      "description": "Specialist learning and practical work in product strategy. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "accessibility",
-      "id": "78366e8d-b51b-580b-b378-96be5e3e1df4",
-      "name": "Accessibility Evaluation",
-      "category": "Design",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "accessibility evaluation"
-      ],
-      "description": "Specialist learning and practical work in accessibility evaluation. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "seo",
-      "id": "38a73c7d-160a-5afd-9a62-3fd07ee27433",
-      "name": "Search Engine Optimization",
-      "category": "Marketing",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "search engine optimization"
-      ],
-      "description": "Specialist learning and practical work in search engine optimization. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "content",
-      "id": "179f3186-9f81-5680-83c2-e89188020376",
-      "name": "Editorial & Content Strategy",
-      "category": "Marketing",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "editorial & content strategy"
-      ],
-      "description": "Specialist learning and practical work in editorial & content strategy. Additional assessment content is being developed.",
       "coverage": {
         "questions": 0,
         "resources": 0,
@@ -913,42 +1191,6 @@
       }
     },
     {
-      "key": "hr-operations",
-      "id": "017c546a-6197-50d2-ba16-ab24abba09fd",
-      "name": "People Operations",
-      "category": "People",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "people operations"
-      ],
-      "description": "Specialist learning and practical work in people operations. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "learning-design",
-      "id": "26765c6a-4773-50d8-b4c9-6008dcef6483",
-      "name": "Learning Design",
-      "category": "People",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "learning design"
-      ],
-      "description": "Specialist learning and practical work in learning design. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
       "key": "payroll",
       "id": "6fb68df3-d5f2-51c6-9214-1ec7ea136b5c",
       "name": "Payroll Operations",
@@ -959,24 +1201,6 @@
         "payroll operations"
       ],
       "description": "Specialist learning and practical work in payroll operations. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "financial-analysis",
-      "id": "a9f8e357-30d3-5161-8c63-82b1b2b2d67e",
-      "name": "Financial Analysis",
-      "category": "Finance",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "financial analysis"
-      ],
-      "description": "Specialist learning and practical work in financial analysis. Additional assessment content is being developed.",
       "coverage": {
         "questions": 0,
         "resources": 0,
@@ -1021,78 +1245,6 @@
       }
     },
     {
-      "key": "supply-chain",
-      "id": "5c4b0ea0-f8f5-5de2-87bf-7874eac2fdd0",
-      "name": "Supply Chain Planning",
-      "category": "Operations",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "supply chain planning"
-      ],
-      "description": "Specialist learning and practical work in supply chain planning. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "inventory",
-      "id": "41c8d342-ef11-5d81-b6b0-c37598d04875",
-      "name": "Inventory & Logistics",
-      "category": "Operations",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "inventory & logistics"
-      ],
-      "description": "Specialist learning and practical work in inventory & logistics. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "cad",
-      "id": "d0b0e79a-59c3-5aa9-bbc1-efa0940f54ca",
-      "name": "Computer-Aided Design",
-      "category": "Engineering",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "computer-aided design"
-      ],
-      "description": "Specialist learning and practical work in computer-aided design. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "quality",
-      "id": "3b8f982f-b6a2-5d25-bb95-151945a15074",
-      "name": "Industrial Quality Systems",
-      "category": "Engineering",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "industrial quality systems"
-      ],
-      "description": "Specialist learning and practical work in industrial quality systems. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
       "key": "automation",
       "id": "01d215cd-aaf8-5880-8597-fa9cc960559e",
       "name": "Industrial Automation",
@@ -1129,24 +1281,6 @@
       }
     },
     {
-      "key": "manufacturing",
-      "id": "7e3ca02c-e547-5a54-8550-78a4d9069ab9",
-      "name": "Manufacturing Processes",
-      "category": "Engineering",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "manufacturing processes"
-      ],
-      "description": "Specialist learning and practical work in manufacturing processes. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
       "key": "technical-writing",
       "id": "8465dd28-67f3-5e7b-98a7-e19086f48a6d",
       "name": "Technical Writing",
@@ -1157,24 +1291,6 @@
         "technical writing"
       ],
       "description": "Specialist learning and practical work in technical writing. Additional assessment content is being developed.",
-      "coverage": {
-        "questions": 0,
-        "resources": 0,
-        "levels": [],
-        "scope": "specialist content pending; use a practical rubric and mentor discussion"
-      }
-    },
-    {
-      "key": "customer-research",
-      "id": "b852b598-e588-5b64-8cc1-e75d1585b1b5",
-      "name": "Customer Research",
-      "category": "Business",
-      "topic": null,
-      "assessment_mode": "review",
-      "aliases": [
-        "customer research"
-      ],
-      "description": "Specialist learning and practical work in customer research. Additional assessment content is being developed.",
       "coverage": {
         "questions": 0,
         "resources": 0,
@@ -1371,7 +1487,7 @@
         "full stack developer",
         "fullstack engineer"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -1417,12 +1533,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Review a small application change",
-        "instructions": "Explain its expected behavior, propose three edge-case tests, and write a concise review.",
+        "title": "Trace a booking through the whole application",
+        "instructions": "Sketch a small booking UI, API and database. Trace success, duplicate submission and unauthorized access from screen to storage. Explain one architecture trade-off and how you would test each layer.",
         "rubric": [
-          "Correctness reasoning",
-          "Test coverage",
-          "Clear explanation"
+          "Consistent flow across UI, API and data",
+          "Authorization and failure boundaries",
+          "Justified architecture and test choices"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -1438,7 +1554,7 @@
         "quality assurance engineer",
         "test analyst"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -1478,12 +1594,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Review a small application change",
-        "instructions": "Explain its expected behavior, propose three edge-case tests, and write a concise review.",
+        "title": "Investigate a checkout defect",
+        "instructions": "For a fictional checkout, write a reproducible defect report and a risk-based test matrix covering valid input, boundaries, interrupted requests and keyboard use. Separate expected behavior from observations.",
         "rubric": [
-          "Correctness reasoning",
-          "Test coverage",
-          "Clear explanation"
+          "Reproducible steps and useful evidence",
+          "Boundary and integration coverage",
+          "Clear severity and regression reasoning"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -1753,7 +1869,7 @@
         "power bi analyst",
         "tableau analyst"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -1793,12 +1909,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Turn a small dataset into a decision",
-        "instructions": "Choose a question, document cleaning steps, and produce one chart with a justified conclusion and limitations.",
+        "title": "Build a trustworthy weekly performance view",
+        "instructions": "Use synthetic orders and a target table. Define revenue and date grain, check joins and duplicates, and sketch a dashboard with a target comparison. Explain one limitation and one decision it supports.",
         "rubric": [
-          "Data checks",
-          "Suitable method",
-          "Evidence and limitations"
+          "Explicit metric grain and data checks",
+          "Correct aggregation and target comparison",
+          "Readable dashboard and decision context"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -1813,7 +1929,7 @@
         "etl developer",
         "analytics engineer"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -1859,12 +1975,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Turn a small dataset into a decision",
-        "instructions": "Choose a question, document cleaning steps, and produce one chart with a justified conclusion and limitations.",
+        "title": "Design a repeatable order-data pipeline",
+        "instructions": "Plan an incremental pipeline for synthetic orders that can arrive late or be corrected. Describe keys, validation, scheduling, retries, lineage and a safe backfill. Explain how reruns avoid duplicates.",
         "rubric": [
-          "Data checks",
-          "Suitable method",
-          "Evidence and limitations"
+          "Stable grain and repeatable loading",
+          "Quality checks and observable failures",
+          "Late data, backfill and access handling"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -2260,7 +2376,7 @@
         "site reliability engineer",
         "sre"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -2306,12 +2422,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Write a troubleshooting runbook",
-        "instructions": "Describe how you would investigate an unavailable service, protect user data, and communicate an escalation.",
+        "title": "Plan a reversible container release",
+        "instructions": "Write a pipeline outline for a fictional web app: build once, test, scan, deploy, check health and roll back. Explain secret injection, persistent data and how a failed release is detected. Use a local or written example.",
         "rubric": [
-          "Diagnostic sequence",
-          "Security and recovery",
-          "Useful escalation notes"
+          "Reproducible artifact and meaningful checks",
+          "Secrets and persistent-data boundaries",
+          "Health checks, rollback and monitoring"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -2386,7 +2502,7 @@
         "cad designer",
         "mechanical drafter"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -2420,12 +2536,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Review a process or design",
-        "instructions": "Document a simple process, its assumptions, likely failure points, and a proposed quality check. Use a safe desktop example.",
+        "title": "Document a simple mounting plate",
+        "instructions": "Draw or sketch a desktop mounting plate with stated units, orthographic views, dimensions, hole positions and a revision note. Explain which dimensions control fit and how another person could check the drawing. Do not fabricate or operate machinery.",
         "rubric": [
-          "Technical assumptions",
-          "Quality checks",
-          "Clear documentation"
+          "Units, views and unambiguous geometry",
+          "Functional dimensions and stated assumptions",
+          "Readable layers, notes and revision trail"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -2494,7 +2610,7 @@
         "quality assurance manufacturing",
         "quality control engineer"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -2528,12 +2644,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Review a process or design",
-        "instructions": "Document a simple process, its assumptions, likely failure points, and a proposed quality check. Use a safe desktop example.",
+        "title": "Investigate a recurring dimension defect",
+        "instructions": "Use invented inspection results to define a defect, check measurement consistency, summarize the pattern and propose a root-cause investigation. Separate containment from corrective action and describe a follow-up effectiveness check.",
         "rubric": [
-          "Technical assumptions",
-          "Quality checks",
-          "Clear documentation"
+          "Clear requirement and trustworthy measurement",
+          "Evidence-led investigation",
+          "Containment, corrective action and follow-up"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -2715,7 +2831,7 @@
         "associate product manager",
         "apm"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -2761,12 +2877,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Explain a product decision",
-        "instructions": "Describe a user problem, compare two approaches, and explain what evidence would change your decision.",
+        "title": "Make an evidence-based product bet",
+        "instructions": "Choose a fictional user problem. Write a one-page opportunity brief with evidence, target outcome, two options, constraints, a small experiment and a stop/review decision. Include a guardrail against improving one metric at users' expense.",
         "rubric": [
-          "Problem framing",
-          "Evidence",
-          "Trade-offs and accessibility"
+          "Specific user problem and evidence",
+          "Prioritized options and explicit trade-offs",
+          "Outcome, experiment and guardrail"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -2781,7 +2897,7 @@
         "user experience designer",
         "interaction designer"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -2821,12 +2937,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Explain a product decision",
-        "instructions": "Describe a user problem, compare two approaches, and explain what evidence would change your decision.",
+        "title": "Prototype and review an appointment flow",
+        "instructions": "Sketch an appointment flow with choosing a time, confirmation, unavailable slots and error recovery. Write neutral usability tasks, state recruitment assumptions and review keyboard order, labels and feedback. Record findings separately from proposed changes.",
         "rubric": [
-          "Problem framing",
-          "Evidence",
-          "Trade-offs and accessibility"
+          "Coherent tasks and recoverable states",
+          "Accessible interaction and feedback",
+          "Neutral evaluation and evidence-based iteration"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -3134,7 +3250,7 @@
         "business systems analyst",
         "requirements analyst"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -3174,12 +3290,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Build a small project brief",
-        "instructions": "Define an outcome, scope, milestones, dependencies, owners, and two risks for an example project.",
+        "title": "Clarify a request before it becomes a feature",
+        "instructions": "For a fictional expense-approval problem, map the current process and stakeholders. Define the desired outcome, business rules, exceptions and acceptance examples. Record unresolved assumptions and explain how changes are agreed.",
         "rubric": [
-          "Clear scope",
-          "Practical plan",
-          "Risk and stakeholder communication"
+          "Problem, process and stakeholder context",
+          "Testable requirements and exception cases",
+          "Traceability and assumption management"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -3193,7 +3309,7 @@
       "aliases": [
         "business operations analyst"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -3233,12 +3349,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Build a small project brief",
-        "instructions": "Define an outcome, scope, milestones, dependencies, owners, and two risks for an example project.",
+        "title": "Find the constraint in a service process",
+        "instructions": "Use invented timestamps for a support queue. Distinguish waiting from active work, calculate a simple turnaround measure and identify a possible constraint. Propose one small change with a service-quality guardrail and follow-up measure.",
         "rubric": [
-          "Clear scope",
-          "Practical plan",
-          "Risk and stakeholder communication"
+          "Clear process boundaries and reliable measures",
+          "Evidence behind the proposed constraint",
+          "Practical experiment and quality guardrail"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -3494,7 +3610,7 @@
         "search engine optimization specialist",
         "search marketer"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -3534,12 +3650,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Design a measurable campaign brief",
-        "instructions": "Choose an audience and objective, write a short message, select a channel, and define a meaningful success measure.",
+        "title": "Audit a fictional service page",
+        "instructions": "Write an audit for a sample service page covering search intent, title, headings, useful content, crawl/index constraints, internal links and canonical URL. Prioritize three changes and define how to monitor results without promising rankings.",
         "rubric": [
-          "Audience fit",
-          "Message and channel reasoning",
-          "Measurement"
+          "Useful content and intent alignment",
+          "Correct crawl and indexing reasoning",
+          "Prioritized changes and measured uncertainty"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -3554,7 +3670,7 @@
         "copywriter",
         "content specialist"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -3594,12 +3710,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Design a measurable campaign brief",
-        "instructions": "Choose an audience and objective, write a short message, select a channel, and define a meaningful success measure.",
+        "title": "Rewrite a confusing help page",
+        "instructions": "Create a brief and short help page for a fictional account-recovery task. State audience and purpose, organize steps, use descriptive headings and verify claims. Explain how you would test comprehension and keep the page current.",
         "rubric": [
-          "Audience fit",
-          "Message and channel reasoning",
-          "Measurement"
+          "Audience need and usable structure",
+          "Accurate, clear and accessible language",
+          "Review, comprehension and maintenance plan"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -3855,7 +3971,7 @@
         "finance analyst",
         "financial planning analyst"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -3895,12 +4011,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Explain a reconciliation",
-        "instructions": "Use invented transactions to prepare a simple reconciliation and explain differences. State the accounting assumptions.",
+        "title": "Explain performance and cash separately",
+        "instructions": "Create a synthetic income statement, balance sheet and cash summary. Calculate gross margin, current ratio and a budget variance, stating formulas and periods. Explain why profit can differ from cash and how one assumption changes your conclusion.",
         "rubric": [
-          "Numerical correctness",
-          "Audit trail",
-          "Clear assumptions"
+          "Correct formulas and comparable periods",
+          "Interpretation of profit, liquidity and cash",
+          "Transparent assumptions and sensitivity"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -4216,7 +4332,7 @@
         "human resources coordinator",
         "hr generalist"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -4256,12 +4372,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Prepare a structured interview guide",
-        "instructions": "Choose role-related criteria, draft consistent questions, and describe an evidence-based scoring rubric.",
+        "title": "Coordinate a fictional employee onboarding",
+        "instructions": "Create an onboarding checklist with owners, dependencies and a check-in. Design a minimal employee-record template with access boundaries and a correction process. Route policy or legal questions to qualified local staff; use no real employee data.",
         "rubric": [
-          "Role relevance",
-          "Consistent criteria",
-          "Fair candidate communication"
+          "Clear ownership and complete handoffs",
+          "Minimal, accurate and protected records",
+          "Useful communication and escalation"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -4276,7 +4392,7 @@
         "l and d coordinator",
         "training coordinator"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -4310,12 +4426,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Prepare a structured interview guide",
-        "instructions": "Choose role-related criteria, draft consistent questions, and describe an evidence-based scoring rubric.",
+        "title": "Design a short onboarding lesson",
+        "instructions": "Choose one workplace task. Write a measurable objective, a relevant practice task, an assessment and feedback. Include an accessible alternative and a follow-up check of transfer to work. Use synthetic examples and explain the alignment.",
         "rubric": [
-          "Role relevance",
-          "Consistent criteria",
-          "Fair candidate communication"
+          "Observable objective and aligned assessment",
+          "Useful practice, feedback and accessibility",
+          "Practical delivery and transfer evaluation"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -4626,7 +4742,7 @@
         "customer service representative",
         "support associate"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -4666,12 +4782,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Plan a customer conversation",
-        "instructions": "Describe the customer's situation, three discovery questions, a suitable next step, and what you would record afterward.",
+        "title": "Resolve and hand over a support case",
+        "instructions": "For a fictional failed-payment report, write an empathetic response, safe diagnostic questions and a case note. Separate verified facts from assumptions, avoid requesting secrets and define escalation ownership and the next update.",
         "rubric": [
-          "Understanding the need",
-          "Appropriate next step",
-          "Clear follow-up"
+          "Accurate understanding and clear response",
+          "Safe investigation and useful case records",
+          "Owned escalation and follow-up"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."
@@ -4746,7 +4862,7 @@
         "supply chain coordinator",
         "logistics analyst"
       ],
-      "release_status": "explore",
+      "release_status": "pilot",
       "levels": [
         "foundation",
         "intermediate"
@@ -4786,12 +4902,12 @@
         "relationship": "related occupation; VoidFill profile is a curated specialization"
       },
       "activity": {
-        "title": "Plan a customer conversation",
-        "instructions": "Describe the customer's situation, three discovery questions, a suitable next step, and what you would record afterward.",
+        "title": "Reconcile stock and plan a shipment",
+        "instructions": "Use invented receipts, picks and dispatch records to reconcile a SKU balance. Calculate a reorder point from stated demand and lead time, then plan a shipment with checks, tracking and an exception handoff. State simplifying assumptions.",
         "rubric": [
-          "Understanding the need",
-          "Appropriate next step",
-          "Clear follow-up"
+          "Correct stock balance and reorder arithmetic",
+          "Traceable picking and dispatch checks",
+          "Lead-time assumptions and exception communication"
         ],
         "evidence_type": "reflection",
         "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."

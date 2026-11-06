@@ -1,5 +1,6 @@
 """Check public resource links without a signed-in browser or private cookies."""
 from concurrent.futures import ThreadPoolExecutor
+import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -26,10 +27,24 @@ def check(resource):
     return result
 
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--retry-failed", action="store_true", help="Recheck failed entries from a complete audit of the current resources.")
+args = parser.parse_args()
 resources = json.loads((PACK / "resources.json").read_text(encoding="utf8"))
+previous = {}
+if args.retry_failed:
+    previous = {row["id"]: row for row in json.loads((PACK / "resource-check.json").read_text(encoding="utf8"))["results"]}
+    assert set(previous) == {row["id"] for row in resources}, "Run a full audit after adding resources."
+    assert all(previous[row["id"]]["url"] == row["url"] for row in resources), "Resource URLs changed; run a full audit."
+pending = [row for row in resources if not args.retry_failed or previous[row["id"]].get("status") != 200]
 with ThreadPoolExecutor(max_workers=6) as pool:
-    results = list(pool.map(check, resources))
+    checked = list(pool.map(check, pending))
+current = {**previous, **{row["id"]: row for row in checked}}
+results = [current[row["id"]] for row in resources]
 report = {"checked_at": datetime.now(timezone.utc).isoformat(), "scope": "Public unauthenticated HTTP reachability; does not establish pedagogical quality or availability of every linked course activity.", "results": results}
 (PACK / "resource-check.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf8")
-for result in results:
+for result in checked:
     print(result["status"], result["title"], "->", result.get("page_title") or result.get("error"))
+print(f"Verified {sum(row.get('status') == 200 for row in results)}/{len(results)} resource links.")
+if any(row.get("status") != 200 for row in results):
+    raise SystemExit(1)

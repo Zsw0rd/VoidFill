@@ -41,8 +41,12 @@ try {
     const allowed = new Set(career.requirements.map(item => catalogue.skills.find(skill => skill.key === item.skill).name));
     assert.ok(quiz.questions.every(question => allowed.has(question.skill_name)));
     assert.ok(quiz.questions.every(question => !("correct_index" in question) && !("explanation" in question)));
-    if (catalogue.families.find(f => f.key === career.family).kind === "business")
-      assert.ok(quiz.questions.every(question => !questions.get(question.id).topics.some(topic => ["python", "sql", "web", "git", "algorithms"].includes(topic))));
+    // SEO legitimately includes web fundamentals. Check the exact selected skill
+    // instead of assuming that a non-technical family can contain no web topics.
+    assert.ok(quiz.questions.every(question => {
+      const expected = catalogue.skills.find(skill => skill.name === question.skill_name)?.topic;
+      return expected && questions.get(question.id)?.topics.includes(expected);
+    }), `${career.name}: each question must belong to its declared skill bank`);
     await call(a, "/api/ai/recommend-courses");
     console.log(`Career contract passed: ${career.name}`);
   }
@@ -60,7 +64,7 @@ try {
   await call(a, "/api/careers/profile", {role_id: personal.id, goal: "Museum visitor experience", focus_skill_ids: []}, 400);
   await call(a, "/api/careers/profile", {role_id: personal.id, goal: "Museum visitor experience", focus_skill_ids: [focus.id]});
   assert.equal((await call(a, "/api/roadmap/generate")).count, 1);
-  const manual = skills.find(skill => skill.name === "UX Research & Interaction Design");
+  const manual = skills.find(skill => skill.name === "Payroll Operations");
   await call(a, "/api/careers/profile", {role_id: personal.id, goal: "Museum experience design", focus_skill_ids: [manual.id]});
   await call(a, "/api/roadmap/generate");
   const analysis = await call(a, "/api/ai/analyze");
@@ -71,8 +75,8 @@ try {
   assert.equal((await call(a, "/api/ai/insights", {}, 200, "GET")).cached, false);
   const dashboard = await fetch(base + "/dashboard", {headers: {Cookie: a.cookie}});
   assert.equal(dashboard.status, 200);
-  assert.ok(!(await dashboard.text()).includes("UX Research &amp; Interaction Design"), "Removed focus must not remain in the current dashboard path");
+  assert.ok(!(await dashboard.text()).includes("Payroll Operations"), "Removed focus must not remain in the current dashboard path");
   await call(a, "/api/careers/profile", {role_id: "00000000-0000-4000-8000-000000000099"}, 400);
   await call(a, "/api/careers/profile", {role_id: recruiter.id, focus_skill_ids: [manual.id, manual.id, manual.id, manual.id, manual.id]}, 400);
-  console.log("Career integration passed: all 12 pilots, non-technical question isolation, personal goals, focus skills, level, private reflections, validation, preserved scores/XP and stale-view invalidation.");
+  console.log(`Career integration passed: all ${pilot.length} pilots, non-technical question isolation, personal goals, focus skills, level, private reflections, validation, preserved scores/XP and stale-view invalidation.`);
 } finally {for (const jar of jars) if (jar.cookie) await fetch(base + "/api/demo/end", {method: "POST", headers: {Cookie: jar.cookie}}).catch(() => {});}

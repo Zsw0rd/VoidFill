@@ -91,9 +91,9 @@ export function DemoEntry({ entryKey }: { entryKey: string }) {
           </p>
           <label htmlFor="demo-career" className="sr-only">Career foundation</label>
           <select id="demo-career" value={role} onChange={event => setRole(Number(event.target.value))} disabled={busy} className="w-full min-h-12 rounded-xl border border-forest/25 bg-surface p-3 text-sm">
-            {["technical", "business"].map(kind => <optgroup key={kind} label={kind === "technical" ? "Technical foundations" : "Non-technical foundations"}>{demoCareerProfiles.map((career, index) => ({career, index})).filter(({career}) => career.release_status === "pilot" && careerCatalogue.families.find(f => f.key === career.family)?.kind === kind).map(({career, index}) => <option key={career.id} value={index}>{career.name}</option>)}</optgroup>)}
+            {["technical", "business", "hybrid"].map(kind => <optgroup key={kind} label={kind === "technical" ? "Technical foundations" : kind === "business" ? "Non-technical foundations" : "Product & design foundations"}>{demoCareerProfiles.map((career, index) => ({career, index})).filter(({career}) => career.release_status === "pilot" && careerCatalogue.families.find(f => f.key === career.family)?.kind === kind).map(({career, index}) => <option key={career.id} value={index}>{career.name}</option>)}</optgroup>)}
           </select>
-          <p className="text-[11px] text-muted leading-6 mt-3">Start with one of 12 pilot foundations. Career explorer includes 60 profiles and lets you add a personal goal.</p>
+          <p className="text-[11px] text-muted leading-6 mt-3">Start with one of {demoCareerProfiles.filter(career => career.release_status === "pilot").length} pilot foundations. Career explorer includes 60 profiles and lets you add a personal goal.</p>
           <Button
             loading={busy}
             onClick={() => void start()}

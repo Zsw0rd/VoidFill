@@ -6,6 +6,8 @@ import random
 from collections import Counter
 from pathlib import Path
 from ml.career_question_bank import BANK
+from ml.career_question_bank_phase2 import BANK as PHASE2_BANK
+from ml.career_pack_phase2 import REFERENCES as PHASE2_REFERENCES
 
 ROOT = Path(__file__).resolve().parent
 DEST = ROOT / "data/careers"
@@ -102,16 +104,19 @@ REFERENCES = {
 
 
 def main():
+    assert not BANK.keys() & PHASE2_BANK.keys(), "Cohorts must not overwrite existing items."
+    banks = {**BANK, **PHASE2_BANK}
+    references = {**REFERENCES, **PHASE2_REFERENCES}
     questions, resources = [], []
-    for topic, rows in BANK.items():
+    for topic, rows in banks.items():
         assert len(rows) >= 10, (topic, len(rows))
         for i, (prompt, answer, distractors, explanation, difficulty) in enumerate(rows):
             options = [answer, *distractors.split("|")]
             assert len(set(options)) == 4, (topic, prompt)
             identity = hashlib.sha256((topic + ":" + prompt).encode()).hexdigest()[:20]
             random.Random(identity).shuffle(options)
-            questions.append({"id": "career-" + identity, "prompt": prompt, "options": options, "correct_index": options.index(answer), "explanation": explanation, "difficulty": difficulty, "topics": [topic], "source": "VoidFill original foundation item; reference: " + REFERENCES[topic][0][2], "source_url": REFERENCES[topic][0][1], "group": "career-foundations-" + topic, "evidence_type": "knowledge", "objective_id": f"{topic}-{i+1:02d}"})
-        for title, url, provider, description in REFERENCES[topic]:
+            questions.append({"id": "career-" + identity, "prompt": prompt, "options": options, "correct_index": options.index(answer), "explanation": explanation, "difficulty": difficulty, "topics": [topic], "source": "VoidFill original foundation item; reference: " + references[topic][0][2], "source_url": references[topic][0][1], "group": "career-foundations-" + topic, "evidence_type": "knowledge", "objective_id": f"{topic}-{i+1:02d}"})
+        for title, url, provider, description in references[topic]:
             identity = hashlib.sha256((topic + ":" + url).encode()).hexdigest()[:20]
             resources.append({"id": "career-resource-" + identity, "title": title, "url": url, "provider": provider, "description": description, "text": title + ". " + description, "topics": [topic], "type": "tutorial", "difficulty": "beginner", "estimated_hours": None, "source": provider + " (external link; VoidFill original summary)", "license": "Link-only reference; third-party content is not redistributed"})
     DEST.mkdir(exist_ok=True, parents=True)
@@ -126,7 +131,7 @@ def main():
         topic = skill["topic"]
         skill["coverage"] = {"questions": counts[topic] if topic else 0, "resources": resource_counts[topic] if topic else 0, "levels": sorted({q["difficulty"] for q in all_questions if topic and topic in q["topics"]}), "scope": "foundation knowledge; practical ability requires separate evidence" if topic else "specialist content pending; use a practical rubric and mentor discussion"}
     (DEST / "catalogue.json").write_text(json.dumps(catalogue, indent=2, ensure_ascii=False) + "\n", encoding="utf8")
-    print(f"Built {len(questions)} original questions and {len(resources)} link-only resources across {len(BANK)} topics.")
+    print(f"Built {len(questions)} original questions and {len(resources)} link-only resources across {len(banks)} topics.")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T04:27:06.229164+00:00",
+  "checked_at": "2026-11-06T08:03:22.743480+00:00",
   "scope": "Public unauthenticated HTTP reachability; does not establish pedagogical quality or availability of every linked course activity.",
   "results": [
     {
@@ -409,6 +409,462 @@
       "status": 200,
       "final_url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
       "page_title": "Introduction to Cybersecurity by Cisco: Free Online Course"
+    },
+    {
+      "id": "career-resource-3a1f7637048a5f7b789a",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/",
+      "title": "Architecture styles",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/",
+      "page_title": "Architecture Styles - Azure Architecture Center | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-dcf410e61f8a24340539",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
+      "title": "Cloud design patterns",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
+      "page_title": "Cloud Design Patterns - Azure Architecture Center | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-10bd02065585320e1882",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/",
+      "title": "Architecture design principles",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/",
+      "page_title": "Design Principles for Azure Applications - Azure Architecture Center | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-c201a6433fd48e43ec16",
+      "url": "https://docs.docker.com/get-started/docker-overview/",
+      "title": "Docker overview",
+      "status": 200,
+      "final_url": "https://docs.docker.com/get-started/docker-overview/",
+      "page_title": "What is Docker? | Docker Docs"
+    },
+    {
+      "id": "career-resource-94d354da5943e2cf4a68",
+      "url": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
+      "title": "Understanding GitHub Actions",
+      "status": 200,
+      "final_url": "https://docs.github.com/en/actions/get-started/understand-github-actions",
+      "page_title": "Understanding GitHub Actions - GitHub Docs"
+    },
+    {
+      "id": "career-resource-bef9d1ba64c268354452",
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments",
+      "title": "GitHub deployment environments",
+      "status": 200,
+      "final_url": "https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments",
+      "page_title": "Deployments and environments - GitHub Docs"
+    },
+    {
+      "id": "career-resource-1c87884f4ae9ada676c9",
+      "url": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/",
+      "title": "Getting started with data engineering",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/",
+      "page_title": "Get started with data engineering on Azure - Training | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-5c380dc7e3726249884d",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl",
+      "title": "ETL and ELT",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl",
+      "page_title": "Extract, transform, load (ETL) - Azure Architecture Center | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-a69937ce1d022d1da1f1",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html",
+      "title": "Airflow core concepts",
+      "status": 200,
+      "final_url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html",
+      "page_title": "Architecture Overview &mdash; Airflow 3.3.2 Documentation"
+    },
+    {
+      "id": "career-resource-87574ffc8f0e22125d0d",
+      "url": "https://help.autodesk.com/view/ACD/2026/ENU/",
+      "title": "AutoCAD basics",
+      "status": 200,
+      "final_url": "https://help.autodesk.com/view/ACD/2026/ENU/",
+      "page_title": "Help"
+    },
+    {
+      "id": "career-resource-fe6920d531e32636a5bd",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-DidYouKnow/files/GUID-7B14AAA4-3208-4384-A444-8A29231C4A02.htm",
+      "title": "Dimensioning in AutoCAD",
+      "status": 200,
+      "final_url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-DidYouKnow/files/GUID-7B14AAA4-3208-4384-A444-8A29231C4A02.htm",
+      "page_title": "Use DIM to Accelerate Dimensioning"
+    },
+    {
+      "id": "career-resource-4d18ad2623d6943dc768",
+      "url": "https://www.onetonline.org/link/summary/17-3013.00",
+      "title": "CAD Technician: occupation context",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/17-3013.00",
+      "page_title": "17-3013.00 - Mechanical Drafters"
+    },
+    {
+      "id": "career-resource-d144480b460dce2a5847",
+      "url": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/",
+      "title": "Design and Manufacturing II",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/",
+      "page_title": "Design and Manufacturing II | Mechanical Engineering | MIT OpenCourseWare"
+    },
+    {
+      "id": "career-resource-6fcd993f77edab3476d3",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-1/",
+      "title": "Introduction to lean manufacturing",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-1/",
+      "page_title": "Chapter 1: Introduction to Lean Manufacturing &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "career-resource-08f9694a56604cee2e5c",
+      "url": "https://www.onetonline.org/link/summary/17-2112.03",
+      "title": "Manufacturing Engineers: occupation context",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/17-2112.03",
+      "page_title": "17-2112.03 - Manufacturing Engineers"
+    },
+    {
+      "id": "career-resource-11036a28b178c32f5b2c",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/a-financial-statement-analysis",
+      "title": "Financial statement analysis",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/a-financial-statement-analysis",
+      "page_title": "A Financial Statement Analysis - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-9194a5394b1d7b30d2da",
+      "url": "https://openstax.org/books/principles-finance/pages/5-7-common-size-statements",
+      "title": "Common-size statements",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-finance/pages/5-7-common-size-statements",
+      "page_title": "5.7 Common-Size Statements - Principles of Finance | OpenStax"
+    },
+    {
+      "id": "career-resource-8a73a991e180d0e7dda7",
+      "url": "https://openstax.org/books/principles-finance/pages/6-2-operating-efficiency-ratios",
+      "title": "Operating efficiency ratios",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-finance/pages/6-2-operating-efficiency-ratios",
+      "page_title": "6.2 Operating Efficiency Ratios - Principles of Finance | OpenStax"
+    },
+    {
+      "id": "career-resource-4f32446aa47a509a4e17",
+      "url": "https://www.cipd.org/uk/knowledge/factsheets/induction-factsheet/",
+      "title": "Employee induction",
+      "status": 200,
+      "final_url": "https://www.cipd.org/uk/knowledge/factsheets/induction-factsheet/",
+      "page_title": "Induction | Factsheets | CIPD"
+    },
+    {
+      "id": "career-resource-a50b42e3a8904f9df25c",
+      "url": "https://www.cipd.org/uk/knowledge/factsheets/analytics-factsheet/",
+      "title": "People analytics",
+      "status": 200,
+      "final_url": "https://www.cipd.org/uk/knowledge/factsheets/analytics-factsheet/",
+      "page_title": "People Analytics | Factsheets | CIPD"
+    },
+    {
+      "id": "career-resource-48d98aa540da4ee261c8",
+      "url": "https://openstax.org/books/principles-management/pages/11-introduction",
+      "title": "Human resources management",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-management/pages/11-introduction",
+      "page_title": "Ch. 11 Introduction - Principles of Management | OpenStax"
+    },
+    {
+      "id": "career-resource-3fbe4ef41f2464a98b34",
+      "url": "https://www.cmu.edu/teaching/designteach/design/learningobjectives.html",
+      "title": "Articulate learning objectives",
+      "status": 200,
+      "final_url": "https://www.cmu.edu/teaching/designteach/design/learningobjectives.html",
+      "page_title": "Learning Objectives - Eberly Center - Carnegie Mellon University"
+    },
+    {
+      "id": "career-resource-589ecd51ea1a749c7072",
+      "url": "https://www.cmu.edu/teaching/designteach/design/assessments.html",
+      "title": "Identify appropriate assessments",
+      "status": 200,
+      "final_url": "https://www.cmu.edu/teaching/designteach/design/assessments.html",
+      "page_title": "Potential Assessments - Eberly Center - Carnegie Mellon University"
+    },
+    {
+      "id": "career-resource-55bf5f2352d97557e5b6",
+      "url": "https://www.cmu.edu/teaching/principles/learning.html",
+      "title": "Principles of learning",
+      "status": 200,
+      "final_url": "https://www.cmu.edu/teaching/principles/learning.html",
+      "page_title": "Learning Principles - Eberly Center - Carnegie Mellon University"
+    },
+    {
+      "id": "career-resource-bf5907b7fb6a33f6aee8",
+      "url": "https://www.lean.org/lexicon-terms/inventory/",
+      "title": "Inventory",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/inventory/",
+      "page_title": "Inventory - Lean Enterprise Institute"
+    },
+    {
+      "id": "career-resource-3206b0a4499800dbed77",
+      "url": "https://www.lean.org/lexicon-terms/kanban/",
+      "title": "Kanban",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/kanban/",
+      "page_title": "Kanban - What Is it? | Lean Enterprise Institute"
+    },
+    {
+      "id": "career-resource-3d8b99d3bfb64bc91fca",
+      "url": "https://www.onetonline.org/link/summary/13-1081.00",
+      "title": "Logisticians: occupation context",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1081.00",
+      "page_title": "13-1081.00 - Logisticians"
+    },
+    {
+      "id": "career-resource-8a99b09111eb85dfd02b",
+      "url": "https://ocw.mit.edu/course-lists/transportation-logistics-and-supply-chains/",
+      "title": "Supply-chain learning materials",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/course-lists/transportation-logistics-and-supply-chains/",
+      "page_title": "Transportation: Logistics and Supply Chains | MIT OpenCourseWare | Free Online Course Materials"
+    },
+    {
+      "id": "career-resource-1a99e6f0c0ca5ce2fc1b",
+      "url": "https://www.lean.org/lexicon-terms/just-in-time-production/",
+      "title": "Just-in-time production",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/just-in-time-production/",
+      "page_title": "Just-in-Time Production - Lean Enterprise Institute"
+    },
+    {
+      "id": "career-resource-3e9dbe524b6c4cfaf995",
+      "url": "https://www.lean.org/lexicon-terms/value-stream-mapping/",
+      "title": "Value-stream mapping",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/value-stream-mapping/",
+      "page_title": "Value Stream Mapping Overview - Lean Enterprise Institute"
+    },
+    {
+      "id": "career-resource-e814fb3d73b456c99cfb",
+      "url": "https://carbondesignsystem.com/elements/typography/overview/",
+      "title": "Carbon typography",
+      "status": 200,
+      "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/typography/overview",
+      "page_title": "Typography | Carbon Design System"
+    },
+    {
+      "id": "career-resource-3f269a13436440f7a0ac",
+      "url": "https://carbondesignsystem.com/elements/color/overview/",
+      "title": "Carbon color",
+      "status": 200,
+      "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/color/overview",
+      "page_title": "Color | Carbon Design System"
+    },
+    {
+      "id": "career-resource-1fe5a24da434da628d06",
+      "url": "https://www.carbondesignsystem.com/building-blocks/foundations/2x-grid/guidelines",
+      "title": "Carbon 2x grid",
+      "status": 200,
+      "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/2x-grid/guidelines",
+      "page_title": "2x Grid | Carbon Design System"
+    },
+    {
+      "id": "career-resource-5f84747293f7e2f35e19",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+      "title": "Content design standards",
+      "status": 200,
+      "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+      "page_title": "Writing to GOV.UK standards - GOV.UK content and publishing guidance"
+    },
+    {
+      "id": "career-resource-9300571363bf794738f5",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+      "title": "Writing guidelines",
+      "status": 200,
+      "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+      "page_title": "Writing guidelines - GOV.UK content and publishing guidance"
+    },
+    {
+      "id": "career-resource-f9e5f0abca79cbb5957d",
+      "url": "https://developers.google.com/style/highlights",
+      "title": "Technical writing style guide",
+      "status": 200,
+      "final_url": "https://developers.google.com/style/highlights",
+      "page_title": "Highlights &nbsp;|&nbsp; Google developer documentation style guide &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-c93a5d8aa925695e8d6f",
+      "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "title": "SEO starter guide",
+      "status": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "page_title": "SEO Starter Guide: The Basics | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-4e3012bf615912b48457",
+      "url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+      "title": "How Google Search works",
+      "status": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+      "page_title": "In-Depth Guide to How Google Search Works | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-40a369af16eb2f08c5bb",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "title": "Creating helpful content",
+      "status": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "page_title": "Creating Helpful, Reliable, People-First Content | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-30a3e8cf122a3f5ea41e",
+      "url": "https://openstax.org/books/psychology-2e/pages/2-1-why-is-research-important",
+      "title": "Why research matters",
+      "status": 200,
+      "final_url": "https://openstax.org/books/psychology-2e/pages/2-1-why-is-research-important",
+      "page_title": "2.1 Why Is Research Important? - Psychology 2e | OpenStax"
+    },
+    {
+      "id": "career-resource-78c7aaad27dca4d36489",
+      "url": "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research",
+      "title": "Approaches to research",
+      "status": 200,
+      "final_url": "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research",
+      "page_title": "2.2 Approaches to Research - Psychology 2e | OpenStax"
+    },
+    {
+      "id": "career-resource-6aa901ec2dece00296dc",
+      "url": "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings",
+      "title": "Analysing findings",
+      "status": 200,
+      "final_url": "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings",
+      "page_title": "2.3 Analyzing Findings - Psychology 2e | OpenStax"
+    },
+    {
+      "id": "career-resource-7bd7529c66041e326454",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/",
+      "title": "Introduction to quality",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/",
+      "page_title": "Chapter 7: Introduction to Quality &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "career-resource-049f69195e2737250f56",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-8a/",
+      "title": "Basic quality tools",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-8a/",
+      "page_title": "Chapter 8: Basic Quality Tools &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "career-resource-33d2114854f2f752b453",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-9-2/",
+      "title": "Introduction to statistical process control",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-9-2/",
+      "page_title": "Chapter 9: Introduction Statistical Process Control (SPC) &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "career-resource-b5b6a6bd9e98829639a6",
+      "url": "https://www.atlassian.com/agile/product-management",
+      "title": "Product management",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/agile/product-management",
+      "page_title": "Product Management | Atlassian"
+    },
+    {
+      "id": "career-resource-6d988cb475640460df9c",
+      "url": "https://www.atlassian.com/agile/product-management/product-roadmaps",
+      "title": "Product roadmaps",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/agile/product-management/product-roadmaps",
+      "page_title": "Product Roadmap Guide: What is it & How to Create One | Atlassian"
+    },
+    {
+      "id": "career-resource-aac2ac4fa455d1624a8b",
+      "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+      "title": "The discovery phase",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+      "page_title": "How the discovery phase works - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-1c6204578e39314b32b2",
+      "url": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service",
+      "title": "Plan user research",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service",
+      "page_title": "Plan user research for your service - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-4cd9a3e8fd9cdb70a621",
+      "url": "https://www.gov.uk/service-manual/user-research/using-in-depth-interviews",
+      "title": "Using in-depth interviews",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/using-in-depth-interviews",
+      "page_title": "Using in-depth interviews - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-0572919473dc573c9917",
+      "url": "https://www.gov.uk/service-manual/user-research/analyse-a-research-session",
+      "title": "Analyse a research session",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/analyse-a-research-session",
+      "page_title": "Analyse a research session - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-9b28d8a6fa476dd6f25a",
+      "url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+      "title": "Using moderated usability testing",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+      "page_title": "Using moderated usability testing - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-b0b13c65ff1c6a1e7409",
+      "url": "https://www.gov.uk/service-manual/design/making-prototypes",
+      "title": "Making prototypes",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/design/making-prototypes",
+      "page_title": "Making prototypes - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-dbf351af061e5c1f76b0",
+      "url": "https://www.gov.uk/service-manual/user-research/user-research-in-alpha",
+      "title": "User research in alpha",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/user-research-in-alpha",
+      "page_title": "User research in alpha - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-7a09149eb1d40c0fba8f",
+      "url": "https://www.w3.org/WAI/test-evaluate/",
+      "title": "Evaluating web accessibility",
+      "status": 200,
+      "final_url": "https://www.w3.org/WAI/test-evaluate/",
+      "page_title": "Evaluating Web Accessibility Overview | Web Accessibility Initiative (WAI) | W3C"
+    },
+    {
+      "id": "career-resource-72efbe5bc88d6f123f40",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "title": "Accessible forms",
+      "status": 200,
+      "final_url": "https://www.w3.org/WAI/tutorials/forms/",
+      "page_title": "Forms Tutorial | Web Accessibility Initiative (WAI) | W3C"
+    },
+    {
+      "id": "career-resource-b1795729a179434db930",
+      "url": "https://www.w3.org/WAI/test-evaluate/easy-checks/",
+      "title": "Easy checks for accessibility",
+      "status": 200,
+      "final_url": "https://www.w3.org/WAI/test-evaluate/easy-checks/",
+      "page_title": "[Draft] Easy Checks \u2013 A First Review of Web Accessibility | Web Accessibility Initiative (WAI) | W3C"
     }
   ]
 }
