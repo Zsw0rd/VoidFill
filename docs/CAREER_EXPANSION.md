@@ -1,5 +1,7 @@
 # Career expansion implementation
 
+Current coverage: all 60 listed careers have foundation knowledge checks, resources and distinct practical activities across 55 shared skills. See [the verified third-cohort release](CAREER_COHORT_3.md) for current counts, validation and production details. The staged implementation history below is retained for context.
+
 Started 6 November 2026. User approved the proposed expansion plan and requested implementation. Runtime stays on Vercel + Supabase. Existing Sage/Gemini chat is separate; the new career matching and learning paths must not depend on it.
 
 ## Delivery and acceptance
