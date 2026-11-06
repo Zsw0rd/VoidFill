@@ -33,7 +33,7 @@ type Question = {
   explanation?: string;
 };
 
-export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
+export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt: any; coverage: {covered: number; total: number} }) {
   const [loading, setLoading] = useState(false);
   const [stage, setStage] = useState<"start" | "quiz" | "review" | "done">(
     "start",
@@ -248,7 +248,8 @@ export function DailyTestClient({ existingAttempt }: { existingAttempt: any }) {
                   </div>
                 ))}
               </div>
-              <Button loading={loading} onClick={start} className="mt-7">
+              <p className="mt-4 text-xs leading-6 text-muted">Knowledge checks cover {coverage.covered} of your {coverage.total} learning areas. Specialist skills use <Link href="/careers" className="underline text-forest">practical career activities</Link>. Scores describe knowledge, not workplace competence.</p>
+              <Button disabled={coverage.covered === 0} loading={loading} onClick={start} className="mt-7">
                 {loading ? (
                   "Preparing your questions…"
                 ) : (

@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { ATLAS_NODE_SIZE, ATLAS_RESOURCE_HEIGHT, ATLAS_RESOURCE_WIDTH, createAtlasLayout, fitAtlas, zoomAtlas } from "../lib/atlasLayout";
 
 test("each supported track keeps expanded resource hit targets clear of skill nodes", () => {
-  for (const count of [1, 2, 3, 4, 5, 6, 8]) {
+  for (const count of [1, 2, 3, 4, 5, 6, 8, 10, 12, 16]) {
     const skills = Array.from({ length: count }, (_, i) => ({ id: `skill-${i}`, resourceIds: Array.from({ length: 8 }, (_, j) => `resource-${i}-${j}`) }));
     for (const selected of skills) {
       const layout = createAtlasLayout(skills, selected.id);

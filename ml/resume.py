@@ -7,6 +7,7 @@ import zipfile
 from pathlib import Path
 import numpy as np
 from fastapi import HTTPException
+from ml.career_catalogue import CATALOGUE, role_texts
 
 MAX_BYTES = 4 * 1024 * 1024
 MAX_PAGES = 12
@@ -25,8 +26,19 @@ SKILL_ALIASES = {
     "Docker": ["docker"], "AWS": ["aws", "amazon web services"], "Linux": ["linux"],
     "Excel": ["excel"], "MongoDB": ["mongodb"], "REST APIs": ["rest api", "restful"],
     "Communication": ["communication"], "Leadership": ["leadership"], "Figma": ["figma"],
+    "Recruitment": ["recruitment", "recruiting", "talent acquisition", "structured interviews"],
+    "Digital Marketing": ["digital marketing", "campaign management", "email marketing", "search engine optimization"],
+    "Sales": ["sales", "prospecting", "lead qualification", "crm"],
+    "Customer Success": ["customer success", "customer service", "customer support"],
+    "Project Coordination": ["project management", "project coordination", "risk register", "stakeholder management"],
+    "Accounting": ["accounting", "bookkeeping", "bank reconciliation", "accounts payable", "accounts receivable"],
+    "Business Analysis": ["business analysis", "requirements gathering", "process mapping"],
+    "Cloud Computing": ["cloud computing", "azure", "google cloud", "gcp"],
+    "Networking": ["networking", "tcp/ip", "dns", "dhcp"],
+    "Cybersecurity": ["cybersecurity", "cyber security", "incident response", "access control"],
+    "Software Testing": ["software testing", "test cases", "regression testing", "pytest", "playwright"],
 }
-APP_SKILLS = {"Python Basics": ["Python", "Pandas", "NumPy"], "SQL Fundamentals": ["SQL"], "Data Visualization": ["Data Visualization"], "Web Fundamentals": ["HTML", "CSS", "JavaScript", "TypeScript", "React"], "Git & Version Control": ["Git"], "DSA Basics": ["Data Structures & Algorithms"]}
+APP_SKILLS = {"Python Basics": ["Python", "Pandas", "NumPy"], "SQL Fundamentals": ["SQL"], "Data Visualization": ["Data Visualization"], "Web Fundamentals": ["HTML", "CSS", "JavaScript", "TypeScript", "React"], "Git & Version Control": ["Git"], "DSA Basics": ["Data Structures & Algorithms"], "Backend APIs": ["REST APIs", "Node.js"], "Software Testing": ["Software Testing"], "Linux Fundamentals": ["Linux"], "Network Fundamentals": ["Networking"], "Cloud Fundamentals": ["Cloud Computing", "AWS"], "Security Foundations": ["Cybersecurity"], "Digital Marketing": ["Digital Marketing"], "Recruitment Foundations": ["Recruitment"], "Sales Foundations": ["Sales"], "Customer Success": ["Customer Success"], "Project Coordination": ["Project Coordination"], "Accounting Foundations": ["Accounting"], "Spreadsheet Analysis": ["Excel"], "Workplace Communication": ["Communication"], "Business Analysis": ["Business Analysis"], "Machine Learning Foundations": ["Machine Learning", "Deep Learning"], "UX Research & Interaction Design": ["Figma"], "React Development": ["React"], "Containerization & CI/CD": ["Docker"]}
 HEADINGS = {"summary": r"(?:professional |career )?(?:summary|profile|objective|about me)", "skills": r"(?:(?:technical|core|key|professional) )?(?:skills|competencies|technologies)", "experience": r"(?:(?:work|professional|employment) )?(?:experience|history)|internships?", "education": r"(?:education|academic(?: qualifications| background)?|qualifications)", "projects": r"(?:(?:academic|personal|key) )?projects?", "certifications": r"certifications?|certificates?|courses"}
 
 
@@ -148,10 +160,23 @@ def parse_resume(data, filename, engine):
     matched = [{"name": name, "evidence_skills": [s for s in aliases if s in names], "assessed": False} for name, aliases in APP_SKILLS.items() if any(s in names for s in aliases)]
     # Existing locally fine-tuned encoder ranks career contexts; similarity is
     # deliberately labelled as similarity, never mastery or extraction certainty.
-    role_descriptions = ["Data Analyst SQL Python pandas data visualization statistics dashboards Excel", "Frontend Developer HTML CSS JavaScript TypeScript React Git web development", "AI Applications Developer Python machine learning SQL deep learning algorithms Git"]
+    role_descriptions = role_texts()
     vector = engine.encode([", ".join(sorted(names)) + ". " + " ".join(sections.get("summary", []))[:800]])[0]
-    similarities = vector @ engine.encode(role_descriptions).T
-    suggestions = [{"name": role_descriptions[i].split(" SQL")[0] if i == 0 else "Frontend Developer" if i == 1 else "AI Applications Developer", "similarity": round(float(similarities[i]), 4)} for i in np.argsort(-similarities) if names]
+    role_vectors = getattr(engine, "career_role_vectors", None)
+    if role_vectors is None:
+        role_vectors = engine.encode(role_descriptions, public=True)
+    similarities = vector @ role_vectors.T
+    matched_names = {item["name"] for item in matched}
+    catalogue_skills = {skill["key"]: skill for skill in CATALOGUE["skills"]}
+    suggestions = []
+    for i in np.argsort(-similarities):
+        role = CATALOGUE["roles"][int(i)]
+        evidence = [catalogue_skills[item["skill"]]["name"] for item in role["requirements"] if catalogue_skills[item["skill"]]["name"] in matched_names]
+        if not evidence:
+            continue
+        suggestions.append({"name": role["name"], "similarity": round(float(similarities[i]), 4), "evidence_skills": evidence, "coverage": role["release_status"]})
+        if len(suggestions) == 5:
+            break
     if not email:
         warnings.append("No email address was found.")
     if not sections.get("education"):

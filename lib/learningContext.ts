@@ -1,25 +1,30 @@
 import { createClient } from "@/lib/supabase/server";
 import { LearningError, type LearningSkill } from "./localMl";
 import { roadmapProgress } from "./roadmapProgress";
+import { careerSkillForName, type CareerLevel } from "./careerCatalog";
+import { loadCareerRequirements } from "./careerRequirements";
 
 export async function getLearningContext(supabase: Awaited<ReturnType<typeof createClient>>, userId: string) {
   const [profileRes, scoresRes] = await Promise.all([
-    supabase.from("profiles").select("target_role_id, custom_target_role, roles(name)").eq("id", userId).maybeSingle(),
+    supabase.from("profiles").select("target_role_id, custom_target_role, career_level, career_focus_skill_ids, career_goal_context, roles(name)").eq("id", userId).maybeSingle(),
     supabase.from("user_skill_scores").select("skill_id, score").eq("user_id", userId),
   ]);
   if (profileRes.error || scoresRes.error) throw new LearningError("Could not load learner data.", 500);
   const profile = profileRes.data;
   if (!profile?.target_role_id) throw new LearningError("Choose a learning track in your profile before starting this activity.", 400);
-  const { data, error } = await supabase.from("role_skills").select("skill_id, weight, skills(name)").eq("role_id", profile.target_role_id);
-  if (error) throw new LearningError("Could not load role requirements.", 500);
+  const level: CareerLevel = profile.career_level === "intermediate" ? "intermediate" : "foundation";
+  let requirements;
+  try { requirements = await loadCareerRequirements(supabase, profile); }
+  catch { throw new LearningError("Could not load career requirements.", 500); }
+  const focusIds: string[] = profile.career_focus_skill_ids || [];
   const scores = new Map((scoresRes.data || []).map((s) => [s.skill_id, Number(s.score)]));
-  const skills: LearningSkill[] = (data || []).map((row: any) => ({
+  const skills: LearningSkill[] = requirements.map((row: any) => ({
     id: row.skill_id, name: row.skills?.name || "Skill", score: scores.get(row.skill_id) ?? null,
-    // The current schema uses role weight for both importance and benchmark.
-    target: Math.max(0, Math.min(100, Math.round(Number(row.weight ?? .75) * 100))), importance: Number(row.weight ?? 1),
+    target: row.target, importance: Number(row.weight ?? 1),
   }));
-  if (!skills.length) throw new LearningError("No skills have been configured for this role.", 400);
-  return { role: (profile as any).roles?.name || profile.custom_target_role || "Learner", roleId: profile.target_role_id, skills };
+  if (!skills.length) throw new LearningError("Choose focus skills for your personal goal in Career explorer.", 400);
+  const trackName = (profile as any).roles?.name || "Personal Career Goal";
+  return { role: (profile.custom_target_role?.trim() || trackName).slice(0, 160), trackName, roleId: profile.target_role_id, skills, requirements, level, focusIds, goalContext: profile.career_goal_context || "", coverage: {total: skills.length, assessed: skills.filter(s => careerSkillForName(s.name)?.coverage.questions).length} };
 }
 
 export async function adaptiveDifficulty(supabase: Awaited<ReturnType<typeof createClient>>, userId: string, kind: "daily" | "practice") {

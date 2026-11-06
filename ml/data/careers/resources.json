@@ -1,0 +1,818 @@
+[
+  {
+    "id": "career-resource-b377ef5d42a571298845",
+    "title": "About version control",
+    "url": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control",
+    "provider": "Pro Git",
+    "description": "Understand version history, collaboration and repository concepts.",
+    "text": "About version control. Understand version history, collaboration and repository concepts.",
+    "topics": [
+      "git"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Pro Git (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-75f1d01d8f91f12dfe75",
+    "title": "Recording changes to a repository",
+    "url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository",
+    "provider": "Pro Git",
+    "description": "Inspect changes, stage a focused change and record a commit.",
+    "text": "Recording changes to a repository. Inspect changes, stage a focused change and record a commit.",
+    "topics": [
+      "git"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Pro Git (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-0311ea2c2be33640113c",
+    "title": "Basic branching and merging",
+    "url": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging",
+    "provider": "Pro Git",
+    "description": "Work with branches and deliberate conflict resolution.",
+    "text": "Basic branching and merging. Work with branches and deliberate conflict resolution.",
+    "topics": [
+      "git"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Pro Git (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-bee16746c6eb2effd701",
+    "title": "Python data structures",
+    "url": "https://docs.python.org/3/tutorial/datastructures.html",
+    "provider": "Python documentation",
+    "description": "Explore lists, stacks, queues and structured data operations.",
+    "text": "Python data structures. Explore lists, stacks, queues and structured data operations.",
+    "topics": [
+      "algorithms"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Python documentation (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-14729e0f9e99c6dd96bd",
+    "title": "Binary search with bisect",
+    "url": "https://docs.python.org/3/library/bisect.html",
+    "provider": "Python documentation",
+    "description": "Understand searching sorted sequences and insertion trade-offs.",
+    "text": "Binary search with bisect. Understand searching sorted sequences and insertion trade-offs.",
+    "topics": [
+      "algorithms"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Python documentation (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-6a9a3392c1455846b61b",
+    "title": "Heap queues",
+    "url": "https://docs.python.org/3/library/heapq.html",
+    "provider": "Python documentation",
+    "description": "Explore heap order, priority queues and efficient access to an extreme value.",
+    "text": "Heap queues. Explore heap order, priority queues and efficient access to an extreme value.",
+    "topics": [
+      "algorithms"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Python documentation (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-00bfd85f2741a83f7291",
+    "title": "Create and use pivot tables",
+    "url": "https://support.google.com/docs/answer/1272900?hl=en",
+    "provider": "Google Docs Editors Help",
+    "description": "Summarize structured data with categories, values and filters.",
+    "text": "Create and use pivot tables. Summarize structured data with categories, values and filters.",
+    "topics": [
+      "spreadsheets"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Docs Editors Help (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-7c2b49e6b750a2454cb9",
+    "title": "Google Sheets function list",
+    "url": "https://support.google.com/docs/table/25273?hl=en",
+    "provider": "Google Docs Editors Help",
+    "description": "Look up arithmetic, conditional, counting and lookup functions.",
+    "text": "Google Sheets function list. Look up arithmetic, conditional, counting and lookup functions.",
+    "topics": [
+      "spreadsheets"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Docs Editors Help (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-d02dfc9bb7add035c0d4",
+    "title": "Overview of formulas in Excel",
+    "url": "https://support.microsoft.com/en-us/office/overview-of-formulas-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173",
+    "provider": "Microsoft Support",
+    "description": "Understand formulas, operators and cell references.",
+    "text": "Overview of formulas in Excel. Understand formulas, operators and cell references.",
+    "topics": [
+      "spreadsheets"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Support (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-d80406fdc9e304415990",
+    "title": "Active listening",
+    "url": "https://www.skillsbuilder.org/global/universal-framework-steps/listening-step-7-active-listening",
+    "provider": "Skills Builder Partnership",
+    "description": "Reflect on listening, checking understanding and responding to another person's message.",
+    "text": "Active listening. Reflect on listening, checking understanding and responding to another person's message.",
+    "topics": [
+      "communication"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Skills Builder Partnership (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-2f90b267348f46d4017e",
+    "title": "Working agreements",
+    "url": "https://www.atlassian.com/team-playbook/plays/working-agreements",
+    "provider": "Atlassian Team Playbook",
+    "description": "Agree how a team communicates and works together.",
+    "text": "Working agreements. Agree how a team communicates and works together.",
+    "topics": [
+      "communication"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian Team Playbook (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-418999b6d2292fca5eb7",
+    "title": "Roles and responsibilities",
+    "url": "https://www.atlassian.com/team-playbook/plays/roles-and-responsibilities",
+    "provider": "Atlassian Team Playbook",
+    "description": "Make team responsibilities and handoffs explicit.",
+    "text": "Roles and responsibilities. Make team responsibilities and handoffs explicit.",
+    "topics": [
+      "communication"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian Team Playbook (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-09205585873f8f296ebe",
+    "title": "The Business Analysis Standard",
+    "url": "https://www.iiba.org/knowledgehub/the-business-analysis-standard/",
+    "provider": "IIBA",
+    "description": "Explore the purpose and concepts of business analysis. Some downloads may require a provider account.",
+    "text": "The Business Analysis Standard. Explore the purpose and concepts of business analysis. Some downloads may require a provider account.",
+    "topics": [
+      "analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "IIBA (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-87499d1e1ec60bea0324",
+    "title": "Requirements gathering",
+    "url": "https://www.atlassian.com/work-management/project-management/requirements-gathering",
+    "provider": "Atlassian",
+    "description": "Connect stakeholder needs, requirements and verifiable outcomes.",
+    "text": "Requirements gathering. Connect stakeholder needs, requirements and verifiable outcomes.",
+    "topics": [
+      "analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3333de15c00d5936d8fe",
+    "title": "Management Analysts: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/13-1111.00",
+    "provider": "O*NET OnLine",
+    "description": "Review related analysis and improvement activities. This is a career reference.",
+    "text": "Management Analysts: occupation overview. Review related analysis and improvement activities. This is a career reference.",
+    "topics": [
+      "analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3af363d51f06e0efa77e",
+    "title": "Delivering exceptional customer support",
+    "url": "https://academy.hubspot.com/courses/delivering-exceptional-customer-support",
+    "provider": "HubSpot Academy",
+    "description": "Explore customer understanding, support processes and communication. Free provider account may be required.",
+    "text": "Delivering exceptional customer support. Explore customer understanding, support processes and communication. Free provider account may be required.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-6050421d8b173b9ccb90",
+    "title": "Service Hub software",
+    "url": "https://academy.hubspot.com/courses/hubspot-service-software",
+    "provider": "HubSpot Academy",
+    "description": "Explore organizing service work, reporting and customer context. Provider software access may be needed for some exercises.",
+    "text": "Service Hub software. Explore organizing service work, reporting and customer context. Provider software access may be needed for some exercises.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-10f59c55d3dee15b53c7",
+    "title": "Customer service representatives: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/43-4051.00",
+    "provider": "O*NET OnLine",
+    "description": "Review related service activities and capabilities. This is a career reference.",
+    "text": "Customer service representatives: occupation overview. Review related service activities and capabilities. This is a career reference.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4a5e1f70f6f28e160f76",
+    "title": "Project risk management",
+    "url": "https://www.atlassian.com/work-management/project-management/project-risk-management",
+    "provider": "Atlassian",
+    "description": "Identify risks, assess impacts and plan owned responses.",
+    "text": "Project risk management. Identify risks, assess impacts and plan owned responses.",
+    "topics": [
+      "projects"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-fdff649e8ef4a980c759",
+    "title": "Project scope",
+    "url": "https://www.atlassian.com/work-management/project-management/project-scope",
+    "provider": "Atlassian",
+    "description": "Define project boundaries, deliverables and change expectations.",
+    "text": "Project scope. Define project boundaries, deliverables and change expectations.",
+    "topics": [
+      "projects"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-92c0b5216c6518077d8b",
+    "title": "Project Management Specialists: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/13-1082.00",
+    "provider": "O*NET OnLine",
+    "description": "Review project coordination activities and skills. This is a career reference.",
+    "text": "Project Management Specialists: occupation overview. Review project coordination activities and skills. This is a career reference.",
+    "topics": [
+      "projects"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-a8434ccf2ed49ef540f9",
+    "title": "Financial accounting foundations",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/1-why-it-matters",
+    "provider": "OpenStax",
+    "description": "Study introductory accounting concepts using the linked open textbook. Practice questions in VoidFill are original, not its exam items.",
+    "text": "Financial accounting foundations. Study introductory accounting concepts using the linked open textbook. Practice questions in VoidFill are original, not its exam items.",
+    "topics": [
+      "accounting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-885b19429d4477e02bed",
+    "title": "Elements of financial statements",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+    "provider": "OpenStax",
+    "description": "Review assets, liabilities, equity, revenues and expenses.",
+    "text": "Elements of financial statements. Review assets, liabilities, equity, revenues and expenses.",
+    "topics": [
+      "accounting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-c43ed057dfdb5fac89fd",
+    "title": "Accounting adjustments and period-end foundations",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/4-why-it-matters",
+    "provider": "OpenStax",
+    "description": "Explore why accounting adjustments matter. Country-specific tax, payroll and professional qualification rules are outside this pack.",
+    "text": "Accounting adjustments and period-end foundations. Explore why accounting adjustments matter. Country-specific tax, payroll and professional qualification rules are outside this pack.",
+    "topics": [
+      "accounting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-fc830cebaa10205ed3f1",
+    "title": "Digital Marketing",
+    "url": "https://academy.hubspot.com/courses/digital-marketing",
+    "provider": "HubSpot Academy",
+    "description": "Plan audience-focused campaigns and their measurement. Free provider account may be required.",
+    "text": "Digital Marketing. Plan audience-focused campaigns and their measurement. Free provider account may be required.",
+    "topics": [
+      "marketing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-194927714ef79e921ab4",
+    "title": "Search Engine Optimization Starter Guide",
+    "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "provider": "Google Search Central",
+    "description": "Understand discoverable, useful web content and search fundamentals.",
+    "text": "Search Engine Optimization Starter Guide. Understand discoverable, useful web content and search fundamentals.",
+    "topics": [
+      "marketing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Search Central (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-b7323e0bae5c7e69451b",
+    "title": "Email Marketing",
+    "url": "https://academy.hubspot.com/courses/email-marketing",
+    "provider": "HubSpot Academy",
+    "description": "Explore audience relevance, useful email campaigns and measurement. Free provider account may be required.",
+    "text": "Email Marketing. Explore audience relevance, useful email campaigns and measurement. Free provider account may be required.",
+    "topics": [
+      "marketing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-7dc843950f5df38e2316",
+    "title": "Selection methods",
+    "url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/",
+    "provider": "CIPD",
+    "description": "Compare structured interviews, work samples and evidence-based candidate assessment. Some linked material is member-only; local rules vary.",
+    "text": "Selection methods. Compare structured interviews, work samples and evidence-based candidate assessment. Some linked material is member-only; local rules vary.",
+    "topics": [
+      "recruiting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "CIPD (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4d7fdae98da8d4fd0a33",
+    "title": "Recruitment resources",
+    "url": "https://www.cipd.org/uk/topics/recruitment/",
+    "provider": "CIPD",
+    "description": "Explore role definition, sourcing and selection. Some linked material is member-only; this is not country-specific legal training.",
+    "text": "Recruitment resources. Explore role definition, sourcing and selection. Some linked material is member-only; this is not country-specific legal training.",
+    "topics": [
+      "recruiting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "CIPD (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-63095607c61d302f0758",
+    "title": "Human Resources Specialists: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/13-1071.00",
+    "provider": "O*NET OnLine",
+    "description": "Review related work activities and occupational context. This is a career reference, not an assessment course.",
+    "text": "Human Resources Specialists: occupation overview. Review related work activities and occupational context. This is a career reference, not an assessment course.",
+    "topics": [
+      "recruiting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-e8eedc80e0615420aedc",
+    "title": "Inbound Sales",
+    "url": "https://academy.hubspot.com/courses/inbound-sales",
+    "provider": "HubSpot Academy",
+    "description": "Practice customer discovery, qualification and relevant conversations. Free provider account may be required.",
+    "text": "Inbound Sales. Practice customer discovery, qualification and relevant conversations. Free provider account may be required.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-b40f1bf62bc60ee72b84",
+    "title": "Sales Enablement",
+    "url": "https://academy.hubspot.com/courses/Sales-Enablement",
+    "provider": "HubSpot Academy",
+    "description": "Connect sales processes, customer needs and useful handoffs. Free provider account may be required.",
+    "text": "Sales Enablement. Connect sales processes, customer needs and useful handoffs. Free provider account may be required.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-af992b76f66568b241b9",
+    "title": "Sales representatives: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/41-3091.00",
+    "provider": "O*NET OnLine",
+    "description": "Explore tasks and skills in the related occupation. This is a career reference.",
+    "text": "Sales representatives: occupation overview. Explore tasks and skills in the related occupation. This is a career reference.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-d569b55a6483bffb303d",
+    "title": "Overview of HTTP",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+    "provider": "MDN Web Docs",
+    "description": "Understand requests, responses and the HTTP client-server model.",
+    "text": "Overview of HTTP. Understand requests, responses and the HTTP client-server model.",
+    "topics": [
+      "api"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MDN Web Docs (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-0dbd3d2673dacc913410",
+    "title": "HTTP request methods",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+    "provider": "MDN Web Docs",
+    "description": "Compare retrieval, creation, replacement and other method semantics.",
+    "text": "HTTP request methods. Compare retrieval, creation, replacement and other method semantics.",
+    "topics": [
+      "api"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MDN Web Docs (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-a7cc285b4fd506c52384",
+    "title": "HTTP response status codes",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+    "provider": "MDN Web Docs",
+    "description": "Interpret response classes and common application status codes.",
+    "text": "HTTP response status codes. Interpret response classes and common application status codes.",
+    "topics": [
+      "api"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MDN Web Docs (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-797d980153ad152d04b6",
+    "title": "Get started with pytest",
+    "url": "https://docs.pytest.org/en/stable/getting-started.html",
+    "provider": "pytest",
+    "description": "Practice arranging tests, executing behavior and checking expectations.",
+    "text": "Get started with pytest. Practice arranging tests, executing behavior and checking expectations.",
+    "topics": [
+      "testing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "pytest (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-ecb53596f43cde370334",
+    "title": "End-to-end testing best practices",
+    "url": "https://playwright.dev/docs/best-practices",
+    "provider": "Playwright",
+    "description": "Learn isolation, reliable locators and tests of observable behavior.",
+    "text": "End-to-end testing best practices. Learn isolation, reliable locators and tests of observable behavior.",
+    "topics": [
+      "testing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Playwright (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-391e6ffb0b3c224e01b0",
+    "title": "Writing assertions",
+    "url": "https://playwright.dev/docs/test-assertions",
+    "provider": "Playwright",
+    "description": "Use meaningful assertions and appropriate waiting for browser behavior.",
+    "text": "Writing assertions. Use meaningful assertions and appropriate waiting for browser behavior.",
+    "topics": [
+      "testing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Playwright (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-8a7935c43ef9083e3b12",
+    "title": "The Linux command line for beginners",
+    "url": "https://ubuntu.com/tutorials/command-line-for-beginners",
+    "provider": "Ubuntu",
+    "description": "Navigate directories, manage files and compose simple commands.",
+    "text": "The Linux command line for beginners. Navigate directories, manage files and compose simple commands.",
+    "topics": [
+      "linux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Ubuntu (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-bbf85934c1076ecb7bc4",
+    "title": "File permissions",
+    "url": "https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html",
+    "provider": "GNU",
+    "description": "Understand read, write and execute permissions and their scope.",
+    "text": "File permissions. Understand read, write and execute permissions and their scope.",
+    "topics": [
+      "linux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GNU (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-64e32e8afc70b96abb18",
+    "title": "Bash pipelines",
+    "url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+    "provider": "GNU",
+    "description": "Connect commands and understand pipeline execution.",
+    "text": "Bash pipelines. Connect commands and understand pipeline execution.",
+    "topics": [
+      "linux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GNU (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-1d3d89d0ade1c2f525bc",
+    "title": "Networking Basics",
+    "url": "https://www.netacad.com/courses/networking-basics",
+    "provider": "Cisco Networking Academy",
+    "description": "Study network components, connectivity and basic troubleshooting. Provider account may be required.",
+    "text": "Networking Basics. Study network components, connectivity and basic troubleshooting. Provider account may be required.",
+    "topics": [
+      "networking"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Cisco Networking Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-63fe998ebd1b2b8bc063",
+    "title": "Fundamentals of computer networking",
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+    "provider": "Microsoft Learn",
+    "description": "Study TCP/IP, DNS, ports and the principles of network communication.",
+    "text": "Fundamentals of computer networking. Study TCP/IP, DNS, ports and the principles of network communication.",
+    "topics": [
+      "networking"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-76629e940c5d1b561f03",
+    "title": "Virtual network fundamentals",
+    "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+    "provider": "Microsoft Learn",
+    "description": "Explore networks, subnets and routing using an Azure example.",
+    "text": "Virtual network fundamentals. Explore networks, subnets and routing using an Azure example.",
+    "topics": [
+      "networking"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4261012b3fba6f5a37eb",
+    "title": "Describe cloud computing",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+    "provider": "Microsoft Learn",
+    "description": "Explore service models, shared responsibility and cloud operating concepts.",
+    "text": "Describe cloud computing. Explore service models, shared responsibility and cloud operating concepts.",
+    "topics": [
+      "cloud"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-03bc8731f1f09255ab35",
+    "title": "Shared responsibility model",
+    "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+    "provider": "AWS",
+    "description": "Distinguish provider responsibilities from application and customer responsibilities.",
+    "text": "Shared responsibility model. Distinguish provider responsibilities from application and customer responsibilities.",
+    "topics": [
+      "cloud"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "AWS (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-f7911eb3bf8a605bef8b",
+    "title": "Benefits of cloud services",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+    "provider": "Microsoft Learn",
+    "description": "Review availability, scalability, reliability and cloud operating trade-offs.",
+    "text": "Benefits of cloud services. Review availability, scalability, reliability and cloud operating trade-offs.",
+    "topics": [
+      "cloud"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-422c2f722165341ac595",
+    "title": "Authorization guidance",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+    "provider": "OWASP",
+    "description": "Study least privilege and permission checks for protected actions and records.",
+    "text": "Authorization guidance. Study least privilege and permission checks for protected actions and records.",
+    "topics": [
+      "security"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OWASP (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-cb74541bed9d1fcd2109",
+    "title": "Authentication guidance",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+    "provider": "OWASP",
+    "description": "Understand identity checks, authentication controls and session protection.",
+    "text": "Authentication guidance. Understand identity checks, authentication controls and session protection.",
+    "topics": [
+      "security"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OWASP (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4df1fad12273bbad7733",
+    "title": "Introduction to Cybersecurity",
+    "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+    "provider": "Cisco Networking Academy",
+    "description": "Learn security concepts and common threats. Provider account may be required.",
+    "text": "Introduction to Cybersecurity. Learn security concepts and common threats. Provider account may be required.",
+    "topics": [
+      "security"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Cisco Networking Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  }
+]

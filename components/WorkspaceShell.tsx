@@ -22,6 +22,7 @@ import {
   Users,
   X,
   FileUp,
+  Compass,
 } from "lucide-react";
 import { Brand } from "./Brand";
 
@@ -31,6 +32,7 @@ const learnerGroups = [
     items: [
       { href: "/dashboard", icon: LayoutDashboard, label: "Overview" },
       { href: "/resume", icon: FileUp, label: "Resume studio" },
+      { href: "/careers", icon: Compass, label: "Career explorer" },
     ],
   },
   {

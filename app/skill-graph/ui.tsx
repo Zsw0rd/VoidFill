@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { hasKnowledgeCoverage } from "@/lib/careerCatalog";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -99,14 +100,14 @@ export function SkillGraphClient({
     return roleSkills.map((rs: any) => ({
       skill: rs.skills?.name ?? "?",
       you: scoreMap.get(rs.skill_id) ?? null,
-      benchmark: Math.round(Number(rs.weight ?? 0.8) * 100),
+      benchmark: (rs.target ?? 75),
     }));
   }, [roleSkills, scoreMap]);
 
   const gapData = useMemo(() => {
     return roleSkills
       .map((rs: any) => {
-        const benchmark = Math.round(Number(rs.weight ?? 0.8) * 100);
+        const benchmark = (rs.target ?? 75);
         const you = scoreMap.get(rs.skill_id) ?? null;
         return {
           skill: rs.skills?.name ?? "?",
@@ -173,11 +174,11 @@ export function SkillGraphClient({
   const summaryCards = useMemo(() => {
     return roleSkills.map((rs: any) => {
       const score = scoreMap.get(rs.skill_id) ?? 0;
-      const benchmark = Math.round(Number(rs.weight ?? 0.8) * 100);
+      const benchmark = (rs.target ?? 75);
       const gap = Math.max(0, benchmark - score);
       const assessed = scoreMap.has(rs.skill_id);
       const cat = !assessed
-        ? "Not assessed"
+        ? (hasKnowledgeCoverage(rs.skills?.name || "") ? "Not assessed" : "Practical review")
         : gap >= 40
           ? "Focus here"
           : gap >= 15
@@ -235,7 +236,7 @@ export function SkillGraphClient({
               <CardHeader className="p-6 pb-0">
                 <h2 className="text-xl font-semibold">Skill Radar</h2>
                 <p className="mt-1 text-sm text-muted">
-                  Your assessed scores compared with your role benchmark.
+                  Your assessed scores compared with your learning targets.
                 </p>
               </CardHeader>
               <CardContent className="p-4 h-[350px]">
@@ -258,7 +259,7 @@ export function SkillGraphClient({
                       fillOpacity={0.25}
                     />
                     <Radar
-                      name="Benchmark"
+                      name="Learning target"
                       dataKey="benchmark"
                       stroke="#3f617e"
                       fill="#3f617e"
@@ -282,7 +283,7 @@ export function SkillGraphClient({
               <CardHeader className="p-6 pb-0">
                 <h2 className="text-xl font-semibold">Skill Gap</h2>
                 <p className="mt-1 text-sm text-muted">
-                  The distance between assessed skills and your role benchmark.
+                  The distance between assessed skills and your learning targets.
                 </p>
               </CardHeader>
               <CardContent className="p-4 h-[350px]">
@@ -539,7 +540,7 @@ export function SkillGraphClient({
                         ? `Score: ${c.score}%`
                         : "Awaiting first assessment"}
                     </span>
-                    <span>Benchmark: {c.benchmark}%</span>
+                    <span>Learning target: {c.benchmark}%</span>
                   </div>
                   {c.assessed && c.gap > 0 && (
                     <div className="mt-1 text-xs text-muted">

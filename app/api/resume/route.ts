@@ -1,5 +1,6 @@
 import { mlServiceUrl } from "@/lib/mlServiceUrl";
 import { NextResponse } from "next/server";
+import { PERSONAL_GOAL_NAME } from "@/lib/careerCatalog";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { sameOrigin } from "@/lib/demo/server";
@@ -115,16 +116,15 @@ export async function PATCH(request: Request) {
   if (input.data.role_id) {
     const { data: role } = await supabase
       .from("roles")
-      .select("id")
+      .select("id,name")
       .eq("id", input.data.role_id)
       .maybeSingle();
-    if (!role)
+    if (!role || role.name === PERSONAL_GOAL_NAME)
       return NextResponse.json(
         { error: "Choose an available role." },
         { status: 400 },
       );
     updates.target_role_id = role.id;
-    updates.custom_target_role = null;
   }
   const { data: updated, error } = await supabase
     .from("profiles")

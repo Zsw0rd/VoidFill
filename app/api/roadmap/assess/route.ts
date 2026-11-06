@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     const body = parsed.data;
     const context = await getLearningContext(supabase, user.id);
     let skills = context.skills;
-    let courseTitle = context.role;
+    let courseTitle = "";
     let courseId: string | undefined;
     if (body.purpose === "course") {
       if (!body.course_id) throw new LearningError("Choose a course to assess.", 400);
@@ -29,15 +29,14 @@ export async function POST(req: Request) {
       courseId = course.id;
     } else if (body.purpose === "skill") {
       skills = skills.filter((s) => s.id === body.skill_id);
-      courseTitle = skills[0]?.name || context.role;
     }
     if (!skills.length) throw new LearningError("This skill is not configured for your current role.", 400);
     const difficulty = body.purpose === "practice" ? await adaptiveDifficulty(supabase, user.id, "practice") : Math.min(5, Math.max(1, Math.ceil((skills[0].score || 0) / 20)));
     const result = await callLocalMl("/assessment", { skills, role: context.role, count: body.purpose === "course" ? 12 : 10, difficulty, context: courseTitle }, assessmentResponseSchema);
     const allowed = new Set(skills.map((s) => s.id));
     if (result.questions.some((q) => !allowed.has(q.skill_id))) throw new LearningError("Invalid assessment skill mapping.", 502);
-    const session = createAssessment(user.id, result.questions, { purpose: body.purpose, difficulty, ...(courseId ? { courseId } : {}), ...(body.purpose !== "practice" ? { skillId: skills[0].id } : {}) });
-    return NextResponse.json({ ...session, difficulty, difficultyLabel: result.difficultyLabel, model: result.model, unsupported_skills: result.unsupported_skills });
+    const session = createAssessment(user.id, result.questions, { purpose: body.purpose, difficulty: result.difficulty, ...(courseId ? { courseId } : {}), ...(body.purpose !== "practice" ? { skillId: skills[0].id } : {}) });
+    return NextResponse.json({ ...session, difficulty: result.difficulty, difficultyLabel: result.difficultyLabel, model: result.model, unsupported_skills: result.unsupported_skills });
   } catch (error) {
     console.error("Assessment preparation:", error instanceof Error ? error.message : error);
     return NextResponse.json({ error: error instanceof LearningError ? error.message : "Could not prepare an assessment." }, { status: error instanceof LearningError ? error.status : 500 });

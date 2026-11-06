@@ -54,3 +54,14 @@ Earlier `atlas-desktop-first.png` and `atlas-desktop-qa1/qa2.png` captures were 
 - [x] Desktop, tablet, mobile and expanded views checked.
 - [x] Core learning and assessment interactions checked.
 - [x] Blocking findings resolved; test suites pass.
+
+
+## Career expansion foundation release — 6 November 2026
+
+- Shared Career explorer/picker spans 60 profiles, 10 fields and 55 skills. Twelve pilot foundations have original knowledge content, resources and individual practical rubrics. Exploration profiles show covered versus specialist areas explicitly.
+- Onboarding, profile, resume suggestions, atlas, dashboard, analytics and insights use the shared catalogue/requirements. Career changes preserve historical scores, XP, courses and assessments. Current dashboard branches and cached insights follow the active direction.
+- Chrome local QA covered recruiter alias search, personal goal/learning level save, reflection persistence, relevant resources and knowledge questions, and an unknown museum career with explicit UX focus. The 390-pixel phone override rendered at 341 CSS pixels with the browser zoom; there was no horizontal overflow. Specialist areas have disabled knowledge checks and a practical-activity route. This is responsive desktop-browser QA, not physical-device certification.
+- Additive Supabase migration was dry-run with rollback. All nine original role/skill IDs survived. A separate synthetic two-user transaction confirmed own preference/reflection access, foreign read/update/insert denial and score preservation, then rolled back. The persistent seed installed 61 storage roles, 55 skills and 241 requirements.
+- Node suite: 37 passed. Python suite: 47 passed; after public query optimization, 24 targeted career/service/cloud checks passed. Production build passed; final release-mode HTTP checks and live verification are recorded in the career work log.
+- Runtime keeps the existing ONNX weights. A 2.15 MB extension precomputes 248 public queries; pilot recommendation, skill/practice and catalogue course-check tests leave the encoder graph unloaded. Resume/private-context encoding stays private and uncached. No new inference provider was added.
+- Sources, question difficulty and coverage are explicitly bounded. Foundation knowledge scores and reflections do not certify job readiness. Other specialist banks remain future content work.

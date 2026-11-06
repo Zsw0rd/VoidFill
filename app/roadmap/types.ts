@@ -34,6 +34,7 @@ export type SkillNode = {
   name: string;
   score: number;
   assessed: boolean;
+  assessable?: boolean;
   category: Category;
   role_weight: number;
   dependency_bonus: number;

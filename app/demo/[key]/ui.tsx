@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   Sprout,
 } from "lucide-react";
+import { demoCareerProfiles, careerCatalogue } from "@/lib/careerCatalog";
 import { Brand } from "@/components/Brand";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -88,28 +89,11 @@ export function DemoEntry({ entryKey }: { entryKey: string }) {
           <p className="text-xs font-semibold mt-7 mb-3">
             Choose a direction to explore
           </p>
-          <div className="space-y-2">
-            {[
-              "Data Analyst",
-              "Frontend Developer",
-              "AI Applications Developer",
-            ].map((name, i) => (
-              <button
-                key={name}
-                disabled={busy}
-                onClick={() => setRole(i)}
-                aria-pressed={role === i}
-                className={`flex w-full items-center justify-between rounded-xl border p-4 text-left text-xs transition ${role === i ? "bg-surface border-forest/40 font-semibold" : "border-forest/15 hover:bg-surface/50"}`}
-              >
-                {name}
-                {role === i ? (
-                  <Check size={15} className="text-forest" />
-                ) : (
-                  <span className="h-4 w-4 rounded-full border border-forest/20" />
-                )}
-              </button>
-            ))}
-          </div>
+          <label htmlFor="demo-career" className="sr-only">Career foundation</label>
+          <select id="demo-career" value={role} onChange={event => setRole(Number(event.target.value))} disabled={busy} className="w-full min-h-12 rounded-xl border border-forest/25 bg-surface p-3 text-sm">
+            {["technical", "business"].map(kind => <optgroup key={kind} label={kind === "technical" ? "Technical foundations" : "Non-technical foundations"}>{demoCareerProfiles.map((career, index) => ({career, index})).filter(({career}) => career.release_status === "pilot" && careerCatalogue.families.find(f => f.key === career.family)?.kind === kind).map(({career, index}) => <option key={career.id} value={index}>{career.name}</option>)}</optgroup>)}
+          </select>
+          <p className="text-[11px] text-muted leading-6 mt-3">Start with one of 12 pilot foundations. Career explorer includes 60 profiles and lets you add a personal goal.</p>
           <Button
             loading={busy}
             onClick={() => void start()}

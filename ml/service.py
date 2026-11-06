@@ -4,7 +4,6 @@ from __future__ import annotations
 import json
 import hashlib
 import os
-import re
 import secrets
 import threading
 from collections import OrderedDict
@@ -22,18 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from ml.guest import guests
 from ml.resume import parse_resume, MAX_BYTES
 from ml.retrieval import passages
-
-TOPICS = {
-    "python": "Python programming syntax functions dictionaries lists pandas",
-    "sql": "SQL relational databases queries SELECT joins GROUP BY",
-    "visualization": "Data visualization charts matplotlib seaborn graphs dashboards",
-    "web": "Web development HTML CSS JavaScript browser DOM frontend",
-    "git": "Git version control commits branches repositories merge",
-    "algorithms": "Data structures algorithms complexity stacks queues sorting binary search",
-    "machine-learning": "Machine learning artificial intelligence models regression classification neural networks",
-    "data-science": "Data science statistics probability data cleaning analysis",
-}
-
+from ml.career_catalogue import CATALOGUE, DIRECTORY, TOPICS, content_fingerprints, load_learning_content, topic_for_skill
 
 class Skill(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -67,8 +55,8 @@ class LearningEngine:
         self.lock = threading.Lock()
         self.embedding_cache = OrderedDict()
         self.batch_size = 16
-        self.resources = json.loads((ROOT / "data/resources.json").read_text(encoding="utf-8"))
-        self.questions = json.loads((ROOT / "data/questions.json").read_text(encoding="utf-8"))
+        self.resources, self.questions = load_learning_content()
+        self.public_assessment_contexts = {topic: {r["title"][:500] for r in self.resources if topic in r["topics"]} for topic in TOPICS}
         if self.backend == "onnx":
             from ml.onnx_encoder import OnnxEncoder
             directory = Path(os.environ.get("ML_ARTIFACT_DIR", ROOT / "artifacts/cloud"))
@@ -81,6 +69,7 @@ class LearningEngine:
                 self.topic_vectors = cached["topics"]
                 self.passage_vectors = cached["passages"]
                 self.passage_owners = cached["owners"]
+            self._career_vectors()
             if (directory / "public-queries.json").exists():
                 keys = json.loads((directory / "public-queries.json").read_text(encoding="utf8"))
                 with np.load(directory / "public-queries.npz", allow_pickle=False) as cached:
@@ -103,7 +92,7 @@ class LearningEngine:
         # Only public catalogue/question embeddings enter this cache. Resume
         # vectors and guest inputs are never persisted here.
         digest = hashlib.sha256()
-        inputs = sorted(checkpoint.rglob("*.json")) + sorted(checkpoint.glob("*.safetensors")) + [ROOT / "data/resources.json", ROOT / "data/questions.json", ROOT / "retrieval.py"]
+        inputs = sorted(checkpoint.rglob("*.json")) + sorted(checkpoint.glob("*.safetensors")) + [ROOT / "data/resources.json", ROOT / "data/questions.json", DIRECTORY / "resources.json", DIRECTORY / "questions.json", DIRECTORY / "catalogue.json", ROOT / "retrieval.py"]
         for filename in inputs:
             with filename.open("rb") as source:
                 digest.update(hashlib.file_digest(source, "sha256").digest())
@@ -161,17 +150,27 @@ class LearningEngine:
         prefix = self.report.get("query_prefix", "")
         return self.encode([prefix + text for text in texts], public=public)
 
+    def _career_vectors(self):
+        metadata = json.loads((DIRECTORY / "index.json").read_text(encoding="utf8"))
+        if metadata["inputs"] != content_fingerprints() or metadata["model"] != self.report["model"]:
+            raise RuntimeError("Career index is stale. Run python -m ml.index_careers before building.")
+        base_resources = len(self.resources) - len(metadata["resource_ids"])
+        base_questions = len(self.questions) - len(metadata["question_ids"])
+        if len(self.resource_vectors) != base_resources or len(self.question_vectors) != base_questions:
+            raise RuntimeError("Base model catalogue does not match the career extension.")
+        if [r["id"] for r in self.resources[base_resources:]] != metadata["resource_ids"] or [q["id"] for q in self.questions[base_questions:]] != metadata["question_ids"]:
+            raise RuntimeError("Career index item ordering does not match the content.")
+        with np.load(DIRECTORY / "vectors.npz", allow_pickle=False) as extension:
+            self.resource_vectors = np.concatenate([self.resource_vectors, extension["resources"]])
+            self.question_vectors = np.concatenate([self.question_vectors, extension["questions"]])
+            self.topic_vectors = extension["topics"]
+            self.career_role_vectors = extension["roles"]
+            self.passage_vectors = np.concatenate([self.passage_vectors, extension["passages"]])
+            self.passage_owners = np.concatenate([self.passage_owners, extension["owners"] + base_resources])
+            self.embedding_cache.update(zip(metadata["public_queries"], extension["queries"]))
+
     def topic(self, name: str) -> str | None:
-        text = name.lower()
-        aliases = [("git", ["git", "version control"]), ("sql", ["sql", "relational", "database"]), ("visualization", ["visualization", "visualisation", "chart", "dashboard"]), ("algorithms", ["dsa", "algorithm", "data structure"]), ("web", ["web", "html", "css", "javascript", "frontend", "react"]), ("python", ["python", "pandas"]), ("machine-learning", ["machine learning", "artificial intelligence", "neural", "deep learning"]), ("data-science", ["data science", "statistics", "probability"])]
-        for topic, terms in aliases:
-            if any(re.search(r"\b" + re.escape(term) + r"\b", text) for term in terms):
-                return topic
-        scores = self.encode([name], public=True)[0] @ self.topic_vectors.T
-        ordered = np.sort(scores)
-        threshold = self.report.get("topic_min_similarity", .5)
-        margin = self.report.get("topic_min_margin", 0)
-        return list(TOPICS)[int(scores.argmax())] if float(ordered[-1]) >= threshold and float(ordered[-1] - ordered[-2]) >= margin else None
+        return topic_for_skill(name)
 
     def recommend(self, request: RecommendationRequest) -> dict:
         results, unsupported = [], []
@@ -189,17 +188,30 @@ class LearningEngine:
                 scores = np.array([scores_all[self.passage_owners == i].max() for i in candidates])
             else:
                 scores = vector @ self.resource_vectors[candidates].T
-            order = np.argsort(-scores, kind="stable")[:request.limit]
-            selected = []
+            order = np.argsort(-scores, kind="stable")
+            selected, urls = [], set()
             for rank in order:
                 r = self.resources[candidates[int(rank)]]
+                if r["url"] in urls:
+                    continue
+                urls.add(r["url"])
                 selected.append({k: r[k] for k in ["id", "title", "type", "provider", "url", "difficulty", "estimated_hours"]} | {"description": r["description"][:320], "similarity": round(float(scores[int(rank)]), 4), "source": r["source"]})
+                if len(selected) >= request.limit:
+                    break
             results.append({"skill_id": skill.id, "skill_name": skill.name, "resources": selected})
         return {"recommendations": results, "unsupported_skills": unsupported, "model": self.report["model"]}
 
     def assessment(self, request: AssessmentRequest) -> dict:
         rng = np.random.default_rng()
         pools, unsupported = [], []
+        available = []
+        for skill in request.skills:
+            topic = self.topic(skill.name)
+            levels = [q["difficulty"] for q in self.questions if topic and topic in q["topics"]]
+            if levels:
+                available.append(max(levels))
+        # A foundation-only bank must never be labelled an expert assessment.
+        effective_difficulty = min(request.difficulty, min(available)) if available else request.difficulty
         for skill in request.skills:
             topic = self.topic(skill.name)
             candidates = [i for i, q in enumerate(self.questions) if topic in q["topics"]] if topic else []
@@ -207,9 +219,10 @@ class LearningEngine:
                 unsupported.append(skill.name)
                 continue
             query = f"{skill.name}. {TOPICS[topic]}. {request.context[:500]}"
-            similarities = self.encode_queries([query], public=not request.context)[0] @ self.question_vectors[candidates].T
+            public_context = not request.context or request.context[:500] in self.public_assessment_contexts[topic]
+            similarities = self.encode_queries([query], public=public_context)[0] @ self.question_vectors[candidates].T
             # Source pre/post labels and authored difficulty are estimates, not a learned ability scale.
-            scores = similarities - np.array([abs(self.questions[i]["difficulty"] - request.difficulty) * .18 for i in candidates]) + rng.gumbel(0, .05, len(candidates))
+            scores = similarities - np.array([abs(self.questions[i]["difficulty"] - effective_difficulty) * .18 for i in candidates]) + rng.gumbel(0, .05, len(candidates))
             order = [candidates[int(i)] for i in np.argsort(-scores)]
             pools.append({"skill": skill, "indices": order, "weight": 2 if skill.score is None or skill.score < 50 else 1})
         if not pools:
@@ -232,19 +245,23 @@ class LearningEngine:
             if not added:
                 break
         rng.shuffle(selected)
-        return {"questions": selected, "difficulty": request.difficulty, "difficultyLabel": ["", "Easy", "Moderate", "Intermediate", "Hard", "Expert"][request.difficulty], "question_source": "retrieved curriculum and authored question bank", "unsupported_skills": unsupported, "model": self.report["model"]}
+        return {"questions": selected, "difficulty": effective_difficulty, "difficultyLabel": ["", "Easy", "Moderate", "Intermediate", "Hard", "Expert"][effective_difficulty], "question_source": "retrieved curriculum and original foundation knowledge questions", "unsupported_skills": unsupported, "model": self.report["model"]}
 
     def analyze(self, request: AnalysisRequest) -> dict:
         recommendations = self.recommend(request)
         by_skill = {r["skill_id"]: r["resources"] for r in recommendations["recommendations"]}
         assessed = [s for s in request.skills if s.score is not None]
+        covered = [s for s in request.skills if self.topic(s.name)]
+        manual = [s for s in request.skills if not self.topic(s.name)]
         gaps = sorted([s for s in request.skills if s.score is None or s.score < s.target], key=lambda s: (s.target - (s.score or 0)) * s.importance, reverse=True)
         critical = []
         for skill in gaps:
             gap = max(0, skill.target - (skill.score or 0))
             resources = by_skill.get(skill.id, [])
-            critical.append({"skill": skill.name, "currentScore": skill.score or 0, "targetScore": skill.target, "gap": gap, "assessed": skill.score is not None, "severity": "unassessed" if skill.score is None else "critical" if gap >= 40 else "moderate" if gap >= 15 else "minor", "recommendation": f"Take a baseline assessment for {skill.name} before interpreting this gap." if skill.score is None else f"Practice {skill.name}, review the recommended material, then take another assessment to check your progress.", "resources": [{"title": r["title"], "type": r["type"], "provider": r["provider"], "url": r["url"]} for r in resources[:3]]})
-        analysis = {"overallAssessment": f"For {request.role}, {len(assessed)} of {len(request.skills)} required skills have assessment data. {sum(s.score is not None and s.score < s.target for s in request.skills)} assessed skills are below the configured role targets; {len(request.skills) - len(assessed)} still need a baseline. Recommendations use the local retrieval model.", "strengthAreas": [s.name for s in assessed if s.score >= 75], "criticalGaps": critical, "learningPath": [{"phase": i + 1, "title": f"Build {s.name}", "duration": "At your own pace", "focus": f"Establish a baseline for {s.name}." if s.score is None else f"Work toward the configured {s.target:g}/100 target for {s.name}.", "milestones": ["Review a recommended resource", "Complete practice questions", "Reassess and compare with your previous result"]} for i, s in enumerate(gaps[:5])], "motivationalTip": "Work on one gap at a time and use new assessment evidence to decide what to study next."}
+            available = bool(self.topic(skill.name))
+            advice = (f"Use the practical activity in Career explorer to collect evidence for {skill.name}. A dedicated knowledge check is not available yet." if not available else f"Take a baseline knowledge assessment for {skill.name} before interpreting this gap." if skill.score is None else f"Practice {skill.name}, review the recommended material, then check your knowledge again.")
+            critical.append({"skill": skill.name, "currentScore": skill.score or 0, "targetScore": skill.target, "gap": gap, "assessed": skill.score is not None, "severity": "unassessed" if skill.score is None else "critical" if gap >= 40 else "moderate" if gap >= 15 else "minor", "recommendation": advice, "resources": [{"title": r["title"], "type": r["type"], "provider": r["provider"], "url": r["url"]} for r in resources[:3]]})
+        analysis = {"overallAssessment": f"For {request.role}, {len(assessed)} of {len(request.skills)} learning areas have assessment data. Knowledge checks cover {len(covered)} areas; {len(manual)} specialist areas need practical review. Targets guide learning and do not measure job readiness.", "strengthAreas": [s.name for s in assessed if s.score >= s.target], "criticalGaps": critical, "learningPath": [{"phase": i + 1, "title": f"Build {s.name}", "duration": "At your own pace", "focus": f"Collect practical evidence for {s.name}." if not self.topic(s.name) else f"Work toward the configured {s.target:g}/100 learning target for {s.name}.", "milestones": ["Complete the career activity", "Review your work against its rubric", "Record a private reflection"] if not self.topic(s.name) else ["Review a recommended resource", "Complete knowledge questions", "Reassess and compare with your previous result"]} for i, s in enumerate(gaps[:5])], "motivationalTip": "Build both knowledge and practical evidence. Use feedback to choose your next learning step."}
         return {"analysis": analysis, "model": self.report["model"], "unsupported_skills": recommendations["unsupported_skills"]}
 
 
@@ -338,7 +355,7 @@ async def guest_operation(operation: str, request: Request, x_demo_token: str = 
         if "staff" in body:
             return guests.create_staff(body["staff"])
         role = body.get("role", 0)
-        if not isinstance(role, int) or role not in range(3):
+        if not isinstance(role, int) or role not in range(len(CATALOGUE["roles"])):
             raise HTTPException(400, "Unknown role")
         return guests.create(role)
     if operation == "end":

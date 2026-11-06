@@ -29,7 +29,7 @@ try {
   const personalProfile = (await call(a, "/api/demo/db", { table: "profiles", filters: [{ column: "id", op: "eq", value: userA.id }], single: "required" })).data;
   assert.equal(personalProfile.custom_target_role, "Accessible learning tools builder");
   assert.equal(personalProfile.target_role_id, originalProfile.target_role_id);
-  for (const page of ["resume", "dashboard", "daily-test", "practice-test", "roadmap", "skill-graph", "ai-insights", "mentor-chat", "profile"]) {
+  for (const page of ["careers", "resume", "dashboard", "daily-test", "practice-test", "roadmap", "skill-graph", "ai-insights", "mentor-chat", "profile"]) {
     const response = await fetch(base + "/" + page, { headers: { Cookie: a.cookie }, redirect: "manual" });
     assert.equal(response.status, 200, `${page}: ${response.status}`);
     assert.ok(!(await response.text()).includes("Application error"));
@@ -49,7 +49,7 @@ try {
   const courses = await call(a, "/api/demo/db", { table: "roadmap_courses", orders: [{ column: "sort_order", ascending: true }], limit: 1 });
   assert.ok(courses.data.length);
   const courseTest = await call(a, "/api/roadmap/assess", { purpose: "course", course_id: courses.data[0].id });
-  const bank = new Map(JSON.parse(readFileSync(join(root, "ml/data/questions.json"), "utf8")).map(q => [q.id, q.correct_index]));
+  const bank = new Map(["ml/data/questions.json", "ml/data/careers/questions.json"].flatMap(file => JSON.parse(readFileSync(join(root, file), "utf8"))).map(q => [q.id, q.correct_index]));
   const courseResult = await call(a, "/api/roadmap/submit-assessment", { purpose: "course", assessment_token: courseTest.assessment_token, answers: courseTest.questions.map(q => ({ question_id: q.id, selected_index: bank.get(q.id) })) });
   assert.equal(courseResult.passed, true);
   assert.equal((await call(a, "/api/demo/db", { table: "roadmap_courses", filters: [{ column: "id", op: "eq", value: courses.data[0].id }], single: "required" })).data.completed, true);
@@ -75,7 +75,7 @@ try {
   // No service requests are made during this wait: expiry must run by itself.
   await new Promise(resolve => setTimeout(resolve, 15000));
   assert.equal((await fetch(base + "/api/demo/user", { method: "POST", headers: { Cookie: b.cookie } })).status, 401);
-  console.log("Demo integration passed: 9 learner pages, personal goal with learning track, PDF ingestion, profile apply, recommendations, course completion, insights, daily/practice grading, replay, isolation, deletion and lease expiry.");
+  console.log("Demo integration passed: 10 learner pages, personal goal with learning track, PDF ingestion, profile apply, recommendations, course completion, insights, daily/practice grading, replay, isolation, deletion and lease expiry.");
 } finally {
   for (const jar of [a, b]) await fetch(base + "/api/demo/end", { method: "POST", headers: { Cookie: jar.cookie } }).catch(() => {});
 }

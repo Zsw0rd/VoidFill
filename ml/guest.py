@@ -13,17 +13,16 @@ import time
 import uuid
 from datetime import datetime, timezone
 from fastapi import HTTPException
+from ml.career_catalogue import guest_catalogue
 
 
 def identifier(value):
     return str(uuid.uuid5(uuid.NAMESPACE_URL, "voidfill-demo:" + value))
 
 
-SKILLS = [{"id": identifier(name), "name": name, "category": category} for name, category in [("Python Basics", "Programming"), ("SQL Fundamentals", "Data"), ("Data Visualization", "Data"), ("Web Fundamentals", "Web"), ("Git & Version Control", "Tools"), ("DSA Basics", "CS")]]
-ROLES = [{"id": identifier(name), "name": name, "description": desc} for name, desc in [("Data Analyst", "SQL, visualization and Python"), ("Frontend Developer", "HTML, CSS, JavaScript and Git"), ("AI Applications Developer", "Python, data and applied AI")]]
-ROLE_INDICES = [[0, 1, 2, 4], [3, 4, 5], [0, 1, 2, 4, 5]]
-CATALOG = {"skills": SKILLS, "roles": ROLES, "role_skills": [{"role_id": role["id"], "skill_id": SKILLS[i]["id"], "weight": 1 if i in (1, 2, 3, 4) else .85} for role, indices in zip(ROLES, ROLE_INDICES) for i in indices], "skill_dependencies": [{"prerequisite_skill_id": SKILLS[a]["id"], "dependent_skill_id": SKILLS[b]["id"]} for a, b in [(0, 2), (1, 2), (4, 3)]]}
-TABLES = {"profiles", "user_stats", "user_skill_scores", "daily_attempts", "practice_attempts", "attempt_skill_scores", "user_roadmap", "roadmap_courses", "course_assessments", "ai_insights", "chat_conversations", "chat_messages"}
+CATALOG = guest_catalogue()
+SKILLS, ROLES = CATALOG["skills"], CATALOG["roles"]
+TABLES = {"profiles", "user_stats", "user_skill_scores", "daily_attempts", "practice_attempts", "attempt_skill_scores", "user_roadmap", "roadmap_courses", "course_assessments", "ai_insights", "chat_conversations", "chat_messages", "career_reflections"}
 EMPTY = {"admin_users", "mentor_assignments"}
 
 

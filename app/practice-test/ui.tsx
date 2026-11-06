@@ -269,7 +269,8 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                   </span>
                 )}
               </p>
-              <Button onClick={startTest} className="mt-6">
+              <p className="mt-4 text-xs leading-6 text-muted">These questions check foundation knowledge. Explore specialist practice and reflection in <Link href="/careers" className="underline text-forest">Career explorer</Link>.</p>
+              <Button disabled={!skillNames.length} onClick={startTest} className="mt-6">
                 <Sparkles className="w-4 h-4" />
                 Start a practice session
               </Button>

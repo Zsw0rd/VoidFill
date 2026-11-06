@@ -3,6 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import { createClient } from "@/lib/supabase/server";
 import { ProfileEditor } from "./ui";
 import Link from "next/link";
+import { loadCareerRequirements } from "@/lib/careerRequirements";
 
 export default async function ProfilePage() {
   const supabase = await createClient();
@@ -23,13 +24,8 @@ export default async function ProfilePage() {
     .select("id,name")
     .order("name");
 
-  // Fetch skill scores for radar
-  const { data: roleSkills } = profile.target_role_id
-    ? await supabase
-        .from("role_skills")
-        .select("skill_id, weight, skills(name)")
-        .eq("role_id", profile.target_role_id)
-    : { data: [] };
+  const { data: skills } = await supabase.from("skills").select("id,name").order("name");
+  const roleSkills = await loadCareerRequirements(supabase, profile);
 
   const { data: userScores } = await supabase
     .from("user_skill_scores")
@@ -68,6 +64,7 @@ export default async function ProfilePage() {
         <ProfileEditor
           initial={profile}
           roles={roles || []}
+          skills={skills || []}
           userId={user.id}
           roleSkills={roleSkills || []}
           userScores={userScores || []}

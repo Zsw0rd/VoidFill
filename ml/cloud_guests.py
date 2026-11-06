@@ -11,7 +11,7 @@ import httpx
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.exceptions import InvalidTag
 from fastapi import HTTPException
-from ml.guest import GuestStore
+from ml.guest import GuestStore, ROLES
 
 
 @lru_cache(maxsize=1)
@@ -62,7 +62,7 @@ def execute(operation, token, body):
             result = store.create_staff(body["staff"])
         else:
             role = body.get("role", 0)
-            if not isinstance(role, int) or role not in range(3):
+            if not isinstance(role, int) or role not in range(len(ROLES) - 1):
                 raise HTTPException(400, "Unknown role")
             result = store.create(role)
         identifier = store.digest(result["token"])

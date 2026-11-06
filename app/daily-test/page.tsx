@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { createClient } from "@/lib/supabase/server";
 import { DailyTestClient } from "./ui";
+import { loadCareerRequirements } from "@/lib/careerRequirements";
+import { hasKnowledgeCoverage } from "@/lib/careerCatalog";
 import { isoDate } from "@/lib/date";
 
 export default async function DailyTestPage() {
@@ -13,10 +15,13 @@ export default async function DailyTestPage() {
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("onboarded, full_name")
+    .select("*")
     .eq("id", user.id)
     .maybeSingle();
   if (!profile?.onboarded) redirect("/onboarding");
+
+  const requirements = await loadCareerRequirements(supabase, profile);
+  const covered = requirements.filter(row => hasKnowledgeCoverage(row.skills.name)).length;
 
   const today = isoDate(new Date());
   const { data: existing } = await supabase
@@ -29,7 +34,7 @@ export default async function DailyTestPage() {
   return (
     <AppShell displayName={profile?.full_name || user.email || "Learner"}>
       <div className="max-w-4xl mx-auto">
-        <DailyTestClient existingAttempt={existing} />
+        <DailyTestClient existingAttempt={existing} coverage={{covered, total: requirements.length}} />
       </div>
     </AppShell>
   );

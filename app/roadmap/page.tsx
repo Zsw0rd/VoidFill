@@ -17,7 +17,7 @@ export default async function RoadmapPage() {
   return (
     <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="atlas-roadmap-page">
-        <RoadmapClient role={role} initialViewMode={profile.roadmap_view_mode || "tree"} />
+        <RoadmapClient role={role ? {...role, name: profile.custom_target_role || role.name} : null} preferences={profile} initialViewMode={profile.roadmap_view_mode || "tree"} />
       </div>
     </AppShell>
   );

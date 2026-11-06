@@ -13,10 +13,12 @@ export default async function OnboardingPage() {
 
   const { data: roles } = await supabase.from("roles").select("id,name,description").order("name");
 
+  const { data: skills } = await supabase.from("skills").select("id,name").order("name");
+
   return (
     <AppShell displayName={profile?.full_name || user.email || "User"}>
       <div className="max-w-3xl mx-auto">
-        <OnboardingForm roles={roles || []} />
+        <OnboardingForm roles={roles || []} skills={skills || []} />
       </div>
     </AppShell>
   );

@@ -37,7 +37,7 @@ export default async function MentorPage() {
     const { data: profiles } = await supabase
       .from("profiles")
       .select(
-        "id, full_name, course, education_level, user_type, target_role_id, roles(name)",
+        "id, full_name, course, education_level, user_type, target_role_id, custom_target_role, roles(name)",
       )
       .in("id", studentIds);
 
@@ -150,7 +150,7 @@ export default async function MentorPage() {
                     <div className="flex-1">
                       <div className="font-medium">{s.full_name}</div>
                       <div className="text-xs text-muted">
-                        {s.roles?.name || "No role"} ·{" "}
+                        {s.custom_target_role || s.roles?.name || "No role"} ·{" "}
                         {s.course || s.education_level || "N/A"}
                       </div>
                     </div>

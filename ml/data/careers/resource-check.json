@@ -1,0 +1,414 @@
+{
+  "checked_at": "2026-11-06T04:27:06.229164+00:00",
+  "scope": "Public unauthenticated HTTP reachability; does not establish pedagogical quality or availability of every linked course activity.",
+  "results": [
+    {
+      "id": "career-resource-b377ef5d42a571298845",
+      "url": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control",
+      "title": "About version control",
+      "status": 200,
+      "final_url": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control",
+      "page_title": "Git - About Version Control"
+    },
+    {
+      "id": "career-resource-75f1d01d8f91f12dfe75",
+      "url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository",
+      "title": "Recording changes to a repository",
+      "status": 200,
+      "final_url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository",
+      "page_title": "Git - Recording Changes to the Repository"
+    },
+    {
+      "id": "career-resource-0311ea2c2be33640113c",
+      "url": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging",
+      "title": "Basic branching and merging",
+      "status": 200,
+      "final_url": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging",
+      "page_title": "Git - Basic Branching and Merging"
+    },
+    {
+      "id": "career-resource-bee16746c6eb2effd701",
+      "url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "title": "Python data structures",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "page_title": "5. Data Structures &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "career-resource-14729e0f9e99c6dd96bd",
+      "url": "https://docs.python.org/3/library/bisect.html",
+      "title": "Binary search with bisect",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/library/bisect.html",
+      "page_title": "bisect \u2014 Array bisection algorithm &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "career-resource-6a9a3392c1455846b61b",
+      "url": "https://docs.python.org/3/library/heapq.html",
+      "title": "Heap queues",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/library/heapq.html",
+      "page_title": "heapq \u2014 Heap queue algorithm &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "career-resource-00bfd85f2741a83f7291",
+      "url": "https://support.google.com/docs/answer/1272900?hl=en",
+      "title": "Create and use pivot tables",
+      "status": 200,
+      "final_url": "https://support.google.com/docs/answer/1272900?hl=en",
+      "page_title": "Create &amp; use pivot tables - Computer - Google Docs Editors Help"
+    },
+    {
+      "id": "career-resource-7c2b49e6b750a2454cb9",
+      "url": "https://support.google.com/docs/table/25273?hl=en",
+      "title": "Google Sheets function list",
+      "status": 200,
+      "final_url": "https://support.google.com/docs/table/25273?hl=en",
+      "page_title": "Google Sheets function list - Google Docs Editors Help"
+    },
+    {
+      "id": "career-resource-d02dfc9bb7add035c0d4",
+      "url": "https://support.microsoft.com/en-us/office/overview-of-formulas-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173",
+      "title": "Overview of formulas in Excel",
+      "status": 200,
+      "final_url": "https://support.microsoft.com/en-us/excel/get-started/overview-of-formulas-in-excel",
+      "page_title": "Overview of formulas in Excel | Microsoft Support"
+    },
+    {
+      "id": "career-resource-d80406fdc9e304415990",
+      "url": "https://www.skillsbuilder.org/global/universal-framework-steps/listening-step-7-active-listening",
+      "title": "Active listening",
+      "status": 200,
+      "final_url": "https://www.skillsbuilder.org/global/universal-framework-steps/listening-step-7-active-listening",
+      "page_title": "Listening skills | Step 7 | Universal Framework"
+    },
+    {
+      "id": "career-resource-2f90b267348f46d4017e",
+      "url": "https://www.atlassian.com/team-playbook/plays/working-agreements",
+      "title": "Working agreements",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/team-playbook/plays/working-agreements",
+      "page_title": "Working Agreements Play | Atlassian"
+    },
+    {
+      "id": "career-resource-418999b6d2292fca5eb7",
+      "url": "https://www.atlassian.com/team-playbook/plays/roles-and-responsibilities",
+      "title": "Roles and responsibilities",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/team-playbook/plays/roles-and-responsibilities",
+      "page_title": "How to Define Team Roles and Responsibilities | Atlassian"
+    },
+    {
+      "id": "career-resource-09205585873f8f296ebe",
+      "url": "https://www.iiba.org/knowledgehub/the-business-analysis-standard/",
+      "title": "The Business Analysis Standard",
+      "status": 200,
+      "final_url": "https://www.iiba.org/knowledgehub/the-business-analysis-standard/",
+      "page_title": "The Business Analysis Standard | KnowledgeHub IIBA&#xAE;"
+    },
+    {
+      "id": "career-resource-87499d1e1ec60bea0324",
+      "url": "https://www.atlassian.com/work-management/project-management/requirements-gathering",
+      "title": "Requirements gathering",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/work-management/project-management/requirements-gathering",
+      "page_title": "What is Requirements Gathering?"
+    },
+    {
+      "id": "career-resource-3333de15c00d5936d8fe",
+      "url": "https://www.onetonline.org/link/summary/13-1111.00",
+      "title": "Management Analysts: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1111.00",
+      "page_title": "13-1111.00 - Management Analysts"
+    },
+    {
+      "id": "career-resource-3af363d51f06e0efa77e",
+      "url": "https://academy.hubspot.com/courses/delivering-exceptional-customer-support",
+      "title": "Delivering exceptional customer support",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/delivering-exceptional-customer-support",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-6050421d8b173b9ccb90",
+      "url": "https://academy.hubspot.com/courses/hubspot-service-software",
+      "title": "Service Hub software",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/hubspot-service-software",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-10f59c55d3dee15b53c7",
+      "url": "https://www.onetonline.org/link/summary/43-4051.00",
+      "title": "Customer service representatives: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/43-4051.00",
+      "page_title": "43-4051.00 - Customer Service Representatives"
+    },
+    {
+      "id": "career-resource-4a5e1f70f6f28e160f76",
+      "url": "https://www.atlassian.com/work-management/project-management/project-risk-management",
+      "title": "Project risk management",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/work-management/project-management/project-risk-management",
+      "page_title": "How to Manage Project Risks [Step-by-Step Guide] | Atlassian"
+    },
+    {
+      "id": "career-resource-fdff649e8ef4a980c759",
+      "url": "https://www.atlassian.com/work-management/project-management/project-scope",
+      "title": "Project scope",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/work-management/project-management/project-scope",
+      "page_title": "What is Project Scope? How to Define & Write"
+    },
+    {
+      "id": "career-resource-92c0b5216c6518077d8b",
+      "url": "https://www.onetonline.org/link/summary/13-1082.00",
+      "title": "Project Management Specialists: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1082.00",
+      "page_title": "13-1082.00 - Project Management Specialists"
+    },
+    {
+      "id": "career-resource-a8434ccf2ed49ef540f9",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/1-why-it-matters",
+      "title": "Financial accounting foundations",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/1-why-it-matters",
+      "page_title": "Ch. 1 Why It Matters - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-885b19429d4477e02bed",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+      "title": "Elements of financial statements",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+      "page_title": "2.2 Define, Explain, and Provide Examples of Current and Noncurrent Assets, Current and Noncurrent Liabilities, Equity, Revenues, and Expenses - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-c43ed057dfdb5fac89fd",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/4-why-it-matters",
+      "title": "Accounting adjustments and period-end foundations",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/4-why-it-matters",
+      "page_title": "Ch. 4 Why It Matters - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-fc830cebaa10205ed3f1",
+      "url": "https://academy.hubspot.com/courses/digital-marketing",
+      "title": "Digital Marketing",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/digital-marketing",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-194927714ef79e921ab4",
+      "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "title": "Search Engine Optimization Starter Guide",
+      "status": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "page_title": "SEO Starter Guide: The Basics | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-b7323e0bae5c7e69451b",
+      "url": "https://academy.hubspot.com/courses/email-marketing",
+      "title": "Email Marketing",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/email-marketing-certification-en",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-7dc843950f5df38e2316",
+      "url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/",
+      "title": "Selection methods",
+      "status": 200,
+      "final_url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/",
+      "page_title": "Selection Methods | CIPD"
+    },
+    {
+      "id": "career-resource-4d7fdae98da8d4fd0a33",
+      "url": "https://www.cipd.org/uk/topics/recruitment/",
+      "title": "Recruitment resources",
+      "status": 200,
+      "final_url": "https://www.cipd.org/uk/topics/recruitment/",
+      "page_title": "Recruitment resources | CIPD"
+    },
+    {
+      "id": "career-resource-63095607c61d302f0758",
+      "url": "https://www.onetonline.org/link/summary/13-1071.00",
+      "title": "Human Resources Specialists: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1071.00",
+      "page_title": "13-1071.00 - Human Resources Specialists"
+    },
+    {
+      "id": "career-resource-e8eedc80e0615420aedc",
+      "url": "https://academy.hubspot.com/courses/inbound-sales",
+      "title": "Inbound Sales",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/inbound-sales",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-b40f1bf62bc60ee72b84",
+      "url": "https://academy.hubspot.com/courses/Sales-Enablement",
+      "title": "Sales Enablement",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/Sales-Enablement",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-af992b76f66568b241b9",
+      "url": "https://www.onetonline.org/link/summary/41-3091.00",
+      "title": "Sales representatives: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/41-3091.00",
+      "page_title": "41-3091.00 - Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel"
+    },
+    {
+      "id": "career-resource-d569b55a6483bffb303d",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+      "title": "Overview of HTTP",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+      "page_title": "Overview of HTTP - HTTP | MDN"
+    },
+    {
+      "id": "career-resource-0dbd3d2673dacc913410",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+      "title": "HTTP request methods",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+      "page_title": "HTTP request methods - HTTP | MDN"
+    },
+    {
+      "id": "career-resource-a7cc285b4fd506c52384",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+      "title": "HTTP response status codes",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+      "page_title": "HTTP response status codes - HTTP | MDN"
+    },
+    {
+      "id": "career-resource-797d980153ad152d04b6",
+      "url": "https://docs.pytest.org/en/stable/getting-started.html",
+      "title": "Get started with pytest",
+      "status": 200,
+      "final_url": "https://docs.pytest.org/en/stable/getting-started.html",
+      "page_title": "Get Started - pytest documentation"
+    },
+    {
+      "id": "career-resource-ecb53596f43cde370334",
+      "url": "https://playwright.dev/docs/best-practices",
+      "title": "End-to-end testing best practices",
+      "status": 200,
+      "final_url": "https://playwright.dev/docs/best-practices",
+      "page_title": "Best Practices | Playwright"
+    },
+    {
+      "id": "career-resource-391e6ffb0b3c224e01b0",
+      "url": "https://playwright.dev/docs/test-assertions",
+      "title": "Writing assertions",
+      "status": 200,
+      "final_url": "https://playwright.dev/docs/test-assertions",
+      "page_title": "Assertions | Playwright"
+    },
+    {
+      "id": "career-resource-8a7935c43ef9083e3b12",
+      "url": "https://ubuntu.com/tutorials/command-line-for-beginners",
+      "title": "The Linux command line for beginners",
+      "status": 200,
+      "final_url": "https://ubuntu.com/tutorials/command-line-for-beginners",
+      "page_title": "The Linux command line for beginners | Ubuntu"
+    },
+    {
+      "id": "career-resource-bbf85934c1076ecb7bc4",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html",
+      "title": "File permissions",
+      "status": 200,
+      "final_url": "https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html",
+      "page_title": "File permissions (GNU Coreutils 9.12)"
+    },
+    {
+      "id": "career-resource-64e32e8afc70b96abb18",
+      "url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+      "title": "Bash pipelines",
+      "status": 200,
+      "final_url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+      "page_title": "Pipelines (Bash Reference Manual)"
+    },
+    {
+      "id": "career-resource-1d3d89d0ade1c2f525bc",
+      "url": "https://www.netacad.com/courses/networking-basics",
+      "title": "Networking Basics",
+      "status": 200,
+      "final_url": "https://www.netacad.com/courses/networking-basics",
+      "page_title": "Free Computer Networking Course by Cisco: Start Learning Now"
+    },
+    {
+      "id": "career-resource-63fe998ebd1b2b8bc063",
+      "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+      "title": "Fundamentals of computer networking",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+      "page_title": "Fundamentals of computer networking - Training | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-76629e940c5d1b561f03",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+      "title": "Virtual network fundamentals",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+      "page_title": "What is Azure Virtual Network? | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-4261012b3fba6f5a37eb",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+      "title": "Describe cloud computing",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+      "page_title": "Describe Cloud Computing - Training | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-03bc8731f1f09255ab35",
+      "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "title": "Shared responsibility model",
+      "status": 200,
+      "final_url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "page_title": "Shared Responsibility Model - Amazon Web Services (AWS)"
+    },
+    {
+      "id": "career-resource-f7911eb3bf8a605bef8b",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+      "title": "Benefits of cloud services",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+      "page_title": "Describe the benefits of using cloud services - Training | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-422c2f722165341ac595",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+      "title": "Authorization guidance",
+      "status": 200,
+      "final_url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+      "page_title": "Authorization - OWASP Cheat Sheet Series"
+    },
+    {
+      "id": "career-resource-cb74541bed9d1fcd2109",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "title": "Authentication guidance",
+      "status": 200,
+      "final_url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "page_title": "Authentication - OWASP Cheat Sheet Series"
+    },
+    {
+      "id": "career-resource-4df1fad12273bbad7733",
+      "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+      "title": "Introduction to Cybersecurity",
+      "status": 200,
+      "final_url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+      "page_title": "Introduction to Cybersecurity by Cisco: Free Online Course"
+    }
+  ]
+}

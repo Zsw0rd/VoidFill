@@ -1,4 +1,5 @@
 "use client";
+import { PERSONAL_GOAL_NAME } from "@/lib/careerCatalog";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -46,7 +47,7 @@ export function ResumeUI({
     [saved, setSaved] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
   const [name, setName] = useState(profile?.full_name || "");
-  const [role, setRole] = useState(profile?.target_role_id || "");
+  const [role, setRole] = useState("");
   const [keepExisting, setKeepExisting] = useState(true);
   const [existingSkills, setExistingSkills] = useState(
     profile?.current_skills_text || "",
@@ -277,7 +278,7 @@ export function ResumeUI({
                   onChange={(e) => setRole(e.target.value)}
                 >
                   <option value="">Keep current target</option>
-                  {roles.map((r) => (
+                  {roles.filter(r => r.name !== PERSONAL_GOAL_NAME).map((r) => (
                     <option key={r.id} value={r.id}>
                       {r.name}
                     </option>
@@ -350,7 +351,7 @@ export function ResumeUI({
               )}
               {result.matched_app_skills.length > 0 && (
                 <p>
-                  Relevant assessment areas:{" "}
+                  Related learning areas:{" "}
                   {result.matched_app_skills.map((s) => s.name).join(", ")}.
                 </p>
               )}

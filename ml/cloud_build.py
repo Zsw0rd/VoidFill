@@ -41,7 +41,11 @@ def main():
                 path.parent.mkdir(parents=True, exist_ok=True)
                 with bundle.open(item) as source, path.open("wb") as output:
                     shutil.copyfileobj(source, output)
-    print("Verified model artifacts prepared: " + release["backend"], flush=True)
+    from ml.career_catalogue import DIRECTORY, content_fingerprints
+    extension = json.loads((DIRECTORY / "index.json").read_text(encoding="utf8"))
+    if extension["inputs"] != content_fingerprints():
+        raise RuntimeError("Career content changed without rebuilding its public index.")
+    print("Verified model and career artifacts prepared: " + release["backend"], flush=True)
 
 
 if __name__ == "__main__":

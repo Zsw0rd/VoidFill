@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { getLearningContext } from "@/lib/learningContext";
+import { learningContextKey } from "@/lib/learningContextKey";
 import { callLocalMl, LearningError } from "@/lib/localMl";
 
 const analysisSchema = z.object({
@@ -28,7 +29,7 @@ export async function POST() {
     if (attemptsError) throw new LearningError("Could not load test history.", 500);
     const average = attempts?.length ? Math.round(attempts.reduce((sum, a) => sum + (a.total_count ? a.correct_count / a.total_count * 100 : 0), 0) / attempts.length) : 0;
     const result = await callLocalMl("/analyze", { role: context.role, skills: context.skills, limit: 3, average_test_score: average, test_count: attempts?.length || 0 }, analysisSchema);
-    const meta = { engine: "local-ml", model: result.model, skillCount: context.skills.length, gapCount: result.analysis.criticalGaps.length, avgTestScore: average, difficulty: attempts?.[0]?.difficulty_level || 1, unsupportedSkills: result.unsupported_skills, timestamp: new Date().toISOString() };
+    const meta = { engine: "local-ml", contextKey: learningContextKey(context), model: result.model, skillCount: context.skills.length, gapCount: result.analysis.criticalGaps.length, avgTestScore: average, difficulty: attempts?.[0]?.difficulty_level || 1, unsupportedSkills: result.unsupported_skills, timestamp: new Date().toISOString() };
     const { error } = await supabase.from("ai_insights").upsert({ user_id: user.id, analysis: result.analysis, meta, updated_at: meta.timestamp }, { onConflict: "user_id" });
     if (error) throw new LearningError("Could not save your insights.", 500);
     return NextResponse.json({ analysis: result.analysis, meta });

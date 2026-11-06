@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { SkillRow } from "@/components/SkillRow";
 import { categoryFromScore } from "@/lib/gapLogic";
 import { isoDate } from "@/lib/date";
+import { loadCareerRequirements } from "@/lib/careerRequirements";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -33,7 +34,7 @@ export default async function DashboardPage() {
     .maybeSingle();
   if (!profile?.onboarded) redirect("/onboarding");
 
-  const [statsRes, skillsRes, attemptsRes, roadmapRes] = await Promise.all([
+  const [statsRes, skillsRes, attemptsRes, roadmapRes, requirements] = await Promise.all([
     supabase
       .from("user_stats")
       .select("*")
@@ -62,13 +63,15 @@ export default async function DashboardPage() {
         profile.target_role_id || "00000000-0000-0000-0000-000000000000",
       )
       .order("priority", { ascending: false })
-      .limit(5),
+      .limit(100),
+    loadCareerRequirements(supabase, profile),
   ]);
 
   const stats = statsRes.data;
   const skills = skillsRes.data || [];
   const recentAttempts = attemptsRes.data || [];
-  const roadmapItems = roadmapRes.data || [];
+  const activeSkills = new Set(requirements.map(row => row.skill_id));
+  const roadmapItems = (roadmapRes.data || []).filter(row => activeSkills.has(row.skill_id)).slice(0, 5);
 
   const xp = stats?.xp ?? 0;
   const level = stats?.level ?? 1;

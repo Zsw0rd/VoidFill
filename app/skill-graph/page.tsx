@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { createClient } from "@/lib/supabase/server";
+import { loadCareerRequirements } from "@/lib/careerRequirements";
 import { SkillGraphClient } from "./ui";
 
 export default async function SkillGraphPage() {
@@ -24,12 +25,7 @@ export default async function SkillGraphPage() {
 
   const [roleSkillsRes, userScoresRes, attemptsRes, practiceRes] =
     await Promise.all([
-      roleId
-        ? supabase
-            .from("role_skills")
-            .select("skill_id, weight, skills(name)")
-            .eq("role_id", roleId)
-        : Promise.resolve({ data: [] }),
+      loadCareerRequirements(supabase, profile),
       supabase
         .from("user_skill_scores")
         .select("skill_id, score, skills(name)")
@@ -54,8 +50,8 @@ export default async function SkillGraphPage() {
     <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="max-w-6xl mx-auto">
         <SkillGraphClient
-          role={role}
-          roleSkills={roleSkillsRes.data || []}
+          role={role ? {...role, name: profile.custom_target_role || role.name} : null}
+          roleSkills={roleSkillsRes}
           userScores={userScoresRes.data || []}
           attemptHistory={attemptsRes.data || []}
           practiceHistory={practiceRes.data || []}

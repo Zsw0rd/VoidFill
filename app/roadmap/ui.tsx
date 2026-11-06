@@ -36,6 +36,9 @@ import { FocusDialog } from "@/components/FocusDialog";
 import { LearningAtlas } from "./atlas-canvas";
 import type { Category, CourseAssessment, CourseType, RoadmapCourse, SkillNode } from "./types";
 
+import { loadCareerRequirements, type CareerPreferences } from "@/lib/careerRequirements";
+import { hasKnowledgeCoverage } from "@/lib/careerCatalog";
+
 type RoadmapViewMode = "tree" | "list";
 type AssessmentTarget = {
   type: "course" | "skill";
@@ -72,9 +75,11 @@ const COURSE_PASS_THRESHOLD = 65;
 const SKILL_PASS_THRESHOLD = 65;
 export function RoadmapClient({
   role,
+  preferences,
   initialViewMode = "tree",
 }: {
   role: any;
+  preferences: CareerPreferences;
   initialViewMode?: RoadmapViewMode;
 }) {
   const [supabase] = useState(() => createClient());
@@ -135,12 +140,9 @@ export function RoadmapClient({
         return;
       }
 
-      const [rs, depRows, userScores, courseRows, assessmentRows] =
+      const [requirements, depRows, userScores, courseRows, assessmentRows] =
         await Promise.all([
-          supabase
-            .from("role_skills")
-            .select("skill_id, weight, skills(name)")
-            .eq("role_id", roleId),
+          loadCareerRequirements(supabase, preferences),
           supabase
             .from("skill_dependencies")
             .select("prerequisite_skill_id, dependent_skill_id"),
@@ -161,7 +163,6 @@ export function RoadmapClient({
         ]);
 
       const firstError =
-        rs.error ||
         depRows.error ||
         userScores.error ||
         courseRows.error ||
@@ -172,7 +173,7 @@ export function RoadmapClient({
         return;
       }
 
-      setRoleSkills(rs.data || []);
+      setRoleSkills(requirements);
       setDeps(depRows.data || []);
 
       const nextScores: Record<string, number> = {};
@@ -188,7 +189,7 @@ export function RoadmapClient({
     } finally {
       setLoading(false);
     }
-  }, [supabase, roleId]);
+  }, [supabase, roleId, preferences]);
 
   useEffect(() => {
     void load();
@@ -276,6 +277,7 @@ export function RoadmapClient({
         name: row.skills?.name || "Skill",
         score,
         assessed: Object.prototype.hasOwnProperty.call(scores, row.skill_id),
+        assessable: hasKnowledgeCoverage(row.skills?.name || ""),
         category,
         role_weight: Number(row.weight ?? 0.8),
         dependency_bonus: dependencyBonus,
@@ -402,6 +404,7 @@ export function RoadmapClient({
   }
 
   async function startSkillAssessment(skillName: string, skillId: string) {
+    if (!hasKnowledgeCoverage(skillName)) return toast("Practical review", "This skill has no knowledge check yet. Use the practical activity in Career explorer.");
     await startAssessment({ type: "skill", skillName, skillId }, { purpose: "skill", skill_id: skillId });
   }
 
@@ -543,7 +546,7 @@ export function RoadmapClient({
             <button aria-pressed={viewMode === "list"} onClick={() => void persistViewMode("list")}><LayoutList size={18} />List</button>
           </div>
           <div className="atlas-page-utilities">
-            <button onClick={generateCourses} disabled={generatingCourses || loading}><Sparkles size={15} />{generatingCourses ? "Finding resources…" : "Find resources"}</button>
+            <button onClick={generateCourses} disabled={generatingCourses || loading || !computed.some(skill => skill.assessable !== false)}><Sparkles size={15} />{generatingCourses ? "Finding resources…" : computed.length > 0 && !computed.some(skill => skill.assessable !== false) ? "Resources pending" : "Find resources"}</button>
             <button onClick={generate} disabled={loading} aria-label="Refresh learning priorities" title="Refresh priorities"><RefreshCw size={15} className={loading ? "animate-spin" : ""} /></button>
           </div>
           {savingViewMode && <span className="text-xs text-muted" role="status">Saving view…</span>}
@@ -928,18 +931,19 @@ function SkillDetailPanel(_: {
         </div>
 
         <button
+          disabled={skill.assessable === false}
           onClick={() => onOpenSkillAssessment(skill.name, skill.skill_id)}
           className="flex w-full items-center justify-center gap-3 rounded-3xl border border-indigo-500/20 bg-indigo-500/5 p-4 text-sky transition hover:bg-indigo-500/10"
         >
           <ClipboardCheck className="h-5 w-5" />
           <div className="text-left">
-            <div className="font-medium">Take Skill Assessment</div>
+            <div className="font-medium">{skill.assessable === false ? "Practical review · knowledge check pending" : "Take knowledge assessment"}</div>
             <div className="text-sm text-sky">
-              Push this branch forward with a focused skill test for{" "}
-              {skill.name}. Passing is {SKILL_PASS_THRESHOLD}%.
+              {skill.assessable === false ? "Use the practical activity in Career explorer; this area has no dedicated knowledge bank yet." : `Check your understanding of ${skill.name}. Passing is ${SKILL_PASS_THRESHOLD}%.`}
             </div>
           </div>
         </button>
+        {skill.assessable === false && <a href="/careers" className="secondary-link mt-3">Open practical career activity ↗</a>}
       </div>
 
       {skill.courses.length > 0 ? (

@@ -29,6 +29,9 @@ import {
   Legend,
 } from "recharts";
 
+import { CareerPicker, type AvailableSkill, type CareerChoice } from "@/components/careers/CareerPicker";
+import { PERSONAL_GOAL_NAME } from "@/lib/careerCatalog";
+
 const LINE_COLORS = [
   "#32634b",
   "#3f617e",
@@ -42,6 +45,7 @@ const LINE_COLORS = [
 interface Props {
   initial: any;
   roles: { id: string; name: string }[];
+  skills: AvailableSkill[];
   userId: string;
   roleSkills: any[];
   userScores: any[];
@@ -52,6 +56,7 @@ interface Props {
 export function ProfileEditor({
   initial,
   roles,
+  skills,
   userId,
   roleSkills,
   userScores,
@@ -68,12 +73,8 @@ export function ProfileEditor({
     initial.roles?.name ||
     "Choose a learning track";
 
-  const [targetRoleId, setTargetRoleId] = useState(
-    initial.target_role_id || "",
-  );
-  const [careerGoal, setCareerGoal] = useState(
-    initial.custom_target_role || "",
-  );
+  const initialCareer: CareerChoice = {roleId: initial.target_role_id || "", goal: initial.custom_target_role || "", level: initial.career_level === "intermediate" ? "intermediate" : "foundation", focusIds: initial.career_focus_skill_ids || [], context: initial.career_goal_context || ""};
+  const [career, setCareer] = useState<CareerChoice>(initialCareer);
 
   const [fullName, setFullName] = useState(initial.full_name || "");
   const [phone, setPhone] = useState(initial.phone || "");
@@ -122,8 +123,7 @@ export function ProfileEditor({
       setJobTitle(initial.job_title || "");
       setYearsExperience(initial.years_experience?.toString() || "");
       setLinkedinUrl(initial.linkedin_url || "");
-      setTargetRoleId(initial.target_role_id || "");
-      setCareerGoal(initial.custom_target_role || "");
+      setCareer(initialCareer);
     }
     setEditMode(!editMode);
   }
@@ -136,8 +136,8 @@ export function ProfileEditor({
     );
     return roleSkills.map((rs: any) => ({
       skill: rs.skills?.name ?? "?",
-      you: scoreMap.get(rs.skill_id) ?? 0,
-      benchmark: Math.round(Number(rs.weight ?? 0.8) * 100),
+      you: scoreMap.get(rs.skill_id) ?? null,
+      benchmark: rs.target ?? 75,
     }));
   }, [roleSkills, userScores]);
 
@@ -160,12 +160,13 @@ export function ProfileEditor({
 
   async function save() {
     if (saving.current) return;
-    if (!roles.some((role) => role.id === targetRoleId)) {
+    if (!roles.some((role) => role.id === career.roleId)) {
       return toast(
         "Choose a learning track",
         "Select the foundation for your assessments and learning resources.",
       );
     }
+    if (roles.find(role => role.id === career.roleId)?.name === PERSONAL_GOAL_NAME && (!career.goal.trim() || !career.focusIds.length)) return toast("Complete your personal goal", "Name your goal and choose at least one focus skill.");
     saving.current = true;
     setBusy(true);
     try {
@@ -185,8 +186,11 @@ export function ProfileEditor({
         strengths,
         weaknesses,
         current_skills_text: currentSkillsText,
-        target_role_id: targetRoleId,
-        custom_target_role: careerGoal.trim() || null,
+        target_role_id: career.roleId,
+        custom_target_role: career.goal.trim() || null,
+        career_level: career.level,
+        career_focus_skill_ids: career.focusIds,
+        career_goal_context: career.context.trim(),
       };
 
       if (isStudent) {
@@ -348,7 +352,7 @@ export function ProfileEditor({
                       dot={{ r: 3, fill: "#32634b" }}
                     />
                     <Radar
-                      name="Benchmark"
+                      name="Learning target"
                       dataKey="benchmark"
                       stroke="#3f617e"
                       strokeWidth={1.5}
@@ -624,49 +628,14 @@ export function ProfileEditor({
                 </div>
               )}
 
-              <div className="space-y-2">
-                <Label htmlFor="field-learning-track">Learning track</Label>
-                <select
-                  id="field-learning-track"
-                  value={targetRoleId}
-                  onChange={(event) => setTargetRoleId(event.target.value)}
-                  className="w-full rounded-xl border border-line bg-paper px-3 py-3 text-sm text-ink"
-                  required
-                >
-                  <option value="" disabled>
-                    Choose a track
-                  </option>
-                  {roles.map((role) => (
-                    <option key={role.id} value={role.id}>
-                      {role.name}
-                    </option>
-                  ))}
-                </select>
-                <p className="text-xs text-muted">
-                  This track supplies the skills for your assessments and
-                  resources. Changing it keeps your saved scores and past
-                  activity.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="field-career-goal">
-                  Personal career goal (optional)
-                </Label>
-                <Input
-                  id="field-career-goal"
-                  value={careerGoal}
-                  onChange={(event) => setCareerGoal(event.target.value)}
-                  placeholder="What would you like to work toward?"
-                  maxLength={160}
-                />
-              </div>
+              <CareerPicker roles={roles} skills={skills} value={career} onChange={setCareer} disabled={busy} />
               <div className="space-y-2">
                 <Label htmlFor="field-current-skills">Current Skills</Label>
                 <Textarea
                   id="field-current-skills"
                   value={currentSkillsText}
                   onChange={(e) => setCurrentSkillsText(e.target.value)}
-                  placeholder="e.g. Python (intermediate), React (beginner)..."
+                  placeholder="e.g. Excel, communication, recruitment, Python..."
                 />
               </div>
 

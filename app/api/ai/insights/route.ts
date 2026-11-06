@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { getLearningContext } from "@/lib/learningContext";
+import { learningContextKey } from "@/lib/learningContextKey";
+import { LearningError } from "@/lib/localMl";
 
 export async function GET() {
     const supabase = await createClient();
@@ -19,6 +22,14 @@ export async function GET() {
 
     if (!data || data.meta?.engine !== "local-ml") {
         return NextResponse.json({ cached: false });
+    }
+
+    try {
+        const context = await getLearningContext(supabase, user.id);
+        if (data.meta.contextKey !== learningContextKey(context)) return NextResponse.json({cached: false});
+    } catch (error) {
+        if (error instanceof LearningError && error.status === 400) return NextResponse.json({cached: false});
+        return NextResponse.json({error: "Could not verify your current learning direction."}, {status: 500});
     }
 
     return NextResponse.json({

@@ -17,9 +17,12 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import { CareerPicker, type AvailableSkill, type CareerChoice } from "@/components/careers/CareerPicker";
+import { PERSONAL_GOAL_NAME } from "@/lib/careerCatalog";
+
 type Role = { id: string; name: string; description: string | null };
 
-export function OnboardingForm({ roles }: { roles: Role[] }) {
+export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: AvailableSkill[] }) {
   const supabase = createClient();
 
   const [step, setStep] = useState(1);
@@ -44,9 +47,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
   const [linkedinUrl, setLinkedinUrl] = useState("");
 
   // Step 3
-  const [targetRoleId, setTargetRoleId] = useState(roles[0]?.id || "");
-  const [useCustomRole, setUseCustomRole] = useState(false);
-  const [customRoleText, setCustomRoleText] = useState("");
+  const [career, setCareer] = useState<CareerChoice>({roleId: "", goal: "", level: "foundation", focusIds: [], context: ""});
   const [futurePlans, setFuturePlans] = useState("");
   const [strengths, setStrengths] = useState("");
   const [weaknesses, setWeaknesses] = useState("");
@@ -91,15 +92,12 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
   }
 
   function validateStep3(): boolean {
-    if (useCustomRole && !customRoleText.trim()) {
-      toast("Required", "Please enter your custom target role.");
+    if (!roles.some(role => role.id === career.roleId)) {
+      toast("Choose a career", "Choose a career profile or build a personal goal from focus skills.");
       return false;
     }
-    if (!roles.some((role) => role.id === targetRoleId)) {
-      toast(
-        "Required",
-        "Please choose a learning track for your assessments and resources.",
-      );
+    if (roles.find(role => role.id === career.roleId)?.name === PERSONAL_GOAL_NAME && (!career.goal.trim() || !career.focusIds.length)) {
+      toast("Complete your personal goal", "Give it a name and choose at least one focus skill.");
       return false;
     }
     if (!currentSkillsText.trim()) {
@@ -141,8 +139,11 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
 
       const profileUpdate: any = {
         user_type: userType,
-        target_role_id: targetRoleId,
-        custom_target_role: useCustomRole ? customRoleText.trim() : null,
+        target_role_id: career.roleId,
+        custom_target_role: career.goal.trim() || null,
+        career_level: career.level,
+        career_focus_skill_ids: career.focusIds,
+        career_goal_context: career.context.trim(),
         future_plans: futurePlans,
         strengths,
         weaknesses,
@@ -467,81 +468,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                 transition={{ duration: 0.25 }}
                 className="space-y-5"
               >
-                <div className="space-y-2">
-                  <Label>Learning track *</Label>
-                  <p className="text-sm text-muted">
-                    Choose the closest foundation for your assessments and
-                    resources. You can add a personal career goal below.
-                  </p>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {roles.map((r) => (
-                      <button
-                        key={r.id}
-                        type="button"
-                        onClick={() => {
-                          setTargetRoleId(r.id);
-                        }}
-                        aria-pressed={r.id === targetRoleId}
-                        className={[
-                          "text-left rounded-2xl border p-4 transition",
-                          r.id === targetRoleId
-                            ? "border-emerald-400/40 bg-emerald-500/10"
-                            : "border-line bg-paper-soft hover:bg-paper-soft",
-                        ].join(" ")}
-                      >
-                        <div className="font-semibold">{r.name}</div>
-                        <div className="mt-1 text-sm text-muted">
-                          {r.description || "Role track"}
-                        </div>
-                      </button>
-                    ))}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setUseCustomRole(!useCustomRole);
-                      }}
-                      aria-pressed={useCustomRole}
-                      className={[
-                        "text-left rounded-2xl border p-4 transition",
-                        useCustomRole
-                          ? "border-purple-400/40 bg-purple-500/10"
-                          : "border-line bg-paper-soft hover:bg-paper-soft",
-                      ].join(" ")}
-                    >
-                      <div className="font-semibold flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-sky" /> Add a personal
-                        career goal
-                      </div>
-                      <div className="mt-1 text-sm text-muted">
-                        Keep your ambition alongside your chosen track
-                      </div>
-                    </button>
-                  </div>
-                  {useCustomRole && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      className="mt-3"
-                    >
-                      <Label htmlFor="custom-career-goal">
-                        Personal career goal
-                      </Label>
-                      <Input
-                        id="custom-career-goal"
-                        value={customRoleText}
-                        onChange={(e) => setCustomRoleText(e.target.value)}
-                        placeholder="e.g. AI/ML Engineer, DevOps Specialist, Product Manager..."
-                        className="border-purple-500/20 focus:border-purple-500/40"
-                        maxLength={160}
-                      />
-                      <p className="mt-1 text-xs text-muted">
-                        Your selected track supplies the skills we can assess.
-                        This goal is saved with it and can be updated in your
-                        profile.
-                      </p>
-                    </motion.div>
-                  )}
-                </div>
+                <CareerPicker roles={roles} skills={skills} value={career} onChange={setCareer} disabled={busy} />
 
                 <div className="space-y-2">
                   <Label htmlFor="field-current-skills">Current Skills *</Label>
@@ -549,7 +476,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                     id="field-current-skills"
                     value={currentSkillsText}
                     onChange={(e) => setCurrentSkillsText(e.target.value)}
-                    placeholder="e.g. Python (intermediate), React (beginner), SQL (advanced)..."
+                    placeholder="e.g. Excel, customer communication, bookkeeping, Python..."
                   />
                 </div>
 
@@ -560,7 +487,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                       id="field-strengths"
                       value={strengths}
                       onChange={(e) => setStrengths(e.target.value)}
-                      placeholder="e.g. problem solving, system design..."
+                      placeholder="e.g. clear communication, analysis, problem solving..."
                     />
                   </div>
                   <div className="space-y-2">
@@ -569,7 +496,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                       id="field-weaknesses"
                       value={weaknesses}
                       onChange={(e) => setWeaknesses(e.target.value)}
-                      placeholder="e.g. DSA depth, frontend styling..."
+                      placeholder="e.g. presenting ideas, spreadsheet formulas, testing..."
                     />
                   </div>
                 </div>
@@ -582,7 +509,7 @@ export function OnboardingForm({ roles }: { roles: Role[] }) {
                     id="field-future-plans-optional"
                     value={futurePlans}
                     onChange={(e) => setFuturePlans(e.target.value)}
-                    placeholder="e.g. Want to transition to ML engineering, preparing for FAANG..."
+                    placeholder="e.g. Move into customer success, lead projects, or build software..."
                   />
                 </div>
 

@@ -3,8 +3,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
 import { createPortal } from "react-dom";
-import { BookOpen, Check, ChevronRight, Circle, ClipboardCheck, Code2, ExternalLink, GitBranch, Globe2, Layers3, LocateFixed, Maximize2, Minimize2, Minus, Monitor, Plus, RotateCcw, X } from "lucide-react";
+import { BarChart3, Briefcase, Calculator, Cloud, Compass, Handshake, LifeBuoy, Megaphone, MessagesSquare, Network, Palette, ShieldCheck, Table2, Users, Wrench, BookOpen, Check, ChevronRight, Circle, ClipboardCheck, Code2, ExternalLink, GitBranch, Globe2, Layers3, LocateFixed, Maximize2, Minimize2, Minus, Plus, RotateCcw, X } from "lucide-react";
 import { FocusDialog } from "@/components/FocusDialog";
+import { careerSkillForName } from "@/lib/careerCatalog";
 import { cn } from "@/components/ui/cn";
 import { ATLAS_NODE_SIZE, ATLAS_RESOURCE_HEIGHT, ATLAS_RESOURCE_WIDTH, createAtlasLayout, fitAtlas, zoomAtlas } from "@/lib/atlasLayout";
 import type { CourseAssessment, RoadmapCourse, SkillNode } from "./types";
@@ -25,8 +26,13 @@ type Props = {
 function skillIcon(name: string) {
   if (/git|version/i.test(name)) return GitBranch;
   if (/web|front/i.test(name)) return Globe2;
-  if (/data|sql/i.test(name)) return Layers3;
-  return Code2;
+  if (/sql/i.test(name)) return Layers3;
+  if (/cloud/i.test(name)) return Cloud;
+  if (/security/i.test(name)) return ShieldCheck;
+  if (/network/i.test(name)) return Network;
+  if (/spreadsheet/i.test(name)) return Table2;
+  const category = careerSkillForName(name)?.category;
+  return ({Data: BarChart3, Finance: Calculator, People: Users, Sales: Handshake, Service: LifeBuoy, Marketing: Megaphone, Shared: MessagesSquare, Creative: Palette, Design: Palette, Engineering: Wrench, Business: Briefcase, Operations: Briefcase, Product: Compass, Tools: Wrench} as Record<string, typeof Code2>)[category || ""] || Code2;
 }
 
 function safeResourceUrl(url: string | null) {
@@ -45,6 +51,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0, scale: 1 });
   const cameraRef = useRef(camera);
+  const focusNextBranch = useRef(false);
   const dragRef = useRef<{ id: number; x: number; y: number; camera: Camera } | null>(null);
   const skill = skills.find(item => item.skill_id === selectedSkillId) || skills[0];
   const suggestedCourse = skill?.courses.find(course => !course.completed) || skill?.courses[0];
@@ -75,7 +82,8 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
 
   useEffect(() => {
     if (!size.width || !size.height) return;
-    if (size.width < 650 && layout.selected) {
+    if ((size.width < 650 || focusNextBranch.current) && layout.selected) {
+      focusNextBranch.current = false;
       // A phone starts at a readable branch, with the overview one tap away.
       const scale = .72;
       updateCamera({ scale, x: size.width / 2 - layout.selected.x * scale, y: size.height * .40 - layout.selected.y * scale });
@@ -127,6 +135,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
   }, [zoom]);
 
   function chooseSkill(id: string) {
+    if (id !== skill?.skill_id) focusNextBranch.current = true;
     onSelectSkill(id);
     setResourceId(null);
     setExpanded(true);
@@ -215,7 +224,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
             </svg>
 
             <div className="atlas-goal" style={{ left: -85, top: -83 }}>
-              <Monitor size={29} strokeWidth={1.5} />
+              <Compass size={29} strokeWidth={1.5} />
               <span className="atlas-goal-name">{roleName}</span>
               <span className="atlas-goal-label">Your goal</span>
             </div>
@@ -282,14 +291,15 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
       </div>
 
       <div className="atlas-context-dock" aria-live="polite" aria-atomic="false">
-        <div className="atlas-dock-skill"><Globe2 size={25} strokeWidth={1.4} /><div><strong>{skill.name}</strong><span>{skill.assessed ? `Skill score ${skill.skillProgress}%` : "Skill not assessed"}</span></div></div>
+        {skill.assessable === false && <a href="/careers" className="atlas-secondary-action">Open practical career activity ↗</a>}
+        <div className="atlas-dock-skill"><Globe2 size={25} strokeWidth={1.4} /><div><strong>{skill.name}</strong><span>{skill.assessable === false ? "Specialist practice · review needed" : skill.assessed ? `Knowledge score ${skill.skillProgress}%` : "Knowledge not assessed"}</span></div></div>
         <div className="atlas-dock-resource">
-          {course ? <><span className={cn("atlas-status-tag", course.completed && "is-completed")}>{course.completed ? "Completed resource" : suggestedCourse?.id === course.id ? "Recommended next" : "Selected resource"}</span><strong title={course.title}>{course.title}</strong><span>{course.provider || "Learning resource"}{course.estimated_hours ? ` · ~${course.estimated_hours} h` : ""}</span></> : <><strong>A new branch, ready to grow.</strong><span>Find learning resources for this skill, or start with a skill assessment.</span></>}
+          {course ? <><span className={cn("atlas-status-tag", course.completed && "is-completed")}>{course.completed ? "Completed resource" : suggestedCourse?.id === course.id ? "Recommended next" : "Selected resource"}</span><strong title={course.title}>{course.title}</strong><span>{course.provider || "Learning resource"}{course.estimated_hours ? ` · ~${course.estimated_hours} h` : ""}</span></> : <><strong>A new branch, ready to grow.</strong><span>{skill.assessable === false ? "Dedicated resources and knowledge checks are pending. Start with the practical career activity." : "Find learning resources for this skill, or start with a knowledge assessment."}</span></>}
         </div>
         <button className="atlas-dock-progress" onClick={() => setShowResources(true)} aria-label={`View all ${skill.totalCourses} resources for ${skill.name}`}><Layers3 size={18} /><span><strong>{skill.completedCourses} of {skill.totalCourses}</strong> resources completed</span><ChevronRight size={16} /></button>
         <div className="atlas-dock-actions">
-          <button className="atlas-secondary-action" onClick={() => void launchAssessment()}><ClipboardCheck size={17} /><span>Take skill assessment</span></button>
-          {courseUrl ? <a className="atlas-primary-action" href={courseUrl} target="_blank" rel="noopener noreferrer" onClick={() => setVisited(ids => new Set(ids).add(course!.id))}>Open resource<ExternalLink size={16} /></a> : <button className="atlas-primary-action" disabled={generatingResources || !!course} onClick={onGenerateResources}>{generatingResources ? "Finding resources…" : course ? "No resource link" : "Find resources"}<ChevronRight size={16} /></button>}
+          <button className="atlas-secondary-action" disabled={skill.assessable === false} onClick={() => void launchAssessment()}><ClipboardCheck size={17} /><span>{skill.assessable === false ? "Knowledge check pending" : "Take knowledge assessment"}</span></button>
+          {courseUrl ? <a className="atlas-primary-action" href={courseUrl} target="_blank" rel="noopener noreferrer" onClick={() => setVisited(ids => new Set(ids).add(course!.id))}>Open resource<ExternalLink size={16} /></a> : <button className="atlas-primary-action" disabled={generatingResources || !!course || skill.assessable === false} onClick={onGenerateResources}>{generatingResources ? "Finding resources…" : course ? "No resource link" : skill.assessable === false ? "Resources pending" : "Find resources"}<ChevronRight size={16} /></button>}
         </div>
       </div>
 
@@ -298,7 +308,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
           <FocusDialog label={`Resources for ${skill.name}`} onClose={() => setShowResources(false)}>
             <div className="atlas-sheet-heading"><div><p className="eyebrow">Your selected branch</p><h2>{skill.name}</h2></div><button onClick={() => setShowResources(false)} aria-label="Close resources"><X size={21} /></button></div>
             <p className="atlas-sheet-intro">{skill.completedCourses} of {skill.totalCourses} resources completed. Pass a resource assessment at 65% to complete it. Your measured skill score comes from assessments.</p>
-            {!skill.courses.length && <div className="atlas-sheet-empty"><BookOpen size={30} /><p>No resources on this branch yet.</p><button className="atlas-primary-action" onClick={onGenerateResources} disabled={generatingResources}>{generatingResources ? "Finding resources…" : "Find learning resources"}</button></div>}
+            {!skill.courses.length && <div className="atlas-sheet-empty"><BookOpen size={30} /><p>{skill.assessable === false ? "Dedicated resources for this specialist area are pending. Use the practical activity in Career explorer." : "No resources on this branch yet."}</p>{skill.assessable === false && <a href="/careers" className="atlas-secondary-action">Open practical activity ↗</a>}<button className="atlas-primary-action" onClick={onGenerateResources} disabled={generatingResources || skill.assessable === false}>{generatingResources ? "Finding resources…" : "Find learning resources"}</button></div>}
             {skill.courses.map(resource => {
               const url = safeResourceUrl(resource.url);
               const previous = latestAssessmentByCourse.get(resource.id);
