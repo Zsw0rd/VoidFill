@@ -51,9 +51,16 @@ def load_learning_content():
     return rows("resources"), rows("questions")
 
 
+def canonical_json_fingerprint(payload):
+    # Windows checkouts may use CRLF; embeddings depend on parsed content, not
+    # source-file formatting. Array order and all string values remain significant.
+    canonical = json.dumps(json.loads(payload), ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf8")
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def content_fingerprints():
     paths = [ROOT / "data/resources.json", ROOT / "data/questions.json", DIRECTORY / "resources.json", DIRECTORY / "questions.json", DIRECTORY / "catalogue.json", ROOT / "cloud-release.json"]
-    return {str(path.relative_to(ROOT)).replace("\\", "/"): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
+    return {str(path.relative_to(ROOT)).replace("\\", "/"): canonical_json_fingerprint(path.read_bytes()) for path in paths}
 
 
 def role_texts():

@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from ml.career_catalogue import CATALOGUE, DIRECTORY, content_fingerprints, guest_catalogue, load_learning_content, topic_for_skill
+from ml.career_catalogue import CATALOGUE, DIRECTORY, canonical_json_fingerprint, content_fingerprints, guest_catalogue, load_learning_content, topic_for_skill
 from ml.service import AnalysisRequest, AssessmentRequest, LearningEngine, RecommendationRequest
 
 
@@ -119,6 +119,14 @@ def test_index_provenance_and_resource_checks_match_the_current_pack():
         assert vectors["questions"].shape == (320, 768)
         assert np.isfinite(vectors["questions"]).all()
         assert vectors["roles"].shape == (60, 768)
+
+
+def test_index_fingerprint_is_portable_but_detects_content_and_order_changes():
+    linux = b'{\n  "name": "Example", "items": [1, 2]\n}\n'
+    windows = b'{\r\n  "items": [1, 2], "name": "Example"\r\n}\r\n'
+    assert canonical_json_fingerprint(linux) == canonical_json_fingerprint(windows)
+    assert canonical_json_fingerprint(linux) != canonical_json_fingerprint(b'{"name":"Changed","items":[1,2]}')
+    assert canonical_json_fingerprint(linux) != canonical_json_fingerprint(b'{"name":"Example","items":[2,1]}')
 
 
 def test_specialist_insights_offer_practical_review_instead_of_nonexistent_quizzes(engine):

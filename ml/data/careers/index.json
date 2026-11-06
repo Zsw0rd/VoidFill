@@ -2,12 +2,12 @@
   "version": "2026.11-foundations-1",
   "model": "voidfill-bge-base-v3",
   "inputs": {
-    "data/resources.json": "41abf7c3c769c8b8b9d30e529cc22b3e40e41c828b69ef19bbc1f672e0e8362b",
-    "data/questions.json": "8e88f08f8f7791ed441510511cbcce4d432e78e9598594bcf121979a0be7f045",
-    "data/careers/resources.json": "cec31df9f2a900f69e0d3b552dd4a4131278ee3dec9470c9acaf00ee8f1006c6",
-    "data/careers/questions.json": "fe6f826585eeac7e916acb78932a9dff38d7e0f7e6e09eeb779ca5a24cf0fcf3",
-    "data/careers/catalogue.json": "5b61218086c2647f50bf7c9e8bcf4f98868f50bdc85096c73d523557d5513096",
-    "cloud-release.json": "254cbd40a246d5d0c3fa1954b046806ef4309250d39f6bcf53e76fbde6c3e896"
+    "data/resources.json": "be773fb99bfa5614ce24c050507e739f5569e58dce928aa5fdd42171d145d6cd",
+    "data/questions.json": "2408ec4dcd73a18c6ab75f69419752a8f9386432c572411e3210b1d5519e1e54",
+    "data/careers/resources.json": "7dac5ec0359df0ab5db678f918857087ca578c868fb8f2132dedad85df709481",
+    "data/careers/questions.json": "d64f48849259633c824ae79a069fa7c325f8d0760b6c79501782dc56444e400d",
+    "data/careers/catalogue.json": "7e5da740917589c313f46d60afc7c0d76eab452de3bdc35dbfbab9c9511f948c",
+    "cloud-release.json": "02206dc9490190b7403aa3e5082b51a801c3aa770d258769ff0b74ddccca6611"
   },
   "public_queries": [
     "Represent this sentence for searching relevant passages: Python Basics. Python programming syntax functions dictionaries lists pandas",
@@ -634,5 +634,6 @@
     "career-dcca144aa4c8ae710ada",
     "career-aaa0a89c04b42165088d"
   ],
-  "scope": "Public curriculum only. Same model, CLS pooling, normalization and token limit as the production ONNX runtime; new-domain relevance is tested separately."
+  "scope": "Public curriculum only. Same model, CLS pooling, normalization and token limit as the production ONNX runtime; new-domain relevance is tested separately.",
+  "fingerprint_format": "canonical-json-sha256"
 }

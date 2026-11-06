@@ -36,7 +36,7 @@ def main():
     encode = lambda texts: encoder.encode(texts, batch_size=4)
     print("Encoding public career content with the existing ONNX model…", flush=True)
     np.savez_compressed(DIRECTORY / "vectors.npz", resources=encode([r["title"] + ". " + r["description"] for r in resources]), questions=encode([q["prompt"] for q in questions]), topics=encode(list(TOPICS.values())), passages=encode(chunks), owners=np.array(owners, dtype=int), queries=encode(queries), roles=encode(role_texts()))
-    metadata = {"version": CATALOGUE["version"], "model": report["model"], "inputs": content_fingerprints(), "public_queries": queries, "resource_ids": [r["id"] for r in resources], "question_ids": [q["id"] for q in questions], "scope": "Public curriculum only. Same model, CLS pooling, normalization and token limit as the production ONNX runtime; new-domain relevance is tested separately."}
+    metadata = {"version": CATALOGUE["version"], "model": report["model"], "fingerprint_format": "canonical-json-sha256", "inputs": content_fingerprints(), "public_queries": queries, "resource_ids": [r["id"] for r in resources], "question_ids": [q["id"] for q in questions], "scope": "Public curriculum only. Same model, CLS pooling, normalization and token limit as the production ONNX runtime; new-domain relevance is tested separately."}
     (DIRECTORY / "index.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf8")
     print(f"Indexed {len(questions)} questions, {len(resources)} resources and {len(TOPICS)} topic descriptions.", flush=True)
 

@@ -43,8 +43,10 @@ def main():
                     shutil.copyfileobj(source, output)
     from ml.career_catalogue import DIRECTORY, content_fingerprints
     extension = json.loads((DIRECTORY / "index.json").read_text(encoding="utf8"))
-    if extension["inputs"] != content_fingerprints():
-        raise RuntimeError("Career content changed without rebuilding its public index.")
+    actual = content_fingerprints()
+    if extension["inputs"] != actual:
+        changed = [name for name, digest in actual.items() if extension["inputs"].get(name) != digest]
+        raise RuntimeError("Career content changed without rebuilding its public index: " + ", ".join(changed))
     print("Verified model and career artifacts prepared: " + release["backend"], flush=True)
 
 
