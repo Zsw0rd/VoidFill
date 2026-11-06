@@ -8,6 +8,8 @@ from pathlib import Path
 from ml.career_question_bank import BANK
 from ml.career_question_bank_phase2 import BANK as PHASE2_BANK
 from ml.career_pack_phase2 import REFERENCES as PHASE2_REFERENCES
+from ml.career_question_bank_phase3 import BANK as PHASE3_BANK
+from ml.career_pack_phase3 import REFERENCES as PHASE3_REFERENCES
 
 ROOT = Path(__file__).resolve().parent
 DEST = ROOT / "data/careers"
@@ -105,8 +107,9 @@ REFERENCES = {
 
 def main():
     assert not BANK.keys() & PHASE2_BANK.keys(), "Cohorts must not overwrite existing items."
-    banks = {**BANK, **PHASE2_BANK}
-    references = {**REFERENCES, **PHASE2_REFERENCES}
+    assert not (BANK.keys() | PHASE2_BANK.keys()) & PHASE3_BANK.keys(), "Cohorts must not overwrite existing items."
+    banks = {**BANK, **PHASE2_BANK, **PHASE3_BANK}
+    references = {**REFERENCES, **PHASE2_REFERENCES, **PHASE3_REFERENCES}
     questions, resources = [], []
     for topic, rows in banks.items():
         assert len(rows) >= 10, (topic, len(rows))

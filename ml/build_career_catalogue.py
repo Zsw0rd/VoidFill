@@ -11,10 +11,11 @@ import re
 import uuid
 from pathlib import Path
 from ml.career_pack_phase2 import TOPIC_DESCRIPTIONS, PILOT_NAMES, ACTIVITIES as PHASE2_ACTIVITIES
+from ml.career_pack_phase3 import TOPIC_DESCRIPTIONS as PHASE3_TOPICS, PILOT_NAMES as PHASE3_PILOTS, ACTIVITIES as PHASE3_ACTIVITIES
 
 ROOT = Path(__file__).resolve().parent
 DEST = ROOT / "data/careers"
-VERSION = "2026.11-foundations-2"
+VERSION = "2026.11-foundations-3"
 
 
 def identifier(name):
@@ -86,7 +87,7 @@ SPECIALISTS = {
 }
 
 # Promote existing identities; do not introduce a second skill for the same area.
-for topic, description in TOPIC_DESCRIPTIONS.items():
+for topic, description in {**TOPIC_DESCRIPTIONS, **PHASE3_TOPICS}.items():
     name, category = SPECIALISTS.pop(topic)
     TOPICS[topic] = (name, category, description)
 
@@ -222,6 +223,8 @@ PILOT_ACTIVITIES = {
 
 PILOT.update(PILOT_NAMES)
 PILOT_ACTIVITIES.update(PHASE2_ACTIVITIES)
+PILOT.update(PHASE3_PILOTS)
+PILOT_ACTIVITIES.update(PHASE3_ACTIVITIES)
 
 SKILL_SYNONYMS = {
     "spreadsheets": ["excel", "google sheets", "spreadsheets"],
@@ -261,6 +264,18 @@ SKILL_SYNONYMS = {
     "learning-design": ["instructional design", "learning design", "training design"],
     "inventory": ["inventory management", "logistics", "stock control"],
     "supply-chain": ["supply chain", "demand planning", "supply planning"],
+    "mobile": ["mobile development", "android", "ios", "flutter", "react native"],
+    "ml-operations": ["mlops", "ml operations", "model monitoring", "model deployment"],
+    "brand": ["brand strategy", "brand positioning", "brand identity"],
+    "payroll": ["payroll", "payroll reconciliation"],
+    "audit": ["auditing", "audit", "internal controls"],
+    "procurement": ["procurement", "purchasing", "supplier evaluation"],
+    "automation": ["plc", "industrial automation"],
+    "electronics": ["electronics", "circuit analysis"],
+    "technical-writing": ["technical writing", "api documentation", "technical documentation"],
+    "events": ["event planning", "event operations"],
+    "hospitality": ["hospitality operations", "hotel operations", "front office operations"],
+    "account-management": ["account management", "account planning", "customer renewals"],
 }
 
 
@@ -283,7 +298,7 @@ def build():
             for requirement in requirements:
                 assert requirement["skill"] in lookup
             roles.append({"id": identifier(name), "key": re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), "name": name, "family": family, "aliases": aliases.split("|"), "release_status": "pilot" if name in PILOT else "explore", "levels": ["foundation", "intermediate"], "description": "Build foundations in " + ", ".join(lookup[k]["name"].lower() for k in keys.split()[:3]) + ".", "scope": "General learning foundations. Employer, country and seniority requirements vary.", "requirements": requirements, "occupation": {"code": code, "title": source["title"], "url": "https://www.onetonline.org/link/summary/" + code, "relationship": "related occupation; VoidFill profile is a curated specialization"}, "activity": {"title": title, "instructions": instructions, "rubric": rubric, "evidence_type": "reflection", "note": "Use this rubric for self-reflection or discuss your work with a mentor. Saving a reflection does not award a measured skill score."}})
-    assert len(roles) == 60 and len(PILOT) == 30
+    assert len(roles) == 60 and len(PILOT) == 60
     assert PILOT <= {role["name"] for role in roles}
     assert PILOT <= PILOT_ACTIVITIES.keys()
     data = {"version": VERSION, "reviewed_at": "2026-11-06", "sources": [{"name": "O*NET 31.0 Database", "publisher": "U.S. Department of Labor, Employment and Training Administration", "url": "https://www.onetcenter.org/database.html", "license": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/", "sha256": hashlib.sha256(raw.read_bytes()).hexdigest(), "changes": "Selected related occupation IDs and titles; curated aliases, skill mappings, learning targets and activities are VoidFill additions. Not endorsed by USDOL/ETA."}], "families": [{"key": key, "name": name, "kind": kind} for key, name, kind in FAMILIES], "personal_goal_role": {"id": identifier("Personal Career Goal"), "name": "Personal Career Goal", "description": "An explicitly chosen personal goal with selected focus skills; no inferred occupation requirements."}, "topics": {key: description for key, (_, _, description) in TOPICS.items()}, "skills": skills, "roles": roles, "dependencies": [["git", "web"], ["python", "visualization"], ["sql", "visualization"], ["networking", "cloud"], ["networking", "security"], ["communication", "sales"], ["communication", "recruiting"], ["spreadsheets", "accounting"]]}

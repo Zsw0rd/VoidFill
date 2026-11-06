@@ -48,5 +48,5 @@ on conflict do nothing;
 
 commit;
 """
-(ROOT / "supabase/migrations/20261106_second_career_cohort.sql").write_text(sql, encoding="utf8")
+(ROOT / "supabase/migrations/20261106_third_career_cohort.sql").write_text(sql, encoding="utf8")
 print(f"Generated additive seed: {len(payload['roles'])-1} careers plus personal-goal storage role; {len(payload['skills'])} skills.")

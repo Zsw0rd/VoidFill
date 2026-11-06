@@ -67,19 +67,22 @@ try {
   await call(a, "/api/careers/profile", {role_id: personal.id, goal: "Museum visitor experience", focus_skill_ids: []}, 400);
   await call(a, "/api/careers/profile", {role_id: personal.id, goal: "Museum visitor experience", focus_skill_ids: [focus.id]});
   assert.equal((await call(a, "/api/roadmap/generate")).count, 1);
-  const manual = skills.find(skill => skill.name === "Payroll Operations");
-  await call(a, "/api/careers/profile", {role_id: personal.id, goal: "Museum experience design", focus_skill_ids: [manual.id]});
+  const specialist = skills.find(skill => skill.name === "Payroll Operations");
+  await call(a, "/api/careers/profile", {role_id: personal.id, goal: "Museum payroll coordination", focus_skill_ids: [specialist.id]});
   await call(a, "/api/roadmap/generate");
   const analysis = await call(a, "/api/ai/analyze");
-  assert.ok(JSON.stringify(analysis).includes("practical"));
+  assert.ok(JSON.stringify(analysis).includes("Payroll Operations"));
+  assert.ok(!JSON.stringify(analysis).includes("knowledge check is not available"));
   assert.equal((await call(a, "/api/ai/insights", {}, 200, "GET")).cached, true);
-  await call(a, "/api/roadmap/assess", {purpose: "skill", skill_id: manual.id}, 422);
+  const focusedQuiz = await call(a, "/api/roadmap/assess", {purpose: "skill", skill_id: specialist.id});
+  assert.equal(focusedQuiz.questions.length, 10);
+  assert.ok(focusedQuiz.questions.every(question => question.skill_name === specialist.name));
   await call(a, "/api/careers/profile", {role_id: personal.id, goal: "Museum visitor outreach", focus_skill_ids: [focus.id]});
   assert.equal((await call(a, "/api/ai/insights", {}, 200, "GET")).cached, false);
   const dashboard = await fetch(base + "/dashboard", {headers: {Cookie: a.cookie}});
   assert.equal(dashboard.status, 200);
   assert.ok(!(await dashboard.text()).includes("Payroll Operations"), "Removed focus must not remain in the current dashboard path");
   await call(a, "/api/careers/profile", {role_id: "00000000-0000-4000-8000-000000000099"}, 400);
-  await call(a, "/api/careers/profile", {role_id: recruiter.id, focus_skill_ids: [manual.id, manual.id, manual.id, manual.id, manual.id]}, 400);
+  await call(a, "/api/careers/profile", {role_id: recruiter.id, focus_skill_ids: [specialist.id, specialist.id, specialist.id, specialist.id, specialist.id]}, 400);
   console.log(`Career integration passed: all ${pilot.length} pilots, non-technical question isolation, personal goals, focus skills, level, private reflections, validation, preserved scores/XP and stale-view invalidation.`);
 } finally {for (const jar of jars) if (jar.cookie) await fetch(base + "/api/demo/end", {method: "POST", headers: {Cookie: jar.cookie}}).catch(() => {});}

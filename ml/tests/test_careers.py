@@ -24,7 +24,7 @@ def engine():
 def test_pilot_has_substantive_question_and_resource_coverage():
     skills = {skill["key"]: skill for skill in CATALOGUE["skills"]}
     pilot = [role for role in CATALOGUE["roles"] if role["release_status"] == "pilot"]
-    assert len(pilot) == 30
+    assert len(pilot) == 60
     assert {role["family"] for role in pilot} == {family["key"] for family in CATALOGUE["families"]}
     assert len({role["activity"]["title"] for role in pilot}) == len(pilot)
     for role in pilot:
@@ -53,7 +53,7 @@ def test_foundation_content_is_not_labelled_as_expert(engine):
 
 
 def test_specialist_and_unknown_skills_are_not_assigned_a_nearby_bank(engine):
-    for name in ["Mobile Application Development", "ML Operations", "Underwater basket weaving", "Payroll Operations"]:
+    for name in ["Underwater basket weaving", "Clinical surgery", "Spacecraft propulsion engineering"]:
         assert topic_for_skill(name) is None
         result = engine.recommend(RecommendationRequest(skills=[{"id": "specialist", "name": name}]))
         assert result["unsupported_skills"] == [name]
@@ -88,7 +88,7 @@ def test_every_pilot_uses_precomputed_public_recommendation_queries():
 
 def test_original_items_have_valid_keys_sources_and_numerical_examples():
     rows = json.loads((DIRECTORY / "questions.json").read_text(encoding="utf8"))
-    assert len(rows) == 700
+    assert len(rows) == 960
     assert len({row["id"] for row in rows}) == len(rows)
     for row in rows:
         assert len(set(row["options"])) == 4
@@ -125,6 +125,30 @@ def test_second_cohort_has_dedicated_banks_and_correct_numerical_examples(engine
     assert all(answers[prompt] == answer for prompt, answer in expected.items())
 
 
+def test_final_cohort_has_dedicated_knowledge_and_stated_calculation_rules(engine):
+    from ml.career_question_bank_phase3 import BANK
+    assert len(BANK) == 13
+    assert len(CATALOGUE["skills"]) == 55
+    assert all(skill["topic"] and skill["assessment_mode"] == "objective" for skill in CATALOGUE["skills"])
+    for topic, rows in BANK.items():
+        skill = next(item for item in CATALOGUE["skills"] if item["key"] == topic)
+        result = engine.assessment(AssessmentRequest(skills=[{"id": skill["id"], "name": skill["name"]}], count=10, difficulty=5))
+        assert result["difficulty"] <= 2
+        assert len(result["questions"]) == 10
+        assert all(question["topics"] == [topic] and question["skill_id"] == skill["id"] for question in result["questions"]), topic
+        assert {row[-1] for row in rows} == {1, 2}
+    expected = {
+        "An ideal 100-ohm resistor has 5 V across it. What current flows?": "0.05 A",
+        "Two ideal 100-ohm resistors are connected in parallel. What is their equivalent resistance?": "50 ohms",
+        "Fictional gross pay is 1,000 and stated deductions total 180. With no other adjustments, what is net pay?": "820",
+        "Offer A costs 100 plus delivery of 20; offer B costs 115 with delivery included. Assuming otherwise identical terms, which has the lower delivered cost?": "Offer B at 115",
+        "An event has a stated registration limit of 120 and 90 confirmed registrations. How many places remain under that limit?": "30",
+        "An occupied-room count is 40 out of 50 available rooms. Under this stated definition, what is occupancy?": "80%",
+    }
+    answers = {row[0]: row[1] for rows in BANK.values() for row in rows}
+    assert all(answers[prompt] == answer for prompt, answer in expected.items())
+
+
 def test_shared_catalogue_keeps_legacy_ids_and_separates_priority_from_target():
     catalogue = guest_catalogue()
     assert [role["name"] for role in catalogue["roles"][:3]] == ["Data Analyst", "Frontend Developer", "AI Applications Developer"]
@@ -142,7 +166,7 @@ def test_index_provenance_and_resource_checks_match_the_current_pack():
     assert {row["id"] for row in audit["results"]} == {row["id"] for row in resources}
     assert all(row["status"] == 200 for row in audit["results"])
     with np.load(DIRECTORY / "vectors.npz", allow_pickle=False) as vectors:
-        assert vectors["questions"].shape == (700, 768)
+        assert vectors["questions"].shape == (960, 768)
         assert np.isfinite(vectors["questions"]).all()
         assert vectors["roles"].shape == (60, 768)
 
@@ -156,7 +180,7 @@ def test_index_fingerprint_is_portable_but_detects_content_and_order_changes():
 
 
 def test_specialist_insights_offer_practical_review_instead_of_nonexistent_quizzes(engine):
-    result = engine.analyze(AnalysisRequest(role="Payroll Specialist", skills=[{"id": "payroll", "name": "Payroll Operations"}]))
+    result = engine.analyze(AnalysisRequest(role="Personal goal", skills=[{"id": "unknown", "name": "Underwater basket weaving"}]))
     assert "knowledge check is not available" in result["analysis"]["criticalGaps"][0]["recommendation"]
     assert "Record a private reflection" in result["analysis"]["learningPath"][0]["milestones"]
 

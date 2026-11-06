@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T08:03:22.743480+00:00",
+  "checked_at": "2026-11-06T12:32:11.062334+00:00",
   "scope": "Public unauthenticated HTTP reachability; does not establish pedagogical quality or availability of every linked course activity.",
   "results": [
     {
@@ -664,7 +664,7 @@
       "title": "Carbon color",
       "status": 200,
       "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/color/overview",
-      "page_title": "Color | Carbon Design System"
+      "page_title": "IBM logo"
     },
     {
       "id": "career-resource-1fe5a24da434da628d06",
@@ -865,6 +865,318 @@
       "status": 200,
       "final_url": "https://www.w3.org/WAI/test-evaluate/easy-checks/",
       "page_title": "[Draft] Easy Checks \u2013 A First Review of Web Accessibility | Web Accessibility Initiative (WAI) | W3C"
+    },
+    {
+      "id": "career-resource-7ce0ada67de9b1b42cca",
+      "url": "https://react.dev/learn",
+      "title": "React quick start",
+      "status": 200,
+      "final_url": "https://react.dev/learn",
+      "page_title": "Quick Start \u2013 React"
+    },
+    {
+      "id": "career-resource-65df1db716d74c199027",
+      "url": "https://react.dev/learn/managing-state",
+      "title": "Managing state",
+      "status": 200,
+      "final_url": "https://react.dev/learn/managing-state",
+      "page_title": "Managing State \u2013 React"
+    },
+    {
+      "id": "career-resource-b24d17702d7ba53c307d",
+      "url": "https://react.dev/learn/you-might-not-need-an-effect",
+      "title": "When an effect is needed",
+      "status": 200,
+      "final_url": "https://react.dev/learn/you-might-not-need-an-effect",
+      "page_title": "You Might Not Need an Effect \u2013 React"
+    },
+    {
+      "id": "career-resource-0554685c7aec1df24c4d",
+      "url": "https://developer.android.com/topic/architecture",
+      "title": "Guide to app architecture",
+      "status": 200,
+      "final_url": "https://developer.android.com/topic/architecture",
+      "page_title": "Guide to app architecture &nbsp;|&nbsp; App architecture &nbsp;|&nbsp; Android Developers"
+    },
+    {
+      "id": "career-resource-3411b1cf9681efbcce08",
+      "url": "https://docs.flutter.dev/app-architecture/design-patterns/offline-first",
+      "title": "Offline-first applications",
+      "status": 200,
+      "final_url": "https://docs.flutter.dev/app-architecture/design-patterns/offline-first",
+      "page_title": "Offline-first support"
+    },
+    {
+      "id": "career-resource-36c2b198de2f94cbd97c",
+      "url": "https://developer.android.com/training/permissions/requesting",
+      "title": "Request runtime permissions",
+      "status": 200,
+      "final_url": "https://developer.android.com/training/permissions/requesting",
+      "page_title": "Request runtime permissions &nbsp;|&nbsp; Privacy &nbsp;|&nbsp; Android Developers"
+    },
+    {
+      "id": "career-resource-7b4f10400a9d9f370625",
+      "url": "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+      "title": "MLOps pipeline concepts",
+      "status": 200,
+      "final_url": "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+      "page_title": "MLOps: Continuous delivery and automation pipelines in machine learning &nbsp;|&nbsp; Cloud Architecture Center &nbsp;|&nbsp; Google Cloud Documentation"
+    },
+    {
+      "id": "career-resource-a54ba3f7f51e5090e631",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "title": "Rules of machine learning",
+      "status": 200,
+      "final_url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "page_title": "Rules of Machine Learning: &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-05ef05f91ad144abdba1",
+      "url": "https://mlflow.org/docs/latest/ml/model-registry/",
+      "title": "MLflow model registry",
+      "status": 200,
+      "final_url": "https://mlflow.org/docs/latest/ml/model-registry/",
+      "page_title": "ML Model Registry | MLflow AI Platform"
+    },
+    {
+      "id": "career-resource-62e8683a344264cd3143",
+      "url": "https://library.automationdirect.com/what-is-a-plc/",
+      "title": "What is a PLC?",
+      "status": 200,
+      "final_url": "https://library.automationdirect.com/what-is-a-plc/",
+      "page_title": "What is a PLC? Definition, Benefits &amp; Examples"
+    },
+    {
+      "id": "career-resource-1f67db3107f492c26540",
+      "url": "https://library.automationdirect.com/plc-scan-fundamentals/",
+      "title": "PLC scan fundamentals",
+      "status": 200,
+      "final_url": "https://library.automationdirect.com/plc-scan-fundamentals/",
+      "page_title": "The PLC Scan - PLC Fundamentals |Library.AutomationDirect"
+    },
+    {
+      "id": "career-resource-e7d7d709cb43381f6a54",
+      "url": "https://docs.arduino.cc/built-in-examples/basics/DigitalReadSerial/",
+      "title": "Digital input example",
+      "status": 200,
+      "final_url": "https://docs.arduino.cc/built-in-examples/basics/DigitalReadSerial/",
+      "page_title": null
+    },
+    {
+      "id": "career-resource-2884fbc11338745ebd89",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law",
+      "title": "Ohm's law",
+      "status": 200,
+      "final_url": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law",
+      "page_title": "9.4 Ohm's Law - University Physics Volume 2 | OpenStax"
+    },
+    {
+      "id": "career-resource-da94afaa042f85cfdb0a",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power",
+      "title": "Electrical energy and power",
+      "status": 200,
+      "final_url": "https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power",
+      "page_title": "9.5 Electrical Energy and Power - University Physics Volume 2 | OpenStax"
+    },
+    {
+      "id": "career-resource-884ce43eb1c4495ab6f0",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+      "title": "Series and parallel resistors",
+      "status": 200,
+      "final_url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+      "page_title": "10.2 Resistors in Series and Parallel - University Physics Volume 2 | OpenStax"
+    },
+    {
+      "id": "career-resource-2ad2d6b09d9e6fc99bb7",
+      "url": "https://www.hse.gov.uk/event-safety/running.htm",
+      "title": "Running an event safely",
+      "status": 200,
+      "final_url": "https://www.hse.gov.uk/event-safety/running.htm",
+      "page_title": "Running an event safely - HSE"
+    },
+    {
+      "id": "career-resource-13216d1a8f3646866dfe",
+      "url": "https://www.hse.gov.uk/event-safety/health-safety-topics.htm",
+      "title": "Event planning topics",
+      "status": 200,
+      "final_url": "https://www.hse.gov.uk/event-safety/health-safety-topics.htm",
+      "page_title": "Health and safety topics - HSE"
+    },
+    {
+      "id": "career-resource-c9e83f94ed6ab2b8292d",
+      "url": "https://www.onetonline.org/link/summary/13-1121.00",
+      "title": "Event operations context",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1121.00",
+      "page_title": "13-1121.00 - Meeting, Convention, and Event Planners"
+    },
+    {
+      "id": "career-resource-692fd21959e2286d6d1c",
+      "url": "https://opentextbc.ca/introtourism2e/",
+      "title": "Hospitality and tourism foundations",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/",
+      "page_title": "Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition &#8211; Simple Book Publishing"
+    },
+    {
+      "id": "career-resource-c9c9f1f734811b6816ea",
+      "url": "https://opentextbc.ca/introtourism2e/chapter/operations/",
+      "title": "Accommodation operations",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/chapter/operations/",
+      "page_title": "3.3 Operations &#8211; Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition"
+    },
+    {
+      "id": "career-resource-e30cda6088b0c7a99347",
+      "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/",
+      "title": "Customer service in hospitality",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/",
+      "page_title": "9.2 Communication Strategies &#8211; Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition"
+    },
+    {
+      "id": "career-resource-6235acea9fd6cd99437e",
+      "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience",
+      "title": "Accounts and contacts",
+      "status": 200,
+      "final_url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience",
+      "page_title": "Salesforce Accounts Contact Module"
+    },
+    {
+      "id": "career-resource-2bf2b9ef5c165605b608",
+      "url": "https://academy.hubspot.com/courses/hubspot-service-software",
+      "title": "Customer service and relationship records",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/hubspot-service-software",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-40c456285c52dc90ca48",
+      "url": "https://www.atlassian.com/team-playbook/plays/stakeholder-communications-plan",
+      "title": "Stakeholder communication planning",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/team-playbook/plays/stakeholder-communications-plan",
+      "page_title": "Stakeholder Project Communication: Atlassian Plays | Atlassian"
+    },
+    {
+      "id": "career-resource-3dff723b260c0aa59184",
+      "url": "https://www.cips.org/intelligence-hub/procurement/procurement-supply-cycle",
+      "title": "Procurement and supply cycle",
+      "status": 200,
+      "final_url": "https://www.cips.org/intelligence-hub/procurement/procurement-supply-cycle",
+      "page_title": "Procurement Supply Cycle | CIPS"
+    },
+    {
+      "id": "career-resource-91096a7c853f136ac291",
+      "url": "https://www.unops.org/business-opportunities/supplier-resource-centre",
+      "title": "Supplier resource centre",
+      "status": 200,
+      "final_url": "https://www.unops.org/business-opportunities/supplier-resource-centre",
+      "page_title": "Supplier Resource Centre | UNOPS"
+    },
+    {
+      "id": "career-resource-5e98cbac41cd423734d1",
+      "url": "https://www.cips.org/intelligence-hub/managing-suppliers/supplier-evaluation",
+      "title": "Supplier evaluation",
+      "status": 200,
+      "final_url": "https://www.cips.org/intelligence-hub/managing-suppliers/supplier-evaluation",
+      "page_title": "Supplier Evaluation - How to Evaluate Suppliers | CIPS"
+    },
+    {
+      "id": "career-resource-05e8fe30d7ec36e9a040",
+      "url": "https://developers.google.com/tech-writing/one",
+      "title": "Technical Writing One",
+      "status": 200,
+      "final_url": "https://developers.google.com/tech-writing/one",
+      "page_title": "Technical Writing One introduction &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-ebf55329602dcba4cf8f",
+      "url": "https://developers.google.com/tech-writing/two",
+      "title": "Technical Writing Two",
+      "status": 200,
+      "final_url": "https://developers.google.com/tech-writing/two",
+      "page_title": "Technical Writing Two introduction &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-5ce7f185ec30de2b8efa",
+      "url": "https://developers.google.com/style/highlights",
+      "title": "Developer documentation style",
+      "status": 200,
+      "final_url": "https://developers.google.com/style/highlights",
+      "page_title": "Highlights &nbsp;|&nbsp; Google developer documentation style guide &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-4576e2deb314bb46ecf0",
+      "url": "https://openstax.org/books/principles-marketing/pages/9-5-branding-and-brand-development",
+      "title": "Branding and brand development",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-marketing/pages/9-5-branding-and-brand-development",
+      "page_title": "9.5 Branding and Brand Development - Principles of Marketing | OpenStax"
+    },
+    {
+      "id": "career-resource-f6a722d508bb6da642ff",
+      "url": "https://openstax.org/books/entrepreneurship/pages/8-4-entrepreneurial-branding",
+      "title": "Entrepreneurial branding",
+      "status": 200,
+      "final_url": "https://openstax.org/books/entrepreneurship/pages/8-4-entrepreneurial-branding",
+      "page_title": "8.4 Entrepreneurial Branding - Entrepreneurship | OpenStax"
+    },
+    {
+      "id": "career-resource-3c2650e9fe2381a9d402",
+      "url": "https://openstax.org/books/principles-marketing/pages/5-1-market-segmentation-and-consumer-markets",
+      "title": "Market segmentation",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-marketing/pages/5-1-market-segmentation-and-consumer-markets",
+      "page_title": "5.1 Market Segmentation and Consumer Markets - Principles of Marketing | OpenStax"
+    },
+    {
+      "id": "career-resource-157bd9b0ae7b45cd7bf9",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/12-5-record-transactions-incurred-in-preparing-payroll",
+      "title": "Payroll accounting concepts",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/12-5-record-transactions-incurred-in-preparing-payroll",
+      "page_title": "12.5 Record Transactions Incurred in Preparing Payroll - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-8bdc4071aed46ed9c4de",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/12-1-identify-and-describe-current-liabilities",
+      "title": "Current liabilities",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/12-1-identify-and-describe-current-liabilities",
+      "page_title": "12.1 Identify and Describe Current Liabilities - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-8490f2d379dd547e27d1",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+      "title": "Internal controls",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+      "page_title": "8.2 Define and Explain Internal Controls and Their Purpose within an Organization - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-449b0394eec88cbbeefa",
+      "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Tests-of-controls.aspx",
+      "title": "Tests of controls",
+      "status": 200,
+      "final_url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Tests-of-controls.aspx",
+      "page_title": "Tests of controls"
+    },
+    {
+      "id": "career-resource-ba8315fdb90559dfefc4",
+      "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Substantive-procedures.aspx",
+      "title": "Substantive audit procedures",
+      "status": 200,
+      "final_url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Substantive-procedures.aspx",
+      "page_title": "Substantive procedures"
+    },
+    {
+      "id": "career-resource-bd45a349b1ac6a0648b5",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+      "title": "Internal control principles",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+      "page_title": "8.2 Define and Explain Internal Controls and Their Purpose within an Organization - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
     }
   ]
 }
