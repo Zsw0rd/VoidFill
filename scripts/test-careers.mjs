@@ -32,6 +32,9 @@ try {
   await db(a, "user_skill_scores", {operation: "upsert", onConflict: "user_id,skill_id", values: {user_id: uid, skill_id: remembered.id, score: 77}});
   await db(a, "user_stats", {operation: "update", values: {xp: 123, level: 1}});
   for (const career of pilot) {
+    // Cloud runs with 30 careers outlive the 60-second demo lease. Renew both
+    // isolated workspaces just as an open browser does; keep expiry unchanged.
+    for (const jar of jars) await call(jar, "/api/demo/lease", {tab: "career-test"});
     const stored = roles.find(role => role.name === career.name);
     await call(a, "/api/careers/profile", {role_id: stored.id, goal: "", level: "foundation", focus_skill_ids: [], context: ""});
     const map = await call(a, "/api/roadmap/generate");
