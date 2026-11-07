@@ -1,0 +1,715 @@
+{
+  "version": "2026.11-applied-paths-1",
+  "model": "voidfill-bge-base-v3",
+  "scope": "55 curated public topic paraphrases across all ten career families; exact-topic vector ranking, not end-to-end answer quality. Regression probes were not used for training. No independent domain-expert or real-user validation is claimed.",
+  "topic_recall_at_1": 0.8545454545454545,
+  "topic_recall_at_5": 0.9272727272727272,
+  "topic_mrr": 0.8921428571428571,
+  "unsupported_abstentions": 10,
+  "unsupported_count": 10,
+  "private_queries_not_cached": true,
+  "results": [
+    {
+      "query": "Process a large CSV in chunks and debug shared mutable function arguments",
+      "expected_topic": "python",
+      "top_5": [
+        "python",
+        "testing",
+        "algorithms",
+        "ml-operations",
+        "data-science"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Avoid duplicated totals when joining order headers to order line items",
+      "expected_topic": "sql",
+      "top_5": [
+        "inventory",
+        "spreadsheets",
+        "python",
+        "procurement",
+        "data-engineering"
+      ],
+      "rank": 10
+    },
+    {
+      "query": "Choose readable charts with honest axes and show distribution tails",
+      "expected_topic": "visualization",
+      "top_5": [
+        "visualization",
+        "data-science",
+        "financial-analysis",
+        "quality",
+        "inventory"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Build a browser form with HTML CSS JavaScript and recoverable validation errors",
+      "expected_topic": "web",
+      "top_5": [
+        "web",
+        "api",
+        "mobile",
+        "testing",
+        "ux"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Undo a published commit without rewriting collaborators' shared repository history",
+      "expected_topic": "git",
+      "top_5": [
+        "git",
+        "ml-operations",
+        "content",
+        "testing",
+        "technical-writing"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Choose a heap for repeated minimum priority extraction and analyze complexity",
+      "expected_topic": "algorithms",
+      "top_5": [
+        "algorithms",
+        "architecture",
+        "seo",
+        "inventory",
+        "data-science"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Evaluate a classifier with imbalanced labels and prevent target leakage",
+      "expected_topic": "machine-learning",
+      "top_5": [
+        "ml-operations",
+        "data-science",
+        "audit",
+        "learning-design",
+        "machine-learning"
+      ],
+      "rank": 5
+    },
+    {
+      "query": "Distinguish confounding from causal effects and report uncertainty from samples",
+      "expected_topic": "data-science",
+      "top_5": [
+        "research",
+        "customer-research",
+        "audit",
+        "testing",
+        "quality"
+      ],
+      "rank": 6
+    },
+    {
+      "query": "Design HTTP endpoints with authorization and idempotent retry behavior",
+      "expected_topic": "api",
+      "top_5": [
+        "api",
+        "security",
+        "architecture",
+        "ml-operations",
+        "cloud"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Reproduce an intermittent software defect and isolate automated test data",
+      "expected_topic": "testing",
+      "top_5": [
+        "testing",
+        "ml-operations",
+        "quality",
+        "mobile",
+        "audit"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Diagnose a daemon's effective file permissions and open log file handles",
+      "expected_topic": "linux",
+      "top_5": [
+        "linux",
+        "containers",
+        "quality",
+        "mobile",
+        "audit"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Investigate DNS failures routing and TCP port connectivity between subnets",
+      "expected_topic": "networking",
+      "top_5": [
+        "networking",
+        "seo",
+        "cloud",
+        "mobile",
+        "testing"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Plan hosted service recovery, shared dependencies and backup restoration",
+      "expected_topic": "cloud",
+      "top_5": [
+        "cloud",
+        "ml-operations",
+        "architecture",
+        "containers",
+        "git"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Prevent one authenticated user reading another user's private object by changing its identifier",
+      "expected_topic": "security",
+      "top_5": [
+        "security",
+        "api",
+        "react",
+        "sales",
+        "mobile"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Measure qualified campaign enquiries rather than clicks and overlapping attribution",
+      "expected_topic": "marketing",
+      "top_5": [
+        "marketing",
+        "recruiting",
+        "brand",
+        "sales",
+        "seo"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Create job-related interview criteria and compare candidate work-sample evidence",
+      "expected_topic": "recruiting",
+      "top_5": [
+        "recruiting",
+        "customer-research",
+        "research",
+        "audit",
+        "analysis"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Discover a business buyer's needs and qualify a mutually agreed next step",
+      "expected_topic": "sales",
+      "top_5": [
+        "sales",
+        "procurement",
+        "analysis",
+        "account-management",
+        "recruiting"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Help a customer achieve onboarding outcomes and recover a blocked workflow",
+      "expected_topic": "success",
+      "top_5": [
+        "success",
+        "hr-operations",
+        "sales",
+        "account-management",
+        "analysis"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Coordinate dependencies milestones resource conflicts and authorized scope changes",
+      "expected_topic": "projects",
+      "top_5": [
+        "projects",
+        "architecture",
+        "git",
+        "ml-operations",
+        "cloud"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Reconcile cashbook records with bank timing differences and accrued expenses",
+      "expected_topic": "accounting",
+      "top_5": [
+        "accounting",
+        "financial-analysis",
+        "payroll",
+        "inventory",
+        "account-management"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Audit copied cell references, lookup keys and pivot table source ranges",
+      "expected_topic": "spreadsheets",
+      "top_5": [
+        "spreadsheets",
+        "audit",
+        "inventory",
+        "procurement",
+        "quality"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Write a clear handover with decisions owners impact and a next update",
+      "expected_topic": "communication",
+      "top_5": [
+        "hospitality",
+        "account-management",
+        "content",
+        "projects",
+        "hr-operations"
+      ],
+      "rank": 8
+    },
+    {
+      "query": "Elicit stakeholder requirements and define testable business acceptance criteria",
+      "expected_topic": "analysis",
+      "top_5": [
+        "analysis",
+        "projects",
+        "sales",
+        "procurement",
+        "recruiting"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Choose module ownership transaction boundaries and failure semantics across services",
+      "expected_topic": "architecture",
+      "top_5": [
+        "analysis",
+        "projects",
+        "testing",
+        "ml-operations",
+        "quality"
+      ],
+      "rank": 7
+    },
+    {
+      "query": "Build reproducible Docker images and gate deployment on continuous integration checks",
+      "expected_topic": "containers",
+      "top_5": [
+        "containers",
+        "ml-operations",
+        "testing",
+        "architecture",
+        "data-engineering"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Reprocess late events with stable keys in an incremental ETL pipeline",
+      "expected_topic": "data-engineering",
+      "top_5": [
+        "data-engineering",
+        "ml-operations",
+        "data-science",
+        "inventory",
+        "events"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Prepare a dimensioned manufacturing drawing with datums and a tolerance stack",
+      "expected_topic": "cad",
+      "top_5": [
+        "manufacturing",
+        "cad",
+        "quality",
+        "data-engineering",
+        "inventory"
+      ],
+      "rank": 2
+    },
+    {
+      "query": "Improve production-line throughput by studying bottlenecks and rework",
+      "expected_topic": "manufacturing",
+      "top_5": [
+        "supply-chain",
+        "ml-operations",
+        "manufacturing",
+        "quality",
+        "product"
+      ],
+      "rank": 3
+    },
+    {
+      "query": "Separate gauge variation from process variation and verify corrective action effectiveness",
+      "expected_topic": "quality",
+      "top_5": [
+        "quality",
+        "audit",
+        "testing",
+        "inventory",
+        "research"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Prioritize a product hypothesis using user outcomes guardrails and reversible experiments",
+      "expected_topic": "product",
+      "top_5": [
+        "product",
+        "customer-research",
+        "research",
+        "learning-design",
+        "marketing"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Interview adopters and non-adopters neutrally about their actual customer needs",
+      "expected_topic": "customer-research",
+      "top_5": [
+        "customer-research",
+        "brand",
+        "recruiting",
+        "success",
+        "sales"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Test an interaction prototype for task completion and recovery after interruption",
+      "expected_topic": "ux",
+      "top_5": [
+        "ux",
+        "accessibility",
+        "learning-design",
+        "mobile",
+        "product"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Check keyboard focus dialog semantics text reflow and screen reader status announcements",
+      "expected_topic": "accessibility",
+      "top_5": [
+        "accessibility",
+        "mobile",
+        "ux",
+        "technical-writing",
+        "content"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Create a coherent typography spacing hierarchy and responsive component system",
+      "expected_topic": "visual-design",
+      "top_5": [
+        "visual-design",
+        "accessibility",
+        "cad",
+        "brand",
+        "mobile"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Edit an audience-focused article and verify claims under an editorial strategy",
+      "expected_topic": "content",
+      "top_5": [
+        "content",
+        "brand",
+        "technical-writing",
+        "customer-research",
+        "marketing"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Diagnose crawl and indexing problems after a public URL migration",
+      "expected_topic": "seo",
+      "top_5": [
+        "seo",
+        "api",
+        "mobile",
+        "networking",
+        "testing"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Design a study with suitable sampling ethics methods and reproducible evidence",
+      "expected_topic": "research",
+      "top_5": [
+        "customer-research",
+        "research",
+        "audit",
+        "procurement",
+        "sales"
+      ],
+      "rank": 2
+    },
+    {
+      "query": "Connect profit working capital and cash in a scenario forecast model",
+      "expected_topic": "financial-analysis",
+      "top_5": [
+        "financial-analysis",
+        "supply-chain",
+        "accounting",
+        "account-management",
+        "product"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Control employee joiner mover leaver records and confidential access approvals",
+      "expected_topic": "hr-operations",
+      "top_5": [
+        "hr-operations",
+        "payroll",
+        "sales",
+        "inventory",
+        "hospitality"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Align a training objective to practice assessment and transfer to workplace tasks",
+      "expected_topic": "learning-design",
+      "top_5": [
+        "learning-design",
+        "communication",
+        "accessibility",
+        "ml-operations",
+        "technical-writing"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Reconcile warehouse stock movements and calculate a reorder point with safety stock",
+      "expected_topic": "inventory",
+      "top_5": [
+        "inventory",
+        "accounting",
+        "supply-chain",
+        "quality",
+        "git"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Balance demand and supplier capacity under uncertain lead times and service targets",
+      "expected_topic": "supply-chain",
+      "top_5": [
+        "supply-chain",
+        "procurement",
+        "inventory",
+        "brand",
+        "product"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Fix a React effect's stale closure and stable list keys without duplicating derived state",
+      "expected_topic": "react",
+      "top_5": [
+        "react",
+        "testing",
+        "api",
+        "architecture",
+        "ml-operations"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Design an offline Android or iOS app with lifecycle restoration and sync conflicts",
+      "expected_topic": "mobile",
+      "top_5": [
+        "mobile",
+        "architecture",
+        "ml-operations",
+        "ux",
+        "projects"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Version model artifacts and serving preprocessing while monitoring drift and release quality",
+      "expected_topic": "ml-operations",
+      "top_5": [
+        "ml-operations",
+        "testing",
+        "data-engineering",
+        "quality",
+        "architecture"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Define a credible differentiated brand promise and consistent identity across channels",
+      "expected_topic": "brand",
+      "top_5": [
+        "brand",
+        "sales",
+        "marketing",
+        "content",
+        "account-management"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Reconcile approved hours gross-to-net pay and authorized payroll corrections",
+      "expected_topic": "payroll",
+      "top_5": [
+        "payroll",
+        "accounting",
+        "spreadsheets",
+        "hr-operations",
+        "hospitality"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Link an assurance workpaper's assertions to sample evidence and control exceptions",
+      "expected_topic": "audit",
+      "top_5": [
+        "audit",
+        "customer-research",
+        "research",
+        "technical-writing",
+        "content"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Compare supplier offers by delivered cost quality requirements and purchase approval",
+      "expected_topic": "procurement",
+      "top_5": [
+        "procurement",
+        "sales",
+        "analysis",
+        "brand",
+        "inventory"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Specify a simulated PLC state machine with interlocks fault reset and restart transitions",
+      "expected_topic": "automation",
+      "top_5": [
+        "automation",
+        "ml-operations",
+        "quality",
+        "testing",
+        "api"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Calculate resistor current power and voltage while considering instrument loading",
+      "expected_topic": "electronics",
+      "top_5": [
+        "electronics",
+        "inventory",
+        "automation",
+        "quality",
+        "technical-writing"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Write a versioned API task guide with prerequisites executable examples and troubleshooting",
+      "expected_topic": "technical-writing",
+      "top_5": [
+        "technical-writing",
+        "ml-operations",
+        "projects",
+        "testing",
+        "architecture"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Coordinate a venue run-of-show capacity and contingency owners for a public event",
+      "expected_topic": "events",
+      "top_5": [
+        "events",
+        "supply-chain",
+        "hospitality",
+        "content",
+        "recruiting"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Coordinate room readiness guest service recovery and a hotel shift handover",
+      "expected_topic": "hospitality",
+      "top_5": [
+        "hospitality",
+        "events",
+        "success",
+        "account-management",
+        "supply-chain"
+      ],
+      "rank": 1
+    },
+    {
+      "query": "Review customer account value renewal stakeholders and authorized expansion commitments",
+      "expected_topic": "account-management",
+      "top_5": [
+        "account-management",
+        "success",
+        "analysis",
+        "sales",
+        "customer-research"
+      ],
+      "rank": 1
+    }
+  ],
+  "unsupported": [
+    {
+      "query": "Clinical surgery",
+      "abstained": true
+    },
+    {
+      "query": "Underwater basket weaving",
+      "abstained": true
+    },
+    {
+      "query": "Spacecraft propulsion engineering",
+      "abstained": true
+    },
+    {
+      "query": "Veterinary anaesthesia",
+      "abstained": true
+    },
+    {
+      "query": "Nuclear reactor licensing",
+      "abstained": true
+    },
+    {
+      "query": "Maritime navigation certification",
+      "abstained": true
+    },
+    {
+      "query": "Criminal litigation",
+      "abstained": true
+    },
+    {
+      "query": "Dental implant surgery",
+      "abstained": true
+    },
+    {
+      "query": "Air traffic control",
+      "abstained": true
+    },
+    {
+      "query": "Pharmaceutical formulation",
+      "abstained": true
+    }
+  ]
+}

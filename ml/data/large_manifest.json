@@ -1,0 +1,84 @@
+{
+  "dataset": "flax-sentence-embeddings/stackexchange_title_best_voted_answer_jsonl",
+  "revision": "88957a0e825f49aeb2a7bfd828cb46b79010b286",
+  "url": "https://huggingface.co/datasets/flax-sentence-embeddings/stackexchange_title_best_voted_answer_jsonl",
+  "dataset_card_license": "CC-BY-NC-SA-4.0",
+  "usage": "Local noncommercial academic research. Export lacks per-post author/URL attribution. Resolve attribution and applicable rights before commercial use or redistribution of data/derived weights. No records enter product questions or resources.",
+  "source_files": [
+    {
+      "site": "dba",
+      "filename": "dba.stackexchange.com.jsonl.gz",
+      "sha256": "f0de07ff90dc041f95107b8aa23a63135afff3a624b0be4b3d800e64a828490b",
+      "eligible": 69795,
+      "selected": 14000
+    },
+    {
+      "site": "stats",
+      "filename": "stats.stackexchange.com.jsonl.gz",
+      "sha256": "bee458ccd1ca2e33fae09ded1631cfff3e6f4dd2ae4dd06f0bcada6166b032c2",
+      "eligible": 114432,
+      "selected": 14000
+    },
+    {
+      "site": "cs",
+      "filename": "cs.stackexchange.com.jsonl.gz",
+      "sha256": "970b2425d290bcda4f6dca581add5894f63c5ef4767285dade1b22270f75c79f",
+      "eligible": 29520,
+      "selected": 12000
+    },
+    {
+      "site": "datascience",
+      "filename": "datascience.stackexchange.com.jsonl.gz",
+      "sha256": "372ba82aeb6fbb6fb7cd4c61ed60bcd46fcc79f15e77d1efd8d20998dff51c9d",
+      "eligible": 19802,
+      "selected": 11000
+    },
+    {
+      "site": "softwareengineering",
+      "filename": "softwareengineering.stackexchange.com.jsonl.gz",
+      "sha256": "4d44dcae9c2bc5d4ece3bc40acb3326be333999a6f263943fa8914e8f787dbed",
+      "eligible": 50958,
+      "selected": 10000
+    },
+    {
+      "site": "webmasters",
+      "filename": "webmasters.stackexchange.com.jsonl.gz",
+      "sha256": "35a93a2871716e3537a84cff893a7ec571c0a2a923135c937957ae57020aac88",
+      "eligible": 29281,
+      "selected": 8000
+    },
+    {
+      "site": "ai",
+      "filename": "ai.stackexchange.com.jsonl.gz",
+      "sha256": "0cb427d4659ff973e5fd80c836b083bf0489269eb78539be70a5403d7244cebc",
+      "eligible": 5659,
+      "selected": 4000
+    }
+  ],
+  "splits": {
+    "train": 70072,
+    "validation": 1448,
+    "test": 1480
+  },
+  "split_rule": "normalized titles and full answers deduplicated globally; SHA256 title hash buckets 96/2/2; all frozen curriculum query strings excluded; no external test rows used in fitting or selection",
+  "curriculum_examples": 1966,
+  "curriculum_training_lessons": 114,
+  "curriculum_heldout_lessons": 28,
+  "curriculum_supervision": {
+    "source heading": 644,
+    "source excerpt": 939,
+    "author quiz link": 383
+  },
+  "rejected": {
+    "length": 4820,
+    "credential_like_text": 230,
+    "duplicate_or_curriculum_overlap": 603
+  },
+  "seed": 47,
+  "prepared_sha256": {
+    "train": "6202b37415ebd3e87f483e5cb7b6eec0e5f0150dd7a7640b933b97bb19a204a6",
+    "validation": "864f0df2226b3619b1be7929af1fbd2010edf8d95c8e5f6e88e5492c3094fb06",
+    "test": "f4952db59c189957e48dd93a00a6c6428080b9cca1c7bbe4580ee5664832e2a3",
+    "curriculum": "59883df1ec1ee0a3fc7c682fe07b7e08fdc7284536fa571e1493cb6b03f364dd"
+  }
+}

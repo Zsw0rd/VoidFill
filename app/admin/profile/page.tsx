@@ -4,7 +4,7 @@ import { AdminShell } from "@/components/AdminShell";
 import { AdminProfileEditor } from "./ui";
 
 export default async function AdminProfilePage() {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) redirect("/auth/admin-login");
 

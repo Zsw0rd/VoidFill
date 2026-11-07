@@ -1,0 +1,2354 @@
+[
+  {
+    "id": "career-resource-b377ef5d42a571298845",
+    "title": "About version control",
+    "url": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control",
+    "provider": "Pro Git",
+    "description": "Understand version history, collaboration and repository concepts.",
+    "text": "About version control. Understand version history, collaboration and repository concepts.",
+    "topics": [
+      "git"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Pro Git (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-75f1d01d8f91f12dfe75",
+    "title": "Recording changes to a repository",
+    "url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository",
+    "provider": "Pro Git",
+    "description": "Inspect changes, stage a focused change and record a commit.",
+    "text": "Recording changes to a repository. Inspect changes, stage a focused change and record a commit.",
+    "topics": [
+      "git"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Pro Git (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-0311ea2c2be33640113c",
+    "title": "Basic branching and merging",
+    "url": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging",
+    "provider": "Pro Git",
+    "description": "Work with branches and deliberate conflict resolution.",
+    "text": "Basic branching and merging. Work with branches and deliberate conflict resolution.",
+    "topics": [
+      "git"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Pro Git (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-bee16746c6eb2effd701",
+    "title": "Python data structures",
+    "url": "https://docs.python.org/3/tutorial/datastructures.html",
+    "provider": "Python documentation",
+    "description": "Explore lists, stacks, queues and structured data operations.",
+    "text": "Python data structures. Explore lists, stacks, queues and structured data operations.",
+    "topics": [
+      "algorithms"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Python documentation (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-14729e0f9e99c6dd96bd",
+    "title": "Binary search with bisect",
+    "url": "https://docs.python.org/3/library/bisect.html",
+    "provider": "Python documentation",
+    "description": "Understand searching sorted sequences and insertion trade-offs.",
+    "text": "Binary search with bisect. Understand searching sorted sequences and insertion trade-offs.",
+    "topics": [
+      "algorithms"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Python documentation (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-6a9a3392c1455846b61b",
+    "title": "Heap queues",
+    "url": "https://docs.python.org/3/library/heapq.html",
+    "provider": "Python documentation",
+    "description": "Explore heap order, priority queues and efficient access to an extreme value.",
+    "text": "Heap queues. Explore heap order, priority queues and efficient access to an extreme value.",
+    "topics": [
+      "algorithms"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Python documentation (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-00bfd85f2741a83f7291",
+    "title": "Create and use pivot tables",
+    "url": "https://support.google.com/docs/answer/1272900?hl=en",
+    "provider": "Google Docs Editors Help",
+    "description": "Summarize structured data with categories, values and filters.",
+    "text": "Create and use pivot tables. Summarize structured data with categories, values and filters.",
+    "topics": [
+      "spreadsheets"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Docs Editors Help (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-7c2b49e6b750a2454cb9",
+    "title": "Google Sheets function list",
+    "url": "https://support.google.com/docs/table/25273?hl=en",
+    "provider": "Google Docs Editors Help",
+    "description": "Look up arithmetic, conditional, counting and lookup functions.",
+    "text": "Google Sheets function list. Look up arithmetic, conditional, counting and lookup functions.",
+    "topics": [
+      "spreadsheets"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Docs Editors Help (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-d02dfc9bb7add035c0d4",
+    "title": "Overview of formulas in Excel",
+    "url": "https://support.microsoft.com/en-us/office/overview-of-formulas-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173",
+    "provider": "Microsoft Support",
+    "description": "Understand formulas, operators and cell references.",
+    "text": "Overview of formulas in Excel. Understand formulas, operators and cell references.",
+    "topics": [
+      "spreadsheets"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Support (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-d80406fdc9e304415990",
+    "title": "Active listening",
+    "url": "https://www.skillsbuilder.org/global/universal-framework-steps/listening-step-7-active-listening",
+    "provider": "Skills Builder Partnership",
+    "description": "Reflect on listening, checking understanding and responding to another person's message.",
+    "text": "Active listening. Reflect on listening, checking understanding and responding to another person's message.",
+    "topics": [
+      "communication"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Skills Builder Partnership (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-2f90b267348f46d4017e",
+    "title": "Working agreements",
+    "url": "https://www.atlassian.com/team-playbook/plays/working-agreements",
+    "provider": "Atlassian Team Playbook",
+    "description": "Agree how a team communicates and works together.",
+    "text": "Working agreements. Agree how a team communicates and works together.",
+    "topics": [
+      "communication"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian Team Playbook (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-418999b6d2292fca5eb7",
+    "title": "Roles and responsibilities",
+    "url": "https://www.atlassian.com/team-playbook/plays/roles-and-responsibilities",
+    "provider": "Atlassian Team Playbook",
+    "description": "Make team responsibilities and handoffs explicit.",
+    "text": "Roles and responsibilities. Make team responsibilities and handoffs explicit.",
+    "topics": [
+      "communication"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian Team Playbook (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-09205585873f8f296ebe",
+    "title": "The Business Analysis Standard",
+    "url": "https://www.iiba.org/knowledgehub/the-business-analysis-standard/",
+    "provider": "IIBA",
+    "description": "Explore the purpose and concepts of business analysis. Some downloads may require a provider account.",
+    "text": "The Business Analysis Standard. Explore the purpose and concepts of business analysis. Some downloads may require a provider account.",
+    "topics": [
+      "analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "IIBA (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-87499d1e1ec60bea0324",
+    "title": "Requirements gathering",
+    "url": "https://www.atlassian.com/work-management/project-management/requirements-gathering",
+    "provider": "Atlassian",
+    "description": "Connect stakeholder needs, requirements and verifiable outcomes.",
+    "text": "Requirements gathering. Connect stakeholder needs, requirements and verifiable outcomes.",
+    "topics": [
+      "analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3333de15c00d5936d8fe",
+    "title": "Management Analysts: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/13-1111.00",
+    "provider": "O*NET OnLine",
+    "description": "Review related analysis and improvement activities. This is a career reference.",
+    "text": "Management Analysts: occupation overview. Review related analysis and improvement activities. This is a career reference.",
+    "topics": [
+      "analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3af363d51f06e0efa77e",
+    "title": "Delivering exceptional customer support",
+    "url": "https://academy.hubspot.com/courses/delivering-exceptional-customer-support",
+    "provider": "HubSpot Academy",
+    "description": "Explore customer understanding, support processes and communication. Free provider account may be required.",
+    "text": "Delivering exceptional customer support. Explore customer understanding, support processes and communication. Free provider account may be required.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-6050421d8b173b9ccb90",
+    "title": "Service Hub software",
+    "url": "https://academy.hubspot.com/courses/hubspot-service-software",
+    "provider": "HubSpot Academy",
+    "description": "Explore organizing service work, reporting and customer context. Provider software access may be needed for some exercises.",
+    "text": "Service Hub software. Explore organizing service work, reporting and customer context. Provider software access may be needed for some exercises.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-10f59c55d3dee15b53c7",
+    "title": "Customer service representatives: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/43-4051.00",
+    "provider": "O*NET OnLine",
+    "description": "Review related service activities and capabilities. This is a career reference.",
+    "text": "Customer service representatives: occupation overview. Review related service activities and capabilities. This is a career reference.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4a5e1f70f6f28e160f76",
+    "title": "Project risk management",
+    "url": "https://www.atlassian.com/work-management/project-management/project-risk-management",
+    "provider": "Atlassian",
+    "description": "Identify risks, assess impacts and plan owned responses.",
+    "text": "Project risk management. Identify risks, assess impacts and plan owned responses.",
+    "topics": [
+      "projects"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-fdff649e8ef4a980c759",
+    "title": "Project scope",
+    "url": "https://www.atlassian.com/work-management/project-management/project-scope",
+    "provider": "Atlassian",
+    "description": "Define project boundaries, deliverables and change expectations.",
+    "text": "Project scope. Define project boundaries, deliverables and change expectations.",
+    "topics": [
+      "projects"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-92c0b5216c6518077d8b",
+    "title": "Project Management Specialists: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/13-1082.00",
+    "provider": "O*NET OnLine",
+    "description": "Review project coordination activities and skills. This is a career reference.",
+    "text": "Project Management Specialists: occupation overview. Review project coordination activities and skills. This is a career reference.",
+    "topics": [
+      "projects"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-a8434ccf2ed49ef540f9",
+    "title": "Financial accounting foundations",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/1-why-it-matters",
+    "provider": "OpenStax",
+    "description": "Study introductory accounting concepts using the linked open textbook. Practice questions in VoidFill are original, not its exam items.",
+    "text": "Financial accounting foundations. Study introductory accounting concepts using the linked open textbook. Practice questions in VoidFill are original, not its exam items.",
+    "topics": [
+      "accounting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-885b19429d4477e02bed",
+    "title": "Elements of financial statements",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+    "provider": "OpenStax",
+    "description": "Review assets, liabilities, equity, revenues and expenses.",
+    "text": "Elements of financial statements. Review assets, liabilities, equity, revenues and expenses.",
+    "topics": [
+      "accounting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-c43ed057dfdb5fac89fd",
+    "title": "Accounting adjustments and period-end foundations",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/4-why-it-matters",
+    "provider": "OpenStax",
+    "description": "Explore why accounting adjustments matter. Country-specific tax, payroll and professional qualification rules are outside this pack.",
+    "text": "Accounting adjustments and period-end foundations. Explore why accounting adjustments matter. Country-specific tax, payroll and professional qualification rules are outside this pack.",
+    "topics": [
+      "accounting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-fc830cebaa10205ed3f1",
+    "title": "Digital Marketing",
+    "url": "https://academy.hubspot.com/courses/digital-marketing",
+    "provider": "HubSpot Academy",
+    "description": "Plan audience-focused campaigns and their measurement. Free provider account may be required.",
+    "text": "Digital Marketing. Plan audience-focused campaigns and their measurement. Free provider account may be required.",
+    "topics": [
+      "marketing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-194927714ef79e921ab4",
+    "title": "Search Engine Optimization Starter Guide",
+    "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "provider": "Google Search Central",
+    "description": "Understand discoverable, useful web content and search fundamentals.",
+    "text": "Search Engine Optimization Starter Guide. Understand discoverable, useful web content and search fundamentals.",
+    "topics": [
+      "marketing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Search Central (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-b7323e0bae5c7e69451b",
+    "title": "Email Marketing",
+    "url": "https://academy.hubspot.com/courses/email-marketing",
+    "provider": "HubSpot Academy",
+    "description": "Explore audience relevance, useful email campaigns and measurement. Free provider account may be required.",
+    "text": "Email Marketing. Explore audience relevance, useful email campaigns and measurement. Free provider account may be required.",
+    "topics": [
+      "marketing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-7dc843950f5df38e2316",
+    "title": "Selection methods",
+    "url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/",
+    "provider": "CIPD",
+    "description": "Compare structured interviews, work samples and evidence-based candidate assessment. Some linked material is member-only; local rules vary.",
+    "text": "Selection methods. Compare structured interviews, work samples and evidence-based candidate assessment. Some linked material is member-only; local rules vary.",
+    "topics": [
+      "recruiting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "CIPD (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4d7fdae98da8d4fd0a33",
+    "title": "Recruitment resources",
+    "url": "https://www.cipd.org/uk/topics/recruitment/",
+    "provider": "CIPD",
+    "description": "Explore role definition, sourcing and selection. Some linked material is member-only; this is not country-specific legal training.",
+    "text": "Recruitment resources. Explore role definition, sourcing and selection. Some linked material is member-only; this is not country-specific legal training.",
+    "topics": [
+      "recruiting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "CIPD (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-63095607c61d302f0758",
+    "title": "Human Resources Specialists: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/13-1071.00",
+    "provider": "O*NET OnLine",
+    "description": "Review related work activities and occupational context. This is a career reference, not an assessment course.",
+    "text": "Human Resources Specialists: occupation overview. Review related work activities and occupational context. This is a career reference, not an assessment course.",
+    "topics": [
+      "recruiting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-e8eedc80e0615420aedc",
+    "title": "Inbound Sales",
+    "url": "https://academy.hubspot.com/courses/inbound-sales",
+    "provider": "HubSpot Academy",
+    "description": "Practice customer discovery, qualification and relevant conversations. Free provider account may be required.",
+    "text": "Inbound Sales. Practice customer discovery, qualification and relevant conversations. Free provider account may be required.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-b40f1bf62bc60ee72b84",
+    "title": "Sales Enablement",
+    "url": "https://academy.hubspot.com/courses/Sales-Enablement",
+    "provider": "HubSpot Academy",
+    "description": "Connect sales processes, customer needs and useful handoffs. Free provider account may be required.",
+    "text": "Sales Enablement. Connect sales processes, customer needs and useful handoffs. Free provider account may be required.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-af992b76f66568b241b9",
+    "title": "Sales representatives: occupation overview",
+    "url": "https://www.onetonline.org/link/summary/41-3091.00",
+    "provider": "O*NET OnLine",
+    "description": "Explore tasks and skills in the related occupation. This is a career reference.",
+    "text": "Sales representatives: occupation overview. Explore tasks and skills in the related occupation. This is a career reference.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-d569b55a6483bffb303d",
+    "title": "Overview of HTTP",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+    "provider": "MDN Web Docs",
+    "description": "Understand requests, responses and the HTTP client-server model.",
+    "text": "Overview of HTTP. Understand requests, responses and the HTTP client-server model.",
+    "topics": [
+      "api"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MDN Web Docs (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-0dbd3d2673dacc913410",
+    "title": "HTTP request methods",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+    "provider": "MDN Web Docs",
+    "description": "Compare retrieval, creation, replacement and other method semantics.",
+    "text": "HTTP request methods. Compare retrieval, creation, replacement and other method semantics.",
+    "topics": [
+      "api"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MDN Web Docs (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-a7cc285b4fd506c52384",
+    "title": "HTTP response status codes",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+    "provider": "MDN Web Docs",
+    "description": "Interpret response classes and common application status codes.",
+    "text": "HTTP response status codes. Interpret response classes and common application status codes.",
+    "topics": [
+      "api"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MDN Web Docs (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-797d980153ad152d04b6",
+    "title": "Get started with pytest",
+    "url": "https://docs.pytest.org/en/stable/getting-started.html",
+    "provider": "pytest",
+    "description": "Practice arranging tests, executing behavior and checking expectations.",
+    "text": "Get started with pytest. Practice arranging tests, executing behavior and checking expectations.",
+    "topics": [
+      "testing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "pytest (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-ecb53596f43cde370334",
+    "title": "End-to-end testing best practices",
+    "url": "https://playwright.dev/docs/best-practices",
+    "provider": "Playwright",
+    "description": "Learn isolation, reliable locators and tests of observable behavior.",
+    "text": "End-to-end testing best practices. Learn isolation, reliable locators and tests of observable behavior.",
+    "topics": [
+      "testing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Playwright (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-391e6ffb0b3c224e01b0",
+    "title": "Writing assertions",
+    "url": "https://playwright.dev/docs/test-assertions",
+    "provider": "Playwright",
+    "description": "Use meaningful assertions and appropriate waiting for browser behavior.",
+    "text": "Writing assertions. Use meaningful assertions and appropriate waiting for browser behavior.",
+    "topics": [
+      "testing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Playwright (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-8a7935c43ef9083e3b12",
+    "title": "The Linux command line for beginners",
+    "url": "https://ubuntu.com/tutorials/command-line-for-beginners",
+    "provider": "Ubuntu",
+    "description": "Navigate directories, manage files and compose simple commands.",
+    "text": "The Linux command line for beginners. Navigate directories, manage files and compose simple commands.",
+    "topics": [
+      "linux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Ubuntu (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-bbf85934c1076ecb7bc4",
+    "title": "File permissions",
+    "url": "https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html",
+    "provider": "GNU",
+    "description": "Understand read, write and execute permissions and their scope.",
+    "text": "File permissions. Understand read, write and execute permissions and their scope.",
+    "topics": [
+      "linux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GNU (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-64e32e8afc70b96abb18",
+    "title": "Bash pipelines",
+    "url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+    "provider": "GNU",
+    "description": "Connect commands and understand pipeline execution.",
+    "text": "Bash pipelines. Connect commands and understand pipeline execution.",
+    "topics": [
+      "linux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GNU (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-1d3d89d0ade1c2f525bc",
+    "title": "Networking Basics",
+    "url": "https://www.netacad.com/courses/networking-basics",
+    "provider": "Cisco Networking Academy",
+    "description": "Study network components, connectivity and basic troubleshooting. Provider account may be required.",
+    "text": "Networking Basics. Study network components, connectivity and basic troubleshooting. Provider account may be required.",
+    "topics": [
+      "networking"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Cisco Networking Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-63fe998ebd1b2b8bc063",
+    "title": "Fundamentals of computer networking",
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+    "provider": "Microsoft Learn",
+    "description": "Study TCP/IP, DNS, ports and the principles of network communication.",
+    "text": "Fundamentals of computer networking. Study TCP/IP, DNS, ports and the principles of network communication.",
+    "topics": [
+      "networking"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-76629e940c5d1b561f03",
+    "title": "Virtual network fundamentals",
+    "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+    "provider": "Microsoft Learn",
+    "description": "Explore networks, subnets and routing using an Azure example.",
+    "text": "Virtual network fundamentals. Explore networks, subnets and routing using an Azure example.",
+    "topics": [
+      "networking"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4261012b3fba6f5a37eb",
+    "title": "Describe cloud computing",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+    "provider": "Microsoft Learn",
+    "description": "Explore service models, shared responsibility and cloud operating concepts.",
+    "text": "Describe cloud computing. Explore service models, shared responsibility and cloud operating concepts.",
+    "topics": [
+      "cloud"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-03bc8731f1f09255ab35",
+    "title": "Shared responsibility model",
+    "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+    "provider": "AWS",
+    "description": "Distinguish provider responsibilities from application and customer responsibilities.",
+    "text": "Shared responsibility model. Distinguish provider responsibilities from application and customer responsibilities.",
+    "topics": [
+      "cloud"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "AWS (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-f7911eb3bf8a605bef8b",
+    "title": "Benefits of cloud services",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+    "provider": "Microsoft Learn",
+    "description": "Review availability, scalability, reliability and cloud operating trade-offs.",
+    "text": "Benefits of cloud services. Review availability, scalability, reliability and cloud operating trade-offs.",
+    "topics": [
+      "cloud"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-422c2f722165341ac595",
+    "title": "Authorization guidance",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+    "provider": "OWASP",
+    "description": "Study least privilege and permission checks for protected actions and records.",
+    "text": "Authorization guidance. Study least privilege and permission checks for protected actions and records.",
+    "topics": [
+      "security"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OWASP (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-cb74541bed9d1fcd2109",
+    "title": "Authentication guidance",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+    "provider": "OWASP",
+    "description": "Understand identity checks, authentication controls and session protection.",
+    "text": "Authentication guidance. Understand identity checks, authentication controls and session protection.",
+    "topics": [
+      "security"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OWASP (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4df1fad12273bbad7733",
+    "title": "Introduction to Cybersecurity",
+    "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+    "provider": "Cisco Networking Academy",
+    "description": "Learn security concepts and common threats. Provider account may be required.",
+    "text": "Introduction to Cybersecurity. Learn security concepts and common threats. Provider account may be required.",
+    "topics": [
+      "security"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Cisco Networking Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3a1f7637048a5f7b789a",
+    "title": "Architecture styles",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/",
+    "provider": "Microsoft Learn",
+    "description": "Compare application structures and their operating trade-offs.",
+    "text": "Architecture styles. Compare application structures and their operating trade-offs.",
+    "topics": [
+      "architecture"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-dcf410e61f8a24340539",
+    "title": "Cloud design patterns",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
+    "provider": "Microsoft Learn",
+    "description": "Explore common approaches to distributed-system problems.",
+    "text": "Cloud design patterns. Explore common approaches to distributed-system problems.",
+    "topics": [
+      "architecture"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-10bd02065585320e1882",
+    "title": "Architecture design principles",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/",
+    "provider": "Microsoft Learn",
+    "description": "Consider failure, scalability and boundaries when designing software.",
+    "text": "Architecture design principles. Consider failure, scalability and boundaries when designing software.",
+    "topics": [
+      "architecture"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-c201a6433fd48e43ec16",
+    "title": "Docker overview",
+    "url": "https://docs.docker.com/get-started/docker-overview/",
+    "provider": "Docker",
+    "description": "Understand images, containers, storage and the Docker execution model.",
+    "text": "Docker overview. Understand images, containers, storage and the Docker execution model.",
+    "topics": [
+      "containers"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Docker (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-94d354da5943e2cf4a68",
+    "title": "Understanding GitHub Actions",
+    "url": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
+    "provider": "GitHub Docs",
+    "description": "Explore events, workflows, jobs and reproducible automation.",
+    "text": "Understanding GitHub Actions. Explore events, workflows, jobs and reproducible automation.",
+    "topics": [
+      "containers"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GitHub Docs (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-bef9d1ba64c268354452",
+    "title": "GitHub deployment environments",
+    "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments",
+    "provider": "GitHub Docs",
+    "description": "Study environment configuration and deployment controls in an automation workflow.",
+    "text": "GitHub deployment environments. Study environment configuration and deployment controls in an automation workflow.",
+    "topics": [
+      "containers"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GitHub Docs (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-1c87884f4ae9ada676c9",
+    "title": "Getting started with data engineering",
+    "url": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/",
+    "provider": "Microsoft Learn",
+    "description": "Review pipeline responsibilities and data integration concepts. The learning path assumes basic cloud-data knowledge.",
+    "text": "Getting started with data engineering. Review pipeline responsibilities and data integration concepts. The learning path assumes basic cloud-data knowledge.",
+    "topics": [
+      "data-engineering"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-5c380dc7e3726249884d",
+    "title": "ETL and ELT",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl",
+    "provider": "Microsoft Learn",
+    "description": "Compare transformation placement and data movement patterns.",
+    "text": "ETL and ELT. Compare transformation placement and data movement patterns.",
+    "topics": [
+      "data-engineering"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Microsoft Learn (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-a69937ce1d022d1da1f1",
+    "title": "Airflow core concepts",
+    "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html",
+    "provider": "Apache Airflow",
+    "description": "Explore scheduled workflows, tasks and dependencies.",
+    "text": "Airflow core concepts. Explore scheduled workflows, tasks and dependencies.",
+    "topics": [
+      "data-engineering"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Apache Airflow (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-87574ffc8f0e22125d0d",
+    "title": "AutoCAD basics",
+    "url": "https://help.autodesk.com/view/ACD/2026/ENU/",
+    "provider": "Autodesk",
+    "description": "Use the official help to explore drawing setup, geometry, layers and annotation.",
+    "text": "AutoCAD basics. Use the official help to explore drawing setup, geometry, layers and annotation.",
+    "topics": [
+      "cad"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Autodesk (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-fe6920d531e32636a5bd",
+    "title": "Dimensioning in AutoCAD",
+    "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-DidYouKnow/files/GUID-7B14AAA4-3208-4384-A444-8A29231C4A02.htm",
+    "provider": "Autodesk",
+    "description": "Review dimensioning tools and readable drawing annotations.",
+    "text": "Dimensioning in AutoCAD. Review dimensioning tools and readable drawing annotations.",
+    "topics": [
+      "cad"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Autodesk (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4d18ad2623d6943dc768",
+    "title": "CAD Technician: occupation context",
+    "url": "https://www.onetonline.org/link/summary/17-3013.00",
+    "provider": "O*NET OnLine",
+    "description": "Review drafting tasks and documentation responsibilities. This is an occupation reference.",
+    "text": "CAD Technician: occupation context. Review drafting tasks and documentation responsibilities. This is an occupation reference.",
+    "topics": [
+      "cad"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-d144480b460dce2a5847",
+    "title": "Design and Manufacturing II",
+    "url": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/",
+    "provider": "MIT OpenCourseWare",
+    "description": "Explore manufacturing process selection, materials and system trade-offs. Some material is beyond foundation level.",
+    "text": "Design and Manufacturing II. Explore manufacturing process selection, materials and system trade-offs. Some material is beyond foundation level.",
+    "topics": [
+      "manufacturing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MIT OpenCourseWare (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-6fcd993f77edab3476d3",
+    "title": "Introduction to lean manufacturing",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-1/",
+    "provider": "PALNI Open Press",
+    "description": "Explore process flow, operating waste and improvement concepts.",
+    "text": "Introduction to lean manufacturing. Explore process flow, operating waste and improvement concepts.",
+    "topics": [
+      "manufacturing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "PALNI Open Press (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-08f9694a56604cee2e5c",
+    "title": "Manufacturing Engineers: occupation context",
+    "url": "https://www.onetonline.org/link/summary/17-2112.03",
+    "provider": "O*NET OnLine",
+    "description": "Review manufacturing activities and quality responsibilities. This is an occupation reference.",
+    "text": "Manufacturing Engineers: occupation context. Review manufacturing activities and quality responsibilities. This is an occupation reference.",
+    "topics": [
+      "manufacturing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-11036a28b178c32f5b2c",
+    "title": "Financial statement analysis",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/a-financial-statement-analysis",
+    "provider": "OpenStax",
+    "description": "Study common-size, trend and ratio analysis using educational examples.",
+    "text": "Financial statement analysis. Study common-size, trend and ratio analysis using educational examples.",
+    "topics": [
+      "financial-analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-9194a5394b1d7b30d2da",
+    "title": "Common-size statements",
+    "url": "https://openstax.org/books/principles-finance/pages/5-7-common-size-statements",
+    "provider": "OpenStax",
+    "description": "Compare statement components using a consistent percentage base.",
+    "text": "Common-size statements. Compare statement components using a consistent percentage base.",
+    "topics": [
+      "financial-analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-8a73a991e180d0e7dda7",
+    "title": "Operating efficiency ratios",
+    "url": "https://openstax.org/books/principles-finance/pages/6-2-operating-efficiency-ratios",
+    "provider": "OpenStax",
+    "description": "Explore operating-efficiency measures and their interpretation. This is learning material, not investment advice.",
+    "text": "Operating efficiency ratios. Explore operating-efficiency measures and their interpretation. This is learning material, not investment advice.",
+    "topics": [
+      "financial-analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4f32446aa47a509a4e17",
+    "title": "Employee induction",
+    "url": "https://www.cipd.org/uk/knowledge/factsheets/induction-factsheet/",
+    "provider": "CIPD",
+    "description": "Plan useful onboarding with clear responsibilities. Local employment requirements vary.",
+    "text": "Employee induction. Plan useful onboarding with clear responsibilities. Local employment requirements vary.",
+    "topics": [
+      "hr-operations"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "CIPD (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-a50b42e3a8904f9df25c",
+    "title": "People analytics",
+    "url": "https://www.cipd.org/uk/knowledge/factsheets/analytics-factsheet/",
+    "provider": "CIPD",
+    "description": "Consider reliable people data, business questions and responsible interpretation. Some material requires membership.",
+    "text": "People analytics. Consider reliable people data, business questions and responsible interpretation. Some material requires membership.",
+    "topics": [
+      "hr-operations"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "CIPD (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-48d98aa540da4ee261c8",
+    "title": "Human resources management",
+    "url": "https://openstax.org/books/principles-management/pages/11-introduction",
+    "provider": "OpenStax",
+    "description": "Explore general HR processes and organizational responsibilities; not country-specific legal guidance.",
+    "text": "Human resources management. Explore general HR processes and organizational responsibilities; not country-specific legal guidance.",
+    "topics": [
+      "hr-operations"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3fbe4ef41f2464a98b34",
+    "title": "Articulate learning objectives",
+    "url": "https://www.cmu.edu/teaching/designteach/design/learningobjectives.html",
+    "provider": "Carnegie Mellon Eberly Center",
+    "description": "Make intended learning observable and assessable.",
+    "text": "Articulate learning objectives. Make intended learning observable and assessable.",
+    "topics": [
+      "learning-design"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Carnegie Mellon Eberly Center (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-589ecd51ea1a749c7072",
+    "title": "Identify appropriate assessments",
+    "url": "https://www.cmu.edu/teaching/designteach/design/assessments.html",
+    "provider": "Carnegie Mellon Eberly Center",
+    "description": "Align evidence of learning with the intended objective.",
+    "text": "Identify appropriate assessments. Align evidence of learning with the intended objective.",
+    "topics": [
+      "learning-design"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Carnegie Mellon Eberly Center (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-55bf5f2352d97557e5b6",
+    "title": "Principles of learning",
+    "url": "https://www.cmu.edu/teaching/principles/learning.html",
+    "provider": "Carnegie Mellon Eberly Center",
+    "description": "Consider prior knowledge, practice, feedback and transfer when planning instruction.",
+    "text": "Principles of learning. Consider prior knowledge, practice, feedback and transfer when planning instruction.",
+    "topics": [
+      "learning-design"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Carnegie Mellon Eberly Center (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-bf5907b7fb6a33f6aee8",
+    "title": "Inventory",
+    "url": "https://www.lean.org/lexicon-terms/inventory/",
+    "provider": "Lean Enterprise Institute",
+    "description": "Distinguish inventory types and their role in material flow.",
+    "text": "Inventory. Distinguish inventory types and their role in material flow.",
+    "topics": [
+      "inventory"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Lean Enterprise Institute (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3206b0a4499800dbed77",
+    "title": "Kanban",
+    "url": "https://www.lean.org/lexicon-terms/kanban/",
+    "provider": "Lean Enterprise Institute",
+    "description": "Explore replenishment signals and controlled material movement.",
+    "text": "Kanban. Explore replenishment signals and controlled material movement.",
+    "topics": [
+      "inventory"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Lean Enterprise Institute (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3d8b99d3bfb64bc91fca",
+    "title": "Logisticians: occupation context",
+    "url": "https://www.onetonline.org/link/summary/13-1081.00",
+    "provider": "O*NET OnLine",
+    "description": "Review logistics coordination, records and shipment responsibilities. This is an occupation reference.",
+    "text": "Logisticians: occupation context. Review logistics coordination, records and shipment responsibilities. This is an occupation reference.",
+    "topics": [
+      "inventory"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-8a99b09111eb85dfd02b",
+    "title": "Supply-chain learning materials",
+    "url": "https://ocw.mit.edu/course-lists/transportation-logistics-and-supply-chains/",
+    "provider": "MIT OpenCourseWare",
+    "description": "Find open materials on supply, inventory, transport and planning. Some courses require quantitative prerequisites.",
+    "text": "Supply-chain learning materials. Find open materials on supply, inventory, transport and planning. Some courses require quantitative prerequisites.",
+    "topics": [
+      "supply-chain"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MIT OpenCourseWare (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-1a99e6f0c0ca5ce2fc1b",
+    "title": "Just-in-time production",
+    "url": "https://www.lean.org/lexicon-terms/just-in-time-production/",
+    "provider": "Lean Enterprise Institute",
+    "description": "Explore demand-linked flow and the conditions needed for dependable supply.",
+    "text": "Just-in-time production. Explore demand-linked flow and the conditions needed for dependable supply.",
+    "topics": [
+      "supply-chain"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Lean Enterprise Institute (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3e9dbe524b6c4cfaf995",
+    "title": "Value-stream mapping",
+    "url": "https://www.lean.org/lexicon-terms/value-stream-mapping/",
+    "provider": "Lean Enterprise Institute",
+    "description": "Map material and information flow to identify delays and improvement opportunities.",
+    "text": "Value-stream mapping. Map material and information flow to identify delays and improvement opportunities.",
+    "topics": [
+      "supply-chain"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Lean Enterprise Institute (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-e814fb3d73b456c99cfb",
+    "title": "Carbon typography",
+    "url": "https://carbondesignsystem.com/elements/typography/overview/",
+    "provider": "IBM Carbon Design System",
+    "description": "Explore readable type roles and consistent typographic hierarchy.",
+    "text": "Carbon typography. Explore readable type roles and consistent typographic hierarchy.",
+    "topics": [
+      "visual-design"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "IBM Carbon Design System (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3f269a13436440f7a0ac",
+    "title": "Carbon color",
+    "url": "https://carbondesignsystem.com/elements/color/overview/",
+    "provider": "IBM Carbon Design System",
+    "description": "Study purposeful color roles and theme consistency.",
+    "text": "Carbon color. Study purposeful color roles and theme consistency.",
+    "topics": [
+      "visual-design"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "IBM Carbon Design System (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-1fe5a24da434da628d06",
+    "title": "Carbon 2x grid",
+    "url": "https://www.carbondesignsystem.com/building-blocks/foundations/2x-grid/guidelines",
+    "provider": "IBM Carbon Design System",
+    "description": "Explore alignment, grouping and responsive layout relationships.",
+    "text": "Carbon 2x grid. Explore alignment, grouping and responsive layout relationships.",
+    "topics": [
+      "visual-design"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "IBM Carbon Design System (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-5f84747293f7e2f35e19",
+    "title": "Content design standards",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+    "provider": "GOV.UK",
+    "description": "Plan useful content around audience tasks and maintain it over time.",
+    "text": "Content design standards. Plan useful content around audience tasks and maintain it over time.",
+    "topics": [
+      "content"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-9300571363bf794738f5",
+    "title": "Writing guidelines",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+    "provider": "GOV.UK",
+    "description": "Review clear web writing and scan-friendly structure.",
+    "text": "Writing guidelines. Review clear web writing and scan-friendly structure.",
+    "topics": [
+      "content"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-f9e5f0abca79cbb5957d",
+    "title": "Technical writing style guide",
+    "url": "https://developers.google.com/style/highlights",
+    "provider": "Google for Developers",
+    "description": "Review language, consistency and documentation conventions.",
+    "text": "Technical writing style guide. Review language, consistency and documentation conventions.",
+    "topics": [
+      "content"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google for Developers (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-c93a5d8aa925695e8d6f",
+    "title": "SEO starter guide",
+    "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "provider": "Google Search Central",
+    "description": "Understand useful content, discovery and basic search presentation.",
+    "text": "SEO starter guide. Understand useful content, discovery and basic search presentation.",
+    "topics": [
+      "seo"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Search Central (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4e3012bf615912b48457",
+    "title": "How Google Search works",
+    "url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+    "provider": "Google Search Central",
+    "description": "Distinguish crawling, indexing and serving search results.",
+    "text": "How Google Search works. Distinguish crawling, indexing and serving search results.",
+    "topics": [
+      "seo"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Search Central (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-40a369af16eb2f08c5bb",
+    "title": "Creating helpful content",
+    "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    "provider": "Google Search Central",
+    "description": "Evaluate whether content serves readers and supports its claims.",
+    "text": "Creating helpful content. Evaluate whether content serves readers and supports its claims.",
+    "topics": [
+      "seo"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Search Central (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-30a3e8cf122a3f5ea41e",
+    "title": "Why research matters",
+    "url": "https://openstax.org/books/psychology-2e/pages/2-1-why-is-research-important",
+    "provider": "OpenStax",
+    "description": "Explore evidence, testable questions and the purpose of research.",
+    "text": "Why research matters. Explore evidence, testable questions and the purpose of research.",
+    "topics": [
+      "research"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-78c7aaad27dca4d36489",
+    "title": "Approaches to research",
+    "url": "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research",
+    "provider": "OpenStax",
+    "description": "Compare observational, survey and experimental approaches.",
+    "text": "Approaches to research. Compare observational, survey and experimental approaches.",
+    "topics": [
+      "research"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-6aa901ec2dece00296dc",
+    "title": "Analysing findings",
+    "url": "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings",
+    "provider": "OpenStax",
+    "description": "Consider relationships, causal claims and limits of evidence.",
+    "text": "Analysing findings. Consider relationships, causal claims and limits of evidence.",
+    "topics": [
+      "research"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-7bd7529c66041e326454",
+    "title": "Introduction to quality",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/",
+    "provider": "PALNI Open Press",
+    "description": "Explore process quality, conformance and improvement responsibilities.",
+    "text": "Introduction to quality. Explore process quality, conformance and improvement responsibilities.",
+    "topics": [
+      "quality"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "PALNI Open Press (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-049f69195e2737250f56",
+    "title": "Basic quality tools",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-8a/",
+    "provider": "PALNI Open Press",
+    "description": "Compare tools for collecting and examining process evidence.",
+    "text": "Basic quality tools. Compare tools for collecting and examining process evidence.",
+    "topics": [
+      "quality"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "PALNI Open Press (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-33d2114854f2f752b453",
+    "title": "Introduction to statistical process control",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-9-2/",
+    "provider": "PALNI Open Press",
+    "description": "Distinguish process variation monitoring from product acceptance decisions.",
+    "text": "Introduction to statistical process control. Distinguish process variation monitoring from product acceptance decisions.",
+    "topics": [
+      "quality"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "PALNI Open Press (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-b5b6a6bd9e98829639a6",
+    "title": "Product management",
+    "url": "https://www.atlassian.com/agile/product-management",
+    "provider": "Atlassian",
+    "description": "Connect product problems, priorities, delivery and outcomes.",
+    "text": "Product management. Connect product problems, priorities, delivery and outcomes.",
+    "topics": [
+      "product"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-6d988cb475640460df9c",
+    "title": "Product roadmaps",
+    "url": "https://www.atlassian.com/agile/product-management/product-roadmaps",
+    "provider": "Atlassian",
+    "description": "Communicate direction, priorities and evolving plans.",
+    "text": "Product roadmaps. Communicate direction, priorities and evolving plans.",
+    "topics": [
+      "product"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-aac2ac4fa455d1624a8b",
+    "title": "The discovery phase",
+    "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+    "provider": "GOV.UK Service Manual",
+    "description": "Investigate a problem and its constraints before committing to a solution.",
+    "text": "The discovery phase. Investigate a problem and its constraints before committing to a solution.",
+    "topics": [
+      "product"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK Service Manual (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-1c6204578e39314b32b2",
+    "title": "Plan user research",
+    "url": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service",
+    "provider": "GOV.UK Service Manual",
+    "description": "Define research questions, relevant participants and an approach.",
+    "text": "Plan user research. Define research questions, relevant participants and an approach.",
+    "topics": [
+      "customer-research"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK Service Manual (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4cd9a3e8fd9cdb70a621",
+    "title": "Using in-depth interviews",
+    "url": "https://www.gov.uk/service-manual/user-research/using-in-depth-interviews",
+    "provider": "GOV.UK Service Manual",
+    "description": "Prepare a discussion guide and investigate real experiences.",
+    "text": "Using in-depth interviews. Prepare a discussion guide and investigate real experiences.",
+    "topics": [
+      "customer-research"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK Service Manual (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-0572919473dc573c9917",
+    "title": "Analyse a research session",
+    "url": "https://www.gov.uk/service-manual/user-research/analyse-a-research-session",
+    "provider": "GOV.UK Service Manual",
+    "description": "Separate observations from interpretations and share findings.",
+    "text": "Analyse a research session. Separate observations from interpretations and share findings.",
+    "topics": [
+      "customer-research"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK Service Manual (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-9b28d8a6fa476dd6f25a",
+    "title": "Using moderated usability testing",
+    "url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+    "provider": "GOV.UK Service Manual",
+    "description": "Plan neutral tasks and observe how people use a service.",
+    "text": "Using moderated usability testing. Plan neutral tasks and observe how people use a service.",
+    "topics": [
+      "ux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK Service Manual (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-b0b13c65ff1c6a1e7409",
+    "title": "Making prototypes",
+    "url": "https://www.gov.uk/service-manual/design/making-prototypes",
+    "provider": "GOV.UK Service Manual",
+    "description": "Explore and test possible service approaches before committing to implementation.",
+    "text": "Making prototypes. Explore and test possible service approaches before committing to implementation.",
+    "topics": [
+      "ux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK Service Manual (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-dbf351af061e5c1f76b0",
+    "title": "User research in alpha",
+    "url": "https://www.gov.uk/service-manual/user-research/user-research-in-alpha",
+    "provider": "GOV.UK Service Manual",
+    "description": "Use research to compare interactions and investigate service assumptions.",
+    "text": "User research in alpha. Use research to compare interactions and investigate service assumptions.",
+    "topics": [
+      "ux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "GOV.UK Service Manual (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-7a09149eb1d40c0fba8f",
+    "title": "Evaluating web accessibility",
+    "url": "https://www.w3.org/WAI/test-evaluate/",
+    "provider": "W3C WAI",
+    "description": "Combine tools, manual checks and user involvement when evaluating access.",
+    "text": "Evaluating web accessibility. Combine tools, manual checks and user involvement when evaluating access.",
+    "topics": [
+      "accessibility"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "W3C WAI (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-72efbe5bc88d6f123f40",
+    "title": "Accessible forms",
+    "url": "https://www.w3.org/WAI/tutorials/forms/",
+    "provider": "W3C WAI",
+    "description": "Study labels, instructions, grouping and form feedback.",
+    "text": "Accessible forms. Study labels, instructions, grouping and form feedback.",
+    "topics": [
+      "accessibility"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "W3C WAI (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-b1795729a179434db930",
+    "title": "Easy checks for accessibility",
+    "url": "https://www.w3.org/WAI/test-evaluate/easy-checks/",
+    "provider": "W3C WAI",
+    "description": "Practice initial checks while understanding that they are not a complete conformance audit.",
+    "text": "Easy checks for accessibility. Practice initial checks while understanding that they are not a complete conformance audit.",
+    "topics": [
+      "accessibility"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "W3C WAI (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-7ce0ada67de9b1b42cca",
+    "title": "React quick start",
+    "url": "https://react.dev/learn",
+    "provider": "React",
+    "description": "Review components, props, state, events and rendering fundamentals.",
+    "text": "React quick start. Review components, props, state, events and rendering fundamentals.",
+    "topics": [
+      "react"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "React (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-65df1db716d74c199027",
+    "title": "Managing state",
+    "url": "https://react.dev/learn/managing-state",
+    "provider": "React",
+    "description": "Model shared state and predictable updates without unnecessary duplication.",
+    "text": "Managing state. Model shared state and predictable updates without unnecessary duplication.",
+    "topics": [
+      "react"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "React (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-b24d17702d7ba53c307d",
+    "title": "When an effect is needed",
+    "url": "https://react.dev/learn/you-might-not-need-an-effect",
+    "provider": "React",
+    "description": "Distinguish rendering and event logic from synchronization with external systems.",
+    "text": "When an effect is needed. Distinguish rendering and event logic from synchronization with external systems.",
+    "topics": [
+      "react"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "React (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-0554685c7aec1df24c4d",
+    "title": "Guide to app architecture",
+    "url": "https://developer.android.com/topic/architecture",
+    "provider": "Android Developers",
+    "description": "Explore mobile UI state, data layers and lifecycle-aware design.",
+    "text": "Guide to app architecture. Explore mobile UI state, data layers and lifecycle-aware design.",
+    "topics": [
+      "mobile"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Android Developers (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3411b1cf9681efbcce08",
+    "title": "Offline-first applications",
+    "url": "https://docs.flutter.dev/app-architecture/design-patterns/offline-first",
+    "provider": "Flutter",
+    "description": "Compare local data, network synchronization and offline behavior.",
+    "text": "Offline-first applications. Compare local data, network synchronization and offline behavior.",
+    "topics": [
+      "mobile"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Flutter (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-36c2b198de2f94cbd97c",
+    "title": "Request runtime permissions",
+    "url": "https://developer.android.com/training/permissions/requesting",
+    "provider": "Android Developers",
+    "description": "Plan understandable permission requests and denied-permission behavior.",
+    "text": "Request runtime permissions. Plan understandable permission requests and denied-permission behavior.",
+    "topics": [
+      "mobile"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Android Developers (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-7b4f10400a9d9f370625",
+    "title": "MLOps pipeline concepts",
+    "url": "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+    "provider": "Google Cloud",
+    "description": "Explore reproducibility, validation, deployment and monitoring. Platform examples do not require using that provider in VoidFill.",
+    "text": "MLOps pipeline concepts. Explore reproducibility, validation, deployment and monitoring. Platform examples do not require using that provider in VoidFill.",
+    "topics": [
+      "ml-operations"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google Cloud (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-a54ba3f7f51e5090e631",
+    "title": "Rules of machine learning",
+    "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+    "provider": "Google for Developers",
+    "description": "Review baselines, training-serving differences and useful evaluation practices.",
+    "text": "Rules of machine learning. Review baselines, training-serving differences and useful evaluation practices.",
+    "topics": [
+      "ml-operations"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google for Developers (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-05ef05f91ad144abdba1",
+    "title": "MLflow model registry",
+    "url": "https://mlflow.org/docs/latest/ml/model-registry/",
+    "provider": "MLflow",
+    "description": "Explore traceable model versions and lifecycle metadata using a registry example.",
+    "text": "MLflow model registry. Explore traceable model versions and lifecycle metadata using a registry example.",
+    "topics": [
+      "ml-operations"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "MLflow (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-62e8683a344264cd3143",
+    "title": "What is a PLC?",
+    "url": "https://library.automationdirect.com/what-is-a-plc/",
+    "provider": "AutomationDirect",
+    "description": "Explore PLC input/output and controller concepts using written or simulated examples only.",
+    "text": "What is a PLC?. Explore PLC input/output and controller concepts using written or simulated examples only.",
+    "topics": [
+      "automation"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "AutomationDirect (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-1f67db3107f492c26540",
+    "title": "PLC scan fundamentals",
+    "url": "https://library.automationdirect.com/plc-scan-fundamentals/",
+    "provider": "AutomationDirect",
+    "description": "Study cyclic execution, timing and diagnostics. Actual hardware work needs qualified supervision and current site procedures.",
+    "text": "PLC scan fundamentals. Study cyclic execution, timing and diagnostics. Actual hardware work needs qualified supervision and current site procedures.",
+    "topics": [
+      "automation"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "AutomationDirect (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-e7d7d709cb43381f6a54",
+    "title": "Digital input example",
+    "url": "https://docs.arduino.cc/built-in-examples/basics/DigitalReadSerial/",
+    "provider": "Arduino",
+    "description": "Review how a digital input is represented in a simple educational example. VoidFill activities use simulation only.",
+    "text": "Digital input example. Review how a digital input is represented in a simple educational example. VoidFill activities use simulation only.",
+    "topics": [
+      "automation"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Arduino (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-2884fbc11338745ebd89",
+    "title": "Ohm's law",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law",
+    "provider": "OpenStax",
+    "description": "Use ideal circuit examples to relate voltage, current and resistance.",
+    "text": "Ohm's law. Use ideal circuit examples to relate voltage, current and resistance.",
+    "topics": [
+      "electronics"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-da94afaa042f85cfdb0a",
+    "title": "Electrical energy and power",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power",
+    "provider": "OpenStax",
+    "description": "Calculate power and energy with clearly stated units and assumptions.",
+    "text": "Electrical energy and power. Calculate power and energy with clearly stated units and assumptions.",
+    "topics": [
+      "electronics"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-884ce43eb1c4495ab6f0",
+    "title": "Series and parallel resistors",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+    "provider": "OpenStax",
+    "description": "Explore ideal resistor networks on paper or in a simulator. This is not authorization or instruction to work on energized equipment.",
+    "text": "Series and parallel resistors. Explore ideal resistor networks on paper or in a simulator. This is not authorization or instruction to work on energized equipment.",
+    "topics": [
+      "electronics"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-2ad2d6b09d9e6fc99bb7",
+    "title": "Running an event safely",
+    "url": "https://www.hse.gov.uk/event-safety/running.htm",
+    "provider": "UK HSE",
+    "description": "Explore planning, coordination and review responsibilities. UK guidance does not replace current local requirements or qualified safety advice.",
+    "text": "Running an event safely. Explore planning, coordination and review responsibilities. UK guidance does not replace current local requirements or qualified safety advice.",
+    "topics": [
+      "events"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "UK HSE (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-13216d1a8f3646866dfe",
+    "title": "Event planning topics",
+    "url": "https://www.hse.gov.uk/event-safety/health-safety-topics.htm",
+    "provider": "UK HSE",
+    "description": "Consider communication, contingency ownership and emergency-planning interfaces. VoidFill exercises are written planning only.",
+    "text": "Event planning topics. Consider communication, contingency ownership and emergency-planning interfaces. VoidFill exercises are written planning only.",
+    "topics": [
+      "events"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "UK HSE (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-c9e83f94ed6ab2b8292d",
+    "title": "Event operations context",
+    "url": "https://www.onetonline.org/link/summary/13-1121.00",
+    "provider": "O*NET OnLine",
+    "description": "Review event-planning activities and coordination responsibilities. This is an occupation reference.",
+    "text": "Event operations context. Review event-planning activities and coordination responsibilities. This is an occupation reference.",
+    "topics": [
+      "events"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "O*NET OnLine (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-692fd21959e2286d6d1c",
+    "title": "Hospitality and tourism foundations",
+    "url": "https://opentextbc.ca/introtourism2e/",
+    "provider": "BCcampus Open Education",
+    "description": "Explore accommodation operations, customer service and hospitality context in an open textbook. Regional examples are not universal rules.",
+    "text": "Hospitality and tourism foundations. Explore accommodation operations, customer service and hospitality context in an open textbook. Regional examples are not universal rules.",
+    "topics": [
+      "hospitality"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "BCcampus Open Education (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-c9c9f1f734811b6816ea",
+    "title": "Accommodation operations",
+    "url": "https://opentextbc.ca/introtourism2e/chapter/operations/",
+    "provider": "BCcampus Open Education",
+    "description": "Review coordination of accommodation services and operating responsibilities.",
+    "text": "Accommodation operations. Review coordination of accommodation services and operating responsibilities.",
+    "topics": [
+      "hospitality"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "BCcampus Open Education (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-e30cda6088b0c7a99347",
+    "title": "Customer service in hospitality",
+    "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/",
+    "provider": "BCcampus Open Education",
+    "description": "Consider the guest experience, service interactions and organizational support.",
+    "text": "Customer service in hospitality. Consider the guest experience, service interactions and organizational support.",
+    "topics": [
+      "hospitality"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "BCcampus Open Education (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-6235acea9fd6cd99437e",
+    "title": "Accounts and contacts",
+    "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience",
+    "provider": "Salesforce Trailhead",
+    "description": "Explore account records, contact relationships and useful customer context. Some exercises require a free provider account.",
+    "text": "Accounts and contacts. Explore account records, contact relationships and useful customer context. Some exercises require a free provider account.",
+    "topics": [
+      "account-management"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Salesforce Trailhead (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-2bf2b9ef5c165605b608",
+    "title": "Customer service and relationship records",
+    "url": "https://academy.hubspot.com/courses/hubspot-service-software",
+    "provider": "HubSpot Academy",
+    "description": "Explore organized service, customer context and reporting. Provider account or software access may be required for exercises.",
+    "text": "Customer service and relationship records. Explore organized service, customer context and reporting. Provider account or software access may be required for exercises.",
+    "topics": [
+      "account-management"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "HubSpot Academy (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-40c456285c52dc90ca48",
+    "title": "Stakeholder communication planning",
+    "url": "https://www.atlassian.com/team-playbook/plays/stakeholder-communications-plan",
+    "provider": "Atlassian Team Playbook",
+    "description": "Map relevant stakeholders and plan appropriate communication and alignment.",
+    "text": "Stakeholder communication planning. Map relevant stakeholders and plan appropriate communication and alignment.",
+    "topics": [
+      "account-management"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Atlassian Team Playbook (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3dff723b260c0aa59184",
+    "title": "Procurement and supply cycle",
+    "url": "https://www.cips.org/intelligence-hub/procurement/procurement-supply-cycle",
+    "provider": "CIPS",
+    "description": "Explore requirements, sourcing, evaluation and supplier management. Some material requires provider membership; local procurement rules vary.",
+    "text": "Procurement and supply cycle. Explore requirements, sourcing, evaluation and supplier management. Some material requires provider membership; local procurement rules vary.",
+    "topics": [
+      "procurement"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "CIPS (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-91096a7c853f136ac291",
+    "title": "Supplier resource centre",
+    "url": "https://www.unops.org/business-opportunities/supplier-resource-centre",
+    "provider": "UNOPS",
+    "description": "Review supplier participation and transparent procurement-process expectations.",
+    "text": "Supplier resource centre. Review supplier participation and transparent procurement-process expectations.",
+    "topics": [
+      "procurement"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "UNOPS (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-5e98cbac41cd423734d1",
+    "title": "Supplier evaluation",
+    "url": "https://www.cips.org/intelligence-hub/managing-suppliers/supplier-evaluation",
+    "provider": "CIPS",
+    "description": "Consider evidence for supplier capability, cost, reliability and risk. Some material requires membership.",
+    "text": "Supplier evaluation. Consider evidence for supplier capability, cost, reliability and risk. Some material requires membership.",
+    "topics": [
+      "procurement"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "CIPS (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-05e8fe30d7ec36e9a040",
+    "title": "Technical Writing One",
+    "url": "https://developers.google.com/tech-writing/one",
+    "provider": "Google for Developers",
+    "description": "Study audience, clear sentences, organization and task-focused documentation.",
+    "text": "Technical Writing One. Study audience, clear sentences, organization and task-focused documentation.",
+    "topics": [
+      "technical-writing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google for Developers (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-ebf55329602dcba4cf8f",
+    "title": "Technical Writing Two",
+    "url": "https://developers.google.com/tech-writing/two",
+    "provider": "Google for Developers",
+    "description": "Review editing, examples, illustrations and larger document structure.",
+    "text": "Technical Writing Two. Review editing, examples, illustrations and larger document structure.",
+    "topics": [
+      "technical-writing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google for Developers (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-5ce7f185ec30de2b8efa",
+    "title": "Developer documentation style",
+    "url": "https://developers.google.com/style/highlights",
+    "provider": "Google for Developers",
+    "description": "Apply consistent conventions and readable technical explanations.",
+    "text": "Developer documentation style. Apply consistent conventions and readable technical explanations.",
+    "topics": [
+      "technical-writing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "Google for Developers (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-4576e2deb314bb46ecf0",
+    "title": "Branding and brand development",
+    "url": "https://openstax.org/books/principles-marketing/pages/9-5-branding-and-brand-development",
+    "provider": "OpenStax",
+    "description": "Consider brand identity, perception, consistency and brand equity.",
+    "text": "Branding and brand development. Consider brand identity, perception, consistency and brand equity.",
+    "topics": [
+      "brand"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-f6a722d508bb6da642ff",
+    "title": "Entrepreneurial branding",
+    "url": "https://openstax.org/books/entrepreneurship/pages/8-4-entrepreneurial-branding",
+    "provider": "OpenStax",
+    "description": "Connect a brand promise to audience value and supporting experience.",
+    "text": "Entrepreneurial branding. Connect a brand promise to audience value and supporting experience.",
+    "topics": [
+      "brand"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-3c2650e9fe2381a9d402",
+    "title": "Market segmentation",
+    "url": "https://openstax.org/books/principles-marketing/pages/5-1-market-segmentation-and-consumer-markets",
+    "provider": "OpenStax",
+    "description": "Define useful audience segments before choosing positioning and communication.",
+    "text": "Market segmentation. Define useful audience segments before choosing positioning and communication.",
+    "topics": [
+      "brand"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-157bd9b0ae7b45cd7bf9",
+    "title": "Payroll accounting concepts",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/12-5-record-transactions-incurred-in-preparing-payroll",
+    "provider": "OpenStax",
+    "description": "Review gross pay, deductions and liabilities. Examples use a US context; actual payroll rules require current qualified local guidance.",
+    "text": "Payroll accounting concepts. Review gross pay, deductions and liabilities. Examples use a US context; actual payroll rules require current qualified local guidance.",
+    "topics": [
+      "payroll"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-8bdc4071aed46ed9c4de",
+    "title": "Current liabilities",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/12-1-identify-and-describe-current-liabilities",
+    "provider": "OpenStax",
+    "description": "Understand amounts owed and the distinction between expenses and liabilities.",
+    "text": "Current liabilities. Understand amounts owed and the distinction between expenses and liabilities.",
+    "topics": [
+      "payroll"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-8490f2d379dd547e27d1",
+    "title": "Internal controls",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+    "provider": "OpenStax",
+    "description": "Review authorization, documentation and separation of duties in financial processes.",
+    "text": "Internal controls. Review authorization, documentation and separation of duties in financial processes.",
+    "topics": [
+      "payroll"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-449b0394eec88cbbeefa",
+    "title": "Tests of controls",
+    "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Tests-of-controls.aspx",
+    "provider": "European Court of Auditors",
+    "description": "Explore why control tests need sufficient relevant evidence. Professional standards and local requirements remain outside this foundation pack.",
+    "text": "Tests of controls. Explore why control tests need sufficient relevant evidence. Professional standards and local requirements remain outside this foundation pack.",
+    "topics": [
+      "audit"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "European Court of Auditors (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-ba8315fdb90559dfefc4",
+    "title": "Substantive audit procedures",
+    "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Substantive-procedures.aspx",
+    "provider": "European Court of Auditors",
+    "description": "Distinguish direct examination of transactions or balances from testing controls.",
+    "text": "Substantive audit procedures. Distinguish direct examination of transactions or balances from testing controls.",
+    "topics": [
+      "audit"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "European Court of Auditors (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  },
+  {
+    "id": "career-resource-bd45a349b1ac6a0648b5",
+    "title": "Internal control principles",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+    "provider": "OpenStax",
+    "description": "Study control purposes and documented responsibilities.",
+    "text": "Internal control principles. Study control purposes and documented responsibilities.",
+    "topics": [
+      "audit"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "OpenStax (external link; VoidFill original summary)",
+    "license": "Link-only reference; third-party content is not redistributed"
+  }
+]

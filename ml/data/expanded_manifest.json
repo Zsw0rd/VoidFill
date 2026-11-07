@@ -1,0 +1,16 @@
+{
+  "dataset": "sentence-transformers/stackexchange-duplicates",
+  "revision": "1c9657aec12d9e101667bb9593efcc623c4a68ff",
+  "url": "https://huggingface.co/datasets/sentence-transformers/stackexchange-duplicates",
+  "upstream": "https://data.stackexchange.com/apple/query/fork/1456963",
+  "rights": "Stack Exchange user content; CC BY-SA (version varies with post date). Dataset does not preserve per-post authors/URLs. Raw records and checkpoint are local research artifacts; resolve attribution before redistributing them. Not added to product question bank.",
+  "raw_pairs": 304525,
+  "technical_unique_pairs": 13048,
+  "auxiliary_train": 12048,
+  "auxiliary_validation": 1000,
+  "curriculum_train": 383,
+  "sha256": "3f712c7636d78b998ff4c29a9f7d8bccaef27bf6318d060891a155d87783c2fe",
+  "filter": "\\b(python|pandas|numpy|sql|mysql|postgresql|javascript|html|css|git|github|algorithm|data structure|machine learning|neural network|regression|classification|matplotlib|seaborn|reactjs|react.js|django|flask)\\b",
+  "seed": 42,
+  "split": "globally unique normalized title endpoints; 1000 auxiliary validation pairs; frozen disjoint curriculum lesson split"
+}

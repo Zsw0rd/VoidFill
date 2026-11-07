@@ -47,6 +47,17 @@ logs/
 
 # Coverage / tests
 coverage/
+test-results/
+playwright-report/
 
 # Misc
 *.pem
+
+# Local ML runtime, downloaded sources, and generated checkpoints
+.venv-ml/
+ml/.cache/
+ml/data/raw/
+ml/artifacts/
+ml/runtime/
+__pycache__/
+.pytest_cache/

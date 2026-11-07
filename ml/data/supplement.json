@@ -1,0 +1,1523 @@
+{
+  "description": "Original supplementary questions and catalogue metadata covering the six seeded skills. Excluded from model training and reported evaluation.",
+  "resources": [
+    {
+      "id": "voidfill-python-0",
+      "title": "Python control flow",
+      "url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "description": "Conditions, loops, functions and iteration in Python.",
+      "text": "Conditions, loops, functions and iteration in Python.",
+      "type": "tutorial",
+      "provider": "docs.python.org",
+      "topics": [
+        "python"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-python-1",
+      "title": "Python data structures",
+      "url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "description": "Lists, sets, dictionaries, comprehensions and container operations.",
+      "text": "Lists, sets, dictionaries, comprehensions and container operations.",
+      "type": "tutorial",
+      "provider": "docs.python.org",
+      "topics": [
+        "python"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-sql-0",
+      "title": "PostgreSQL query tutorial",
+      "url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "description": "SELECT, filtering, expressions and result ordering.",
+      "text": "SELECT, filtering, expressions and result ordering.",
+      "type": "tutorial",
+      "provider": "www.postgresql.org",
+      "topics": [
+        "sql"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-sql-1",
+      "title": "PostgreSQL joins",
+      "url": "https://www.postgresql.org/docs/current/tutorial-join.html",
+      "description": "Inner and outer joins for combining related tables.",
+      "text": "Inner and outer joins for combining related tables.",
+      "type": "tutorial",
+      "provider": "www.postgresql.org",
+      "topics": [
+        "sql"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-sql-2",
+      "title": "PostgreSQL aggregates",
+      "url": "https://www.postgresql.org/docs/current/tutorial-agg.html",
+      "description": "Grouping and aggregate functions with GROUP BY and HAVING.",
+      "text": "Grouping and aggregate functions with GROUP BY and HAVING.",
+      "type": "tutorial",
+      "provider": "www.postgresql.org",
+      "topics": [
+        "sql"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-visualization-0",
+      "title": "Matplotlib getting started",
+      "url": "https://matplotlib.org/stable/users/getting_started/",
+      "description": "Create figures, plot data and label chart axes.",
+      "text": "Create figures, plot data and label chart axes.",
+      "type": "tutorial",
+      "provider": "matplotlib.org",
+      "topics": [
+        "visualization"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-visualization-1",
+      "title": "Seaborn introduction",
+      "url": "https://seaborn.pydata.org/tutorial/introduction.html",
+      "description": "Statistical plots of distributions and relationships.",
+      "text": "Statistical plots of distributions and relationships.",
+      "type": "tutorial",
+      "provider": "seaborn.pydata.org",
+      "topics": [
+        "visualization"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-web-0",
+      "title": "HTML basics",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "description": "Semantic HTML and web document structure.",
+      "text": "Semantic HTML and web document structure.",
+      "type": "tutorial",
+      "provider": "developer.mozilla.org",
+      "topics": [
+        "web"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-web-1",
+      "title": "CSS basics",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content",
+      "description": "CSS selectors, layout, colors and spacing.",
+      "text": "CSS selectors, layout, colors and spacing.",
+      "type": "tutorial",
+      "provider": "developer.mozilla.org",
+      "topics": [
+        "web"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-web-2",
+      "title": "JavaScript guide",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "description": "Variables, functions, control flow and browser scripting.",
+      "text": "Variables, functions, control flow and browser scripting.",
+      "type": "tutorial",
+      "provider": "developer.mozilla.org",
+      "topics": [
+        "web"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-git-0",
+      "title": "Git tutorial",
+      "url": "https://git-scm.com/docs/gittutorial",
+      "description": "Stage files and record changes in local history.",
+      "text": "Stage files and record changes in local history.",
+      "type": "tutorial",
+      "provider": "git-scm.com",
+      "topics": [
+        "git"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-git-1",
+      "title": "Git branches",
+      "url": "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell",
+      "description": "Branch references and separate development histories.",
+      "text": "Branch references and separate development histories.",
+      "type": "tutorial",
+      "provider": "git-scm.com",
+      "topics": [
+        "git"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-git-2",
+      "title": "Git remotes",
+      "url": "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes",
+      "description": "Fetch, pull and push between repositories.",
+      "text": "Fetch, pull and push between repositories.",
+      "type": "tutorial",
+      "provider": "git-scm.com",
+      "topics": [
+        "git"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-algorithms-0",
+      "title": "Python collections",
+      "url": "https://docs.python.org/3/library/collections.html",
+      "description": "Deque, counters and useful container structures.",
+      "text": "Deque, counters and useful container structures.",
+      "type": "tutorial",
+      "provider": "docs.python.org",
+      "topics": [
+        "algorithms"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-algorithms-1",
+      "title": "Python heap queues",
+      "url": "https://docs.python.org/3/library/heapq.html",
+      "description": "Heaps and priority queue operations.",
+      "text": "Heaps and priority queue operations.",
+      "type": "tutorial",
+      "provider": "docs.python.org",
+      "topics": [
+        "algorithms"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    },
+    {
+      "id": "voidfill-algorithms-2",
+      "title": "Python binary search",
+      "url": "https://docs.python.org/3/library/bisect.html",
+      "description": "Binary search of sorted sequences and insertion tradeoffs.",
+      "text": "Binary search of sorted sequences and insertion tradeoffs.",
+      "type": "tutorial",
+      "provider": "docs.python.org",
+      "topics": [
+        "algorithms"
+      ],
+      "difficulty": "beginner",
+      "estimated_hours": null,
+      "source": "VoidFill authored catalogue metadata",
+      "license": "Original metadata; linked documentation retains its own license"
+    }
+  ],
+  "questions": [
+    {
+      "id": "voidfill-python-q1",
+      "prompt": "What is len([2, 4, 6])?",
+      "options": [
+        "3",
+        "2",
+        "4",
+        "6"
+      ],
+      "correct_index": 0,
+      "difficulty": 1,
+      "explanation": "len counts the three elements.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q2",
+      "prompt": "Which Python type maps keys to values?",
+      "options": [
+        "list",
+        "tuple",
+        "set",
+        "dict"
+      ],
+      "correct_index": 3,
+      "difficulty": 1,
+      "explanation": "A dictionary maps keys to values.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q3",
+      "prompt": "What values does range(3) yield?",
+      "options": [
+        "0, 1, 2, 3",
+        "3 only",
+        "0, 1, 2",
+        "1, 2, 3"
+      ],
+      "correct_index": 2,
+      "difficulty": 1,
+      "explanation": "The upper bound is excluded.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q4",
+      "prompt": "What is returned when a function finishes without a return statement?",
+      "options": [
+        "An empty string",
+        "None",
+        "0",
+        "False"
+      ],
+      "correct_index": 1,
+      "difficulty": 1,
+      "explanation": "Python implicitly returns None.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q5",
+      "prompt": "Which expression creates an empty set?",
+      "options": [
+        "set()",
+        "{}",
+        "[]",
+        "()"
+      ],
+      "correct_index": 0,
+      "difficulty": 2,
+      "explanation": "{} creates an empty dictionary.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q6",
+      "prompt": "What is [x * 2 for x in [1, 2, 3]]?",
+      "options": [
+        "[1, 2, 3, 1, 2, 3]",
+        "[3, 6, 9]",
+        "[1, 4, 9]",
+        "[2, 4, 6]"
+      ],
+      "correct_index": 3,
+      "difficulty": 2,
+      "explanation": "Each input element is multiplied by two.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q7",
+      "prompt": "Why use 'with open(path) as f'?",
+      "options": [
+        "To prevent every file error",
+        "To create a thread",
+        "To close the file when the block exits",
+        "To encrypt the file"
+      ],
+      "correct_index": 2,
+      "difficulty": 2,
+      "explanation": "The context manager closes the file, including after an exception.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q8",
+      "prompt": "After a = [1]; b = a; b.append(2), what is a?",
+      "options": [
+        "None",
+        "[1, 2]",
+        "[1]",
+        "[2]"
+      ],
+      "correct_index": 1,
+      "difficulty": 3,
+      "explanation": "Both names refer to the same mutable list.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q9",
+      "prompt": "Which default argument avoids sharing a mutable default list across calls?",
+      "options": [
+        "items=None, creating a fresh list inside",
+        "items=[]",
+        "items=list()",
+        "items={}"
+      ],
+      "correct_index": 0,
+      "difficulty": 4,
+      "explanation": "Defaults are evaluated once; use None and create a new list inside.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-python-q10",
+      "prompt": "What does yield do inside a Python function?",
+      "options": [
+        "Returns a complete list immediately",
+        "Creates an OS thread",
+        "Automatically makes it async",
+        "Creates a generator that can suspend and resume"
+      ],
+      "correct_index": 3,
+      "difficulty": 5,
+      "explanation": "yield produces a value and suspends the generator's execution.",
+      "topics": [
+        "python"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "resource_id": "voidfill-python-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q1",
+      "prompt": "Which SQL clause filters individual rows?",
+      "options": [
+        "WHERE",
+        "ORDER BY",
+        "GROUP BY",
+        "SELECT"
+      ],
+      "correct_index": 0,
+      "difficulty": 1,
+      "explanation": "WHERE filters rows before grouping.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q2",
+      "prompt": "Which keyword removes duplicate projected rows?",
+      "options": [
+        "DELETE",
+        "DROP",
+        "INSERT",
+        "DISTINCT"
+      ],
+      "correct_index": 3,
+      "difficulty": 1,
+      "explanation": "SELECT DISTINCT removes duplicate result rows.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q3",
+      "prompt": "Which aggregate counts rows even when a column is NULL?",
+      "options": [
+        "SUM(*)",
+        "COUNT(NULL)",
+        "COUNT(*)",
+        "COUNT(column)"
+      ],
+      "correct_index": 2,
+      "difficulty": 1,
+      "explanation": "COUNT(*) counts rows, while COUNT(column) ignores NULL values.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q4",
+      "prompt": "What does ORDER BY price DESC do?",
+      "options": [
+        "Groups identical prices",
+        "Sorts price from high to low",
+        "Sorts price from low to high",
+        "Deletes expensive rows"
+      ],
+      "correct_index": 1,
+      "difficulty": 1,
+      "explanation": "DESC requests descending order.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q5",
+      "prompt": "Which clause filters groups after aggregation?",
+      "options": [
+        "HAVING",
+        "WHERE",
+        "LIMIT",
+        "FROM"
+      ],
+      "correct_index": 0,
+      "difficulty": 2,
+      "explanation": "HAVING applies a condition to grouped results.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q6",
+      "prompt": "Which join preserves every row from the left table?",
+      "options": [
+        "INNER JOIN",
+        "CROSS JOIN",
+        "NATURAL INNER JOIN",
+        "LEFT JOIN"
+      ],
+      "correct_index": 3,
+      "difficulty": 2,
+      "explanation": "Unmatched left rows remain, with NULL right-side values.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q7",
+      "prompt": "How should SQL test for a missing value?",
+      "options": [
+        "value == NULL",
+        "value IN NULL",
+        "value IS NULL",
+        "value = NULL"
+      ],
+      "correct_index": 2,
+      "difficulty": 2,
+      "explanation": "IS NULL tests SQL NULL values.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q8",
+      "prompt": "What constraint does a primary key enforce?",
+      "options": [
+        "A reference to another table",
+        "Unique and non-NULL values",
+        "Duplicate values only",
+        "Text values only"
+      ],
+      "correct_index": 1,
+      "difficulty": 3,
+      "explanation": "A primary key uniquely identifies a row.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q9",
+      "prompt": "What does a window function normally preserve that GROUP BY collapses?",
+      "options": [
+        "Individual result rows",
+        "Only NULL rows",
+        "Database connections",
+        "Index names"
+      ],
+      "correct_index": 0,
+      "difficulty": 4,
+      "explanation": "Window functions compute over related rows without collapsing them.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-sql-q10",
+      "prompt": "Why can a WHERE condition on a right column discard unmatched LEFT JOIN rows?",
+      "options": [
+        "WHERE always runs before joins",
+        "LEFT JOIN is a CROSS JOIN",
+        "All SQL columns are required",
+        "NULL-extended values can fail that condition"
+      ],
+      "correct_index": 3,
+      "difficulty": 5,
+      "explanation": "Ordinary comparisons with NULL yield unknown, and WHERE excludes those rows.",
+      "topics": [
+        "sql"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "resource_id": "voidfill-sql-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q1",
+      "prompt": "Which chart is usually suitable for a trend over time?",
+      "options": [
+        "Line chart",
+        "Word cloud",
+        "Unlabelled image",
+        "Pie chart with one slice per second"
+      ],
+      "correct_index": 0,
+      "difficulty": 1,
+      "explanation": "Ordered points and connecting lines reveal changes over time.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q2",
+      "prompt": "Which chart is usually suitable for comparing categories?",
+      "options": [
+        "Unlabelled map",
+        "Network diagram",
+        "Word cloud",
+        "Bar chart"
+      ],
+      "correct_index": 3,
+      "difficulty": 1,
+      "explanation": "Bar lengths support comparison across categories.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q3",
+      "prompt": "What does a scatter plot primarily display?",
+      "options": [
+        "Source code",
+        "Only category totals",
+        "Two numeric variables for each observation",
+        "A database schema"
+      ],
+      "correct_index": 2,
+      "difficulty": 1,
+      "explanation": "Each point represents a pair of numeric values.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q4",
+      "prompt": "Why label axes with units?",
+      "options": [
+        "To increase file size",
+        "To explain what values represent",
+        "To guarantee causality",
+        "To hide outliers"
+      ],
+      "correct_index": 1,
+      "difficulty": 1,
+      "explanation": "Labels and units make the measurements interpretable.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q5",
+      "prompt": "What does a histogram display?",
+      "options": [
+        "A numeric distribution across bins",
+        "A relational schema",
+        "Source-file order",
+        "Every exact coordinate"
+      ],
+      "correct_index": 0,
+      "difficulty": 2,
+      "explanation": "Bin counts summarize a numeric distribution.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q6",
+      "prompt": "What can a truncated bar-chart axis exaggerate?",
+      "options": [
+        "Database table count",
+        "Only timestamp precision",
+        "The number of colors",
+        "Small differences between categories"
+      ],
+      "correct_index": 3,
+      "difficulty": 2,
+      "explanation": "A nonzero baseline can inflate apparent bar-length differences.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q7",
+      "prompt": "What must an error bar specify?",
+      "options": [
+        "The author's favorite tool",
+        "Only the file date",
+        "Which uncertainty measure it represents",
+        "Only its color"
+      ],
+      "correct_index": 2,
+      "difficulty": 2,
+      "explanation": "Different error bars may represent standard deviations or confidence intervals.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q8",
+      "prompt": "How can overlapping scatter points be made easier to interpret?",
+      "options": [
+        "Randomizing coordinates",
+        "Transparency or density plots",
+        "Larger opaque points",
+        "Removing axes"
+      ],
+      "correct_index": 1,
+      "difficulty": 3,
+      "explanation": "Transparency and density summaries reveal concentrations.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q9",
+      "prompt": "Why does a visible correlation not establish causation?",
+      "options": [
+        "Confounding or reverse causality may explain it",
+        "Charts cannot contain numbers",
+        "Correlation is always zero",
+        "Causation requires a pie chart"
+      ],
+      "correct_index": 0,
+      "difficulty": 4,
+      "explanation": "An association can arise without the proposed causal mechanism.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-visualization-q10",
+      "prompt": "Why can a trend reverse after splitting data into subgroups?",
+      "options": [
+        "All subgroups are random noise",
+        "Aggregation preserves every relationship",
+        "Subgroups cannot be plotted",
+        "Different group compositions can produce Simpson's paradox"
+      ],
+      "correct_index": 3,
+      "difficulty": 5,
+      "explanation": "Confounding and subgroup proportions can reverse aggregate associations.",
+      "topics": [
+        "visualization"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://matplotlib.org/stable/users/getting_started/",
+      "resource_id": "voidfill-visualization-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q1",
+      "prompt": "What is HTML primarily used for?",
+      "options": [
+        "Structuring web content",
+        "Training neural networks",
+        "Encrypting traffic",
+        "Scheduling the CPU"
+      ],
+      "correct_index": 0,
+      "difficulty": 1,
+      "explanation": "HTML describes web content structure and meaning.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q2",
+      "prompt": "What is CSS primarily used for?",
+      "options": [
+        "SQL transactions",
+        "Password storage",
+        "Database backups",
+        "Presentation and layout"
+      ],
+      "correct_index": 3,
+      "difficulty": 1,
+      "explanation": "CSS controls how web content is presented.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q3",
+      "prompt": "Which element represents a hyperlink?",
+      "options": [
+        "<script>",
+        "<meta>",
+        "<a>",
+        "<table>"
+      ],
+      "correct_index": 2,
+      "difficulty": 1,
+      "explanation": "An anchor with an href creates a hyperlink.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q4",
+      "prompt": "Why give an informative image meaningful alt text?",
+      "options": [
+        "To replace the page title",
+        "To communicate its information to people who cannot see it",
+        "To load it twice",
+        "To prevent every network error"
+      ],
+      "correct_index": 1,
+      "difficulty": 1,
+      "explanation": "Alternative text supports assistive technology and missing-image situations.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q5",
+      "prompt": "What is the DOM?",
+      "options": [
+        "An object representation and programming interface for a document",
+        "A query language",
+        "A color palette",
+        "A network router"
+      ],
+      "correct_index": 0,
+      "difficulty": 2,
+      "explanation": "The Document Object Model exposes document structure to scripts.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q6",
+      "prompt": "What does JavaScript === compare?",
+      "options": [
+        "Only string lengths",
+        "Only property names",
+        "Values converted to strings",
+        "Values without type coercion"
+      ],
+      "correct_index": 3,
+      "difficulty": 2,
+      "explanation": "Strict equality avoids type coercion.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q7",
+      "prompt": "Why use responsive layouts?",
+      "options": [
+        "To eliminate HTML",
+        "To disable touch",
+        "To adapt to different viewport sizes",
+        "To guarantee a faster CPU"
+      ],
+      "correct_index": 2,
+      "difficulty": 2,
+      "explanation": "Responsive interfaces adapt to available space.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q8",
+      "prompt": "What does await do in an async function?",
+      "options": [
+        "Makes every task parallel",
+        "Suspends that function until a promise settles",
+        "Blocks the OS",
+        "Always starts a thread"
+      ],
+      "correct_index": 1,
+      "difficulty": 3,
+      "explanation": "Execution resumes when the awaited promise settles.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q9",
+      "prompt": "Why enforce authorization on the server when the UI already hides restricted buttons?",
+      "options": [
+        "Clients can send requests without the UI",
+        "CSS enforces access control",
+        "Hidden buttons are encrypted",
+        "HTML validates every request"
+      ],
+      "correct_index": 0,
+      "difficulty": 4,
+      "explanation": "Client-side controls can be bypassed.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-web-q10",
+      "prompt": "What is a risk of caching personalized HTML without a user-specific cache key?",
+      "options": [
+        "Cookies disappear",
+        "The database becomes read-only",
+        "All responses become public domain",
+        "Another user may receive someone else's content"
+      ],
+      "correct_index": 3,
+      "difficulty": 5,
+      "explanation": "A shared cache can return a personalized response to the wrong user.",
+      "topics": [
+        "web"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "resource_id": "voidfill-web-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q1",
+      "prompt": "What does git init create?",
+      "options": [
+        "A Git repository",
+        "A hosting account",
+        "A compiled app",
+        "A database table"
+      ],
+      "correct_index": 0,
+      "difficulty": 1,
+      "explanation": "init initializes a repository.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q2",
+      "prompt": "What does git add normally do?",
+      "options": [
+        "Publishes a release",
+        "Deletes a remote",
+        "Installs dependencies",
+        "Stages changes for the next commit"
+      ],
+      "correct_index": 3,
+      "difficulty": 1,
+      "explanation": "add updates the staging area.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q3",
+      "prompt": "What does git commit record?",
+      "options": [
+        "Only remote changes",
+        "A GitHub account",
+        "A snapshot of staged changes in local history",
+        "Every file on the computer"
+      ],
+      "correct_index": 2,
+      "difficulty": 1,
+      "explanation": "A commit records the staged snapshot with metadata.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q4",
+      "prompt": "Which command reports working tree status?",
+      "options": [
+        "git show-all-files-now",
+        "git status",
+        "git upload",
+        "git account"
+      ],
+      "correct_index": 1,
+      "difficulty": 1,
+      "explanation": "status reports tracked modifications and untracked files.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q5",
+      "prompt": "What does git fetch normally do?",
+      "options": [
+        "Downloads remote objects without merging the current branch",
+        "Force-overwrites every local file",
+        "Updates the Git executable",
+        "Only updates a database"
+      ],
+      "correct_index": 0,
+      "difficulty": 2,
+      "explanation": "fetch updates remote-tracking references without merging.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q6",
+      "prompt": "What is a Git branch?",
+      "options": [
+        "A separate operating system",
+        "A mandatory new repository",
+        "A compression format",
+        "A movable reference to a commit"
+      ],
+      "correct_index": 3,
+      "difficulty": 2,
+      "explanation": "A branch reference advances as commits are made on it.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q7",
+      "prompt": "What does a merge conflict mean?",
+      "options": [
+        "All commits are corrupted",
+        "The network must be offline",
+        "Git needs help reconciling incompatible changes",
+        "The repository is deleted"
+      ],
+      "correct_index": 2,
+      "difficulty": 2,
+      "explanation": "Some changes cannot be combined automatically.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q8",
+      "prompt": "What does .gitignore normally affect?",
+      "options": [
+        "Every possible merge conflict",
+        "Untracked files matching ignore rules",
+        "All secrets in every past commit",
+        "Encryption keys"
+      ],
+      "correct_index": 1,
+      "difficulty": 3,
+      "explanation": "Ignore rules do not erase already tracked history.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q9",
+      "prompt": "How does git revert normally undo a committed change?",
+      "options": [
+        "Creates a new commit with inverse changes",
+        "Deletes every remote branch",
+        "Erases all messages",
+        "Automatically rewrites all history"
+      ],
+      "correct_index": 0,
+      "difficulty": 4,
+      "explanation": "revert records an inverse change as a new commit.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-git-q10",
+      "prompt": "Why can rebasing shared commits require coordination?",
+      "options": [
+        "All files become binary",
+        "Git stops tracking branches",
+        "The author must be deleted",
+        "Rebased commits have new identities"
+      ],
+      "correct_index": 3,
+      "difficulty": 5,
+      "explanation": "Collaborators may have based work on the old commit identities.",
+      "topics": [
+        "git"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://git-scm.com/docs/gittutorial",
+      "resource_id": "voidfill-git-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q1",
+      "prompt": "Which removal order defines a stack?",
+      "options": [
+        "LIFO",
+        "FIFO",
+        "Random",
+        "Smallest first"
+      ],
+      "correct_index": 0,
+      "difficulty": 1,
+      "explanation": "Last in, first out removes the most recent item.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q2",
+      "prompt": "Which removal order defines a queue?",
+      "options": [
+        "LIFO",
+        "Largest first",
+        "Random",
+        "FIFO"
+      ],
+      "correct_index": 3,
+      "difficulty": 1,
+      "explanation": "First in, first out preserves arrival order.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q3",
+      "prompt": "What does Big-O describe?",
+      "options": [
+        "A programming language",
+        "Exact runtime on every computer",
+        "An asymptotic bound on resource growth",
+        "A memory address"
+      ],
+      "correct_index": 2,
+      "difficulty": 1,
+      "explanation": "Big-O describes growth relative to input size.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q4",
+      "prompt": "What does ordinary binary search require?",
+      "options": [
+        "Encrypted data",
+        "Sorted data by the search key",
+        "Identical values",
+        "Exactly ten items"
+      ],
+      "correct_index": 1,
+      "difficulty": 1,
+      "explanation": "Order lets the search discard half of its interval.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q5",
+      "prompt": "What is binary search's worst-case complexity on a sorted array?",
+      "options": [
+        "O(log n)",
+        "O(1)",
+        "O(n)",
+        "O(n squared)"
+      ],
+      "correct_index": 0,
+      "difficulty": 2,
+      "explanation": "Each comparison halves the remaining search interval.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q6",
+      "prompt": "What is the complexity of one complete scan through n elements?",
+      "options": [
+        "O(log n)",
+        "O(n squared)",
+        "O(2 to the n)",
+        "O(n)"
+      ],
+      "correct_index": 3,
+      "difficulty": 2,
+      "explanation": "A constant amount of work per item gives linear growth.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q7",
+      "prompt": "Which structure is commonly used by breadth-first search?",
+      "options": [
+        "Heap always",
+        "Sorted linked list only",
+        "Queue",
+        "Stack only"
+      ],
+      "correct_index": 2,
+      "difficulty": 2,
+      "explanation": "A queue visits vertices by distance in an unweighted graph.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q8",
+      "prompt": "Why does recursion need a base case?",
+      "options": [
+        "To avoid variables",
+        "To terminate repeated self-calls",
+        "To force sorting",
+        "To allocate unlimited memory"
+      ],
+      "correct_index": 1,
+      "difficulty": 3,
+      "explanation": "A reachable base case stops the recursion.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q9",
+      "prompt": "What is merge sort's worst-case time complexity?",
+      "options": [
+        "O(n log n)",
+        "O(n squared)",
+        "O(1)",
+        "O(log n)"
+      ],
+      "correct_index": 0,
+      "difficulty": 4,
+      "explanation": "There are logarithmic split levels with linear merge work.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    },
+    {
+      "id": "voidfill-algorithms-q10",
+      "prompt": "Why can standard Dijkstra fail with negative edge weights?",
+      "options": [
+        "Negative numbers cannot be stored",
+        "Graphs must be trees",
+        "Priority queues prohibit integers",
+        "A finalized vertex may later receive a shorter path"
+      ],
+      "correct_index": 3,
+      "difficulty": 5,
+      "explanation": "Negative edges invalidate the greedy finalization assumption.",
+      "topics": [
+        "algorithms"
+      ],
+      "source": "VoidFill authored supplement",
+      "source_url": "https://docs.python.org/3/library/collections.html",
+      "resource_id": "voidfill-algorithms-0",
+      "license": "MIT",
+      "difficulty_source": "Author-estimated complexity; not psychometrically calibrated"
+    }
+  ]
+}

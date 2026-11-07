@@ -1,202 +1,132 @@
+import { withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { isoDate, daysBetween } from "@/lib/date";
+import { gradeAssessment, submissionSchema } from "@/lib/assessments";
+import { applySkillResults } from "@/lib/learningContext";
+import { LearningError } from "@/lib/localMl";
+import { persistVerifiedAssessment } from "@/lib/assessmentPersistence";
 
-export async function POST(req: Request) {
-  const supabase = createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
-
-  const body = await req.json().catch(() => null);
-  const answers = body?.answers as { question_id: string; selected_index: number }[] | undefined;
-  const aiQuestions = body?.ai_questions as { id: string; correct_index: number; skill_name: string }[] | undefined;
-  const difficultyLevel = body?.difficulty_level || 1;
-
-  if (!answers?.length) return NextResponse.json({ error: "no answers" }, { status: 400 });
-
-  const today = isoDate(new Date());
-
-  const { data: existing } = await supabase
-    .from("daily_attempts")
-    .select("*")
-    .eq("user_id", user.id)
-    .eq("attempt_date", today)
-    .maybeSingle();
-
-  if (existing?.completed_at) return NextResponse.json(existing);
-
-  // Build question map — either from AI questions or from database
-  const isAiTest = aiQuestions && aiQuestions.length > 0;
-  let qMap = new Map<string, any>();
-
-  if (isAiTest) {
-    // AI-generated questions — use the correct_index from the payload
-    aiQuestions.forEach((q) => qMap.set(q.id, { id: q.id, correct_index: q.correct_index, skill_name: q.skill_name }));
-  } else {
-    // Database questions
-    const qIds = answers.map((a) => a.question_id);
-    const { data: qs, error: qErr } = await supabase
-      .from("questions")
-      .select("id, skill_id, correct_index")
-      .in("id", qIds);
-
-    if (qErr) return NextResponse.json({ error: qErr.message }, { status: 500 });
-    (qs || []).forEach((q) => qMap.set(q.id, q));
+async function handlePOST(req: Request) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user)
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  const parsed = submissionSchema.safeParse(await req.json().catch(() => null));
+  if (!parsed.success)
+    return NextResponse.json(
+      { error: "Invalid assessment submission." },
+      { status: 400 },
+    );
+  try {
+    const grade = gradeAssessment(user.id, parsed.data, "daily");
+    const result = await persistVerifiedAssessment(
+      supabase, user.id, grade, parsed.data.answers,
+      async () => {
+        const today = isoDate(new Date());
+        const { data: existing, error: existingError } = await supabase
+          .from("daily_attempts")
+          .select("*")
+          .eq("user_id", user.id)
+          .eq("attempt_date", today)
+          .maybeSingle();
+        if (existingError)
+          throw new LearningError("Could not load today's attempt.", 500);
+        if (existing?.completed_at)
+          return { ...existing, review: [], alreadyCompleted: true };
+        const xp_earned = 50 + grade.correct * 5;
+        const { data: attempt, error } = await supabase
+          .from("daily_attempts")
+          .upsert(
+            {
+              user_id: user.id,
+              attempt_date: today,
+              completed_at: new Date().toISOString(),
+              correct_count: grade.correct,
+              total_count: grade.total,
+              xp_earned,
+              difficulty_level: grade.metadata.difficulty,
+            },
+            { onConflict: "user_id,attempt_date" },
+          )
+          .select("*")
+          .single();
+        if (error)
+          throw new LearningError("Could not save the daily attempt.", 500);
+        const { error: skillError } = await supabase
+          .from("attempt_skill_scores")
+          .upsert(
+            grade.skills.map((s) => ({
+              attempt_id: attempt.id,
+              skill_id: s.skill_id,
+              score: s.score,
+            })),
+            { onConflict: "attempt_id,skill_id" },
+          );
+        if (skillError)
+          throw new LearningError("Could not save attempt skill scores.", 500);
+        await applySkillResults(supabase, user.id, grade.skills);
+        const { data: stats, error: statsReadError } = await supabase
+          .from("user_stats")
+          .select("*")
+          .eq("user_id", user.id)
+          .maybeSingle();
+        if (statsReadError)
+          throw new LearningError("Could not load learning statistics.", 500);
+        const xp_total = (stats?.xp || 0) + xp_earned;
+        const level = Math.floor(xp_total / 500) + 1;
+        const gap = stats?.last_activity_date
+          ? daysBetween(stats.last_activity_date, today)
+          : null;
+        const streak =
+          gap === 0
+            ? Math.max(stats?.streak || 0, 1)
+            : gap === 1
+              ? (stats?.streak || 0) + 1
+              : 1;
+        const { error: statsError } = await supabase
+          .from("user_stats")
+          .upsert(
+            {
+              user_id: user.id,
+              xp: xp_total,
+              level,
+              streak,
+              last_activity_date: today,
+              updated_at: new Date().toISOString(),
+            },
+            { onConflict: "user_id" },
+          );
+        if (statsError)
+          throw new LearningError("Could not save learning statistics.", 500);
+        return {
+          ...attempt,
+          xp_earned,
+          xp_total,
+          level,
+          streak,
+          review: grade.review,
+        };
+      },
+    );
+    return NextResponse.json(result);
+  } catch (error) {
+    console.error(
+      "Daily grading:",
+      error instanceof Error ? error.message : error,
+    );
+    return NextResponse.json(
+      {
+        error:
+          error instanceof LearningError
+            ? error.message
+            : "Could not save assessment results.",
+      },
+      { status: error instanceof LearningError ? error.status : 500 },
+    );
   }
-
-  let correct = 0;
-  const perSkill: Record<string, { points: number; count: number }> = {};
-
-  // For AI tests, we track by skill_name; for DB tests, by skill_id
-  const answerRows: any[] = [];
-  answers.forEach((a) => {
-    const q = qMap.get(a.question_id);
-    const is_correct = q ? a.selected_index === q.correct_index : false;
-    const points = is_correct ? 100 : 0;
-    if (is_correct) correct += 1;
-
-    if (isAiTest) {
-      // Track by skill name
-      const skillName = q?.skill_name || "General";
-      perSkill[skillName] = perSkill[skillName] || { points: 0, count: 0 };
-      perSkill[skillName].points += points;
-      perSkill[skillName].count += 1;
-    } else {
-      const skill_id = q?.skill_id || null;
-      if (skill_id) {
-        perSkill[skill_id] = perSkill[skill_id] || { points: 0, count: 0 };
-        perSkill[skill_id].points += points;
-        perSkill[skill_id].count += 1;
-      }
-      answerRows.push({
-        question_id: a.question_id,
-        selected_index: a.selected_index,
-        is_correct,
-        points,
-        skill_id,
-      });
-    }
-  });
-
-  const total = answers.length;
-  const xp_earned = 50 + correct * 5;
-
-  const { data: attempt, error: aErr } = await supabase
-    .from("daily_attempts")
-    .upsert({
-      user_id: user.id,
-      attempt_date: today,
-      completed_at: new Date().toISOString(),
-      correct_count: correct,
-      total_count: total,
-      xp_earned,
-      difficulty_level: difficultyLevel,
-    }, { onConflict: "user_id,attempt_date" })
-    .select("*")
-    .single();
-
-  if (aErr) return NextResponse.json({ error: aErr.message }, { status: 500 });
-
-  const attempt_id = attempt.id;
-
-  // Insert answer rows only for DB questions (AI questions don't have DB entries)
-  if (answerRows.length > 0) {
-    await supabase.from("attempt_answers").insert(answerRows.map((r) => ({ ...r, attempt_id })));
-  }
-
-  // Update skill scores
-  if (isAiTest) {
-    // For AI tests, we need to map skill names to skill IDs (case-insensitive + fuzzy)
-    const skillNames = Object.keys(perSkill);
-    const { data: allSkills } = await supabase.from("skills").select("id, name");
-    const nameToId = new Map<string, string>();
-
-    // Build case-insensitive lookup
-    const dbSkills = (allSkills || []).map((s: any) => ({ id: s.id, name: s.name, lower: s.name.toLowerCase().trim() }));
-
-    for (const aiName of skillNames) {
-      const lower = aiName.toLowerCase().trim();
-      // 1. Exact case-insensitive
-      const exact = dbSkills.find(s => s.lower === lower);
-      if (exact) { nameToId.set(aiName, exact.id); continue; }
-      // 2. Substring match
-      const partial = dbSkills.find(s => s.lower.includes(lower) || lower.includes(s.lower));
-      if (partial) { nameToId.set(aiName, partial.id); continue; }
-      // 3. Word overlap
-      const words = lower.split(/[\s.\-_/]+/).filter(w => w.length > 2);
-      const wordMatch = dbSkills.find(s => {
-        const dbWords = s.lower.split(/[\s.\-_/]+/).filter((w: string) => w.length > 2);
-        return words.some(w => dbWords.some((dw: string) => dw.includes(w) || w.includes(dw)));
-      });
-      if (wordMatch) nameToId.set(aiName, wordMatch.id);
-    }
-
-    const skillScoreRows: any[] = [];
-    for (const [skillName, v] of Object.entries(perSkill)) {
-      const skillId = nameToId.get(skillName);
-      if (!skillId) continue;
-      const score = Math.round(v.points / Math.max(1, v.count));
-      skillScoreRows.push({ attempt_id, skill_id: skillId, score });
-    }
-
-    if (skillScoreRows.length > 0) {
-      await supabase.from("attempt_skill_scores").upsert(skillScoreRows, { onConflict: "attempt_id,skill_id" });
-      await updateUserSkillScores(supabase, user.id, skillScoreRows);
-    }
-  } else {
-    // Original DB-based scoring
-    const skillScoreRows = Object.entries(perSkill).map(([skill_id, v]) => {
-      const score = Math.round(v.points / Math.max(1, v.count));
-      return { attempt_id, skill_id, score };
-    });
-
-    if (skillScoreRows.length) {
-      await supabase.from("attempt_skill_scores").upsert(skillScoreRows, { onConflict: "attempt_id,skill_id" });
-      await updateUserSkillScores(supabase, user.id, skillScoreRows);
-    }
-  }
-
-  // Update user stats (XP, level, streak)
-  const { data: stats } = await supabase.from("user_stats").select("*").eq("user_id", user.id).maybeSingle();
-  const prevXp = stats?.xp ?? 0;
-  const nextXp = prevXp + xp_earned;
-  const nextLevel = Math.floor(nextXp / 500) + 1;
-
-  let nextStreak = stats?.streak ?? 0;
-  if (stats?.last_activity_date) {
-    const diff = daysBetween(stats.last_activity_date, today);
-    nextStreak = diff === 1 ? nextStreak + 1 : 1;
-  } else {
-    nextStreak = 1;
-  }
-
-  await supabase.from("user_stats").upsert({
-    user_id: user.id,
-    xp: nextXp,
-    level: nextLevel,
-    streak: nextStreak,
-    last_activity_date: today,
-    updated_at: new Date().toISOString(),
-  }, { onConflict: "user_id" });
-
-  return NextResponse.json({ ...attempt, xp_earned, xp_total: nextXp, level: nextLevel, streak: nextStreak });
 }
 
-async function updateUserSkillScores(supabase: any, userId: string, skillScoreRows: any[]) {
-  const { data: existingScores } = await supabase
-    .from("user_skill_scores")
-    .select("skill_id, score")
-    .eq("user_id", userId)
-    .in("skill_id", skillScoreRows.map((s: any) => s.skill_id));
-
-  const prevMap = new Map<string, number>();
-  (existingScores || []).forEach((r: any) => prevMap.set(r.skill_id, r.score));
-
-  const upserts = skillScoreRows.map((r: any) => {
-    const prev = prevMap.get(r.skill_id);
-    const newScore = prev == null ? r.score : Math.round(prev * 0.7 + r.score * 0.3);
-    return { user_id: userId, skill_id: r.skill_id, score: newScore, updated_at: new Date().toISOString() };
-  });
-
-  await supabase.from("user_skill_scores").upsert(upserts, { onConflict: "user_id,skill_id" });
-}
+export const POST = withApiTelemetry("daily_submission", handlePOST);

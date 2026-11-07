@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-async function getConversationIfAuthorized(supabase: ReturnType<typeof createClient>, conversationId: string, userId: string) {
+async function getConversationIfAuthorized(supabase: Awaited<ReturnType<typeof createClient>>, conversationId: string, userId: string) {
     const { data: conversationRows } = await supabase
         .from("chat_conversations")
         .select("id, user_id, clear_requested_by")
@@ -29,7 +29,7 @@ async function getConversationIfAuthorized(supabase: ReturnType<typeof createCli
 }
 
 export async function POST(req: Request) {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
@@ -85,7 +85,7 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 

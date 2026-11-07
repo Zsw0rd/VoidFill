@@ -1,0 +1,95 @@
+{
+  "backend": "onnx-fp32",
+  "sha256": "f4651b9799b3a9760efee86c626d4a1a9d76ec2c2eb76f628e8781114630bc35",
+  "base_url": "https://duklscnzisneioiwgfao.supabase.co/storage/v1/object/public/model-artifacts",
+  "parts": [
+    {
+      "name": "bge-f4651b9799b3-00.part",
+      "sha256": "c957427e61a928572fade763f65ecbebcbf9190978e0cc97dd441c706d589456",
+      "bytes": 33554432
+    },
+    {
+      "name": "bge-f4651b9799b3-01.part",
+      "sha256": "d674beb9df7082b83f4622690a96bf8b9adecac5e7241fa82ec234c13ef67614",
+      "bytes": 33554432
+    },
+    {
+      "name": "bge-f4651b9799b3-02.part",
+      "sha256": "1998f55bb13ad02fa4d57749595e5d16c3f13c0c05e563e104d44618bfdf9e49",
+      "bytes": 33554432
+    },
+    {
+      "name": "bge-f4651b9799b3-03.part",
+      "sha256": "eaad7b6bdc5037b1e5b2b9612ac84b595b5430b0f64f0b1ec5803b4970781edb",
+      "bytes": 33554432
+    },
+    {
+      "name": "bge-f4651b9799b3-04.part",
+      "sha256": "33d3e28141f50b14de282d10d543a69d92c0c4967dc53597300cc80b9e1bc7c5",
+      "bytes": 33554432
+    },
+    {
+      "name": "bge-f4651b9799b3-05.part",
+      "sha256": "d2196986843dd37df62fa82a4173c2fcd21d5037c3e385c598b2488e7bd30553",
+      "bytes": 33554432
+    },
+    {
+      "name": "bge-f4651b9799b3-06.part",
+      "sha256": "cf7959e3661e1ae8b6d662bfcb315cf0b838381672f992e16426be85135e9138",
+      "bytes": 33554432
+    },
+    {
+      "name": "bge-f4651b9799b3-07.part",
+      "sha256": "1e7fefd0e58f7d41ccba62f6609a623c9cafc80d3c7badf53dcf6303b53b1f67",
+      "bytes": 33554432
+    },
+    {
+      "name": "bge-f4651b9799b3-08.part",
+      "sha256": "bff0a8d26a1cebd6177b7e41bbb0bb9aea1f5d2826513a1c8d96570c09e78f03",
+      "bytes": 8518990
+    }
+  ],
+  "files_archive_sha256": "f4651b9799b3a9760efee86c626d4a1a9d76ec2c2eb76f628e8781114630bc35",
+  "files": [
+    {
+      "name": "catalogue.npz",
+      "sha256": "ae33798613ca6ff20ab13f716fc61956955a270edbe71b2979b90fcd380f9290",
+      "bytes": 5916734
+    },
+    {
+      "name": "licenses/BGE-MIT.txt",
+      "sha256": "587a673933425dbc36ec61268d3b954051b2d3ef3c9b322ede357976055ffdd5",
+      "bytes": 1065
+    },
+    {
+      "name": "licenses/BGE-base-model-card.md",
+      "sha256": "fd29e6117a8c2bc83f8eafb73f261d35341702dcd95c9cc0b34f5be75afa8231",
+      "bytes": 94551
+    },
+    {
+      "name": "metrics.json",
+      "sha256": "9426c49b9278459d1857e180d11ae78e2a1a35dbb6ff3ef5bd640300f0f7713f",
+      "bytes": 7647
+    },
+    {
+      "name": "model.onnx",
+      "sha256": "94103ec1ae834bf507f5af194460e74ff626a069eb68cc620714f3261880e21b",
+      "bytes": 435781483
+    },
+    {
+      "name": "public-queries.json",
+      "sha256": "b57db9877389f972a0c4b806be9489172b478636e139710090e4c636c7a1ff03",
+      "bytes": 1678
+    },
+    {
+      "name": "public-queries.npz",
+      "sha256": "6d0e23fca45d3b0013afec339cb7d2bd3915bcf33f8cdc60506be6845d3ff3ac",
+      "bytes": 34476
+    },
+    {
+      "name": "tokenizer.json",
+      "sha256": "3fc3f18ce1603449ed5c2e95d62dc54ce8652af6b6b61e27ff410bff02fbfd5e",
+      "bytes": 711781
+    }
+  ]
+}

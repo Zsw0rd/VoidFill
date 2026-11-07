@@ -1,0 +1,9 @@
+{
+  "initialization_ms": 1987.8354999964358,
+  "first_six_skill_recommendation_ms": 2.187000005505979,
+  "warm_six_skill_median_ms": 1.1765999988710973,
+  "warm_six_skill_p95_ms": 1.3526000038837083,
+  "model_graph_loaded_for_public_queries": false,
+  "torch_imported": false,
+  "scope": "Local CPU measurements; Vercel network and platform cold-start overhead are not included."
+}

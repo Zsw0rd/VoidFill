@@ -11,7 +11,7 @@ export async function AppShell({
   let displayName = initialDisplayName;
 
   if (!displayName) {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     displayName = user?.email || "User";

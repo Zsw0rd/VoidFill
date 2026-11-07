@@ -1,0 +1,82 @@
+[
+  {
+    "url": "https://docs.python.org/3/tutorial/controlflow.html",
+    "status": 200,
+    "resolved_url": "https://docs.python.org/3/tutorial/controlflow.html"
+  },
+  {
+    "url": "https://docs.python.org/3/tutorial/datastructures.html",
+    "status": 200,
+    "resolved_url": "https://docs.python.org/3/tutorial/datastructures.html"
+  },
+  {
+    "url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+    "status": 200,
+    "resolved_url": "https://www.postgresql.org/docs/current/tutorial-select.html"
+  },
+  {
+    "url": "https://www.postgresql.org/docs/current/tutorial-join.html",
+    "status": 200,
+    "resolved_url": "https://www.postgresql.org/docs/current/tutorial-join.html"
+  },
+  {
+    "url": "https://www.postgresql.org/docs/current/tutorial-agg.html",
+    "status": 200,
+    "resolved_url": "https://www.postgresql.org/docs/current/tutorial-agg.html"
+  },
+  {
+    "url": "https://matplotlib.org/stable/users/getting_started/",
+    "status": 200,
+    "resolved_url": "https://matplotlib.org/stable/users/getting_started/"
+  },
+  {
+    "url": "https://seaborn.pydata.org/tutorial/introduction.html",
+    "status": 200,
+    "resolved_url": "https://seaborn.pydata.org/tutorial/introduction.html"
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+    "status": 200,
+    "resolved_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content"
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content",
+    "status": 200,
+    "resolved_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content"
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+    "status": 200,
+    "resolved_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+  },
+  {
+    "url": "https://git-scm.com/docs/gittutorial",
+    "status": 200,
+    "resolved_url": "https://git-scm.com/docs/gittutorial"
+  },
+  {
+    "url": "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell",
+    "status": 200,
+    "resolved_url": "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell"
+  },
+  {
+    "url": "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes",
+    "status": 200,
+    "resolved_url": "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes"
+  },
+  {
+    "url": "https://docs.python.org/3/library/collections.html",
+    "status": 200,
+    "resolved_url": "https://docs.python.org/3/library/collections.html"
+  },
+  {
+    "url": "https://docs.python.org/3/library/heapq.html",
+    "status": 200,
+    "resolved_url": "https://docs.python.org/3/library/heapq.html"
+  },
+  {
+    "url": "https://docs.python.org/3/library/bisect.html",
+    "status": 200,
+    "resolved_url": "https://docs.python.org/3/library/bisect.html"
+  }
+]

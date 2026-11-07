@@ -1,30 +1,40 @@
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
+import type { CookieOptions } from "@supabase/ssr";
+import { createDemoClient } from "@/lib/demo/client";
+import { demoService, DEMO_COOKIE } from "@/lib/demo/server";
 
-export function createClient() {
-  const cookieStore = cookies();
+export async function createClient() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get(DEMO_COOKIE)?.value;
+  if (token)
+    return createDemoClient(
+      (operation, body) => demoService(operation, body, token),
+      token,
+    ) as unknown as ReturnType<typeof createServerClient>;
 
+  return createAuthServerClient();
+}
+
+export async function createAuthServerClient() {
+  const cookieStore = await cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value;
+        getAll() {
+          return cookieStore.getAll();
         },
-        set(name: string, value: string, options: any) {
+        setAll(
+          values: { name: string; value: string; options: CookieOptions }[],
+        ) {
           try {
-            cookieStore.set({ name, value, ...options });
+            values.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options),
+            );
           } catch {
-            // set() can throw in Server Components (read-only context)
-            // This is fine — the middleware handles token refresh
-          }
-        },
-        remove(name: string, options: any) {
-          try {
-            cookieStore.set({ name, value: "", ...options });
-          } catch {
-            // Same as above
+            // Server Components are read-only; middleware persists refreshed cookies.
           }
         },
       },

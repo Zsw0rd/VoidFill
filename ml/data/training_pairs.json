@@ -1,0 +1,3308 @@
+[
+  {
+    "query": "A program can be created without the creator writing any code",
+    "resource_id": "21d6f7b742af5ef625aa9253",
+    "group": "21d6f7b742af5ef625aa9253",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Low level languages are a popular choice for",
+    "resource_id": "21d6f7b742af5ef625aa9253",
+    "group": "21d6f7b742af5ef625aa9253",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Which one of these tools would most likely be in a web developer's environment?",
+    "resource_id": "21d6f7b742af5ef625aa9253",
+    "group": "21d6f7b742af5ef625aa9253",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What language would you most likely use to create a website?",
+    "resource_id": "21d6f7b742af5ef625aa9253",
+    "group": "21d6f7b742af5ef625aa9253",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Development environments are unique to each developer",
+    "resource_id": "21d6f7b742af5ef625aa9253",
+    "group": "21d6f7b742af5ef625aa9253",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What will a developer do to fix buggy code?",
+    "resource_id": "21d6f7b742af5ef625aa9253",
+    "group": "21d6f7b742af5ef625aa9253",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How do you create a Git repo?",
+    "resource_id": "71c0b9312980bb59f0bafe33",
+    "group": "71c0b9312980bb59f0bafe33",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What does git add do?",
+    "resource_id": "71c0b9312980bb59f0bafe33",
+    "group": "71c0b9312980bb59f0bafe33",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How do you check if git is installed on your computer?",
+    "resource_id": "71c0b9312980bb59f0bafe33",
+    "group": "71c0b9312980bb59f0bafe33",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more is:",
+    "resource_id": "71c0b9312980bb59f0bafe33",
+    "group": "71c0b9312980bb59f0bafe33",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How would you get and integrate all the commits from a remote branch?",
+    "resource_id": "71c0b9312980bb59f0bafe33",
+    "group": "71c0b9312980bb59f0bafe33",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How do you switch to a branch?",
+    "resource_id": "71c0b9312980bb59f0bafe33",
+    "group": "71c0b9312980bb59f0bafe33",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "An accessible web site can be checked in which browser tool",
+    "resource_id": "3f812fe641f4b86d2834366d",
+    "group": "3f812fe641f4b86d2834366d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You need a physical screen reader to test accessibility for visually-impaired users",
+    "resource_id": "3f812fe641f4b86d2834366d",
+    "group": "3f812fe641f4b86d2834366d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Accessibility is only important on government web sites",
+    "resource_id": "3f812fe641f4b86d2834366d",
+    "group": "3f812fe641f4b86d2834366d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Lighthouse only checks for accessibility problems",
+    "resource_id": "3f812fe641f4b86d2834366d",
+    "group": "3f812fe641f4b86d2834366d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Color-safe palettes help people with",
+    "resource_id": "3f812fe641f4b86d2834366d",
+    "group": "3f812fe641f4b86d2834366d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Descriptive links are vital for accessible web sites",
+    "resource_id": "3f812fe641f4b86d2834366d",
+    "group": "3f812fe641f4b86d2834366d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Booleans are a data type you can use to test the length of a string",
+    "resource_id": "45db1418a7051a3a68f47bc2",
+    "group": "45db1418a7051a3a68f47bc2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The following is an operation you can perform on a string",
+    "resource_id": "45db1418a7051a3a68f47bc2",
+    "group": "45db1418a7051a3a68f47bc2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "== and === are interchangeable",
+    "resource_id": "45db1418a7051a3a68f47bc2",
+    "group": "45db1418a7051a3a68f47bc2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Constants are the same as let and var to declare variables except",
+    "resource_id": "45db1418a7051a3a68f47bc2",
+    "group": "45db1418a7051a3a68f47bc2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Numbers and ____ are JavaScript primitives that handle numeric data",
+    "resource_id": "45db1418a7051a3a68f47bc2",
+    "group": "45db1418a7051a3a68f47bc2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Strings can reside between both single and double quotes",
+    "resource_id": "45db1418a7051a3a68f47bc2",
+    "group": "45db1418a7051a3a68f47bc2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What's an argument?",
+    "resource_id": "177807d185220783a0478e05",
+    "group": "177807d185220783a0478e05",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A function must return something",
+    "resource_id": "177807d185220783a0478e05",
+    "group": "177807d185220783a0478e05",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can name a function anything",
+    "resource_id": "177807d185220783a0478e05",
+    "group": "177807d185220783a0478e05",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Arguments must be provided for all parameters in a function",
+    "resource_id": "177807d185220783a0478e05",
+    "group": "177807d185220783a0478e05",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What does a default value do?",
+    "resource_id": "177807d185220783a0478e05",
+    "group": "177807d185220783a0478e05",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A fat arrow function allows you to",
+    "resource_id": "177807d185220783a0478e05",
+    "group": "177807d185220783a0478e05",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The following operator == is called",
+    "resource_id": "f96bb81b0ba769e1e46268cc",
+    "group": "f96bb81b0ba769e1e46268cc",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A comparison in JavaScript returns what type?",
+    "resource_id": "f96bb81b0ba769e1e46268cc",
+    "group": "f96bb81b0ba769e1e46268cc",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The ! symbol in JavaScript means:",
+    "resource_id": "f96bb81b0ba769e1e46268cc",
+    "group": "f96bb81b0ba769e1e46268cc",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What would the following code return: '1' == 1",
+    "resource_id": "f96bb81b0ba769e1e46268cc",
+    "group": "f96bb81b0ba769e1e46268cc",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Choose the correct operator to express 'or' logic",
+    "resource_id": "f96bb81b0ba769e1e46268cc",
+    "group": "f96bb81b0ba769e1e46268cc",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "To refer to a specific item in an array, you would use a",
+    "resource_id": "f816fe36c2142be298089ac3",
+    "group": "f816fe36c2142be298089ac3",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How do you get the number of items in an array?",
+    "resource_id": "f816fe36c2142be298089ac3",
+    "group": "f816fe36c2142be298089ac3",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "In JavaScript, indexes start at",
+    "resource_id": "f816fe36c2142be298089ac3",
+    "group": "f816fe36c2142be298089ac3",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What part of a for-loop would you need to modify to increment its iteration by 5?",
+    "resource_id": "f816fe36c2142be298089ac3",
+    "group": "f816fe36c2142be298089ac3",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What's the difference between a while and a for-loop",
+    "resource_id": "f816fe36c2142be298089ac3",
+    "group": "f816fe36c2142be298089ac3",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Given the code for (let i=1; i < 5; i++), how many iterations will it perform?",
+    "resource_id": "f816fe36c2142be298089ac3",
+    "group": "f816fe36c2142be298089ac3",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "HTML stands for 'HyperText Mockup Language'",
+    "resource_id": "5147d258bf81618cfbce5a2a",
+    "group": "5147d258bf81618cfbce5a2a",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "All HTML tags need both opening and closing tags",
+    "resource_id": "5147d258bf81618cfbce5a2a",
+    "group": "5147d258bf81618cfbce5a2a",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Using semantic markup is most important for",
+    "resource_id": "5147d258bf81618cfbce5a2a",
+    "group": "5147d258bf81618cfbce5a2a",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Spans and Divs are interchangeable",
+    "resource_id": "5147d258bf81618cfbce5a2a",
+    "group": "5147d258bf81618cfbce5a2a",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The head of an HTML doc can contain:",
+    "resource_id": "5147d258bf81618cfbce5a2a",
+    "group": "5147d258bf81618cfbce5a2a",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can't use deprecated tags in your markup",
+    "resource_id": "5147d258bf81618cfbce5a2a",
+    "group": "5147d258bf81618cfbce5a2a",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "HTML elements must have either a class or an id in order to be styled",
+    "resource_id": "b5bcddf9e8bafa4fdd75339f",
+    "group": "b5bcddf9e8bafa4fdd75339f",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "CSS stands for 'Complete Style Sheets'",
+    "resource_id": "b5bcddf9e8bafa4fdd75339f",
+    "group": "b5bcddf9e8bafa4fdd75339f",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "CSS can be used to create animations",
+    "resource_id": "b5bcddf9e8bafa4fdd75339f",
+    "group": "b5bcddf9e8bafa4fdd75339f",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can write CSS directly in the head section of your HTML file",
+    "resource_id": "b5bcddf9e8bafa4fdd75339f",
+    "group": "b5bcddf9e8bafa4fdd75339f",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "It's always necessary to include CSS in your app",
+    "resource_id": "b5bcddf9e8bafa4fdd75339f",
+    "group": "b5bcddf9e8bafa4fdd75339f",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Which browser tool can be used to inspect CSS?",
+    "resource_id": "b5bcddf9e8bafa4fdd75339f",
+    "group": "b5bcddf9e8bafa4fdd75339f",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The DOM stands for 'Document Object Management'",
+    "resource_id": "5e6ca8a2d103dbc86238e618",
+    "group": "5e6ca8a2d103dbc86238e618",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The DOM can be thought of as a tree",
+    "resource_id": "5e6ca8a2d103dbc86238e618",
+    "group": "5e6ca8a2d103dbc86238e618",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Using the Web API, you can manipulate the DOM",
+    "resource_id": "5e6ca8a2d103dbc86238e618",
+    "group": "5e6ca8a2d103dbc86238e618",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The DOM is a model to represent a document on the web",
+    "resource_id": "5e6ca8a2d103dbc86238e618",
+    "group": "5e6ca8a2d103dbc86238e618",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Use JavaScript closures to perform the following:",
+    "resource_id": "5e6ca8a2d103dbc86238e618",
+    "group": "5e6ca8a2d103dbc86238e618",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Fill in the blank: Closures are useful when one or more functions need to access an outer function's...",
+    "resource_id": "5e6ca8a2d103dbc86238e618",
+    "group": "5e6ca8a2d103dbc86238e618",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Event-driven programming is when a user",
+    "resource_id": "e48d1a8b3020ba91c131475d",
+    "group": "e48d1a8b3020ba91c131475d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "In procedural programming, functions are called",
+    "resource_id": "e48d1a8b3020ba91c131475d",
+    "group": "e48d1a8b3020ba91c131475d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The universal method exposed in the DOM for registering event handlers is called",
+    "resource_id": "e48d1a8b3020ba91c131475d",
+    "group": "e48d1a8b3020ba91c131475d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Just about anything a user does on a page raises an event",
+    "resource_id": "e48d1a8b3020ba91c131475d",
+    "group": "e48d1a8b3020ba91c131475d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Common events include",
+    "resource_id": "e48d1a8b3020ba91c131475d",
+    "group": "e48d1a8b3020ba91c131475d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can use anonymous functions to create event handlers",
+    "resource_id": "e48d1a8b3020ba91c131475d",
+    "group": "e48d1a8b3020ba91c131475d",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can get browser extensions from",
+    "resource_id": "ccf09d85bb3979199f32a57b",
+    "group": "ccf09d85bb3979199f32a57b",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "NPM stands for",
+    "resource_id": "ccf09d85bb3979199f32a57b",
+    "group": "ccf09d85bb3979199f32a57b",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Your browser can serve web pages both securely and insecurely",
+    "resource_id": "ccf09d85bb3979199f32a57b",
+    "group": "ccf09d85bb3979199f32a57b",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The World Wide Web was invented by",
+    "resource_id": "ccf09d85bb3979199f32a57b",
+    "group": "ccf09d85bb3979199f32a57b",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The first browser was called",
+    "resource_id": "ccf09d85bb3979199f32a57b",
+    "group": "ccf09d85bb3979199f32a57b",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Browsers can store a user's browsing history",
+    "resource_id": "ccf09d85bb3979199f32a57b",
+    "group": "ccf09d85bb3979199f32a57b",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "APIs stand for",
+    "resource_id": "7f95b0704dd938c21b8c7d50",
+    "group": "7f95b0704dd938c21b8c7d50",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Use an API to interact with",
+    "resource_id": "7f95b0704dd938c21b8c7d50",
+    "group": "7f95b0704dd938c21b8c7d50",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Anyone can create an API",
+    "resource_id": "7f95b0704dd938c21b8c7d50",
+    "group": "7f95b0704dd938c21b8c7d50",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "LocalStorage is cleared every time you close the browser window",
+    "resource_id": "7f95b0704dd938c21b8c7d50",
+    "group": "7f95b0704dd938c21b8c7d50",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The main browser window controls a browser's extension's LocalStorage",
+    "resource_id": "7f95b0704dd938c21b8c7d50",
+    "group": "7f95b0704dd938c21b8c7d50",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "REST in an API context stands for",
+    "resource_id": "7f95b0704dd938c21b8c7d50",
+    "group": "7f95b0704dd938c21b8c7d50",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Test the performance of your app",
+    "resource_id": "91ebbdad08c0aa7018b889a2",
+    "group": "91ebbdad08c0aa7018b889a2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The 'performance' of a web site is an analysis of",
+    "resource_id": "91ebbdad08c0aa7018b889a2",
+    "group": "91ebbdad08c0aa7018b889a2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Overall, the 'weight' of web pages over the past few years has",
+    "resource_id": "91ebbdad08c0aa7018b889a2",
+    "group": "91ebbdad08c0aa7018b889a2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "To get a better view of your site's performance, clear its cache and reload in the profiler",
+    "resource_id": "91ebbdad08c0aa7018b889a2",
+    "group": "91ebbdad08c0aa7018b889a2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Browser extensions are inherently performant",
+    "resource_id": "91ebbdad08c0aa7018b889a2",
+    "group": "91ebbdad08c0aa7018b889a2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Analyze the following for performance bottlenecks",
+    "resource_id": "91ebbdad08c0aa7018b889a2",
+    "group": "91ebbdad08c0aa7018b889a2",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "JavaScript is an unpopular language for building games",
+    "resource_id": "a626753d5b4a2f04a087cf45",
+    "group": "a626753d5b4a2f04a087cf45",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Pub/Sub is a preferred pattern for managing the game's assets and flow",
+    "resource_id": "a626753d5b4a2f04a087cf45",
+    "group": "a626753d5b4a2f04a087cf45",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Object inheritance can be handled by either using classes or composition",
+    "resource_id": "a626753d5b4a2f04a087cf45",
+    "group": "a626753d5b4a2f04a087cf45",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Classes rely on inheritance to ascribe to behaviors",
+    "resource_id": "a626753d5b4a2f04a087cf45",
+    "group": "a626753d5b4a2f04a087cf45",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Composition is the preferred design pattern for game objects",
+    "resource_id": "a626753d5b4a2f04a087cf45",
+    "group": "a626753d5b4a2f04a087cf45",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Pub/Sub stands for:",
+    "resource_id": "a626753d5b4a2f04a087cf45",
+    "group": "a626753d5b4a2f04a087cf45",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The Canvas element is what you use to draw on a screen",
+    "resource_id": "044151219efd503a941c1983",
+    "group": "044151219efd503a941c1983",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can only draw simple geometric shapes using the Canvas API",
+    "resource_id": "044151219efd503a941c1983",
+    "group": "044151219efd503a941c1983",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The point 0,0 is in the bottom left",
+    "resource_id": "044151219efd503a941c1983",
+    "group": "044151219efd503a941c1983",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can perform drawing operations directly on the Canvas",
+    "resource_id": "044151219efd503a941c1983",
+    "group": "044151219efd503a941c1983",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You listen to the onload event to know when an image has loaded asynchronously",
+    "resource_id": "044151219efd503a941c1983",
+    "group": "044151219efd503a941c1983",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You draw images onto a screen with an operation called:",
+    "resource_id": "044151219efd503a941c1983",
+    "group": "044151219efd503a941c1983",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Any object on the screen can receive keyboard events",
+    "resource_id": "aabe132f4ffe9127fd7fc712",
+    "group": "aabe132f4ffe9127fd7fc712",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can use the same method to listen to key events and mouse events",
+    "resource_id": "aabe132f4ffe9127fd7fc712",
+    "group": "aabe132f4ffe9127fd7fc712",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "To make things happen at a regular interval, you use what function?",
+    "resource_id": "aabe132f4ffe9127fd7fc712",
+    "group": "aabe132f4ffe9127fd7fc712",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You always need to redraw the screen",
+    "resource_id": "aabe132f4ffe9127fd7fc712",
+    "group": "aabe132f4ffe9127fd7fc712",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What is a game loop?",
+    "resource_id": "aabe132f4ffe9127fd7fc712",
+    "group": "aabe132f4ffe9127fd7fc712",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A good case for redrawing the screen is",
+    "resource_id": "aabe132f4ffe9127fd7fc712",
+    "group": "aabe132f4ffe9127fd7fc712",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Collision detection is how we detect if two things have collided",
+    "resource_id": "2c33319788e1916817c8f8f7",
+    "group": "2c33319788e1916817c8f8f7",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How can we remove an item from the screen?",
+    "resource_id": "2c33319788e1916817c8f8f7",
+    "group": "2c33319788e1916817c8f8f7",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A good way to simulate firing a laser in JavaScript is:",
+    "resource_id": "2c33319788e1916817c8f8f7",
+    "group": "2c33319788e1916817c8f8f7",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "In collision detection you compare two",
+    "resource_id": "2c33319788e1916817c8f8f7",
+    "group": "2c33319788e1916817c8f8f7",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "The reason for implementing a cooldown effect is because",
+    "resource_id": "2c33319788e1916817c8f8f7",
+    "group": "2c33319788e1916817c8f8f7",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Constants are identifiable in code because",
+    "resource_id": "2c33319788e1916817c8f8f7",
+    "group": "2c33319788e1916817c8f8f7",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How do you draw text on a screen using the Canvas element?",
+    "resource_id": "d4243ea043940885c2dc0588",
+    "group": "d4243ea043940885c2dc0588",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Why do you have the concept of 'lives' in a game?",
+    "resource_id": "d4243ea043940885c2dc0588",
+    "group": "d4243ea043940885c2dc0588",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Add color to text on Canvas using",
+    "resource_id": "d4243ea043940885c2dc0588",
+    "group": "d4243ea043940885c2dc0588",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What's a fun way to show how many lives a player has left?",
+    "resource_id": "d4243ea043940885c2dc0588",
+    "group": "d4243ea043940885c2dc0588",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How do you center text in the middle of the screen using the Canvas element?",
+    "resource_id": "d4243ea043940885c2dc0588",
+    "group": "d4243ea043940885c2dc0588",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "In code, deduct a life like this:",
+    "resource_id": "d4243ea043940885c2dc0588",
+    "group": "d4243ea043940885c2dc0588",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "When is a good time to restart a game",
+    "resource_id": "e2ec4a1657965257b4205356",
+    "group": "e2ec4a1657965257b4205356",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "When should a game end",
+    "resource_id": "e2ec4a1657965257b4205356",
+    "group": "e2ec4a1657965257b4205356",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A good way to add a level to your game is:",
+    "resource_id": "e2ec4a1657965257b4205356",
+    "group": "e2ec4a1657965257b4205356",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What is a good pattern to use when a game end condition has been met?",
+    "resource_id": "e2ec4a1657965257b4205356",
+    "group": "e2ec4a1657965257b4205356",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You should offer a restart only when the game has ended",
+    "resource_id": "e2ec4a1657965257b4205356",
+    "group": "e2ec4a1657965257b4205356",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A good way to clear the EventEmitter when ending a game is:",
+    "resource_id": "e2ec4a1657965257b4205356",
+    "group": "e2ec4a1657965257b4205356",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You need to create multiple HTML files to display different screens in a web app",
+    "resource_id": "db56078edbbfe68f42d8fa8e",
+    "group": "db56078edbbfe68f42d8fa8e",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You can store and persist data locally in a web app",
+    "resource_id": "db56078edbbfe68f42d8fa8e",
+    "group": "db56078edbbfe68f42d8fa8e",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What's the best data provider for a web app?",
+    "resource_id": "db56078edbbfe68f42d8fa8e",
+    "group": "db56078edbbfe68f42d8fa8e",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "HTML templates are part of the DOM by default",
+    "resource_id": "db56078edbbfe68f42d8fa8e",
+    "group": "db56078edbbfe68f42d8fa8e",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Which part of the URL is needed for routing?",
+    "resource_id": "db56078edbbfe68f42d8fa8e",
+    "group": "db56078edbbfe68f42d8fa8e",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What's the name of the event triggered when calling the history.pushState() function?",
+    "resource_id": "db56078edbbfe68f42d8fa8e",
+    "group": "db56078edbbfe68f42d8fa8e",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "HTML forms allow you to send user input to a server without using JavaScript",
+    "resource_id": "d7daf65e177e2c6618c243b4",
+    "group": "d7daf65e177e2c6618c243b4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "elements are mandatory for every form control",
+    "resource_id": "d7daf65e177e2c6618c243b4",
+    "group": "d7daf65e177e2c6618c243b4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "It is secure to send form data to a server over HTTP",
+    "resource_id": "d7daf65e177e2c6618c243b4",
+    "group": "d7daf65e177e2c6618c243b4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Using elements in forms is only for making the form pretty",
+    "resource_id": "d7daf65e177e2c6618c243b4",
+    "group": "d7daf65e177e2c6618c243b4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "A URL is sent to a server in which part of a form?",
+    "resource_id": "d7daf65e177e2c6618c243b4",
+    "group": "d7daf65e177e2c6618c243b4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Which attribute can you use to set the maximum size of a text ?",
+    "resource_id": "d7daf65e177e2c6618c243b4",
+    "group": "d7daf65e177e2c6618c243b4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "You usually fetch data from a server synchronously in a browser",
+    "resource_id": "8adb506835ad31efc908cf41",
+    "group": "8adb506835ad31efc908cf41",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What's the most common format used to exchange data on the web?",
+    "resource_id": "8adb506835ad31efc908cf41",
+    "group": "8adb506835ad31efc908cf41",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "There's no way to prevent a web page from accessing a public server API",
+    "resource_id": "8adb506835ad31efc908cf41",
+    "group": "8adb506835ad31efc908cf41",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "In a Single-page application, the HTML is loaded once and never updated",
+    "resource_id": "8adb506835ad31efc908cf41",
+    "group": "8adb506835ad31efc908cf41",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Why is it important to not trust data coming from user input?",
+    "resource_id": "8adb506835ad31efc908cf41",
+    "group": "8adb506835ad31efc908cf41",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What's the API name for sending asynchronous HTTP requests to a web server?",
+    "resource_id": "8adb506835ad31efc908cf41",
+    "group": "8adb506835ad31efc908cf41",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What is an immutable object?",
+    "resource_id": "f15bbbfc685089f0f0ef54c4",
+    "group": "f15bbbfc685089f0f0ef54c4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What benefit(s) do you get from using state management?",
+    "resource_id": "f15bbbfc685089f0f0ef54c4",
+    "group": "f15bbbfc685089f0f0ef54c4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What's the best way to persist critical user data across different sessions?",
+    "resource_id": "f15bbbfc685089f0f0ef54c4",
+    "group": "f15bbbfc685089f0f0ef54c4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "What do you think state management means?",
+    "resource_id": "f15bbbfc685089f0f0ef54c4",
+    "group": "f15bbbfc685089f0f0ef54c4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "How can you keep track of the user session state?",
+    "resource_id": "f15bbbfc685089f0f0ef54c4",
+    "group": "f15bbbfc685089f0f0ef54c4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Mutating an object is always the best way to update it",
+    "resource_id": "f15bbbfc685089f0f0ef54c4",
+    "group": "f15bbbfc685089f0f0ef54c4",
+    "source": "Web-Dev-For-Beginners"
+  },
+  {
+    "query": "Applications of machine learning are all around us",
+    "resource_id": "adbcf17f64d9f66e17f7ce82",
+    "group": "adbcf17f64d9f66e17f7ce82",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is the technical difference between classical ML and deep learning?",
+    "resource_id": "adbcf17f64d9f66e17f7ce82",
+    "group": "adbcf17f64d9f66e17f7ce82",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Why might a business want to use ML strategies?",
+    "resource_id": "adbcf17f64d9f66e17f7ce82",
+    "group": "adbcf17f64d9f66e17f7ce82",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Machine learning algorithms are meant to simulate",
+    "resource_id": "adbcf17f64d9f66e17f7ce82",
+    "group": "adbcf17f64d9f66e17f7ce82",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is an example of a classical ML technique?",
+    "resource_id": "adbcf17f64d9f66e17f7ce82",
+    "group": "adbcf17f64d9f66e17f7ce82",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Why should everyone learn the basics of ML?",
+    "resource_id": "adbcf17f64d9f66e17f7ce82",
+    "group": "adbcf17f64d9f66e17f7ce82",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Approximately when was the term 'artificial intelligence' coined?",
+    "resource_id": "593b1f33ca4b39211c8eccd6",
+    "group": "593b1f33ca4b39211c8eccd6",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Who was one of the early pioneers of machine learning?",
+    "resource_id": "593b1f33ca4b39211c8eccd6",
+    "group": "593b1f33ca4b39211c8eccd6",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is one of the reasons that advancement in AI slowed in the 1970s?",
+    "resource_id": "593b1f33ca4b39211c8eccd6",
+    "group": "593b1f33ca4b39211c8eccd6",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What's an example of a 'scruffy' AI system?",
+    "resource_id": "593b1f33ca4b39211c8eccd6",
+    "group": "593b1f33ca4b39211c8eccd6",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is an example of a technology that was developed during 'The Golden Years'?",
+    "resource_id": "593b1f33ca4b39211c8eccd6",
+    "group": "593b1f33ca4b39211c8eccd6",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which event was foundational in the creation and expansion of the field of artificial intelligence?",
+    "resource_id": "593b1f33ca4b39211c8eccd6",
+    "group": "593b1f33ca4b39211c8eccd6",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Unfairness in Machine Learning can happen",
+    "resource_id": "93b2318d79f963858dd400fc",
+    "group": "93b2318d79f963858dd400fc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "The term 'unfairness' in ML connotes:",
+    "resource_id": "93b2318d79f963858dd400fc",
+    "group": "93b2318d79f963858dd400fc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "The five main types of harms include",
+    "resource_id": "93b2318d79f963858dd400fc",
+    "group": "93b2318d79f963858dd400fc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Unfairness in a model can be caused by",
+    "resource_id": "93b2318d79f963858dd400fc",
+    "group": "93b2318d79f963858dd400fc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "To mitigate unfairness, you can",
+    "resource_id": "93b2318d79f963858dd400fc",
+    "group": "93b2318d79f963858dd400fc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Fairlearn is a package that can",
+    "resource_id": "93b2318d79f963858dd400fc",
+    "group": "93b2318d79f963858dd400fc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "When building a model, you should:",
+    "resource_id": "8665cbcb49e8235c073ea410",
+    "group": "8665cbcb49e8235c073ea410",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Your data's ___ will impact the quality of your ML model",
+    "resource_id": "8665cbcb49e8235c073ea410",
+    "group": "8665cbcb49e8235c073ea410",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A feature variable is:",
+    "resource_id": "8665cbcb49e8235c073ea410",
+    "group": "8665cbcb49e8235c073ea410",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "You should visualize your data because",
+    "resource_id": "8665cbcb49e8235c073ea410",
+    "group": "8665cbcb49e8235c073ea410",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Split your data into:",
+    "resource_id": "8665cbcb49e8235c073ea410",
+    "group": "8665cbcb49e8235c073ea410",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A common command to start the training process in various ML libraries is:",
+    "resource_id": "8665cbcb49e8235c073ea410",
+    "group": "8665cbcb49e8235c073ea410",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these variables is a numeric variable?",
+    "resource_id": "d4efc35e0bb394adf9e02a90",
+    "group": "d4efc35e0bb394adf9e02a90",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these variables is a categorical variable?",
+    "resource_id": "d4efc35e0bb394adf9e02a90",
+    "group": "d4efc35e0bb394adf9e02a90",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these problems is a Regression analysis-based problem?",
+    "resource_id": "d4efc35e0bb394adf9e02a90",
+    "group": "d4efc35e0bb394adf9e02a90",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "If your Machine Learning model's training accuracy is 95 % and the testing accuracy is 30 %, then what type of condition it is called?",
+    "resource_id": "d4efc35e0bb394adf9e02a90",
+    "group": "d4efc35e0bb394adf9e02a90",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "The process of identifying significant features from a set of features is called:",
+    "resource_id": "d4efc35e0bb394adf9e02a90",
+    "group": "d4efc35e0bb394adf9e02a90",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "The process of splitting a dataset into a certain ratio of training and testing dataset using Scikit Learn's 'train_test_split()' method/function is called:",
+    "resource_id": "d4efc35e0bb394adf9e02a90",
+    "group": "d4efc35e0bb394adf9e02a90",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these Python modules is used to plot the visualization of data?",
+    "resource_id": "89cd5bb2ed626c6062fa7c6a",
+    "group": "89cd5bb2ed626c6062fa7c6a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "If you want to understand the spread or the other characteristics of data points of your dataset, then perform:",
+    "resource_id": "89cd5bb2ed626c6062fa7c6a",
+    "group": "89cd5bb2ed626c6062fa7c6a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these is a part of the Data Visualization step in a Machine Learning project?",
+    "resource_id": "89cd5bb2ed626c6062fa7c6a",
+    "group": "89cd5bb2ed626c6062fa7c6a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these code snippets is correct based on this lesson, if you want to check for the presence of missing values in your dataset? Suppose the dataset is stored in a variable named 'dataset' which is a Pandas DataFrame object.",
+    "resource_id": "89cd5bb2ed626c6062fa7c6a",
+    "group": "89cd5bb2ed626c6062fa7c6a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these plotting methods is useful when you would like to understand the spread of different groups of datapoints from your dataset?",
+    "resource_id": "89cd5bb2ed626c6062fa7c6a",
+    "group": "89cd5bb2ed626c6062fa7c6a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What can Data Visualization NOT tell you?",
+    "resource_id": "89cd5bb2ed626c6062fa7c6a",
+    "group": "89cd5bb2ed626c6062fa7c6a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Matplotlib is a",
+    "resource_id": "2b19a333828f0415582f2cc5",
+    "group": "2b19a333828f0415582f2cc5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Linear Regression uses the following to plot relationships between variables",
+    "resource_id": "2b19a333828f0415582f2cc5",
+    "group": "2b19a333828f0415582f2cc5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A good Linear Regression model has a ___ Correlation Coefficient",
+    "resource_id": "2b19a333828f0415582f2cc5",
+    "group": "2b19a333828f0415582f2cc5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "If your data is nonlinear, try a ___ type of Regression",
+    "resource_id": "2b19a333828f0415582f2cc5",
+    "group": "2b19a333828f0415582f2cc5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "These are all types of Regression methods",
+    "resource_id": "2b19a333828f0415582f2cc5",
+    "group": "2b19a333828f0415582f2cc5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Least-Squares Regression means that all the datapoints surrounding the regression line are:",
+    "resource_id": "2b19a333828f0415582f2cc5",
+    "group": "2b19a333828f0415582f2cc5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Use Logistic Regression to predict",
+    "resource_id": "80fa4d18046d23b6fffe27dc",
+    "group": "80fa4d18046d23b6fffe27dc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Types of Logistic Regression include",
+    "resource_id": "80fa4d18046d23b6fffe27dc",
+    "group": "80fa4d18046d23b6fffe27dc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Your data has weak correlations. The best type of Regression to use is:",
+    "resource_id": "80fa4d18046d23b6fffe27dc",
+    "group": "80fa4d18046d23b6fffe27dc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Seaborn is a type of",
+    "resource_id": "80fa4d18046d23b6fffe27dc",
+    "group": "80fa4d18046d23b6fffe27dc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A confusion matrix is also known as a:",
+    "resource_id": "80fa4d18046d23b6fffe27dc",
+    "group": "80fa4d18046d23b6fffe27dc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A good model will have:",
+    "resource_id": "80fa4d18046d23b6fffe27dc",
+    "group": "80fa4d18046d23b6fffe27dc",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What does ONNX stand for?",
+    "resource_id": "44a5f55f2274d16ffaa8a4a8",
+    "group": "44a5f55f2274d16ffaa8a4a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "How is Flask defined by its creators?",
+    "resource_id": "44a5f55f2274d16ffaa8a4a8",
+    "group": "44a5f55f2274d16ffaa8a4a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What does the Pickle module of Python do",
+    "resource_id": "44a5f55f2274d16ffaa8a4a8",
+    "group": "44a5f55f2274d16ffaa8a4a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What are the tools we can use to host a pre-trained model on the web using Python?",
+    "resource_id": "44a5f55f2274d16ffaa8a4a8",
+    "group": "44a5f55f2274d16ffaa8a4a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What does SaaS stand for?",
+    "resource_id": "44a5f55f2274d16ffaa8a4a8",
+    "group": "44a5f55f2274d16ffaa8a4a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What does Scikit-learn's LabelEncoder library do?",
+    "resource_id": "44a5f55f2274d16ffaa8a4a8",
+    "group": "44a5f55f2274d16ffaa8a4a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Classification is a form of supervised learning that has a lot in common with",
+    "resource_id": "9932de14f2896338373bd21c",
+    "group": "9932de14f2896338373bd21c",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What question can classification help answer?",
+    "resource_id": "9932de14f2896338373bd21c",
+    "group": "9932de14f2896338373bd21c",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is the first step to using Classification techniques?",
+    "resource_id": "9932de14f2896338373bd21c",
+    "group": "9932de14f2896338373bd21c",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is a multiclass question?",
+    "resource_id": "9932de14f2896338373bd21c",
+    "group": "9932de14f2896338373bd21c",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "It's important to clean out recurrent or unhelpful data to help your classifiers solve your problem.",
+    "resource_id": "9932de14f2896338373bd21c",
+    "group": "9932de14f2896338373bd21c",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What's the best reason to balance your data?",
+    "resource_id": "9932de14f2896338373bd21c",
+    "group": "9932de14f2896338373bd21c",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Balanced, clean data yields the best classification results",
+    "resource_id": "444dada88136c9d89d3748b1",
+    "group": "444dada88136c9d89d3748b1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "How do you choose the right classifier?",
+    "resource_id": "444dada88136c9d89d3748b1",
+    "group": "444dada88136c9d89d3748b1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Classification is a type of",
+    "resource_id": "444dada88136c9d89d3748b1",
+    "group": "444dada88136c9d89d3748b1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is a 'solver'?",
+    "resource_id": "444dada88136c9d89d3748b1",
+    "group": "444dada88136c9d89d3748b1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which classifier did we use in this lesson?",
+    "resource_id": "444dada88136c9d89d3748b1",
+    "group": "444dada88136c9d89d3748b1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "How do you know if the classification algorithm is working as expected?",
+    "resource_id": "444dada88136c9d89d3748b1",
+    "group": "444dada88136c9d89d3748b1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A good initial classifier to try is:",
+    "resource_id": "1ff66fd8a070f3eb629997a8",
+    "group": "1ff66fd8a070f3eb629997a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Regularization controls:",
+    "resource_id": "1ff66fd8a070f3eb629997a8",
+    "group": "1ff66fd8a070f3eb629997a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "K-Neighbors classifier can be used for:",
+    "resource_id": "1ff66fd8a070f3eb629997a8",
+    "group": "1ff66fd8a070f3eb629997a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Support-Vector classifiers can be used for",
+    "resource_id": "1ff66fd8a070f3eb629997a8",
+    "group": "1ff66fd8a070f3eb629997a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Random Forest is a ___ type of classifier",
+    "resource_id": "1ff66fd8a070f3eb629997a8",
+    "group": "1ff66fd8a070f3eb629997a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Adaboost is known for:",
+    "resource_id": "1ff66fd8a070f3eb629997a8",
+    "group": "1ff66fd8a070f3eb629997a8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Recommendation systems might be used for",
+    "resource_id": "9d409b7e327d6e85d596caa5",
+    "group": "9d409b7e327d6e85d596caa5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Embedding a model in a web app helps it to be offline-capable",
+    "resource_id": "9d409b7e327d6e85d596caa5",
+    "group": "9d409b7e327d6e85d596caa5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Onnx Runtime can be used for",
+    "resource_id": "9d409b7e327d6e85d596caa5",
+    "group": "9d409b7e327d6e85d596caa5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Netron app helps you:",
+    "resource_id": "9d409b7e327d6e85d596caa5",
+    "group": "9d409b7e327d6e85d596caa5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Convert your Scikit-learn model for use with Onnx using:",
+    "resource_id": "9d409b7e327d6e85d596caa5",
+    "group": "9d409b7e327d6e85d596caa5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Using your model in a web app is called:",
+    "resource_id": "9d409b7e327d6e85d596caa5",
+    "group": "9d409b7e327d6e85d596caa5",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A real-life example of clustering would be",
+    "resource_id": "64194972db5d31954d2eab14",
+    "group": "64194972db5d31954d2eab14",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Clustering techniques can be used in these industries",
+    "resource_id": "64194972db5d31954d2eab14",
+    "group": "64194972db5d31954d2eab14",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Clustering is a type of:",
+    "resource_id": "64194972db5d31954d2eab14",
+    "group": "64194972db5d31954d2eab14",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Euclidean geometry is arranged along",
+    "resource_id": "64194972db5d31954d2eab14",
+    "group": "64194972db5d31954d2eab14",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "The density of your clustering data is related to its",
+    "resource_id": "64194972db5d31954d2eab14",
+    "group": "64194972db5d31954d2eab14",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "The best-known clustering algorithm is",
+    "resource_id": "64194972db5d31954d2eab14",
+    "group": "64194972db5d31954d2eab14",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "K-Means is derived from:",
+    "resource_id": "68f07271e7cd3852c7c9b888",
+    "group": "68f07271e7cd3852c7c9b888",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A good Silhouette score means:",
+    "resource_id": "68f07271e7cd3852c7c9b888",
+    "group": "68f07271e7cd3852c7c9b888",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Variance is:",
+    "resource_id": "68f07271e7cd3852c7c9b888",
+    "group": "68f07271e7cd3852c7c9b888",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A Voronoi diagram shows:",
+    "resource_id": "68f07271e7cd3852c7c9b888",
+    "group": "68f07271e7cd3852c7c9b888",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Inertia is",
+    "resource_id": "68f07271e7cd3852c7c9b888",
+    "group": "68f07271e7cd3852c7c9b888",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Using K-Means, you must first determine the value of 'k'",
+    "resource_id": "68f07271e7cd3852c7c9b888",
+    "group": "68f07271e7cd3852c7c9b888",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What does NLP stand for in these lessons?",
+    "resource_id": "415aa9bf5153db2f959b7f41",
+    "group": "415aa9bf5153db2f959b7f41",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Eliza was an early bot that acted as a computer",
+    "resource_id": "415aa9bf5153db2f959b7f41",
+    "group": "415aa9bf5153db2f959b7f41",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Alan Turing's 'Turing Test' tried to determine if a computer was",
+    "resource_id": "415aa9bf5153db2f959b7f41",
+    "group": "415aa9bf5153db2f959b7f41",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Joseph Weizenbaum invented the bot",
+    "resource_id": "415aa9bf5153db2f959b7f41",
+    "group": "415aa9bf5153db2f959b7f41",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A conversational bot gives output based on",
+    "resource_id": "415aa9bf5153db2f959b7f41",
+    "group": "415aa9bf5153db2f959b7f41",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "How would you make the bot more effective?",
+    "resource_id": "415aa9bf5153db2f959b7f41",
+    "group": "415aa9bf5153db2f959b7f41",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Tokenization",
+    "resource_id": "7d7d7e40def35e4fbc555ad2",
+    "group": "7d7d7e40def35e4fbc555ad2",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Embeddings",
+    "resource_id": "7d7d7e40def35e4fbc555ad2",
+    "group": "7d7d7e40def35e4fbc555ad2",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Parts-of-Speech Tagging",
+    "resource_id": "7d7d7e40def35e4fbc555ad2",
+    "group": "7d7d7e40def35e4fbc555ad2",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Build a dictionary of how often words reoccur using:",
+    "resource_id": "7d7d7e40def35e4fbc555ad2",
+    "group": "7d7d7e40def35e4fbc555ad2",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "N-grams refer to",
+    "resource_id": "7d7d7e40def35e4fbc555ad2",
+    "group": "7d7d7e40def35e4fbc555ad2",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Sentiment analysis",
+    "resource_id": "7d7d7e40def35e4fbc555ad2",
+    "group": "7d7d7e40def35e4fbc555ad2",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Naive translation",
+    "resource_id": "77ed081e085b28907dec5676",
+    "group": "77ed081e085b28907dec5676",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A corpus of texts refers to",
+    "resource_id": "77ed081e085b28907dec5676",
+    "group": "77ed081e085b28907dec5676",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "If a ML model has enough human translations to build a model on, it can",
+    "resource_id": "77ed081e085b28907dec5676",
+    "group": "77ed081e085b28907dec5676",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Underlying TextBlob's translation library is:",
+    "resource_id": "77ed081e085b28907dec5676",
+    "group": "77ed081e085b28907dec5676",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "To use `blob.translate` you need:",
+    "resource_id": "77ed081e085b28907dec5676",
+    "group": "77ed081e085b28907dec5676",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "To determine sentiment, an ML approach would be to:",
+    "resource_id": "77ed081e085b28907dec5676",
+    "group": "77ed081e085b28907dec5676",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What information can we get from text that was written or spoken by a human?",
+    "resource_id": "4514033c9679049ba71da6f1",
+    "group": "4514033c9679049ba71da6f1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is sentiment analysis?",
+    "resource_id": "4514033c9679049ba71da6f1",
+    "group": "4514033c9679049ba71da6f1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What question could be answered using a dataset of hotel reviews, Python, and sentiment analysis?",
+    "resource_id": "4514033c9679049ba71da6f1",
+    "group": "4514033c9679049ba71da6f1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is the essence of NLP?",
+    "resource_id": "4514033c9679049ba71da6f1",
+    "group": "4514033c9679049ba71da6f1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What are some things you might look for while cleaning data?",
+    "resource_id": "4514033c9679049ba71da6f1",
+    "group": "4514033c9679049ba71da6f1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "It is important to understand your data and its foibles before performing operations on it.",
+    "resource_id": "4514033c9679049ba71da6f1",
+    "group": "4514033c9679049ba71da6f1",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Why is it important to clean data before analyzing it?",
+    "resource_id": "1fcb47b0e456d979ca226530",
+    "group": "1fcb47b0e456d979ca226530",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is one example of a strategy for cleaning data?",
+    "resource_id": "1fcb47b0e456d979ca226530",
+    "group": "1fcb47b0e456d979ca226530",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "It can be useful to categorize data using a Tag column.",
+    "resource_id": "1fcb47b0e456d979ca226530",
+    "group": "1fcb47b0e456d979ca226530",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is the goal of the dataset?",
+    "resource_id": "1fcb47b0e456d979ca226530",
+    "group": "1fcb47b0e456d979ca226530",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What are stop words?",
+    "resource_id": "1fcb47b0e456d979ca226530",
+    "group": "1fcb47b0e456d979ca226530",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "To test the sentiment analysis, make sure it matches the reviewer's score for the same review.",
+    "resource_id": "1fcb47b0e456d979ca226530",
+    "group": "1fcb47b0e456d979ca226530",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Time Series Forecasting is useful in",
+    "resource_id": "ca35af5340dc07e76eca1c36",
+    "group": "ca35af5340dc07e76eca1c36",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A time series is a sequence taken at:",
+    "resource_id": "ca35af5340dc07e76eca1c36",
+    "group": "ca35af5340dc07e76eca1c36",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Time series can be used in:",
+    "resource_id": "ca35af5340dc07e76eca1c36",
+    "group": "ca35af5340dc07e76eca1c36",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Time series trends are",
+    "resource_id": "ca35af5340dc07e76eca1c36",
+    "group": "ca35af5340dc07e76eca1c36",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Outliers are",
+    "resource_id": "ca35af5340dc07e76eca1c36",
+    "group": "ca35af5340dc07e76eca1c36",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Time Series Forecasting is most useful for",
+    "resource_id": "ca35af5340dc07e76eca1c36",
+    "group": "ca35af5340dc07e76eca1c36",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "ARIMA stands for",
+    "resource_id": "6e480609fa7263de12f2354d",
+    "group": "6e480609fa7263de12f2354d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Stationarity refers to",
+    "resource_id": "6e480609fa7263de12f2354d",
+    "group": "6e480609fa7263de12f2354d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Differencing",
+    "resource_id": "6e480609fa7263de12f2354d",
+    "group": "6e480609fa7263de12f2354d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "ARIMA is used to make a model fit the special form of time series data",
+    "resource_id": "6e480609fa7263de12f2354d",
+    "group": "6e480609fa7263de12f2354d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Use SARIMAX to",
+    "resource_id": "6e480609fa7263de12f2354d",
+    "group": "6e480609fa7263de12f2354d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "'Walk-Forward' validation involves",
+    "resource_id": "6e480609fa7263de12f2354d",
+    "group": "6e480609fa7263de12f2354d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is reinforcement learning?",
+    "resource_id": "0131853a327944e9e99b399d",
+    "group": "0131853a327944e9e99b399d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is a policy?",
+    "resource_id": "0131853a327944e9e99b399d",
+    "group": "0131853a327944e9e99b399d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "A reward function returns a score for each state of an environment.",
+    "resource_id": "0131853a327944e9e99b399d",
+    "group": "0131853a327944e9e99b399d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is Q-Learning?",
+    "resource_id": "0131853a327944e9e99b399d",
+    "group": "0131853a327944e9e99b399d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "For what values does a Q-Table correspond to the random walk policy?",
+    "resource_id": "0131853a327944e9e99b399d",
+    "group": "0131853a327944e9e99b399d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "It was better to use exploration than exploitation during the learning process in our lesson.",
+    "resource_id": "0131853a327944e9e99b399d",
+    "group": "0131853a327944e9e99b399d",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Chess and Go are games with continuous states.",
+    "resource_id": "e510c3148513e66df9d9e6d8",
+    "group": "e510c3148513e66df9d9e6d8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is the CartPole problem?",
+    "resource_id": "e510c3148513e66df9d9e6d8",
+    "group": "e510c3148513e66df9d9e6d8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What tool can we use to play out different scenarios of potential states in a game?",
+    "resource_id": "e510c3148513e66df9d9e6d8",
+    "group": "e510c3148513e66df9d9e6d8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Where do we define all possible actions in an environment?",
+    "resource_id": "e510c3148513e66df9d9e6d8",
+    "group": "e510c3148513e66df9d9e6d8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What pair did we use as the dictionary key-value?",
+    "resource_id": "e510c3148513e66df9d9e6d8",
+    "group": "e510c3148513e66df9d9e6d8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What are the hyperparameters we used during Q-Learning?",
+    "resource_id": "e510c3148513e66df9d9e6d8",
+    "group": "e510c3148513e66df9d9e6d8",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What's an example of an ML application in the Finance industry?",
+    "resource_id": "f73cafa52d6650012359482a",
+    "group": "f73cafa52d6650012359482a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What ML technique can hospitals use to manage readmission?",
+    "resource_id": "f73cafa52d6650012359482a",
+    "group": "f73cafa52d6650012359482a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is an example of using Time Series for energy management?",
+    "resource_id": "f73cafa52d6650012359482a",
+    "group": "f73cafa52d6650012359482a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which ML technique can be used to detect credit card fraud?",
+    "resource_id": "f73cafa52d6650012359482a",
+    "group": "f73cafa52d6650012359482a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which ML technique is exemplified in forest management?",
+    "resource_id": "f73cafa52d6650012359482a",
+    "group": "f73cafa52d6650012359482a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What's an example of an ML application in the Health Care industry?",
+    "resource_id": "f73cafa52d6650012359482a",
+    "group": "f73cafa52d6650012359482a",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "SVM stands for",
+    "resource_id": "d5aabaecb172aa8ce7253ddb",
+    "group": "d5aabaecb172aa8ce7253ddb",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these ML techniques is used to predict continuous values?",
+    "resource_id": "d5aabaecb172aa8ce7253ddb",
+    "group": "d5aabaecb172aa8ce7253ddb",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these models is popularly used for time series forecasting?",
+    "resource_id": "d5aabaecb172aa8ce7253ddb",
+    "group": "d5aabaecb172aa8ce7253ddb",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "By which of these methods does an SVR learn?",
+    "resource_id": "d5aabaecb172aa8ce7253ddb",
+    "group": "d5aabaecb172aa8ce7253ddb",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "What is the purpose of a kernel in SVMs?",
+    "resource_id": "d5aabaecb172aa8ce7253ddb",
+    "group": "d5aabaecb172aa8ce7253ddb",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Which of these models consider the non-linearity in the dataset?",
+    "resource_id": "d5aabaecb172aa8ce7253ddb",
+    "group": "d5aabaecb172aa8ce7253ddb",
+    "source": "ML-For-Beginners"
+  },
+  {
+    "query": "Why is the word _Science_ in Data Science?",
+    "resource_id": "27d4e7f2501e411d385f5a88",
+    "group": "27d4e7f2501e411d385f5a88",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Learning Data Science is only useful for developers",
+    "resource_id": "27d4e7f2501e411d385f5a88",
+    "group": "27d4e7f2501e411d385f5a88",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What do we need to demonstrate that basketball players are taller than average people?",
+    "resource_id": "27d4e7f2501e411d385f5a88",
+    "group": "27d4e7f2501e411d385f5a88",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which areas are closely related to data science?",
+    "resource_id": "27d4e7f2501e411d385f5a88",
+    "group": "27d4e7f2501e411d385f5a88",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which of the following is an example of non-structured data?",
+    "resource_id": "27d4e7f2501e411d385f5a88",
+    "group": "27d4e7f2501e411d385f5a88",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is the main goal of data science?",
+    "resource_id": "27d4e7f2501e411d385f5a88",
+    "group": "27d4e7f2501e411d385f5a88",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is a consideration of ethics in Data Science?",
+    "resource_id": "993db9cab0553748c936a092",
+    "group": "993db9cab0553748c936a092",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which of the following are a part of ethical challenges?",
+    "resource_id": "993db9cab0553748c936a092",
+    "group": "993db9cab0553748c936a092",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Data ethics also includes AI and machine learning algorithms",
+    "resource_id": "993db9cab0553748c936a092",
+    "group": "993db9cab0553748c936a092",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is the main difference between ethics and applied ethics?",
+    "resource_id": "993db9cab0553748c936a092",
+    "group": "993db9cab0553748c936a092",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is the difference between ethics regulation vs ethics principles",
+    "resource_id": "993db9cab0553748c936a092",
+    "group": "993db9cab0553748c936a092",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which of these are real ethical principles and practices that can be applied?",
+    "resource_id": "993db9cab0553748c936a092",
+    "group": "993db9cab0553748c936a092",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which of these could be quantitative data?",
+    "resource_id": "009c0a5726487f0e2b0d295f",
+    "group": "009c0a5726487f0e2b0d295f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which of these could be qualitative data?",
+    "resource_id": "009c0a5726487f0e2b0d295f",
+    "group": "009c0a5726487f0e2b0d295f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is the main goal of classifying data?",
+    "resource_id": "009c0a5726487f0e2b0d295f",
+    "group": "009c0a5726487f0e2b0d295f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "The teacher is reviewing students’ number of correct answers, what type of data is that?",
+    "resource_id": "009c0a5726487f0e2b0d295f",
+    "group": "009c0a5726487f0e2b0d295f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A company is collecting surveys from their customers to improve their products. What type of data source is this?",
+    "resource_id": "009c0a5726487f0e2b0d295f",
+    "group": "009c0a5726487f0e2b0d295f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A student is collecting data using queries. What data source could that be?",
+    "resource_id": "009c0a5726487f0e2b0d295f",
+    "group": "009c0a5726487f0e2b0d295f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Why statistics and probability are important for data science?",
+    "resource_id": "acdab68f5b66b329d778b49b",
+    "group": "acdab68f5b66b329d778b49b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Can you get heads 10 times in a row when throwing a coin?",
+    "resource_id": "acdab68f5b66b329d778b49b",
+    "group": "acdab68f5b66b329d778b49b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "When you throw a dice, what is the probability of getting an even number?",
+    "resource_id": "acdab68f5b66b329d778b49b",
+    "group": "acdab68f5b66b329d778b49b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "We want to prove that basketball players are taller than average people. We have collected heights of 20 people from both groups. What do we need to do?",
+    "resource_id": "acdab68f5b66b329d778b49b",
+    "group": "acdab68f5b66b329d778b49b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "How can we demonstrate that income of a person is dependent on the level of education?",
+    "resource_id": "acdab68f5b66b329d778b49b",
+    "group": "acdab68f5b66b329d778b49b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "We throw the dice 100 times and compute the average value. What would be the distribution of the result?",
+    "resource_id": "acdab68f5b66b329d778b49b",
+    "group": "acdab68f5b66b329d778b49b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A database can be considered a table with columns and rows",
+    "resource_id": "0ad4c1aac9788e7c692ef68b",
+    "group": "0ad4c1aac9788e7c692ef68b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Most databases are comprised of",
+    "resource_id": "0ad4c1aac9788e7c692ef68b",
+    "group": "0ad4c1aac9788e7c692ef68b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You can avoid duplicating column names by",
+    "resource_id": "0ad4c1aac9788e7c692ef68b",
+    "group": "0ad4c1aac9788e7c692ef68b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A primary key is",
+    "resource_id": "0ad4c1aac9788e7c692ef68b",
+    "group": "0ad4c1aac9788e7c692ef68b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A numeric 'ID' column would be a good primary key",
+    "resource_id": "0ad4c1aac9788e7c692ef68b",
+    "group": "0ad4c1aac9788e7c692ef68b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A foreign key is used to",
+    "resource_id": "0ad4c1aac9788e7c692ef68b",
+    "group": "0ad4c1aac9788e7c692ef68b",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Spreadsheets are non-relational data",
+    "resource_id": "84473a87643db1c9873ef626",
+    "group": "84473a87643db1c9873ef626",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Identify the difference between non-relational and relational data?",
+    "resource_id": "84473a87643db1c9873ef626",
+    "group": "84473a87643db1c9873ef626",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What does NoSQL stand for?",
+    "resource_id": "84473a87643db1c9873ef626",
+    "group": "84473a87643db1c9873ef626",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which one of these is NOT a type of NoSQL?",
+    "resource_id": "84473a87643db1c9873ef626",
+    "group": "84473a87643db1c9873ef626",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What do you use to do calculations in spreadsheets?",
+    "resource_id": "84473a87643db1c9873ef626",
+    "group": "84473a87643db1c9873ef626",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What other type of non-relational data does a document in a document database resemble?",
+    "resource_id": "84473a87643db1c9873ef626",
+    "group": "84473a87643db1c9873ef626",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Python is a good language for",
+    "resource_id": "c9b51ac25661fe54207ddcd9",
+    "group": "c9b51ac25661fe54207ddcd9",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Python is a good language for Data Science because",
+    "resource_id": "c9b51ac25661fe54207ddcd9",
+    "group": "c9b51ac25661fe54207ddcd9",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You cannot do Data Science if you do not know Python",
+    "resource_id": "c9b51ac25661fe54207ddcd9",
+    "group": "c9b51ac25661fe54207ddcd9",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which library would you use to represent a list of grades of students in class?",
+    "resource_id": "c9b51ac25661fe54207ddcd9",
+    "group": "c9b51ac25661fe54207ddcd9",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You have a DataFrame with a list of students, their group number, and average grade. Which operation would you use to compute the average grade per group?",
+    "resource_id": "c9b51ac25661fe54207ddcd9",
+    "group": "c9b51ac25661fe54207ddcd9",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You have 100 friends and you want to represent the information on how frequently they take pictures with each other. Which data structure would you use?",
+    "resource_id": "c9b51ac25661fe54207ddcd9",
+    "group": "c9b51ac25661fe54207ddcd9",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which one of these is part of the data preparation process?",
+    "resource_id": "5b6039faba757e4d6dc1be12",
+    "group": "5b6039faba757e4d6dc1be12",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Why is data preparation so important?",
+    "resource_id": "5b6039faba757e4d6dc1be12",
+    "group": "5b6039faba757e4d6dc1be12",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is a goal of data cleaning?",
+    "resource_id": "5b6039faba757e4d6dc1be12",
+    "group": "5b6039faba757e4d6dc1be12",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Merging or joining two datasets into one can affect consistency in data",
+    "resource_id": "5b6039faba757e4d6dc1be12",
+    "group": "5b6039faba757e4d6dc1be12",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What's the first thing that should be done when faced with missing data?",
+    "resource_id": "5b6039faba757e4d6dc1be12",
+    "group": "5b6039faba757e4d6dc1be12",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Joining two or more datasets can cause which following issue(s)?",
+    "resource_id": "5b6039faba757e4d6dc1be12",
+    "group": "5b6039faba757e4d6dc1be12",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A useful library for data visualizations is:",
+    "resource_id": "55ab89f1e92450b866684121",
+    "group": "55ab89f1e92450b866684121",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You can visualize quantities using:",
+    "resource_id": "55ab89f1e92450b866684121",
+    "group": "55ab89f1e92450b866684121",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Bar plots are useful for visualizing quantity",
+    "resource_id": "55ab89f1e92450b866684121",
+    "group": "55ab89f1e92450b866684121",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You can analyze trends over time using a:",
+    "resource_id": "55ab89f1e92450b866684121",
+    "group": "55ab89f1e92450b866684121",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You can compare values using this type of chart:",
+    "resource_id": "55ab89f1e92450b866684121",
+    "group": "55ab89f1e92450b866684121",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Show how parts relate to a whole using this type of chart:",
+    "resource_id": "55ab89f1e92450b866684121",
+    "group": "55ab89f1e92450b866684121",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Histograms are overall more sophisticated types of chart than scatterplots",
+    "resource_id": "8097fd9e97b247dce8439234",
+    "group": "8097fd9e97b247dce8439234",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You can visualize distributions using this type of chart:",
+    "resource_id": "8097fd9e97b247dce8439234",
+    "group": "8097fd9e97b247dce8439234",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "This library is particularly useful for building histograms",
+    "resource_id": "8097fd9e97b247dce8439234",
+    "group": "8097fd9e97b247dce8439234",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Histograms can be used to analyze this type of data:",
+    "resource_id": "8097fd9e97b247dce8439234",
+    "group": "8097fd9e97b247dce8439234",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "In a histogram, a 'bin' refers to:",
+    "resource_id": "8097fd9e97b247dce8439234",
+    "group": "8097fd9e97b247dce8439234",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "To build a smooth density plot, use this library:",
+    "resource_id": "8097fd9e97b247dce8439234",
+    "group": "8097fd9e97b247dce8439234",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "To visualize proprtions, use this type of chart:",
+    "resource_id": "1247afec55e65feff5947891",
+    "group": "1247afec55e65feff5947891",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A free tool for visualizing your data is:",
+    "resource_id": "1247afec55e65feff5947891",
+    "group": "1247afec55e65feff5947891",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Use `plt.pie` to display a:",
+    "resource_id": "1247afec55e65feff5947891",
+    "group": "1247afec55e65feff5947891",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You can edit the colors of your waffle charts",
+    "resource_id": "1247afec55e65feff5947891",
+    "group": "1247afec55e65feff5947891",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Use this library to build waffle charts:",
+    "resource_id": "1247afec55e65feff5947891",
+    "group": "1247afec55e65feff5947891",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "In a donut chart, build your center circle using this syntax:",
+    "resource_id": "1247afec55e65feff5947891",
+    "group": "1247afec55e65feff5947891",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Use this library to visualize relationships:",
+    "resource_id": "2b797a4603316f7bed637de5",
+    "group": "2b797a4603316f7bed637de5",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Use Seaborn's `relplot` to visualize",
+    "resource_id": "2b797a4603316f7bed637de5",
+    "group": "2b797a4603316f7bed637de5",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "By editing a scatterplot's hue, you can:",
+    "resource_id": "2b797a4603316f7bed637de5",
+    "group": "2b797a4603316f7bed637de5",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A more accessible way to display distribution is:",
+    "resource_id": "2b797a4603316f7bed637de5",
+    "group": "2b797a4603316f7bed637de5",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Using Seaborn's `relplot` you can view an aggregation of data around a line chart",
+    "resource_id": "2b797a4603316f7bed637de5",
+    "group": "2b797a4603316f7bed637de5",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Facet grids help visualize",
+    "resource_id": "2b797a4603316f7bed637de5",
+    "group": "2b797a4603316f7bed637de5",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "It's relatively easy to deceive users by editing charts",
+    "resource_id": "e3b30b99d28cfb42530d10b4",
+    "group": "e3b30b99d28cfb42530d10b4",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Selecting the kind of chart to build depends on the type of data you have and the story you are telling about it",
+    "resource_id": "e3b30b99d28cfb42530d10b4",
+    "group": "e3b30b99d28cfb42530d10b4",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "To create a deceptive chart, some creators manipulate:",
+    "resource_id": "e3b30b99d28cfb42530d10b4",
+    "group": "e3b30b99d28cfb42530d10b4",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Ensure that your charts are:",
+    "resource_id": "e3b30b99d28cfb42530d10b4",
+    "group": "e3b30b99d28cfb42530d10b4",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "D3 is an excellent charting library for use to create:",
+    "resource_id": "e3b30b99d28cfb42530d10b4",
+    "group": "e3b30b99d28cfb42530d10b4",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Ensure the readability of your chart by:",
+    "resource_id": "e3b30b99d28cfb42530d10b4",
+    "group": "e3b30b99d28cfb42530d10b4",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is the first step of the data science lifecycle?",
+    "resource_id": "a0062ec3693c2d5f7902a84e",
+    "group": "a0062ec3693c2d5f7902a84e",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Once the next step of the data science lifecycle is reached, you can't go back to previous steps",
+    "resource_id": "a0062ec3693c2d5f7902a84e",
+    "group": "a0062ec3693c2d5f7902a84e",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What considerations should be taken when maintaining data?",
+    "resource_id": "a0062ec3693c2d5f7902a84e",
+    "group": "a0062ec3693c2d5f7902a84e",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What step of the data science lifecycle is most likely to produce a model?",
+    "resource_id": "ea403329bb64b8f859715117",
+    "group": "ea403329bb64b8f859715117",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What questions would a data scientist ask in the capture phase of the data science lifecycle?",
+    "resource_id": "ea403329bb64b8f859715117",
+    "group": "ea403329bb64b8f859715117",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What are some common techniques in the processing stage?",
+    "resource_id": "ea403329bb64b8f859715117",
+    "group": "ea403329bb64b8f859715117",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Analyzing can refer to analyzing models or data",
+    "resource_id": "ea403329bb64b8f859715117",
+    "group": "ea403329bb64b8f859715117",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is important about exploring data before using it in a model or further analysis?",
+    "resource_id": "ea403329bb64b8f859715117",
+    "group": "ea403329bb64b8f859715117",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What are some things a data scientist will do when exploring data?",
+    "resource_id": "ea403329bb64b8f859715117",
+    "group": "ea403329bb64b8f859715117",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "When communicating data to an audience, it is a best practice to focus solely on the numbers and not the story.",
+    "resource_id": "9de0e1547939da2bcccf012d",
+    "group": "9de0e1547939da2bcccf012d",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which is an example of Two-Way Communication?",
+    "resource_id": "9de0e1547939da2bcccf012d",
+    "group": "9de0e1547939da2bcccf012d",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "When an individual is presenting to an audience, and the audience is not providing any feedback, who is acting as the information receiver?",
+    "resource_id": "9de0e1547939da2bcccf012d",
+    "group": "9de0e1547939da2bcccf012d",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "When communicating data, colors can be used to evoke emotion from the audience.",
+    "resource_id": "9de0e1547939da2bcccf012d",
+    "group": "9de0e1547939da2bcccf012d",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Of the options below, which is the most meaningful explanation of a company's yearly progress?",
+    "resource_id": "9de0e1547939da2bcccf012d",
+    "group": "9de0e1547939da2bcccf012d",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "When communicating data to an Executive Audience, which would be an acceptable strategy to take?",
+    "resource_id": "9de0e1547939da2bcccf012d",
+    "group": "9de0e1547939da2bcccf012d",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is the cloud?",
+    "resource_id": "a2d83fbecfe2497137ad34c8",
+    "group": "a2d83fbecfe2497137ad34c8",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is cloud computing?",
+    "resource_id": "a2d83fbecfe2497137ad34c8",
+    "group": "a2d83fbecfe2497137ad34c8",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What are some advantages of the cloud?",
+    "resource_id": "a2d83fbecfe2497137ad34c8",
+    "group": "a2d83fbecfe2497137ad34c8",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which one is NOT necessarily a good reason for choosing the cloud?",
+    "resource_id": "a2d83fbecfe2497137ad34c8",
+    "group": "a2d83fbecfe2497137ad34c8",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "In which way(s) do data scientists use the cloud?",
+    "resource_id": "a2d83fbecfe2497137ad34c8",
+    "group": "a2d83fbecfe2497137ad34c8",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which cloud computing service provides access to software applications without the need to maintain the software?",
+    "resource_id": "a2d83fbecfe2497137ad34c8",
+    "group": "a2d83fbecfe2497137ad34c8",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "One benefit of using Jupyter Notebooks is that you can quickly prototype models.",
+    "resource_id": "c5989308d51c40fa4397c350",
+    "group": "c5989308d51c40fa4397c350",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Why would a data scientist use Azure Machine Learning?",
+    "resource_id": "c5989308d51c40fa4397c350",
+    "group": "c5989308d51c40fa4397c350",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "You don't need to have expertise in coding to use Azure ML.",
+    "resource_id": "c5989308d51c40fa4397c350",
+    "group": "c5989308d51c40fa4397c350",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What do you need to create before accessing Azure ML Studio?",
+    "resource_id": "c5989308d51c40fa4397c350",
+    "group": "c5989308d51c40fa4397c350",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which of the following tasks are supported by Automated ML?",
+    "resource_id": "c5989308d51c40fa4397c350",
+    "group": "c5989308d51c40fa4397c350",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "In which case do you need GPU over CPU?",
+    "resource_id": "c5989308d51c40fa4397c350",
+    "group": "c5989308d51c40fa4397c350",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which of these would be affected by increasing the cluster size?",
+    "resource_id": "b599236b084e1d3583f503b7",
+    "group": "b599236b084e1d3583f503b7",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is a benefit of using low code tools?",
+    "resource_id": "b599236b084e1d3583f503b7",
+    "group": "b599236b084e1d3583f503b7",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is AutoML?",
+    "resource_id": "b599236b084e1d3583f503b7",
+    "group": "b599236b084e1d3583f503b7",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is the reason for creating an AutoMLConfig?",
+    "resource_id": "b599236b084e1d3583f503b7",
+    "group": "b599236b084e1d3583f503b7",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Which of the following metrics is supported by Automated ML for a classification task?",
+    "resource_id": "b599236b084e1d3583f503b7",
+    "group": "b599236b084e1d3583f503b7",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "What is NOT an advantage of using the SDK?",
+    "resource_id": "b599236b084e1d3583f503b7",
+    "group": "b599236b084e1d3583f503b7",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Data Science can be used in many industries such as",
+    "resource_id": "bb18a0136e645102f6afe82f",
+    "group": "bb18a0136e645102f6afe82f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Data Science in the context of research can be focus on:",
+    "resource_id": "bb18a0136e645102f6afe82f",
+    "group": "bb18a0136e645102f6afe82f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "The 'Gender Shades Study' focused on",
+    "resource_id": "bb18a0136e645102f6afe82f",
+    "group": "bb18a0136e645102f6afe82f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Digital Humanities is a practice that combines computational methods with humanistic inquiry",
+    "resource_id": "bb18a0136e645102f6afe82f",
+    "group": "bb18a0136e645102f6afe82f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "Use Data Science for sustainability research by",
+    "resource_id": "bb18a0136e645102f6afe82f",
+    "group": "bb18a0136e645102f6afe82f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "In finance, you can use data science for",
+    "resource_id": "bb18a0136e645102f6afe82f",
+    "group": "bb18a0136e645102f6afe82f",
+    "source": "Data-Science-For-Beginners"
+  },
+  {
+    "query": "A famous 19th century proto-computer engineer was",
+    "resource_id": "0c51048245d19180862ad9f3",
+    "group": "0c51048245d19180862ad9f3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Weak AI is a system designed to solve many tasks",
+    "resource_id": "0c51048245d19180862ad9f3",
+    "group": "0c51048245d19180862ad9f3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Chat bots are an example of truly intelligent systems",
+    "resource_id": "0c51048245d19180862ad9f3",
+    "group": "0c51048245d19180862ad9f3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "A top-down approach to AI is a model of reasoning called",
+    "resource_id": "0c51048245d19180862ad9f3",
+    "group": "0c51048245d19180862ad9f3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "A bottom-up approach to AI is based on neural networks",
+    "resource_id": "0c51048245d19180862ad9f3",
+    "group": "0c51048245d19180862ad9f3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "The AI Winter occurred in this era",
+    "resource_id": "0c51048245d19180862ad9f3",
+    "group": "0c51048245d19180862ad9f3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Generators take vectors and produce ____",
+    "resource_id": "3725a6a92e7b2dd17bc20532",
+    "group": "3725a6a92e7b2dd17bc20532",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "GANs is short for?",
+    "resource_id": "3725a6a92e7b2dd17bc20532",
+    "group": "3725a6a92e7b2dd17bc20532",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "GAN uses ____ neural networks",
+    "resource_id": "3725a6a92e7b2dd17bc20532",
+    "group": "3725a6a92e7b2dd17bc20532",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "We can use Batch normalization and BatchNorm1D to stabilize the training",
+    "resource_id": "3725a6a92e7b2dd17bc20532",
+    "group": "3725a6a92e7b2dd17bc20532",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Deep Convolutional GAN uses convolutional layers for ____ and ____",
+    "resource_id": "3725a6a92e7b2dd17bc20532",
+    "group": "3725a6a92e7b2dd17bc20532",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Problems of GAN training includes",
+    "resource_id": "3725a6a92e7b2dd17bc20532",
+    "group": "3725a6a92e7b2dd17bc20532",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Neural networks can only be used to classify images",
+    "resource_id": "d78317785ba7cee2add3cbeb",
+    "group": "d78317785ba7cee2add3cbeb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "With object detection, we don't just get the class of an object, but also its ____",
+    "resource_id": "d78317785ba7cee2add3cbeb",
+    "group": "d78317785ba7cee2add3cbeb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "How many objects can an object detection model detect?",
+    "resource_id": "d78317785ba7cee2add3cbeb",
+    "group": "d78317785ba7cee2add3cbeb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "An Object detection model gives us",
+    "resource_id": "d78317785ba7cee2add3cbeb",
+    "group": "d78317785ba7cee2add3cbeb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Which object detection models are faster?",
+    "resource_id": "d78317785ba7cee2add3cbeb",
+    "group": "d78317785ba7cee2add3cbeb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Which metric can be used to determine how well bounding boxes are aligned?",
+    "resource_id": "d78317785ba7cee2add3cbeb",
+    "group": "d78317785ba7cee2add3cbeb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "How many segmentation algorithm are there?",
+    "resource_id": "8912ef2a4435e94decd28e50",
+    "group": "8912ef2a4435e94decd28e50",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Segmentation is a _____ task",
+    "resource_id": "8912ef2a4435e94decd28e50",
+    "group": "8912ef2a4435e94decd28e50",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Segmentation networks consist of ____ and ____ parts",
+    "resource_id": "8912ef2a4435e94decd28e50",
+    "group": "8912ef2a4435e94decd28e50",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "____ extracts features from an input image",
+    "resource_id": "8912ef2a4435e94decd28e50",
+    "group": "8912ef2a4435e94decd28e50",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "____ transforms input features into mask image",
+    "resource_id": "8912ef2a4435e94decd28e50",
+    "group": "8912ef2a4435e94decd28e50",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "SegNet relies on ____ to train multi-layered network",
+    "resource_id": "8912ef2a4435e94decd28e50",
+    "group": "8912ef2a4435e94decd28e50",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Each word in a Bag of Words is linked to a vector index",
+    "resource_id": "08c8de199e82fb31fc61c6c4",
+    "group": "08c8de199e82fb31fc61c6c4",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Text can be represented using _____ approaches",
+    "resource_id": "08c8de199e82fb31fc61c6c4",
+    "group": "08c8de199e82fb31fc61c6c4",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Character level representation represents each _____ as a number",
+    "resource_id": "08c8de199e82fb31fc61c6c4",
+    "group": "08c8de199e82fb31fc61c6c4",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Word level representation represents _____ as a number",
+    "resource_id": "08c8de199e82fb31fc61c6c4",
+    "group": "08c8de199e82fb31fc61c6c4",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "N-Grams refers to _____",
+    "resource_id": "08c8de199e82fb31fc61c6c4",
+    "group": "08c8de199e82fb31fc61c6c4",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "The main drawback of N-gram is that the vocabulary size grows fast",
+    "resource_id": "08c8de199e82fb31fc61c6c4",
+    "group": "08c8de199e82fb31fc61c6c4",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Embedding is used to represent words with _____ dimensional dense vectors",
+    "resource_id": "e4c6fcd7da2e00369091132a",
+    "group": "e4c6fcd7da2e00369091132a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Word2Vec pre-trained embeddings can also be used in place of embedding layer in neural networks",
+    "resource_id": "e4c6fcd7da2e00369091132a",
+    "group": "e4c6fcd7da2e00369091132a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Using embedding layer we cannot switch from bag-of-words to embedding bag",
+    "resource_id": "e4c6fcd7da2e00369091132a",
+    "group": "e4c6fcd7da2e00369091132a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Word2Vec has _____ main architectures",
+    "resource_id": "e4c6fcd7da2e00369091132a",
+    "group": "e4c6fcd7da2e00369091132a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Word sense disambiguation is a limitation of traditional pretrained embedding representations",
+    "resource_id": "e4c6fcd7da2e00369091132a",
+    "group": "e4c6fcd7da2e00369091132a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "An embedding layer takes _____ as input",
+    "resource_id": "e4c6fcd7da2e00369091132a",
+    "group": "e4c6fcd7da2e00369091132a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Which of the following can be considered a language model?",
+    "resource_id": "41ba0936bb2829fd45bbcaac",
+    "group": "41ba0936bb2829fd45bbcaac",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "A language model should be able to ____ the next word in the sentence",
+    "resource_id": "41ba0936bb2829fd45bbcaac",
+    "group": "41ba0936bb2829fd45bbcaac",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Language models are trained on",
+    "resource_id": "41ba0936bb2829fd45bbcaac",
+    "group": "41ba0936bb2829fd45bbcaac",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Which of the architectures predicts a word from neighboring words?",
+    "resource_id": "41ba0936bb2829fd45bbcaac",
+    "group": "41ba0936bb2829fd45bbcaac",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "When we train a CBoW model, we obtain",
+    "resource_id": "41ba0936bb2829fd45bbcaac",
+    "group": "41ba0936bb2829fd45bbcaac",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "The CBoW model is based on",
+    "resource_id": "41ba0936bb2829fd45bbcaac",
+    "group": "41ba0936bb2829fd45bbcaac",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "RNN is short for?",
+    "resource_id": "cb2e525fedcd48a5178d3997",
+    "group": "cb2e525fedcd48a5178d3997",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "A simple RNN cell has two weight _____",
+    "resource_id": "cb2e525fedcd48a5178d3997",
+    "group": "cb2e525fedcd48a5178d3997",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "vanishing gradients is a problem of _____",
+    "resource_id": "cb2e525fedcd48a5178d3997",
+    "group": "cb2e525fedcd48a5178d3997",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "_____ takes some information from the input and hidden vector, and inserts it into state",
+    "resource_id": "cb2e525fedcd48a5178d3997",
+    "group": "cb2e525fedcd48a5178d3997",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Bidirectional RNNs runs recurrent computation in _____",
+    "resource_id": "cb2e525fedcd48a5178d3997",
+    "group": "cb2e525fedcd48a5178d3997",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "All RNN Cells have the same shareable weights",
+    "resource_id": "cb2e525fedcd48a5178d3997",
+    "group": "cb2e525fedcd48a5178d3997",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "RNNs can be for generative tasks",
+    "resource_id": "9fd2c134937e8547b0a1c9c0",
+    "group": "9fd2c134937e8547b0a1c9c0",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "_____ is a traditional neural network with one input and one output",
+    "resource_id": "9fd2c134937e8547b0a1c9c0",
+    "group": "9fd2c134937e8547b0a1c9c0",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "RNN generates texts by generating next output token for each input token",
+    "resource_id": "9fd2c134937e8547b0a1c9c0",
+    "group": "9fd2c134937e8547b0a1c9c0",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Output encoder converts hidden state into _____ output",
+    "resource_id": "9fd2c134937e8547b0a1c9c0",
+    "group": "9fd2c134937e8547b0a1c9c0",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Selecting the character with higher probabilities always gives a meaningful text.",
+    "resource_id": "9fd2c134937e8547b0a1c9c0",
+    "group": "9fd2c134937e8547b0a1c9c0",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Many-to-many can also be referred to as _____",
+    "resource_id": "9fd2c134937e8547b0a1c9c0",
+    "group": "9fd2c134937e8547b0a1c9c0",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Attention mechanism provides a means of _____ the impact of an inout vector on an output prediction of RNN",
+    "resource_id": "07e15a8774b6359d837912eb",
+    "group": "07e15a8774b6359d837912eb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "BERT is an acronym for",
+    "resource_id": "07e15a8774b6359d837912eb",
+    "group": "07e15a8774b6359d837912eb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "In positional encoding the relative position of the token is represented by number of steps",
+    "resource_id": "07e15a8774b6359d837912eb",
+    "group": "07e15a8774b6359d837912eb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Positional embedding _____ the original token and its position within the sequence",
+    "resource_id": "07e15a8774b6359d837912eb",
+    "group": "07e15a8774b6359d837912eb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Multi-Head Attention is used in transformers to give network the power to capture _____ of dependencies",
+    "resource_id": "07e15a8774b6359d837912eb",
+    "group": "07e15a8774b6359d837912eb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "In transformers attention is used in _____ instances",
+    "resource_id": "07e15a8774b6359d837912eb",
+    "group": "07e15a8774b6359d837912eb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "What does NER stands for?",
+    "resource_id": "c7731f3e10ba22ac11b6fbc7",
+    "group": "c7731f3e10ba22ac11b6fbc7",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "An entity always consists of one token",
+    "resource_id": "c7731f3e10ba22ac11b6fbc7",
+    "group": "c7731f3e10ba22ac11b6fbc7",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "To train NER model, we need",
+    "resource_id": "c7731f3e10ba22ac11b6fbc7",
+    "group": "c7731f3e10ba22ac11b6fbc7",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "NER model is essentially a ____ model",
+    "resource_id": "c7731f3e10ba22ac11b6fbc7",
+    "group": "c7731f3e10ba22ac11b6fbc7",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Which neural network types can be used for NER?",
+    "resource_id": "c7731f3e10ba22ac11b6fbc7",
+    "group": "c7731f3e10ba22ac11b6fbc7",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "NER model is a good example of ____ network architecture",
+    "resource_id": "c7731f3e10ba22ac11b6fbc7",
+    "group": "c7731f3e10ba22ac11b6fbc7",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "The top-down approach to creating intelligent systems was based on:",
+    "resource_id": "d499068082f3cfa97d683053",
+    "group": "d499068082f3cfa97d683053",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Knowledge is the same as information",
+    "resource_id": "d499068082f3cfa97d683053",
+    "group": "d499068082f3cfa97d683053",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Knowledge is obtained by an:",
+    "resource_id": "d499068082f3cfa97d683053",
+    "group": "d499068082f3cfa97d683053",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "The simplest method of knowledge representation is:",
+    "resource_id": "d499068082f3cfa97d683053",
+    "group": "d499068082f3cfa97d683053",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Scenarios can represent complex situations that can unfold in time",
+    "resource_id": "d499068082f3cfa97d683053",
+    "group": "d499068082f3cfa97d683053",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Forward inference starts with initial data and then:",
+    "resource_id": "d499068082f3cfa97d683053",
+    "group": "d499068082f3cfa97d683053",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "What does GPT stand for?",
+    "resource_id": "45e7b6b08a82e12efed49d33",
+    "group": "45e7b6b08a82e12efed49d33",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "What can GPT be used for?",
+    "resource_id": "45e7b6b08a82e12efed49d33",
+    "group": "45e7b6b08a82e12efed49d33",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "GPT is based on transformer architecture",
+    "resource_id": "45e7b6b08a82e12efed49d33",
+    "group": "45e7b6b08a82e12efed49d33",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "What is zero-shot learning?",
+    "resource_id": "45e7b6b08a82e12efed49d33",
+    "group": "45e7b6b08a82e12efed49d33",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Prompt engineering can be used with",
+    "resource_id": "45e7b6b08a82e12efed49d33",
+    "group": "45e7b6b08a82e12efed49d33",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Which metric can be used to estimate the quality of a language model?",
+    "resource_id": "45e7b6b08a82e12efed49d33",
+    "group": "45e7b6b08a82e12efed49d33",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Genetic Algorithms are based on which of the following?",
+    "resource_id": "719503d74361a99df21f8afb",
+    "group": "719503d74361a99df21f8afb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Crossover allows us to combine two solutions together to obtain a new valid solution",
+    "resource_id": "719503d74361a99df21f8afb",
+    "group": "719503d74361a99df21f8afb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Valid solutions to genetic algorithm can be represented as _____",
+    "resource_id": "719503d74361a99df21f8afb",
+    "group": "719503d74361a99df21f8afb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Genetic Algorithms can solve which of these tasks",
+    "resource_id": "719503d74361a99df21f8afb",
+    "group": "719503d74361a99df21f8afb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "In implementing a genetic algorithm the first step is to randomly select two genes",
+    "resource_id": "719503d74361a99df21f8afb",
+    "group": "719503d74361a99df21f8afb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "When using Crossover operation the algorithm randomly selects _____ genes",
+    "resource_id": "719503d74361a99df21f8afb",
+    "group": "719503d74361a99df21f8afb",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "To train RL model, we need",
+    "resource_id": "22a7bac053135218fc65a910",
+    "group": "22a7bac053135218fc65a910",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "What is a good example of Reinforcement learning:",
+    "resource_id": "22a7bac053135218fc65a910",
+    "group": "22a7bac053135218fc65a910",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "When creating RL-based chess engine, we need to",
+    "resource_id": "22a7bac053135218fc65a910",
+    "group": "22a7bac053135218fc65a910",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "How does RL training algorithm knows how well it did?",
+    "resource_id": "22a7bac053135218fc65a910",
+    "group": "22a7bac053135218fc65a910",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Which problem(s) is RL is applicable to?",
+    "resource_id": "22a7bac053135218fc65a910",
+    "group": "22a7bac053135218fc65a910",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "In Actor-Critic model, critic predicts",
+    "resource_id": "22a7bac053135218fc65a910",
+    "group": "22a7bac053135218fc65a910",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "By modeling the behavior of simple agents, we can understand more complex behaviors of a system.",
+    "resource_id": "3077eb9ec19688e5bdc3b680",
+    "group": "3077eb9ec19688e5bdc3b680",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "The principle of metasystem transition is derived from:",
+    "resource_id": "3077eb9ec19688e5bdc3b680",
+    "group": "3077eb9ec19688e5bdc3b680",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Multi-Agent systems emerged in the ____:",
+    "resource_id": "3077eb9ec19688e5bdc3b680",
+    "group": "3077eb9ec19688e5bdc3b680",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "An agent is:",
+    "resource_id": "3077eb9ec19688e5bdc3b680",
+    "group": "3077eb9ec19688e5bdc3b680",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Reactive agents usually have:",
+    "resource_id": "3077eb9ec19688e5bdc3b680",
+    "group": "3077eb9ec19688e5bdc3b680",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Multi-agent systems are used in:",
+    "resource_id": "3077eb9ec19688e5bdc3b680",
+    "group": "3077eb9ec19688e5bdc3b680",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Early neural networks required",
+    "resource_id": "46a7e6a77b4dbc77f76db48a",
+    "group": "46a7e6a77b4dbc77f76db48a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "A simple neuron is also called a 'threshold logic unit'",
+    "resource_id": "46a7e6a77b4dbc77f76db48a",
+    "group": "46a7e6a77b4dbc77f76db48a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "A perceptron is a ___ type of model",
+    "resource_id": "46a7e6a77b4dbc77f76db48a",
+    "group": "46a7e6a77b4dbc77f76db48a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "To train a perceptron, find a weights vector that results in the smallest ___.",
+    "resource_id": "46a7e6a77b4dbc77f76db48a",
+    "group": "46a7e6a77b4dbc77f76db48a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "To minimize the function of weights, you can use gradient descent",
+    "resource_id": "46a7e6a77b4dbc77f76db48a",
+    "group": "46a7e6a77b4dbc77f76db48a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "During gradient descent, each step updates the ___",
+    "resource_id": "46a7e6a77b4dbc77f76db48a",
+    "group": "46a7e6a77b4dbc77f76db48a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "The quality of prediction is measured by Loss function",
+    "resource_id": "ff54a82ff50edcbd568943b3",
+    "group": "ff54a82ff50edcbd568943b3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "One layer network is capable of classifying ____",
+    "resource_id": "ff54a82ff50edcbd568943b3",
+    "group": "ff54a82ff50edcbd568943b3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "The method of training multi-layered perceptron is called ____",
+    "resource_id": "ff54a82ff50edcbd568943b3",
+    "group": "ff54a82ff50edcbd568943b3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "We use ____ for regression loss functions",
+    "resource_id": "ff54a82ff50edcbd568943b3",
+    "group": "ff54a82ff50edcbd568943b3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "All but one is a type of classification loss function",
+    "resource_id": "ff54a82ff50edcbd568943b3",
+    "group": "ff54a82ff50edcbd568943b3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Cross-entropy loss is a function that can calculate similarity between two arbitrary probability distributions",
+    "resource_id": "ff54a82ff50edcbd568943b3",
+    "group": "ff54a82ff50edcbd568943b3",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Deep Neural Network training requires a lot of computations",
+    "resource_id": "297db38e16102576c4858f03",
+    "group": "297db38e16102576c4858f03",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Overfitting occurs because of ____",
+    "resource_id": "297db38e16102576c4858f03",
+    "group": "297db38e16102576c4858f03",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Bias errors are caused by our ____ not being able to capture the relationship between training data correctly.",
+    "resource_id": "297db38e16102576c4858f03",
+    "group": "297db38e16102576c4858f03",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "After compiling our model object, we train by calling ____ function",
+    "resource_id": "297db38e16102576c4858f03",
+    "group": "297db38e16102576c4858f03",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Binary cross-entropy is also called log loss",
+    "resource_id": "297db38e16102576c4858f03",
+    "group": "297db38e16102576c4858f03",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "TensorFlow is to ____ while PyTorch is to ____",
+    "resource_id": "297db38e16102576c4858f03",
+    "group": "297db38e16102576c4858f03",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Computer vision aims to allow computers gain understanding of _____",
+    "resource_id": "c7c56a433efa2ea3052c0a04",
+    "group": "c7c56a433efa2ea3052c0a04",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Python libraries available for image processing includes",
+    "resource_id": "c7c56a433efa2ea3052c0a04",
+    "group": "c7c56a433efa2ea3052c0a04",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Images cannot be represented as NumPy arrays in Python",
+    "resource_id": "c7c56a433efa2ea3052c0a04",
+    "group": "c7c56a433efa2ea3052c0a04",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Optical Flow helps us to understand how each pixel on video frames move.",
+    "resource_id": "c7c56a433efa2ea3052c0a04",
+    "group": "c7c56a433efa2ea3052c0a04",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "_____ computes the vector field that shows where each pixel is moving",
+    "resource_id": "c7c56a433efa2ea3052c0a04",
+    "group": "c7c56a433efa2ea3052c0a04",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Resizing and Blurring are steps that can be taken during?",
+    "resource_id": "c7c56a433efa2ea3052c0a04",
+    "group": "c7c56a433efa2ea3052c0a04",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "To extract patterns from images we use?",
+    "resource_id": "525ec3a4405c46204b09761b",
+    "group": "525ec3a4405c46204b09761b",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "One of these is not a CNN Architecture",
+    "resource_id": "525ec3a4405c46204b09761b",
+    "group": "525ec3a4405c46204b09761b",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "CNN are mostly used for computer vision tasks.",
+    "resource_id": "525ec3a4405c46204b09761b",
+    "group": "525ec3a4405c46204b09761b",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Transfer learning approach uses untrained models for classification",
+    "resource_id": "e4fca6cf26190fda47db287a",
+    "group": "e4fca6cf26190fda47db287a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "One of these is not a normalization technique?",
+    "resource_id": "e4fca6cf26190fda47db287a",
+    "group": "e4fca6cf26190fda47db287a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "We choose Stochastic Gradient Descent(SGD) in deep learning because classical gradient descent can be ____",
+    "resource_id": "e4fca6cf26190fda47db287a",
+    "group": "e4fca6cf26190fda47db287a",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Dropout layers act as a ____ technique",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "freezing weights of convolutional feature extractor can be done by ____",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Batch normalization is to bring values that flow through the ____ to right interval",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Self-supervised learning uses ____ data for training",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Encoder Network coverts input images into latent spaces",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "VAE is short for?",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Properties of autoencoders include",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Auto encoders can be used to effectively remove noise from images",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  },
+  {
+    "query": "Variational auto-encoders loss function does not consist of which of these?",
+    "resource_id": "7d9a34064faa6f490016c776",
+    "group": "7d9a34064faa6f490016c776",
+    "source": "AI-For-Beginners"
+  }
+]

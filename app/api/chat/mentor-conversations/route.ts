@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { canMentor } from "@/lib/auth/staff";
+import { z } from "zod";
 
 /**
  * GET /api/chat/mentor-conversations?studentId=xxx
@@ -7,13 +9,16 @@ import { createClient } from "@/lib/supabase/server";
  * Allows mentors to discover conversations that students initiated.
  */
 export async function GET(req: Request) {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
     const { searchParams } = new URL(req.url);
     const studentId = searchParams.get("studentId");
-    if (!studentId) return NextResponse.json({ error: "studentId required" }, { status: 400 });
+    if (!z.string().uuid().safeParse(studentId).success) return NextResponse.json({ error: "A valid studentId is required" }, { status: 400 });
+    const {data: staff, error: staffError} = await supabase.from("admin_users").select("admin_role").eq("id", user.id).maybeSingle();
+    if (staffError) return NextResponse.json({error: "Could not verify account access."}, {status: 503});
+    if (!canMentor(staff?.admin_role)) return NextResponse.json({error: "Not authorized"}, {status: 403});
 
     // Verify caller is a mentor assigned to this student
     const { data: assignmentRows } = await supabase
@@ -44,6 +49,7 @@ export async function GET(req: Request) {
             .select("id, mentor_id")
             .eq("user_id", studentId)
             .eq("is_ai", false)
+            .is("mentor_id", null)
             .order("created_at", { ascending: true })
             .limit(1);
 

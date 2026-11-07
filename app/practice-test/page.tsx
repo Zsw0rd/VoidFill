@@ -1,10 +1,12 @@
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { createClient } from "@/lib/supabase/server";
+import { loadCareerRequirements } from "@/lib/careerRequirements";
+import { hasKnowledgeCoverage } from "@/lib/careerCatalog";
 import { PracticeTestClient } from "./ui";
 
 export default async function PracticeTestPage() {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) redirect("/auth/login");
 
@@ -20,12 +22,8 @@ export default async function PracticeTestPage() {
         .limit(5);
 
     // Get user's roadmap skills for question generation
-    const roleId = profile.target_role_id;
-    const { data: roleSkills } = roleId
-        ? await supabase.from("role_skills").select("skill_id, skills(name)").eq("role_id", roleId)
-        : { data: [] };
-
-    const skillNames = (roleSkills || []).map((rs: any) => rs.skills?.name).filter(Boolean);
+    const roleSkills = await loadCareerRequirements(supabase, profile);
+    const skillNames = roleSkills.map(rs => rs.skills?.name).filter(name => name && hasKnowledgeCoverage(name));
 
     return (
         <AppShell displayName={profile.full_name || user.email || "User"}>

@@ -1,114 +1,229 @@
 "use client";
 
+import { UserPlus, Users, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { canMentor } from "@/lib/auth/staff";
 import { toast } from "@/components/toast/bus";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
-export function MentorActions({ allUsers }: { allUsers: any[] }) {
-    const supabase = createClient();
-    const [addUid, setAddUid] = useState("");
-    const [addRole, setAddRole] = useState<"admin" | "mentor">("mentor");
-    const [addName, setAddName] = useState("");
-    const [busy, setBusy] = useState(false);
+export function MentorActions({
+  allUsers,
+  staff,
+  canManageStaff = false,
+}: {
+  allUsers: any[];
+  staff: any[];
+  canManageStaff?: boolean;
+}) {
+  const supabase = createClient();
+  const [addUid, setAddUid] = useState("");
+  const [addRole, setAddRole] = useState<"admin" | "mentor">("mentor");
+  const [addName, setAddName] = useState("");
+  const [busy, setBusy] = useState<"add" | "assign" | null>(null);
 
-    // Mentor assignment
-    const [mentorId, setMentorId] = useState("");
-    const [studentId, setStudentId] = useState("");
+  // Mentor assignment
+  const [mentorId, setMentorId] = useState("");
+  const [studentId, setStudentId] = useState("");
+  const [mentorSearch, setMentorSearch] = useState("");
+  const [learnerSearch, setLearnerSearch] = useState("");
 
-    async function addStaff() {
-        if (!addUid.trim()) return toast("Missing", "Enter the user ID");
-        setBusy(true);
-        const { error } = await supabase.from("admin_users").insert({
-            id: addUid.trim(),
-            admin_role: addRole,
-            display_name: addName.trim() || "Staff",
-        });
-        setBusy(false);
-        if (error) return toast("Error", error.message);
-        toast("Done", `${addRole} added`);
-        setAddUid(""); setAddName("");
-        window.location.reload();
-    }
+  async function addStaff() {
+    if (!canManageStaff) return toast("Not authorized", "Only a super administrator can add staff.");
+    if (!addUid.trim()) return toast("Missing", "Enter the user ID");
+    setBusy("add");
+    const { error } = await supabase.from("admin_users").insert({
+      id: addUid.trim(),
+      admin_role: addRole,
+      display_name: addName.trim() || "Staff",
+    });
+    setBusy(null);
+    if (error) return toast("Error", error.message);
+    toast("Done", `${addRole} added`);
+    setAddUid("");
+    setAddName("");
+    window.location.reload();
+  }
 
-    async function assignStudent() {
-        if (!mentorId.trim() || !studentId.trim()) return toast("Missing", "Enter both IDs");
-        setBusy(true);
-        const { error } = await supabase.from("mentor_assignments").insert({
-            mentor_id: mentorId.trim(),
-            user_id: studentId.trim(),
-        });
-        setBusy(false);
-        if (error) return toast("Error", error.message);
-        toast("Done", "Student assigned to mentor");
-        setMentorId(""); setStudentId("");
-        window.location.reload();
-    }
+  async function assignStudent() {
+    if (!mentorId.trim() || !studentId.trim())
+      return toast("Missing", "Enter both IDs");
+    setBusy("assign");
+    const { error } = await supabase.from("mentor_assignments").insert({
+      mentor_id: mentorId.trim(),
+      user_id: studentId.trim(),
+    });
+    setBusy(null);
+    if (error) return toast("Error", error.message);
+    toast("Done", "Student assigned to mentor");
+    setMentorId("");
+    setStudentId("");
+    window.location.reload();
+  }
 
-    return (
-        <div className="mt-6 space-y-6">
-            {/* ═══ Section 1: Add Staff ═══ */}
-            <div>
-                <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-300 text-xs font-bold">1</span>
-                    Add Staff Member
-                </h2>
-                <Card className="bg-white/5 border-indigo-500/10">
-                    <CardContent className="p-5 space-y-3">
-                        <div className="space-y-1">
-                            <Label className="text-xs">User ID (UUID from auth)</Label>
-                            <Input value={addUid} onChange={e => setAddUid(e.target.value)} placeholder="User UUID" className="text-xs" />
-                        </div>
-                        <div className="space-y-1">
-                            <Label className="text-xs">Display Name</Label>
-                            <Input value={addName} onChange={e => setAddName(e.target.value)} placeholder="Name" className="text-xs" />
-                        </div>
-                        <div className="space-y-1">
-                            <Label className="text-xs">Role</Label>
-                            <select value={addRole} onChange={e => setAddRole(e.target.value as any)} className="w-full rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-xs text-zinc-200">
-                                <option value="mentor">Mentor</option>
-                                <option value="admin">Admin</option>
-                            </select>
-                        </div>
-                        <Button onClick={addStaff} disabled={busy} className="w-full text-xs">
-                            {busy ? "Adding..." : "Add Staff"}
-                        </Button>
-                    </CardContent>
-                </Card>
-            </div>
-
-            {/* ═══ Divider ═══ */}
-            <div className="flex items-center gap-3">
-                <div className="flex-1 border-t border-white/10" />
-                <span className="text-xs text-zinc-600 uppercase tracking-widest">or</span>
-                <div className="flex-1 border-t border-white/10" />
-            </div>
-
-            {/* ═══ Section 2: Assign Student ═══ */}
-            <div>
-                <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-300 text-xs font-bold">2</span>
-                    Assign Student to Mentor
-                </h2>
-                <Card className="bg-white/5 border-emerald-500/10">
-                    <CardContent className="p-5 space-y-3">
-                        <div className="space-y-1">
-                            <Label className="text-xs">Mentor ID (UUID)</Label>
-                            <Input value={mentorId} onChange={e => setMentorId(e.target.value)} placeholder="Mentor UUID" className="text-xs" />
-                        </div>
-                        <div className="space-y-1">
-                            <Label className="text-xs">Student ID (UUID)</Label>
-                            <Input value={studentId} onChange={e => setStudentId(e.target.value)} placeholder="Student UUID" className="text-xs" />
-                        </div>
-                        <Button onClick={assignStudent} disabled={busy} className="w-full text-xs">
-                            {busy ? "Assigning..." : "Assign Student"}
-                        </Button>
-                    </CardContent>
-                </Card>
-            </div>
+  const learners = allUsers.filter(
+    (user) => !staff.some((s) => s.id === user.id),
+  );
+  const mentors = staff.filter((s) => canMentor(s.admin_role));
+  return (
+    <div className="mt-7 grid lg:grid-cols-2 gap-5">
+      {canManageStaff && <section className="panel p-6">
+        <div className="flex items-center gap-3">
+          <span className="icon-tile">
+            <UserPlus size={18} />
+          </span>
+          <div>
+            <p className="eyebrow mb-1">Grow the support circle</p>
+            <h2 className="font-semibold">Add a staff member</h2>
+          </div>
         </div>
-    );
+        <p className="mt-4 text-xs text-muted leading-6">
+          Choose an existing account and give them a role in your team.
+        </p>
+        <div className="mt-5 space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="new-staff-account">Existing account</Label>
+            <select
+              id="new-staff-account"
+              value={allUsers.some((u) => u.id === addUid) ? addUid : ""}
+              onChange={(e) => {
+                setAddUid(e.target.value);
+                const user = allUsers.find((u) => u.id === e.target.value);
+                if (user) setAddName(user.full_name || "");
+              }}
+              className="w-full rounded-xl border border-line bg-surface p-3 text-xs"
+            >
+              <option value="">Choose a registered person</option>
+              {learners.map((u) => (
+                <option key={u.id} value={u.id}>
+                  {u.full_name || u.email} · {u.email}
+                </option>
+              ))}
+            </select>
+          </div>
+          <details className="text-[10px] text-muted">
+            <summary className="cursor-pointer">
+              Use an account ID instead
+            </summary>
+            <Input
+              aria-label="Existing account UUID"
+              value={addUid}
+              onChange={(e) => setAddUid(e.target.value)}
+              placeholder="Existing account UUID"
+              className="mt-2 text-xs"
+            />
+          </details>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div className="space-y-2">
+              <Label htmlFor="staff-name">Display name</Label>
+              <Input
+                id="staff-name"
+                value={addName}
+                onChange={(e) => setAddName(e.target.value)}
+                placeholder="Their name"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="staff-role">Team role</Label>
+              <select
+                id="staff-role"
+                value={addRole}
+                onChange={(e) =>
+                  setAddRole(e.target.value as "admin" | "mentor")
+                }
+                className="w-full min-h-12 rounded-xl border border-line bg-surface p-3 text-xs"
+              >
+                <option value="mentor">Mentor</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+          </div>
+          <Button
+            onClick={addStaff}
+            disabled={!!busy || !addUid.trim()}
+            loading={busy === "add"}
+            className="w-full"
+          >
+            {busy === "add" ? (
+              "Adding to your team…"
+            ) : (
+              <>
+                Add staff member
+                <ArrowRight size={14} />
+              </>
+            )}
+          </Button>
+        </div>
+      </section>}
+      <section className="panel p-6">
+        <div className="flex items-center gap-3">
+          <span className="icon-tile">
+            <Users size={18} />
+          </span>
+          <div>
+            <p className="eyebrow mb-1">Make a useful connection</p>
+            <h2 className="font-semibold">Connect a learner & mentor</h2>
+          </div>
+        </div>
+        <p className="mt-4 text-xs text-muted leading-6">
+          An assignment lets a mentor follow a learner’s progress and support
+          them in chat.
+        </p>
+        <div className="mt-5 space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="assignment-mentor">Mentor</Label>
+            <Input type="search" aria-label="Search mentors by name" value={mentorSearch} onChange={event => setMentorSearch(event.target.value)} placeholder="Find a mentor by name" />
+            <select
+              id="assignment-mentor"
+              value={mentorId}
+              onChange={(e) => setMentorId(e.target.value)}
+              className="w-full min-h-12 rounded-xl border border-line bg-surface p-3 text-xs"
+            >
+              <option value="">Choose a mentor</option>
+              {mentors.filter(m => m.id === mentorId || (m.display_name || "").toLowerCase().includes(mentorSearch.trim().toLowerCase())).map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.display_name || "Mentor"}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="assignment-learner">Learner</Label>
+            <Input type="search" aria-label="Search learners by name or email" value={learnerSearch} onChange={event => setLearnerSearch(event.target.value)} placeholder="Find a learner by name or email" />
+            <select
+              id="assignment-learner"
+              value={studentId}
+              onChange={(e) => setStudentId(e.target.value)}
+              className="w-full min-h-12 rounded-xl border border-line bg-surface p-3 text-xs"
+            >
+              <option value="">Choose a learner</option>
+              {learners.filter(u => u.id === studentId || `${u.full_name || ""} ${u.email || ""}`.toLowerCase().includes(learnerSearch.trim().toLowerCase())).map((u) => (
+                <option key={u.id} value={u.id}>
+                  {u.full_name || u.email} · {u.email}
+                </option>
+              ))}
+            </select>
+          </div>
+          <Button
+            variant="soft"
+            onClick={assignStudent}
+            disabled={!!busy || !mentorId || !studentId}
+            loading={busy === "assign"}
+            className="w-full"
+          >
+            {busy === "assign" ? (
+              "Making the connection…"
+            ) : (
+              <>
+                Connect learner & mentor
+                <ArrowRight size={14} />
+              </>
+            )}
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
 }

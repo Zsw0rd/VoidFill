@@ -1,94 +1,51 @@
+import { operationBudget, withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
-import { extractGeminiText, parseJsonArray, geminiUrl } from "@/lib/gemini";
+import { adaptiveDifficulty, getLearningContext } from "@/lib/learningContext";
+import { assessmentResponseSchema, callLocalMl, LearningError } from "@/lib/localMl";
+import { createAssessment } from "@/lib/assessments";
+import { careerAssessmentDifficulty } from "@/lib/careerCatalog";
 
-export async function POST(req: Request) {
-    const supabase = createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+const inputSchema = z.object({ purpose: z.enum(["practice", "course", "skill"]), skill_id: z.string().uuid().optional(), course_id: z.string().uuid().optional() });
 
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return NextResponse.json({ error: "GEMINI_API_KEY not configured" }, { status: 500 });
-
-    const body = await req.json();
-    const { course_title, skill_name, is_skill_assessment } = body;
-
-    if (!course_title) {
-        return NextResponse.json({ error: "course_title required" }, { status: 400 });
+async function handlePOST(req: Request) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  const budgetResponse = await operationBudget(supabase, user.id, "assessment");
+  if (budgetResponse) return budgetResponse;
+  const parsed = inputSchema.safeParse(await req.json().catch(() => null));
+  if (!parsed.success) return NextResponse.json({ error: "Invalid assessment request." }, { status: 400 });
+  try {
+    const body = parsed.data;
+    const context = await getLearningContext(supabase, user.id);
+    let skills = context.skills;
+    let courseTitle = "";
+    let courseId: string | undefined;
+    if (body.purpose === "course") {
+      if (!body.course_id) throw new LearningError("Choose a course to assess.", 400);
+      const { data: course, error } = await supabase.from("roadmap_courses").select("id, skill_id, title").eq("id", body.course_id).eq("user_id", user.id).maybeSingle();
+      if (error) throw new LearningError("Could not load the course.", 500);
+      if (!course) throw new LearningError("Course not found.", 404);
+      skills = skills.filter((s) => s.id === course.skill_id);
+      courseTitle = course.title;
+      courseId = course.id;
+    } else if (body.purpose === "skill") {
+      skills = skills.filter((s) => s.id === body.skill_id);
     }
-
-    const questionCount = is_skill_assessment ? 10 : 12;
-    const prompt = is_skill_assessment
-        ? `Generate a ${questionCount}-question skill assessment quiz.
-
-Skill: "${skill_name || "General"}"
-Context: ${course_title}
-
-Test the learner's understanding of this skill area comprehensively. Questions should cover fundamentals, application, and problem-solving. Make the quiz strong enough for a completion gate.
-
-Return ONLY valid JSON array:
-[
-  {
-    "prompt": "Question text?",
-    "options": ["Option A", "Option B", "Option C", "Option D"],
-    "correct_index": 0,
-    "explanation": "Brief explanation"
+    if (!skills.length) throw new LearningError("This skill is not configured for your current role.", 400);
+    const suggested = body.purpose === "practice" ? await adaptiveDifficulty(supabase, user.id, "practice") : Math.max(1, Math.ceil((skills[0].score || 0) / 20));
+    const difficulty = careerAssessmentDifficulty(context.level, suggested);
+    const result = await callLocalMl("/assessment", { skills, role: context.role, count: body.purpose === "course" && difficulty < 3 ? 12 : 10, difficulty, context: courseTitle }, assessmentResponseSchema);
+    const allowed = new Set(skills.map((s) => s.id));
+    if (result.questions.some((q) => !allowed.has(q.skill_id))) throw new LearningError("Invalid assessment skill mapping.", 502);
+    const session = createAssessment(user.id, result.questions, { purpose: body.purpose, difficulty: result.difficulty, ...(courseId ? { courseId } : {}), ...(body.purpose !== "practice" ? { skillId: skills[0].id } : {}) });
+    return NextResponse.json({ ...session, difficulty: result.difficulty, difficultyLabel: result.difficultyLabel, model: result.model, unsupported_skills: result.unsupported_skills });
+  } catch (error) {
+    console.error("Assessment preparation:", error instanceof Error ? error.message : error);
+    return NextResponse.json({ error: error instanceof LearningError ? error.message : "Could not prepare an assessment." }, { status: error instanceof LearningError ? error.status : 500 });
   }
-]`
-        : `Generate a ${questionCount}-question assessment quiz for the following course/topic.
-
-Course: "${course_title}"
-Skill Area: "${skill_name || "General"}"
-
-Test whether the learner has understood this course material deeply enough to mark the course complete. Range from recall to application and practical judgment.
-
-Return ONLY valid JSON array:
-[
-  {
-    "prompt": "Question text?",
-    "options": ["Option A", "Option B", "Option C", "Option D"],
-    "correct_index": 0,
-    "explanation": "Brief explanation"
-  }
-]`;
-
-    try {
-        const geminiRes = await fetch(geminiUrl(apiKey), {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.7, maxOutputTokens: 4096, responseMimeType: "application/json" },
-            }),
-        });
-
-        if (!geminiRes.ok) {
-            const errText = await geminiRes.text();
-            console.error("Gemini assess error:", errText);
-            return NextResponse.json({ error: "Assessment generation failed" }, { status: 502 });
-        }
-
-        const geminiData = await geminiRes.json();
-        // Use extractGeminiText to skip 2.5 Flash thinking blocks
-        const rawText = extractGeminiText(geminiData);
-        const questions = parseJsonArray(rawText);
-
-        if (questions.length === 0) {
-            console.error("Failed to parse assessment. Raw:", rawText.slice(0, 500));
-            return NextResponse.json({ error: "Failed to parse AI assessment response" }, { status: 500 });
-        }
-
-        return NextResponse.json({
-            questions: questions.slice(0, questionCount).map((q: any, i: number) => ({
-                id: `assess_${Date.now()}_${i}`,
-                prompt: q.prompt || `Question ${i + 1}`,
-                options: q.options?.slice(0, 4) || ["A", "B", "C", "D"],
-                correct_index: typeof q.correct_index === "number" ? q.correct_index : 0,
-                explanation: q.explanation || "",
-            })),
-        });
-    } catch (err: any) {
-        console.error("Assessment gen error:", err);
-        return NextResponse.json({ error: "Assessment generation failed", detail: err.message }, { status: 500 });
-    }
 }
+
+export const POST = withApiTelemetry("roadmap_assessment", handlePOST);

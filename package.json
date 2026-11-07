@@ -4,10 +4,32 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "next dev",
+    "dev:ml": "node scripts/ml.mjs serve",
+    "ml:setup": "node scripts/ml.mjs setup",
+    "ml:prepare": "node scripts/ml.mjs prepare",
+    "ml:train": "node scripts/ml.mjs train",
+    "ml:train-expanded": "node scripts/ml.mjs train-expanded",
+    "ml:train-large": "node scripts/ml.mjs train-large",
+    "ml:activate-large": "node scripts/ml.mjs activate-large",
+    "test:careers": "node scripts/test-careers.mjs",
+    "test:demo": "node scripts/test-demo.mjs",
+    "test:staff-demo": "node scripts/test-staff-demo.mjs",
+    "test:auth": "node scripts/test-auth.mjs",
+    "test": "node scripts/test-unit.mjs",
+    "test:integration": "node --import tsx --test tests/local-integration.test.ts",
+    "test:ml": "node scripts/ml.mjs test",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node scripts/dev.mjs --production",
+    "lint": "next lint",
+    "ml:export-cloud": "node scripts/ml.mjs export-cloud",
+    "test:practical": "node scripts/test-practical.mjs",
+    "test:ux": "playwright test",
+    "test:latency": "node scripts/benchmark-live.mjs",
+    "db:plan": "node scripts/database.mjs upgrade",
+    "test:db": "python scripts/test-database.py --allow-test-database",
+    "test:db:restore": "python scripts/test-database-restore.py --allow-test-database"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",
@@ -15,22 +37,32 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.24",
     "lucide-react": "^0.469.0",
-    "next": "^14.2.10",
+    "next": "15.5.28",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "recharts": "^3.7.0",
     "tailwind-merge": "^2.5.2",
-    "zod": "^3.24.1"
+    "zod": "4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "@types/node": "^20.14.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.10",
+    "eslint-config-next": "15.5.28",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
+    "tsx": "^4.23.15",
     "typescript": "^5.6.2"
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.1"
+    },
+    "next": {
+      "postcss": "8.5.32"
+    }
   }
 }
