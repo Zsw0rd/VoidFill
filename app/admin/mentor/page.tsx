@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { AdminShell } from "@/components/AdminShell";
 import { Card, CardContent } from "@/components/ui/card";
@@ -121,6 +122,8 @@ export default async function MentorPage() {
             ? `${students.length} assigned students · your mentoring circle`
             : "No students assigned yet"}
         </p>
+
+        <Link href="/admin/mentor/reviews" className="secondary-link mt-5">Review shared practical work →</Link>
 
         {/* Charts */}
         <MentorDashboardCharts

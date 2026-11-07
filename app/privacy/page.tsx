@@ -43,6 +43,13 @@ export default function PrivacyPage() {
             stored in Supabase; assigned mentors and authorized staff can access
             records needed for their roles, including moderation.
           </p>
+          <p className="mt-3">
+            Practical-work drafts stay private. When you explicitly share a saved
+            version, your currently assigned mentor can see that evidence, its
+            links and rubric and provide feedback. Reassignment does not share
+            earlier versions with a new mentor. You can withdraw access to a
+            shared version; your own version and feedback history remain saved.
+          </p>
         </section>
         <section>
           <h2 className="text-xl text-ink">Sessions and temporary demos</h2>

@@ -47,6 +47,8 @@ logs/
 
 # Coverage / tests
 coverage/
+test-results/
+playwright-report/
 
 # Misc
 *.pem

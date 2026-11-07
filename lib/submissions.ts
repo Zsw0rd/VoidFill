@@ -2,7 +2,6 @@ import { mlServiceUrl } from "@/lib/mlServiceUrl";
 import { mkdir, open, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { LearningError } from "./localMl";
-import { persistCloudSubmission } from "./cloudSubmissions";
 
 // Local deployments use an exclusive file claim to prevent a token awarding XP
 // twice. Shared/multi-instance hosting needs a transactional database ledger.
@@ -49,7 +48,7 @@ export async function persistAssessmentOnce<T>(
     }
   }
   if (process.env.VERCEL)
-    return persistCloudSubmission(assessmentId, userId || "", save);
+    throw new LearningError("Cloud assessment writes require the verified grading transaction.", 500);
   const directory = path.join(process.cwd(), "ml", "runtime", "submissions");
   await mkdir(directory, { recursive: true });
   if (!/^[a-f0-9-]{36}$/i.test(assessmentId))

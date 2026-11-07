@@ -7,6 +7,7 @@ export const LEARNER_PATHS = new Set([
   "/daily-test",
   "/practice-test",
   "/roadmap",
+  "/practical",
   "/skill-graph",
   "/ai-insights",
   "/mentor-chat",
@@ -19,6 +20,7 @@ const STAFF_PATHS = new Set([
   "/admin/profile",
   "/admin/mentor",
   "/admin/mentor/chat",
+  "/admin/mentor/reviews",
 ]);
 
 // Accept only application destinations. Never turn an OAuth `next` into an open redirect.
@@ -55,7 +57,7 @@ export function signInDestination({
   const requested = safeNextPath(next);
   const pathname = requested.split("?")[0];
   if (role === "mentor")
-    return ["/admin/mentor", "/admin/mentor/chat", "/admin/profile"].includes(
+    return ["/admin/mentor", "/admin/mentor/chat", "/admin/mentor/reviews", "/admin/profile"].includes(
       pathname,
     )
       ? requested

@@ -27,6 +27,8 @@ export function MentorActions({
   // Mentor assignment
   const [mentorId, setMentorId] = useState("");
   const [studentId, setStudentId] = useState("");
+  const [mentorSearch, setMentorSearch] = useState("");
+  const [learnerSearch, setLearnerSearch] = useState("");
 
   async function addStaff() {
     if (!canManageStaff) return toast("Not authorized", "Only a super administrator can add staff.");
@@ -172,6 +174,7 @@ export function MentorActions({
         <div className="mt-5 space-y-4">
           <div className="space-y-2">
             <Label htmlFor="assignment-mentor">Mentor</Label>
+            <Input type="search" aria-label="Search mentors by name" value={mentorSearch} onChange={event => setMentorSearch(event.target.value)} placeholder="Find a mentor by name" />
             <select
               id="assignment-mentor"
               value={mentorId}
@@ -179,7 +182,7 @@ export function MentorActions({
               className="w-full min-h-12 rounded-xl border border-line bg-surface p-3 text-xs"
             >
               <option value="">Choose a mentor</option>
-              {mentors.map((m) => (
+              {mentors.filter(m => m.id === mentorId || (m.display_name || "").toLowerCase().includes(mentorSearch.trim().toLowerCase())).map((m) => (
                 <option key={m.id} value={m.id}>
                   {m.display_name || "Mentor"}
                 </option>
@@ -188,6 +191,7 @@ export function MentorActions({
           </div>
           <div className="space-y-2">
             <Label htmlFor="assignment-learner">Learner</Label>
+            <Input type="search" aria-label="Search learners by name or email" value={learnerSearch} onChange={event => setLearnerSearch(event.target.value)} placeholder="Find a learner by name or email" />
             <select
               id="assignment-learner"
               value={studentId}
@@ -195,7 +199,7 @@ export function MentorActions({
               className="w-full min-h-12 rounded-xl border border-line bg-surface p-3 text-xs"
             >
               <option value="">Choose a learner</option>
-              {learners.map((u) => (
+              {learners.filter(u => u.id === studentId || `${u.full_name || ""} ${u.email || ""}`.toLowerCase().includes(learnerSearch.trim().toLowerCase())).map((u) => (
                 <option key={u.id} value={u.id}>
                   {u.full_name || u.email} · {u.email}
                 </option>

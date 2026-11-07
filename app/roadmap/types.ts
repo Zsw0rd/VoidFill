@@ -33,6 +33,7 @@ export type SkillNode = {
   skill_id: string;
   name: string;
   score: number;
+  target?: number;
   assessed: boolean;
   assessable?: boolean;
   category: Category;

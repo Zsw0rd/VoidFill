@@ -1,3 +1,4 @@
+import { trustedLearningWriter } from "@/lib/assessmentPersistence";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { categoryFromScore, priorityScore } from "@/lib/gapLogic";
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
       const dependencyBonus = (deps.data || []).some(row => row.prerequisite_skill_id === skill.id && skillIds.has(row.dependent_skill_id)) ? 2 : 1;
       return {user_id: user.id, role_id: context.roleId, skill_id: skill.id, category: categoryFromScore(score), priority: priorityScore({score, roleWeight: skill.importance ?? .8, dependencyBonus}), progress: roadmapProgress(score, (resources.data || []).filter(row => row.skill_id === skill.id)), status: statuses.get(skill.id) || "todo", updated_at: new Date().toISOString()};
     });
-    const {error} = await supabase.from("user_roadmap").upsert(rows, {onConflict: "user_id,role_id,skill_id"});
+    const {error} = await trustedLearningWriter(supabase).from("user_roadmap").upsert(rows, {onConflict: "user_id,role_id,skill_id"});
     if (error) throw new LearningError("Could not save your roadmap.", 500);
     return NextResponse.json({ok: true, count: rows.length});
   } catch (error) {return NextResponse.json({error: error instanceof Error ? error.message : "Could not generate roadmap."}, {status: error instanceof LearningError ? error.status : 500});}

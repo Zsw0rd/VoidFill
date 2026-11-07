@@ -1,12 +1,16 @@
+import { operationBudget, withApiTelemetry } from "@/lib/apiOperations";
+import { trustedLearningWriter } from "@/lib/assessmentPersistence";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getLearningContext } from "@/lib/learningContext";
 import { callLocalMl, LearningError, recommendationResponseSchema } from "@/lib/localMl";
 
-export async function POST() {
+async function handlePOST() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  const budgetResponse = await operationBudget(supabase, user.id, "recommendation");
+  if (budgetResponse) return budgetResponse;
   try {
     const context = await getLearningContext(supabase, user.id);
     const result = await callLocalMl("/recommend", { role: context.role, skills: context.skills, limit: 4 }, recommendationResponseSchema);
@@ -28,7 +32,7 @@ export async function POST() {
     }
     // Preserve stable course IDs, completions and assessment history on refresh.
     if (rows.length) {
-      const { error } = await supabase.from("roadmap_courses").insert(rows);
+      const { error } = await trustedLearningWriter(supabase).from("roadmap_courses").insert(rows);
       if (error) throw new LearningError("Could not save recommended resources.", 500);
     }
     return NextResponse.json({ saved: rows.length, matched, unmatched: result.unsupported_skills, model: result.model, message: `${matched} resources matched; ${rows.length} new resources added.` });
@@ -37,3 +41,5 @@ export async function POST() {
     return NextResponse.json({ error: error instanceof LearningError ? error.message : "Could not recommend resources." }, { status: error instanceof LearningError ? error.status : 500 });
   }
 }
+
+export const POST = withApiTelemetry("recommendation", handlePOST);

@@ -8,6 +8,8 @@ import { SkillRow } from "@/components/SkillRow";
 import { categoryFromScore } from "@/lib/gapLogic";
 import { isoDate } from "@/lib/date";
 import { loadCareerRequirements } from "@/lib/careerRequirements";
+import { rankLearningSkills, weeklyLearningRoute } from "@/lib/learningPlan";
+import { WeeklyRoute } from "@/components/WeeklyRoute";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -34,7 +36,7 @@ export default async function DashboardPage() {
     .maybeSingle();
   if (!profile?.onboarded) redirect("/onboarding");
 
-  const [statsRes, skillsRes, attemptsRes, roadmapRes, requirements] = await Promise.all([
+  const [statsRes, skillsRes, attemptsRes, roadmapRes, requirements, dependencyRes] = await Promise.all([
     supabase
       .from("user_stats")
       .select("*")
@@ -42,10 +44,9 @@ export default async function DashboardPage() {
       .maybeSingle(),
     supabase
       .from("user_skill_scores")
-      .select("score, skills(name)")
+      .select("skill_id, score, skills(name)")
       .eq("user_id", user.id)
-      .order("score", { ascending: true })
-      .limit(6),
+      .order("score", { ascending: true }),
     supabase
       .from("daily_attempts")
       .select(
@@ -65,12 +66,16 @@ export default async function DashboardPage() {
       .order("priority", { ascending: false })
       .limit(100),
     loadCareerRequirements(supabase, profile),
+    supabase.from("skill_dependencies").select("prerequisite_skill_id,dependent_skill_id"),
   ]);
 
   const stats = statsRes.data;
-  const skills = skillsRes.data || [];
   const recentAttempts = attemptsRes.data || [];
   const activeSkills = new Set(requirements.map(row => row.skill_id));
+  const skills = (skillsRes.data || []).filter(row => activeSkills.has(row.skill_id)).slice(0, 6);
+  const scoreMap = new Map((skillsRes.data || []).map(row => [row.skill_id, Number(row.score)]));
+  const planSkills = rankLearningSkills(requirements.map(row => ({id: row.skill_id, name: row.skills?.name || "Skill", target: row.target, importance: Number(row.weight ?? .8), score: scoreMap.get(row.skill_id) ?? null})), dependencyRes.data || []);
+  const partialLoad = statsRes.error || skillsRes.error || attemptsRes.error || roadmapRes.error || dependencyRes.error;
   const roadmapItems = (roadmapRes.data || []).filter(row => activeSkills.has(row.skill_id)).slice(0, 5);
 
   const xp = stats?.xp ?? 0;
@@ -107,6 +112,8 @@ export default async function DashboardPage() {
             <Badge>{isStudent ? "Student" : "Professional"}</Badge>
           </div>
         </div>
+        {partialLoad && <p className="mt-5 rounded-xl border border-rust/30 bg-paper p-4 text-sm" role="alert">Some progress could not be loaded. <Link href="/dashboard" className="underline">Reload your overview</Link> before relying on these suggestions.</p>}
+        {!partialLoad && <WeeklyRoute actions={weeklyLearningRoute(planSkills, todayDone)} />}
         <div className="mt-7 grid lg:grid-cols-[1.7fr_1fr] gap-5">
           <section className="rounded-2xl border border-forest/15 bg-[#e8eddc] p-6 md:p-8 relative overflow-hidden">
             <div className="flex items-center justify-between">
@@ -169,10 +176,10 @@ export default async function DashboardPage() {
               </span>
               <div className="pb-1">
                 <span className="block text-xs font-semibold">
-                  Current level
+                  Activity level
                 </span>
                 <span className="text-[10px] text-muted">
-                  Keep making room for more.
+                  XP tracks participation, not job readiness.
                 </span>
               </div>
             </div>
@@ -269,7 +276,7 @@ export default async function DashboardPage() {
               {roadmapItems.length ? (
                 roadmapItems.map((item: any, i: number) => (
                   <Link
-                    href="/roadmap"
+                    href={`/roadmap?skill=${encodeURIComponent(item.skill_id)}#learning-map`}
                     key={item.skill_id}
                     className="group flex items-start gap-4 py-4 border-b border-line last:border-0"
                   >

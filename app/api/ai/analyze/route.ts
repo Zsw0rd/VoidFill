@@ -1,3 +1,4 @@
+import { operationBudget, withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
@@ -19,10 +20,12 @@ const analysisSchema = z.object({
   }),
 });
 
-export async function POST() {
+async function handlePOST() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  const budgetResponse = await operationBudget(supabase, user.id, "insight");
+  if (budgetResponse) return budgetResponse;
   try {
     const context = await getLearningContext(supabase, user.id);
     const { data: attempts, error: attemptsError } = await supabase.from("daily_attempts").select("correct_count, total_count, difficulty_level").eq("user_id", user.id).not("completed_at", "is", null).order("attempt_date", { ascending: false }).limit(10);
@@ -38,3 +41,5 @@ export async function POST() {
     return NextResponse.json({ error: error instanceof LearningError ? error.message : "Could not analyze skill gaps." }, { status: error instanceof LearningError ? error.status : 500 });
   }
 }
+
+export const POST = withApiTelemetry("insight", handlePOST);

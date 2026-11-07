@@ -53,6 +53,25 @@ def test_cloud_demo_survives_new_store_instances_and_preserves_isolation(storage
     assert cloud_guests.execute("user", second["token"], {})["data"]["user"]["id"] == second["user"]["id"]
 
 
+def test_practical_drafts_and_reviews_survive_encrypted_cloud_roundtrip(storage):
+    from ml.guest import ROLES
+    first = cloud_guests.execute("start", "", {"role": 0})
+    second = cloud_guests.execute("start", "", {"role": 0})
+    evidence = "Private synthetic evidence checked against two examples; this text must remain encrypted at rest."
+    draft = cloud_guests.execute("practical", first["token"], {"action": "save", "role_id": ROLES[0]["id"], "level": "foundation", "expected_version": 0, "content": evidence, "links": []})["project"]
+    assert cloud_guests.execute("practical", first["token"], {"action": "load"})["projects"][0]["content"] == evidence
+    assert not cloud_guests.execute("practical", second["token"], {"action": "load"})["projects"]
+    assert all(evidence not in row["snapshot"] for row in storage.values())
+    with pytest.raises(HTTPException):
+        cloud_guests.execute("practical", first["token"], {"action": "save", "role_id": ROLES[0]["id"], "level": "foundation", "project_id": draft["id"], "expected_version": 0, "content": "stale write", "links": []})
+    assert cloud_guests.execute("practical", first["token"], {"action": "load"})["projects"][0]["content"] == evidence
+    mentor = cloud_guests.execute("start", "", {"staff": "mentor"})
+    item = cloud_guests.execute("practical", mentor["token"], {"action": "load", "mode": "mentor"})["submissions"][0]
+    cloud_guests.execute("practical", mentor["token"], {"action": "review", "submission_id": item["id"], "verdict": "revise", "feedback": "Document a checked second case before the next review.", "criteria": [{"criterion": index, "judgement": "developing", "comment": ""} for index, _ in enumerate(item["brief"]["rubric"])]})
+    result = cloud_guests.execute("practical", mentor["token"], {"action": "load", "mode": "mentor"})
+    assert len(result["reviews"]) == 1
+
+
 def test_encrypted_demo_snapshots_are_bound_to_their_session(storage):
     first = cloud_guests.execute("start", "", {"role": 0})
     second = cloud_guests.execute("start", "", {"role": 0})

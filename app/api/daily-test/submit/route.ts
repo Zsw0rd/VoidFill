@@ -1,12 +1,13 @@
+import { withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { isoDate, daysBetween } from "@/lib/date";
 import { gradeAssessment, submissionSchema } from "@/lib/assessments";
 import { applySkillResults } from "@/lib/learningContext";
 import { LearningError } from "@/lib/localMl";
-import { persistAssessmentOnce } from "@/lib/submissions";
+import { persistVerifiedAssessment } from "@/lib/assessmentPersistence";
 
-export async function POST(req: Request) {
+async function handlePOST(req: Request) {
   const supabase = await createClient();
   const {
     data: { user },
@@ -21,8 +22,8 @@ export async function POST(req: Request) {
     );
   try {
     const grade = gradeAssessment(user.id, parsed.data, "daily");
-    const result = await persistAssessmentOnce(
-      grade.assessmentId,
+    const result = await persistVerifiedAssessment(
+      supabase, user.id, grade, parsed.data.answers,
       async () => {
         const today = isoDate(new Date());
         const { data: existing, error: existingError } = await supabase
@@ -34,7 +35,7 @@ export async function POST(req: Request) {
         if (existingError)
           throw new LearningError("Could not load today's attempt.", 500);
         if (existing?.completed_at)
-          return { ...existing, review: grade.review, alreadyCompleted: true };
+          return { ...existing, review: [], alreadyCompleted: true };
         const xp_earned = 50 + grade.correct * 5;
         const { data: attempt, error } = await supabase
           .from("daily_attempts")
@@ -109,8 +110,6 @@ export async function POST(req: Request) {
           review: grade.review,
         };
       },
-      (supabase as any).__demoToken,
-      user.id,
     );
     return NextResponse.json(result);
   } catch (error) {
@@ -129,3 +128,5 @@ export async function POST(req: Request) {
     );
   }
 }
+
+export const POST = withApiTelemetry("daily_submission", handlePOST);

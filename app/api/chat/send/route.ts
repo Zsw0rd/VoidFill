@@ -1,11 +1,14 @@
+import { operationBudget, withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { extractGeminiText, geminiUrl } from "@/lib/gemini";
 
-export async function POST(req: Request) {
+async function handlePOST(req: Request) {
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  const budgetResponse = await operationBudget(supabase, user.id, "chat");
+  if (budgetResponse) return budgetResponse;
 
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) return NextResponse.json({ error: "GEMINI_API_KEY not configured" }, { status: 500 });
@@ -220,3 +223,5 @@ If flagged:
         // Silently fail moderation — don't break the chat
     }
 }
+
+export const POST = withApiTelemetry("chat", handlePOST);

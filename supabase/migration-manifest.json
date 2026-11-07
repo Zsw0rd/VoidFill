@@ -1,0 +1,16 @@
+{
+  "baseline": "supabase/bootstrap.sql",
+  "historical": [
+    "supabase/migrations/20261101_cloud_runtime.sql",
+    "supabase/migrations/20261106_career_profiles.sql",
+    "supabase/migrations/20261106_career_catalogue_seed.sql",
+    "supabase/migrations/20261106_second_career_cohort.sql",
+    "supabase/migrations/20261106_third_career_cohort.sql"
+  ],
+  "release": [
+    "supabase/migrations/20261106120000_atomic_grading.sql",
+    "supabase/migrations/20261106130000_practical_learning.sql",
+    "supabase/migrations/20261106140000_operation_limits.sql",
+    "supabase/migrations/20261106150000_applied_career_paths.sql"
+  ]
+}

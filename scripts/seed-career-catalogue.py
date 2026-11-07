@@ -1,8 +1,12 @@
 """Generate an idempotent SQL seed, resolving existing UUIDs by unique names."""
 import json
+import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--output", default="supabase/migrations/20261106150000_applied_career_paths.sql", help="A new additive migration path; do not overwrite applied migrations.")
+args = parser.parse_args()
 catalogue = json.loads((ROOT / "ml/data/careers/catalogue.json").read_text(encoding="utf8"))
 # Only public metadata needed by SQL is included; no assessment keys.
 payload = {"version": catalogue["version"], "skills": [{k: s[k] for k in ["id", "key", "name", "category", "description"]} for s in catalogue["skills"]], "roles": [{k: r[k] for k in ["id", "name", "description", "requirements"]} for r in catalogue["roles"]] + [catalogue["personal_goal_role"] | {"requirements": []}], "dependencies": catalogue["dependencies"]}
@@ -48,5 +52,5 @@ on conflict do nothing;
 
 commit;
 """
-(ROOT / "supabase/migrations/20261106_third_career_cohort.sql").write_text(sql, encoding="utf8")
+(ROOT / args.output).write_text(sql, encoding="utf8")
 print(f"Generated additive seed: {len(payload['roles'])-1} careers plus personal-goal storage role; {len(payload['skills'])} skills.")

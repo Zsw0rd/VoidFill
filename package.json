@@ -17,13 +17,19 @@
     "test:demo": "node scripts/test-demo.mjs",
     "test:staff-demo": "node scripts/test-staff-demo.mjs",
     "test:auth": "node scripts/test-auth.mjs",
-    "test": "node --import tsx --test tests/assessments.test.ts tests/localMl.test.ts tests/submissions.test.ts tests/demo-client.test.ts tests/auth.test.ts tests/roadmap-progress.test.ts tests/cloud-submissions.test.ts tests/ml-service-url.test.ts tests/atlas-layout.test.ts tests/careers.test.ts tests/staff.test.ts",
+    "test": "node scripts/test-unit.mjs",
     "test:integration": "node --import tsx --test tests/local-integration.test.ts",
     "test:ml": "node scripts/ml.mjs test",
     "build": "next build",
     "start": "node scripts/dev.mjs --production",
     "lint": "next lint",
-    "ml:export-cloud": "node scripts/ml.mjs export-cloud"
+    "ml:export-cloud": "node scripts/ml.mjs export-cloud",
+    "test:practical": "node scripts/test-practical.mjs",
+    "test:ux": "playwright test",
+    "test:latency": "node scripts/benchmark-live.mjs",
+    "db:plan": "node scripts/database.mjs upgrade",
+    "test:db": "python scripts/test-database.py --allow-test-database",
+    "test:db:restore": "python scripts/test-database-restore.py --allow-test-database"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",
@@ -39,6 +45,7 @@
     "zod": "4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "@types/node": "^20.14.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

@@ -122,6 +122,20 @@ class GuestStore:
             ledger[key] = {"status": action, "result": body.get("result")}
             return {"ok": True}
 
+    def practical(self, token, body):
+        from ml.practical_demo import execute
+        with self.lock:
+            session = self.get(token)
+            previous = copy.deepcopy(session)
+            try:
+                result = execute(session, body)
+                if len(json.dumps(session)) > 8_000_000:
+                    raise HTTPException(429, "Demo session storage limit reached")
+                return result
+            except Exception:
+                self.sessions[self.digest(token)] = previous
+                raise
+
     def query(self, token, query):
         with self.lock:
             session = self.get(token)

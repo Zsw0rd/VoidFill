@@ -21,6 +21,7 @@ type Props = {
   onOpenCourseAssessment: (course: RoadmapCourse, name: string, id: string) => void;
   onGenerateResources: () => void;
   generatingResources: boolean;
+  focusSkillRequest?: number;
 };
 
 function skillIcon(name: string) {
@@ -39,7 +40,7 @@ function safeResourceUrl(url: string | null) {
   return url && /^https?:\/\//i.test(url) ? url : null;
 }
 
-export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessmentByCourse, onSelectSkill, onOpenSkillAssessment, onOpenCourseAssessment, onGenerateResources, generatingResources }: Props) {
+export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessmentByCourse, onSelectSkill, onOpenSkillAssessment, onOpenCourseAssessment, onGenerateResources, generatingResources, focusSkillRequest = 0 }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(true);
@@ -52,6 +53,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0, scale: 1 });
   const cameraRef = useRef(camera);
   const focusNextBranch = useRef(false);
+  const previousFocusRequest = useRef(0);
   const dragRef = useRef<{ id: number; x: number; y: number; camera: Camera } | null>(null);
   const skill = skills.find(item => item.skill_id === selectedSkillId) || skills[0];
   const suggestedCourse = skill?.courses.find(course => !course.completed) || skill?.courses[0];
@@ -82,15 +84,16 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
 
   useEffect(() => {
     if (!size.width || !size.height) return;
-    if ((size.width < 650 || focusNextBranch.current) && layout.selected) {
+    if ((size.width < 650 || focusNextBranch.current || previousFocusRequest.current !== focusSkillRequest) && layout.selected) {
       focusNextBranch.current = false;
+      previousFocusRequest.current = focusSkillRequest;
       // A phone starts at a readable branch, with the overview one tap away.
       const scale = .72;
       updateCamera({ scale, x: size.width / 2 - layout.selected.x * scale, y: size.height * .40 - layout.selected.y * scale });
     } else {
       updateCamera(fitAtlas(layout.bounds, size.width, size.height));
     }
-  }, [layout, size, updateCamera]);
+  }, [layout, size, updateCamera, focusSkillRequest]);
 
   useEffect(() => {
     if (!fullscreen) return;

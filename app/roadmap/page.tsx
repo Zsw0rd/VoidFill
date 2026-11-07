@@ -3,7 +3,8 @@ import { AppShell } from "@/components/AppShell";
 import { createClient } from "@/lib/supabase/server";
 import { RoadmapClient } from "./ui";
 
-export default async function RoadmapPage() {
+export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ skill?: string }> }) {
+  const requested = await searchParams;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/auth/login");
@@ -17,7 +18,7 @@ export default async function RoadmapPage() {
   return (
     <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="atlas-roadmap-page">
-        <RoadmapClient role={role ? {...role, name: profile.custom_target_role || role.name} : null} preferences={profile} initialViewMode={profile.roadmap_view_mode || "tree"} />
+        <RoadmapClient role={role ? {...role, trackName: role.name, name: profile.custom_target_role || role.name} : null} preferences={profile} initialSkillId={typeof requested.skill === "string" ? requested.skill : undefined} initialViewMode={profile.roadmap_view_mode || "tree"} />
       </div>
     </AppShell>
   );

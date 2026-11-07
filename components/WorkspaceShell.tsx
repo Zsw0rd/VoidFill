@@ -41,6 +41,7 @@ const learnerGroups = [
       { href: "/daily-test", icon: ClipboardCheck, label: "Daily assessment" },
       { href: "/practice-test", icon: Dumbbell, label: "Practice lab" },
       { href: "/roadmap", icon: Route, label: "Learning roadmap" },
+      { href: "/practical", icon: BookOpen, label: "Practical studio" },
     ],
   },
   {
@@ -60,6 +61,7 @@ function staffGroups(role: string) {
         role === "mentor"
           ? [
               { href: "/admin/mentor", icon: Users, label: "My learners" },
+              { href: "/admin/mentor/reviews", icon: ClipboardCheck, label: "Practical reviews" },
               {
                 href: "/admin/mentor/chat",
                 icon: MessageCircle,
@@ -82,7 +84,7 @@ function staffGroups(role: string) {
             ],
     },
   ];
-  if (role !== "mentor") groups.push({label: "Your mentoring workspace", items: [{href: "/admin/mentor", icon: Users, label: "My learners"}, {href: "/admin/mentor/chat", icon: MessageCircle, label: "Conversations"}]});
+  if (role !== "mentor") groups.push({label: "Your mentoring workspace", items: [{href: "/admin/mentor", icon: Users, label: "My learners"}, {href: "/admin/mentor/reviews", icon: ClipboardCheck, label: "Practical reviews"}, {href: "/admin/mentor/chat", icon: MessageCircle, label: "Conversations"}]});
   return groups;
 }
 

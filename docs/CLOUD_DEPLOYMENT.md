@@ -17,14 +17,17 @@ route parameters use the asynchronous request APIs required by this version.
 Functions target Singapore (`sin1`), matching the Supabase database region.
 
 The dependency refresh also patches runtime validation and CSS processing.
-The remaining npm audit findings are moderate issues in the development lint
-dependency tree; no high or critical findings remain in the checked lockfile.
+The most recent recorded dependency audit reported zero vulnerabilities. Run
+`npm audit` again on dependency releases; that recorded result is not a permanent
+guarantee about later advisories.
 
 The learning service uses ONNX Runtime CPU inference with one CPU thread and a
 four-item inference batch limit. It imports no PyTorch or Transformers. The
 original BGE model, CLS pooling, tokenizer, 256-token truncation, normalization,
 catalogue vectors, source questions and answer keys are preserved. Exact public
-queries for the app's six skill names are precomputed with the original model.
+queries for supported catalogue skill names and public contexts are precomputed
+with the original model. The current corpus/cache metadata is recorded in
+`ml/data/careers/index.json`; rebuild it whenever content changes.
 Routine recommendations and context-free assessments can use these embeddings
 without loading the model graph. Dynamic resume input is never put in that cache.
 
@@ -54,9 +57,27 @@ The validated release is a losslessly compressed archive split into nine objects
 each at most 32 MiB, in the public Supabase `model-artifacts` bucket. That bucket
 contains public model artifacts only; the existing user-upload bucket was not
 made public. `ml/cloud-release.json` records per-object and complete-archive
-SHA-256 hashes. `ml/cloud_build.py` downloads four shards concurrently, verifies
-every checksum and rejects archive paths escaping the model directory. It runs
-at deployment build time. User requests do not download model weights.
+SHA-256 hashes and source-controlled hashes/sizes for all eight extracted files,
+bound to the same verified archive. `ml/cloud_build.py` first verifies the exact
+cached file set, sizes and SHA-256 values; a valid cache needs no download. A
+missing, modified or extra file causes a fresh download of four shards in
+parallel, followed by shard, archive and extracted-file verification before
+publication. Symlinks, junctions, duplicate/colliding names and unsafe paths are
+rejected. An unbound cache marker is never trusted.
+
+This avoids repeatedly downloading the unchanged 276,954,446-byte archive when
+the model directory is restored by GitHub Actions' configured cache or is already
+present locally. Vercel build-cache retention of this directory is not assumed;
+a fresh deployment still downloads and verifies the archive. Hash checks run at
+build time, not on learner requests. The existing archive, nine shards, weights,
+tokenizer and public precomputed embeddings are unchanged; no artifact upload
+was needed. `ml.package_cloud` derives future file manifests from the completed,
+archive-verified ZIP rather than trusting a cached marker.
+
+`ml/tests/test_cloud_build.py` uses tiny synthetic archives to verify no-network
+cache hits, recovery from incomplete/tampered caches, checksum failures and path
+attacks. These tests are included in hosted CI. User requests do not download
+model weights.
 
 The runtime bundle needs Vercel Large Functions (`VERCEL_SUPPORT_LARGE_FUNCTIONS=1`).
 The release uses unchanged pretrained BGE weights under MIT; its model card and
@@ -66,14 +87,16 @@ export dependencies.
 
 ## Stateless persistence
 
-Apply `supabase/migrations/20261101_cloud_runtime.sql` before deployment. The two
-new tables enable RLS and grant access only to `service_role`; their RPCs revoke
+The historical `supabase/migrations/20261101_cloud_runtime.sql` installed the two
+cloud tables with RLS and access only to `service_role`; their RPCs revoke
 execution from public, anonymous and authenticated client roles.
 
 - Real assessment replay records use a Supabase ledger instead of local files.
-  A per-user pending claim serializes different assessments and prevents concurrent
-  read/modify/write XP races through the application routes. Completed tokens
-  return their stored result; failed partial writes are not rerun automatically.
+  The current release replaces separate pending-claim/client writes with the
+  server-only `vf_commit_assessment` transaction. Attempts, score blending, course
+  completion, roadmap progress, XP/streak and the replay result commit together.
+  Per-user transaction locks serialize concurrent requests; failures roll back
+  and allow a safe retry. Completed tokens return their exact saved result.
 - Temporary demos use isolated AES-GCM encrypted snapshots bound to a hashed
   session capability. Database checkout locks serialize changes across function
   instances; no demo session depends on a particular process's RAM.
@@ -83,10 +106,14 @@ execution from public, anonymous and authenticated client roles.
 
 The shared server key is stored as a Vercel Secret, never a browser variable or
 source-code value. Secrets are scoped to Production and the current feature
-branch's Preview environment. Local development retains its local guest store
-and filesystem ledger. Existing direct client progress-write policies and fully
-transactional grading remain separate integrity-hardening work; this migration
-does not claim to replace all grading mutations with an atomic SQL transaction.
+branch's Preview environment. Real local learning writes use the same grading
+transaction and require the server-only Supabase key. Local guest demos retain
+the isolated guest ledger. Apply the current release SQL in the explicit order
+from `supabase/migration-manifest.json` before deploying the matching application;
+see [database releases](DATABASE_RELEASES.md). Browser write grants/policies on
+derived scores, XP, attempts, course completion and roadmap progress are removed.
+Default sign-in stats initialization remains restricted to untouched defaults.
+This release does not automatically reconcile old partially failed submissions.
 
 ## Upload and auth configuration
 
@@ -121,3 +148,12 @@ Platform references: [Vercel Services](https://vercel.com/docs/services),
 [service bindings](https://vercel.com/docs/services/bindings),
 [function limits](https://vercel.com/docs/functions/limitations),
 [Supabase Cron](https://supabase.com/docs/guides/cron).
+
+
+## Automated release checks
+
+The GitHub workflow verifies Node/TypeScript, a clean PostgreSQL migration and
+concurrency test, ONNX/content fingerprints, the production build and isolated
+learner/staff journeys without production credentials. See
+[release process](RELEASE_CHECKLIST.md). A checked-in workflow must run successfully
+on GitHub before it is described as a passing hosted CI check.

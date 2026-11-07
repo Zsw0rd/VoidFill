@@ -10,6 +10,7 @@ from ml.career_question_bank_phase2 import BANK as PHASE2_BANK
 from ml.career_pack_phase2 import REFERENCES as PHASE2_REFERENCES
 from ml.career_question_bank_phase3 import BANK as PHASE3_BANK
 from ml.career_pack_phase3 import REFERENCES as PHASE3_REFERENCES
+from ml.career_intermediate_questions import BANK as INTERMEDIATE_BANK
 
 ROOT = Path(__file__).resolve().parent
 DEST = ROOT / "data/careers"
@@ -122,6 +123,22 @@ def main():
         for title, url, provider, description in references[topic]:
             identity = hashlib.sha256((topic + ":" + url).encode()).hexdigest()[:20]
             resources.append({"id": "career-resource-" + identity, "title": title, "url": url, "provider": provider, "description": description, "text": title + ". " + description, "topics": [topic], "type": "tutorial", "difficulty": "beginner", "estimated_hours": None, "source": provider + " (external link; VoidFill original summary)", "license": "Link-only reference; third-party content is not redistributed"})
+    # Keep every previously published question's values and ordering unchanged.
+    # New applied scenarios are appended, including the six legacy topics whose
+    # foundation resources live in the unchanged base pack.
+    base_resources = json.loads((ROOT / "data/resources.json").read_text(encoding="utf8"))
+    for topic, rows in INTERMEDIATE_BANK.items():
+        if topic in references:
+            provider, source_url = references[topic][0][2], references[topic][0][1]
+        else:
+            reference = next(r for r in base_resources if topic in r["topics"])
+            provider, source_url = reference["provider"], reference["url"]
+        for i, (prompt, answer, distractors, explanation, difficulty) in enumerate(rows):
+            options = [answer, *distractors.split("|")]
+            assert len(set(options)) == 4, (topic, prompt)
+            identity = hashlib.sha256((topic + ":" + prompt).encode()).hexdigest()[:20]
+            random.Random(identity).shuffle(options)
+            questions.append({"id": "career-" + identity, "prompt": prompt, "options": options, "correct_index": options.index(answer), "explanation": explanation, "difficulty": difficulty, "topics": [topic], "source": "VoidFill original intermediate scenario; learning reference: " + provider, "source_url": source_url, "group": "career-intermediate-" + topic, "evidence_type": "knowledge", "objective_id": f"{topic}-applied-{i+1:02d}"})
     DEST.mkdir(exist_ok=True, parents=True)
     (DEST / "questions.json").write_text(json.dumps(questions, indent=2, ensure_ascii=False) + "\n", encoding="utf8")
     (DEST / "resources.json").write_text(json.dumps(resources, indent=2, ensure_ascii=False) + "\n", encoding="utf8")
@@ -132,9 +149,9 @@ def main():
     resource_counts = Counter(topic for r in all_resources for topic in r["topics"])
     for skill in catalogue["skills"]:
         topic = skill["topic"]
-        skill["coverage"] = {"questions": counts[topic] if topic else 0, "resources": resource_counts[topic] if topic else 0, "levels": sorted({q["difficulty"] for q in all_questions if topic and topic in q["topics"]}), "scope": "foundation knowledge; practical ability requires separate evidence" if topic else "specialist content pending; use a practical rubric and mentor discussion"}
+        skill["coverage"] = {"questions": counts[topic] if topic else 0, "resources": resource_counts[topic] if topic else 0, "levels": sorted({q["difficulty"] for q in all_questions if topic and topic in q["topics"]}), "scope": "foundation and intermediate scenario knowledge; practical ability requires separate evidence" if topic else "specialist content pending; use a practical rubric and mentor discussion"}
     (DEST / "catalogue.json").write_text(json.dumps(catalogue, indent=2, ensure_ascii=False) + "\n", encoding="utf8")
-    print(f"Built {len(questions)} original questions and {len(resources)} link-only resources across {len(banks)} topics.")
+    print(f"Built {len(questions)} original questions and {len(resources)} link-only resources across {len(set(banks) | set(INTERMEDIATE_BANK))} topics.")
 
 
 if __name__ == "__main__":

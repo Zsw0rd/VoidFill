@@ -39,6 +39,7 @@ export async function adaptiveDifficulty(supabase: Awaited<ReturnType<typeof cre
 }
 
 export async function applySkillResults(supabase: Awaited<ReturnType<typeof createClient>>, userId: string, results: { skill_id: string; skill_name: string; score: number }[]) {
+  if (!(supabase as any).__demoToken) throw new LearningError("Real assessment progress must be saved transactionally.", 500);
   const ids = results.map((r) => r.skill_id);
   const [scoresRes, coursesRes] = await Promise.all([
     supabase.from("user_skill_scores").select("skill_id, score").eq("user_id", userId).in("skill_id", ids),

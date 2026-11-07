@@ -1,12 +1,13 @@
+import { withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { isoDate, daysBetween } from "@/lib/date";
 import { gradeAssessment, submissionSchema } from "@/lib/assessments";
 import { applySkillResults } from "@/lib/learningContext";
 import { LearningError } from "@/lib/localMl";
-import { persistAssessmentOnce } from "@/lib/submissions";
+import { persistVerifiedAssessment } from "@/lib/assessmentPersistence";
 
-export async function POST(req: Request) {
+async function handlePOST(req: Request) {
   const supabase = await createClient();
   const {
     data: { user },
@@ -21,8 +22,8 @@ export async function POST(req: Request) {
     );
   try {
     const grade = gradeAssessment(user.id, parsed.data, "practice");
-    const result = await persistAssessmentOnce(
-      grade.assessmentId,
+    const result = await persistVerifiedAssessment(
+      supabase, user.id, grade, parsed.data.answers,
       async () => {
         // Every correct answer contributes 100 points, independent of requested difficulty.
         const skillScores = await applySkillResults(
@@ -182,8 +183,6 @@ export async function POST(req: Request) {
           review: grade.review,
         };
       },
-      (supabase as any).__demoToken,
-      user.id,
     );
     return NextResponse.json(result);
   } catch (error) {
@@ -202,3 +201,5 @@ export async function POST(req: Request) {
     );
   }
 }
+
+export const POST = withApiTelemetry("practice_submission", handlePOST);

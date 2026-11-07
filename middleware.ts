@@ -132,7 +132,7 @@ export async function middleware(req: NextRequest) {
       if (!role) return redirect("/dashboard");
       if (
         role === "mentor" &&
-        !["/admin/mentor", "/admin/mentor/chat", "/admin/profile"].includes(
+        !["/admin/mentor", "/admin/mentor/chat", "/admin/mentor/reviews", "/admin/profile"].includes(
           pathname,
         )
       )

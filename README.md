@@ -13,7 +13,7 @@ It provides:
 ## Quick Start
 
 ### 1) Prerequisites
-- Node.js 18+ (recommended: latest LTS)
+- Node.js 24 LTS (matches production and CI)
 - npm
 - A Supabase project
 - Python 3.11+ (3.12 tested) for the local ML service
@@ -21,7 +21,7 @@ It provides:
 
 ### 2) Install dependencies
 ```bash
-npm install
+npm ci
 ```
 
 ### 3) Environment variables
@@ -36,23 +36,32 @@ Set values in `.env.local`:
 - `GEMINI_API_KEY` (chatbot and its moderation only)
 - `ML_SERVICE_URL` (defaults to `http://127.0.0.1:8010`)
 - `ML_SERVICE_TOKEN` (server-only; `npm run dev` creates one in `.env.local` if absent)
+- `SUPABASE_SERVICE_ROLE_KEY` (server-only; required for real assessment and generated roadmap writes locally and in production)
 
 Google login/signup is configured through Supabase's Google provider. See
 [authentication configuration and verification](docs/AUTHENTICATION.md) for the
-OAuth client, local callbacks, account routing and current Testing audience.
+OAuth client, local callbacks, account routing and the External / In production audience.
 
-### 4) Initialize the database
-Use `supabase/actualused/used.sql` in Supabase SQL Editor.
+### 4) Initialize or upgrade the database
+Use the ordered manifest and commands in [database releases](docs/DATABASE_RELEASES.md).
+Inspect the plan before applying SQL:
 
-Notes:
-- `supabase/actualused/used.sql` is the authoritative SQL used by this project.
-- The other SQL files under `supabase/` are retained as reference/history and are not the active setup path.
-- `supabase/admin/admin_seed.sql` is still optional, after you create an auth user for super admin.
+```bash
+node scripts/database.mjs bootstrap
+# Fresh empty Supabase project only, after privately setting DATABASE_URL:
+node scripts/database.mjs bootstrap --apply
+```
 
-### 5) Storage setup (required for resume upload)
-Create Supabase Storage bucket:
-- Bucket name: `uploads`
-- Access mode: public (current code uses `getPublicUrl`)
+An existing installation uses `upgrade`, which applies only the new release list.
+Do not replay `supabase/actualused/used.sql` or all historical migrations: they
+contain overlapping policies and historical account-specific setup.
+No privileged account is automatically created by the canonical bootstrap.
+
+### 5) Resume processing and model storage
+Resume files are processed inline and are not retained as public uploads. No
+public resume bucket is required. Extracted profile fields are saved only when
+the user applies them. Production model artifacts use a separate checksummed
+`model-artifacts` bucket; see [cloud deployment](docs/CLOUD_DEPLOYMENT.md).
 
 ### 6) Prepare the local ML model (first setup on a new machine)
 ```bash
@@ -88,6 +97,8 @@ For deployment on Vercel and Supabase without a separate model host, see
 - `npm run test:auth`: callback failures, safe redirects and protected-page integration checks
 - `npm run test:demo`: isolated learner workflow integration checks
 - `npm run test:staff-demo`: staff login, rendering and role-isolation integration checks
+- `npm run test:practical`: isolated learner submission, assigned mentor review and withdrawal integration checks
+- `npm run test:ux`: local Chromium learner/atlas/mobile accessibility and interaction checks
 - `npm run test:ml`: tests using the saved local model
 - `npm run test:integration`: actual local model to TypeScript grading integration (service must be running)
 - `npm run build`: production build
@@ -95,7 +106,7 @@ For deployment on Vercel and Supabase without a separate model host, see
 - `npm run lint`: lint with Next.js ESLint config
 
 ## Tech Stack
-- Next.js 14 App Router + TypeScript
+- Next.js 15.5 App Router + TypeScript
 - Supabase Auth + Postgres + RLS + Storage
 - Tailwind CSS
 - Framer Motion
@@ -106,6 +117,9 @@ For deployment on Vercel and Supabase without a separate model host, see
 ## Architecture Summary
 
 Detailed site documentation is available in `docs/SITE_DOCUMENTATION.md`.
+Database setup and grading guarantees: [DATABASE_RELEASES.md](docs/DATABASE_RELEASES.md).
+CI, branch consolidation and deployment gates: [RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md).
+Practical evidence, explicit sharing and mentor review: [PRACTICAL_LEARNING.md](docs/PRACTICAL_LEARNING.md).
 
 ### Frontend
 - App Router pages under `app/`
@@ -122,9 +136,10 @@ Detailed site documentation is available in `docs/SITE_DOCUMENTATION.md`.
   - `lib/gemini.ts`: Gemini response extraction/parsing helpers
 
 ### Database
-- Core schema in `supabase/schema.sql`
-- Feature migrations in `supabase/migrations/*`
-- Admin/chat model in `supabase/admin/006_chat.sql`
+- Canonical fresh-install schema in `supabase/bootstrap.sql`
+- Explicit historical/release ordering in `supabase/migration-manifest.json`
+- Additive releases in `supabase/migrations/*`; use `scripts/database.mjs` rather than replaying all files
+- Server-only atomic grading RPC; browser clients cannot write derived scores/XP
 - RLS policies are enabled for user-owned and admin-scoped access
 
 ## Route Map

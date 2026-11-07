@@ -56,9 +56,10 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
 
   const diffBadgeTone =
     difficulty <= 2 ? "good" : difficulty <= 3 ? "warn" : "bad";
+  const completedAttempt = result?.alreadyCompleted ? result : existingAttempt;
 
   // Check if already completed
-  if (existingAttempt?.completed_at && stage === "start") {
+  if ((completedAttempt?.completed_at && stage === "start") || result?.alreadyCompleted) {
     return (
       <motion.div
         initial={{ opacity: 0, y: 14 }}
@@ -70,10 +71,11 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
             <CheckCircle className="w-12 h-12 text-forest mx-auto" />
             <h1 className="mt-4 page-title">You showed up. That counts.</h1>
             <p className="mt-2 text-sm text-muted">
-              Today’s assessment: {existingAttempt.correct_count}/
-              {existingAttempt.total_count} • XP earned:{" "}
-              {existingAttempt.xp_earned}
+              Today’s saved assessment: {completedAttempt.correct_count}/
+              {completedAttempt.total_count} • XP earned:{" "}
+              {completedAttempt.xp_earned}
             </p>
+            {result?.alreadyCompleted && <p className="mt-4 text-sm text-muted" role="status">Today’s assessment was already saved in another tab or session. This submission did not award additional XP or change your scores.</p>}
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/roadmap"
@@ -153,6 +155,11 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
       const data = await res.json();
       if (!res.ok)
         return toast("Submit failed", data.error || "Please try again.");
+      if (data.alreadyCompleted) {
+        setResult(data); setQuestions([]); setAnswers({}); setAssessmentToken(""); setStage("done");
+        toast("Already completed", "Your first saved assessment remains unchanged.");
+        return;
+      }
       setQuestions((current) =>
         current.map((q) => ({
           ...q,

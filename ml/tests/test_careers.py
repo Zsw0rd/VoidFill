@@ -45,11 +45,12 @@ def test_nontechnical_content_never_receives_a_programming_question(engine):
         assert all(question["skill_id"] == skill["id"] for question in result["questions"])
 
 
-def test_foundation_content_is_not_labelled_as_expert(engine):
+def test_intermediate_content_is_not_labelled_as_expert(engine):
     skill = next(item for item in CATALOGUE["skills"] if item["key"] == "accounting")
     result = engine.assessment(AssessmentRequest(skills=[{"id": skill["id"], "name": skill["name"]}], count=10, difficulty=5))
-    assert result["difficulty"] == 2
-    assert result["difficultyLabel"] == "Moderate"
+    assert result["difficulty"] == 3
+    assert result["difficultyLabel"] == "Intermediate"
+    assert all(row["difficulty"] == 3 for row in result["questions"])
 
 
 def test_specialist_and_unknown_skills_are_not_assigned_a_nearby_bank(engine):
@@ -88,7 +89,7 @@ def test_every_pilot_uses_precomputed_public_recommendation_queries():
 
 def test_original_items_have_valid_keys_sources_and_numerical_examples():
     rows = json.loads((DIRECTORY / "questions.json").read_text(encoding="utf8"))
-    assert len(rows) == 960
+    assert len(rows) == 1510
     assert len({row["id"] for row in rows}) == len(rows)
     for row in rows:
         assert len(set(row["options"])) == 4
@@ -133,7 +134,7 @@ def test_final_cohort_has_dedicated_knowledge_and_stated_calculation_rules(engin
     for topic, rows in BANK.items():
         skill = next(item for item in CATALOGUE["skills"] if item["key"] == topic)
         result = engine.assessment(AssessmentRequest(skills=[{"id": skill["id"], "name": skill["name"]}], count=10, difficulty=5))
-        assert result["difficulty"] <= 2
+        assert result["difficulty"] == 3
         assert len(result["questions"]) == 10
         assert all(question["topics"] == [topic] and question["skill_id"] == skill["id"] for question in result["questions"]), topic
         assert {row[-1] for row in rows} == {1, 2}
@@ -166,7 +167,7 @@ def test_index_provenance_and_resource_checks_match_the_current_pack():
     assert {row["id"] for row in audit["results"]} == {row["id"] for row in resources}
     assert all(row["status"] == 200 for row in audit["results"])
     with np.load(DIRECTORY / "vectors.npz", allow_pickle=False) as vectors:
-        assert vectors["questions"].shape == (960, 768)
+        assert vectors["questions"].shape == (1510, 768)
         assert np.isfinite(vectors["questions"]).all()
         assert vectors["roles"].shape == (60, 768)
 
@@ -200,3 +201,62 @@ def test_non_technical_resume_extracts_explicit_claims_and_suggests_related_care
     assert "Recruitment Associate" in [row["name"] for row in result["role_suggestions"]]
     assert all(row["evidence_skills"] for row in result["role_suggestions"])
     assert all(not row["assessed"] for row in result["matched_app_skills"])
+
+
+def test_all_careers_have_distinct_ordered_applied_curricula():
+    capstones = set()
+    all_keys = {skill["key"] for skill in CATALOGUE["skills"]}
+    for role in CATALOGUE["roles"]:
+        curriculum = role["curriculum"]
+        assert set(curriculum["skill_sequence"]) == {row["skill"] for row in role["requirements"]}
+        known = set()
+        for level in ["foundation", "intermediate"]:
+            block = curriculum[level]
+            assert len(block["milestones"]) == 2
+            for step in block["milestones"]:
+                assert step["id"] not in known
+                assert set(step["prerequisites"]) <= known
+                assert set(step["skill_keys"]) <= all_keys
+                assert step["deliverable"] and len(step["checks"]) >= 2
+                known.add(step["id"])
+        capstones.add(curriculum["intermediate"]["milestones"][-1]["deliverable"])
+        assert curriculum["foundation"]["assessment"]["difficulty_max"] == 2
+        assert curriculum["intermediate"]["assessment"]["difficulty_min"] == 3
+    assert len(capstones) == 60
+
+
+def test_every_skill_has_real_intermediate_questions_and_foundation_isolated(engine):
+    from ml.career_intermediate_questions import BANK
+    assert len(BANK) == 55
+    for skill in CATALOGUE["skills"]:
+        for requested, expected in [(1, 1), (2, 2), (3, 3)]:
+            result = engine.assessment(AssessmentRequest(skills=[{"id": skill["id"], "name": skill["name"]}], count=10, difficulty=requested))
+            assert result["difficulty"] == expected
+            assert len(result["questions"]) == 10, (skill["key"], requested)
+            assert all(row["topics"] == [skill["key"]] for row in result["questions"])
+            assert all(row["difficulty"] == 3 for row in result["questions"]) if requested == 3 else all(row["difficulty"] <= 2 for row in result["questions"])
+
+
+def test_intermediate_options_avoid_systematic_length_and_position_cues():
+    from ml.audit_career_content import audit
+    report = audit()
+    assert report["intermediate_count"] == 550
+    assert set(report["intermediate_per_topic"].values()) == {10}
+    assert report["correct_option_unique_longest_rate"] < .4
+    assert .8 < report["mean_correct_option_characters"] / report["mean_other_option_characters"] < 1.3
+    assert all(100 <= count <= 175 for count in report["correct_positions"].values())
+
+
+def test_applied_calculations_use_the_stated_boundary_and_adjustment_rules():
+    from ml.career_intermediate_questions import BANK
+    expected = {
+        ("marketing", 1): "5%", ("marketing", 6): "30",
+        ("accounting", 5): "100", ("accounting", 8): "150",
+        ("financial-analysis", 2): "30%", ("financial-analysis", 3): "Current 1.5; quick 1.0",
+        ("payroll", 0): "770", ("payroll", 4): "40",
+        ("quality", 2): "4%", ("manufacturing", 0): "6 units per hour",
+        ("manufacturing", 2): "2 minutes", ("manufacturing", 3): "92% first-pass; 95% final",
+        ("cad", 6): "0.10 mm", ("electronics", 0): "0.0452 A", ("electronics", 3): "3.33 V",
+        ("events", 0): "15", ("hospitality", 2): "90%", ("account-management", 7): "1100",
+    }
+    assert all(BANK[topic][index][1] == answer for (topic, index), answer in expected.items())

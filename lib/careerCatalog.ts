@@ -1,9 +1,12 @@
 import raw from "@/ml/data/careers/catalogue.json";
 
 export type CareerLevel = "foundation" | "intermediate";
+export type CareerMilestone = { id: string; title: string; outcome: string; skill_keys: string[]; deliverable: string; checks: string[]; prerequisites: string[] };
+export type CareerCurriculumLevel = { milestones: CareerMilestone[]; assessment: { difficulty_min: number; difficulty_max: number; note: string } };
+export type CareerCurriculum = { case: string; skill_sequence: string[]; foundation: CareerCurriculumLevel; intermediate: CareerCurriculumLevel; note: string };
 export type CareerRequirement = { skill: string; importance: number; target: number; essential: boolean };
 export type CareerSkill = { key: string; id: string; name: string; category: string; topic: string | null; assessment_mode: "objective" | "review"; aliases: string[]; description: string; coverage: { questions: number; resources: number; levels: number[]; scope: string } };
-export type CareerProfile = { id: string; key: string; name: string; family: string; aliases: string[]; release_status: "pilot" | "explore"; description: string; scope: string; requirements: CareerRequirement[]; occupation: {code: string; title: string; url: string; relationship: string}; activity: {title: string; instructions: string; rubric: string[]; note: string; evidence_type: string} };
+export type CareerProfile = { id: string; key: string; name: string; family: string; aliases: string[]; release_status: "pilot" | "explore"; description: string; scope: string; requirements: CareerRequirement[]; curriculum: CareerCurriculum; occupation: {code: string; title: string; url: string; relationship: string}; activity: {title: string; instructions: string; rubric: string[]; note: string; evidence_type: string} };
 export type StoredCareer = { id: string; name: string; description?: string | null };
 
 export const careerCatalogue = raw as unknown as {version: string; reviewed_at: string; families: {key: string; name: string; kind: string}[]; roles: CareerProfile[]; skills: CareerSkill[]; personal_goal_role: StoredCareer; sources: {name: string; url: string; license: string; license_url: string; publisher: string; changes: string}[]};
@@ -31,8 +34,15 @@ export function requiredScore(row: {required_score?: number | null; weight?: num
   return Math.max(0, Math.min(100, base + (level === "intermediate" ? 10 : 0)));
 }
 
-const STOP = new Set("a an and as at be by for from i in into is it job my of on role the to want with work working experience skills responsible responsibilities years seeking looking career junior senior associate specialist engineer developer analyst manager professional".split(" "));
-const tokens = (value: string) => new Set(normalizeCareerText(value).split(" ").filter(word => word.length > 1 && !STOP.has(word)));
+/** Select an authored bank, rather than relabelling easier questions. */
+export function careerAssessmentDifficulty(level: CareerLevel, suggested: number) {
+  return level === "intermediate" ? 3 : Math.min(2, Math.max(1, Math.round(suggested)));
+}
+
+const STOP = new Set("a an and as at be by for from i in into is it job my of on role the to want with work working skills responsible responsibilities years seeking looking career junior senior associate specialist engineer developer analyst manager professional me choose better new opportunity interesting something have".split(" "));
+const TITLE_WORDS = new Set("coordinator technician administrator representative writer designer".split(" "));
+const WORD_FORMS: Record<string, string> = { interfaces: "interface", apis: "api", databases: "database", networks: "networking", scientist: "science", scientists: "science", designer: "design", bookkeeper: "bookkeeping", analytics: "analysis", modelling: "modeling", workflows: "workflow", campaigns: "campaign", prototypes: "prototype", experiments: "experiment", systems: "system", applications: "application", pipelines: "pipeline" };
+const tokens = (value: string) => new Set(normalizeCareerText(value).replace(/\bml\b/g, "machine learning").split(" ").map(word => WORD_FORMS[word] || word).filter(word => word.length > 1 && !STOP.has(word)));
 const overlap = (a: Set<string>, b: Set<string>) => [...a].filter(value => b.has(value));
 
 /** Explainable suggestions; scores are ranking signals, never fit probabilities. */
@@ -40,28 +50,35 @@ export function matchCareers(query: string, available?: StoredCareer[]) {
   const input = normalizeCareerText(query.slice(0, 2000));
   if (input.length < 2) return [];
   const words = tokens(input);
+  const inputSequence = input.replace(/\bml\b/g, "machine learning").split(" ").map(word => WORD_FORMS[word] || word).filter(word => word.length > 1 && !STOP.has(word)).join(" ");
   const availableNames = available ? new Set(available.map(role => normalizeCareerText(role.name))) : null;
   return careerCatalogue.roles.filter(role => !availableNames || availableNames.has(normalizeCareerText(role.name))).map(role => {
     const names = [role.name, ...role.aliases].map(normalizeCareerText);
     const exact = names.includes(input);
     let score = exact ? 100 : 0;
+    let hasNameAnchor = false;
     const evidence = new Set<string>();
     for (const name of names) {
-      const nameWords = tokens(name);
+      const nameWords = new Set([...tokens(name)].filter(word => !TITLE_WORDS.has(word)));
       const shared = overlap(words, nameWords);
+      const complete = !!nameWords.size && shared.length === nameWords.size;
+      const ordered = complete && (" " + inputSequence + " ").includes(" " + [...nameWords].join(" ") + " ");
+      hasNameAnchor ||= complete;
       const phrase = input.length > name.length && input.includes(name) && name.length >= 6;
-      const match = shared.length ? 30 * shared.length / Math.max(nameWords.size, 1) : 0;
+      // A complete multiword intent (e.g. cloud support) is stronger than a
+      // generic fragment (e.g. control). Never make one common fragment a fit.
+      const match = shared.length ? (nameWords.size >= 2 && complete ? 70 : 20 * shared.length / Math.max(nameWords.size, 1)) + (ordered ? 20 : 0) : 0;
       score = Math.max(score, phrase ? 70 : match);
       if (shared.length || phrase) shared.forEach(word => evidence.add(word));
     }
     for (const requirement of role.requirements) {
       const skill = skillsByKey.get(requirement.skill)!;
       const shared = overlap(words, tokens([skill.name, ...skill.aliases].join(" ")));
-      if (shared.length) { score += Math.min(8, shared.length * 3); shared.forEach(word => evidence.add(word)); }
+      if (shared.length) { score += Math.min(16, shared.length * 5); shared.forEach(word => evidence.add(word)); }
     }
     const stored = available?.find(item => normalizeCareerText(item.name) === normalizeCareerText(role.name));
-    return {role, stored, exact, score, evidence: [...evidence].slice(0, 5)};
-  }).filter(item => item.exact || item.score >= 12).sort((a, b) => Number(b.exact) - Number(a.exact) || b.score - a.score || a.role.name.localeCompare(b.role.name));
+    return {role, stored, exact, score, hasNameAnchor, evidence: [...evidence].slice(0, 5)};
+  }).filter(item => item.exact || (item.score >= 12 && (item.hasNameAnchor || item.evidence.length >= 2))).sort((a, b) => Number(b.exact) - Number(a.exact) || b.score - a.score || a.role.name.localeCompare(b.role.name));
 }
 
 export function careerRequirements(roleName: string, focusSkills: {id: string; name: string}[], level: CareerLevel) {

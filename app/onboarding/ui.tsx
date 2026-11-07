@@ -57,36 +57,17 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
   const saving = useRef(false);
 
   function validateStep2(): boolean {
-    if (userType === "student") {
-      if (!college.trim()) {
-        toast("Required", "College / University is required.");
-        return false;
-      }
-      if (!course.trim()) {
-        toast("Required", "Course / Major is required.");
-        return false;
-      }
-      if (!educationLevel) {
-        toast("Required", "Education Level is required.");
-        return false;
-      }
-      if (!graduationYear.trim()) {
-        toast("Required", "Graduation Year is required.");
-        return false;
-      }
-    } else {
-      if (!company.trim()) {
-        toast("Required", "Company is required.");
-        return false;
-      }
-      if (!jobTitle.trim()) {
-        toast("Required", "Job Title is required.");
-        return false;
-      }
-      if (!yearsExperience.trim()) {
-        toast("Required", "Years of Experience is required.");
-        return false;
-      }
+    if (yearsExperience && (!Number.isFinite(Number(yearsExperience)) || Number(yearsExperience) < 0 || Number(yearsExperience) > 80)) {
+      toast("Check your experience", "Enter a number from 0 to 80, or leave it blank.");
+      return false;
+    }
+    if (graduationYear && (!Number.isInteger(Number(graduationYear)) || Number(graduationYear) < 1900 || Number(graduationYear) > 2200)) {
+      toast("Check your graduation year", "Enter a four-digit year, or leave it blank.");
+      return false;
+    }
+    if (cgpa && (!Number.isFinite(Number(cgpa)) || Number(cgpa) < 0)) {
+      toast("Check your academic result", "Enter a positive number, or leave it blank.");
+      return false;
     }
     return true;
   }
@@ -98,18 +79,6 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
     }
     if (roles.find(role => role.id === career.roleId)?.name === PERSONAL_GOAL_NAME && (!career.goal.trim() || !career.focusIds.length)) {
       toast("Complete your personal goal", "Give it a name and choose at least one focus skill.");
-      return false;
-    }
-    if (!currentSkillsText.trim()) {
-      toast("Required", "Current Skills is required.");
-      return false;
-    }
-    if (!strengths.trim()) {
-      toast("Required", "Strengths is required.");
-      return false;
-    }
-    if (!weaknesses.trim()) {
-      toast("Required", "Weaknesses is required.");
       return false;
     }
     return true;
@@ -333,12 +302,13 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                 transition={{ duration: 0.25 }}
                 className="space-y-5"
               >
+                <p className="text-sm text-muted leading-6">Background details are optional. You can add them in your profile later; they do not award skill scores.</p>
                 {userType === "student" ? (
                   <>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="field-college-university">
-                          College / University *
+                          College / University (optional)
                         </Label>
                         <Input
                           id="field-college-university"
@@ -349,7 +319,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="field-course-major">
-                          Course / Major *
+                          Course / Major (optional)
                         </Label>
                         <Input
                           id="field-course-major"
@@ -362,7 +332,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                     <div className="grid sm:grid-cols-3 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="field-education-level">
-                          Education Level *
+                          Education Level (optional)
                         </Label>
                         <select
                           id="field-education-level"
@@ -393,7 +363,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="field-graduation-year">
-                          Graduation Year *
+                          Graduation Year (optional)
                         </Label>
                         <Input
                           id="field-graduation-year"
@@ -409,7 +379,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                   <>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="field-company">Company *</Label>
+                        <Label htmlFor="field-company">Company (optional)</Label>
                         <Input
                           id="field-company"
                           value={company}
@@ -418,7 +388,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="field-job-title">Job Title *</Label>
+                        <Label htmlFor="field-job-title">Job Title (optional)</Label>
                         <Input
                           id="field-job-title"
                           value={jobTitle}
@@ -430,7 +400,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="field-years-of-experience">
-                          Years of Experience *
+                          Years of Experience (optional)
                         </Label>
                         <Input
                           id="field-years-of-experience"
@@ -470,8 +440,10 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
               >
                 <CareerPicker roles={roles} skills={skills} value={career} onChange={setCareer} disabled={busy} />
 
+                <details className="rounded-xl border border-line p-4"><summary className="cursor-pointer text-sm font-semibold py-2">Add learning context (optional)</summary><div className="space-y-5 mt-4">
+
                 <div className="space-y-2">
-                  <Label htmlFor="field-current-skills">Current Skills *</Label>
+                  <Label htmlFor="field-current-skills">Current Skills (optional)</Label>
                   <Textarea
                     id="field-current-skills"
                     value={currentSkillsText}
@@ -482,7 +454,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="field-strengths">Strengths *</Label>
+                    <Label htmlFor="field-strengths">Strengths (optional)</Label>
                     <Textarea
                       id="field-strengths"
                       value={strengths}
@@ -491,7 +463,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="field-weaknesses">Weaknesses *</Label>
+                    <Label htmlFor="field-weaknesses">Areas to improve (optional)</Label>
                     <Textarea
                       id="field-weaknesses"
                       value={weaknesses}
@@ -512,6 +484,8 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
                     placeholder="e.g. Move into customer success, lead projects, or build software..."
                   />
                 </div>
+
+                </div></details>
 
                 <div className="rounded-2xl border border-line bg-gradient-to-br from-emerald-500/5 to-paper p-5">
                   <div className="flex items-center gap-2">
@@ -540,7 +514,7 @@ export function OnboardingForm({ roles, skills }: { roles: Role[]; skills: Avail
             )}
             {step < totalSteps ? (
               <Button onClick={nextStep}>
-                Next <ChevronRight className="w-4 h-4" />
+                {step === 2 ? "Continue to my direction" : "Next"} <ChevronRight className="w-4 h-4" />
               </Button>
             ) : (
               <Button disabled={busy} onClick={save}>

@@ -1,3 +1,4 @@
+import { operationBudget, withApiTelemetry } from "@/lib/apiOperations";
 import { mlServiceUrl } from "@/lib/mlServiceUrl";
 import { NextResponse } from "next/server";
 import { PERSONAL_GOAL_NAME } from "@/lib/careerCatalog";
@@ -28,7 +29,7 @@ async function boundedBody(request: Request) {
   return Buffer.concat(chunks);
 }
 
-export async function POST(request: Request) {
+async function handlePOST(request: Request) {
   if (!sameOrigin(request))
     return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
   const supabase = await createClient();
@@ -37,6 +38,8 @@ export async function POST(request: Request) {
   } = await supabase.auth.getUser();
   if (!user)
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  const budgetResponse = await operationBudget(supabase, user.id, "resume");
+  if (budgetResponse) return budgetResponse;
   try {
     if (Number(request.headers.get("content-length") || 0) > MAX_REQUEST)
       return NextResponse.json(
@@ -148,3 +151,5 @@ export async function PATCH(request: Request) {
   // Resume claims never update mastery, assessment scores or XP.
   return NextResponse.json({ ok: true });
 }
+
+export const POST = withApiTelemetry("resume", handlePOST);

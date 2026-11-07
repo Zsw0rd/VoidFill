@@ -100,6 +100,8 @@ def execute(operation, token, body):
             result = store.query(token, body)
         elif operation == "ledger":
             result = store.ledger(token, body)
+        elif operation == "practical":
+            result = store.practical(token, body)
         else:
             raise HTTPException(404, "Unknown demo operation")
         updated = store.sessions.get(identifier)

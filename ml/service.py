@@ -214,7 +214,7 @@ class LearningEngine:
         effective_difficulty = min(request.difficulty, min(available)) if available else request.difficulty
         for skill in request.skills:
             topic = self.topic(skill.name)
-            candidates = [i for i, q in enumerate(self.questions) if topic in q["topics"]] if topic else []
+            candidates = [i for i, q in enumerate(self.questions) if topic in q["topics"] and (q["difficulty"] <= 2 if effective_difficulty <= 2 else q["difficulty"] == effective_difficulty)] if topic else []
             if not candidates:
                 unsupported.append(skill.name)
                 continue
@@ -245,7 +245,7 @@ class LearningEngine:
             if not added:
                 break
         rng.shuffle(selected)
-        return {"questions": selected, "difficulty": effective_difficulty, "difficultyLabel": ["", "Easy", "Moderate", "Intermediate", "Hard", "Expert"][effective_difficulty], "question_source": "retrieved curriculum and original foundation knowledge questions", "unsupported_skills": unsupported, "model": self.report["model"]}
+        return {"questions": selected, "difficulty": effective_difficulty, "difficultyLabel": ["", "Easy", "Moderate", "Intermediate", "Hard", "Expert"][effective_difficulty], "question_source": "retrieved curriculum and original authored knowledge scenarios; practical work reviewed separately", "unsupported_skills": unsupported, "model": self.report["model"]}
 
     def analyze(self, request: AnalysisRequest) -> dict:
         recommendations = self.recommend(request)
@@ -369,4 +369,6 @@ async def guest_operation(operation: str, request: Request, x_demo_token: str = 
         return guests.query(x_demo_token, body)
     if operation == "ledger":
         return guests.ledger(x_demo_token, body)
+    if operation == "practical":
+        return guests.practical(x_demo_token, body)
     raise HTTPException(404, "Unknown demo operation")

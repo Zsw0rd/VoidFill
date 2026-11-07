@@ -1,46 +1,28 @@
-import { createClient } from "@supabase/supabase-js";
+import { createAdminClient } from "./supabase/admin";
 import { LearningError } from "./localMl";
+import type { gradeAssessment } from "./assessments";
 
+/** A grade must come from gradeAssessment after verifying the current user.
+ * Only service_role can call the transactional RPC. No partial-write fallback.
+ */
 export async function persistCloudSubmission<T>(
-  id: string,
   userId: string,
-  save: () => Promise<T>,
-) {
-  const secret = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!secret || !userId)
-    throw new LearningError("Cloud assessment storage is not configured.");
-  const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, secret, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-  const { data, error } = await db.rpc("vf_claim_submission", {
-    p_id: id,
+  grade: ReturnType<typeof gradeAssessment>,
+  answers: { question_id: string; selected_index: number }[],
+): Promise<T> {
+  let db: ReturnType<typeof createAdminClient>;
+  try { db = createAdminClient(); }
+  catch { throw new LearningError("Assessment storage is not configured."); }
+  const { data, error } = await db.rpc("vf_commit_assessment", {
+    p_id: grade.assessmentId,
     p_user_id: userId,
-  });
-  if (error) throw new LearningError("Could not prepare assessment storage.");
-  if (data.status === "completed") return data.result as T;
-  if (data.status !== "claimed")
-    throw new LearningError(
-      data.status === "failed"
-        ? "This assessment could not be saved completely. Refresh your progress before starting another test."
-        : "Another assessment is being saved. Please wait and submit again.",
-      409,
-    );
-  try {
-    const result = await save();
-    const saved = await db
-      .from("vf_submission_ledger")
-      .update({ status: "completed", result })
-      .eq("id", id)
-      .eq("user_id", userId);
-    if (saved.error)
-      throw new LearningError("Could not finalize assessment storage.");
-    return result;
-  } catch (error) {
-    await db
-      .from("vf_submission_ledger")
-      .update({ status: "failed" })
-      .eq("id", id)
-      .eq("user_id", userId);
-    throw error;
+    p_grade: grade,
+    p_answers: Object.fromEntries(answers.map(answer => [answer.question_id, answer.selected_index])),
+  }).abortSignal(AbortSignal.timeout(15000));
+  if (error) {
+    console.error("Assessment transaction failed", { code: error.code });
+    throw new LearningError("Could not confirm your results. Please retry this submission.", 503);
   }
+  if (!data || typeof data !== "object") throw new LearningError("Could not confirm assessment storage.");
+  return data as T;
 }

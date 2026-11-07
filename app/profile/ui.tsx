@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef } from "react";
+import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/browser";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -13,34 +14,14 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { LogOut, User, Pencil, Copy } from "lucide-react";
-import {
-  ResponsiveContainer,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar,
-  Tooltip,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Legend,
-} from "recharts";
+
 
 import { CareerPicker, type AvailableSkill, type CareerChoice } from "@/components/careers/CareerPicker";
 import { PERSONAL_GOAL_NAME } from "@/lib/careerCatalog";
 
-const LINE_COLORS = [
-  "#32634b",
-  "#3f617e",
-  "#bd482c",
-  "#a855f7",
-  "#ec4899",
-  "#a4832e",
-  "#14b8a6",
-];
+
+
+const ProfileCharts = dynamic(() => import("./charts").then(module => module.ProfileCharts), {ssr:false, loading:() => <div className="panel p-6 text-sm text-muted" style={{minHeight:260}} role="status">Loading your learning charts…</div>});
 
 interface Props {
   initial: any;
@@ -316,128 +297,7 @@ export function ProfileEditor({
         </CardContent>
       </Card>
 
-      {/* ═══════════ Skill Radar & Score Trends ═══════════ */}
-      {radarData.length > 0 && (
-        <div className="grid lg:grid-cols-2 gap-4">
-          <Card>
-            <CardHeader className="p-5 pb-0">
-              <h2 className="text-lg font-semibold">Skill Radar</h2>
-            </CardHeader>
-            <CardContent className="p-4 pt-0">
-              <div style={{ height: 220 }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <RadarChart
-                    data={radarData}
-                    cx="50%"
-                    cy="50%"
-                    outerRadius="65%"
-                  >
-                    <PolarGrid stroke="#dddfd5" />
-                    <PolarAngleAxis
-                      dataKey="skill"
-                      tick={{ fill: "#697168", fontSize: 9 }}
-                    />
-                    <PolarRadiusAxis
-                      domain={[0, 100]}
-                      tick={{ fill: "#697168", fontSize: 8 }}
-                      axisLine={false}
-                    />
-                    <Radar
-                      name="You"
-                      dataKey="you"
-                      stroke="#32634b"
-                      strokeWidth={2}
-                      fill="#32634b"
-                      fillOpacity={0.15}
-                      dot={{ r: 3, fill: "#32634b" }}
-                    />
-                    <Radar
-                      name="Learning target"
-                      dataKey="benchmark"
-                      stroke="#3f617e"
-                      strokeWidth={1.5}
-                      fill="#3f617e"
-                      fillOpacity={0.06}
-                      dot={false}
-                    />
-                    <Tooltip
-                      contentStyle={{
-                        background: "#ffffff",
-                        border: "1px solid #dddfd5",
-                        borderRadius: 10,
-                        fontSize: 11,
-                        padding: "8px 12px",
-                      }}
-                    />
-                  </RadarChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
-
-          {trendData && trendData.rows.length > 0 ? (
-            <Card>
-              <CardHeader className="p-5 pb-0">
-                <h2 className="text-lg font-semibold">Score Trends</h2>
-              </CardHeader>
-              <CardContent className="p-4 pt-0">
-                <div style={{ height: 220 }}>
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart
-                      data={trendData.rows}
-                      margin={{ top: 8, right: 8, left: -20, bottom: 0 }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" stroke="#e7e9e0" />
-                      <XAxis
-                        dataKey="date"
-                        tick={{ fill: "#697168", fontSize: 9 }}
-                        axisLine={false}
-                        tickLine={false}
-                      />
-                      <YAxis
-                        domain={[0, 100]}
-                        tick={{ fill: "#697168", fontSize: 9 }}
-                        axisLine={false}
-                        tickLine={false}
-                      />
-                      <Tooltip
-                        contentStyle={{
-                          background: "#ffffff",
-                          border: "1px solid #dddfd5",
-                          borderRadius: 10,
-                          fontSize: 11,
-                          padding: "8px 12px",
-                        }}
-                      />
-                      <Legend iconSize={8} wrapperStyle={{ fontSize: 10 }} />
-                      {trendData.skillNames.map((name: string, i: number) => (
-                        <Line
-                          key={name}
-                          type="monotone"
-                          dataKey={name}
-                          stroke={LINE_COLORS[i % LINE_COLORS.length]}
-                          strokeWidth={2}
-                          dot={{ r: 2 }}
-                          connectNulls
-                        />
-                      ))}
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
-          ) : (
-            <Card>
-              <CardContent
-                className="p-5 flex items-center justify-center text-sm text-muted"
-                style={{ height: 220 }}
-              >
-                Take daily tests to see score trends
-              </CardContent>
-            </Card>
-          )}
-        </div>
-      )}
+      {radarData.length > 0 && <ProfileCharts radarData={radarData} trendData={trendData} />}
 
       {/* ═══════════ Skill Scores List ═══════════ */}
       {userScores.length > 0 && (

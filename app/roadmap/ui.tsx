@@ -1,6 +1,7 @@
 "use client";
 
 import "./atlas.css";
+import "./route-tools.css";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/browser";
@@ -28,6 +29,9 @@ import {
   Loader2,
   Play,
   Sparkles,
+  Search,
+  ArrowUpRight,
+  Compass,
   XCircle,
 } from "lucide-react";
 
@@ -37,7 +41,10 @@ import { LearningAtlas } from "./atlas-canvas";
 import type { Category, CourseAssessment, CourseType, RoadmapCourse, SkillNode } from "./types";
 
 import { loadCareerRequirements, type CareerPreferences } from "@/lib/careerRequirements";
-import { hasKnowledgeCoverage } from "@/lib/careerCatalog";
+import { careerForName, hasKnowledgeCoverage } from "@/lib/careerCatalog";
+import { CareerJourney } from "@/components/careers/CareerJourney";
+import { rankLearningSkills } from "@/lib/learningPlan";
+import Link from "next/link";
 
 type RoadmapViewMode = "tree" | "list";
 type AssessmentTarget = {
@@ -77,10 +84,12 @@ export function RoadmapClient({
   role,
   preferences,
   initialViewMode = "tree",
+  initialSkillId,
 }: {
   role: any;
   preferences: CareerPreferences;
   initialViewMode?: RoadmapViewMode;
+  initialSkillId?: string;
 }) {
   const [supabase] = useState(() => createClient());
   const [loading, setLoading] = useState(true);
@@ -91,7 +100,11 @@ export function RoadmapClient({
   const [courses, setCourses] = useState<RoadmapCourse[]>([]);
   const [assessments, setAssessments] = useState<CourseAssessment[]>([]);
   const [expanded, setExpanded] = useState<string | null>(null);
-  const [selectedSkillId, setSelectedSkillId] = useState<string | null>(null);
+  const [selectedSkillId, setSelectedSkillId] = useState<string | null>(initialSkillId || null);
+  const [skillQuery, setSkillQuery] = useState("");
+  const [skillFilter, setSkillFilter] = useState("all");
+  const [focusSkillRequest, setFocusSkillRequest] = useState(initialSkillId ? 1 : 0);
+  const appliedRequestedSkill = useRef<string | undefined>(undefined);
   const [viewMode, setViewMode] = useState<RoadmapViewMode>(
     initialViewMode === "list" ? "list" : "tree",
   );
@@ -276,6 +289,7 @@ export function RoadmapClient({
         skill_id: row.skill_id,
         name: row.skills?.name || "Skill",
         score,
+        target: Number(row.target ?? 70),
         assessed: Object.prototype.hasOwnProperty.call(scores, row.skill_id),
         assessable: hasKnowledgeCoverage(row.skills?.name || ""),
         category,
@@ -298,10 +312,21 @@ export function RoadmapClient({
     return rows;
   }, [assessments, courses, deps, roleSkills, scores]);
 
+  const recommendations = useMemo(() => rankLearningSkills(computed.map(skill => ({id: skill.skill_id, name: skill.name, score: skill.assessed ? skill.score : null, target: skill.target ?? 70, importance: skill.role_weight})), deps), [computed, deps]);
+  const nextSkill = computed.find(skill => skill.skill_id === recommendations[0]?.id);
+  const visibleSkills = computed.filter(skill => skill.name.toLowerCase().includes(skillQuery.trim().toLowerCase()) && (skillFilter === "all" || (skillFilter === "baseline" && !skill.assessed) || (skillFilter === "attention" && skill.assessed && skill.score < (skill.target ?? 70)) || (skillFilter === "target" && skill.assessed && skill.score >= (skill.target ?? 70))));
+  const career = careerForName(role?.trackName || role?.name);
+
+  function focusRecommendation() {
+    if (!nextSkill) return;
+    setSkillQuery(""); setSkillFilter("all"); setSelectedSkillId(nextSkill.skill_id); setExpanded(nextSkill.skill_id);
+    setFocusSkillRequest(value => value + 1);
+    document.getElementById("learning-map")?.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start"});
+  }
+
   useEffect(() => {
     if (!computed.length) {
-      setSelectedSkillId(null);
-      setExpanded(null);
+      if (!loading) { setSelectedSkillId(null); setExpanded(null); }
       return;
     }
 
@@ -317,7 +342,17 @@ export function RoadmapClient({
         ? current
         : null;
     });
-  }, [computed]);
+  }, [computed, loading]);
+
+  useEffect(() => {
+    if (!initialSkillId) { appliedRequestedSkill.current = undefined; return; }
+    if (loading || !computed.length || appliedRequestedSkill.current === initialSkillId) return;
+    appliedRequestedSkill.current = initialSkillId;
+    if (computed.some(skill => skill.skill_id === initialSkillId)) {
+      setSelectedSkillId(initialSkillId); setExpanded(initialSkillId);
+      setSkillQuery(""); setSkillFilter("all"); setFocusSkillRequest(value => value + 1);
+    }
+  }, [initialSkillId, computed, loading]);
 
   async function persistViewMode(nextMode: RoadmapViewMode) {
     if (nextMode === viewMode) return;
@@ -538,7 +573,7 @@ export function RoadmapClient({
         <div>
           <p className="eyebrow">Living atlas</p>
           <h1 className="atlas-page-title">A map of what comes next.</h1>
-          <p className="atlas-page-target">Target: <strong>{role?.name || "Choose a learning track"}</strong>{role && <a href="/profile" title="Change your learning track in your profile" aria-label="Change target role in your profile"><ChevronDown size={16} /></a>}</p>
+          <p className="atlas-page-target">Target: <strong>{role?.name || "Choose a learning track"}</strong>{role && <Link href="/careers" title="Change your direction in Career explorer" aria-label="Change career direction"><ChevronDown size={16} /></Link>}</p>
         </div>
         {role && <div className="atlas-page-actions">
           <div className="atlas-view-switch" aria-label="Roadmap view">
@@ -561,12 +596,17 @@ export function RoadmapClient({
         </div>
       )}
 
-      {role && computed.length > 0 && viewMode === "tree" && (
+      {nextSkill && !loading && !loadError && <section className="atlas-next-step" aria-labelledby="atlas-next-title"><div className="atlas-next-symbol"><Compass size={25} strokeWidth={1.4} /></div><div><p className="eyebrow">Your next branch</p><h2 id="atlas-next-title">{nextSkill.name}</h2><p>{recommendations[0].reason}</p></div><div className="atlas-next-actions"><button onClick={focusRecommendation}>Focus this skill <ArrowUpRight size={15} /></button><Link href="/practical">Build practical evidence <ArrowUpRight size={14} /></Link></div></section>}
+
+      {role && computed.length > 0 && <div className="atlas-discovery" id="learning-map"><label className="atlas-search"><Search size={17} /><span className="sr-only">Search skills in your roadmap</span><input type="search" value={skillQuery} onChange={event => setSkillQuery(event.target.value)} placeholder="Find a skill in your atlas" /></label><label className="atlas-filter"><span className="sr-only">Filter skills by learning progress</span><select value={skillFilter} onChange={event => setSkillFilter(event.target.value)}><option value="all">All learning areas</option><option value="baseline">Need a baseline</option><option value="attention">Below learning target</option><option value="target">Learning target reached</option></select></label><span role="status">{visibleSkills.length} of {computed.length} areas</span></div>}
+
+      {role && visibleSkills.length > 0 && viewMode === "tree" && (
         <LearningAtlas
           roleName={role?.name || "Target Role"}
+          focusSkillRequest={focusSkillRequest}
           onGenerateResources={generateCourses}
           generatingResources={generatingCourses}
-          skills={computed}
+          skills={visibleSkills}
           selectedSkillId={selectedSkillId}
           latestAssessmentByCourse={latestAssessmentByCourse}
           onSelectSkill={(skillId) => setSelectedSkillId(skillId)}
@@ -575,9 +615,9 @@ export function RoadmapClient({
         />
       )}
 
-      {role && computed.length > 0 && viewMode === "list" && (
+      {role && visibleSkills.length > 0 && viewMode === "list" && (
         <RoadmapClassicView
-          skills={computed}
+          skills={visibleSkills}
           expanded={expanded}
           latestAssessmentByCourse={latestAssessmentByCourse}
           onToggle={(skillId) => {
@@ -588,6 +628,10 @@ export function RoadmapClient({
           onOpenCourseAssessment={startCourseAssessment}
         />
       )}
+
+      {computed.length > 0 && visibleSkills.length === 0 && <div className="atlas-filter-empty" role="status"><Search size={24} /><h2>No skills match this view.</h2><p>Try a different search or learning progress filter.</p><button onClick={() => {setSkillQuery(""); setSkillFilter("all");}}>Show all learning areas</button></div>}
+
+      {career && <CareerJourney career={career} level={preferences.career_level === "intermediate" ? "intermediate" : "foundation"} branchLinks practicalRoleId={role?.id} branchSkillIds={Object.fromEntries(computed.map(skill => [skill.name,skill.skill_id]))} />}
 
       {role && computed.length === 0 && !loading && !loadError && (
         <div className="rounded-2xl border border-line bg-paper-soft p-6 text-muted">

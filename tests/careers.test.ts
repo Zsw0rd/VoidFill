@@ -1,7 +1,8 @@
 import test from "node:test";
 import { learningContextKey } from "../lib/learningContextKey";
 import assert from "node:assert/strict";
-import { careerCatalogue, careerCoverage, careerForName, hasKnowledgeCoverage, matchCareers, requiredScore } from "../lib/careerCatalog";
+import { careerAssessmentDifficulty, careerCatalogue, careerCoverage, careerForName, hasKnowledgeCoverage, matchCareers, requiredScore } from "../lib/careerCatalog";
+import fs from "node:fs";
 
 test("technical and non-technical career aliases map to the intended profile", () => {
   for (const [query, expected] of [
@@ -51,4 +52,25 @@ test("insight context follows career, level, focus and assessment evidence", () 
   assert.equal(learningContextKey(base), learningContextKey({...base, skills: [...base.skills]}));
   for (const changed of [{...base, roleId: "career-b"}, {...base, role: "Another direction"}, {...base, level: "intermediate"}, {...base, skills: [{...base.skills[0], score: 80}]}, {...base, skills: [{...base.skills[0], id: "skill-b"}]}])
     assert.notEqual(learningContextKey(base), learningContextKey(changed));
+});
+
+test("career level selects an authored bank rather than relabelling foundation questions", () => {
+  assert.equal(careerAssessmentDifficulty("foundation", 5), 2);
+  assert.equal(careerAssessmentDifficulty("foundation", 1), 1);
+  assert.equal(careerAssessmentDifficulty("intermediate", 1), 3);
+  assert.equal(careerAssessmentDifficulty("intermediate", 5), 3);
+});
+
+test("career suggestions handle task narratives, custom combinations and unsupported boundaries", () => {
+  const fixture = JSON.parse(fs.readFileSync("tests/fixtures/career-matching-golden.json", "utf8"));
+  let first = 0, topThree = 0;
+  for (const [query, expected] of fixture.roles) {
+    const names = matchCareers(query).map(row => row.role.name);
+    first += Number(names[0] === expected);
+    topThree += Number(names.slice(0, 3).includes(expected));
+  }
+  assert.ok(first / fixture.roles.length >= .95);
+  assert.equal(topThree, 60);
+  for (const query of [...fixture.unsupported, ...fixture.ambiguous]) assert.equal(matchCareers(query).length, 0, query);
+  for (const [query, expected] of fixture.custom) assert.ok(matchCareers(query).slice(0,3).some(row => expected.includes(row.role.name)), query);
 });

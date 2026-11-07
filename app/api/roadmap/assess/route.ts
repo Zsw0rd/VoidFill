@@ -1,16 +1,20 @@
+import { operationBudget, withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { adaptiveDifficulty, getLearningContext } from "@/lib/learningContext";
 import { assessmentResponseSchema, callLocalMl, LearningError } from "@/lib/localMl";
 import { createAssessment } from "@/lib/assessments";
+import { careerAssessmentDifficulty } from "@/lib/careerCatalog";
 
 const inputSchema = z.object({ purpose: z.enum(["practice", "course", "skill"]), skill_id: z.string().uuid().optional(), course_id: z.string().uuid().optional() });
 
-export async function POST(req: Request) {
+async function handlePOST(req: Request) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  const budgetResponse = await operationBudget(supabase, user.id, "assessment");
+  if (budgetResponse) return budgetResponse;
   const parsed = inputSchema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "Invalid assessment request." }, { status: 400 });
   try {
@@ -31,8 +35,9 @@ export async function POST(req: Request) {
       skills = skills.filter((s) => s.id === body.skill_id);
     }
     if (!skills.length) throw new LearningError("This skill is not configured for your current role.", 400);
-    const difficulty = body.purpose === "practice" ? await adaptiveDifficulty(supabase, user.id, "practice") : Math.min(5, Math.max(1, Math.ceil((skills[0].score || 0) / 20)));
-    const result = await callLocalMl("/assessment", { skills, role: context.role, count: body.purpose === "course" ? 12 : 10, difficulty, context: courseTitle }, assessmentResponseSchema);
+    const suggested = body.purpose === "practice" ? await adaptiveDifficulty(supabase, user.id, "practice") : Math.max(1, Math.ceil((skills[0].score || 0) / 20));
+    const difficulty = careerAssessmentDifficulty(context.level, suggested);
+    const result = await callLocalMl("/assessment", { skills, role: context.role, count: body.purpose === "course" && difficulty < 3 ? 12 : 10, difficulty, context: courseTitle }, assessmentResponseSchema);
     const allowed = new Set(skills.map((s) => s.id));
     if (result.questions.some((q) => !allowed.has(q.skill_id))) throw new LearningError("Invalid assessment skill mapping.", 502);
     const session = createAssessment(user.id, result.questions, { purpose: body.purpose, difficulty: result.difficulty, ...(courseId ? { courseId } : {}), ...(body.purpose !== "practice" ? { skillId: skills[0].id } : {}) });
@@ -42,3 +47,5 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error instanceof LearningError ? error.message : "Could not prepare an assessment." }, { status: error instanceof LearningError ? error.status : 500 });
   }
 }
+
+export const POST = withApiTelemetry("roadmap_assessment", handlePOST);

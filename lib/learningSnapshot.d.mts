@@ -1,0 +1,11 @@
+export type SnapshotTable = { readonly name: string; readonly primaryKey: readonly string[]; readonly columns: string };
+export type SnapshotPayload = { version: number; created_at: string; project_ref: string; scope: string; tables: Record<string, { columns: string; primary_key: string[]; count: number; sha256: string; rows: Record<string, unknown>[] }> };
+export const MAX_SNAPSHOT_BYTES: number;
+export const SNAPSHOT_TABLES: readonly SnapshotTable[];
+export function canonicalJson(value: unknown): string;
+export function captureLearningSnapshot(reader: { page(definition: SnapshotTable, offset: number, limit: number): Promise<{ rows: Record<string, unknown>[]; count: number }>; count(definition: SnapshotTable): Promise<number> }, options: { projectRef: string; createdAt?: string; pageSize?: number }): Promise<SnapshotPayload>;
+export function validateSnapshot(payload: SnapshotPayload): void;
+export function encryptLearningSnapshot(payload: SnapshotPayload, secret: string): Buffer;
+export function decryptLearningSnapshot(encoded: Buffer, secret: string): SnapshotPayload;
+export function snapshotSummary(payload: SnapshotPayload): { created_at: string; plaintext_sha256: string; tables: {table: string; count: number; sha256: string}[] };
+export function snapshotOutputPath(workspace: string, requested: string): string;
