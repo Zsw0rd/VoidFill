@@ -38,15 +38,16 @@ embeddings in approximately 8.28 MiB. Private inputs remain outside that cache.
 
 | Check | Result |
 | --- | --- |
-| Automatically discovered Node suites | 68 passed |
-| Full Python test directory | 82 passed |
+| Automatically discovered Node suites | 72 passed |
+| Default ONNX serving tests | 77 passed; five offline research checks deselected |
+| Optional existing offline training artifacts | Five passed separately; no artifacts fabricated |
 | TypeScript and ESLint | Passed |
 | Production Next.js build | Passed |
 | Dependency audit | Zero reported vulnerabilities |
 | Production-mode learner demo | Passed, including PDF, grading/replay and isolation |
 | Production-mode staff demo | Passed, including assigned conversations and role boundaries |
 | Authentication contract journey | Passed |
-| All-career contract journey | All 60 passed |
+| All-career contract journey | All 60 passed at both foundation and intermediate levels |
 | Practical API journey | Passed, including drafts, sharing, feedback, isolation and no XP |
 | Isolated Chromium UX | Seven passed; desktop and 355px phone layouts checked |
 | Native PostgreSQL | Fresh install, upgrades, actual RLS, failure recovery and concurrent writes passed |
@@ -67,11 +68,42 @@ validation. Misses and methodology are recorded in the career reports.
 - [Performance baseline, quotas and recovery limits](PERFORMANCE_AND_RECOVERY.md)
 - [Hosted CI and release process](RELEASE_CHECKLIST.md)
 
-GitHub's workflow is configured to exercise all three check groups without
-production credentials. Hosted run results and preview URLs must be verified
-after publication. Vercel's configured production branch is `main`; feature
-preview publication alone does not promote production. Do not merge/promote the
-matching application until the four release migrations and cutover checks are
-complete. Browser backup settings and production migrations require a verified
-authenticated project session; a synthetic restore drill is not a production
-backup guarantee.
+All three hosted check groups passed in [GitHub Actions run 42339041780](https://github.com/Zsw0rd/VoidFill/actions/runs/42339041780)
+for source `53e178edca5424178d3a2d0e26b381f4e4b02876`. The hosted model selection
+passed 65 tests and all seven Chromium journeys passed. The real OCR check uses
+Pillow's bundled scalable font on Windows and Linux; offline research checks are
+explicit opt-ins. Main now requires the three named GitHub Actions checks,
+up-to-date pull requests and conversation resolution, including for admins;
+force pushes and branch deletion are disabled. No second-owner review is needed.
+
+## Production database cutover: 7 November 2026
+
+The tested source `53e178e` was first deployed with learning maintenance enabled.
+All three grading entry points and practical writes returned HTTP 503 with
+Retry-After 60. Old requests were allowed at least 300 seconds to drain before
+the snapshot query ran at 04:45:51 UTC.
+
+An encrypted selected-learning snapshot was captured and independently decrypted
+and verified locally: 16 tables, 422 records. Its temporary plaintext input was
+removed. This is not a full project/Auth/Storage backup and does not enable PITR
+or recurring hosted backups. The current Supabase Free project has no hosted
+backup entitlement; this recovery limitation remains explicit.
+
+All four migrations and their canonical checksums committed in one transaction
+through the authenticated project SQL Editor. All ten production verification
+checks returned true: exact release ledger, safe stats bootstrap, browser
+progress-write denial, service-only mutation RPCs, practical RLS/read helpers,
+private server storage, catalogue version and no legacy pending/failed claims.
+The existing 61 roles, 55 skills, 241 mappings, three statistics rows, five skill
+scores and total 90 XP were retained. No synthetic awards were made to real users.
+
+All three cleanup schedules are active. Demo expiry and submission retention
+reported successful prior runs; the new hourly budget cleanup had not reached
+its first scheduled execution at verification time. Existing owner Google login
+returned successfully to the administrator dashboard, which exposes both
+administrator and mentoring navigation. No staff roles or assignments changed.
+
+Vercel's configured production branch is `main`; feature preview publication alone
+does not promote production. Final deployment IDs and post-deployment results are
+recorded in the release pull request. The transaction-aware application is the
+rollback floor: do not restore old browser progress-write permissions.

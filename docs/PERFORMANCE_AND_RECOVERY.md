@@ -24,6 +24,16 @@ read from the existing local environment, never sent through command arguments.
 
 ## Changes and boundaries
 
+- Build-time model reuse verifies all eight files against source-controlled
+  SHA-256/size entries bound to the original archive. Valid restored files skip
+  all shard downloads, avoiding 276,954,446 transferred bytes per reuse. A
+  missing/corrupted file or unlisted cache marker forces complete verification
+  from the existing public shards. Unsafe paths and links fail closed. Twenty-one
+  synthetic-archive tests passed, and the real cache was checked with networking
+  disabled. GitHub Actions restores this directory explicitly; Vercel retention
+  of the directory is not assumed. Model weights, archive/parts and public vector
+  bytes remain unchanged; the career index received only a source-release
+  metadata fingerprint refresh after proving those identities unchanged.
 - Existing 408 public query embeddings and the bounded embedding cache remain;
   private resume/assessment context is not added to this cache.
 - Profile charts are loaded as a separate client chunk, keeping the charting

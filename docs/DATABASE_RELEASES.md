@@ -67,9 +67,11 @@ For the first cutover, deploy this transaction-aware application with
 clear HTTP 503/Retry-After without invoking grading, generation, uploads, chat or
 practical writes. Authentication and existing read pages remain available. Drain
 old requests before changing permissions. Apply and verify all four ordered
-release files, then remove the flag and redeploy the same tested source. Confirm
-the flag is absent and run the release smoke tests. The pause is tested locally
-and is disabled by default; it has not been enabled in the hosted project.
+release files, then disable the flag and redeploy the same tested source. Confirm
+the live learning APIs accept authenticated requests again and run the release
+smoke tests. The pause is disabled by default. The first hosted cutover used
+`1` for the paused deployment and `0` for normal operation; see the recorded
+production evidence in `APPLIED_LEARNING_RELEASE.md`.
 
 For an authenticated Supabase SQL-editor cutover, run
 `node scripts/export-release-sql.mjs`. It writes the four ordered files and their

@@ -18,7 +18,7 @@ are read-only. Pull-request code cannot deploy to production through this file.
    injected transaction failure, independent-client concurrency tests, shared
    quotas, checksum-tracked repeated upgrades and a synthetic dump/restore drill.
 3. **Model, production build and isolated journeys:** fetch the public checksummed
-   model, validate content fingerprints, run ONNX serving/career/guest/staff
+   model, validate content fingerprints and build-cache integrity, run ONNX serving/career/guest/staff
    tests, build Next.js and exercise auth, learner, staff and all-career journeys
    against the running production-mode local application. Chromium UX checks run
    on the same synthetic localhost app, never on a real account or production DB.
@@ -43,7 +43,12 @@ as `main` through its authenticated API on 6 November 2026. The live release was
 manually promoted from `codex/local-ml-resumes-guest-demo`; its feature alias does
 not change that setting. Merging into `main` is therefore a production release
 operation and must wait for the matching database release. Adding this workflow
-alone does not configure GitHub branch protection.
+alone does not configure GitHub branch protection. On 7 November 2026, after
+hosted run 42339041780 passed, the three checks were made required on `main`,
+bound to the GitHub Actions app. Up-to-date pull requests and resolved
+conversations are required, admin bypass is disabled, and force pushes/deletions
+are blocked. Zero additional approving reviewers are required for this solo-owner
+repository.
 
 Configure the three named checks above as required for `main` once the workflow
 has run successfully. Review a preview built from the exact pull-request head.
