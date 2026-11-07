@@ -99,7 +99,8 @@ For deployment on Vercel and Supabase without a separate model host, see
 - `npm run test:staff-demo`: staff login, rendering and role-isolation integration checks
 - `npm run test:practical`: isolated learner submission, assigned mentor review and withdrawal integration checks
 - `npm run test:ux`: local Chromium learner/atlas/mobile accessibility and interaction checks
-- `npm run test:ml`: tests using the saved local model
+- `npm run test:ml`: serving-model tests (ONNX by default), excluding explicitly marked offline training experiments
+- `node scripts/ml.mjs test-offline`: opt-in checks using real, previously prepared local training artifacts and research dependencies
 - `npm run test:integration`: actual local model to TypeScript grading integration (service must be running)
 - `npm run build`: production build
 - `npm run start`: run production server

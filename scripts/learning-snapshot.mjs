@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import { spawnSync } from "node:child_process";
 import nextEnv from "@next/env";
-import { MAX_SNAPSHOT_BYTES, SNAPSHOT_TABLES, captureLearningSnapshot, decryptLearningSnapshot, encryptLearningSnapshot, snapshotOutputPath, snapshotSummary } from "../lib/learningSnapshot.mjs";
+import { MAX_SNAPSHOT_BYTES, SNAPSHOT_TABLES, captureLearningSnapshot, decryptLearningSnapshot, encryptLearningSnapshot, importLearningSnapshotCsv, learningSnapshotSql, snapshotOutputPath, snapshotSummary } from "../lib/learningSnapshot.mjs";
 
 const root = fs.realpathSync(resolve(dirname(fileURLToPath(import.meta.url)), ".."));
 const args = process.argv.slice(2);
@@ -15,8 +15,8 @@ function parse() {
   const options = {};
   for (let i = 0; i < args.length; i++) {
     const key = args[i];
-    if (!["--capture", "--confirm-project", "--writes-paused", "--output", "--inspect", "--help"].includes(key) || Object.hasOwn(options, key)) fail("Unknown or repeated option.");
-    if (["--confirm-project", "--output", "--inspect"].includes(key)) {
+    if (!["--capture", "--confirm-project", "--writes-paused", "--output", "--inspect", "--export-sql", "--import-csv", "--help"].includes(key) || Object.hasOwn(options, key)) fail("Unknown or repeated option.");
+    if (["--confirm-project", "--output", "--inspect", "--import-csv"].includes(key)) {
       if (!args[i + 1] || args[i + 1].startsWith("--")) fail("Option requires a value.");
       options[key] = args[++i];
     } else options[key] = true;
@@ -29,7 +29,7 @@ function environment() {
   if (!secret || secret.length < 32) fail("Existing server snapshot secret is unavailable.");
   return secret;
 }
-function safeDirectory(output) {
+function safeDirectory(output, {allowExisting=false}={}) {
   const directory = dirname(output);
   const pieces = relative(root, directory).split(sep);
   let current = root;
@@ -44,7 +44,7 @@ function safeDirectory(output) {
   }
   const ignored = spawnSync("git", ["check-ignore", "--quiet", "--no-index", "--", relative(root, output)], { cwd: root, windowsHide: true, stdio: "ignore" });
   if (ignored.status !== 0) fail("Output must be ignored by Git.");
-  if (fs.existsSync(output)) fail("Refusing to overwrite an existing snapshot.");
+  if (!allowExisting && fs.existsSync(output)) fail("Refusing to overwrite an existing snapshot.");
 }
 function publish(output, bytes, secret) {
   const temporary = output + ".partial-" + randomUUID();
@@ -68,17 +68,42 @@ function publish(output, bytes, secret) {
 
 try {
   const options = parse();
+  if (["--capture","--inspect","--export-sql","--import-csv"].filter(mode=>Object.hasOwn(options,mode)).length>1) fail("Choose only one snapshot mode.");
   if (options["--inspect"]) {
     if (Object.keys(options).length !== 1) fail("Inspect is an offline-only mode and cannot be combined with capture options.");
     const secret = environment();
     const input = resolve(root, options["--inspect"]);
     if (!input.endsWith(".vfs") || fs.statSync(input).size > MAX_SNAPSHOT_BYTES * 2) fail("Invalid or oversized snapshot file.");
     console.log(JSON.stringify(snapshotSummary(decryptLearningSnapshot(fs.readFileSync(input), secret)), null, 2));
+  } else if (options["--export-sql"]) {
+    if (Object.keys(options).some(key=>!["--export-sql","--confirm-project"].includes(key))) fail("SQL export accepts only the project confirmation.");
+    const sql=learningSnapshotSql(options["--confirm-project"]);
+    const output=resolve(root,"ml/runtime/learning-snapshot.sql");
+    safeDirectory(output,{allowExisting:true});
+    if (fs.existsSync(output)) {
+      if (fs.lstatSync(output).isSymbolicLink() || fs.readFileSync(output,"utf8")!==sql) fail("Refusing to replace a different SQL export.");
+    } else {
+      fs.writeFileSync(output,sql,{flag:"wx",mode:0o600});
+    }
+    console.log(JSON.stringify({file:relative(root,output).replaceAll("\\","/"),project_ref:options["--confirm-project"],read_only:true}));
+  } else if (options["--import-csv"]) {
+    if (Object.keys(options).some(key=>!["--import-csv","--confirm-project","--writes-paused","--output"].includes(key)) || !options["--writes-paused"] || !/^[a-z0-9]{20}$/.test(options["--confirm-project"] || "")) fail("CSV import requires project confirmation and --writes-paused.");
+    const secret=environment();
+    const input=resolve(root,options["--import-csv"]);
+    const stat=fs.statSync(input);
+    if (!stat.isFile() || stat.size>MAX_SNAPSHOT_BYTES*2) fail("Invalid or oversized CSV import.");
+    const payload=await importLearningSnapshotCsv(fs.readFileSync(input),options["--confirm-project"]);
+    const name="learning-"+new Date().toISOString().replace(/[:.]/g,"-")+"-"+randomUUID().slice(0,8)+".vfs";
+    const output=snapshotOutputPath(root,options["--output"] || name);
+    safeDirectory(output);
+    const summary=publish(output,encryptLearningSnapshot(payload,secret),secret);
+    console.log(JSON.stringify({file:relative(root,output).replaceAll("\\","/"),...summary},null,2));
   } else if (!options["--capture"] || options["--help"]) {
     if (Object.keys(options).some(key => !["--help"].includes(key))) fail("Capture options require --capture.");
     console.log("No remote action. This exports selected learning tables only, not PostgreSQL/Auth/Storage or a point-in-time backup. Pause and drain all application writes first.");
     console.log("Capture: node scripts/learning-snapshot.mjs --capture --confirm-project <public-project-ref> --writes-paused");
     console.log("Inspect offline: node scripts/learning-snapshot.mjs --inspect <snapshot.vfs>");
+    console.log("Browser fallback: --export-sql --confirm-project <ref>, then --import-csv <download.csv> --confirm-project <ref> --writes-paused");
     console.log("Required tables: " + SNAPSHOT_TABLES.map(table => table.name).join(", "));
   } else {
     if (!options["--writes-paused"] || !/^[a-z0-9]{20}$/.test(options["--confirm-project"] || "")) fail("Capture requires --writes-paused and the explicit --confirm-project reference.");

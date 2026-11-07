@@ -135,10 +135,19 @@ npm run ml:export-cloud
 .venv-ml/Scripts/python.exe -m ml.cloud_build
 $env:ML_BACKEND='onnx'
 .venv-ml/Scripts/python.exe -m ml.benchmark_cloud_runtime
-.venv-ml/Scripts/python.exe -m pytest ml/tests -q
+.venv-ml/Scripts/python.exe -m pytest ml/tests -m "not offline_training" -q
 npm test
 npm run lint
 ```
+
+`npm run test:ml` runs this serving-model selection with ONNX as the default
+backend. Tests requiring unpublished local checkpoints, prepared research data
+or the historical PyTorch training cache carry the registered `offline_training`
+marker. They are not fabricated or silently treated as production evidence.
+After preparing the real local research artifacts and dependencies, opt in with
+`node scripts/ml.mjs test-offline` (equivalent to
+`python -m pytest ml/tests -m offline_training -q`). Plain pytest still includes
+these tests unless a marker selection is supplied.
 
 `supabase/tests/cloud_runtime.sql` checks real database grants, replay behavior and
 checkout locks using rolled-back synthetic records. Run learner/staff integration

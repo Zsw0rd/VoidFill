@@ -32,7 +32,7 @@ try {
   await db(a, "user_skill_scores", {operation: "upsert", onConflict: "user_id,skill_id", values: {user_id: uid, skill_id: remembered.id, score: 77}});
   await db(a, "user_stats", {operation: "update", values: {xp: 123, level: 1}});
   for (const career of pilot) {
-    // Cloud runs with 30 careers outlive the 60-second demo lease. Renew both
+    // Full-catalogue cloud checks can outlive the 60-second demo lease. Renew both
     // isolated workspaces just as an open browser does; keep expiry unchanged.
     for (const jar of jars) await call(jar, "/api/demo/lease", {tab: "career-test"});
     const stored = roles.find(role => role.name === career.name);
@@ -41,6 +41,7 @@ try {
     assert.equal(map.count, career.requirements.length);
     const quiz = await call(a, "/api/roadmap/assess", {purpose: "practice"});
     assert.equal(quiz.questions.length, 10);
+    assert.ok(quiz.difficulty <= 2 && quiz.questions.every(question => question.difficulty <= 2), `${career.name}: foundation must remain introductory`);
     const allowed = new Set(career.requirements.map(item => catalogue.skills.find(skill => skill.key === item.skill).name));
     assert.ok(quiz.questions.every(question => allowed.has(question.skill_name)));
     assert.ok(quiz.questions.every(question => !("correct_index" in question) && !("explanation" in question)));
@@ -51,7 +52,15 @@ try {
       return expected && questions.get(question.id)?.topics.includes(expected);
     }), `${career.name}: each question must belong to its declared skill bank`);
     await call(a, "/api/ai/recommend-courses");
-    console.log(`Career contract passed: ${career.name}`);
+    await call(a, "/api/careers/profile", {role_id: stored.id, goal: "", level: "intermediate", focus_skill_ids: [], context: ""});
+    for (const [path, body] of [["/api/roadmap/assess", {purpose: "practice"}], ["/api/ai/generate-questions", {}]]) {
+      const applied = await call(a, path, body);
+      assert.equal(applied.questions.length, 10);
+      assert.equal(applied.difficulty, 3, `${career.name}: intermediate difficulty`);
+      assert.ok(applied.questions.every(question => question.difficulty === 3 && allowed.has(question.skill_name) && questions.get(question.id)?.difficulty === 3), `${career.name}: applied checks must use authored intermediate content from the right skills`);
+      assert.ok(applied.questions.every(question => !("correct_index" in question) && !("explanation" in question)));
+    }
+    console.log(`Career contract passed at both levels: ${career.name}`);
   }
   const recruiter = roles.find(role => role.name === "Recruitment Associate");
   const focus = skills.find(skill => skill.name === "Digital Marketing");

@@ -35,6 +35,7 @@ def test_service_rejects_unauthenticated_question_access(client):
     assert client.post("/resume/parse", files={"file": ("resume.pdf", b"%PDF-invalid", "application/pdf")}).status_code == 401
 
 
+@pytest.mark.offline_training
 def test_real_trained_checkpoint_is_loaded(client):
     result = client.get("/health").json()
     assert result["status"] == "ready"

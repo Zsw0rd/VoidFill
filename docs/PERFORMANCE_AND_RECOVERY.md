@@ -104,7 +104,35 @@ node scripts/learning-snapshot.mjs --capture --confirm-project <public-project-r
 node scripts/learning-snapshot.mjs --inspect <path-to-snapshot.vfs>
 ```
 
-The capture command uses the existing server-only Supabase credential and must
+If the server-role credential is unavailable locally, use the existing
+authenticated Supabase SQL Editor instead of retrieving a protected Vercel secret:
+
+```text
+node scripts/learning-snapshot.mjs --export-sql --confirm-project <public-project-ref>
+node scripts/learning-snapshot.mjs --import-csv <downloaded-file.csv> --confirm-project <public-project-ref> --writes-paused
+```
+
+The first command only writes public query text to the Git-ignored file
+`ml/runtime/learning-snapshot.sql`; it uses no credentials and makes no network
+request. Verify the browser's project address, then execute that exact query in
+the authorized SQL Editor. It runs one SELECT inside a read-only repeatable-read
+transaction, orders every table by its primary key and returns one
+`snapshot_base64` value containing all 16 table arrays and explicit counts. This
+path gives a consistent database transaction view rather than the API export's
+separate reads. It still omits Auth, Storage, schema and the other excluded data.
+
+Use Download CSV on that SELECT result, then import the downloaded file directly;
+do not copy its data into chat, source files or the clipboard. **Base64 is not
+encryption:** the downloaded CSV contains plaintext learning records. Offline
+import strictly checks the single column/single row, canonical base64, project,
+format version, exact table set, counts, profile projection, primary-key order
+and existing export bounds before canonicalizing and encrypting it. It requires
+only the existing local ML secret, makes no network request and prints no records.
+After successful `.vfs` verification, explicitly remove only the downloaded
+plaintext file created for this export. The importer deliberately does not delete
+an operator-supplied file automatically.
+
+The API capture command uses the existing server-only Supabase credential and must
 exactly match the configured HTTPS project origin. It requires explicit capture,
 project confirmation and writes-paused flags. Default/help and offline inspection
 make no remote requests. Capture reads selected profiles' career fields, career
@@ -141,7 +169,8 @@ choose retention/recovery objectives explicitly. This command does not configure
 recurring backups or upload the file to another provider. No production snapshot
 is claimed until the operator runs capture and verifies its returned summary.
 
-The default Node test suite exercises capped pagination, count drift, primary-key
+The default Node test suite exercises read-only SQL generation, strict CSV import
+and offline CLI import without a Supabase key, capped pagination, count drift, primary-key
 and profile boundaries, aggregate size limits, authenticated tamper rejection,
 wrong keys, path escape/alternate-stream guards, real symlink/junction parents,
 overwrite denial, CLI help/access guards and offline summary inspection using

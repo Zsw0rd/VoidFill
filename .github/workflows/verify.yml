@@ -2,7 +2,7 @@ name: Verify VoidFill
 
 on:
   push:
-    branches: [main, 'codex/**']
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -100,12 +100,19 @@ jobs:
       - run: |
           python -m venv .venv-ml
           .venv-ml/bin/python -m pip install -r ml/requirements-cloud.txt pytest==9.1.1 Pillow==13.0.0
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
+        id: model-cache
         with:
           path: ml/artifacts/cloud
           key: model-${{ runner.os }}-${{ hashFiles('ml/cloud-release.json', 'ml/requirements-cloud.txt') }}
       - name: Fetch and verify public model artifacts and content fingerprints
         run: .venv-ml/bin/python -m ml.cloud_build
+      - name: Save verified model before running tests
+        if: steps.model-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ml/artifacts/cloud
+          key: model-${{ runner.os }}-${{ hashFiles('ml/cloud-release.json', 'ml/requirements-cloud.txt') }}
       - name: Test the serving model, all career paths and isolated demo storage
         run: >-
           .venv-ml/bin/python -m pytest -q

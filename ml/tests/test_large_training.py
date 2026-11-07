@@ -14,6 +14,7 @@ def norm(text):
     return re.sub(r"\W+", " ", text.lower()).strip()
 
 
+@pytest.mark.offline_training
 def test_large_data_has_disjoint_titles_and_served_positive_texts():
     if not (RAW / "train.json").exists():
         pytest.skip("Expanded training data has not been prepared on this checkout")
@@ -28,6 +29,7 @@ def test_large_data_has_disjoint_titles_and_served_positive_texts():
     assert not titles["train"] & {norm(r["query"]) for r in frozen}
 
 
+@pytest.mark.offline_training
 def test_curriculum_mining_excludes_validation_and_test_lessons():
     if not (RAW / "mined-curriculum.json").exists():
         pytest.skip("Curriculum passages have not been mined")
@@ -58,6 +60,7 @@ def test_unsupported_topic_stays_unknown_with_high_background_similarity():
     assert engine.topic("SQL Fundamentals") == "sql"
 
 
+@pytest.mark.offline_training
 def test_catalogue_cache_reuses_vectors_and_invalidates_changed_content(tmp_path, monkeypatch):
     from types import SimpleNamespace
     import ml.service as service

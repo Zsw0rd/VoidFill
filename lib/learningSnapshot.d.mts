@@ -9,3 +9,5 @@ export function encryptLearningSnapshot(payload: SnapshotPayload, secret: string
 export function decryptLearningSnapshot(encoded: Buffer, secret: string): SnapshotPayload;
 export function snapshotSummary(payload: SnapshotPayload): { created_at: string; plaintext_sha256: string; tables: {table: string; count: number; sha256: string}[] };
 export function snapshotOutputPath(workspace: string, requested: string): string;
+export function learningSnapshotSql(projectRef: string): string;
+export function importLearningSnapshotCsv(encoded: Buffer, projectRef: string): Promise<SnapshotPayload>;

@@ -9,6 +9,7 @@ import { tmpdir } from "node:os";
 import {
   MAX_SNAPSHOT_BYTES, SNAPSHOT_TABLES, canonicalJson, captureLearningSnapshot,
   decryptLearningSnapshot, encryptLearningSnapshot, snapshotOutputPath, snapshotSummary,
+  learningSnapshotSql, importLearningSnapshotCsv,
   type SnapshotTable,
 } from "../lib/learningSnapshot.mjs";
 
@@ -142,5 +143,75 @@ test("CLI help and access guards require no remote contact; publishing refuses e
     if(fs.existsSync(linked)) process.platform==="win32"?fs.rmdirSync(linked):fs.unlinkSync(linked);
     if(fs.existsSync(existing)) fs.unlinkSync(existing);
     fs.rmdirSync(fixture);fs.rmdirSync(outside);
+  }
+});
+
+function sqlEnvelope(data:Dataset=dataset()) {
+  return {version:1,project_ref:projectRef,created_at:options.createdAt,tables:Object.fromEntries(SNAPSHOT_TABLES.map(definition=>[definition.name,{count:data[definition.name].length,rows:data[definition.name]}]))};
+}
+function csvEnvelope(raw:unknown,quoted=false) {
+  const value=Buffer.from(JSON.stringify(raw)).toString("base64");
+  return Buffer.from(quoted?`\uFEFF"snapshot_base64"\r\n"${value}"\r\n`:`snapshot_base64\n${value}\n`);
+}
+
+test("browser export SQL is one read-only repeatable-read query with explicit table counts and stable keys",()=>{
+  const sql=learningSnapshotSql(projectRef);
+  assert.match(sql,/begin isolation level repeatable read read only;/i);
+  assert.match(sql,/as snapshot_base64;\ncommit;/);
+  assert.equal((sql.match(/count\(\*\)/g)||[]).length,SNAPSHOT_TABLES.length);
+  assert.ok(!/\b(insert|update|delete|alter|drop|truncate|create)\b/i.test(sql));
+  for(const definition of SNAPSHOT_TABLES) {
+    assert.ok(sql.includes(`from public."${definition.name}"`));
+    assert.ok(sql.includes(definition.primaryKey.map(column=>`source_row."${column}"`).join(", ")));
+  }
+  assert.match(sql,/select "id", "target_role_id", "custom_target_role", "career_level", "career_focus_skill_ids", "career_goal_context" from public\."profiles"/);
+  assert.ok(!sql.includes("secret") && !sql.includes("email"));
+  assert.throws(()=>learningSnapshotSql(projectRef+"';drop"),/Invalid confirmed/);
+});
+
+test("strict single-record CSV imports canonically and encrypts with only the local secret",async()=>{
+  const raw=sqlEnvelope(dataset({profiles:[{id:"learner-a",career_goal_context:"private source text"}]}));
+  const payload=await importLearningSnapshotCsv(csvEnvelope(raw,true),projectRef);
+  const expected=await captureLearningSnapshot(reader(dataset({profiles:[{id:"learner-a",career_goal_context:"private source text"}]})),options);
+  assert.deepEqual(payload,expected);
+  const encrypted=encryptLearningSnapshot(payload,secret);
+  assert.deepEqual(decryptLearningSnapshot(encrypted,secret),payload);
+  assert.ok(!JSON.stringify(snapshotSummary(payload)).includes("private source text"));
+});
+
+test("CSV corruption, multiple rows/columns, wrong project and malformed table data are rejected",async()=>{
+  const raw=sqlEnvelope();
+  const csv=csvEnvelope(raw).toString();
+  for(const broken of [csv+"extra\n",csv.replace("snapshot_base64","snapshot_base64,other"),csv.replace(/\n[^\n]+\n$/,"\n%%%\n"),csv.replace(/\n$/,"" ).slice(0,-3)]) {
+    await assert.rejects(importLearningSnapshotCsv(Buffer.from(broken),projectRef),/Snapshot CSV/);
+  }
+  await assert.rejects(importLearningSnapshotCsv(csvEnvelope(raw),"zzzzzzzzzzzzzzzzzzzz"),/Snapshot CSV/);
+  const changes=[
+    (value:ReturnType<typeof sqlEnvelope>)=>{value.version=2;},
+    (value:ReturnType<typeof sqlEnvelope>)=>{delete value.tables.skills;},
+    (value:ReturnType<typeof sqlEnvelope>)=>{value.tables.roles.count=2;},
+    (value:ReturnType<typeof sqlEnvelope>)=>{value.tables.roles={count:2,rows:[{id:"same"},{id:"same"}]};},
+    (value:ReturnType<typeof sqlEnvelope>)=>{value.tables.profiles={count:1,rows:[{id:"a",email:"excluded@example.invalid"}]};},
+  ];
+  for(const mutate of changes) {const changed=structuredClone(raw);mutate(changed);await assert.rejects(importLearningSnapshotCsv(csvEnvelope(changed),projectRef),/Snapshot CSV/);}
+});
+
+test("CSV CLI import and inspection work offline without a Supabase server key",()=>{
+  const fixtureName="snapshot-csv-unit-"+randomUUID();
+  const fixture=resolve(root,"ml/runtime/backups",fixtureName),csv=join(fixture,"source.csv"),encrypted=join(fixture,"imported.vfs");
+  fs.mkdirSync(fixture,{recursive:true});
+  const env={...process.env,ML_ASSESSMENT_SECRET:secret,ML_SERVICE_TOKEN:secret,SUPABASE_SERVICE_ROLE_KEY:"",NEXT_PUBLIC_SUPABASE_URL:"https://no-network.invalid"};
+  const run=(args:string[])=>spawnSync(process.execPath,["scripts/learning-snapshot.mjs",...args],{cwd:root,env,encoding:"utf8",timeout:10000,windowsHide:true});
+  try {
+    fs.writeFileSync(csv,csvEnvelope(sqlEnvelope()),{mode:0o600});
+    const guarded=run(["--import-csv",csv,"--confirm-project",projectRef]);assert.equal(guarded.status,1);assert.match(guarded.stderr,/writes-paused/);
+    const imported=run(["--import-csv",csv,"--confirm-project",projectRef,"--writes-paused","--output",`${fixtureName}/imported.vfs`]);
+    assert.equal(imported.status,0,imported.stderr);assert.equal(JSON.parse(imported.stdout).tables.length,SNAPSHOT_TABLES.length);
+    assert.ok(fs.existsSync(csv),"Operator must explicitly remove the downloaded plaintext after verification");
+    const inspected=run(["--inspect",encrypted]);assert.equal(inspected.status,0);assert.ok(!inspected.stdout.includes("Synthetic role"));
+    assert.deepEqual(JSON.parse(inspected.stdout),snapshotSummary(decryptLearningSnapshot(fs.readFileSync(encrypted),secret)));
+  } finally {
+    for(const file of [csv,encrypted]) if(fs.existsSync(file)) fs.unlinkSync(file);
+    fs.rmdirSync(fixture);
   }
 });

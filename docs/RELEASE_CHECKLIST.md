@@ -1,7 +1,8 @@
 # Verification and release process
 
 The GitHub Actions workflow `.github/workflows/verify.yml` runs for pull requests,
-pushes to `main` and `codex/**`, and manual dispatch. It uses no production
+pushes to `main`, and manual dispatch. Feature changes are checked through their
+pull requests, avoiding duplicate push/PR model downloads. It uses no production
 credentials, deployment tokens or real user accounts. Workflow token permissions
 are read-only. Pull-request code cannot deploy to production through this file.
 

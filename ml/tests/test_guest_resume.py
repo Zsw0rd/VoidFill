@@ -1,5 +1,4 @@
 import io
-import json
 import time
 import pytest
 from fastapi import HTTPException
@@ -128,30 +127,14 @@ def test_designed_docx_textbox_extraction():
 
 def test_scanned_pdf_uses_local_pretrained_ocr():
     image = Image.new("RGB", (1400, 700), "white")
-    ImageDraw.Draw(image).text((50, 50), "ALOK SHARMA\nPython SQL Git\nEDUCATION\nBachelor of Computer Applications", fill="black", font=ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 36))
+    # Pillow bundles this scalable font, so the scanned-image fixture is the same
+    # on Windows and Linux without depending on an operating-system font path.
+    ImageDraw.Draw(image).text((50, 50), "ALOK SHARMA\nPython SQL Git\nEDUCATION\nBachelor of Computer Applications", fill="black", font=ImageFont.load_default(size=36))
     output = io.BytesIO(); image.save(output, format="PDF")
     text, _, methods, warnings = extract_document(output.getvalue(), "scan.pdf")
-    assert "Python" in text and "local-ocr" in methods and warnings
+    assert "Python" in text and "SQL" in text and "local-ocr" in methods and warnings
 
 
 def test_rejects_invalid_and_oversized_documents():
     for data, filename in [(b"not a resume", "resume.pdf"), (b"x" * (5 * 1024 * 1024 + 1), "resume.docx"), (b"plain text", "resume.txt")]:
         with pytest.raises(HTTPException): extract_document(data, filename)
-
-
-def test_expanded_checkpoint_records_real_weight_changes():
-    from pathlib import Path
-    root = Path(__file__).resolve().parents[1]
-    active = json.loads((root / "artifacts/metrics.json").read_text(encoding="utf8"))
-    if active.get("retrieval") == "passages-v1":
-        if active.get("architecture") == "BAAI/bge-base-en-v1.5":
-            assert active["parameters"] > active["previous_parameters"] * 4
-            assert active["dataset"]["splits"]["train"] >= 60000
-            assert active["eligible_for_promotion"] is True
-            if active["fine_tuned_weights_selected"]:
-                assert active["max_abs_parameter_change_from_base"] > 0
-        else:
-            assert active["max_abs_parameter_change_from_v1"] > 0
-            assert active["expanded_dataset"]["auxiliary_train"] >= 10000
-            assert active["task_training_groups"] == 65
-            assert active["selected_epoch"] > 0

@@ -228,9 +228,17 @@ npx tsc --noEmit --incremental false
 npm run build
 ```
 
-Tests cover real checkpoint loading, dataset structure and split isolation,
+Serving tests use ONNX by default and exclude the explicitly registered
+`offline_training` marker. They cover shipping model loading, dataset structure and split isolation,
 recommendations, skill-specific question selection and estimated difficulty,
 unassessed skills, service authentication, encrypted token tampering/expiry,
 cross-user/purpose access, invalid answers, local replay protection and the actual
 Python-to-TypeScript grading contract. Authenticated Supabase user journeys need
 a separate live test account; the model integration tests do not modify user data.
+
+To audit previously prepared local training checkpoints, raw research data and
+the historical PyTorch cache as well, run `node scripts/ml.mjs test-offline`.
+This opt-in command requires the real ignored training artifacts and research
+dependencies; it does not download, fabricate or replace them. The underlying
+selection is `python -m pytest ml/tests -m offline_training -q`. A plain unfiltered
+pytest invocation continues to include these offline assertions.

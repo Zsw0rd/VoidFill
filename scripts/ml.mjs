@@ -29,9 +29,13 @@ try {
       await run(python, ["-m", "ml.export_cloud"]);
       await run(python, ["-m", "ml.package_cloud"]);
     }
-    else if (command === "test") await run(python, ["-m", "pytest", "ml/tests", "-q"]);
+    else if (command === "test") {
+      process.env.ML_BACKEND ||= "onnx";
+      await run(python, ["-m", "pytest", "ml/tests", "-m", "not offline_training", "-q"]);
+    }
+    else if (command === "test-offline") await run(python, ["-m", "pytest", "ml/tests", "-m", "offline_training", "-q"]);
     else if (command === "serve") await run(python, serviceArgs());
-    else throw new Error("Usage: node scripts/ml.mjs setup|prepare|train|train-expanded|train-large|activate-large|test|serve");
+    else throw new Error("Usage: node scripts/ml.mjs setup|prepare|train|train-expanded|train-large|activate-large|test|test-offline|serve");
   }
 } catch (error) {
   console.error(error.message);
