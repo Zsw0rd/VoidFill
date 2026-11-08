@@ -12,6 +12,12 @@ workspace can explore a different activity without changing the learner's career
 selection. Personal custom goals can use an explicitly chosen catalogue activity;
 the application does not invent an unsupported role-specific rubric.
 
+The [60 authored case packs](CAREER_CASE_PACKS.md) provide two synthetic inputs
+at foundation level and an additional intermediate change. Each adds a specific
+verification criterion to its new brief. Learner and mentor views render the
+same saved inputs. Existing projects/submissions retain their original versioned
+brief; updating the public catalogue never changes the basis of an earlier review.
+
 ## Learner workflow
 
 1. Choose a career activity and learning level. Read the deliverable and checklist.

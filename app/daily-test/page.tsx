@@ -5,6 +5,7 @@ import { DailyTestClient } from "./ui";
 import { loadCareerRequirements } from "@/lib/careerRequirements";
 import { hasKnowledgeCoverage } from "@/lib/careerCatalog";
 import { isoDate } from "@/lib/date";
+import { assessmentContextKey } from "@/lib/assessmentContext";
 
 export default async function DailyTestPage() {
   const supabase = await createClient();
@@ -34,7 +35,7 @@ export default async function DailyTestPage() {
   return (
     <AppShell displayName={profile?.full_name || user.email || "Learner"}>
       <div className="max-w-4xl mx-auto">
-        <DailyTestClient existingAttempt={existing} coverage={{covered, total: requirements.length}} />
+        <DailyTestClient ownerId={user.id} contextKey={assessmentContextKey(profile)} existingAttempt={existing} coverage={{covered, total: requirements.length}} />
       </div>
     </AppShell>
   );

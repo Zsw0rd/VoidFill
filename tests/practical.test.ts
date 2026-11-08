@@ -22,6 +22,26 @@ test("all sixty career activities have immutable level-specific practical briefs
   assert.equal(practicalBrief(user, "foundation"), undefined);
 });
 
+test("every new practical brief snapshots role-specific synthetic inputs and a level-specific verification", () => {
+  const foundationInputs = new Set<string>();
+  for (const role of careerCatalogue.roles) {
+    const foundation = practicalBrief(role.id, "foundation")!;
+    const intermediate = practicalBrief(role.id, "intermediate")!;
+    assert.equal(foundation.case_inputs?.length, 2, role.name);
+    assert.equal(intermediate.case_inputs?.length, 3, role.name);
+    assert.deepEqual(intermediate.case_inputs?.slice(0, 2), foundation.case_inputs);
+    assert.match(foundation.version, /case-packs-2$/);
+    assert.equal(foundation.rubric.at(-1), role.curriculum.foundation.case_verification);
+    assert.equal(intermediate.rubric.at(-1), role.curriculum.intermediate.case_verification);
+    assert.notEqual(foundation.rubric.at(-1), intermediate.rubric.at(-1));
+    foundationInputs.add(JSON.stringify(foundation.case_inputs));
+    const original = foundation.case_inputs![0];
+    foundation.case_inputs![0] = "Untrusted caller edit";
+    assert.equal(practicalBrief(role.id, "foundation")!.case_inputs![0], original);
+  }
+  assert.equal(foundationInputs.size, 60);
+});
+
 test("evidence links accept only public HTTPS and never credentials or executable URLs", () => {
   assert.equal(practicalLinkSchema.parse("https://example.com/work?version=2"), "https://example.com/work?version=2");
   for (const url of ["javascript:alert(1)", "data:text/html,hello", "http://example.com", "https://name:password@example.com/work", "https://localhost", "https://127.0.0.1/", "https://10.0.0.1/", "https://192.168.0.1", "https://172.16.0.1/"]) assert.equal(practicalLinkSchema.safeParse(url).success, false, url);

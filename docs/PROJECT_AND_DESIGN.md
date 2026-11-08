@@ -18,13 +18,17 @@ Three connected workspaces support that loop:
 
 | Audience | Main activities |
 | --- | --- |
-| Learner | Resume review, onboarding, daily and unlimited practice assessments, skill analytics, roadmap, insights, profile and mentoring |
+| Learner | Resume review, onboarding, daily and repeatable budgeted practice assessments, skill analytics, roadmap, insights, profile and mentoring |
 | Mentor | Assigned learners, skill and XP summaries, learner conversations and mutual chat-clear requests |
 | Administrator / super administrator | Platform analytics, learner directory, moderation, staff records and mentor assignments; staff creation is restricted to super administrators |
 
 ## Branches reviewed
 
-The table records the initial branch audit. No branch was merged, reset or force-pushed. Existing local-ML and staff-demo changes were preserved. Subsequent releases from `codex/local-ml-resumes-guest-demo` have been promoted to the existing Vercel production domain.
+The table records the initial branch audit, when no branch was merged, reset or
+force-pushed. Subsequent releases have been merged into canonical `main` and
+published to the existing Vercel production domain. Local main is synchronized;
+its former history is retained on `codex/archive-local-main-20261107`. No remote
+history was rewritten. See [current project status](PROJECT_STATUS.md).
 
 | Available ref at the start | Inspected state | Relationship to this work |
 | --- | --- | --- |

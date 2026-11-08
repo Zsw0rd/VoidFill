@@ -1,6 +1,10 @@
 # Project Analysis: SkillGap AI
 
-This document summarizes the current implementation based on repository analysis.
+Historical snapshot of the original main-branch implementation. Its Next.js 14,
+Gemini learning-generation and database-policy descriptions are not the current
+production architecture. Use [current project status](PROJECT_STATUS.md),
+[cloud deployment](CLOUD_DEPLOYMENT.md) and
+[database releases](DATABASE_RELEASES.md) for present-day setup and operations.
 
 ## 1) High-Level Overview
 

@@ -11,6 +11,7 @@ from ml.career_pack_phase2 import REFERENCES as PHASE2_REFERENCES
 from ml.career_question_bank_phase3 import BANK as PHASE3_BANK
 from ml.career_pack_phase3 import REFERENCES as PHASE3_REFERENCES
 from ml.career_intermediate_questions import BANK as INTERMEDIATE_BANK, REFERENCE_OVERRIDES
+from ml.career_foundation_editorial import EDITION, revise_banks
 
 ROOT = Path(__file__).resolve().parent
 DEST = ROOT / "data/careers"
@@ -109,7 +110,7 @@ REFERENCES = {
 def main():
     assert not BANK.keys() & PHASE2_BANK.keys(), "Cohorts must not overwrite existing items."
     assert not (BANK.keys() | PHASE2_BANK.keys()) & PHASE3_BANK.keys(), "Cohorts must not overwrite existing items."
-    banks = {**BANK, **PHASE2_BANK, **PHASE3_BANK}
+    banks = revise_banks({**BANK, **PHASE2_BANK, **PHASE3_BANK})
     references = {**REFERENCES, **PHASE2_REFERENCES, **PHASE3_REFERENCES}
     questions, resources = [], []
     for topic, rows in banks.items():
@@ -119,11 +120,12 @@ def main():
             assert len(set(options)) == 4, (topic, prompt)
             identity = hashlib.sha256((topic + ":" + prompt).encode()).hexdigest()[:20]
             random.Random(identity).shuffle(options)
-            questions.append({"id": "career-" + identity, "prompt": prompt, "options": options, "correct_index": options.index(answer), "explanation": explanation, "difficulty": difficulty, "topics": [topic], "source": "VoidFill original foundation item; reference: " + references[topic][0][2], "source_url": references[topic][0][1], "group": "career-foundations-" + topic, "evidence_type": "knowledge", "objective_id": f"{topic}-{i+1:02d}"})
+            questions.append({"id": "career-" + identity, "prompt": prompt, "options": options, "correct_index": options.index(answer), "explanation": explanation, "difficulty": difficulty, "topics": [topic], "source": "VoidFill original foundation item; editorial " + EDITION + "; reference: " + references[topic][0][2], "source_url": references[topic][0][1], "group": "career-foundations-" + topic, "evidence_type": "knowledge", "objective_id": f"{topic}-{i+1:02d}"})
         for title, url, provider, description in references[topic]:
             identity = hashlib.sha256((topic + ":" + url).encode()).hexdigest()[:20]
             resources.append({"id": "career-resource-" + identity, "title": title, "url": url, "provider": provider, "description": description, "text": title + ". " + description, "topics": [topic], "type": "tutorial", "difficulty": "beginner", "estimated_hours": None, "source": provider + " (external link; VoidFill original summary)", "license": "Link-only reference; third-party content is not redistributed"})
-    # Keep every previously published question's values and ordering unchanged.
+    # Foundation prompts/IDs/levels remain stable; the explicit editorial overlay
+    # revises their options. Existing sealed assessments retain their original keys.
     # New applied scenarios are appended, including the six legacy topics whose
     # foundation resources live in the unchanged base pack.
     base_resources = json.loads((ROOT / "data/resources.json").read_text(encoding="utf8"))

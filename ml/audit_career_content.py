@@ -2,6 +2,7 @@
 import json
 from collections import Counter
 from pathlib import Path
+from ml.audit_foundation_editorial import audit as foundation_audit
 
 ROOT = Path(__file__).resolve().parent
 
@@ -14,6 +15,7 @@ def audit():
     cues = sum(len(row["options"][row["correct_index"]]) > max(len(value) for i, value in enumerate(row["options"]) if i != row["correct_index"]) for row in intermediate)
     correct_length = sum(len(row["options"][row["correct_index"]]) for row in intermediate) / len(intermediate)
     other_length = sum(sum(len(value) for i, value in enumerate(row["options"]) if i != row["correct_index"]) for row in intermediate) / (3 * len(intermediate))
+    foundation = foundation_audit()
     return {
         "version": catalogue["version"],
         "scope": "Structural and surface-cue diagnostics of original authored learning content. These checks do not validate educational effectiveness, domain-expert correctness, difficulty calibration or job readiness.",
@@ -24,6 +26,7 @@ def audit():
         "mean_correct_option_characters": correct_length,
         "mean_other_option_characters": other_length,
         "correct_positions": dict(sorted(Counter(row["correct_index"] for row in intermediate).items())),
+        "foundation_editorial": {key: foundation[key] for key in ["edition", "item_count", "before", "after", "interpretation"]},
         "review_note": "Distractors were revised for domain-relevant competing interpretations; explanations retain qualifications removed from answer options. Independent reviewers should still challenge ambiguous wording, distractor plausibility and reference relevance before high-stakes use.",
     }
 

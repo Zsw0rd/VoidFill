@@ -57,6 +57,12 @@ export default function PrivacyPage() {
             Cookies maintain sign-in and temporary demo sessions. Cloud demo
             records are encrypted, isolated by session and expire with their
             session lease. Expired records are removed during storage cleanup.
+            An unfinished assessment can keep its encrypted assessment token,
+            selected answers and question position in this tab’s session storage
+            so a refresh can recover your work. It does not store answer keys.
+            Drafts are cleared after completion, discard or ordinary sign-out;
+            account changes and expiry are checked before restoration. An
+            assessment cannot be resumed or graded beyond its original expiry.
             Hosting providers may process operational logs and request metadata
             to operate their services. Do not include unnecessary sensitive
             information in resumes or chats.
@@ -67,8 +73,13 @@ export default function PrivacyPage() {
           <p>
             You can edit your profile, sign out, and revoke Google access in
             your Google Account settings. Revoking Google access does not delete
-            existing VoidFill records. For questions or requests to access or
-            delete account data, contact{" "}
+            existing VoidFill records. In{" "}
+            <Link className="text-forest underline" href="/account">Account &amp; privacy</Link>
+            {" "}you can download your application data and submit or cancel an
+            account deletion request. A request is reviewed by an administrator;
+            submitting or closing it does not automatically erase your account.
+            Actual erasure needs a separate identity and ownership review. For
+            assistance or questions, contact{" "}
             <a
               className="text-forest underline"
               href="mailto:alokdas30062005@gmail.com"

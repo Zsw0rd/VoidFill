@@ -36,6 +36,7 @@ export type PracticalReviewInput = z.infer<typeof practicalReviewSchema>;
 export type PracticalBrief = {
   version: string; role_id: string; role_name: string; role_key: string; level: CareerLevel;
   title: string; instructions: string; deliverable: string; rubric: string[]; note: string;
+  case_inputs?: string[];
 };
 export type PracticalProject = {
   id: string; user_id: string; role_id: string; level: CareerLevel; brief: PracticalBrief;
@@ -60,13 +61,14 @@ export function practicalBrief(roleId: string, level: CareerLevel): PracticalBri
   const role = careerCatalogue.roles.find(item => item.id === roleId);
   if (!role) return;
   // Older catalogue snapshots remain readable while the additive curriculum is deployed.
-  const curriculum = (role as typeof role & {curriculum?: Record<CareerLevel, {milestones: {deliverable: string; checks: string[]}[]}>}).curriculum?.[level];
+  const curriculum = role.curriculum?.[level];
   const capstone = curriculum?.milestones.at(-1);
   return {
-    version: careerCatalogue.version, role_id: role.id, role_name: role.name, role_key: role.key, level,
+    version: role.curriculum?.case_pack_version ? `${careerCatalogue.version}/${role.curriculum.case_pack_version}` : careerCatalogue.version, role_id: role.id, role_name: role.name, role_key: role.key, level,
     title: role.activity.title, instructions: role.activity.instructions,
     deliverable: capstone?.deliverable || role.activity.evidence_type,
-    rubric: (capstone?.checks.length ? capstone.checks : role.activity.rubric).slice(0, 20),
+    rubric: [...(capstone?.checks.length ? capstone.checks : role.activity.rubric), ...(curriculum?.case_verification ? [curriculum.case_verification] : [])].slice(0, 20),
+    ...(curriculum?.case_inputs?.length ? {case_inputs: [...curriculum.case_inputs]} : {}),
     note: role.activity.note,
   };
 }

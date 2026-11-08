@@ -2,8 +2,11 @@
 
 Last reviewed from source: 2026-05-05
 
-This document describes the original main-branch implementation. For the current
-feature branch, use [project and design notes](PROJECT_AND_DESIGN.md),
+This is a historical snapshot of the original main-branch implementation. Old
+versions, Gemini learning routes, public-upload descriptions and progress-write
+policies below must not be copied as current deployment instructions. Start with
+[current project status](PROJECT_STATUS.md). For implementation context, use
+[project and design notes](PROJECT_AND_DESIGN.md),
 [local ML architecture](LOCAL_ML.md), [resume and demo workflows](RESUMES_AND_DEMO.md)
 and [authentication setup](AUTHENTICATION.md). Authentication now includes Google;
 learning assessments and recommendations use the local ML service.

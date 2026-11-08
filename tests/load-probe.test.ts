@@ -14,12 +14,44 @@ test("probe origins and live traffic are explicitly bounded before a request",()
   assert.throws(()=>probePlan({origin:"https://void-fill.vercel.app",live:true,mode:"real",clients:3}));
   assert.throws(()=>probePlan({clients:0}));
   assert.throws(()=>probePlan({rounds:11}));
+  assert.throws(()=>probePlan({clients:17}));
+  assert.throws(()=>probePlan({origin:"https://void-fill.vercel.app",live:true,clients:8}));
+  assert.throws(()=>probePlan({mode:"real",clients:8}));
+  assert.deepEqual(probePlan({clients:16,rounds:4}).stages,[1,2,4,8,16]);
+  assert.equal(probePlan({clients:16,rounds:4}).requests,372);
+  assert.throws(()=>probePlan({pauseMs:2001}));
+  assert.throws(()=>probePlan({origin:"https://void-fill.vercel.app",live:true,pauseMs:1}));
+  assert.throws(()=>probePlan({mode:"real",pauseMs:1}));
+  assert.equal(probePlan({clients:16,rounds:10,pauseMs:2000}).requests,930);
   const plan=probePlan({origin:"https://void-fill.vercel.app",live:true});
   assert.deepEqual(plan.stages,[1,2,4]);assert.equal(plan.requests,42);
   const help=spawnSync(process.execPath,["scripts/load-learning.mjs","--help"],{encoding:"utf8"});
   assert.equal(help.status,0);assert.match(help.stdout,/No requests sent/);
   const denied=spawnSync(process.execPath,["scripts/load-learning.mjs","--mode","real"],{encoding:"utf8"});
   assert.notEqual(denied.status,0);assert.match(denied.stderr,/explicit acknowledgement/);
+});
+
+test("expanded loopback demo stages overlap eight clients while retaining the read/generation-only workload",async()=>{
+  let active=0,peak=0;
+  const server=createServer(async(req,res)=>{
+    active++;peak=Math.max(peak,active);
+    await new Promise(resolve=>setTimeout(resolve,8));
+    res.setHeader("Content-Type","application/json");
+    res.end(JSON.stringify(req.url==="/api/practical"?{demo:true,available:true,projects:[],submissions:[],reviews:[]}:assessment));
+    active--;
+  });
+  await new Promise<void>(resolve=>server.listen(0,"127.0.0.1",resolve));
+  try {
+    const port=(server.address() as {port:number}).port;
+    const plan=probePlan({origin:`http://127.0.0.1:${port}`,clients:8,rounds:1});
+    const report=await runLoadProbe({plan,clients:Array.from({length:8},(_,index)=>({cookie:`synthetic-local-session-${index}`}))});
+    assert.equal(report.success,true);
+    assert.equal(report.completed_requests,45);
+    assert.equal(peak,8);
+    assert.equal(report.peak_in_flight,8);
+    assert.deepEqual(report.stages.map((stage:any)=>stage.clients),[1,2,4,8]);
+    assert.ok(report.stages.every((stage:any)=>stage.server_errors===0 && stage.throttled===0));
+  } finally {await new Promise<void>((resolve,reject)=>server.close(error=>error?reject(error):resolve()));}
 });
 
 test("real sessions stay origin-bound, cannot be demos or header injection, and authenticate as different users",async()=>{
@@ -78,4 +110,40 @@ test("throttle, auth, upstream failure and invalid payload stop further load and
 test("observed latency quantiles describe only successful samples and do not treat throttling as a fast success",()=>{
   const summary=latencySummary([{ok:true,status:200,duration_ms:8},{ok:true,status:200,duration_ms:20},{ok:false,status:429,duration_ms:1},{ok:false,status:503,duration_ms:2}]);
   assert.equal(summary.p50_ms,8);assert.equal(summary.sample_p95_ms,20);assert.equal(summary.successful,2);assert.equal(summary.throttled,1);assert.equal(summary.server_errors,1);assert.equal(summary.p95_evidence,"fewer_than_20_successful_samples");
+});
+
+test("local soak pacing is outside request latency and the overall deadline still stops the workload",async()=>{
+  let clock=0,pauses=0,calls=0;
+  const plan=probePlan({clients:1,rounds:3,pauseMs:2000});
+  const report=await runLoadProbe({plan:{...plan,deadline_ms:3000},clients:[{cookie:"synthetic-private"}],now:()=>clock,pause:async ms=>{pauses++;clock+=ms;},fetchImpl:async url=>{
+    calls++;clock+=10;
+    return new Response(JSON.stringify(String(url).endsWith("/api/practical")?{demo:true,available:true,projects:[],submissions:[],reviews:[]}:assessment));
+  }});
+  assert.equal(pauses,2);
+  assert.equal(calls,6);
+  assert.equal(report.success,false);
+  assert.equal(report.stopped_reason,"probe_deadline");
+  assert.equal(report.round_pause_ms,2000);
+  assert.ok(report.measurements.every((row:any)=>row.duration_ms===10));
+  assert.equal(report.duration_ms,4060);
+});
+
+test("paced local stages keep idle future demo clients alive through ordinary renewals",async()=>{
+  const plan=probePlan({clients:8,rounds:10,pauseMs:1});
+  const clients=Array.from({length:8},(_,index)=>({cookie:`synthetic-demo-${index}`,leaseUntil:60000}));
+  let clock=0,sent=0;
+  const bounds=plan.stages.map((count,index)=>plan.stages.slice(0,index+1).reduce((sum,n)=>sum+n*plan.rounds*3,0));
+  const report=await runLoadProbe({plan,clients,now:()=>clock,pause:async()=>{},renew:async client=>{
+    const session=client as typeof clients[number];
+    if(session.leaseUntil<=clock)throw new Error("Synthetic demo lease expired");
+    session.leaseUntil=clock+60000;
+  },fetchImpl:async url=>{
+    const stage=plan.stages[bounds.findIndex(bound=>sent<bound)];
+    clock+=30000/(stage*plan.rounds*3);sent++;
+    return new Response(JSON.stringify(String(url).endsWith("/api/practical")?{demo:true,available:true,projects:[],submissions:[],reviews:[]}:assessment));
+  }});
+  assert.ok(clock>60000,"This workload must outlive an untouched demo lease");
+  assert.equal(report.success,true);
+  assert.equal(report.completed_requests,450);
+  assert.equal(report.stages.length,4);
 });

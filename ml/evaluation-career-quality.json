@@ -1,6 +1,6 @@
 {
   "catalogue_version": "2026.11-applied-paths-1",
-  "generated_at": "2026-11-07T12:30:23.875461+00:00",
+  "generated_at": "2026-11-08T08:57:27.311323+00:00",
   "scope": "All60 case/rubric consistency review plus all2121 question contracts and arithmetic/surface-cue diagnostics. First intermediate explanation in each55 skill bank was agent-reviewed against stated assumptions and primary-source context. This is not independent subject-matter-expert review, calibrated educational effectiveness, hiring readiness or a certification.",
   "career_count": 60,
   "skill_count": 55,
@@ -478,6 +478,35 @@
       "passed": true
     }
   ],
+  "foundation_editorial": {
+    "edition": "2026.11-foundation-editorial-2",
+    "source_sha256": "5ffdbd101e4152c77293a8d218dfbb61e3a8b3badd8ad330cae0f961c030dcab",
+    "item_count": 960,
+    "topic_count": 49,
+    "before": {
+      "count": 960,
+      "unique_longest_correct": 767,
+      "unique_shortest_correct": 33,
+      "strictly_shorter_distractor_counts": {
+        "0": 71,
+        "1": 55,
+        "2": 67,
+        "3": 767
+      }
+    },
+    "after": {
+      "count": 960,
+      "unique_longest_correct": 365,
+      "unique_shortest_correct": 303,
+      "strictly_shorter_distractor_counts": {
+        "0": 374,
+        "1": 126,
+        "2": 95,
+        "3": 365
+      }
+    },
+    "interpretation": "Residual length-rank differences remain. Lower surface-cue counts do not establish better learner outcomes, fairness, factual perfection or measured difficulty. The 45% guards are engineering regression thresholds, not a psychometric standard."
+  },
   "links": {
     "checked_at": "2026-11-07T12:23:53.000267+00:00",
     "http200": 305,
@@ -487,8 +516,10 @@
   "answer_cues": {
     "extension_foundation": {
       "count": 960,
-      "unique_longest_correct": 767,
-      "unique_longest_correct_rate": 0.7989583333333333,
+      "unique_longest_correct": 365,
+      "unique_longest_correct_rate": 0.3802083333333333,
+      "unique_shortest_correct": 303,
+      "unique_shortest_correct_rate": 0.315625,
       "correct_positions": {
         "0": 258,
         "1": 260,
@@ -500,6 +531,8 @@
       "count": 550,
       "unique_longest_correct": 145,
       "unique_longest_correct_rate": 0.2636363636363636,
+      "unique_shortest_correct": 76,
+      "unique_shortest_correct_rate": 0.13818181818181818,
       "correct_positions": {
         "0": 135,
         "1": 131,
@@ -511,6 +544,8 @@
       "count": 611,
       "unique_longest_correct": 244,
       "unique_longest_correct_rate": 0.3993453355155483,
+      "unique_shortest_correct": 189,
+      "unique_shortest_correct_rate": 0.309328968903437,
       "correct_positions": {
         "0": 240,
         "1": 201,
@@ -1244,7 +1279,7 @@
   "errors": [],
   "remaining_limits": [
     "Agent review is not independent professional or pedagogical validation.",
-    "Foundation answer-length cues remain a known authoring limitation; original foundation items were not silently rewritten.",
+    "The explicit foundation editorial edition reduces the dominant longest-answer cue but residual length/style effects remain; no learner calibration is claimed.",
     "Role mappings and difficulty labels need real learner and specialist evidence before being used for consequential decisions.",
     "Reachable resource pages can still require external accounts or contain paid/member-only activities; HTTP200 does not establish learning access or relevance of every exercise.",
     "The adversarial matching set is now observed regression evidence. New untouched probes are required for future independent software-validation claims."

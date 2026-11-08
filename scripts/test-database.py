@@ -46,6 +46,7 @@ def main():
         if (ROOT / "supabase/tests/practical_learning.sql").exists():
             db.execute((ROOT / "supabase/tests/practical_learning.sql").read_text())
         db.execute((ROOT / "supabase/tests/operation_limits.sql").read_text())
+        db.execute((ROOT / "supabase/tests/account_requests.sql").read_text())
         skill = str(db.execute("select id from public.skills order by name limit 1").fetchone()[0])
         learners = [str(uuid4()), str(uuid4())]
         for learner in learners:

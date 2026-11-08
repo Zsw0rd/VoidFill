@@ -85,6 +85,16 @@ live database or expose privileged test endpoints.
   floor in the release notes. Do not describe a checked-in workflow as a passing
   hosted CI run until GitHub actually reports success.
 
-Google auth, account self-service and Gemini replacement are not changed by this
-release. Real Google signup/recovery flows require their own scoped validation
-when those features are changed.
+The account follow-up adds password recovery, a user-owned data export and
+deletion requests; see [account self-service](ACCOUNT_SELF_SERVICE.md). Its
+no-email HTTP boundary check is part of the isolated journey job. The database
+job runs the additional request/RLS tests and canonical migration checksums.
+The model job also checks the foundation editorial source and both answer-length
+tails. Grading integrity checks remain required.
+
+Gemini and long-conversation behavior are intentionally unchanged. Real recovery
+mail delivery is a separate acceptance step: the current built-in Supabase mail
+service cannot establish delivery to arbitrary users. No real password changes,
+emails or account erasures belong in CI. Google signup and callback behavior
+retain their existing role isolation and require scoped Chrome verification
+when the authentication implementation changes.

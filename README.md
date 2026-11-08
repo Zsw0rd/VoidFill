@@ -2,8 +2,12 @@
 
 AI-powered skill-gap tracking platform built with Next.js + Supabase.
 
+Start with [current project status](docs/PROJECT_STATUS.md) for the production
+architecture, current follow-up scope and links to the maintained documentation.
+Older analysis/research documents are explicitly historical.
+
 It provides:
-- Adaptive daily tests and unlimited practice tests
+- Adaptive daily tests and repeatable practice tests with shared request budgets
 - Role-based skill benchmarking and priority roadmap generation
 - Local-model course recommendations, question selection, and skill insights
 - Gemini mentor chatbot (the only remaining external AI feature)

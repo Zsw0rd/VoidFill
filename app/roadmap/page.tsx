@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { createClient } from "@/lib/supabase/server";
 import { RoadmapClient } from "./ui";
+import { assessmentContextKey } from "@/lib/assessmentContext";
 
 export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ skill?: string }> }) {
   const requested = await searchParams;
@@ -18,7 +19,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
   return (
     <AppShell displayName={profile.full_name || user.email || "User"}>
       <div className="atlas-roadmap-page">
-        <RoadmapClient role={role ? {...role, trackName: role.name, name: profile.custom_target_role || role.name} : null} preferences={profile} initialSkillId={typeof requested.skill === "string" ? requested.skill : undefined} initialViewMode={profile.roadmap_view_mode || "tree"} />
+        <RoadmapClient ownerId={user.id} contextKey={assessmentContextKey(profile)} role={role ? {...role, trackName: role.name, name: profile.custom_target_role || role.name} : null} preferences={profile} initialSkillId={typeof requested.skill === "string" ? requested.skill : undefined} initialViewMode={profile.roadmap_view_mode || "tree"} />
       </div>
     </AppShell>
   );

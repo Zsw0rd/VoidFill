@@ -62,14 +62,41 @@
     "visualization": 10,
     "web": 10
   },
-  "correct_option_unique_longest_rate": 0.26545454545454544,
-  "mean_correct_option_characters": 36.35272727272727,
+  "correct_option_unique_longest_rate": 0.2636363636363636,
+  "mean_correct_option_characters": 36.32909090909091,
   "mean_other_option_characters": 34.32121212121212,
   "correct_positions": {
     "0": 135,
     "1": 131,
     "2": 139,
     "3": 145
+  },
+  "foundation_editorial": {
+    "edition": "2026.11-foundation-editorial-2",
+    "item_count": 960,
+    "before": {
+      "count": 960,
+      "unique_longest_correct": 767,
+      "unique_shortest_correct": 33,
+      "strictly_shorter_distractor_counts": {
+        "0": 71,
+        "1": 55,
+        "2": 67,
+        "3": 767
+      }
+    },
+    "after": {
+      "count": 960,
+      "unique_longest_correct": 365,
+      "unique_shortest_correct": 303,
+      "strictly_shorter_distractor_counts": {
+        "0": 374,
+        "1": 126,
+        "2": 95,
+        "3": 365
+      }
+    },
+    "interpretation": "Residual length-rank differences remain. Lower surface-cue counts do not establish better learner outcomes, fairness, factual perfection or measured difficulty. The 45% guards are engineering regression thresholds, not a psychometric standard."
   },
   "review_note": "Distractors were revised for domain-relevant competing interpretations; explanations retain qualifications removed from answer options. Independent reviewers should still challenge ambiguous wording, distractor plausibility and reference relevance before high-stakes use."
 }

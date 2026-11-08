@@ -5,6 +5,8 @@ Learners use synthetic/public inputs; intermediate means applied judgement withi
 the stated exercise, not permission to perform regulated or hazardous work.
 """
 
+from ml.career_case_packs import VERSION as CASE_PACK_VERSION, PACKS, case_pack
+
 # role: (case, foundation preparation, intermediate deliverable, complication,
 #        evidence to check, relevant skill sequence)
 PATHS = {
@@ -82,7 +84,9 @@ def curriculum_for(name, keys, activity):
         return {"id": prefix + "-" + suffix, "title": title, "outcome": outcome,
                 "skill_keys": ordered, "deliverable": artifact,
                 "checks": checks, "prerequisites": [prefix + "-" + value for value in prerequisites]}
-    return {
+    assert name in PACKS, "Every role needs its own authored case pack"
+    result = {
+        "case_pack_version": CASE_PACK_VERSION,
         "case": case + ".",
         "skill_sequence": ordered,
         "foundation": {
@@ -101,3 +105,8 @@ def curriculum_for(name, keys, activity):
         },
         "note": "Use synthetic or appropriately licensed public inputs. Do not submit private employer, employee or customer data. Learning milestones do not certify job readiness or authorize regulated work.",
     }
+    for level in ["foundation", "intermediate"]:
+        details = case_pack(name, level)
+        result[level]["case_inputs"] = details["case_inputs"]
+        result[level]["case_verification"] = details["verification"]
+    return result

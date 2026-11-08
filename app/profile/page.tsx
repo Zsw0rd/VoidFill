@@ -59,9 +59,9 @@ export default async function ProfilePage() {
             <p className="eyebrow mb-3">Your story, so far</p>
             <h1 className="page-title">Your learning profile.</h1>
           </div>
-          <Link href="/resume" className="secondary-link !text-xs">
+          <div className="flex flex-wrap items-center gap-4"><Link href="/account" className="secondary-link !text-xs">Account & privacy ↗</Link><Link href="/resume" className="secondary-link !text-xs">
             Update from your resume ↗
-          </Link>
+          </Link></div>
         </div>
         {canMentor(staff?.admin_role) && <div className="panel p-5 mb-6 flex flex-wrap items-center gap-4"><p className="text-xs text-muted">Your staff workspaces</p>{isAdministrator(staff?.admin_role) && <Link href="/admin/dashboard" className="secondary-link">Administration ↗</Link>}<Link href="/admin/mentor" className="secondary-link">Mentoring ↗</Link></div>}
         <ProfileEditor

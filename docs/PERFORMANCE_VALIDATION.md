@@ -94,6 +94,75 @@ report both runs even if a difference is unfavorable or inconclusive.
 
 ## Private runtime and model initialization observations
 
+### Published 8 November follow-up measurements
+
+The `0a30ce3` production release passed the same 42-request demo workload with
+four of four disposable sessions ended, no errors/throttles and peak four in
+flight. At 1/2/4 clients its mixed medians were 612.1/559.1/566.9 ms; observed
+sample P95 values were 733.5/1,108.1/762.8 ms. Compared with the baseline above,
+the four-client median was essentially unchanged. Ordered, short runs with
+different platform/network/cache conditions do not establish a causal speedup.
+
+A separate normal Google/Supabase SDK login for two distinct controlled accounts
+allowed an 18-request authenticated production probe. No browser cookies were
+extracted and no credential file was written. All requests succeeded, peak
+concurrency was two, and both newly created SDK sessions were ended with local
+session scope. Existing browser sessions, grades, XP, evidence and profiles were
+unchanged by this probe. The two-client stage had 12 samples, mixed median
+333.4 ms and maximum 685.4 ms. The first one-client practice request took
+4,958.1 ms; do not omit it or call the full journey uniformly subsecond.
+
+A sanitized ten-minute platform sample contained 24 successful request events
+and one successful learning-engine initialization at 148.4 ms. Maximum observed
+process RSS was about 129.7 MiB for web and 99.4 MiB for learning. The model graph
+was not necessarily loaded: curated queries need no ONNX session. Process memory
+is shared and sampling is incomplete. No diagnostic threshold fired in this
+window; this is not proof of a provisioned memory margin or an uptime SLA.
+
+These results, hosted CI run IDs and production deployment ID are retained in
+[PR 9](https://github.com/Zsw0rd/VoidFill/pull/9). They establish the measured
+workloads, not maximum capacity or support for arbitrary numbers of real users.
+
+### Broader local-only workload
+
+The follow-up harness supports up to sixteen disposable demo clients on an HTTP
+loopback origin, with stages 1, 2, 4, 8 and 16. For example:
+
+```text
+node scripts/load-learning.mjs --base http://localhost:3000 --clients 16 --rounds 4
+```
+
+This is 372 unsubmitted generation/read requests, plus demo setup/lease/cleanup.
+The three-minute overall deadline, request deadlines, stop-on-first-failure and
+private report policy still apply. Production remains capped at four demo or
+two real clients and two rounds; an HTTPS production origin cannot enable the
+sixteen-client loopback plan. Real-account mode cannot use the expanded limit.
+
+For a paced local follow-up use `--clients 16 --rounds 10 --pause-ms 2000`.
+It schedules 930 workload requests and ninety seconds of inter-round pauses
+across the five stages. Request duration excludes these pauses; stage duration
+and throughput include them, so paced throughput must not be compared to a
+no-pause burst as a speedup/regression. Pauses are limited to two seconds and
+rejected outside loopback disposable-demo mode. The same overall deadline can
+stop a slow run; record that failure rather than raising limits to hide it.
+
+Paced local runs renew every configured disposable session before each stage,
+including clients waiting for their first active stage. Normal per-round leases
+also continue. Otherwise late-stage clients could expire while waiting even when
+all learning requests succeed. Application expiry is unchanged. The report
+separately counts start/lease/end control requests; these are not workload
+latencies or a real-account capacity measurement. Burst and live probe traffic
+does not use this additional between-stage renewal.
+
+Run against the rebuilt production-mode local app without concurrent model
+indexing, builds or other probes. Record CPU/model/runtime conditions and all
+errors, including demo capacity and cleanup failures. A local synthetic result
+does not include cloud scaling, hosted Supabase authentication/storage or real
+account quota costs. It cannot be relabelled as a production capacity result.
+
+The new release's actual local result belongs in its release report after the
+run; the command and its unit tests alone are not a measured application pass.
+
 Existing web request logs now include a random process runtime ID, first-request
 observation, process age/uptime, RSS, heap and process CPU delta. Python's private
 learning-service logs use the same resource concepts; Linux exposes current RSS

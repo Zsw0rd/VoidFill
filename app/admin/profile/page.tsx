@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { AdminShell } from "@/components/AdminShell";
 import { AdminProfileEditor } from "./ui";
+import Link from "next/link";
 
 export default async function AdminProfilePage() {
     const supabase = await createClient();
@@ -18,6 +19,7 @@ export default async function AdminProfilePage() {
 
     return (
         <AdminShell role={adminRow.admin_role} displayName={adminRow.display_name || user.email || "Admin"}>
+            <div className="mb-6 flex flex-wrap gap-5"><Link href="/account" className="secondary-link">Account & privacy ↗</Link>{["admin", "super_admin"].includes(adminRow.admin_role) && <Link href="/admin/account-requests" className="secondary-link">Account requests ↗</Link>}</div>
             <AdminProfileEditor
                 userId={user.id}
                 email={user.email || ""}

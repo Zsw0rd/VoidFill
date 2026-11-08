@@ -37,6 +37,8 @@ import {
 
 import { QuestionOptions } from "@/components/QuestionOptions";
 import { FocusDialog } from "@/components/FocusDialog";
+import { useAssessmentDraft } from "@/components/useAssessmentDraft";
+import { AssessmentDraftNotice } from "@/components/AssessmentDraftNotice";
 import { LearningAtlas } from "./atlas-canvas";
 import type { Category, CourseAssessment, CourseType, RoadmapCourse, SkillNode } from "./types";
 
@@ -49,7 +51,7 @@ import Link from "next/link";
 type RoadmapViewMode = "tree" | "list";
 type AssessmentTarget = {
   type: "course" | "skill";
-  course?: RoadmapCourse;
+  course?: Pick<RoadmapCourse, "id" | "title">;
   skillName: string;
   skillId: string;
 } | null;
@@ -81,11 +83,15 @@ function difficultyBadge(difficulty: RoadmapCourse["difficulty"]) {
 const COURSE_PASS_THRESHOLD = 65;
 const SKILL_PASS_THRESHOLD = 65;
 export function RoadmapClient({
+  ownerId,
+  contextKey,
   role,
   preferences,
   initialViewMode = "tree",
   initialSkillId,
 }: {
+  ownerId: string;
+  contextKey: string;
   role: any;
   preferences: CareerPreferences;
   initialViewMode?: RoadmapViewMode;
@@ -119,8 +125,23 @@ export function RoadmapClient({
   );
   const [assessLoading, setAssessLoading] = useState(false);
   const [assessResult, setAssessResult] = useState<any>(null);
+  const [assessError, setAssessError] = useState<{message: string; restart: boolean} | null>(null);
+  const [pausedAssessment, setPausedAssessment] = useState(false);
+  const resumeAssessmentTrigger = useRef<HTMLButtonElement>(null);
+  const roadmapHeading = useRef<HTMLHeadingElement>(null);
   const assessmentRequest = useRef<AbortController | null>(null);
   const assessmentVersion = useRef(0);
+  const draft = useAssessmentDraft({ ownerId, contextKey, slot: "roadmap", onRestore: (session, saved) => {
+    if (!session.target || (session.purpose !== "course" && session.purpose !== "skill")) return;
+    assessmentRequest.current?.abort(); ++assessmentVersion.current;
+    setAssessTarget({ type: session.purpose, ...session.target });
+    setAssessQuestions(session.questions); setAssessToken(saved.token); setAssessAnswers(saved.answers);
+    setAssessIndex(saved.index); setAssessResult(null); setAssessError(null); setAssessLoading(false); setPausedAssessment(false);
+  } });
+  const { persist: persistDraft, expiresAt } = draft;
+  useEffect(() => {
+    if (assessTarget && assessToken && expiresAt && !assessResult) persistDraft({ purpose: assessTarget.type, token: assessToken, expiresAt, index: assessIndex, answers: assessAnswers });
+  }, [assessTarget, assessToken, expiresAt, assessIndex, assessAnswers, assessResult, persistDraft]);
 
   useEffect(() => () => assessmentRequest.current?.abort(), []);
 
@@ -444,6 +465,8 @@ export function RoadmapClient({
   }
 
   async function startAssessment(target: NonNullable<AssessmentTarget>, payload: Record<string, string>) {
+    if (!draft.ready) return toast("Restoring assessment", "Please restore or discard your saved draft first.");
+    draft.discard(); setPausedAssessment(false); setAssessError(null);
     assessmentRequest.current?.abort();
     const controller = new AbortController();
     assessmentRequest.current = controller;
@@ -469,6 +492,7 @@ export function RoadmapClient({
       if (version !== assessmentVersion.current) return;
       setAssessQuestions(data.questions);
       setAssessToken(data.assessment_token);
+      draft.setExpiresAt(data.expires_at);
     } catch (error) {
       if (controller.signal.aborted || version !== assessmentVersion.current) return;
       toast("Assessment generation failed", error instanceof Error ? error.message : "Please try again.");
@@ -482,9 +506,10 @@ export function RoadmapClient({
   }
 
   async function submitAssessment() {
-    if (!assessTarget || assessLoading || !assessToken) return;
+    if (!assessTarget || assessLoading || !assessToken || draft.expired) return;
     const version = assessmentVersion.current;
     setAssessLoading(true);
+    setAssessError(null);
     try {
       const res = await fetch("/api/roadmap/submit-assessment", {
         method: "POST",
@@ -503,8 +528,12 @@ export function RoadmapClient({
         void load();
         return;
       }
-      if (!res.ok)
-        return toast("Assessment failed", data.error || "Please try again.");
+      if (!res.ok) {
+        const message = data.error || "Your result could not be confirmed. Please retry saving.";
+        setAssessError({ message, restart: res.status === 400 && /assessment.*(?:invalid|expired)/i.test(message) });
+        return;
+      }
+      draft.discard();
       setAssessQuestions((current) =>
         current.map((q) => ({
           ...q,
@@ -538,13 +567,15 @@ export function RoadmapClient({
         passed: data.passed,
       });
     } catch (error: any) {
-      if (version === assessmentVersion.current) toast("Assessment failed", error.message || "Please try again.");
+      if (version === assessmentVersion.current) setAssessError({ message: error.message || "Your result could not be confirmed. Please retry saving.", restart: false });
     } finally {
       if (version === assessmentVersion.current) setAssessLoading(false);
     }
   }
 
-  function closeAssessment() {
+  function closeAssessment(discard = false) {
+    if (discard) draft.discard();
+    setPausedAssessment(!discard && !!assessToken && !assessResult);
     ++assessmentVersion.current;
     assessmentRequest.current?.abort();
     assessmentRequest.current = null;
@@ -572,7 +603,7 @@ export function RoadmapClient({
       <header className="atlas-page-header">
         <div>
           <p className="eyebrow">Living atlas</p>
-          <h1 className="atlas-page-title">A map of what comes next.</h1>
+          <h1 ref={roadmapHeading} tabIndex={-1} className="atlas-page-title">A map of what comes next.</h1>
           <p className="atlas-page-target">Target: <strong>{role?.name || "Choose a learning track"}</strong>{role && <Link href="/careers" title="Change your direction in Career explorer" aria-label="Change career direction"><ChevronDown size={16} /></Link>}</p>
         </div>
         {role && <div className="atlas-page-actions">
@@ -587,6 +618,10 @@ export function RoadmapClient({
           {savingViewMode && <span className="text-xs text-muted" role="status">Saving view…</span>}
         </div>}
       </header>
+      {!assessTarget && <>
+        <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={() => { draft.discard(); setPausedAssessment(false); }} />
+        {pausedAssessment && !draft.expired && <div className="flex flex-wrap items-center gap-4 rounded-xl border border-forest/20 bg-paper-soft p-4 text-sm"><p>Your unfinished assessment is saved in this tab.</p><button ref={resumeAssessmentTrigger} className="font-semibold underline text-forest" onClick={draft.retryRestore}>Resume saved assessment</button><button className="font-semibold underline text-rust" onClick={() => { draft.discard(); setPausedAssessment(false); }}>Discard saved draft</button></div>}
+      </>}
       {loadError && <div className="atlas-load-error" role="alert"><div><strong>Your map couldn’t load completely.</strong><p>{loadError}</p></div><button onClick={() => void load()} disabled={loading}>Try again</button></div>}
       {loading && computed.length === 0 && <div className="atlas-loading" role="status"><Loader2 className="animate-spin" size={25} /><span>Finding your place on the map…</span></div>}
 
@@ -656,20 +691,22 @@ export function RoadmapClient({
               exit={{ scale: 0.96, opacity: 0 }}
               className="max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-line bg-surface p-6 md:p-8"
             >
-              <FocusDialog label={assessTitle} onClose={closeAssessment}>
+              <FocusDialog label={assessTitle} onClose={() => closeAssessment()} returnFocus={() => resumeAssessmentTrigger.current || roadmapHeading.current}>
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="eyebrow mb-3">Check your understanding</p>
                     <h3 className="text-xl font-semibold">{assessTitle}</h3>
                   </div>
                   <button
-                    onClick={closeAssessment}
+                    onClick={() => closeAssessment()}
                     aria-label="Close assessment"
                     className="p-2 text-muted rounded-lg hover:bg-paper"
                   >
                     <XCircle size={20} />
                   </button>
                 </div>
+
+                {!assessResult && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} expired={draft.expired} onDiscard={() => closeAssessment(true)} />}
 
                 {assessLoading && (
                   <div className="mt-6 flex items-center justify-center gap-2 text-muted">
@@ -714,6 +751,8 @@ export function RoadmapClient({
                       disabled={assessLoading}
                     />
 
+                    {assessError && <div role="alert" className="rounded-xl border border-rust/30 bg-peach p-4 text-sm text-ink"><p className="font-semibold">Your result has not been confirmed</p><p className="mt-2">{assessError.message}</p>{assessError.restart ? <button className="mt-2 font-semibold underline text-rust" onClick={() => closeAssessment(true)}>Discard this assessment and start again</button> : <p className="mt-2">Your selected answers remain in this tab. Submit again to retry the same check safely.</p>}</div>}
+
                     <div className="flex flex-wrap justify-end gap-2">
                       <Button
                         variant="ghost"
@@ -724,10 +763,11 @@ export function RoadmapClient({
                       >
                         Previous
                       </Button>
-                      <Button variant="soft" onClick={closeAssessment}>
-                        Cancel
+                      <Button variant="soft" onClick={() => closeAssessment(true)}>
+                        Discard
                       </Button>
                       <Button
+                        disabled={draft.expired}
                         onClick={() => {
                           if (assessAnswers[activeQuestion.id] === undefined) {
                             toast("Pick an answer");
@@ -813,7 +853,7 @@ export function RoadmapClient({
                       })}
                     </div>
 
-                    <Button onClick={closeAssessment}>Close</Button>
+                    <Button onClick={() => closeAssessment()}>Close</Button>
                   </div>
                 )}
               </FocusDialog>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,8 @@ import {
 } from "lucide-react";
 
 import { QuestionOptions } from "@/components/QuestionOptions";
+import { useAssessmentDraft } from "@/components/useAssessmentDraft";
+import { AssessmentDraftNotice } from "@/components/AssessmentDraftNotice";
 
 type Question = {
   id: string;
@@ -33,7 +35,7 @@ type Question = {
   explanation?: string;
 };
 
-export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt: any; coverage: {covered: number; total: number} }) {
+export function DailyTestClient({ ownerId, contextKey, existingAttempt, coverage }: { ownerId: string; contextKey: string; existingAttempt: any; coverage: {covered: number; total: number} }) {
   const [loading, setLoading] = useState(false);
   const [stage, setStage] = useState<"start" | "quiz" | "review" | "done">(
     "start",
@@ -46,6 +48,23 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
   const [submissionError, setSubmissionError] = useState<{message: string; restart: boolean} | null>(null);
   const [difficulty, setDifficulty] = useState(1);
   const [difficultyLabel, setDifficultyLabel] = useState("Easy");
+  const draft = useAssessmentDraft({ ownerId, contextKey, slot: "daily", disabled: !!existingAttempt?.completed_at,
+    onRestore: (session, saved) => {
+      setQuestions(session.questions); setAssessmentToken(saved.token); setAnswers(saved.answers);
+      setIndex(saved.index); setDifficulty(session.difficulty);
+      setDifficultyLabel(["", "Easy", "Moderate", "Intermediate", "Hard", "Expert"][session.difficulty] || "Easy");
+      setStage("quiz"); setSubmissionError(null);
+    },
+  });
+  const { persist: persistDraft, expiresAt } = draft;
+  useEffect(() => {
+    if (stage === "quiz" && assessmentToken && expiresAt) persistDraft({ purpose: "daily", token: assessmentToken, expiresAt, index, answers });
+  }, [stage, assessmentToken, expiresAt, index, answers, persistDraft]);
+
+  function discardDraft() {
+    draft.discard(); setStage("start"); setQuestions([]); setAssessmentToken(""); setAnswers({});
+    setIndex(0); setResult(null); setSubmissionError(null);
+  }
 
   const total = questions.length || 10;
   const progress =
@@ -98,6 +117,8 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
   }
 
   async function start() {
+    if (!draft.ready || loading) return;
+    discardDraft();
     setLoading(true);
     try {
       const res = await fetch("/api/ai/generate-questions", { method: "POST" });
@@ -112,6 +133,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
       setSubmissionError(null);
       setQuestions(data.questions);
       setAssessmentToken(data.assessment_token);
+      draft.setExpiresAt(data.expires_at);
       setDifficulty(data.difficulty || 1);
       setDifficultyLabel(data.difficultyLabel || "Easy");
       setStage("quiz");
@@ -162,6 +184,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
         return;
       }
       if (data.alreadyCompleted) {
+        draft.discard();
         setResult(data); setQuestions([]); setAnswers({}); setAssessmentToken(""); setStage("done");
         toast("Already completed", "Your first saved assessment remains unchanged.");
         return;
@@ -173,6 +196,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
         })),
       );
       setResult(data);
+      draft.discard();
       setStage("review");
       toast("Done!", `+${data?.xp_earned || 0} XP earned`);
     } catch (error: any) {
@@ -221,6 +245,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
         </CardHeader>
 
         <CardContent className="p-6">
+          {(stage === "start" || stage === "quiz") && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={discardDraft} />}
           {stage === "start" && (
             <div className="assessment-start">
               <span className="icon-tile !bg-surface mb-5">
@@ -262,7 +287,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
                 ))}
               </div>
               <p className="mt-4 text-xs leading-6 text-muted">Knowledge checks cover {coverage.covered} of your {coverage.total} learning areas. Specialist skills use <Link href="/careers" className="underline text-forest">practical career activities</Link>. Scores describe knowledge, not workplace competence.</p>
-              <Button disabled={coverage.covered === 0} loading={loading} onClick={start} className="mt-7">
+              <Button disabled={coverage.covered === 0 || !draft.ready} loading={loading} onClick={start} className="mt-7">
                 {loading ? (
                   "Preparing your questions…"
                 ) : (
@@ -295,7 +320,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
                 options={q.options || []}
                 value={answers[q.id]}
                 onChange={pick}
-                disabled={loading}
+                disabled={loading || draft.expired}
               />
 
               {submissionError && <div role="alert" className="rounded-xl border border-rust/30 bg-peach p-4 text-sm text-ink">
@@ -303,10 +328,11 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
                 <p className="mt-2">{submissionError.message}</p>
                 {submissionError.restart
                   ? <Button className="mt-3" variant="soft" onClick={start} loading={loading}>Start a new assessment</Button>
-                  : <p className="mt-2">Your answers remain on this page. Use Finish assessment to retry the same submission safely.</p>}
+                  : <p className="mt-2">Your answers remain in this tab. Use Finish assessment to retry the same submission safely.</p>}
               </div>}
 
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <Button variant="ghost" disabled={loading} onClick={discardDraft}>Discard assessment</Button>
                 <Button
                   variant="ghost"
                   disabled={index === 0 || loading}
@@ -316,7 +342,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
                   Previous
                 </Button>
                 <Button
-                  disabled={loading || answers[q.id] === undefined}
+                  disabled={loading || draft.expired || answers[q.id] === undefined}
                   loading={loading}
                   onClick={next}
                 >

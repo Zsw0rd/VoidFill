@@ -5,14 +5,18 @@ export function FocusDialog({
   children,
   label,
   onClose,
+  returnFocus,
 }: {
   children: React.ReactNode;
   label: string;
   onClose: () => void;
+  returnFocus?: () => HTMLElement | null;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const close = useRef(onClose);
   close.current = onClose;
+  const focusDestination = useRef(returnFocus);
+  focusDestination.current = returnFocus;
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null;
     const overflow = document.body.style.overflow;
@@ -56,7 +60,10 @@ export function FocusDialog({
     return () => {
       document.removeEventListener("keydown", keydown);
       document.body.style.overflow = overflow;
-      previous?.focus();
+      // Restored dialogs can open on page load, where the prior focus is the
+      // body. Let their caller supply the newly rendered resume control.
+      const destination = focusDestination.current?.() || previous;
+      if (destination?.isConnected) destination.focus();
     };
   }, []);
   return (

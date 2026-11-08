@@ -3,6 +3,7 @@ import { LearningError, type LearningSkill } from "./localMl";
 import { roadmapProgress } from "./roadmapProgress";
 import { careerSkillForName, type CareerLevel } from "./careerCatalog";
 import { loadCareerRequirements } from "./careerRequirements";
+import { assessmentContextKey } from "./assessmentContext";
 
 export async function getLearningContext(supabase: Awaited<ReturnType<typeof createClient>>, userId: string) {
   const [profileRes, scoresRes] = await Promise.all([
@@ -24,7 +25,7 @@ export async function getLearningContext(supabase: Awaited<ReturnType<typeof cre
   }));
   if (!skills.length) throw new LearningError("Choose focus skills for your personal goal in Career explorer.", 400);
   const trackName = (profile as any).roles?.name || "Personal Career Goal";
-  return { role: (profile.custom_target_role?.trim() || trackName).slice(0, 160), trackName, roleId: profile.target_role_id, skills, requirements, level, focusIds, goalContext: profile.career_goal_context || "", coverage: {total: skills.length, assessed: skills.filter(s => careerSkillForName(s.name)?.coverage.questions).length} };
+  return { role: (profile.custom_target_role?.trim() || trackName).slice(0, 160), trackName, roleId: profile.target_role_id, skills, requirements, level, focusIds, goalContext: profile.career_goal_context || "", assessmentContext: assessmentContextKey(profile), coverage: {total: skills.length, assessed: skills.filter(s => careerSkillForName(s.name)?.coverage.questions).length} };
 }
 
 export async function adaptiveDifficulty(supabase: Awaited<ReturnType<typeof createClient>>, userId: string, kind: "daily" | "practice") {
