@@ -11,6 +11,7 @@ export const LEARNER_PATHS = new Set([
   "/skill-graph",
   "/ai-insights",
   "/mentor-chat",
+  "/account",
 ]);
 const STAFF_PATHS = new Set([
   "/admin/dashboard",
@@ -21,6 +22,7 @@ const STAFF_PATHS = new Set([
   "/admin/mentor",
   "/admin/mentor/chat",
   "/admin/mentor/reviews",
+  "/admin/account-requests",
 ]);
 
 // Accept only application destinations. Never turn an OAuth `next` into an open redirect.
@@ -56,6 +58,7 @@ export function signInDestination({
 }) {
   const requested = safeNextPath(next);
   const pathname = requested.split("?")[0];
+  if (pathname === "/account") return requested;
   if (role === "mentor")
     return ["/admin/mentor", "/admin/mentor/chat", "/admin/mentor/reviews", "/admin/profile"].includes(
       pathname,
@@ -77,6 +80,8 @@ export const AUTH_ERRORS: Record<string, string> = {
     "Google sign-in could not be completed. Please try again from this page.",
   invalid_callback:
     "This sign-in link is missing or has expired. Please start sign-in again.",
+  invalid_recovery:
+    "This password reset link is missing, expired, or belongs to a different browser. Request a fresh reset link.",
   profile_unavailable:
     "You signed in, but your learning profile could not be prepared. Please try again.",
   staff_required:

@@ -1,4 +1,4 @@
-# Career quality review — 7 November 2026
+# Career quality review — 8 November 2026
 
 This review covers every one of the 60 career profiles and 55 shared skills. It
 combines reproducible checks with an agent review of all case/complication/
@@ -32,13 +32,15 @@ One authored intermediate SQL explanation was clarified. Question
 `career-595d1c837fe9ececcaf5` now says to sum shipping from one row per order,
 explaining why a later item join can multiply a prior aggregate and why
 `SUM(DISTINCT shipping)` loses legitimate equal-valued charges. Its original
-prompt and ID are unchanged; every other extension row, all resources and all
-catalogue values were preserved. A concrete relational counterexample tests
+prompt and ID are unchanged; the other intermediate rows are retained. The
+separate foundation option revision and synthetic case packs are described below;
+resources, role/skill identities and scored requirements remain unchanged. A concrete relational counterexample tests
 these alternatives against the [PostgreSQL join and grouping model](https://www.postgresql.org/docs/current/queries-table-expressions.html).
 
 The full public extension index was regenerated using the actual existing FP32
-ONNX encoder. All vector inputs were unchanged because the SQL change affected
-its answer, explanation and reference, not its prompt. Every regenerated array
+ONNX encoder again after the editorial/case-pack revision. Vector inputs remain
+unchanged: question prompts, resource text, topic descriptions, public queries
+and role embedding text are the same. Every regenerated array
 was bit-identical; `vectors.npz` remains SHA-256
 `134240caaaee4af3b44b084f65edd41641d9899aae3750f25f7570fb3a1bec96`.
 The index records the new actual question-content fingerprint. No weights,
@@ -122,14 +124,32 @@ These links support the stated concepts; they do not certify VoidFill's role
 maps, scores, curriculum or readiness claims. Physical, financial, HR and other
 regulated exercises retain fictional/simulated inputs and qualified-review limits.
 
-Answer-length cues remain a material authoring limitation in the original
-foundation extension: the correct answer is uniquely longest in 767/960 items
-(79.9%). The revised intermediate bank is 145/550 (26.4%); the inherited base is
-244/611 (39.9%, before the four exclusions). These surface diagnostics are not
-item-response calibration. The original foundation pack has not been silently
-mass-rewritten, and its scores must not be promoted into validated job-readiness
-or certification measures. Specialist review, learner item statistics and a
-separately reviewed distractor revision are still required for that stronger use.
+The explicit [foundation editorial edition 2](FOUNDATION_EDITORIAL.md) revises
+all 960 option sets while retaining prompts, IDs, levels and explanations. All
+three alternatives are now authored domain/task misconceptions, with reviewed
+full/concise equivalent key formulations selected by a fixed identity hash that
+does not inspect lengths. No words are appended merely to lengthen an option.
+
+| Surface diagnostic | Previous foundation | Editorial foundation |
+| --- | --- | --- |
+| Uniquely longest correct option | 767/960 (79.9%) | 365/960 (38.0%) |
+| Uniquely shortest correct option | 33/960 (3.4%) | 303/960 (31.6%) |
+
+An initial all-concise candidate reduced the longest cue but created a 57.1%
+shortest-answer cue; it was rejected before publication. Both tails are now
+reported and guarded. Residual length-rank/style effects remain; a 45% regression
+guard is an engineering threshold, not a psychometric standard or proof of fair
+assessment. The intermediate bank remains 145/550 uniquely-longest (26.4%); the
+inherited base remains 244/611 (39.9%, before the four exclusions). Specialist
+review and real learner item statistics are still required before stronger
+claims about competence, job readiness or certification.
+
+All 60 roles also have versioned synthetic case inputs, a foundation verification
+and an intermediate change with its own check. [The complete authored case
+packs](CAREER_CASE_PACKS.md) are served in new Practical Studio briefs and in the
+saved copy shown to the assigned reviewer. Existing drafts/submissions preserve
+their original brief. The knowledge bank remains shared by underlying skill;
+the case packs do not pretend to be 60 independent role-specific quiz banks.
 
 ## Reproduce and maintain the evidence
 
@@ -137,6 +157,8 @@ separately reviewed distractor revision are still required for that stronger use
 node --import tsx --test tests/career-adversarial.test.ts tests/careers.test.ts
 npx tsx scripts/evaluate-career-adversarial.mts --all
 python -m ml.career_quality_review --check
+python -m ml.audit_foundation_editorial --check
+python -m pytest -q ml/tests/test_foundation_editorial.py
 python -m pytest -q ml/tests/test_career_quality_review.py
 python scripts/check-career-resources.py --include-base
 python scripts/check-career-resources.py --include-base --retry-failed --system-tls

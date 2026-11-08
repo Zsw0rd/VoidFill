@@ -24,7 +24,10 @@ try {
   const draft = {action: "save", expected_version: 0, role_id: profile.target_role_id, level: "foundation", content: "Synthetic HTTP evidence: I documented choices, created a fictional example and checked two independent cases before identifying a limitation.", links: ["https://example.com/synthetic-project"]};
   const saved = (await call(a, "/api/practical", draft)).project;
   assert.equal(saved.draft_version, 1);
-  assert.equal((await call(a, "/api/practical")).projects.length, 1);
+  assert.ok(Array.isArray(saved.brief.case_inputs) && saved.brief.case_inputs.length >= 2, "Saved brief lost its synthetic case inputs");
+  const reloaded = (await call(a, "/api/practical")).projects;
+  assert.equal(reloaded.length, 1);
+  assert.deepEqual(reloaded[0].brief, saved.brief, "Reload changed the saved case or rubric");
   assert.equal((await call(b, "/api/practical")).projects.length, 0, "Private draft leaked between sessions");
   await call(b, "/api/practical", {...draft, project_id: saved.id, expected_version: 1}, 403);
   await call(a, "/api/practical", {...draft, project_id: saved.id, expected_version: 0}, 409);
@@ -43,6 +46,7 @@ try {
   const queue = await call(mentor, "/api/practical?mode=mentor");
   assert.equal(queue.submissions.length, 3);
   assert.equal(queue.projects.length, 0, "Mentor received private drafts");
+  assert.ok(queue.submissions.every(row => Array.isArray(row.brief.case_inputs) && row.brief.case_inputs.length >= 2), "Mentor snapshots lost learner case inputs");
   const submission = queue.submissions[0];
   const review = {action: "review", submission_id: submission.id, verdict: "revise", feedback: "Good first example; document an independently checked second case and explain the difference.", criteria: submission.brief.rubric.map((_, criterion) => ({criterion, judgement: "developing", comment: ""}))};
   await call(a, "/api/practical", review, 403);

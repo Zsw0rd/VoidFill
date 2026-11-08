@@ -5,6 +5,7 @@ import pytest
 from fastapi import HTTPException
 from ml.guest import GuestStore, ROLES
 from ml.practical_demo import execute
+from ml import practical_demo
 
 
 def draft(store, token):
@@ -27,6 +28,40 @@ def test_private_draft_versions_isolation_and_no_progress_awards():
     assert store.get(first["token"])["tables"]["user_stats"] == before
     with pytest.raises(HTTPException):
         store.query(first["token"], {"table": "practical_reviews", "operation": "insert", "values": {"verdict": "ready"}})
+
+
+def test_case_inputs_survive_save_reload_and_future_catalogue_edits(monkeypatch):
+    content = copy.deepcopy(practical_demo.catalogue())
+    monkeypatch.setattr(practical_demo, "catalogue", lambda: content)
+    role = next(row for row in content["roles"] if row["id"] == ROLES[0]["id"])
+    original_inputs = copy.deepcopy(role["curriculum"]["foundation"]["case_inputs"])
+    store = GuestStore()
+    first = store.create()
+    project = draft(store, first["token"])
+    frozen = copy.deepcopy(project["brief"])
+    assert frozen["case_inputs"] == original_inputs
+    assert frozen["rubric"][-1] == role["curriculum"]["foundation"]["case_verification"]
+    assert frozen["version"].endswith("/" + role["curriculum"]["case_pack_version"])
+    role["curriculum"]["foundation"]["case_inputs"] = ["A later synthetic case with different inputs."]
+    role["curriculum"]["case_pack_version"] = "future-case-pack"
+    assert store.practical(first["token"], {"action": "load"})["projects"][0]["brief"] == frozen
+    updated = store.practical(first["token"], {"action": "save", "project_id": project["id"], "expected_version": 1, "role_id": project["role_id"], "level": "foundation", "content": "A revision preserves its original brief and inputs.", "links": []})["project"]
+    assert updated["brief"] == frozen
+    second = store.create()
+    assert draft(store, second["token"])["brief"]["case_inputs"] != original_inputs
+
+
+def test_seeded_mentor_submissions_include_case_inputs_and_frozen_verification():
+    store = GuestStore()
+    token = store.create_staff("mentor")["token"]
+    workspace = store.practical(token, {"action": "load", "mode": "mentor"})
+    assert workspace["submissions"]
+    for submission in workspace["submissions"]:
+        stage = next(role for role in practical_demo.catalogue()["roles"] if role["id"] == submission["brief"]["role_id"])["curriculum"][submission["brief"]["level"]]
+        assert submission["brief"]["case_inputs"] == stage["case_inputs"]
+        assert submission["brief"]["rubric"][-1] == stage["case_verification"]
+    workspace["submissions"][0]["brief"]["case_inputs"].append("Changed only in the returned copy.")
+    assert store.practical(token, {"action": "load", "mode": "mentor"})["submissions"][0]["brief"]["case_inputs"] != workspace["submissions"][0]["brief"]["case_inputs"]
 
 
 def test_unassigned_learner_cannot_share_or_impersonate_a_mentor():

@@ -199,9 +199,13 @@ network-failure recovery, not a production outage or measured live capacity.
 The two-hour invalid/expired-token branch and its Start a new assessment action
 were reviewed in source but were not exercised by waiting two hours in Chrome.
 The browser check verifies the visible expiry guidance, generic error persistence,
-answer retention and successful retry. Hard refresh still discards an unfinished
-question page; the recovery instructions explicitly tell the learner to retry
-on that page.
+answer retention and successful retry. In that release, hard refresh discarded an
+unfinished question page, so the guidance asked learners to retry on that page.
+The 8 November follow-up implements authenticated same-tab recovery for daily,
+practice, course and skill checks. Actual Chrome reloads retained the question
+position and selected answers for all four; a recovered synthetic daily check
+saved 10/10 and 100 XP, and reload retained that result. See
+[assessment recovery](ASSESSMENT_RECOVERY.md) and the follow-up release evidence.
 
 The inspected practical colors now calculate at approximately 4.84:1 for
 `#606d59` on the brief's `#eff2e8`, 5.43:1 for that text on `#fffef8`, and 5.40:1

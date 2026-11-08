@@ -7,6 +7,7 @@ const metadataSchema = z.object({
   difficulty: z.number().int().min(1).max(5),
   courseId: z.string().uuid().optional(),
   skillId: z.string().uuid().optional(),
+  contextKey: z.string().regex(/^[a-f0-9]{64}$/).optional(),
 });
 const sessionSchema = z.object({
   version: z.literal(1), id: z.string().uuid(), userId: z.string().uuid(),
@@ -32,14 +33,16 @@ export function createAssessment(userId: string, questions: LocalQuestion[], met
   const assessment_token = Buffer.concat([iv, cipher.getAuthTag(), encrypted]).toString("base64url");
   return {
     assessment_token,
+    expires_at: session.expiresAt,
     questions: questions.map(({ correct_index, explanation, ...publicQuestion }) => publicQuestion),
   };
 }
 
-export function gradeAssessment(userId: string, input: z.infer<typeof submissionSchema>, purpose: Metadata["purpose"]) {
+function openAssessment(userId: string, token: string, purpose: Metadata["purpose"]) {
   let session: z.infer<typeof sessionSchema>;
   try {
-    const encrypted = Buffer.from(input.assessment_token, "base64url");
+    if (token.length < 30 || token.length > 300000 || !/^[A-Za-z0-9_-]+$/.test(token)) throw new Error("Invalid token");
+    const encrypted = Buffer.from(token, "base64url");
     const decipher = createDecipheriv("aes-256-gcm", key(), encrypted.subarray(0, 12));
     decipher.setAuthTag(encrypted.subarray(12, 28));
     const payload = Buffer.concat([decipher.update(encrypted.subarray(28)), decipher.final()]).toString("utf8");
@@ -50,6 +53,27 @@ export function gradeAssessment(userId: string, input: z.infer<typeof submission
   if (session.userId !== userId || session.metadata.purpose !== purpose || session.expiresAt <= Date.now()) {
     throw new LearningError("This assessment is invalid or has expired. Please start another test.", 400);
   }
+  return session;
+}
+
+/** Restore public questions from the original sealed session. No inference, keys or new award. */
+export function resumeAssessment(userId: string, token: string, purpose: Metadata["purpose"], contextKey: string) {
+  const session = openAssessment(userId, token, purpose);
+  if (!session.metadata.contextKey || session.metadata.contextKey !== contextKey)
+    throw new LearningError("Your learning direction has changed, or this older assessment cannot be restored. Please start another assessment.", 409);
+  const { metadata } = session;
+  return {
+    expires_at: session.expiresAt,
+    purpose: metadata.purpose,
+    difficulty: metadata.difficulty,
+    ...(metadata.courseId ? { course_id: metadata.courseId } : {}),
+    ...(metadata.skillId ? { skill_id: metadata.skillId } : {}),
+    questions: session.questions.map(({ correct_index, explanation, ...question }) => question),
+  };
+}
+
+export function gradeAssessment(userId: string, input: z.infer<typeof submissionSchema>, purpose: Metadata["purpose"]) {
+  const session = openAssessment(userId, input.assessment_token, purpose);
   const answers = new Map(input.answers.map((a) => [a.question_id, a.selected_index]));
   if (answers.size !== input.answers.length || answers.size !== session.questions.length || session.questions.some((q) => !answers.has(q.id))) {
     throw new LearningError("Submit exactly one answer for every question in this assessment.", 400);

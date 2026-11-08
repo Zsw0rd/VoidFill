@@ -125,6 +125,7 @@ jobs:
           ml/tests/test_cloud_runtime.py ml/tests/test_cloud_build.py ml/tests/test_cloud_guests.py
           ml/tests/test_concurrent_serving.py
           ml/tests/test_question_selection.py ml/tests/test_career_quality_review.py
+          ml/tests/test_foundation_editorial.py
           ml/tests/test_careers.py ml/tests/test_career_evaluation.py
           ml/tests/test_guest_resume.py ml/tests/test_staff_demo.py
           ml/tests/test_practical_demo.py
@@ -150,6 +151,7 @@ jobs:
           npm run test:staff-demo
           npm run test:careers
           npm run test:practical
+          node scripts/test-account.mjs
           if [ "$RUN_BROWSER_REGRESSIONS" = "true" ]; then npm run test:ux; fi
       - name: Preserve isolated journey evidence
         if: always()

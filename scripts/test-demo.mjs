@@ -49,6 +49,14 @@ try {
   const courses = await call(a, "/api/demo/db", { table: "roadmap_courses", orders: [{ column: "sort_order", ascending: true }], limit: 1 });
   assert.ok(courses.data.length);
   const courseTest = await call(a, "/api/roadmap/assess", { purpose: "course", course_id: courses.data[0].id });
+  const restoredCourse = await call(a, "/api/assessments/resume", { purpose: "course", assessment_token: courseTest.assessment_token });
+  assert.equal(restoredCourse.target.course.id, courses.data[0].id);
+  assert.deepEqual(restoredCourse.questions, courseTest.questions);
+  assert.ok(!("correct_index" in restoredCourse.questions[0]) && !("explanation" in restoredCourse.questions[0]));
+  const skillTest = await call(a, "/api/roadmap/assess", { purpose: "skill", skill_id: courseTest.questions[0].skill_id });
+  const restoredSkill = await call(a, "/api/assessments/resume", { purpose: "skill", assessment_token: skillTest.assessment_token });
+  assert.equal(restoredSkill.target.skillId, courseTest.questions[0].skill_id);
+  assert.deepEqual(restoredSkill.questions, skillTest.questions);
   const bank = new Map(["ml/data/questions.json", "ml/data/careers/questions.json"].flatMap(file => JSON.parse(readFileSync(join(root, file), "utf8"))).map(q => [q.id, q.correct_index]));
   const courseResult = await call(a, "/api/roadmap/submit-assessment", { purpose: "course", assessment_token: courseTest.assessment_token, answers: courseTest.questions.map(q => ({ question_id: q.id, selected_index: bank.get(q.id) })) });
   assert.equal(courseResult.passed, true);
@@ -57,15 +65,29 @@ try {
   const assessment = await call(a, "/api/ai/generate-questions");
   assert.equal(assessment.questions.length, 10);
   assert.ok(!("correct_index" in assessment.questions[0]));
+  const restoredDaily = await call(a, "/api/assessments/resume", { purpose: "daily", assessment_token: assessment.assessment_token });
+  assert.deepEqual(restoredDaily.questions, assessment.questions);
+  assert.equal(restoredDaily.expires_at, assessment.expires_at);
+  for (const [jar, purpose, token, status] of [
+    [b, "daily", assessment.assessment_token, 400],
+    [a, "practice", assessment.assessment_token, 400],
+  ]) {
+    const rejected = await fetch(base + "/api/assessments/resume", { method: "POST", headers: { Cookie: jar.cookie, "Content-Type": "application/json" }, body: JSON.stringify({ purpose, assessment_token: token }) });
+    assert.equal(rejected.status, status);
+  }
   const submission = { assessment_token: assessment.assessment_token, answers: assessment.questions.map(q => ({ question_id: q.id, selected_index: 0 })) };
   const result = await call(a, "/api/daily-test/submit", submission);
   const replay = await call(a, "/api/daily-test/submit", submission);
   assert.equal(result.xp_total, replay.xp_total);
   const practice = await call(a, "/api/roadmap/assess", { purpose: "practice" });
+  assert.deepEqual((await call(a, "/api/assessments/resume", { purpose: "practice", assessment_token: practice.assessment_token })).questions, practice.questions);
   await call(a, "/api/practice-test/submit", { assessment_token: practice.assessment_token, answers: practice.questions.map(q => ({ question_id: q.id, selected_index: -1 })) });
   const statsA = await call(a, "/api/demo/db", { table: "user_stats", single: "required" });
   const statsB = await call(b, "/api/demo/db", { table: "user_stats", single: "required" });
   assert.ok(statsA.data.xp > 0); assert.equal(statsB.data.xp, 0);
+  await call(a, "/api/careers/profile", { role_id: originalProfile.target_role_id, goal: "Accessible learning tools builder", level: "foundation", focus_skill_ids: [], context: "A new learning direction for this disposable fixture." });
+  const changedDraft = await fetch(base + "/api/assessments/resume", { method: "POST", headers: { Cookie: a.cookie, "Content-Type": "application/json" }, body: JSON.stringify({ purpose: "practice", assessment_token: practice.assessment_token }) });
+  assert.equal(changedDraft.status, 409);
   // Delete, then test the old capability directly (the end response clears cookies).
   const oldCookie = a.cookie;
   await call(a, "/api/demo/end");
@@ -75,7 +97,7 @@ try {
   // No service requests are made during this wait: expiry must run by itself.
   await new Promise(resolve => setTimeout(resolve, 15000));
   assert.equal((await fetch(base + "/api/demo/user", { method: "POST", headers: { Cookie: b.cookie } })).status, 401);
-  console.log("Demo integration passed: 10 learner pages, personal goal with learning track, PDF ingestion, profile apply, recommendations, course completion, insights, daily/practice grading, replay, isolation, deletion and lease expiry.");
+  console.log("Demo integration passed: 10 learner pages, personal goal with learning track, PDF ingestion, profile apply, recommendations, course completion, insights, daily/practice grading, all four context-bound assessment restores, replay, isolation, deletion and lease expiry.");
 } finally {
   for (const jar of [a, b]) await fetch(base + "/api/demo/end", { method: "POST", headers: { Cookie: jar.cookie } }).catch(() => {});
 }

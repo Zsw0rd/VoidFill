@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from ml.audit_foundation_editorial import audit as foundation_editorial_audit
 
 ROOT = Path(__file__).resolve().parent
 
@@ -25,7 +26,8 @@ def fingerprint(value):
 def answer_cues(rows):
     eligible = [row for row in rows if row.get("options") and isinstance(row.get("correct_index"), int) and 0 <= row["correct_index"] < len(row["options"])]
     longest = sum(len(row["options"][row["correct_index"]]) > max(len(value) for i, value in enumerate(row["options"]) if i != row["correct_index"]) for row in eligible)
-    return {"count": len(eligible), "unique_longest_correct": longest, "unique_longest_correct_rate": longest / len(eligible) if eligible else None, "correct_positions": dict(sorted(Counter(row["correct_index"] for row in eligible).items()))}
+    shortest = sum(len(row["options"][row["correct_index"]]) < min(len(value) for i, value in enumerate(row["options"]) if i != row["correct_index"]) for row in eligible)
+    return {"count": len(eligible), "unique_longest_correct": longest, "unique_longest_correct_rate": longest / len(eligible) if eligible else None, "unique_shortest_correct": shortest, "unique_shortest_correct_rate": shortest / len(eligible) if eligible else None, "correct_positions": dict(sorted(Counter(row["correct_index"] for row in eligible).items()))}
 
 
 def arithmetic(questions):
@@ -121,6 +123,8 @@ def audit():
         samples.append({"topic": key, "question_id": sample["question_id"] if sample else None, "review_current": current})
         if not current:
             errors.append("Selected explanation review missing or stale: "+key)
+    editorial = foundation_editorial_audit()
+    errors.extend(editorial["errors"])
     calculations = arithmetic(extension)
     errors.extend("Arithmetic mismatch: "+row["question_id"] for row in calculations if not row["passed"])
     current_links = {row["id"]: row for row in links["results"]}
@@ -136,10 +140,11 @@ def audit():
         "career_count": len(roles), "skill_count": len(skills), "stored_question_count": len(questions), "served_question_count": len(eligible_questions), "excluded_question_count": len(excluded_ids), "question_quality_registry": quality["version"], "served_resource_count": len(resources),
         "question_contract_errors": len([error for error in errors if error.startswith("Invalid question")]),
         "selected_explanation_reviews": samples, "arithmetic": calculations,
+        "foundation_editorial": {key: editorial[key] for key in ["edition", "source_sha256", "item_count", "topic_count", "before", "after", "interpretation"]},
         "links": {"checked_at": links["checked_at"], "http200": sum(row.get("status") == 200 for row in links["results"]), "total": len(links["results"]), "not_verified": [{"id": row["id"], "url": row["url"], "status": row.get("status"), "error": row.get("error")} for row in links["results"] if row.get("status") != 200]},
         "answer_cues": {"extension_foundation": answer_cues([q for q in extension if q["difficulty"] <= 2]), "extension_intermediate": answer_cues([q for q in extension if q["difficulty"] == 3]), "inherited_base": answer_cues(load(ROOT / "data/questions.json"))},
         "roles": roles, "errors": errors,
-        "remaining_limits": ["Agent review is not independent professional or pedagogical validation.", "Foundation answer-length cues remain a known authoring limitation; original foundation items were not silently rewritten.", "Role mappings and difficulty labels need real learner and specialist evidence before being used for consequential decisions.", "Reachable resource pages can still require external accounts or contain paid/member-only activities; HTTP200 does not establish learning access or relevance of every exercise.", "The adversarial matching set is now observed regression evidence. New untouched probes are required for future independent software-validation claims."],
+        "remaining_limits": ["Agent review is not independent professional or pedagogical validation.", "The explicit foundation editorial edition reduces the dominant longest-answer cue but residual length/style effects remain; no learner calibration is claimed.", "Role mappings and difficulty labels need real learner and specialist evidence before being used for consequential decisions.", "Reachable resource pages can still require external accounts or contain paid/member-only activities; HTTP200 does not establish learning access or relevance of every exercise.", "The adversarial matching set is now observed regression evidence. New untouched probes are required for future independent software-validation claims."],
     }
 
 

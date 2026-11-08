@@ -1,5 +1,9 @@
 # VoidFill local ML
 
+This document retains the local research/training history. Current deployment,
+database integrity and release status are summarized in
+[project status](PROJECT_STATUS.md) and [cloud deployment](CLOUD_DEPLOYMENT.md).
+
 The latest experiment is **v3**, a larger BGE-base encoder with full-lesson passage
 retrieval. See `LARGER_MODEL.md` and `ml/evaluation-v3.json` for the parameter/data
 increase, comparison and the distinction between pretrained and fine-tuned
@@ -202,16 +206,17 @@ and assessment history. Older recommendations are retained as history.
   Current score thresholds and score blending remain explicit application rules.
 - Source answers can contain errors. Add subject review before using these quizzes
   as formal completion credentials. Historical source material may be outdated.
-- Existing Supabase policies permit users to write their own progress rows. New
-  routes improve grading integrity but do not revoke those direct database writes.
-  Production needs a trusted database function/service role, tightened RLS, and an
-  atomic attempt/score/XP transaction with a unique submission ID. Simultaneous
-  different assessments can still race on XP, and daily attempts need a transactional
-  once-per-day guard. No live database policy changes were made in this task.
-- Multi-instance hosting needs shared database replay protection; local runtime
-  files and the Python service are not suitable for an ephemeral serverless filesystem.
-  A cloud-hosted Next.js server cannot reach this computer's loopback address. Host
-  the model service privately alongside it and configure the server-side URL/token.
+- Production grading now uses service-only transactional database functions and
+  a shared submission ledger. Browser writes to earned scores/XP are denied;
+  concurrent attempts, replay, once-per-day daily checks and rollback are tested.
+  The 7 November production cutover is recorded in
+  [database releases](DATABASE_RELEASES.md) and
+  [applied-learning evidence](APPLIED_LEARNING_RELEASE.md). The earlier direct-write
+  limitations are historical and must not be used as current setup instructions.
+- Multi-instance replay protection and private model hosting are implemented for
+  Vercel. Only disposable/local demos use a local runtime ledger. The web service
+  reaches the private learning service through its runtime binding, not the
+  developer's loopback address. See [cloud deployment](CLOUD_DEPLOYMENT.md).
 - The repository's older documentation describes the previous Gemini implementation;
   use this document for the current learning architecture.
 

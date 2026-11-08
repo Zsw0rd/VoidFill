@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,8 @@ import {
 import Link from "next/link";
 
 import { QuestionOptions } from "@/components/QuestionOptions";
+import { useAssessmentDraft } from "@/components/useAssessmentDraft";
+import { AssessmentDraftNotice } from "@/components/AssessmentDraftNotice";
 
 type Question = {
   id: string;
@@ -32,6 +34,8 @@ type Question = {
 };
 
 interface Props {
+  ownerId: string;
+  contextKey: string;
   recentAttempts: {
     score: number;
     difficulty_level: number;
@@ -49,7 +53,7 @@ const DIFF_TONES: Record<number, string> = {
   5: "bad",
 };
 
-export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
+export function PracticeTestClient({ ownerId, contextKey, recentAttempts, skillNames }: Props) {
   const [stage, setStage] = useState<"start" | "quiz" | "review" | "done">(
     "start",
   );
@@ -59,9 +63,18 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<any>(null);
+  const [submissionError, setSubmissionError] = useState<{message: string; restart: boolean} | null>(null);
   const [difficulty, setDifficulty] = useState(() =>
     computeAdaptiveDifficulty(recentAttempts),
   );
+  const draft = useAssessmentDraft({ ownerId, contextKey, slot: "practice", onRestore: (session, saved) => {
+    setQuestions(session.questions); setAssessmentToken(saved.token); setAnswers(saved.answers);
+    setIndex(saved.index); setDifficulty(session.difficulty); setStage("quiz"); setSubmissionError(null);
+  } });
+  const { persist: persistDraft, expiresAt } = draft;
+  useEffect(() => {
+    if (stage === "quiz" && assessmentToken && expiresAt) persistDraft({ purpose: "practice", token: assessmentToken, expiresAt, index, answers });
+  }, [stage, assessmentToken, expiresAt, index, answers, persistDraft]);
 
   const total = questions.length || 10;
   const progress =
@@ -72,6 +85,8 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
         : 0;
 
   async function startTest() {
+    if (!draft.ready || loading) return;
+    resetTest();
     setLoading(true);
     setResult(null);
     setAnswers({});
@@ -114,6 +129,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
 
       setQuestions(qs);
       setAssessmentToken(data.assessment_token);
+      draft.setExpiresAt(data.expires_at);
       setDifficulty(data.difficulty || 1);
       setStage("quiz");
     } catch (err: any) {
@@ -123,6 +139,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
   }
 
   async function submitTest() {
+    setSubmissionError(null);
     setLoading(true);
     try {
       const answerPayload = questions.map((q) => ({
@@ -141,12 +158,14 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
 
       const data = await res.json();
       if (!res.ok) {
-        toast("Submit failed", data.error || "Unknown error");
+        const message = data.error || "Your result could not be confirmed. Please retry saving.";
+        setSubmissionError({ message, restart: res.status === 400 && /assessment.*(?:invalid|expired)/i.test(message) });
         setLoading(false);
         return;
       }
 
       setResult(data);
+      draft.discard();
       setQuestions((current) =>
         current.map((q) => ({
           ...q,
@@ -170,18 +189,20 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
         );
       }
     } catch (err: any) {
-      toast("Network error", err.message);
+      setSubmissionError({ message: err.message || "Your result could not be confirmed. Please retry saving.", restart: false });
     }
     setLoading(false);
   }
 
   function resetTest() {
+    draft.discard();
     setStage("start");
     setQuestions([]);
     setAssessmentToken("");
     setAnswers({});
     setResult(null);
     setIndex(0);
+    setSubmissionError(null);
   }
 
   const q = questions[index];
@@ -206,7 +227,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
         <div>
           <div className="flex items-center gap-3">
             <h1 className="page-title">The practice lab.</h1>
-            <Badge tone="neutral">Unlimited</Badge>
+            <Badge tone="neutral">Practice</Badge>
           </div>
           <p className="mt-2 text-sm text-muted">
             Try. Learn. Try again. Build confidence across the skills in your
@@ -220,6 +241,8 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
           </div>
         )}
       </div>
+
+      {(stage === "start" || stage === "quiz") && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={resetTest} />}
 
       {/* Start Screen */}
       {stage === "start" && !loading && (
@@ -261,7 +284,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                 A little room to experiment.
               </h3>
               <p className="mt-2 text-sm text-muted max-w-md mx-auto">
-                Practice as often as you like. Each session adapts to your
+                Repeat practice within the shared activity limits. Each session adapts to your
                 recent performance and helps update your skill profile.
                 {skillNames.length > 0 && (
                   <span className="block mt-2 text-xs text-muted">
@@ -270,7 +293,7 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                 )}
               </p>
               <p className="mt-4 text-xs leading-6 text-muted">These questions check foundation knowledge. Explore specialist practice and reflection in <Link href="/careers" className="underline text-forest">Career explorer</Link>.</p>
-              <Button disabled={!skillNames.length} onClick={startTest} className="mt-6">
+              <Button disabled={!skillNames.length || !draft.ready} onClick={startTest} className="mt-6">
                 <Sparkles className="w-4 h-4" />
                 Start a practice session
               </Button>
@@ -313,9 +336,11 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                   options={q.options || []}
                   value={answers[q.id]}
                   onChange={(i) => setAnswers((a) => ({ ...a, [q.id]: i }))}
-                  disabled={loading}
+                  disabled={loading || draft.expired}
                 />
               </div>
+
+              {submissionError && <div role="alert" className="mt-5 rounded-xl border border-rust/30 bg-peach p-4 text-sm text-ink"><p className="font-semibold">Your result has not been confirmed</p><p className="mt-2">{submissionError.message}</p>{submissionError.restart ? <Button variant="soft" className="mt-3" onClick={startTest} loading={loading}>Start a new session</Button> : <p className="mt-2">Your answers remain in this tab. Use Finish session to retry the same submission safely.</p>}</div>}
 
               <div className="flex flex-wrap items-center gap-2 mt-6">
                 <Button
@@ -328,10 +353,10 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
                 </Button>
                 <span className="flex-1" />
                 <Button variant="ghost" disabled={loading} onClick={resetTest}>
-                  Leave session
+                  Discard session
                 </Button>
                 <Button
-                  disabled={loading || answers[q.id] === undefined}
+                  disabled={loading || draft.expired || answers[q.id] === undefined}
                   loading={loading}
                   onClick={() => {
                     if (answers[q.id] === undefined)

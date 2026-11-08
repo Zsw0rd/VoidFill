@@ -40,7 +40,7 @@ async function handlePOST(req: Request) {
     const result = await callLocalMl("/assessment", { skills, role: context.role, count: body.purpose === "course" && difficulty < 3 ? 12 : 10, difficulty, context: courseTitle }, assessmentResponseSchema);
     const allowed = new Set(skills.map((s) => s.id));
     if (result.questions.some((q) => !allowed.has(q.skill_id))) throw new LearningError("Invalid assessment skill mapping.", 502);
-    const session = createAssessment(user.id, result.questions, { purpose: body.purpose, difficulty: result.difficulty, ...(courseId ? { courseId } : {}), ...(body.purpose !== "practice" ? { skillId: skills[0].id } : {}) });
+    const session = createAssessment(user.id, result.questions, { purpose: body.purpose, difficulty: result.difficulty, contextKey: context.assessmentContext, ...(courseId ? { courseId } : {}), ...(body.purpose !== "practice" ? { skillId: skills[0].id } : {}) });
     return NextResponse.json({ ...session, difficulty: result.difficulty, difficultyLabel: result.difficultyLabel, model: result.model, unsupported_skills: result.unsupported_skills });
   } catch (error) {
     console.error("Assessment preparation:", error instanceof Error ? error.message : error);

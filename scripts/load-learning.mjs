@@ -10,7 +10,8 @@ import { createServerClient,parseCookieHeader,serializeCookieHeader } from "@sup
 import { probePlan,runLoadProbe,validateProbeSessions } from "../lib/loadProbe.mjs";
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
-const values=new Set(["--base","--mode","--clients","--rounds","--sessions","--output"]), flags=new Set(["--live","--acknowledge-real-accounts","--help"]);
+const controlRequests={start:0,lease:0,end:0};
+const values=new Set(["--base","--mode","--clients","--rounds","--sessions","--output","--pause-ms"]), flags=new Set(["--live","--acknowledge-real-accounts","--help"]);
 function options(argv) {
   const result={};
   for(let i=0;i<argv.length;i++) {
@@ -48,6 +49,8 @@ function clientWithCookie(cookie="") {
   }};
 }
 async function control(plan,client,path,body) {
+  const action=path.slice("/api/demo/".length);
+  if(Object.hasOwn(controlRequests,action))controlRequests[action]++;
   const response=await fetch(plan.origin+path,{method:"POST",headers:{"Content-Type":"application/json",Origin:plan.origin,Cookie:client.cookie},body:JSON.stringify(body),redirect:"manual",signal:AbortSignal.timeout(30000)});
   client.updateCookies(response.headers.getSetCookie());
   await response.body?.cancel();
@@ -59,12 +62,14 @@ try {
   if(args["--help"]) {
     console.log("No requests sent. Bounded learning probe: node scripts/load-learning.mjs --base http://localhost:3000 --clients 4 --rounds 2");
     console.log("Production demos additionally require --live --base https://void-fill.vercel.app. They do not measure real-account capacity.");
+    console.log("Local disposable demos support staged concurrency up to sixteen clients and ten rounds (three-minute deadline). Production remains capped at four demo clients; use --clients 16 --rounds 4 only against loopback.");
+    console.log("For a longer local-only run use --clients 16 --rounds 10 --pause-ms 2000 (930 workload requests, approximately 90 seconds of scheduled pauses plus request time). Pauses are rejected in production and real mode.");
     console.log("Real mode requires --mode real --sessions ml/runtime/<private>.json --acknowledge-real-accounts and controlled, separately authenticated test users. Never extract browser cookies or put sessions in command arguments/source/CI artifacts.");
     console.log("File format: version=1, exact origin, sessions array containing only cookie fields. Obtain sessions through an authorized API login/SDK workflow; Google-only browser login does not authorize cookie extraction.");
     console.log("Workload only generates unsubmitted daily/practice quizzes and reads practical workspaces. Real account generation budgets are consumed. Live runs are capped at two rounds and two real accounts; stop on the first failure/throttle. Output is private ignored JSON.");
     process.exit(0);
   }
-  const plan=probePlan({origin:args["--base"],mode:args["--mode"]||"demo",clients:Number(args["--clients"]||(args["--mode"]==="real"?2:4)),rounds:Number(args["--rounds"]||2),live:!!args["--live"]});
+  const plan=probePlan({origin:args["--base"],mode:args["--mode"]||"demo",clients:Number(args["--clients"]||(args["--mode"]==="real"?2:4)),rounds:Number(args["--rounds"]||2),live:!!args["--live"],pauseMs:Number(args["--pause-ms"]||0)});
   if(plan.mode==="real" && (!args["--acknowledge-real-accounts"] || !args["--sessions"])) throw new Error("Real mode requires explicit acknowledgement and private sessions from controlled users.");
   if(plan.mode==="demo" && (args["--sessions"] || args["--acknowledge-real-accounts"]))throw new Error("Real session options cannot be used in demo mode.");
   const output=privatePath(args["--output"]||`ml/runtime/performance/load-${new Date().toISOString().replace(/[:.]/g,"-")}-${randomUUID().slice(0,8)}.json`);
@@ -99,6 +104,7 @@ try {
     if(plan.mode==="demo")for(const client of clients.slice(0,started))try{await control(plan,client,"/api/demo/end",{});cleaned++;}catch{}
     for(const client of clients)client.cookie="";
   }
+  report.control_requests={...controlRequests};
   if(plan.mode==="demo") {report.cleanup={created:started,ended:cleaned};if(cleaned!==started){report.success=false;report.stopped_reason="demo_cleanup_failed";}}
   fs.writeFileSync(output,JSON.stringify(report,null,2)+"\n",{flag:"wx",mode:0o600});
   console.log(JSON.stringify({file:relative(root,output).replaceAll("\\","/"),...report},null,2));

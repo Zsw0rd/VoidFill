@@ -119,6 +119,7 @@ function LoginForm() {
             </button>
           </div>
         </div>
+        <Link href="/auth/forgot-password" className="inline-flex text-xs font-semibold text-forest underline underline-offset-4">Forgot your password?</Link>
         <Button loading={busy} className="w-full !min-h-12" type="submit">
           {busy ? (
             "Signing in…"

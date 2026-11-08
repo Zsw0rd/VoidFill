@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { loadCareerRequirements } from "@/lib/careerRequirements";
 import { hasKnowledgeCoverage } from "@/lib/careerCatalog";
 import { PracticeTestClient } from "./ui";
+import { assessmentContextKey } from "@/lib/assessmentContext";
 
 export default async function PracticeTestPage() {
     const supabase = await createClient();
@@ -29,6 +30,8 @@ export default async function PracticeTestPage() {
         <AppShell displayName={profile.full_name || user.email || "User"}>
             <div className="max-w-4xl mx-auto">
                 <PracticeTestClient
+                    ownerId={user.id}
+                    contextKey={assessmentContextKey(profile)}
                     recentAttempts={recentAttempts || []}
                     skillNames={skillNames}
                 />
