@@ -1,0 +1,2589 @@
+{
+  "checked_at": "2026-11-07T12:23:53.000267+00:00",
+  "includes_inherited_base": true,
+  "scope": "Public unauthenticated HTTP reachability; does not establish pedagogical quality or availability of every linked course activity. HTTP 403/429 can reflect automated-request blocking, not a missing resource.",
+  "results": [
+    {
+      "id": "21d6f7b742af5ef625aa9253",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/1-intro-to-programming-languages/README.md",
+      "title": "Introduction to Programming Languages and Tools of the Trade",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/1-intro-to-programming-languages/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "093e7f299d5a4a42be6f9683",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/2-github-basics/README.md",
+      "title": "Introduction to GitHub",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/2-github-basics/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "3f812fe641f4b86d2834366d",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/3-accessibility/README.md",
+      "title": "Creating Accessible Webpages",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/3-accessibility/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "a5d95e41d8d2b56ad5b25460",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/README.md",
+      "title": "Getting Started with Web Development",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "45db1418a7051a3a68f47bc2",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/1-data-types/README.md",
+      "title": "JavaScript Basics: Data Types",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/1-data-types/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "177807d185220783a0478e05",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/2-functions-methods/README.md",
+      "title": "JavaScript Basics: Methods and Functions",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/2-functions-methods/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "f96bb81b0ba769e1e46268cc",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/3-making-decisions/README.md",
+      "title": "JavaScript Basics: Making Decisions",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/3-making-decisions/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "f816fe36c2142be298089ac3",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/4-arrays-loops/README.md",
+      "title": "JavaScript Basics: Arrays and Loops",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/4-arrays-loops/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "4156f71c085df6857a4f85c9",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/README.md",
+      "title": "Introduction to JavaScript",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "5147d258bf81618cfbce5a2a",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/1-intro-to-html/README.md",
+      "title": "Terrarium Project Part 1: Introduction to HTML",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/1-intro-to-html/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "b5bcddf9e8bafa4fdd75339f",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/2-intro-to-css/README.md",
+      "title": "Terrarium Project Part 2: Introduction to CSS",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/2-intro-to-css/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "5e6ca8a2d103dbc86238e618",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/3-intro-to-DOM-and-closures/README.md",
+      "title": "Terrarium Project Part 3: DOM Manipulation and a Closure",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/3-intro-to-DOM-and-closures/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "0c8090f1641fa0e354d7d6c1",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/README.md",
+      "title": "My Terrarium: A project to learn about HTML, CSS, and DOM manipulation using JavaScript \ud83c\udf35\ud83c\udf31",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "93ff58af448d4c3a22046ab6",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/4-typing-game/README.md",
+      "title": "Event-Driven Programming - Build a Typing Game",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/4-typing-game/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "e48d1a8b3020ba91c131475d",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/4-typing-game/typing-game/README.md",
+      "title": "Creating a game using events",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/4-typing-game/typing-game/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "ccf09d85bb3979199f32a57b",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/1-about-browsers/README.md",
+      "title": "Browser Extension Project Part 1: All about Browsers",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/1-about-browsers/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "7f95b0704dd938c21b8c7d50",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/2-forms-browsers-local-storage/README.md",
+      "title": "Browser Extension Project Part 2: Call an API, use Local Storage",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/2-forms-browsers-local-storage/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "91ebbdad08c0aa7018b889a2",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/3-background-tasks-and-performance/README.md",
+      "title": "Browser Extension Project Part 3: Learn about Background Tasks and Performance",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/3-background-tasks-and-performance/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "04da0d2cfe28593dd774821a",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/README.md",
+      "title": "Building a browser extension",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d17ab6e6fc409dddc1c94d3a",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/start/README.md",
+      "title": "Carbon Trigger Browser Extension: Starter Code",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/start/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "a626753d5b4a2f04a087cf45",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/1-introduction/README.md",
+      "title": "Build a Space Game Part 1: Introduction",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/1-introduction/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "044151219efd503a941c1983",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/2-drawing-to-canvas/README.md",
+      "title": "Build a Space Game Part 2: Draw Hero and Monsters to Canvas",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/2-drawing-to-canvas/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "aabe132f4ffe9127fd7fc712",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/3-moving-elements-around/README.md",
+      "title": "Build a Space Game Part 3: Adding Motion",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/3-moving-elements-around/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "2c33319788e1916817c8f8f7",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/4-collision-detection/README.md",
+      "title": "Build a Space Game Part 4: Adding A Laser and Detect Collisions",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/4-collision-detection/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d4243ea043940885c2dc0588",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/5-keeping-score/README.md",
+      "title": "Build a Space Game Part 5: Scoring and Lives",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/5-keeping-score/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "e2ec4a1657965257b4205356",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/6-end-condition/README.md",
+      "title": "Build a Space Game Part 6: End and Restart",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/6-end-condition/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d78c1f50cef12815d86705dc",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/README.md",
+      "title": "Build a Space Game",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "db56078edbbfe68f42d8fa8e",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/1-template-route/README.md",
+      "title": "Build a Banking App Part 1: HTML Templates and Routes in a Web App",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/1-template-route/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d7daf65e177e2c6618c243b4",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/2-forms/README.md",
+      "title": "Build a Banking App Part 2: Build a Login and Registration Form",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/2-forms/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "8adb506835ad31efc908cf41",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/3-data/README.md",
+      "title": "Build a Banking App Part 3: Methods of Fetching and Using Data",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/3-data/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "f15bbbfc685089f0f0ef54c4",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/4-state-management/README.md",
+      "title": "Build a Banking App Part 4: Concepts of State Management",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/4-state-management/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "ccd785680686c59c2fe16932",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/README.md",
+      "title": ":dollar: Build a Bank",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "f397d1eb20ac49a8093f3c1c",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/api/README.md",
+      "title": "Bank API",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/api/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "71c0b9312980bb59f0bafe33",
+      "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/8-code-editor/1-using-a-code-editor/README.md",
+      "title": "Using a code editor",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/8-code-editor/1-using-a-code-editor/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "adbcf17f64d9f66e17f7ce82",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/1-intro-to-ML/README.md",
+      "title": "Introduction to machine learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/1-intro-to-ML/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "593b1f33ca4b39211c8eccd6",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/2-history-of-ML/README.md",
+      "title": "History of machine learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/2-history-of-ML/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "3f9470d7f955bac6fe97bdfb",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/3-fairness/README.md",
+      "title": "Building Machine Learning solutions with responsible AI",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/3-fairness/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "8665cbcb49e8235c073ea410",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/4-techniques-of-ML/README.md",
+      "title": "Techniques of Machine Learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/4-techniques-of-ML/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "650d1633208ac3bc22ff70dd",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/README.md",
+      "title": "Introduction to machine learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d4efc35e0bb394adf9e02a90",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/1-Tools/README.md",
+      "title": "Get started with Python and Scikit-learn for regression models",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/1-Tools/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "89cd5bb2ed626c6062fa7c6a",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/2-Data/README.md",
+      "title": "Build a regression model using Scikit-learn: prepare and visualize data",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/2-Data/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "2b19a333828f0415582f2cc5",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/3-Linear/README.md",
+      "title": "Build a regression model using Scikit-learn: regression four ways",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/3-Linear/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "80fa4d18046d23b6fffe27dc",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/4-Logistic/README.md",
+      "title": "Logistic regression to predict categories",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/4-Logistic/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "e0150a6104439992b3fd91fc",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/README.md",
+      "title": "Regression models for machine learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "44a5f55f2274d16ffaa8a4a8",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/1-Web-App/README.md",
+      "title": "Build a Web App to use a ML Model",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/1-Web-App/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "9ad1b600e41c8b66e609173a",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/README.md",
+      "title": "Build a web app to use your ML model",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "9932de14f2896338373bd21c",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/1-Introduction/README.md",
+      "title": "Introduction to classification",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/1-Introduction/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "444dada88136c9d89d3748b1",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/2-Classifiers-1/README.md",
+      "title": "Cuisine classifiers 1",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/2-Classifiers-1/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "1ff66fd8a070f3eb629997a8",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/3-Classifiers-2/README.md",
+      "title": "Cuisine classifiers 2",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/3-Classifiers-2/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "9d409b7e327d6e85d596caa5",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/4-Applied/README.md",
+      "title": "Build a Cuisine Recommender Web App",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/4-Applied/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "1121a67935e8f40c613b313b",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/README.md",
+      "title": "Getting started with classification",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "64194972db5d31954d2eab14",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/1-Visualize/README.md",
+      "title": "Introduction to clustering",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/1-Visualize/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "68f07271e7cd3852c7c9b888",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/2-K-Means/README.md",
+      "title": "K-Means clustering",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/2-K-Means/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "853f6cd5e85370015f2aa173",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/README.md",
+      "title": "Clustering models for machine learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "415aa9bf5153db2f959b7f41",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/1-Introduction-to-NLP/README.md",
+      "title": "Introduction to natural language processing",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/1-Introduction-to-NLP/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "7d7d7e40def35e4fbc555ad2",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/2-Tasks/README.md",
+      "title": "Common natural language processing tasks and techniques",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/2-Tasks/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "77ed081e085b28907dec5676",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/3-Translation-Sentiment/README.md",
+      "title": "Translation and sentiment analysis with ML",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/3-Translation-Sentiment/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "4514033c9679049ba71da6f1",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/4-Hotel-Reviews-1/README.md",
+      "title": "Sentiment analysis with hotel reviews - processing the data",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/4-Hotel-Reviews-1/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "1fcb47b0e456d979ca226530",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/5-Hotel-Reviews-2/README.md",
+      "title": "Sentiment analysis with hotel reviews",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/5-Hotel-Reviews-2/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "dfdd34fd544e6f7c7b928edf",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/README.md",
+      "title": "Getting started with natural language processing",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "ca35af5340dc07e76eca1c36",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/1-Introduction/README.md",
+      "title": "Introduction to time series forecasting",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/1-Introduction/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "6e480609fa7263de12f2354d",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/2-ARIMA/README.md",
+      "title": "Time series forecasting with ARIMA",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/2-ARIMA/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d5aabaecb172aa8ce7253ddb",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/3-SVR/README.md",
+      "title": "Time Series Forecasting with Support Vector Regressor",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/3-SVR/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d125ff2ef9ffefcf1f97be09",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/README.md",
+      "title": "Introduction to time series forecasting",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "0131853a327944e9e99b399d",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/1-QLearning/README.md",
+      "title": "Introduction to Reinforcement Learning and Q-Learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/1-QLearning/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "e510c3148513e66df9d9e6d8",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/2-Gym/README.md",
+      "title": "CartPole Skating",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/2-Gym/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "55d0840db6a74d586bfd327f",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/README.md",
+      "title": "Introduction to reinforcement learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "f73cafa52d6650012359482a",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/1-Applications/README.md",
+      "title": "Postscript: Machine learning in the real world",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/1-Applications/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "93b2318d79f963858dd400fc",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/2-Debugging-ML-Models/README.md",
+      "title": "Postscript: Model Debugging in Machine Learning using Responsible AI dashboard components",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/2-Debugging-ML-Models/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "0768f09431d653c0e0085fd7",
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/README.md",
+      "title": "Postscript: Real world applications of classic machine learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "27d4e7f2501e411d385f5a88",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/01-defining-data-science/README.md",
+      "title": "Defining Data Science",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/01-defining-data-science/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "993db9cab0553748c936a092",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/02-ethics/README.md",
+      "title": "Introduction to Data Ethics",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/02-ethics/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "009c0a5726487f0e2b0d295f",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/03-defining-data/README.md",
+      "title": "Defining Data",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/03-defining-data/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "acdab68f5b66b329d778b49b",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md",
+      "title": "A Brief Introduction to Statistics and Probability",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "59b7323b3873b9631e9b3e57",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/README.md",
+      "title": "Introduction to Data Science",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "0ad4c1aac9788e7c692ef68b",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/05-relational-databases/README.md",
+      "title": "Working with Data: Relational Databases",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/05-relational-databases/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "84473a87643db1c9873ef626",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/06-non-relational/README.md",
+      "title": "Working with Data: Non-Relational Data",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/06-non-relational/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "c9b51ac25661fe54207ddcd9",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/07-python/README.md",
+      "title": "Working with Data: Python and the Pandas Library",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/07-python/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "5b6039faba757e4d6dc1be12",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/08-data-preparation/README.md",
+      "title": "Working with Data: Data Preparation",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/08-data-preparation/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "1fcef905924496d4b2d1d551",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/README.md",
+      "title": "Working with Data",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "36542555913dc6f317da49c8",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/09-visualization-quantities/README.md",
+      "title": "Visualizing Quantities",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/09-visualization-quantities/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "aedd432f9b1ab8a2e1192fa2",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/10-visualization-distributions/README.md",
+      "title": "Visualizing Distributions",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/10-visualization-distributions/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "77cfa91e79657e8c0c1eb0fc",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/11-visualization-proportions/README.md",
+      "title": "Visualizing Proportions",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/11-visualization-proportions/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "b9e1b048dcb1f2c56801144a",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/12-visualization-relationships/README.md",
+      "title": "Visualizing Relationships: All About Honey \ud83c\udf6f",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/12-visualization-relationships/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "a0f8e58d4753682edd5c341b",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/README.md",
+      "title": "Making Meaningful Visualizations",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "03f16408cfdc2cd68cadc2ff",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/starter/README.md",
+      "title": "Dangerous Liaisons data visualization project",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/starter/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "55ab89f1e92450b866684121",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/09-visualization-quantities/README.md",
+      "title": "Visualizing Quantities",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/09-visualization-quantities/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "8097fd9e97b247dce8439234",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/10-visualization-distributions/README.md",
+      "title": "Visualizing Distributions",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/10-visualization-distributions/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "1247afec55e65feff5947891",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/11-visualization-proportions/README.md",
+      "title": "Visualizing Proportions",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/11-visualization-proportions/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "2b797a4603316f7bed637de5",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/12-visualization-relationships/README.md",
+      "title": "Visualizing Relationships: All About Honey \ud83c\udf6f",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/12-visualization-relationships/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "e3b30b99d28cfb42530d10b4",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/13-meaningful-vizualizations/README.md",
+      "title": "Making Meaningful Visualizations",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/13-meaningful-vizualizations/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "6f2bb4eb8760256dfae8fc0f",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/README.md",
+      "title": "Visualizations",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "a0062ec3693c2d5f7902a84e",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/14-Introduction/README.md",
+      "title": "Introduction to the Data Science Lifecycle",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/14-Introduction/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "ea403329bb64b8f859715117",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/15-analyzing/README.md",
+      "title": "The Data Science Lifecycle: Analyzing",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/15-analyzing/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "9de0e1547939da2bcccf012d",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/16-communication/README.md",
+      "title": "The Data Science Lifecycle: Communication",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/16-communication/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "467e0d973c5c657c57833c4d",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/README.md",
+      "title": "The Data Science Lifecycle",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "a2d83fbecfe2497137ad34c8",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/17-Introduction/README.md",
+      "title": "Introduction to Data Science in the Cloud",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/17-Introduction/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "c5989308d51c40fa4397c350",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/18-Low-Code/README.md",
+      "title": "Data Science in the Cloud: The \"Low code/No code\" way",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/18-Low-Code/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "b599236b084e1d3583f503b7",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/19-Azure/README.md",
+      "title": "Data Science in the Cloud: The \"Azure ML SDK\" way",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/19-Azure/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "0ec911c91765a7198cf26408",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/README.md",
+      "title": "Data Science in the Cloud",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "bb18a0136e645102f6afe82f",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/20-Real-World-Examples/README.md",
+      "title": "Data Science in the Real World",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/20-Real-World-Examples/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "21035d5c49c6d63d09a4bf84",
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/README.md",
+      "title": "Data Science in the Wild",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "0c51048245d19180862ad9f3",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/1-Intro/README.md",
+      "title": "Introduction to AI",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/1-Intro/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d499068082f3cfa97d683053",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/2-Symbolic/README.md",
+      "title": "Knowledge Representation and Expert Systems",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/2-Symbolic/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "46a7e6a77b4dbc77f76db48a",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/README.md",
+      "title": "Introduction to Neural Networks: Perceptron",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "911ffe1c58b8af2e5ba63de4",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/lab/README.md",
+      "title": "Multi-Class Classification with Perceptron",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "ff54a82ff50edcbd568943b3",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/README.md",
+      "title": "Introduction to Neural Networks. Multi-Layered Perceptron",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "5271c4919333ec50a98efba8",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/lab/README.md",
+      "title": "MNIST Classification with Our Own Framework",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "297db38e16102576c4858f03",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/README.md",
+      "title": "Neural Network Frameworks",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "9ee3a81370b41cd4740ae735",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/lab/README.md",
+      "title": "Classification with PyTorch/TensorFlow",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "1bd3c2667139203537686631",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/README.md",
+      "title": "Introduction to Neural Networks",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "c7c56a433efa2ea3052c0a04",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/README.md",
+      "title": "Introduction to Computer Vision",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d210658de51d5920ed3d5b78",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/lab/README.md",
+      "title": "Detecting Movements using Optical Flow",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "525ec3a4405c46204b09761b",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/README.md",
+      "title": "Convolutional Neural Networks",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "b5fab1e2354cb85bd0cbc30b",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/lab/README.md",
+      "title": "Classification of Pets Faces",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "e4fca6cf26190fda47db287a",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/README.md",
+      "title": "Pre-trained Networks and Transfer Learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d15644edf9b9b956e6618b9d",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/lab/README.md",
+      "title": "Classification of Oxford Pets using Transfer Learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "7d9a34064faa6f490016c776",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/09-Autoencoders/README.md",
+      "title": "Autoencoders",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/09-Autoencoders/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "3725a6a92e7b2dd17bc20532",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/10-GANs/README.md",
+      "title": "Generative Adversarial Networks",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/10-GANs/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "d78317785ba7cee2add3cbeb",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/README.md",
+      "title": "Object Detection",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "b3c2877b36e14c3bc41e623f",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/lab/README.md",
+      "title": "Head Detection using Hollywood Heads Dataset",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "8912ef2a4435e94decd28e50",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/README.md",
+      "title": "Segmentation",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "6086f4e27678b379699d4285",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/lab/README.md",
+      "title": "Human Body Segmentation",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "b91bb3ec6942f71f236cca82",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/README.md",
+      "title": "Computer Vision",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "08c8de199e82fb31fc61c6c4",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/13-TextRep/README.md",
+      "title": "Representing Text as Tensors",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/13-TextRep/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "e4c6fcd7da2e00369091132a",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/14-Embeddings/README.md",
+      "title": "Embeddings",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/14-Embeddings/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "41ba0936bb2829fd45bbcaac",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/README.md",
+      "title": "Language Modeling",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "5926ac09c5ed8e719c452a6c",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/lab/README.md",
+      "title": "Training Skip-Gram Model",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "cb2e525fedcd48a5178d3997",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/16-RNN/README.md",
+      "title": "Recurrent Neural Networks",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/16-RNN/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "9fd2c134937e8547b0a1c9c0",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/README.md",
+      "title": "Generative networks",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "ecb8ebc1b6fdb12650dbefd3",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/lab/README.md",
+      "title": "Word-level Text Generation using RNNs",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "07e15a8774b6359d837912eb",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/18-Transformers/README.md",
+      "title": "Attention Mechanisms and Transformers",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/18-Transformers/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "c7731f3e10ba22ac11b6fbc7",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/README.md",
+      "title": "Named Entity Recognition",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "7c8a05902f3cd828d79eedda",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/lab/README.md",
+      "title": "NER",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "45e7b6b08a82e12efed49d33",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/20-LangModels/README.md",
+      "title": "Pre-Trained Large Language Models",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/20-LangModels/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "60ee3f7735dc148a75646c04",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/README.md",
+      "title": "Natural Language Processing",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "719503d74361a99df21f8afb",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/21-GeneticAlgorithms/README.md",
+      "title": "Genetic Algorithms",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/21-GeneticAlgorithms/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "22a7bac053135218fc65a910",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/README.md",
+      "title": "Deep Reinforcement Learning",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "0b8817c3d2ac15166fe4cc81",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/lab/README.md",
+      "title": "Training Mountain Car to Escape",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/lab/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "3077eb9ec19688e5bdc3b680",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/23-MultiagentSystems/README.md",
+      "title": "Multi-Agent Systems",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/23-MultiagentSystems/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "020e28d47dc073e3e17b14ab",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/7-Ethics/README.md",
+      "title": "Ethical and Responsible AI",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/7-Ethics/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "6cacd4c63fd96fb1f367587e",
+      "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/X-Extras/X1-MultiModal/README.md",
+      "title": "Multi-Modal Networks",
+      "status": 200,
+      "final_url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/X-Extras/X1-MultiModal/README.md",
+      "page_title": null,
+      "transport": "system-curl-head-verified-tls"
+    },
+    {
+      "id": "voidfill-python-0",
+      "url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "title": "Python control flow",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "page_title": "4. More Control Flow Tools &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "voidfill-python-1",
+      "url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "title": "Python data structures",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "page_title": "5. Data Structures &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "voidfill-sql-0",
+      "url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "title": "PostgreSQL query tutorial",
+      "status": 200,
+      "final_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "page_title": "PostgreSQL: Documentation: 18: 2.5. Querying a Table"
+    },
+    {
+      "id": "voidfill-sql-1",
+      "url": "https://www.postgresql.org/docs/current/tutorial-join.html",
+      "title": "PostgreSQL joins",
+      "status": 200,
+      "final_url": "https://www.postgresql.org/docs/current/tutorial-join.html",
+      "page_title": "PostgreSQL: Documentation: 18: 2.6. Joins Between Tables"
+    },
+    {
+      "id": "voidfill-sql-2",
+      "url": "https://www.postgresql.org/docs/current/tutorial-agg.html",
+      "title": "PostgreSQL aggregates",
+      "status": 200,
+      "final_url": "https://www.postgresql.org/docs/current/tutorial-agg.html",
+      "page_title": "PostgreSQL: Documentation: 18: 2.7. Aggregate Functions"
+    },
+    {
+      "id": "voidfill-visualization-0",
+      "url": "https://matplotlib.org/stable/users/getting_started/",
+      "title": "Matplotlib getting started",
+      "status": 200,
+      "final_url": "https://matplotlib.org/stable/users/getting_started/",
+      "page_title": "Getting started &#8212; Matplotlib 3.11.2 documentation"
+    },
+    {
+      "id": "voidfill-visualization-1",
+      "url": "https://seaborn.pydata.org/tutorial/introduction.html",
+      "title": "Seaborn introduction",
+      "status": 200,
+      "final_url": "https://seaborn.pydata.org/tutorial/introduction.html",
+      "page_title": "An introduction to seaborn &#8212; seaborn 0.13.2 documentation"
+    },
+    {
+      "id": "voidfill-web-0",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "title": "HTML basics",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "page_title": "HTML: Creating the content - Learn web development | MDN"
+    },
+    {
+      "id": "voidfill-web-1",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content",
+      "title": "CSS basics",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content",
+      "page_title": "CSS: Styling the content - Learn web development | MDN"
+    },
+    {
+      "id": "voidfill-web-2",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "title": "JavaScript guide",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "page_title": "JavaScript Guide - JavaScript | MDN"
+    },
+    {
+      "id": "voidfill-git-0",
+      "url": "https://git-scm.com/docs/gittutorial",
+      "title": "Git tutorial",
+      "status": 200,
+      "final_url": "https://git-scm.com/docs/gittutorial",
+      "page_title": "Git - gittutorial Documentation"
+    },
+    {
+      "id": "voidfill-git-1",
+      "url": "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell",
+      "title": "Git branches",
+      "status": 200,
+      "final_url": "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell",
+      "page_title": "Git - Branches in a Nutshell"
+    },
+    {
+      "id": "voidfill-git-2",
+      "url": "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes",
+      "title": "Git remotes",
+      "status": 200,
+      "final_url": "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes",
+      "page_title": "Git - Working with Remotes"
+    },
+    {
+      "id": "voidfill-algorithms-0",
+      "url": "https://docs.python.org/3/library/collections.html",
+      "title": "Python collections",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/library/collections.html",
+      "page_title": "collections \u2014 Container datatypes &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "voidfill-algorithms-1",
+      "url": "https://docs.python.org/3/library/heapq.html",
+      "title": "Python heap queues",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/library/heapq.html",
+      "page_title": "heapq \u2014 Heap queue algorithm &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "voidfill-algorithms-2",
+      "url": "https://docs.python.org/3/library/bisect.html",
+      "title": "Python binary search",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/library/bisect.html",
+      "page_title": "bisect \u2014 Array bisection algorithm &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "career-resource-b377ef5d42a571298845",
+      "url": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control",
+      "title": "About version control",
+      "status": 200,
+      "final_url": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control",
+      "page_title": "Git - About Version Control"
+    },
+    {
+      "id": "career-resource-75f1d01d8f91f12dfe75",
+      "url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository",
+      "title": "Recording changes to a repository",
+      "status": 200,
+      "final_url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository",
+      "page_title": "Git - Recording Changes to the Repository"
+    },
+    {
+      "id": "career-resource-0311ea2c2be33640113c",
+      "url": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging",
+      "title": "Basic branching and merging",
+      "status": 200,
+      "final_url": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging",
+      "page_title": "Git - Basic Branching and Merging"
+    },
+    {
+      "id": "career-resource-bee16746c6eb2effd701",
+      "url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "title": "Python data structures",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "page_title": "5. Data Structures &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "career-resource-14729e0f9e99c6dd96bd",
+      "url": "https://docs.python.org/3/library/bisect.html",
+      "title": "Binary search with bisect",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/library/bisect.html",
+      "page_title": "bisect \u2014 Array bisection algorithm &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "career-resource-6a9a3392c1455846b61b",
+      "url": "https://docs.python.org/3/library/heapq.html",
+      "title": "Heap queues",
+      "status": 200,
+      "final_url": "https://docs.python.org/3/library/heapq.html",
+      "page_title": "heapq \u2014 Heap queue algorithm &#8212; Python 3.15.2 documentation"
+    },
+    {
+      "id": "career-resource-00bfd85f2741a83f7291",
+      "url": "https://support.google.com/docs/answer/1272900?hl=en",
+      "title": "Create and use pivot tables",
+      "status": 200,
+      "final_url": "https://support.google.com/docs/answer/1272900?hl=en",
+      "page_title": "Create &amp; use pivot tables - Computer - Google Docs Editors Help"
+    },
+    {
+      "id": "career-resource-7c2b49e6b750a2454cb9",
+      "url": "https://support.google.com/docs/table/25273?hl=en",
+      "title": "Google Sheets function list",
+      "status": 200,
+      "final_url": "https://support.google.com/docs/table/25273?hl=en",
+      "page_title": "Google Sheets function list - Google Docs Editors Help"
+    },
+    {
+      "id": "career-resource-d02dfc9bb7add035c0d4",
+      "url": "https://support.microsoft.com/en-us/office/overview-of-formulas-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173",
+      "title": "Overview of formulas in Excel",
+      "status": 200,
+      "final_url": "https://support.microsoft.com/en-us/excel/get-started/overview-of-formulas-in-excel",
+      "page_title": "Overview of formulas in Excel | Microsoft Support"
+    },
+    {
+      "id": "career-resource-d80406fdc9e304415990",
+      "url": "https://www.skillsbuilder.org/global/universal-framework-steps/listening-step-7-active-listening",
+      "title": "Active listening",
+      "status": 200,
+      "final_url": "https://www.skillsbuilder.org/global/universal-framework-steps/listening-step-7-active-listening",
+      "page_title": "Listening skills | Step 7 | Universal Framework"
+    },
+    {
+      "id": "career-resource-2f90b267348f46d4017e",
+      "url": "https://www.atlassian.com/team-playbook/plays/working-agreements",
+      "title": "Working agreements",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/team-playbook/plays/working-agreements",
+      "page_title": "Working Agreements Play | Atlassian"
+    },
+    {
+      "id": "career-resource-418999b6d2292fca5eb7",
+      "url": "https://www.atlassian.com/team-playbook/plays/roles-and-responsibilities",
+      "title": "Roles and responsibilities",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/team-playbook/plays/roles-and-responsibilities",
+      "page_title": "How to Define Team Roles and Responsibilities | Atlassian"
+    },
+    {
+      "id": "career-resource-09205585873f8f296ebe",
+      "url": "https://www.iiba.org/knowledgehub/the-business-analysis-standard/",
+      "title": "The Business Analysis Standard",
+      "status": 200,
+      "final_url": "https://www.iiba.org/knowledgehub/the-business-analysis-standard/",
+      "page_title": "The Business Analysis Standard | KnowledgeHub IIBA&#xAE;"
+    },
+    {
+      "id": "career-resource-87499d1e1ec60bea0324",
+      "url": "https://www.atlassian.com/work-management/project-management/requirements-gathering",
+      "title": "Requirements gathering",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/work-management/project-management/requirements-gathering",
+      "page_title": "What is Requirements Gathering?"
+    },
+    {
+      "id": "career-resource-3333de15c00d5936d8fe",
+      "url": "https://www.onetonline.org/link/summary/13-1111.00",
+      "title": "Management Analysts: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1111.00",
+      "page_title": "13-1111.00 - Management Analysts"
+    },
+    {
+      "id": "career-resource-3af363d51f06e0efa77e",
+      "url": "https://academy.hubspot.com/courses/delivering-exceptional-customer-support",
+      "title": "Delivering exceptional customer support",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/delivering-exceptional-customer-support",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-6050421d8b173b9ccb90",
+      "url": "https://academy.hubspot.com/courses/hubspot-service-software",
+      "title": "Service Hub software",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/hubspot-service-software",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-10f59c55d3dee15b53c7",
+      "url": "https://www.onetonline.org/link/summary/43-4051.00",
+      "title": "Customer service representatives: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/43-4051.00",
+      "page_title": "43-4051.00 - Customer Service Representatives"
+    },
+    {
+      "id": "career-resource-4a5e1f70f6f28e160f76",
+      "url": "https://www.atlassian.com/work-management/project-management/project-risk-management",
+      "title": "Project risk management",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/work-management/project-management/project-risk-management",
+      "page_title": "How to Manage Project Risks [Step-by-Step Guide] | Atlassian"
+    },
+    {
+      "id": "career-resource-fdff649e8ef4a980c759",
+      "url": "https://www.atlassian.com/work-management/project-management/project-scope",
+      "title": "Project scope",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/work-management/project-management/project-scope",
+      "page_title": "What is Project Scope? How to Define & Write"
+    },
+    {
+      "id": "career-resource-92c0b5216c6518077d8b",
+      "url": "https://www.onetonline.org/link/summary/13-1082.00",
+      "title": "Project Management Specialists: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1082.00",
+      "page_title": "13-1082.00 - Project Management Specialists"
+    },
+    {
+      "id": "career-resource-a8434ccf2ed49ef540f9",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/1-why-it-matters",
+      "title": "Financial accounting foundations",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/1-why-it-matters",
+      "page_title": "Ch. 1 Why It Matters - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-885b19429d4477e02bed",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+      "title": "Elements of financial statements",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+      "page_title": "2.2 Define, Explain, and Provide Examples of Current and Noncurrent Assets, Current and Noncurrent Liabilities, Equity, Revenues, and Expenses - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-c43ed057dfdb5fac89fd",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/4-why-it-matters",
+      "title": "Accounting adjustments and period-end foundations",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/4-why-it-matters",
+      "page_title": "Ch. 4 Why It Matters - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-fc830cebaa10205ed3f1",
+      "url": "https://academy.hubspot.com/courses/digital-marketing",
+      "title": "Digital Marketing",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/digital-marketing",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-194927714ef79e921ab4",
+      "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "title": "Search Engine Optimization Starter Guide",
+      "status": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "page_title": "SEO Starter Guide: The Basics | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-b7323e0bae5c7e69451b",
+      "url": "https://academy.hubspot.com/courses/email-marketing",
+      "title": "Email Marketing",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/email-marketing-certification-en",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-7dc843950f5df38e2316",
+      "url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/",
+      "title": "Selection methods",
+      "status": 200,
+      "final_url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/",
+      "page_title": "Selection Methods | CIPD"
+    },
+    {
+      "id": "career-resource-4d7fdae98da8d4fd0a33",
+      "url": "https://www.cipd.org/uk/topics/recruitment/",
+      "title": "Recruitment resources",
+      "status": 200,
+      "final_url": "https://www.cipd.org/uk/topics/recruitment/",
+      "page_title": "Recruitment resources | CIPD"
+    },
+    {
+      "id": "career-resource-63095607c61d302f0758",
+      "url": "https://www.onetonline.org/link/summary/13-1071.00",
+      "title": "Human Resources Specialists: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1071.00",
+      "page_title": "13-1071.00 - Human Resources Specialists"
+    },
+    {
+      "id": "career-resource-e8eedc80e0615420aedc",
+      "url": "https://academy.hubspot.com/courses/inbound-sales",
+      "title": "Inbound Sales",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/inbound-sales",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-b40f1bf62bc60ee72b84",
+      "url": "https://academy.hubspot.com/courses/Sales-Enablement",
+      "title": "Sales Enablement",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/Sales-Enablement",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-af992b76f66568b241b9",
+      "url": "https://www.onetonline.org/link/summary/41-3091.00",
+      "title": "Sales representatives: occupation overview",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/41-3091.00",
+      "page_title": "41-3091.00 - Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel"
+    },
+    {
+      "id": "career-resource-d569b55a6483bffb303d",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+      "title": "Overview of HTTP",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+      "page_title": "Overview of HTTP - HTTP | MDN"
+    },
+    {
+      "id": "career-resource-0dbd3d2673dacc913410",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+      "title": "HTTP request methods",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+      "page_title": "HTTP request methods - HTTP | MDN"
+    },
+    {
+      "id": "career-resource-a7cc285b4fd506c52384",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+      "title": "HTTP response status codes",
+      "status": 200,
+      "final_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+      "page_title": "HTTP response status codes - HTTP | MDN"
+    },
+    {
+      "id": "career-resource-797d980153ad152d04b6",
+      "url": "https://docs.pytest.org/en/stable/getting-started.html",
+      "title": "Get started with pytest",
+      "status": 200,
+      "final_url": "https://docs.pytest.org/en/stable/getting-started.html",
+      "page_title": "Get Started - pytest documentation"
+    },
+    {
+      "id": "career-resource-ecb53596f43cde370334",
+      "url": "https://playwright.dev/docs/best-practices",
+      "title": "End-to-end testing best practices",
+      "status": 200,
+      "final_url": "https://playwright.dev/docs/best-practices",
+      "page_title": "Best Practices | Playwright"
+    },
+    {
+      "id": "career-resource-391e6ffb0b3c224e01b0",
+      "url": "https://playwright.dev/docs/test-assertions",
+      "title": "Writing assertions",
+      "status": 200,
+      "final_url": "https://playwright.dev/docs/test-assertions",
+      "page_title": "Assertions | Playwright"
+    },
+    {
+      "id": "career-resource-8a7935c43ef9083e3b12",
+      "url": "https://ubuntu.com/tutorials/command-line-for-beginners",
+      "title": "The Linux command line for beginners",
+      "status": 200,
+      "final_url": "https://ubuntu.com/tutorials/command-line-for-beginners",
+      "page_title": "The Linux command line for beginners | Ubuntu"
+    },
+    {
+      "id": "career-resource-bbf85934c1076ecb7bc4",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html",
+      "title": "File permissions",
+      "status": 200,
+      "final_url": "https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html",
+      "page_title": "File permissions (GNU Coreutils 9.12)"
+    },
+    {
+      "id": "career-resource-64e32e8afc70b96abb18",
+      "url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+      "title": "Bash pipelines",
+      "status": 200,
+      "final_url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+      "page_title": "Pipelines (Bash Reference Manual)"
+    },
+    {
+      "id": "career-resource-1d3d89d0ade1c2f525bc",
+      "url": "https://www.netacad.com/courses/networking-basics",
+      "title": "Networking Basics",
+      "status": 200,
+      "final_url": "https://www.netacad.com/courses/networking-basics",
+      "page_title": "Free Computer Networking Course by Cisco: Start Learning Now"
+    },
+    {
+      "id": "career-resource-63fe998ebd1b2b8bc063",
+      "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+      "title": "Fundamentals of computer networking",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+      "page_title": "Fundamentals of computer networking - Training | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-76629e940c5d1b561f03",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+      "title": "Virtual network fundamentals",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+      "page_title": "What is Azure Virtual Network? | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-4261012b3fba6f5a37eb",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+      "title": "Describe cloud computing",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+      "page_title": "Describe Cloud Computing - Training | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-03bc8731f1f09255ab35",
+      "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "title": "Shared responsibility model",
+      "status": 200,
+      "final_url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "page_title": "Shared Responsibility Model - Amazon Web Services (AWS)"
+    },
+    {
+      "id": "career-resource-f7911eb3bf8a605bef8b",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+      "title": "Benefits of cloud services",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+      "page_title": "Describe the benefits of using cloud services - Training | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-422c2f722165341ac595",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+      "title": "Authorization guidance",
+      "status": 200,
+      "final_url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+      "page_title": "Authorization - OWASP Cheat Sheet Series"
+    },
+    {
+      "id": "career-resource-cb74541bed9d1fcd2109",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "title": "Authentication guidance",
+      "status": 200,
+      "final_url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "page_title": "Authentication - OWASP Cheat Sheet Series"
+    },
+    {
+      "id": "career-resource-4df1fad12273bbad7733",
+      "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+      "title": "Introduction to Cybersecurity",
+      "status": 200,
+      "final_url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+      "page_title": "Introduction to Cybersecurity by Cisco: Free Online Course"
+    },
+    {
+      "id": "career-resource-3a1f7637048a5f7b789a",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/",
+      "title": "Architecture styles",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/",
+      "page_title": "Architecture Styles - Azure Architecture Center | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-dcf410e61f8a24340539",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
+      "title": "Cloud design patterns",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
+      "page_title": "Cloud Design Patterns - Azure Architecture Center | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-10bd02065585320e1882",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/",
+      "title": "Architecture design principles",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/",
+      "page_title": "Design Principles for Azure Applications - Azure Architecture Center | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-c201a6433fd48e43ec16",
+      "url": "https://docs.docker.com/get-started/docker-overview/",
+      "title": "Docker overview",
+      "status": 200,
+      "final_url": "https://docs.docker.com/get-started/docker-overview/",
+      "page_title": "What is Docker? | Docker Docs"
+    },
+    {
+      "id": "career-resource-94d354da5943e2cf4a68",
+      "url": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
+      "title": "Understanding GitHub Actions",
+      "status": 200,
+      "final_url": "https://docs.github.com/en/actions/get-started/understand-github-actions",
+      "page_title": "Understanding GitHub Actions - GitHub Docs"
+    },
+    {
+      "id": "career-resource-bef9d1ba64c268354452",
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments",
+      "title": "GitHub deployment environments",
+      "status": 200,
+      "final_url": "https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments",
+      "page_title": "Deployments and environments - GitHub Docs"
+    },
+    {
+      "id": "career-resource-1c87884f4ae9ada676c9",
+      "url": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/",
+      "title": "Getting started with data engineering",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/",
+      "page_title": "Get started with data engineering on Azure - Training | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-5c380dc7e3726249884d",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl",
+      "title": "ETL and ELT",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl",
+      "page_title": "Extract, transform, load (ETL) - Azure Architecture Center | Microsoft Learn"
+    },
+    {
+      "id": "career-resource-a69937ce1d022d1da1f1",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html",
+      "title": "Airflow core concepts",
+      "status": 200,
+      "final_url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html",
+      "page_title": "Architecture Overview &mdash; Airflow 3.4.0 Documentation"
+    },
+    {
+      "id": "career-resource-87574ffc8f0e22125d0d",
+      "url": "https://help.autodesk.com/view/ACD/2026/ENU/",
+      "title": "AutoCAD basics",
+      "status": 200,
+      "final_url": "https://help.autodesk.com/view/ACD/2026/ENU/",
+      "page_title": "Help"
+    },
+    {
+      "id": "career-resource-fe6920d531e32636a5bd",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-DidYouKnow/files/GUID-7B14AAA4-3208-4384-A444-8A29231C4A02.htm",
+      "title": "Dimensioning in AutoCAD",
+      "status": 200,
+      "final_url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-DidYouKnow/files/GUID-7B14AAA4-3208-4384-A444-8A29231C4A02.htm",
+      "page_title": "Use DIM to Accelerate Dimensioning"
+    },
+    {
+      "id": "career-resource-4d18ad2623d6943dc768",
+      "url": "https://www.onetonline.org/link/summary/17-3013.00",
+      "title": "CAD Technician: occupation context",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/17-3013.00",
+      "page_title": "17-3013.00 - Mechanical Drafters"
+    },
+    {
+      "id": "career-resource-d144480b460dce2a5847",
+      "url": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/",
+      "title": "Design and Manufacturing II",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/",
+      "page_title": "Design and Manufacturing II | Mechanical Engineering | MIT OpenCourseWare"
+    },
+    {
+      "id": "career-resource-6fcd993f77edab3476d3",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-1/",
+      "title": "Introduction to lean manufacturing",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-1/",
+      "page_title": "Chapter 1: Introduction to Lean Manufacturing &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "career-resource-08f9694a56604cee2e5c",
+      "url": "https://www.onetonline.org/link/summary/17-2112.03",
+      "title": "Manufacturing Engineers: occupation context",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/17-2112.03",
+      "page_title": "17-2112.03 - Manufacturing Engineers"
+    },
+    {
+      "id": "career-resource-11036a28b178c32f5b2c",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/a-financial-statement-analysis",
+      "title": "Financial statement analysis",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/a-financial-statement-analysis",
+      "page_title": "A Financial Statement Analysis - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-9194a5394b1d7b30d2da",
+      "url": "https://openstax.org/books/principles-finance/pages/5-7-common-size-statements",
+      "title": "Common-size statements",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-finance/pages/5-7-common-size-statements",
+      "page_title": "5.7 Common-Size Statements - Principles of Finance | OpenStax"
+    },
+    {
+      "id": "career-resource-8a73a991e180d0e7dda7",
+      "url": "https://openstax.org/books/principles-finance/pages/6-2-operating-efficiency-ratios",
+      "title": "Operating efficiency ratios",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-finance/pages/6-2-operating-efficiency-ratios",
+      "page_title": "6.2 Operating Efficiency Ratios - Principles of Finance | OpenStax"
+    },
+    {
+      "id": "career-resource-4f32446aa47a509a4e17",
+      "url": "https://www.cipd.org/uk/knowledge/factsheets/induction-factsheet/",
+      "title": "Employee induction",
+      "status": 200,
+      "final_url": "https://www.cipd.org/uk/knowledge/factsheets/induction-factsheet/",
+      "page_title": "Induction | Factsheets | CIPD"
+    },
+    {
+      "id": "career-resource-a50b42e3a8904f9df25c",
+      "url": "https://www.cipd.org/uk/knowledge/factsheets/analytics-factsheet/",
+      "title": "People analytics",
+      "status": 200,
+      "final_url": "https://www.cipd.org/uk/knowledge/factsheets/analytics-factsheet/",
+      "page_title": "People Analytics | Factsheets | CIPD"
+    },
+    {
+      "id": "career-resource-48d98aa540da4ee261c8",
+      "url": "https://openstax.org/books/principles-management/pages/11-introduction",
+      "title": "Human resources management",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-management/pages/11-introduction",
+      "page_title": "Ch. 11 Introduction - Principles of Management | OpenStax"
+    },
+    {
+      "id": "career-resource-3fbe4ef41f2464a98b34",
+      "url": "https://www.cmu.edu/teaching/designteach/design/learningobjectives.html",
+      "title": "Articulate learning objectives",
+      "status": 200,
+      "final_url": "https://www.cmu.edu/teaching/designteach/design/learningobjectives.html",
+      "page_title": "Learning Objectives - Eberly Center - Carnegie Mellon University"
+    },
+    {
+      "id": "career-resource-589ecd51ea1a749c7072",
+      "url": "https://www.cmu.edu/teaching/designteach/design/assessments.html",
+      "title": "Identify appropriate assessments",
+      "status": 200,
+      "final_url": "https://www.cmu.edu/teaching/designteach/design/assessments.html",
+      "page_title": "Potential Assessments - Eberly Center - Carnegie Mellon University"
+    },
+    {
+      "id": "career-resource-55bf5f2352d97557e5b6",
+      "url": "https://www.cmu.edu/teaching/principles/learning.html",
+      "title": "Principles of learning",
+      "status": 200,
+      "final_url": "https://www.cmu.edu/teaching/principles/learning.html",
+      "page_title": "Learning Principles - Eberly Center - Carnegie Mellon University"
+    },
+    {
+      "id": "career-resource-bf5907b7fb6a33f6aee8",
+      "url": "https://www.lean.org/lexicon-terms/inventory/",
+      "title": "Inventory",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/inventory/",
+      "page_title": "Inventory - Lean Enterprise Institute"
+    },
+    {
+      "id": "career-resource-3206b0a4499800dbed77",
+      "url": "https://www.lean.org/lexicon-terms/kanban/",
+      "title": "Kanban",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/kanban/",
+      "page_title": "Kanban - What Is it? | Lean Enterprise Institute"
+    },
+    {
+      "id": "career-resource-3d8b99d3bfb64bc91fca",
+      "url": "https://www.onetonline.org/link/summary/13-1081.00",
+      "title": "Logisticians: occupation context",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1081.00",
+      "page_title": "13-1081.00 - Logisticians"
+    },
+    {
+      "id": "career-resource-8a99b09111eb85dfd02b",
+      "url": "https://ocw.mit.edu/course-lists/transportation-logistics-and-supply-chains/",
+      "title": "Supply-chain learning materials",
+      "status": 200,
+      "final_url": "https://ocw.mit.edu/course-lists/transportation-logistics-and-supply-chains/",
+      "page_title": "Transportation: Logistics and Supply Chains | MIT OpenCourseWare | Free Online Course Materials"
+    },
+    {
+      "id": "career-resource-1a99e6f0c0ca5ce2fc1b",
+      "url": "https://www.lean.org/lexicon-terms/just-in-time-production/",
+      "title": "Just-in-time production",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/just-in-time-production/",
+      "page_title": "Just-in-Time Production - Lean Enterprise Institute"
+    },
+    {
+      "id": "career-resource-3e9dbe524b6c4cfaf995",
+      "url": "https://www.lean.org/lexicon-terms/value-stream-mapping/",
+      "title": "Value-stream mapping",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/value-stream-mapping/",
+      "page_title": "Value Stream Mapping Overview - Lean Enterprise Institute"
+    },
+    {
+      "id": "career-resource-e814fb3d73b456c99cfb",
+      "url": "https://carbondesignsystem.com/elements/typography/overview/",
+      "title": "Carbon typography",
+      "status": 200,
+      "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/typography/overview",
+      "page_title": "Typography | Carbon Design System"
+    },
+    {
+      "id": "career-resource-3f269a13436440f7a0ac",
+      "url": "https://carbondesignsystem.com/elements/color/overview/",
+      "title": "Carbon color",
+      "status": 200,
+      "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/color/overview",
+      "page_title": "IBM logo"
+    },
+    {
+      "id": "career-resource-1fe5a24da434da628d06",
+      "url": "https://www.carbondesignsystem.com/building-blocks/foundations/2x-grid/guidelines",
+      "title": "Carbon 2x grid",
+      "status": 200,
+      "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/2x-grid/guidelines",
+      "page_title": "info icon"
+    },
+    {
+      "id": "career-resource-5f84747293f7e2f35e19",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+      "title": "Content design standards",
+      "status": 200,
+      "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+      "page_title": "Writing to GOV.UK standards - GOV.UK content and publishing guidance"
+    },
+    {
+      "id": "career-resource-9300571363bf794738f5",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+      "title": "Writing guidelines",
+      "status": 200,
+      "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+      "page_title": "Writing guidelines - GOV.UK content and publishing guidance"
+    },
+    {
+      "id": "career-resource-f9e5f0abca79cbb5957d",
+      "url": "https://developers.google.com/style/highlights",
+      "title": "Technical writing style guide",
+      "status": 200,
+      "final_url": "https://developers.google.com/style/highlights",
+      "page_title": "Highlights &nbsp;|&nbsp; Google developer documentation style guide &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-c93a5d8aa925695e8d6f",
+      "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "title": "SEO starter guide",
+      "status": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "page_title": "SEO Starter Guide: The Basics | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-4e3012bf615912b48457",
+      "url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+      "title": "How Google Search works",
+      "status": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+      "page_title": "In-Depth Guide to How Google Search Works | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-40a369af16eb2f08c5bb",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "title": "Creating helpful content",
+      "status": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "page_title": "Creating Helpful, Reliable, People-First Content | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-30a3e8cf122a3f5ea41e",
+      "url": "https://openstax.org/books/psychology-2e/pages/2-1-why-is-research-important",
+      "title": "Why research matters",
+      "status": 200,
+      "final_url": "https://openstax.org/books/psychology-2e/pages/2-1-why-is-research-important",
+      "page_title": "2.1 Why Is Research Important? - Psychology 2e | OpenStax"
+    },
+    {
+      "id": "career-resource-78c7aaad27dca4d36489",
+      "url": "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research",
+      "title": "Approaches to research",
+      "status": 200,
+      "final_url": "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research",
+      "page_title": "2.2 Approaches to Research - Psychology 2e | OpenStax"
+    },
+    {
+      "id": "career-resource-6aa901ec2dece00296dc",
+      "url": "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings",
+      "title": "Analysing findings",
+      "status": 200,
+      "final_url": "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings",
+      "page_title": "2.3 Analyzing Findings - Psychology 2e | OpenStax"
+    },
+    {
+      "id": "career-resource-7bd7529c66041e326454",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/",
+      "title": "Introduction to quality",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/",
+      "page_title": "Chapter 7: Introduction to Quality &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "career-resource-049f69195e2737250f56",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-8a/",
+      "title": "Basic quality tools",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-8a/",
+      "page_title": "Chapter 8: Basic Quality Tools &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "career-resource-33d2114854f2f752b453",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-9-2/",
+      "title": "Introduction to statistical process control",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-9-2/",
+      "page_title": "Chapter 9: Introduction Statistical Process Control (SPC) &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "career-resource-b5b6a6bd9e98829639a6",
+      "url": "https://www.atlassian.com/agile/product-management",
+      "title": "Product management",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/agile/product-management",
+      "page_title": "Product Management | Atlassian"
+    },
+    {
+      "id": "career-resource-6d988cb475640460df9c",
+      "url": "https://www.atlassian.com/agile/product-management/product-roadmaps",
+      "title": "Product roadmaps",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/agile/product-management/product-roadmaps",
+      "page_title": "Product Roadmap Guide: What is it & How to Create One | Atlassian"
+    },
+    {
+      "id": "career-resource-aac2ac4fa455d1624a8b",
+      "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+      "title": "The discovery phase",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+      "page_title": "How the discovery phase works - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-1c6204578e39314b32b2",
+      "url": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service",
+      "title": "Plan user research",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service",
+      "page_title": "Plan user research for your service - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-4cd9a3e8fd9cdb70a621",
+      "url": "https://www.gov.uk/service-manual/user-research/using-in-depth-interviews",
+      "title": "Using in-depth interviews",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/using-in-depth-interviews",
+      "page_title": "Using in-depth interviews - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-0572919473dc573c9917",
+      "url": "https://www.gov.uk/service-manual/user-research/analyse-a-research-session",
+      "title": "Analyse a research session",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/analyse-a-research-session",
+      "page_title": "Analyse a research session - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-9b28d8a6fa476dd6f25a",
+      "url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+      "title": "Using moderated usability testing",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+      "page_title": "Using moderated usability testing - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-b0b13c65ff1c6a1e7409",
+      "url": "https://www.gov.uk/service-manual/design/making-prototypes",
+      "title": "Making prototypes",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/design/making-prototypes",
+      "page_title": "Making prototypes - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-dbf351af061e5c1f76b0",
+      "url": "https://www.gov.uk/service-manual/user-research/user-research-in-alpha",
+      "title": "User research in alpha",
+      "status": 200,
+      "final_url": "https://www.gov.uk/service-manual/user-research/user-research-in-alpha",
+      "page_title": "User research in alpha - Service Manual - GOV.UK"
+    },
+    {
+      "id": "career-resource-7a09149eb1d40c0fba8f",
+      "url": "https://www.w3.org/WAI/test-evaluate/",
+      "title": "Evaluating web accessibility",
+      "status": 200,
+      "final_url": "https://www.w3.org/WAI/test-evaluate/",
+      "page_title": "Evaluating Web Accessibility Overview | Web Accessibility Initiative (WAI) | W3C"
+    },
+    {
+      "id": "career-resource-72efbe5bc88d6f123f40",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "title": "Accessible forms",
+      "status": 200,
+      "final_url": "https://www.w3.org/WAI/tutorials/forms/",
+      "page_title": "Forms Tutorial | Web Accessibility Initiative (WAI) | W3C"
+    },
+    {
+      "id": "career-resource-b1795729a179434db930",
+      "url": "https://www.w3.org/WAI/test-evaluate/easy-checks/",
+      "title": "Easy checks for accessibility",
+      "status": 200,
+      "final_url": "https://www.w3.org/WAI/test-evaluate/easy-checks/",
+      "page_title": "[Draft] Easy Checks \u2013 A First Review of Web Accessibility | Web Accessibility Initiative (WAI) | W3C"
+    },
+    {
+      "id": "career-resource-7ce0ada67de9b1b42cca",
+      "url": "https://react.dev/learn",
+      "title": "React quick start",
+      "status": 200,
+      "final_url": "https://react.dev/learn",
+      "page_title": "Quick Start \u2013 React"
+    },
+    {
+      "id": "career-resource-65df1db716d74c199027",
+      "url": "https://react.dev/learn/managing-state",
+      "title": "Managing state",
+      "status": 200,
+      "final_url": "https://react.dev/learn/managing-state",
+      "page_title": "Managing State \u2013 React"
+    },
+    {
+      "id": "career-resource-b24d17702d7ba53c307d",
+      "url": "https://react.dev/learn/you-might-not-need-an-effect",
+      "title": "When an effect is needed",
+      "status": 200,
+      "final_url": "https://react.dev/learn/you-might-not-need-an-effect",
+      "page_title": "You Might Not Need an Effect \u2013 React"
+    },
+    {
+      "id": "career-resource-0554685c7aec1df24c4d",
+      "url": "https://developer.android.com/topic/architecture",
+      "title": "Guide to app architecture",
+      "status": 200,
+      "final_url": "https://developer.android.com/topic/architecture",
+      "page_title": "Guide to app architecture &nbsp;|&nbsp; App architecture &nbsp;|&nbsp; Android Developers"
+    },
+    {
+      "id": "career-resource-3411b1cf9681efbcce08",
+      "url": "https://docs.flutter.dev/app-architecture/design-patterns/offline-first",
+      "title": "Offline-first applications",
+      "status": 200,
+      "final_url": "https://docs.flutter.dev/app-architecture/design-patterns/offline-first",
+      "page_title": "Offline-first support"
+    },
+    {
+      "id": "career-resource-36c2b198de2f94cbd97c",
+      "url": "https://developer.android.com/training/permissions/requesting",
+      "title": "Request runtime permissions",
+      "status": 200,
+      "final_url": "https://developer.android.com/training/permissions/requesting",
+      "page_title": "Request runtime permissions &nbsp;|&nbsp; Privacy &nbsp;|&nbsp; Android Developers"
+    },
+    {
+      "id": "career-resource-7b4f10400a9d9f370625",
+      "url": "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+      "title": "MLOps pipeline concepts",
+      "status": 200,
+      "final_url": "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+      "page_title": "MLOps: Continuous delivery and automation pipelines in machine learning &nbsp;|&nbsp; Cloud Architecture Center &nbsp;|&nbsp; Google Cloud Documentation"
+    },
+    {
+      "id": "career-resource-a54ba3f7f51e5090e631",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "title": "Rules of machine learning",
+      "status": 200,
+      "final_url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "page_title": "Rules of Machine Learning: &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-05ef05f91ad144abdba1",
+      "url": "https://mlflow.org/docs/latest/ml/model-registry/",
+      "title": "MLflow model registry",
+      "status": 200,
+      "final_url": "https://mlflow.org/docs/latest/ml/model-registry/",
+      "page_title": "ML Model Registry | MLflow AI Platform"
+    },
+    {
+      "id": "career-resource-62e8683a344264cd3143",
+      "url": "https://library.automationdirect.com/what-is-a-plc/",
+      "title": "What is a PLC?",
+      "status": 200,
+      "final_url": "https://library.automationdirect.com/what-is-a-plc/",
+      "page_title": "What is a PLC? Definition, Benefits &amp; Examples"
+    },
+    {
+      "id": "career-resource-1f67db3107f492c26540",
+      "url": "https://library.automationdirect.com/plc-scan-fundamentals/",
+      "title": "PLC scan fundamentals",
+      "status": 200,
+      "final_url": "https://library.automationdirect.com/plc-scan-fundamentals/",
+      "page_title": "The PLC Scan - PLC Fundamentals |Library.AutomationDirect"
+    },
+    {
+      "id": "career-resource-e7d7d709cb43381f6a54",
+      "url": "https://docs.arduino.cc/built-in-examples/basics/DigitalReadSerial/",
+      "title": "Digital input example",
+      "status": 200,
+      "final_url": "https://docs.arduino.cc/built-in-examples/basics/DigitalReadSerial/",
+      "page_title": null
+    },
+    {
+      "id": "career-resource-2884fbc11338745ebd89",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law",
+      "title": "Ohm's law",
+      "status": 200,
+      "final_url": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law",
+      "page_title": "9.4 Ohm's Law - University Physics Volume 2 | OpenStax"
+    },
+    {
+      "id": "career-resource-da94afaa042f85cfdb0a",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power",
+      "title": "Electrical energy and power",
+      "status": 200,
+      "final_url": "https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power",
+      "page_title": "9.5 Electrical Energy and Power - University Physics Volume 2 | OpenStax"
+    },
+    {
+      "id": "career-resource-884ce43eb1c4495ab6f0",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+      "title": "Series and parallel resistors",
+      "status": 200,
+      "final_url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+      "page_title": "10.2 Resistors in Series and Parallel - University Physics Volume 2 | OpenStax"
+    },
+    {
+      "id": "career-resource-2ad2d6b09d9e6fc99bb7",
+      "url": "https://www.hse.gov.uk/event-safety/running.htm",
+      "title": "Running an event safely",
+      "status": 200,
+      "final_url": "https://www.hse.gov.uk/event-safety/running.htm",
+      "page_title": "Running an event safely - HSE"
+    },
+    {
+      "id": "career-resource-13216d1a8f3646866dfe",
+      "url": "https://www.hse.gov.uk/event-safety/health-safety-topics.htm",
+      "title": "Event planning topics",
+      "status": 200,
+      "final_url": "https://www.hse.gov.uk/event-safety/health-safety-topics.htm",
+      "page_title": "Health and safety topics - HSE"
+    },
+    {
+      "id": "career-resource-c9e83f94ed6ab2b8292d",
+      "url": "https://www.onetonline.org/link/summary/13-1121.00",
+      "title": "Event operations context",
+      "status": 200,
+      "final_url": "https://www.onetonline.org/link/summary/13-1121.00",
+      "page_title": "13-1121.00 - Meeting, Convention, and Event Planners"
+    },
+    {
+      "id": "career-resource-692fd21959e2286d6d1c",
+      "url": "https://opentextbc.ca/introtourism2e/",
+      "title": "Hospitality and tourism foundations",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/",
+      "page_title": "Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition &#8211; Simple Book Publishing"
+    },
+    {
+      "id": "career-resource-c9c9f1f734811b6816ea",
+      "url": "https://opentextbc.ca/introtourism2e/chapter/operations/",
+      "title": "Accommodation operations",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/chapter/operations/",
+      "page_title": "3.3 Operations &#8211; Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition"
+    },
+    {
+      "id": "career-resource-e30cda6088b0c7a99347",
+      "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/",
+      "title": "Customer service in hospitality",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/",
+      "page_title": "9.2 Communication Strategies &#8211; Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition"
+    },
+    {
+      "id": "career-resource-6235acea9fd6cd99437e",
+      "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience",
+      "title": "Accounts and contacts",
+      "status": 200,
+      "final_url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience",
+      "page_title": "Salesforce Accounts Contact Module"
+    },
+    {
+      "id": "career-resource-2bf2b9ef5c165605b608",
+      "url": "https://academy.hubspot.com/courses/hubspot-service-software",
+      "title": "Customer service and relationship records",
+      "status": 200,
+      "final_url": "https://academy.hubspot.com/courses/hubspot-service-software",
+      "page_title": "HubSpot Academy"
+    },
+    {
+      "id": "career-resource-40c456285c52dc90ca48",
+      "url": "https://www.atlassian.com/team-playbook/plays/stakeholder-communications-plan",
+      "title": "Stakeholder communication planning",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/team-playbook/plays/stakeholder-communications-plan",
+      "page_title": "Stakeholder Project Communication: Atlassian Plays | Atlassian"
+    },
+    {
+      "id": "career-resource-3dff723b260c0aa59184",
+      "url": "https://www.cips.org/intelligence-hub/procurement/procurement-supply-cycle",
+      "title": "Procurement and supply cycle",
+      "status": 200,
+      "final_url": "https://www.cips.org/intelligence-hub/procurement/procurement-supply-cycle",
+      "page_title": "Procurement Supply Cycle | CIPS"
+    },
+    {
+      "id": "career-resource-91096a7c853f136ac291",
+      "url": "https://www.unops.org/business-opportunities/supplier-resource-centre",
+      "title": "Supplier resource centre",
+      "status": 200,
+      "final_url": "https://www.unops.org/business-opportunities/supplier-resource-centre",
+      "page_title": "Supplier Resource Centre | UNOPS"
+    },
+    {
+      "id": "career-resource-5e98cbac41cd423734d1",
+      "url": "https://www.cips.org/intelligence-hub/managing-suppliers/supplier-evaluation",
+      "title": "Supplier evaluation",
+      "status": 200,
+      "final_url": "https://www.cips.org/intelligence-hub/managing-suppliers/supplier-evaluation",
+      "page_title": "Supplier Evaluation - How to Evaluate Suppliers | CIPS"
+    },
+    {
+      "id": "career-resource-05e8fe30d7ec36e9a040",
+      "url": "https://developers.google.com/tech-writing/one",
+      "title": "Technical Writing One",
+      "status": 200,
+      "final_url": "https://developers.google.com/tech-writing/one",
+      "page_title": "Technical Writing One introduction &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-ebf55329602dcba4cf8f",
+      "url": "https://developers.google.com/tech-writing/two",
+      "title": "Technical Writing Two",
+      "status": 200,
+      "final_url": "https://developers.google.com/tech-writing/two",
+      "page_title": "Technical Writing Two introduction &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-5ce7f185ec30de2b8efa",
+      "url": "https://developers.google.com/style/highlights",
+      "title": "Developer documentation style",
+      "status": 200,
+      "final_url": "https://developers.google.com/style/highlights",
+      "page_title": "Highlights &nbsp;|&nbsp; Google developer documentation style guide &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "career-resource-4576e2deb314bb46ecf0",
+      "url": "https://openstax.org/books/principles-marketing/pages/9-5-branding-and-brand-development",
+      "title": "Branding and brand development",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-marketing/pages/9-5-branding-and-brand-development",
+      "page_title": "9.5 Branding and Brand Development - Principles of Marketing | OpenStax"
+    },
+    {
+      "id": "career-resource-f6a722d508bb6da642ff",
+      "url": "https://openstax.org/books/entrepreneurship/pages/8-4-entrepreneurial-branding",
+      "title": "Entrepreneurial branding",
+      "status": 200,
+      "final_url": "https://openstax.org/books/entrepreneurship/pages/8-4-entrepreneurial-branding",
+      "page_title": "8.4 Entrepreneurial Branding - Entrepreneurship | OpenStax"
+    },
+    {
+      "id": "career-resource-3c2650e9fe2381a9d402",
+      "url": "https://openstax.org/books/principles-marketing/pages/5-1-market-segmentation-and-consumer-markets",
+      "title": "Market segmentation",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-marketing/pages/5-1-market-segmentation-and-consumer-markets",
+      "page_title": "5.1 Market Segmentation and Consumer Markets - Principles of Marketing | OpenStax"
+    },
+    {
+      "id": "career-resource-157bd9b0ae7b45cd7bf9",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/12-5-record-transactions-incurred-in-preparing-payroll",
+      "title": "Payroll accounting concepts",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/12-5-record-transactions-incurred-in-preparing-payroll",
+      "page_title": "12.5 Record Transactions Incurred in Preparing Payroll - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-8bdc4071aed46ed9c4de",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/12-1-identify-and-describe-current-liabilities",
+      "title": "Current liabilities",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/12-1-identify-and-describe-current-liabilities",
+      "page_title": "12.1 Identify and Describe Current Liabilities - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-8490f2d379dd547e27d1",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+      "title": "Internal controls",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+      "page_title": "8.2 Define and Explain Internal Controls and Their Purpose within an Organization - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "career-resource-449b0394eec88cbbeefa",
+      "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Tests-of-controls.aspx",
+      "title": "Tests of controls",
+      "status": 200,
+      "final_url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Tests-of-controls.aspx",
+      "page_title": "European Court of Auditors"
+    },
+    {
+      "id": "career-resource-ba8315fdb90559dfefc4",
+      "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Substantive-procedures.aspx",
+      "title": "Substantive audit procedures",
+      "status": 200,
+      "final_url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Substantive-procedures.aspx",
+      "page_title": "European Court of Auditors"
+    },
+    {
+      "id": "career-resource-bd45a349b1ac6a0648b5",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+      "title": "Internal control principles",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/8-2-define-and-explain-internal-controls-and-their-purpose-within-an-organization",
+      "page_title": "8.2 Define and Explain Internal Controls and Their Purpose within an Organization - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    }
+  ]
+}

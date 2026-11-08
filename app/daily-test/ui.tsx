@@ -43,6 +43,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<any>(null);
+  const [submissionError, setSubmissionError] = useState<{message: string; restart: boolean} | null>(null);
   const [difficulty, setDifficulty] = useState(1);
   const [difficultyLabel, setDifficultyLabel] = useState("Easy");
 
@@ -108,6 +109,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
         );
       if (!data.questions?.length || !data.assessment_token)
         return toast("No questions available", "Please try again.");
+      setSubmissionError(null);
       setQuestions(data.questions);
       setAssessmentToken(data.assessment_token);
       setDifficulty(data.difficulty || 1);
@@ -138,6 +140,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
   }
 
   async function submit() {
+    setSubmissionError(null);
     setLoading(true);
     try {
       const payload = {
@@ -153,8 +156,11 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
         body: JSON.stringify(payload),
       });
       const data = await res.json();
-      if (!res.ok)
-        return toast("Submit failed", data.error || "Please try again.");
+      if (!res.ok) {
+        const message = data.error || "Your result could not be confirmed. Please retry saving.";
+        setSubmissionError({message, restart: res.status === 400 && /assessment.*(?:invalid|expired)/i.test(message)});
+        return;
+      }
       if (data.alreadyCompleted) {
         setResult(data); setQuestions([]); setAnswers({}); setAssessmentToken(""); setStage("done");
         toast("Already completed", "Your first saved assessment remains unchanged.");
@@ -170,7 +176,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
       setStage("review");
       toast("Done!", `+${data?.xp_earned || 0} XP earned`);
     } catch (error: any) {
-      toast("Submit failed", error.message);
+      setSubmissionError({message: error.message || "Your result could not be confirmed. Please retry saving.", restart: false});
     } finally {
       setLoading(false);
     }
@@ -238,7 +244,7 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
                   {
                     Icon: Clock3,
                     title: "At your own pace",
-                    text: "Think it through. There’s no timer.",
+                    text: "No countdown. Open checks expire after two hours.",
                   },
                   {
                     Icon: BookOpen,
@@ -280,16 +286,25 @@ export function DailyTestClient({ existingAttempt, coverage }: { existingAttempt
                 </div>
                 <Badge tone="neutral">{q.skill_name}</Badge>
               </div>
-              <div className="text-xl font-semibold leading-snug">
+              <div className="text-xl font-semibold leading-snug" aria-live="polite" aria-atomic="true">
                 {q.prompt}
               </div>
 
               <QuestionOptions
+                question={q.prompt}
                 options={q.options || []}
                 value={answers[q.id]}
                 onChange={pick}
                 disabled={loading}
               />
+
+              {submissionError && <div role="alert" className="rounded-xl border border-rust/30 bg-peach p-4 text-sm text-ink">
+                <p className="font-semibold">Your result has not been confirmed</p>
+                <p className="mt-2">{submissionError.message}</p>
+                {submissionError.restart
+                  ? <Button className="mt-3" variant="soft" onClick={start} loading={loading}>Start a new assessment</Button>
+                  : <p className="mt-2">Your answers remain on this page. Use Finish assessment to retry the same submission safely.</p>}
+              </div>}
 
               <div className="flex items-center justify-between">
                 <Button

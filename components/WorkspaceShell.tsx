@@ -102,6 +102,7 @@ export function WorkspaceShell({
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const sidebar = useRef<HTMLElement>(null);
+  const workspaceContent = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const groups = role ? staffGroups(role) : learnerGroups;
   const navigationGroups = role && learnerAccess ? [...groups, {label: "Your own growth", items: [{href: "/dashboard", icon: BookOpen, label: "My learning workspace"}]}] : groups;
@@ -118,6 +119,7 @@ export function WorkspaceShell({
   const current = links
     .filter((i) => pathname === i.href || pathname.startsWith(i.href + "/"))
     .sort((a, b) => b.href.length - a.href.length)[0];
+  const pageTitle = current?.label || (pathname === "/onboarding" ? "Getting started" : "Workspace");
   const initials = displayName
     .split(/\s+/)
     .slice(0, 2)
@@ -128,8 +130,16 @@ export function WorkspaceShell({
     setMenuOpen(false);
   }, [pathname]);
   useEffect(() => {
+    const previous = document.title;
+    document.title = `${pageTitle} · VoidFill`;
+    return () => { document.title = previous; };
+  }, [pageTitle]);
+  useEffect(() => {
     if (!menuOpen) return;
     const previous = document.body.style.overflow;
+    const content = workspaceContent.current;
+    const previousInert = content?.inert || false;
+    if (content) content.inert = true;
     const menuTrigger = trigger.current;
     document.body.style.overflow = "hidden";
     sidebar.current
@@ -157,6 +167,7 @@ export function WorkspaceShell({
     document.addEventListener("keydown", handler);
     return () => {
       document.body.style.overflow = previous;
+      if (content) content.inert = previousInert;
       document.removeEventListener("keydown", handler);
       menuTrigger?.focus();
     };
@@ -176,6 +187,9 @@ export function WorkspaceShell({
       )}
       <aside
         ref={sidebar}
+        role={menuOpen ? "dialog" : undefined}
+        aria-modal={menuOpen || undefined}
+        aria-label={menuOpen ? "Workspace navigation" : undefined}
         id="workspace-navigation"
         className="workspace-sidebar"
         data-open={menuOpen}
@@ -277,7 +291,7 @@ export function WorkspaceShell({
           </form>
         </div>
       </aside>
-      <div className="workspace-body">
+      <div className="workspace-body" ref={workspaceContent}>
         <header className="workspace-header">
           <div className="flex min-w-0 items-center gap-3">
             <button

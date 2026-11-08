@@ -1,0 +1,33 @@
+name: Production public availability
+
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-public-availability
+  cancel-in-progress: false
+
+jobs:
+  public:
+    name: Public pages and authentication boundaries
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check public production contracts without credentials
+        run: node scripts/check-production.mjs --base https://void-fill.vercel.app --live --output ml/runtime/availability.json
+      - name: Preserve record-free diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-public-availability
+          path: ml/runtime/availability.json
+          retention-days: 3

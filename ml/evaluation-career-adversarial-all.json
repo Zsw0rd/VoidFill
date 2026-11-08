@@ -1,0 +1,931 @@
+{
+  "version": "adversarial-v1-2026-11-07",
+  "fixture_sha256": "cfa28c1978419a57ded74358e6fbaead7ddb387686b2aa617e32e53f153fa6f5",
+  "evaluated_at": "2026-11-07T08:00:37.933Z",
+  "scope": "Agent-authored task narratives frozen before any matcher execution on this fixture. Diagnostic cases may inform changes; sentinel labels and queries must remain unchanged. This is software evaluation, not independent user research, an untouched training holdout, domain-expert review or professional suitability validation. All text is synthetic and public.",
+  "split": "all",
+  "metrics": {
+    "diagnostic": {
+      "role_count": 30,
+      "role_recall_at_1": 0.8666666666666667,
+      "role_recall_at_3": 0.9666666666666667,
+      "abstentions": 10,
+      "abstention_count": 10,
+      "custom_goal_top_3": 3,
+      "custom_goal_count": 4
+    },
+    "sentinel": {
+      "role_count": 30,
+      "role_recall_at_1": 0.9333333333333333,
+      "role_recall_at_3": 1,
+      "abstentions": 10,
+      "abstention_count": 10,
+      "custom_goal_top_3": 4,
+      "custom_goal_count": 4
+    }
+  },
+  "roles": [
+    {
+      "split": "diagnostic",
+      "query": "A community theatre needs an accessible browser booking form, responsive CSS and JavaScript validation. I want to build the interface people use.",
+      "expected": "Frontend Developer",
+      "top_3": [
+        "Frontend Developer",
+        "Full-Stack Developer",
+        "UI Designer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to implement the server side of a ticketing service: HTTP API endpoints, database transactions, authorization and safe retries.",
+      "expected": "Backend Developer",
+      "top_3": [
+        "Backend Developer",
+        "Full-Stack Developer",
+        "Technical Writer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to deliver a complete web application, connecting its browser UI, API, persistent data and deployment rather than one layer alone.",
+      "expected": "Full-Stack Developer",
+      "top_3": [
+        "Backend Developer",
+        "Frontend Developer",
+        "Software Engineer"
+      ],
+      "rank": 4
+    },
+    {
+      "split": "sentinel",
+      "query": "I enjoy reproducing checkout defects, writing automated software tests and checking recovery when a response disappears after a payment.",
+      "expected": "QA Engineer",
+      "top_3": [
+        "QA Engineer",
+        "Software Engineer",
+        "Customer Support Specialist"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "My interest is an Android and iOS app that survives a lost connection, device rotation and conflicting offline edits.",
+      "expected": "Mobile Developer",
+      "top_3": [
+        "Mobile Developer",
+        "IT Support Specialist"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I prefer general software programming: algorithms, maintainable modules, code review, testing and refactoring large codebases.",
+      "expected": "Software Engineer",
+      "top_3": [
+        "QA Engineer",
+        "Software Engineer"
+      ],
+      "rank": 2
+    },
+    {
+      "split": "diagnostic",
+      "query": "I enjoy querying datasets with SQL, cleaning records in Python and explaining business patterns through charts, rather than shipping predictive models.",
+      "expected": "Data Analyst",
+      "top_3": [
+        "Data Scientist",
+        "Data Analyst",
+        "BI Analyst"
+      ],
+      "rank": 2
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to build a document-search assistant with retrieval, source citations, evaluations and a clear response when the collection cannot answer.",
+      "expected": "AI Applications Developer",
+      "top_3": [
+        "SEO Specialist",
+        "AI Applications Developer",
+        "UX Designer"
+      ],
+      "rank": 2
+    },
+    {
+      "split": "diagnostic",
+      "query": "I would like to define business intelligence measures and build Power BI dashboards whose revenue totals stay consistent across departments.",
+      "expected": "BI Analyst",
+      "top_3": [
+        "BI Analyst",
+        "Business Analyst",
+        "People Analyst"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to maintain ETL pipelines that ingest late events, validate schemas and safely backfill corrected warehouse partitions.",
+      "expected": "Data Engineer",
+      "top_3": [
+        "Data Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to build and deploy machine learning models, compare slice performance, version artifacts and monitor their production behavior.",
+      "expected": "Machine Learning Engineer",
+      "top_3": [
+        "Machine Learning Engineer",
+        "Learning & Development Coordinator",
+        "DevOps Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to investigate hypotheses using statistics, experiment design and predictive data science, including uncertainty and confounding.",
+      "expected": "Data Scientist",
+      "top_3": [
+        "Data Scientist",
+        "People Analyst",
+        "Marketing Analyst"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I like responding to hosted-service tickets, diagnosing cloud outages and explaining mitigations clearly to customers.",
+      "expected": "Cloud Support Associate",
+      "top_3": [
+        "Customer Support Specialist",
+        "Cloud Support Associate",
+        "Customer Success Associate"
+      ],
+      "rank": 2
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to triage SOC alerts, investigate suspicious logins and record cybersecurity incident evidence before choosing containment.",
+      "expected": "Cybersecurity Analyst",
+      "top_3": [
+        "Cybersecurity Analyst",
+        "Cloud Support Associate"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to work on a help desk, troubleshooting employee desktops, accounts, printers and everyday connectivity problems.",
+      "expected": "IT Support Specialist",
+      "top_3": [
+        "IT Support Specialist",
+        "Employee Experience Coordinator"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to administer Linux servers, service accounts, filesystem permissions, scheduled maintenance and recovery runbooks.",
+      "expected": "Systems Administrator",
+      "top_3": [
+        "Systems Administrator",
+        "Backend Developer",
+        "IT Support Specialist"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I like DevOps work: Docker images, CI/CD release pipelines, infrastructure automation and reversible deployments.",
+      "expected": "DevOps Engineer",
+      "top_3": [
+        "DevOps Engineer",
+        "Automation Technician",
+        "Machine Learning Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want responsibility for network switches, routing, DNS resolvers, subnet configuration and connectivity fault isolation.",
+      "expected": "Network Administrator",
+      "top_3": [
+        "Network Administrator",
+        "Cloud Support Associate",
+        "IT Support Specialist"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I enjoy creating CAD manufacturing drawings with datums, dimensions, revision notes and tolerance-stack reasoning.",
+      "expected": "CAD Technician",
+      "top_3": [
+        "CAD Technician",
+        "Manufacturing Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to specify and troubleshoot simulated PLC conveyor logic, sensor interlocks and industrial automation restart sequences.",
+      "expected": "Automation Technician",
+      "top_3": [
+        "Automation Technician",
+        "Industrial Engineering Associate",
+        "Electronics Technician"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to investigate production quality defects using measurement-system checks, containment, root cause and corrective-action verification.",
+      "expected": "Quality Engineer",
+      "top_3": [
+        "Quality Engineer",
+        "Systems Administrator",
+        "Manufacturing Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to improve manufacturing processes, production throughput, tooling choices and bottlenecks while controlling scrap and rework.",
+      "expected": "Manufacturing Engineer",
+      "top_3": [
+        "Manufacturing Engineer",
+        "Industrial Engineering Associate",
+        "Quality Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I like diagnosing low-voltage electronics: circuit diagrams, resistor measurements, voltage, current and instrument loading.",
+      "expected": "Electronics Technician",
+      "top_3": [
+        "Electronics Technician"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to study industrial work methods, line balancing, time variation and inventory queues to improve whole-system efficiency.",
+      "expected": "Industrial Engineering Associate",
+      "top_3": [
+        "Industrial Engineering Associate",
+        "Systems Administrator",
+        "Manufacturing Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to own product prioritization: choose user problems, compare opportunities and decide experiments using outcome measures and guardrails.",
+      "expected": "Product Manager",
+      "top_3": [
+        "Product Designer",
+        "Product Manager",
+        "Digital Marketing Associate"
+      ],
+      "rank": 2
+    },
+    {
+      "split": "sentinel",
+      "query": "I enjoy user experience design: sketching interaction flows, prototyping task recovery and testing whether people can complete a booking.",
+      "expected": "UX Designer",
+      "top_3": [
+        "UX Designer",
+        "Product Designer",
+        "UI Designer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "My interest is user interface design: typography, spacing, responsive components, clear error states and accessible visual hierarchy.",
+      "expected": "UI Designer",
+      "top_3": [
+        "UI Designer",
+        "Product Designer",
+        "UX Designer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to run user research interviews and usability studies, recruit varied participants and synthesize contradictory qualitative evidence.",
+      "expected": "UX Researcher",
+      "top_3": [
+        "UX Researcher",
+        "UX Designer",
+        "Product Manager"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want digital product design from research through interaction and visual prototypes, balancing user needs with product trade-offs.",
+      "expected": "Product Designer",
+      "top_3": [
+        "Product Designer",
+        "UX Designer",
+        "UI Designer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I enjoy writing technical documentation: API task guides with prerequisites, working examples, troubleshooting and version migration notes.",
+      "expected": "Technical Writer",
+      "top_3": [
+        "Technical Writer",
+        "Backend Developer",
+        "Customer Support Specialist"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I like coordinating projects by maintaining dependency logs, milestone trackers, meeting actions and concise stakeholder updates.",
+      "expected": "Project Coordinator",
+      "top_3": [
+        "Project Coordinator",
+        "Learning & Development Coordinator",
+        "Administrative Coordinator"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to elicit business requirements, map approval processes and turn conflicting stakeholder requests into testable acceptance criteria.",
+      "expected": "Business Analyst",
+      "top_3": [
+        "Business Analyst",
+        "Procurement Analyst",
+        "Industrial Engineering Associate"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want operations analysis: quantify service queues, capacity constraints and handoff delays using reliable operational measures.",
+      "expected": "Operations Analyst",
+      "top_3": [
+        "Operations Analyst",
+        "Data Engineer",
+        "Hospitality Operations Associate"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to manage projects with authority over scope, delivery risk, resources and approved changes rather than only maintain trackers.",
+      "expected": "Project Manager",
+      "top_3": [
+        "Project Manager",
+        "Project Coordinator"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I like management consulting, comparing organizational operating models and making evidence-based recommendations to leadership.",
+      "expected": "Management Analyst",
+      "top_3": [
+        "Management Analyst"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want office administration work: maintain calendars, coordinate travel and meetings, prepare records and organize a dependable handover.",
+      "expected": "Administrative Coordinator",
+      "top_3": [
+        "Administrative Coordinator",
+        "Learning & Development Coordinator",
+        "Hospitality Operations Associate"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want digital marketing campaign work: audience targeting, channel experiments, landing pages and qualified lead measurement.",
+      "expected": "Digital Marketing Associate",
+      "top_3": [
+        "Digital Marketing Associate",
+        "Marketing Analyst",
+        "Social Media Coordinator"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I enjoy SEO troubleshooting: crawl accessibility, indexing, redirects, search intent and organic-search performance after a URL migration.",
+      "expected": "SEO Specialist",
+      "top_3": [
+        "SEO Specialist"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I enjoy content writing and editing: audience-focused articles, credible claims, useful structure and an editorial brief.",
+      "expected": "Content Writer",
+      "top_3": [
+        "Content Writer",
+        "Social Media Coordinator",
+        "Technical Writer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to coordinate social media publishing calendars, moderate community replies and compare channel engagement quality.",
+      "expected": "Social Media Coordinator",
+      "top_3": [
+        "Social Media Coordinator",
+        "Learning & Development Coordinator",
+        "Administrative Coordinator"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want graphic design work on visual identities, typography, image composition and print or digital campaign layouts.",
+      "expected": "Graphic Designer",
+      "top_3": [
+        "Graphic Designer",
+        "UI Designer",
+        "Marketing Analyst"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want marketing analysis: reconcile campaign attribution, investigate conversion changes and compare customer segments with clear denominators.",
+      "expected": "Marketing Analyst",
+      "top_3": [
+        "Marketing Analyst",
+        "Digital Marketing Associate",
+        "Data Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I enjoy bookkeeping and accounting: record accruals, reconcile cashbook entries and prepare a reliable month-end balance.",
+      "expected": "Accounting Associate",
+      "top_3": [
+        "Accounting Associate",
+        "Financial Analyst",
+        "Full-Stack Developer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want financial analysis: forecast cash, connect profit to working capital and compare investment scenarios under explicit assumptions.",
+      "expected": "Financial Analyst",
+      "top_3": [
+        "Financial Analyst",
+        "Data Engineer",
+        "Credit Analyst"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want payroll work: reconcile approved timesheets, calculate stated gross-to-net pay and control authorized pay corrections.",
+      "expected": "Payroll Specialist",
+      "top_3": [
+        "Payroll Specialist",
+        "Accounting Associate",
+        "Financial Analyst"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I enjoy accounts payable work: match purchase orders to receipts and invoices, identify duplicates and resolve payment exceptions.",
+      "expected": "Accounts Payable Associate",
+      "top_3": [
+        "Accounts Payable Associate",
+        "Customer Support Specialist",
+        "Procurement Analyst"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want audit work linking assertions to sufficient evidence, documenting control exceptions and maintaining traceable workpapers.",
+      "expected": "Audit Associate",
+      "top_3": [
+        "Audit Associate",
+        "Accounts Payable Associate",
+        "Logistics Coordinator"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to analyze business credit applications, examine repayment cash flows and document lending-risk assumptions for an authorized reviewer.",
+      "expected": "Credit Analyst",
+      "top_3": [
+        "Credit Analyst",
+        "Business Analyst",
+        "Accounting Associate"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I enjoy recruitment: write job-related selection criteria, coordinate structured interviews and compare candidate work samples consistently.",
+      "expected": "Recruitment Associate",
+      "top_3": [
+        "Recruitment Associate",
+        "Learning & Development Coordinator",
+        "Product Manager"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want HR operations work maintaining confidential employee records, joiner-mover-leaver processes and approved access changes.",
+      "expected": "HR Operations Associate",
+      "top_3": [
+        "HR Operations Associate",
+        "People Analyst",
+        "Payroll Specialist"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to coordinate workplace learning programmes, align training objectives with practice and measure transfer back to job tasks.",
+      "expected": "Learning & Development Coordinator",
+      "top_3": [
+        "Learning & Development Coordinator",
+        "Project Manager",
+        "Talent Development Associate"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want people analytics: clean HR datasets, define employee metrics and study turnover patterns without presenting correlation as causation.",
+      "expected": "People Analyst",
+      "top_3": [
+        "People Analyst",
+        "HR Operations Associate",
+        "Data Engineer"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want talent development work designing progression and coaching opportunities with transparent skills criteria and follow-up evidence.",
+      "expected": "Talent Development Associate",
+      "top_3": [
+        "Talent Development Associate",
+        "Learning & Development Coordinator",
+        "Sales Representative"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want employee experience coordination, gathering staff feedback and improving onboarding and workplace touchpoints with privacy safeguards.",
+      "expected": "Employee Experience Coordinator",
+      "top_3": [
+        "Employee Experience Coordinator",
+        "Learning & Development Coordinator",
+        "Administrative Coordinator"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I enjoy sales discovery calls, qualifying a business buyer's needs and agreeing a realistic proposal and next step.",
+      "expected": "Sales Representative",
+      "top_3": [
+        "Sales Representative",
+        "Business Analyst",
+        "Digital Marketing Associate"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want customer success work helping an account adopt a product, reach onboarding outcomes and address renewal risks before the contract ends.",
+      "expected": "Customer Success Associate",
+      "top_3": [
+        "Customer Success Associate",
+        "Employee Experience Coordinator",
+        "Product Manager"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want customer support work: reproduce a user's immediate problem, explain a workaround and hand off unresolved cases clearly.",
+      "expected": "Customer Support Specialist",
+      "top_3": [
+        "Customer Support Specialist",
+        "IT Support Specialist",
+        "UX Researcher"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want procurement work comparing supplier quotations, delivered cost, quality requirements and authorized purchase approvals.",
+      "expected": "Procurement Analyst",
+      "top_3": [
+        "Procurement Analyst",
+        "Business Analyst",
+        "Accounts Payable Associate"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "diagnostic",
+      "query": "I enjoy logistics coordination: stock movements, warehouse dispatch, shipment exceptions, inventory records and clear handovers.",
+      "expected": "Logistics Coordinator",
+      "top_3": [
+        "Logistics Coordinator",
+        "Learning & Development Coordinator",
+        "Administrative Coordinator"
+      ],
+      "rank": 1
+    },
+    {
+      "split": "sentinel",
+      "query": "I want hotel hospitality operations: coordinate room readiness, guest service recovery, occupancy and a busy shift handover.",
+      "expected": "Hospitality Operations Associate",
+      "top_3": [
+        "Hospitality Operations Associate",
+        "Learning & Development Coordinator",
+        "Administrative Coordinator"
+      ],
+      "rank": 1
+    }
+  ],
+  "rejected": [
+    {
+      "split": "diagnostic",
+      "query": "I want to qualify as an orthopaedic surgeon and perform joint replacement procedures.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "I want a career as a licensed anaesthesiologist managing clinical anaesthesia.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to practise criminal defence litigation and represent defendants in court.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to become a certified airline pilot and command commercial passenger flights.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to become a veterinary dentist performing animal oral surgery.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to practise as a licensed structural engineer approving building-load calculations.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to become a paediatric psychiatrist diagnosing and prescribing treatment for children.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to design rocket turbopumps and certify spacecraft propulsion hardware.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to conduct archaeological excavation and classify ancient ceramic assemblages.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to become a licensed maritime deck officer responsible for ocean navigation.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to formulate pharmaceutical compounds and validate drug chemistry.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "I want to become a geophysicist interpreting seismic surveys for subsurface geology.",
+      "kind": "unsupported",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want a better career",
+      "kind": "ambiguous",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "Can you choose a manager role for me?",
+      "kind": "ambiguous",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I am looking for something senior",
+      "kind": "ambiguous",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "My goal is to become an analyst",
+      "kind": "ambiguous",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want to work with people",
+      "kind": "ambiguous",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "I enjoy solving problems",
+      "kind": "ambiguous",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "diagnostic",
+      "query": "I want a job in the industry",
+      "kind": "ambiguous",
+      "abstained": true,
+      "top_3": []
+    },
+    {
+      "split": "sentinel",
+      "query": "Suggest a professional opportunity",
+      "kind": "ambiguous",
+      "abstained": true,
+      "top_3": []
+    }
+  ],
+  "custom": [
+    {
+      "split": "diagnostic",
+      "query": "Coordinate a museum's volunteer recruitment interviews and public event schedules",
+      "expected": [
+        "Recruitment Associate",
+        "Project Coordinator"
+      ],
+      "top_3": [
+        "Recruitment Associate",
+        "Learning & Development Coordinator",
+        "Administrative Coordinator"
+      ],
+      "hit": true
+    },
+    {
+      "split": "sentinel",
+      "query": "Use spreadsheet forecasts and supplier quotations to plan a small bakery's ingredient purchases",
+      "expected": [
+        "Procurement Analyst",
+        "Financial Analyst"
+      ],
+      "top_3": [
+        "Accounts Payable Associate",
+        "Procurement Analyst",
+        "Logistics Coordinator"
+      ],
+      "hit": true
+    },
+    {
+      "split": "diagnostic",
+      "query": "Write clear API documentation and test whether new developers can complete the integration steps",
+      "expected": [
+        "Technical Writer",
+        "UX Researcher"
+      ],
+      "top_3": [
+        "Technical Writer",
+        "QA Engineer",
+        "Backend Developer"
+      ],
+      "hit": true
+    },
+    {
+      "split": "sentinel",
+      "query": "Build an accessible React interface for a community organization's donation website",
+      "expected": [
+        "Frontend Developer",
+        "UI Designer"
+      ],
+      "top_3": [
+        "Frontend Developer",
+        "Social Media Coordinator",
+        "UI Designer"
+      ],
+      "hit": true
+    },
+    {
+      "split": "diagnostic",
+      "query": "Study warehouse inventory errors using SQL analysis and stock movement records",
+      "expected": [
+        "Logistics Coordinator",
+        "Data Analyst"
+      ],
+      "top_3": [
+        "Data Engineer",
+        "Logistics Coordinator",
+        "Industrial Engineering Associate"
+      ],
+      "hit": true
+    },
+    {
+      "split": "sentinel",
+      "query": "Improve employee onboarding using neutral interviews and confidential HR operations records",
+      "expected": [
+        "Employee Experience Coordinator",
+        "HR Operations Associate"
+      ],
+      "top_3": [
+        "HR Operations Associate",
+        "People Analyst",
+        "Employee Experience Coordinator"
+      ],
+      "hit": true
+    },
+    {
+      "split": "diagnostic",
+      "query": "Help software customers adopt a product and publish useful troubleshooting guides",
+      "expected": [
+        "Customer Success Associate",
+        "Technical Writer"
+      ],
+      "top_3": [
+        "Product Manager",
+        "Customer Support Specialist",
+        "IT Support Specialist"
+      ],
+      "hit": false
+    },
+    {
+      "split": "sentinel",
+      "query": "Use quality-control evidence and manufacturing capacity measures to improve a production line",
+      "expected": [
+        "Quality Engineer",
+        "Manufacturing Engineer"
+      ],
+      "top_3": [
+        "Quality Engineer",
+        "Manufacturing Engineer",
+        "Industrial Engineering Associate"
+      ],
+      "hit": true
+    }
+  ]
+}

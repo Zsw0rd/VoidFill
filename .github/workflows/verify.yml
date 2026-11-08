@@ -5,6 +5,12 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      browser_regressions:
+        description: 'Run isolated Playwright browser tests with explicit operator approval'
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: read
@@ -117,13 +123,18 @@ jobs:
         run: >-
           .venv-ml/bin/python -m pytest -q
           ml/tests/test_cloud_runtime.py ml/tests/test_cloud_build.py ml/tests/test_cloud_guests.py
+          ml/tests/test_concurrent_serving.py
+          ml/tests/test_question_selection.py ml/tests/test_career_quality_review.py
           ml/tests/test_careers.py ml/tests/test_career_evaluation.py
           ml/tests/test_guest_resume.py ml/tests/test_staff_demo.py
           ml/tests/test_practical_demo.py
       - run: npm run build
       - name: Install Chromium for local UX checks
+        if: github.event_name == 'workflow_dispatch' && inputs.browser_regressions
         run: npx playwright install --with-deps chromium
       - name: Start the production app and exercise learner/staff journeys
+        env:
+          RUN_BROWSER_REGRESSIONS: ${{ github.event_name == 'workflow_dispatch' && inputs.browser_regressions && 'true' || 'false' }}
         shell: bash
         run: |
           npm start > /tmp/voidfill-ci-server.log 2>&1 &
@@ -139,7 +150,7 @@ jobs:
           npm run test:staff-demo
           npm run test:careers
           npm run test:practical
-          npm run test:ux
+          if [ "$RUN_BROWSER_REGRESSIONS" = "true" ]; then npm run test:ux; fi
       - name: Preserve isolated journey evidence
         if: always()
         uses: actions/upload-artifact@v4

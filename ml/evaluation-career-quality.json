@@ -1,0 +1,1252 @@
+{
+  "catalogue_version": "2026.11-applied-paths-1",
+  "generated_at": "2026-11-07T12:30:23.875461+00:00",
+  "scope": "All60 case/rubric consistency review plus all2121 question contracts and arithmetic/surface-cue diagnostics. First intermediate explanation in each55 skill bank was agent-reviewed against stated assumptions and primary-source context. This is not independent subject-matter-expert review, calibrated educational effectiveness, hiring readiness or a certification.",
+  "career_count": 60,
+  "skill_count": 55,
+  "stored_question_count": 2121,
+  "served_question_count": 2117,
+  "excluded_question_count": 4,
+  "question_quality_registry": "2026.11-question-quality-1",
+  "served_resource_count": 305,
+  "question_contract_errors": 0,
+  "selected_explanation_reviews": [
+    {
+      "topic": "python",
+      "question_id": "career-cf8ac39b438ac7b771fb",
+      "review_current": true
+    },
+    {
+      "topic": "sql",
+      "question_id": "career-595d1c837fe9ececcaf5",
+      "review_current": true
+    },
+    {
+      "topic": "visualization",
+      "question_id": "career-649b69b2190d83c44842",
+      "review_current": true
+    },
+    {
+      "topic": "web",
+      "question_id": "career-ab7cd144419c721f0c41",
+      "review_current": true
+    },
+    {
+      "topic": "git",
+      "question_id": "career-36555e2e14fbb8a20986",
+      "review_current": true
+    },
+    {
+      "topic": "algorithms",
+      "question_id": "career-350e057a08916b411caf",
+      "review_current": true
+    },
+    {
+      "topic": "machine-learning",
+      "question_id": "career-f8c92b660bef380715ab",
+      "review_current": true
+    },
+    {
+      "topic": "data-science",
+      "question_id": "career-798523b86486d9a1ff20",
+      "review_current": true
+    },
+    {
+      "topic": "api",
+      "question_id": "career-3d64b05340315977dd77",
+      "review_current": true
+    },
+    {
+      "topic": "testing",
+      "question_id": "career-bad14a996077905dc1d1",
+      "review_current": true
+    },
+    {
+      "topic": "linux",
+      "question_id": "career-59372028327674a9a5e5",
+      "review_current": true
+    },
+    {
+      "topic": "networking",
+      "question_id": "career-6f4e8b768b290737083f",
+      "review_current": true
+    },
+    {
+      "topic": "cloud",
+      "question_id": "career-129c5fb5ea791c2e900f",
+      "review_current": true
+    },
+    {
+      "topic": "security",
+      "question_id": "career-1584ade210df21600444",
+      "review_current": true
+    },
+    {
+      "topic": "marketing",
+      "question_id": "career-8420067419af11b58025",
+      "review_current": true
+    },
+    {
+      "topic": "recruiting",
+      "question_id": "career-2384998517a9a25b4349",
+      "review_current": true
+    },
+    {
+      "topic": "sales",
+      "question_id": "career-26e4efdc545347d83824",
+      "review_current": true
+    },
+    {
+      "topic": "success",
+      "question_id": "career-ce49e31f0308965c08f7",
+      "review_current": true
+    },
+    {
+      "topic": "projects",
+      "question_id": "career-f1df6fef4a02a19e66a6",
+      "review_current": true
+    },
+    {
+      "topic": "accounting",
+      "question_id": "career-12dbe15b0f73fcf1feb5",
+      "review_current": true
+    },
+    {
+      "topic": "spreadsheets",
+      "question_id": "career-0884efeb8d1aa4e4255f",
+      "review_current": true
+    },
+    {
+      "topic": "communication",
+      "question_id": "career-278aa478927623ee977c",
+      "review_current": true
+    },
+    {
+      "topic": "analysis",
+      "question_id": "career-ce09964a2d8f3d734711",
+      "review_current": true
+    },
+    {
+      "topic": "architecture",
+      "question_id": "career-895f2a02b7ed97f251c8",
+      "review_current": true
+    },
+    {
+      "topic": "containers",
+      "question_id": "career-d50ca4831e75e4f0029d",
+      "review_current": true
+    },
+    {
+      "topic": "data-engineering",
+      "question_id": "career-be8649371a011a17b44f",
+      "review_current": true
+    },
+    {
+      "topic": "cad",
+      "question_id": "career-668e4b3da66ce9adeacf",
+      "review_current": true
+    },
+    {
+      "topic": "manufacturing",
+      "question_id": "career-dac5c3bb2573bda42f4d",
+      "review_current": true
+    },
+    {
+      "topic": "quality",
+      "question_id": "career-f41b11c093c35f8d6c52",
+      "review_current": true
+    },
+    {
+      "topic": "product",
+      "question_id": "career-e0d0667194755167742b",
+      "review_current": true
+    },
+    {
+      "topic": "customer-research",
+      "question_id": "career-7befa481c64489385adf",
+      "review_current": true
+    },
+    {
+      "topic": "ux",
+      "question_id": "career-023703fb9d7768ca9a38",
+      "review_current": true
+    },
+    {
+      "topic": "accessibility",
+      "question_id": "career-63da4547944fd229c7e8",
+      "review_current": true
+    },
+    {
+      "topic": "visual-design",
+      "question_id": "career-0cb9f21846f9c27fc1a4",
+      "review_current": true
+    },
+    {
+      "topic": "content",
+      "question_id": "career-f6ce3e87454f14027762",
+      "review_current": true
+    },
+    {
+      "topic": "seo",
+      "question_id": "career-abcd464d5fdc2fc0c00d",
+      "review_current": true
+    },
+    {
+      "topic": "research",
+      "question_id": "career-be8598b7670fb357f993",
+      "review_current": true
+    },
+    {
+      "topic": "financial-analysis",
+      "question_id": "career-27c5611013fc20d19766",
+      "review_current": true
+    },
+    {
+      "topic": "hr-operations",
+      "question_id": "career-fa75b17eb37e0da12e19",
+      "review_current": true
+    },
+    {
+      "topic": "learning-design",
+      "question_id": "career-d918c716eed077f67292",
+      "review_current": true
+    },
+    {
+      "topic": "inventory",
+      "question_id": "career-063e8bdcd9fd07969e95",
+      "review_current": true
+    },
+    {
+      "topic": "supply-chain",
+      "question_id": "career-14ff3bf8a7c5201aabf0",
+      "review_current": true
+    },
+    {
+      "topic": "react",
+      "question_id": "career-4dabdcd82be7af677c05",
+      "review_current": true
+    },
+    {
+      "topic": "mobile",
+      "question_id": "career-f814ac2605ada2314d59",
+      "review_current": true
+    },
+    {
+      "topic": "ml-operations",
+      "question_id": "career-8a54f5f29c1fba15fd78",
+      "review_current": true
+    },
+    {
+      "topic": "brand",
+      "question_id": "career-b877eaff1b903f7fb58d",
+      "review_current": true
+    },
+    {
+      "topic": "payroll",
+      "question_id": "career-a414429a831f4709169b",
+      "review_current": true
+    },
+    {
+      "topic": "audit",
+      "question_id": "career-9a7b4071b84c65f124fc",
+      "review_current": true
+    },
+    {
+      "topic": "procurement",
+      "question_id": "career-7d74fdeebd5e68d45bbb",
+      "review_current": true
+    },
+    {
+      "topic": "automation",
+      "question_id": "career-3efd39bdd7723e7bd40d",
+      "review_current": true
+    },
+    {
+      "topic": "electronics",
+      "question_id": "career-a4bedff5c55fcc12d83d",
+      "review_current": true
+    },
+    {
+      "topic": "technical-writing",
+      "question_id": "career-966b659da1b34598c472",
+      "review_current": true
+    },
+    {
+      "topic": "events",
+      "question_id": "career-01825cac3a7643852f60",
+      "review_current": true
+    },
+    {
+      "topic": "hospitality",
+      "question_id": "career-983276c9096f2d45dbda",
+      "review_current": true
+    },
+    {
+      "topic": "account-management",
+      "question_id": "career-0162b1e61c665b727f03",
+      "review_current": true
+    }
+  ],
+  "arithmetic": [
+    {
+      "question_id": "career-66191c0db9bf3a519a19",
+      "rule": "COUNT rows versus non-NULL amounts",
+      "expected": "100 and 92",
+      "actual": "100 and 92",
+      "passed": true
+    },
+    {
+      "question_id": "career-649b69b2190d83c44842",
+      "rule": "rate difference and relative change",
+      "expected": "1 percentage point; 50% relative",
+      "actual": "1 percentage point; 50% relative",
+      "passed": true
+    },
+    {
+      "question_id": "career-86fbc255b86cbcc2c946",
+      "rule": "minimum hole minus maximum shaft",
+      "expected": "0.10 mm",
+      "actual": "0.10 mm",
+      "passed": true
+    },
+    {
+      "question_id": "career-dac5c3bb2573bda42f4d",
+      "rule": "serial bottleneck times final good fraction",
+      "expected": "6 units per hour",
+      "actual": "6 units per hour",
+      "passed": true
+    },
+    {
+      "question_id": "career-35d65833341963027189",
+      "rule": "available shift minutes per required good unit",
+      "expected": "2 minutes",
+      "actual": "2 minutes",
+      "passed": true
+    },
+    {
+      "question_id": "career-5baabc82e3690ee460fa",
+      "rule": "first-pass and final yield definitions",
+      "expected": "92% first-pass; 95% final",
+      "actual": "92% first-pass; 95% final",
+      "passed": true
+    },
+    {
+      "question_id": "career-f6cd2a6ff19fc2d7d1af",
+      "rule": "defective units, not defect instances",
+      "expected": "4%",
+      "actual": "4%",
+      "passed": true
+    },
+    {
+      "question_id": "career-a4bedff5c55fcc12d83d",
+      "rule": "minimum voltage divided by maximum resistance",
+      "expected": "0.0452 A",
+      "actual": "0.0452 A",
+      "passed": true
+    },
+    {
+      "question_id": "career-104e9325847c65b5cb5c",
+      "rule": "power per parallel resistor",
+      "expected": "Each dissipates 1 W, above its rating",
+      "actual": "Each dissipates 1 W, above its rating",
+      "passed": true
+    },
+    {
+      "question_id": "career-5613987b65607f816b0c",
+      "rule": "loaded voltage-divider branch",
+      "expected": "3.33 V",
+      "actual": "3.33 V",
+      "passed": true
+    },
+    {
+      "question_id": "career-5cba4ed438126ce34291",
+      "rule": "purchases in the matched click cohort",
+      "expected": "5%",
+      "actual": "5%",
+      "passed": true
+    },
+    {
+      "question_id": "career-f637812b5cfa49c9e3bb",
+      "rule": "cost per valid qualified enquiry",
+      "expected": "30",
+      "actual": "30",
+      "passed": true
+    },
+    {
+      "question_id": "career-b599c73d852c6fbb03db",
+      "rule": "explicit illustrative weighted pipeline value",
+      "expected": "200",
+      "actual": "200",
+      "passed": true
+    },
+    {
+      "question_id": "career-1807e8eef3f14ac8d2da",
+      "rule": "asset equals cash paid plus new payable",
+      "expected": "Equipment +1500; cash -1200; payable +300",
+      "actual": "Equipment +1500; cash -1200; payable +300",
+      "passed": true
+    },
+    {
+      "question_id": "career-1a5260e3c597a4a87bc3",
+      "rule": "additional adjustment after one month already expensed",
+      "expected": "100",
+      "actual": "100",
+      "passed": true
+    },
+    {
+      "question_id": "career-c9952d6bc21ccf995c80",
+      "rule": "six-month straight-line depreciation under exercise assumptions",
+      "expected": "150",
+      "actual": "150",
+      "passed": true
+    },
+    {
+      "question_id": "career-4cd29e30e3ba04693116",
+      "rule": "gross margin on net revenue",
+      "expected": "30%",
+      "actual": "30%",
+      "passed": true
+    },
+    {
+      "question_id": "career-d34e3b00d119142d15d8",
+      "rule": "stated current and quick asset boundaries",
+      "expected": "Current 1.5; quick 1.0",
+      "actual": "Current 1.5; quick 1.0",
+      "passed": true
+    },
+    {
+      "question_id": "career-049fc73f2125a9f91c17",
+      "rule": "lead-time demand plus safety stock",
+      "expected": "80 units",
+      "actual": "80 units",
+      "passed": true
+    },
+    {
+      "question_id": "career-d593a63c1e545431ca20",
+      "rule": "authorized inventory movement equation",
+      "expected": "70 units",
+      "actual": "70 units",
+      "passed": true
+    },
+    {
+      "question_id": "career-eb513e74a113332b796e",
+      "rule": "same-time-basis demand less capacity",
+      "expected": "30 units",
+      "actual": "30 units",
+      "passed": true
+    },
+    {
+      "question_id": "career-a414429a831f4709169b",
+      "rule": "fictional regular plus overtime pay less stated deductions",
+      "expected": "770",
+      "actual": "770",
+      "passed": true
+    },
+    {
+      "question_id": "career-0ecc950eee51f7caca51",
+      "rule": "incremental approved gross-pay correction",
+      "expected": "40",
+      "actual": "40",
+      "passed": true
+    },
+    {
+      "question_id": "career-7d74fdeebd5e68d45bbb",
+      "rule": "equal-boundary delivered offer cost",
+      "expected": "Offer B at 120",
+      "actual": "Offer B at 120",
+      "passed": true
+    },
+    {
+      "question_id": "career-01825cac3a7643852f60",
+      "rule": "all persons counted against the stated venue limit",
+      "expected": "15",
+      "actual": "15",
+      "passed": true
+    },
+    {
+      "question_id": "career-8a0676bf1f9eed469b58",
+      "rule": "occupied rooms divided by available rooms",
+      "expected": "90%",
+      "actual": "90%",
+      "passed": true
+    },
+    {
+      "question_id": "career-d72555c556d2e9975cdb",
+      "rule": "renewal plus expansion less agreed reduction",
+      "expected": "1100",
+      "actual": "1100",
+      "passed": true
+    }
+  ],
+  "links": {
+    "checked_at": "2026-11-07T12:23:53.000267+00:00",
+    "http200": 305,
+    "total": 305,
+    "not_verified": []
+  },
+  "answer_cues": {
+    "extension_foundation": {
+      "count": 960,
+      "unique_longest_correct": 767,
+      "unique_longest_correct_rate": 0.7989583333333333,
+      "correct_positions": {
+        "0": 258,
+        "1": 260,
+        "2": 206,
+        "3": 236
+      }
+    },
+    "extension_intermediate": {
+      "count": 550,
+      "unique_longest_correct": 145,
+      "unique_longest_correct_rate": 0.2636363636363636,
+      "correct_positions": {
+        "0": 135,
+        "1": 131,
+        "2": 139,
+        "3": 145
+      }
+    },
+    "inherited_base": {
+      "count": 611,
+      "unique_longest_correct": 244,
+      "unique_longest_correct_rate": 0.3993453355155483,
+      "correct_positions": {
+        "0": 240,
+        "1": 201,
+        "2": 149,
+        "3": 21
+      }
+    }
+  },
+  "roles": [
+    {
+      "id": "1072f095-2197-59cf-8d98-35603b7e2024",
+      "name": "Frontend Developer",
+      "family": "software",
+      "skill_count": 3,
+      "foundation_question_count": 184,
+      "intermediate_question_count": 33,
+      "unique_resource_count": 47,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "8b7132d8-ffb4-5553-a071-f9cca44c220f",
+      "name": "Backend Developer",
+      "family": "software",
+      "skill_count": 5,
+      "foundation_question_count": 91,
+      "intermediate_question_count": 53,
+      "unique_resource_count": 22,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "50a95cc7-eab5-5703-ac52-20d3af991d92",
+      "name": "Full-Stack Developer",
+      "family": "software",
+      "skill_count": 5,
+      "foundation_question_count": 225,
+      "intermediate_question_count": 53,
+      "unique_resource_count": 54,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "2608fad8-de6b-5f3b-bdd2-3fd3cddf6482",
+      "name": "QA Engineer",
+      "family": "software",
+      "skill_count": 4,
+      "foundation_question_count": 207,
+      "intermediate_question_count": 42,
+      "unique_resource_count": 49,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "aeaa48d1-78c5-5886-96dd-bc35107ff142",
+      "name": "Mobile Developer",
+      "family": "software",
+      "skill_count": 4,
+      "foundation_question_count": 77,
+      "intermediate_question_count": 41,
+      "unique_resource_count": 16,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "65a22fdb-df5e-5061-b45c-095082ce6cc9",
+      "name": "Software Engineer",
+      "family": "software",
+      "skill_count": 5,
+      "foundation_question_count": 90,
+      "intermediate_question_count": 53,
+      "unique_resource_count": 20,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "04bd798a-3e42-5635-8ab6-b632dd305e58",
+      "name": "Data Analyst",
+      "family": "data",
+      "skill_count": 4,
+      "foundation_question_count": 88,
+      "intermediate_question_count": 44,
+      "unique_resource_count": 30,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "f415b124-7aec-56a0-917c-8abc1e214120",
+      "name": "AI Applications Developer",
+      "family": "data",
+      "skill_count": 5,
+      "foundation_question_count": 105,
+      "intermediate_question_count": 55,
+      "unique_resource_count": 33,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "8e8ae3f8-5cc0-5e85-90d6-c58f5bc6be0e",
+      "name": "BI Analyst",
+      "family": "data",
+      "skill_count": 4,
+      "foundation_question_count": 95,
+      "intermediate_question_count": 42,
+      "unique_resource_count": 25,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "94410869-faf1-5bbf-9cbd-09b3f1b670fb",
+      "name": "Data Engineer",
+      "family": "data",
+      "skill_count": 5,
+      "foundation_question_count": 91,
+      "intermediate_question_count": 53,
+      "unique_resource_count": 22,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "7cc7d4a1-e62e-5144-a76f-eb37a1c8b681",
+      "name": "Machine Learning Engineer",
+      "family": "data",
+      "skill_count": 4,
+      "foundation_question_count": 390,
+      "intermediate_question_count": 41,
+      "unique_resource_count": 99,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "077f749a-3430-5a16-b540-af7b47e912bd",
+      "name": "Data Scientist",
+      "family": "data",
+      "skill_count": 6,
+      "foundation_question_count": 445,
+      "intermediate_question_count": 63,
+      "unique_resource_count": 118,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "e5d6e722-af94-55d1-8d41-4087f277df16",
+      "name": "Cloud Support Associate",
+      "family": "infrastructure",
+      "skill_count": 5,
+      "foundation_question_count": 100,
+      "intermediate_question_count": 50,
+      "unique_resource_count": 15,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "5e735ace-f2e5-5d8c-9fb6-6d62973f3b03",
+      "name": "Cybersecurity Analyst",
+      "family": "infrastructure",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "25b1619f-f83d-50f2-9d48-5140b79adad6",
+      "name": "IT Support Specialist",
+      "family": "infrastructure",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "5bedf9c6-49e5-554a-8b47-e62375763442",
+      "name": "Systems Administrator",
+      "family": "infrastructure",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "8c741a70-0cfa-572f-8bf0-84bb3eb907bd",
+      "name": "DevOps Engineer",
+      "family": "infrastructure",
+      "skill_count": 5,
+      "foundation_question_count": 97,
+      "intermediate_question_count": 51,
+      "unique_resource_count": 19,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "f69b4d7e-2e18-5d7e-8b9e-5829d3af528e",
+      "name": "Network Administrator",
+      "family": "infrastructure",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "f4aa63fc-eb68-508b-9556-01f0162e29f8",
+      "name": "CAD Technician",
+      "family": "engineering",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "347fb9fb-44af-5d25-9a5d-22c2564c7c6b",
+      "name": "Automation Technician",
+      "family": "engineering",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "c22326c1-0282-588b-b860-e530202ef85c",
+      "name": "Quality Engineer",
+      "family": "engineering",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "d014ae22-eb0c-5ae5-a25a-c21f4da1f92c",
+      "name": "Manufacturing Engineer",
+      "family": "engineering",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "6a6607ff-eaa2-579c-9bcc-4488db22e5bc",
+      "name": "Electronics Technician",
+      "family": "engineering",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "88563dc6-1e06-57dd-8f25-db0c4c8fa298",
+      "name": "Industrial Engineering Associate",
+      "family": "engineering",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "d1762b80-14d3-580f-ba02-cd40a5f54689",
+      "name": "Product Manager",
+      "family": "product",
+      "skill_count": 5,
+      "foundation_question_count": 100,
+      "intermediate_question_count": 50,
+      "unique_resource_count": 15,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "32b34a86-0b10-5dd1-a544-e548febba83d",
+      "name": "UX Designer",
+      "family": "product",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "709d19a9-814c-54c5-ad9f-9b9331d68fb8",
+      "name": "UI Designer",
+      "family": "product",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "420dac4b-1d3a-5e1b-8077-e35bf641ba2f",
+      "name": "UX Researcher",
+      "family": "product",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "5a3966e4-ed79-5ad6-ade6-56b9b13f8625",
+      "name": "Product Designer",
+      "family": "product",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "e7f18f90-4998-55ba-a9fe-cfc8f82ea716",
+      "name": "Technical Writer",
+      "family": "product",
+      "skill_count": 4,
+      "foundation_question_count": 77,
+      "intermediate_question_count": 41,
+      "unique_resource_count": 16,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "191f9cc0-6dff-52bc-b055-a8e90d9772ac",
+      "name": "Project Coordinator",
+      "family": "business",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "f528233b-1625-551b-949e-86f3f78913d8",
+      "name": "Business Analyst",
+      "family": "business",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "7abb4fbf-a99e-55c4-a683-5e2d459718ad",
+      "name": "Operations Analyst",
+      "family": "business",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "69cddbb3-7e8e-5487-b4df-b0f4bcb20f35",
+      "name": "Project Manager",
+      "family": "business",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "64e74d51-c9ce-5c83-8c31-aa674ecbf48e",
+      "name": "Management Analyst",
+      "family": "business",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "42af7dec-0893-511c-bd1c-e7c113530b1f",
+      "name": "Administrative Coordinator",
+      "family": "business",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "df0857da-9c63-5fc6-ad3b-7419259c5f9f",
+      "name": "Digital Marketing Associate",
+      "family": "marketing",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "40ad442d-84fc-5659-a385-f05dea7d67b7",
+      "name": "SEO Specialist",
+      "family": "marketing",
+      "skill_count": 4,
+      "foundation_question_count": 210,
+      "intermediate_question_count": 41,
+      "unique_resource_count": 44,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "4a3187b9-999b-50ee-b777-a132fd9fe4fa",
+      "name": "Content Writer",
+      "family": "marketing",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "f21bfdad-d16e-5e07-a72f-b683a11667cb",
+      "name": "Social Media Coordinator",
+      "family": "marketing",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "3af20eb7-d8fb-501d-8c49-b0ffa7cbe02c",
+      "name": "Graphic Designer",
+      "family": "marketing",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "5fee9265-6915-5c1c-96bb-f85e88514584",
+      "name": "Marketing Analyst",
+      "family": "marketing",
+      "skill_count": 5,
+      "foundation_question_count": 117,
+      "intermediate_question_count": 51,
+      "unique_resource_count": 26,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "e8ef894f-0c39-52d4-8527-cd50d22f72cc",
+      "name": "Accounting Associate",
+      "family": "finance",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "fb022067-332d-54ce-8351-5ed85de3e052",
+      "name": "Financial Analyst",
+      "family": "finance",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "58736cf2-757a-5493-bff8-b7429ce42674",
+      "name": "Payroll Specialist",
+      "family": "finance",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "2c5d8476-8772-53d3-8c06-010ebc292182",
+      "name": "Accounts Payable Associate",
+      "family": "finance",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "2b5d03eb-2bb5-5430-8db6-fd0adb24b4c8",
+      "name": "Audit Associate",
+      "family": "finance",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "6df3c2ad-7d82-58ff-92cf-e326b9bd5a62",
+      "name": "Credit Analyst",
+      "family": "finance",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "05f8f679-a65a-5725-9adc-691c258a4f92",
+      "name": "Recruitment Associate",
+      "family": "people",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "e73bdcd8-d2a2-5a33-a457-bf07ee5f4323",
+      "name": "HR Operations Associate",
+      "family": "people",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "0c6195b9-841b-5d32-97c6-ef375df2ffec",
+      "name": "Learning & Development Coordinator",
+      "family": "people",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "f74d6cf8-b1eb-5290-88a7-74a67868d1ef",
+      "name": "People Analyst",
+      "family": "people",
+      "skill_count": 4,
+      "foundation_question_count": 97,
+      "intermediate_question_count": 41,
+      "unique_resource_count": 23,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "4e70f94f-5c53-5322-90c7-a666931b0251",
+      "name": "Talent Development Associate",
+      "family": "people",
+      "skill_count": 3,
+      "foundation_question_count": 60,
+      "intermediate_question_count": 30,
+      "unique_resource_count": 9,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "baf85399-16bc-582e-ad03-582db8703a39",
+      "name": "Employee Experience Coordinator",
+      "family": "people",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "733c2bed-d5c3-5c05-a726-dd8d0f8af9f6",
+      "name": "Sales Representative",
+      "family": "commercial",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "af93bab4-54f0-5803-8660-055f1743dfcc",
+      "name": "Customer Success Associate",
+      "family": "commercial",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "cae8553f-aee4-5903-94b1-f91607281516",
+      "name": "Customer Support Specialist",
+      "family": "commercial",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "863da592-825a-532b-a232-ae15dc880249",
+      "name": "Procurement Analyst",
+      "family": "commercial",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "74361a24-eec8-50f3-b286-095884fd5440",
+      "name": "Logistics Coordinator",
+      "family": "commercial",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    },
+    {
+      "id": "44ba96be-6b0b-52c8-a225-54f7e14fe4eb",
+      "name": "Hospitality Operations Associate",
+      "family": "commercial",
+      "skill_count": 4,
+      "foundation_question_count": 80,
+      "intermediate_question_count": 40,
+      "unique_resource_count": 12,
+      "milestone_count": 4,
+      "case_rubric_review_current": true,
+      "problems": []
+    }
+  ],
+  "errors": [],
+  "remaining_limits": [
+    "Agent review is not independent professional or pedagogical validation.",
+    "Foundation answer-length cues remain a known authoring limitation; original foundation items were not silently rewritten.",
+    "Role mappings and difficulty labels need real learner and specialist evidence before being used for consequential decisions.",
+    "Reachable resource pages can still require external accounts or contain paid/member-only activities; HTTP200 does not establish learning access or relevance of every exercise.",
+    "The adversarial matching set is now observed regression evidence. New untouched probes are required for future independent software-validation claims."
+  ]
+}

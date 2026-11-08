@@ -20373,19 +20373,19 @@
     "id": "career-595d1c837fe9ececcaf5",
     "prompt": "Joining orders to order_items doubles an order-level shipping charge when an order has two items. How should total shipping be calculated?",
     "options": [
-      "Aggregate shipping at order grain first",
+      "Sum from one row per order",
       "Average the joined shipping values",
       "Use SUM(DISTINCT shipping_amount)",
       "SUM the shipping after the item join"
     ],
     "correct_index": 0,
-    "explanation": "Join multiplicity changes the grain; an order-level amount must be counted once per order.",
+    "explanation": "Calculate shipping from a relation with exactly one row per order, or aggregate item details to order grain before joining. Rejoining item rows can multiply an earlier shipping aggregate again. SUM(DISTINCT shipping) is not a general fix because different orders can have equal charges.",
     "difficulty": 3,
     "topics": [
       "sql"
     ],
-    "source": "VoidFill original intermediate scenario; learning reference: Microsoft Learn curricula",
-    "source_url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/05-relational-databases/README.md",
+    "source": "VoidFill original intermediate scenario; learning reference: PostgreSQL documentation",
+    "source_url": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN",
     "group": "career-intermediate-sql",
     "evidence_type": "knowledge",
     "objective_id": "sql-applied-01"

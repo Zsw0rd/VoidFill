@@ -20,8 +20,8 @@ are read-only. Pull-request code cannot deploy to production through this file.
 3. **Model, production build and isolated journeys:** fetch the public checksummed
    model, validate content fingerprints and build-cache integrity, run ONNX serving/career/guest/staff
    tests, build Next.js and exercise auth, learner, staff and all-career journeys
-   against the running production-mode local application. Chromium UX checks run
-   on the same synthetic localhost app, never on a real account or production DB.
+   against the running production-mode local application. Browser regressions
+   are a separate manual opt-in, described below.
 
 The model job uses the serving dependency set. Offline training experiments and
 their private/untracked checkpoints are not fabricated in CI and are outside
@@ -29,6 +29,14 @@ that job. Resource links should be checked separately on content releases with
 `scripts/check-career-resources.py`; external site availability is not a reliable
 gate for every unrelated code change. Browser visual and accessibility checks
 are additional release evidence, not covered by API smoke tests alone.
+
+For the current validation release the user chose Chrome-only UI checks.
+Pull-request and push runs therefore do not launch Playwright or install a test
+browser. The existing isolated UI suite is retained, but runs only after an
+operator explicitly enables `browser_regressions` in a manual workflow dispatch.
+The input defaults to false. UI and accessibility verification for this release
+uses the documented Chrome walkthroughs; no automated accessibility certification
+or human participant study is claimed.
 
 Synthetic CI passwords are restricted to isolated demos. They are not project
 credentials. Failed journey logs are retained for three days; avoid adding

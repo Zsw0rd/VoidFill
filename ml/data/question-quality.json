@@ -1,0 +1,34 @@
+{
+  "version": "2026.11-question-quality-1",
+  "scope": "Reviewed exclusions apply only to selection of new knowledge assessments. Original imported questions, IDs, vector rows and stored/sealed attempts remain unchanged. Exclusion is an authoring-quality decision, not a retroactive grade correction or a claim that every source answer is factually false.",
+  "excluded": [
+    {
+      "id": "b2bd6e44742c5bd2a5843ea1",
+      "prompt": "A database can be considered a table with columns and rows",
+      "reason_code": "ambiguous_database_table_analogy",
+      "reason": "The imported True key depends on treating an entire database as a table analogy. Relational tables have rows and columns; a database may contain multiple related tables. The unqualified stem cannot distinguish these interpretations reliably, and the imported explanation merely repeats its key.",
+      "reference_urls": ["https://www.postgresql.org/docs/current/ddl-basics.html"]
+    },
+    {
+      "id": "8007a31cf0ffc7c9974bc177",
+      "prompt": "Python is a good language for",
+      "reason_code": "subjective_language_suitability",
+      "reason": "Good for Data Science and good for beginners are broad suitability judgements. Selecting Both does not establish an observable Python skill, despite Python's documented scientific and educational uses.",
+      "reference_urls": ["https://www.python.org/about/apps/", "https://www.cmu.edu/teaching/designteach/syllabus/newcourse/learningobjectives.html"]
+    },
+    {
+      "id": "286359dc7f04d8a09e117139",
+      "prompt": "Python is a good language for Data Science because",
+      "reason_code": "vague_all_of_above_suitability",
+      "reason": "The choices mix a library-ecosystem fact with the subjective phrase rich yet simple, followed by all of the above. The stem measures agreement with a promotional description rather than a specific Python operation or reasoning task.",
+      "reference_urls": ["https://www.python.org/about/apps/", "https://www.cmu.edu/teaching/designteach/syllabus/newcourse/learningobjectives.html"]
+    },
+    {
+      "id": "54dc7c2d1924c49479c4d0a8",
+      "prompt": "You cannot do Data Science if you do not know Python",
+      "reason_code": "language_prerequisite_not_python_mastery",
+      "reason": "The imported False key is consistent with data work using other tools. However, rejecting an absolute language prerequisite does not demonstrate the Python knowledge for which this item awards evidence. Retire it from new Python skill assessments without changing old answers or awards.",
+      "reference_urls": ["https://www.python.org/about/apps/", "https://www.cmu.edu/teaching/designteach/syllabus/newcourse/learningobjectives.html"]
+    }
+  ]
+}

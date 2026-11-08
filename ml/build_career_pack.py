@@ -10,7 +10,7 @@ from ml.career_question_bank_phase2 import BANK as PHASE2_BANK
 from ml.career_pack_phase2 import REFERENCES as PHASE2_REFERENCES
 from ml.career_question_bank_phase3 import BANK as PHASE3_BANK
 from ml.career_pack_phase3 import REFERENCES as PHASE3_REFERENCES
-from ml.career_intermediate_questions import BANK as INTERMEDIATE_BANK
+from ml.career_intermediate_questions import BANK as INTERMEDIATE_BANK, REFERENCE_OVERRIDES
 
 ROOT = Path(__file__).resolve().parent
 DEST = ROOT / "data/careers"
@@ -138,7 +138,8 @@ def main():
             assert len(set(options)) == 4, (topic, prompt)
             identity = hashlib.sha256((topic + ":" + prompt).encode()).hexdigest()[:20]
             random.Random(identity).shuffle(options)
-            questions.append({"id": "career-" + identity, "prompt": prompt, "options": options, "correct_index": options.index(answer), "explanation": explanation, "difficulty": difficulty, "topics": [topic], "source": "VoidFill original intermediate scenario; learning reference: " + provider, "source_url": source_url, "group": "career-intermediate-" + topic, "evidence_type": "knowledge", "objective_id": f"{topic}-applied-{i+1:02d}"})
+            item_provider, item_url = REFERENCE_OVERRIDES.get((topic, i), (provider, source_url))
+            questions.append({"id": "career-" + identity, "prompt": prompt, "options": options, "correct_index": options.index(answer), "explanation": explanation, "difficulty": difficulty, "topics": [topic], "source": "VoidFill original intermediate scenario; learning reference: " + item_provider, "source_url": item_url, "group": "career-intermediate-" + topic, "evidence_type": "knowledge", "objective_id": f"{topic}-applied-{i+1:02d}"})
     DEST.mkdir(exist_ok=True, parents=True)
     (DEST / "questions.json").write_text(json.dumps(questions, indent=2, ensure_ascii=False) + "\n", encoding="utf8")
     (DEST / "resources.json").write_text(json.dumps(resources, indent=2, ensure_ascii=False) + "\n", encoding="utf8")

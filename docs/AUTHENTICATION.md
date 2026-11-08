@@ -51,14 +51,31 @@ flow. Confirmation-enabled email delivery was not exercised in this local test.
 
 ## Verification
 
-Chrome testing on port 3001 completed Google consent and reached the real existing
-account's dashboard. Sign-out returned to port 3001. Entering through Google on
-the signup page returned to the same existing profile and target role. No real
-profile fields or learning progress were changed for the test. First-time profile
-creation, trigger races and role isolation also have automated regression tests.
-The production build (including middleware), TypeScript, lint, all 28 unit tests,
-learner/staff demo integration and anonymous auth integration checks passed.
-The auth integration checks also passed against the built production server.
+The production college-account acceptance run on 7 November 2026 completed a
+genuinely new Google signup, first-time learner onboarding and one saved daily
+assessment. Optional background/skill claims were left empty; the selected path
+was AI Applications Developer at foundation level, with context identifying the
+account acceptance test. The learner began at zero XP with unassessed skills.
+
+The first saved check returned 9/10 and 95 XP. Reloading retained that result.
+After ordinary logout and a new Google account selection, the returning learner
+went directly to the dashboard, retained 95 XP, streak one and five skill scores,
+and could reopen the same saved daily result without another award. Stale tokens
+from an interrupted earlier session expired without saving progress. The live
+test exposed an ambiguous original SQL item; the quality review records its
+exclusion from future checks. Existing sealed attempts are preserved as graded.
+
+The designated college identity remains a regular learner; no staff privileges
+or mentor assignments were added. Its email, provider IDs, authentication data
+and private screenshots remain outside this public repository. Google password
+entry was completed by the account owner directly in Chrome.
+
+The existing owner's Google login and administrator/mentoring access were also
+verified in the preceding production release. First-time profile creation,
+trigger races, preservation of edited profiles and role isolation have automated
+Node regression coverage. Current release checks and Chrome-only UX evidence are
+recorded in `VALIDATION_AND_OPERATIONS.md`; the HTTP auth script also checks
+callback errors, cancellation, return-path validation and POST-only logout.
 
 ```powershell
 npm test
@@ -82,8 +99,9 @@ When changing domains, update the Google origin and Supabase callback allowlist
 together. Keep Google's redirect URI pointing to Supabase, and keep the public
 privacy notice reachable on the deployed domain.
 
-The existing learning-progress database policies and transactional grading work
-remain a separate production requirement; see
-[local ML limits and production follow-up](LOCAL_ML.md#limits-and-production-follow-up).
+The production transactional grading migration is applied. Browser roles cannot
+write earned scores/XP or execute the privileged grading RPC; server-verified
+results commit atomically. See [database releases](DATABASE_RELEASES.md) and
+[the applied-learning release evidence](APPLIED_LEARNING_RELEASE.md).
 
 Provider setup reference: [Supabase Google Auth documentation](https://supabase.com/docs/guides/auth/social-sign-in/auth-google).

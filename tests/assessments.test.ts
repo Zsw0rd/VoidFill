@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { createAssessment, gradeAssessment, submissionSchema } from "../lib/assessments";
 import type { LocalQuestion } from "../lib/localMl";
+import {readFileSync} from "node:fs";
 
 process.env.ML_ASSESSMENT_SECRET = "test-only-assessment-secret-32-characters-long";
 const user = "00000000-0000-4000-8000-000000000001";
@@ -65,4 +66,16 @@ test("expired assessments cannot be submitted", (t) => {
   const now = Date.now();
   t.mock.method(Date, "now", () => now + 3 * 60 * 60 * 1000);
   assert.throws(() => gradeAssessment(user, submission, "practice"));
+});
+
+test("selection quarantine preserves the key and explanation in an already sealed legacy assessment",()=>{
+  const imported=JSON.parse(readFileSync(new URL("../ml/data/questions.json",import.meta.url),"utf8")).find((row:LocalQuestion)=>row.id==="b2bd6e44742c5bd2a5843ea1");
+  const legacy:LocalQuestion={...imported,skill_id:questions[0].skill_id,skill_name:"SQL Fundamentals"};
+  const sealed=createAssessment(user,[legacy],{purpose:"practice",difficulty:1});
+  const policy=JSON.parse(readFileSync(new URL("../ml/data/question-quality.json",import.meta.url),"utf8"));
+  assert.ok(policy.excluded.some((row:{id:string})=>row.id===legacy.id));
+  const result=gradeAssessment(user,{assessment_token:sealed.assessment_token,answers:[{question_id:legacy.id,selected_index:legacy.correct_index}]},"practice");
+  assert.equal(result.score,100);
+  assert.equal(result.review[0].correct_index,legacy.correct_index);
+  assert.equal(result.review[0].explanation,legacy.explanation);
 });

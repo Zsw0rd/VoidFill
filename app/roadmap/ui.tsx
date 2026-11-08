@@ -698,10 +698,11 @@ export function RoadmapClient({
                         100
                       }
                     />
-                    <div className="text-lg font-medium">
+                    <div className="text-lg font-medium" aria-live="polite" aria-atomic="true">
                       {activeQuestion.prompt}
                     </div>
                     <QuestionOptions
+                      question={activeQuestion.prompt}
                       options={activeQuestion.options || []}
                       value={assessAnswers[activeQuestion.id]}
                       onChange={(index) =>

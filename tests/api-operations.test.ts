@@ -25,7 +25,10 @@ test("request timing records metadata and generates its own id without logging p
     assert.match(response.headers.get("Server-Timing")||"",/app;dur=/);
     assert.equal(response.headers.get("Cache-Control"),"private, no-store");
     const logged=JSON.parse(entries[0]);
-    assert.deepEqual(Object.keys(logged).sort(),["duration_ms","event","operation","request_id","status"]);
+    assert.deepEqual(Object.keys(logged).sort(),["duration_ms","event","operation","request_id","runtime","status"]);
+    assert.match(logged.runtime.runtime_id,/^[a-f0-9-]{36}$/);
+    assert.equal(typeof logged.runtime.first_request_in_process,"boolean");
+    assert.ok(logged.runtime.rss_bytes>0 && logged.runtime.heap_used_bytes>0 && logged.runtime.process_uptime_ms>=0 && logged.runtime.process_cpu_delta_us>=0);
     assert.ok(!entries.join().includes("secret") && !entries.join().includes("resume text"));
     const failed=await withApiTelemetry("assessment",async()=>{throw new Error("sensitive upstream data");})(new Request("https://voidfill.invalid/api/test"));
     assert.equal(failed.status,500);
