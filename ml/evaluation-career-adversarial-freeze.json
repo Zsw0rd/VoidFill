@@ -1,0 +1,12 @@
+{
+  "fixture": "tests/fixtures/career-matching-adversarial-v1.json",
+  "sha256_utf8_lf": "cfa28c1978419a57ded74358e6fbaead7ddb387686b2aa617e32e53f153fa6f5",
+  "frozen_before_first_matcher_execution": true,
+  "methodology": "Agent-authored task narratives frozen before any matcher execution on this fixture. Diagnostic cases may inform changes; sentinel labels and queries must remain unchanged. This is software evaluation, not independent user research, an untouched training holdout, domain-expert review or professional suitability validation. All text is synthetic and public.",
+  "sentinel_first_execution": {
+    "matcher_source_sha256_utf8_lf": "6dad28dec7927cbbc07175a6697319ff86fd7f20ec212671462984dee4e8f3ea",
+    "recorded_before_sentinel_execution": true,
+    "recorded_at": "2026-11-07T08:00:35.164809+00:00",
+    "policy": "No matcher changes after observing sentinel results are described as independently validated by this sentinel set."
+  }
+}

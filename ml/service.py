@@ -9,6 +9,7 @@ import threading
 from collections import OrderedDict
 from contextlib import asynccontextmanager
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent
 os.environ.setdefault("HF_HOME", str(ROOT / ".cache/huggingface"))
@@ -22,6 +23,7 @@ from ml.guest import guests
 from ml.resume import parse_resume, MAX_BYTES
 from ml.retrieval import passages
 from ml.career_catalogue import CATALOGUE, DIRECTORY, TOPICS, content_fingerprints, load_learning_content, topic_for_skill
+from ml.telemetry import begin_request, finish_request, safe_operation, begin_initialization, finish_initialization
 
 class Skill(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -49,13 +51,48 @@ class AnalysisRequest(RecommendationRequest):
     test_count: int = Field(default=0, ge=0)
 
 
+def load_question_exclusions(questions, registry_path=None) -> frozenset[str]:
+    """Selection policy only: keep original bank/vector rows and sealed keys intact."""
+    try:
+        registry = json.loads((registry_path or ROOT / "data/question-quality.json").read_text(encoding="utf8"))
+        if not isinstance(registry, dict) or set(registry) != {"version", "scope", "excluded"}:
+            raise ValueError()
+        if registry["version"] != "2026.11-question-quality-1" or not isinstance(registry["scope"], str) or not registry["scope"].strip():
+            raise ValueError()
+        if not isinstance(registry["excluded"], list) or not registry["excluded"]:
+            raise ValueError()
+        known = {question["id"]: question for question in questions}
+        if len(known) != len(questions):
+            raise ValueError()
+        excluded = set()
+        for row in registry["excluded"]:
+            if not isinstance(row, dict) or set(row) != {"id", "prompt", "reason_code", "reason", "reference_urls"}:
+                raise ValueError()
+            if any(not isinstance(row[key], str) or not row[key].strip() for key in ["id", "prompt", "reason_code", "reason"]):
+                raise ValueError()
+            if row["id"] not in known or row["id"] in excluded or row["prompt"] != known[row["id"]]["prompt"]:
+                raise ValueError()
+            if not isinstance(row["reference_urls"], list) or not row["reference_urls"]:
+                raise ValueError()
+            for reference in row["reference_urls"]:
+                parsed = urlsplit(reference) if isinstance(reference, str) else None
+                if not parsed or parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
+                    raise ValueError()
+            excluded.add(row["id"])
+        return frozenset(excluded)
+    except (OSError, ValueError, TypeError, KeyError):
+        raise RuntimeError("Question-quality registry is missing, malformed, stale or references an unknown question.") from None
+
+
 class LearningEngine:
     def __init__(self):
         self.backend = os.environ.get("ML_BACKEND", "onnx" if os.environ.get("VERCEL") else "torch")
         self.lock = threading.Lock()
+        self.cache_lock = threading.Lock()
         self.embedding_cache = OrderedDict()
         self.batch_size = 16
         self.resources, self.questions = load_learning_content()
+        self.excluded_question_ids = load_question_exclusions(self.questions)
         self.public_assessment_contexts = {topic: {r["title"][:500] for r in self.resources if topic in r["topics"]} for topic in TOPICS}
         if self.backend == "onnx":
             from ml.onnx_encoder import OnnxEncoder
@@ -131,20 +168,36 @@ class LearningEngine:
 
     def encode(self, texts: list[str], *, public=False) -> np.ndarray:
         # Only public catalogue/skill queries are cached. Resume content is never cached.
+        if public:
+            # A cached catalogue query must not queue behind an unrelated private
+            # model encode. Cache mutation and actual encoder work have separate
+            # locks; inference remains serialized for predictable CPU/memory.
+            with self.cache_lock:
+                if all(text in self.embedding_cache for text in texts):
+                    result = np.stack([self.embedding_cache[text] for text in texts])
+                    for text in texts:
+                        self.embedding_cache.move_to_end(text)
+                    while len(self.embedding_cache) > 512:
+                        self.embedding_cache.popitem(last=False)
+                    return result
         with self.lock:
             if not public:
                 return self.model.encode(texts, batch_size=self.batch_size, normalize_embeddings=True, show_progress_bar=False)
-            missing = list(dict.fromkeys(text for text in texts if text not in self.embedding_cache))
+            with self.cache_lock:
+                missing = list(dict.fromkeys(text for text in texts if text not in self.embedding_cache))
+                known = {text: self.embedding_cache[text] for text in texts if text in self.embedding_cache}
             if missing:
                 vectors = self.model.encode(missing, batch_size=self.batch_size, normalize_embeddings=True, show_progress_bar=False)
-                for text, vector in zip(missing, vectors):
-                    self.embedding_cache[text] = vector
-            result = np.stack([self.embedding_cache[text] for text in texts])
-            for text in texts:
-                self.embedding_cache.move_to_end(text)
-            while len(self.embedding_cache) > 512:
-                self.embedding_cache.popitem(last=False)
-            return result
+            with self.cache_lock:
+                if missing:
+                    known.update(zip(missing, vectors))
+                self.embedding_cache.update(known)
+                result = np.stack([known[text] for text in texts])
+                for text in texts:
+                    self.embedding_cache.move_to_end(text)
+                while len(self.embedding_cache) > 512:
+                    self.embedding_cache.popitem(last=False)
+                return result
 
     def encode_queries(self, texts: list[str], *, public=False) -> np.ndarray:
         prefix = self.report.get("query_prefix", "")
@@ -207,14 +260,14 @@ class LearningEngine:
         available = []
         for skill in request.skills:
             topic = self.topic(skill.name)
-            levels = [q["difficulty"] for q in self.questions if topic and topic in q["topics"]]
+            levels = [q["difficulty"] for q in self.questions if q["id"] not in self.excluded_question_ids and topic and topic in q["topics"]]
             if levels:
                 available.append(max(levels))
         # A foundation-only bank must never be labelled an expert assessment.
         effective_difficulty = min(request.difficulty, min(available)) if available else request.difficulty
         for skill in request.skills:
             topic = self.topic(skill.name)
-            candidates = [i for i, q in enumerate(self.questions) if topic in q["topics"] and (q["difficulty"] <= 2 if effective_difficulty <= 2 else q["difficulty"] == effective_difficulty)] if topic else []
+            candidates = [i for i, q in enumerate(self.questions) if q["id"] not in self.excluded_question_ids and topic in q["topics"] and (q["difficulty"] <= 2 if effective_difficulty <= 2 else q["difficulty"] == effective_difficulty)] if topic else []
             if not candidates:
                 unsupported.append(skill.name)
                 continue
@@ -287,6 +340,18 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="VoidFill local ML", lifespan=lifespan, docs_url=None, redoc_url=None)
 
 
+@app.middleware("http")
+async def private_process_telemetry(request: Request, call_next):
+    started = begin_request()
+    status = 500
+    try:
+        response = await call_next(request)
+        status = response.status_code
+        return response
+    finally:
+        finish_request(started, safe_operation(request.url.path), status)
+
+
 def authorize(x_ml_token: str = Header(default="")):
     expected = os.environ.get("ML_SERVICE_TOKEN", "")
     if not expected or not secrets.compare_digest(x_ml_token, expected):
@@ -298,7 +363,13 @@ def get_engine() -> LearningEngine:
     if engine is None:
         with engine_lock:
             if engine is None:
-                engine = LearningEngine()
+                started = begin_initialization()
+                succeeded = False
+                try:
+                    engine = LearningEngine()
+                    succeeded = True
+                finally:
+                    finish_initialization("learning_engine", started, succeeded)
     return engine
 
 

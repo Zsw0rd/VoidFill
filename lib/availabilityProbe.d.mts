@@ -1,0 +1,3 @@
+export const PUBLIC_CHECKS:ReadonlyArray<{name:string;path:string;status:number;html?:boolean;redirect?:string;body?:Record<string,string>}>;
+export function publicProbeOrigin(origin:string,options?:{live?:boolean}):string;
+export function checkPublicAvailability(options:{origin:string;live?:boolean;fetchImpl?:typeof fetch;now?:()=>number}):Promise<{version:number;measured_at:string;origin:string;scope:string;success:boolean;checks:Array<{check:string;expected_status:number;ok:boolean;slow:boolean;attempts:Array<{status:number;ok:boolean;failure:string|null;duration_ms:number;bytes:number}>}>}>;

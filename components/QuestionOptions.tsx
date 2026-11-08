@@ -4,11 +4,13 @@ import { Check } from "lucide-react";
 
 export function QuestionOptions({
   options,
+  question,
   value,
   onChange,
   disabled = false,
 }: {
   options: string[];
+  question: string;
   value?: number;
   onChange: (index: number) => void;
   disabled?: boolean;
@@ -16,7 +18,7 @@ export function QuestionOptions({
   const group = useId();
   return (
     <fieldset className="grid gap-3" disabled={disabled}>
-      <legend className="sr-only">Choose one answer</legend>
+      <legend className="sr-only">{question} Choose one answer.</legend>
       {options.map((option, index) => (
         <label
           key={index}

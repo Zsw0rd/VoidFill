@@ -306,9 +306,10 @@ export function PracticeTestClient({ recentAttempts, skillNames }: Props) {
 
           <Card>
             <CardContent className="p-6">
-              <div className="text-lg font-medium">{q.prompt}</div>
+              <div className="text-lg font-medium" aria-live="polite" aria-atomic="true">{q.prompt}</div>
               <div className="mt-6">
                 <QuestionOptions
+                  question={q.prompt}
                   options={q.options || []}
                   value={answers[q.id]}
                   onChange={(i) => setAnswers((a) => ({ ...a, [q.id]: i }))}

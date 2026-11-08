@@ -75,6 +75,12 @@ The skill order is a learning sequence within the existing role requirements. No
 
 ## Evidence and evaluation
 
+The [all-career quality review](CAREER_QUALITY_REVIEW.md) records the later
+60-profile consistency review, selected explanation/arithmetic checks, all305
+resource links, frozen adversarial matching results, four legacy quiz exclusions
+and the remaining assessment-quality limits. Original stored content/history is
+preserved; exclusions affect new assessment selection only.
+
 `tests/fixtures/career-matching-golden.json` contains 60 role task narratives, ten custom combinations, ten unsupported specialties and ten ambiguous queries. This is a curated regression set and was used to improve explainable lexical ranking; it is not independent user research or a held-out estimate of real-world career advice quality. `ml/evaluation-career-matching.json` records the actual results. Rank scores remain ranking signals, never fit probabilities.
 
 `ml/career_evaluation.py` probes semantic topic vectors with 55 public paraphrases and ten unsupported specialties. `ml/evaluation-career-depth.json` records the actual ranking quality and cache-isolation result. A semantic miss does not silently assign an unrelated quiz: production skill coverage still uses exact catalogue/alias mapping. The probes are not a hiring benchmark, independently reviewed curriculum evaluation or validation of generated answers. The retriever weights, FP32 precision, pooling and token limit remain unchanged.

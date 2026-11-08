@@ -1,0 +1,682 @@
+{
+  "version": "career-quality-review-v1-2026-11-07",
+  "reviewed_at": "2026-11-07T12:30:23.650922+00:00",
+  "reviewer_kind": "coding-agent; no independent subject-matter-expert or participant review claimed",
+  "reviewed_scope": "All60 case/complication/capstone/rubric combinations read for internal role relevance and safe educational scope; first intermediate explanation in each55skillbank read for case consistency; 27 identified arithmetic cases independently recomputed. This does not certify all2121storedquestions factually or pedagogically.",
+  "roles": [
+    {
+      "id": "1072f095-2197-59cf-8d98-35603b7e2024",
+      "name": "Frontend Developer",
+      "reviewed_sha256": "5a823660908baf2d41d71ab077f8900c3df17d96fab11c7c241029f75d5f7092"
+    },
+    {
+      "id": "8b7132d8-ffb4-5553-a071-f9cca44c220f",
+      "name": "Backend Developer",
+      "reviewed_sha256": "3b3672d65e00b0d25eb2db393a4d55ebf856088248fd2f1ddd6ac59fba67038f"
+    },
+    {
+      "id": "50a95cc7-eab5-5703-ac52-20d3af991d92",
+      "name": "Full-Stack Developer",
+      "reviewed_sha256": "8bebc74c7818763bf54015a86882dbc868092c8d850cfc9400759327830e6241"
+    },
+    {
+      "id": "2608fad8-de6b-5f3b-bdd2-3fd3cddf6482",
+      "name": "QA Engineer",
+      "reviewed_sha256": "d9d65a9a5198e1dc980f0fc5f0cb9de23d6c3fb24507006b1e2bc1bd52e7e858"
+    },
+    {
+      "id": "aeaa48d1-78c5-5886-96dd-bc35107ff142",
+      "name": "Mobile Developer",
+      "reviewed_sha256": "4cf833bd0095b4f9d16937fce6cda0ac05efc8a326ea5933ec2c0e2da8c81527"
+    },
+    {
+      "id": "65a22fdb-df5e-5061-b45c-095082ce6cc9",
+      "name": "Software Engineer",
+      "reviewed_sha256": "5c097b97deeffc8742746c9d0cf34d0645ff98d8a4ecba81a028f37f88f2eda6"
+    },
+    {
+      "id": "04bd798a-3e42-5635-8ab6-b632dd305e58",
+      "name": "Data Analyst",
+      "reviewed_sha256": "49ac5ef8045e719287d17cbd0dcd2fb973c00ebaf6354a50b8b3b4daa2657bc6"
+    },
+    {
+      "id": "f415b124-7aec-56a0-917c-8abc1e214120",
+      "name": "AI Applications Developer",
+      "reviewed_sha256": "794839727670360e429dff048dd046caf9ceaeeb444fe55059dd11b80a73f61a"
+    },
+    {
+      "id": "8e8ae3f8-5cc0-5e85-90d6-c58f5bc6be0e",
+      "name": "BI Analyst",
+      "reviewed_sha256": "01bf20c1b9ddfcfe4c07cbebf64173fd0c75c5d8885cf3bf331c224b9c201ca0"
+    },
+    {
+      "id": "94410869-faf1-5bbf-9cbd-09b3f1b670fb",
+      "name": "Data Engineer",
+      "reviewed_sha256": "f0639b05844fad28a709e498b83f4202c79136960a200fca09638dc10d7c8f3f"
+    },
+    {
+      "id": "7cc7d4a1-e62e-5144-a76f-eb37a1c8b681",
+      "name": "Machine Learning Engineer",
+      "reviewed_sha256": "087841d8cfb5da392cfa3176bd307d9d925cfa621ab10ea26e9a1ba11e2ad63d"
+    },
+    {
+      "id": "077f749a-3430-5a16-b540-af7b47e912bd",
+      "name": "Data Scientist",
+      "reviewed_sha256": "a8a25d5872b1e2567cdcdc33f538c869e5c5b58de79b7109fdc56c6abc64e67f"
+    },
+    {
+      "id": "e5d6e722-af94-55d1-8d41-4087f277df16",
+      "name": "Cloud Support Associate",
+      "reviewed_sha256": "5d0b7b1ca2ffbccdcbe948707d4767259efcbc7ee8e92408b01d44ed4f7b06ec"
+    },
+    {
+      "id": "5e735ace-f2e5-5d8c-9fb6-6d62973f3b03",
+      "name": "Cybersecurity Analyst",
+      "reviewed_sha256": "3b138e0d0ec5b9345a3543294e2096438dbd200bf1592a93f23ed0a7ace7f86f"
+    },
+    {
+      "id": "25b1619f-f83d-50f2-9d48-5140b79adad6",
+      "name": "IT Support Specialist",
+      "reviewed_sha256": "421b4a97507cf1d662dff0825fede637df33bed7d71c69b30803f5608a849f30"
+    },
+    {
+      "id": "5bedf9c6-49e5-554a-8b47-e62375763442",
+      "name": "Systems Administrator",
+      "reviewed_sha256": "73a9526fd73a89724904fb242f867802d7d50537315937f6fb99113eef611be7"
+    },
+    {
+      "id": "8c741a70-0cfa-572f-8bf0-84bb3eb907bd",
+      "name": "DevOps Engineer",
+      "reviewed_sha256": "5c065ef132193576ee4a6c5187cac3a0f66a5a9c8274c598a0097b0876bbf1c8"
+    },
+    {
+      "id": "f69b4d7e-2e18-5d7e-8b9e-5829d3af528e",
+      "name": "Network Administrator",
+      "reviewed_sha256": "fc00fd33945f3d68bedc30c319b2c634fb04388bd56ffcf32235c253f89dce38"
+    },
+    {
+      "id": "f4aa63fc-eb68-508b-9556-01f0162e29f8",
+      "name": "CAD Technician",
+      "reviewed_sha256": "3203523035b2409b39d2e234651d8232026559294df023abcf6e3df4bb48f7ac"
+    },
+    {
+      "id": "347fb9fb-44af-5d25-9a5d-22c2564c7c6b",
+      "name": "Automation Technician",
+      "reviewed_sha256": "eccaee37721e6bc91b144981bfcb20c69d94381be9767078346d58888d723a8a"
+    },
+    {
+      "id": "c22326c1-0282-588b-b860-e530202ef85c",
+      "name": "Quality Engineer",
+      "reviewed_sha256": "6d43c2283e9bf747988ffe197dc6f1c549d5b3eee9894e7dba87a96f2f61d03e"
+    },
+    {
+      "id": "d014ae22-eb0c-5ae5-a25a-c21f4da1f92c",
+      "name": "Manufacturing Engineer",
+      "reviewed_sha256": "c2aadb44b289d587cd62270c5184c3d86abbedd31aafb710ba1158ad72fade96"
+    },
+    {
+      "id": "6a6607ff-eaa2-579c-9bcc-4488db22e5bc",
+      "name": "Electronics Technician",
+      "reviewed_sha256": "ebc52aefae7547ea8178e06c347e3f4ebccdebad97ddf3b5578f88bb588f412b"
+    },
+    {
+      "id": "88563dc6-1e06-57dd-8f25-db0c4c8fa298",
+      "name": "Industrial Engineering Associate",
+      "reviewed_sha256": "69d3c9fc3558d21cc54cfc1c44758cdfcae0a8343af41e8d5023b03bc7e459dd"
+    },
+    {
+      "id": "d1762b80-14d3-580f-ba02-cd40a5f54689",
+      "name": "Product Manager",
+      "reviewed_sha256": "3810a2200ee2472787fb4279a8ca6530ed809e0f0bb22d5545c82b3cca97b3c4"
+    },
+    {
+      "id": "32b34a86-0b10-5dd1-a544-e548febba83d",
+      "name": "UX Designer",
+      "reviewed_sha256": "eff3011f70e1d6ad277c80fc415ba02304d3d71ff66bfda2b252fb83c6a54ae9"
+    },
+    {
+      "id": "709d19a9-814c-54c5-ad9f-9b9331d68fb8",
+      "name": "UI Designer",
+      "reviewed_sha256": "9645895222a6b002cb669051defe8b1bdd4a77860e26a41163e1ed065ade7392"
+    },
+    {
+      "id": "420dac4b-1d3a-5e1b-8077-e35bf641ba2f",
+      "name": "UX Researcher",
+      "reviewed_sha256": "a0f0589a1ac6f61dbf99cba7f5a8d9170687ac867c336d7fbb3ccada55fd793a"
+    },
+    {
+      "id": "5a3966e4-ed79-5ad6-ade6-56b9b13f8625",
+      "name": "Product Designer",
+      "reviewed_sha256": "1c7526be678faecbdda227d6e47b6175d41adfeada33d83ac6d9c5fea289e5ec"
+    },
+    {
+      "id": "e7f18f90-4998-55ba-a9fe-cfc8f82ea716",
+      "name": "Technical Writer",
+      "reviewed_sha256": "be5bc50aee6d35b6d3922bb99402ab36db31961e186a91f00587a28853bd1f67"
+    },
+    {
+      "id": "191f9cc0-6dff-52bc-b055-a8e90d9772ac",
+      "name": "Project Coordinator",
+      "reviewed_sha256": "bcac69ba90f22701a7f9c4aea3019d70ef424a454b42666a42ca6ff3443934de"
+    },
+    {
+      "id": "f528233b-1625-551b-949e-86f3f78913d8",
+      "name": "Business Analyst",
+      "reviewed_sha256": "ac6e314fa838d92819e0fbc054ebf5d4d423fe518dd7425d0920a41dfbb5bcc8"
+    },
+    {
+      "id": "7abb4fbf-a99e-55c4-a683-5e2d459718ad",
+      "name": "Operations Analyst",
+      "reviewed_sha256": "37787f3df5e22ba33d65d12abb6abaa985bca2e4455c5b853acda74b22f4baff"
+    },
+    {
+      "id": "69cddbb3-7e8e-5487-b4df-b0f4bcb20f35",
+      "name": "Project Manager",
+      "reviewed_sha256": "aa1f9ad95f5c2a5038e2da11e551b6646ab5daf540907f2723e6acce6fc1fa4b"
+    },
+    {
+      "id": "64e74d51-c9ce-5c83-8c31-aa674ecbf48e",
+      "name": "Management Analyst",
+      "reviewed_sha256": "267e4a022f6d2bfa041a903838290003db923938906d931bc472c8c314c2ae5a"
+    },
+    {
+      "id": "42af7dec-0893-511c-bd1c-e7c113530b1f",
+      "name": "Administrative Coordinator",
+      "reviewed_sha256": "f0391d59a528bd57589f1fe6f3dc5e56155dee485cf4c2ea234e95aa11f4697b"
+    },
+    {
+      "id": "df0857da-9c63-5fc6-ad3b-7419259c5f9f",
+      "name": "Digital Marketing Associate",
+      "reviewed_sha256": "ba79f97f5a675e4b6a1026fdfe465c977aa98ba315c3f5b17fbb980af536043b"
+    },
+    {
+      "id": "40ad442d-84fc-5659-a385-f05dea7d67b7",
+      "name": "SEO Specialist",
+      "reviewed_sha256": "e06a5c7038c3ebfb1a018e88422907bdc50675d98b9bf2c3288bba78f4f0eb3a"
+    },
+    {
+      "id": "4a3187b9-999b-50ee-b777-a132fd9fe4fa",
+      "name": "Content Writer",
+      "reviewed_sha256": "2a5600b938b23ece888c023950980477c6dce1f2c01f473d444ca48d1b6e5ebb"
+    },
+    {
+      "id": "f21bfdad-d16e-5e07-a72f-b683a11667cb",
+      "name": "Social Media Coordinator",
+      "reviewed_sha256": "e72ac5775baf80f239eea822f8bf4fc35502e1280da86bfc35a20970a600d266"
+    },
+    {
+      "id": "3af20eb7-d8fb-501d-8c49-b0ffa7cbe02c",
+      "name": "Graphic Designer",
+      "reviewed_sha256": "7b46ab3acca7d07fc0f5276fc0e6563b29ad62255271d027b205f3a40904521c"
+    },
+    {
+      "id": "5fee9265-6915-5c1c-96bb-f85e88514584",
+      "name": "Marketing Analyst",
+      "reviewed_sha256": "25d350130c7b550362eadb06c46d691cd601fc2681bb62ea6088f228d9cddf4e"
+    },
+    {
+      "id": "e8ef894f-0c39-52d4-8527-cd50d22f72cc",
+      "name": "Accounting Associate",
+      "reviewed_sha256": "4d1edf90b76253ab6bb25078cc5e2b4552443c4cd157ba555485d4691366554b"
+    },
+    {
+      "id": "fb022067-332d-54ce-8351-5ed85de3e052",
+      "name": "Financial Analyst",
+      "reviewed_sha256": "660b9abe04df4f99093bf3082fdf1f46f752689e36f2aff32ac84cbc948c50b4"
+    },
+    {
+      "id": "58736cf2-757a-5493-bff8-b7429ce42674",
+      "name": "Payroll Specialist",
+      "reviewed_sha256": "25bfb3d160d5d1b50b3661617940dc00d34269f3c84211a591430a31a35f9b06"
+    },
+    {
+      "id": "2c5d8476-8772-53d3-8c06-010ebc292182",
+      "name": "Accounts Payable Associate",
+      "reviewed_sha256": "7e29d0f2bd7c3279dc7bbc17e0c6781ba55989a7bcf0d3849e5f371b0c9e7c28"
+    },
+    {
+      "id": "2b5d03eb-2bb5-5430-8db6-fd0adb24b4c8",
+      "name": "Audit Associate",
+      "reviewed_sha256": "1f59edad1a309a6f08e2106cc802af4e6e85d6597815cd49951b76d419ba2fba"
+    },
+    {
+      "id": "6df3c2ad-7d82-58ff-92cf-e326b9bd5a62",
+      "name": "Credit Analyst",
+      "reviewed_sha256": "e88c8cba10c348bc68c506a7cc3e98560bbed8a8bac7ec9cf63689da3315d3d7"
+    },
+    {
+      "id": "05f8f679-a65a-5725-9adc-691c258a4f92",
+      "name": "Recruitment Associate",
+      "reviewed_sha256": "80c09672ab6ad8804c56aa184d5b3ddca0a69fc46d6a5a6f0d0b7a9b197772e4"
+    },
+    {
+      "id": "e73bdcd8-d2a2-5a33-a457-bf07ee5f4323",
+      "name": "HR Operations Associate",
+      "reviewed_sha256": "7b852b05f577fe827afb15bcb42bbb1946b37903e068ecaeafed168368c2f472"
+    },
+    {
+      "id": "0c6195b9-841b-5d32-97c6-ef375df2ffec",
+      "name": "Learning & Development Coordinator",
+      "reviewed_sha256": "2853e992908b7dca6e67dc377532bfb118846c77e64ae6fd2cfb7fde7e6a0566"
+    },
+    {
+      "id": "f74d6cf8-b1eb-5290-88a7-74a67868d1ef",
+      "name": "People Analyst",
+      "reviewed_sha256": "cc2e8c13f10c7fe70f3138b6b378f88bb434d70df78c7fb5aa8123107b1130af"
+    },
+    {
+      "id": "4e70f94f-5c53-5322-90c7-a666931b0251",
+      "name": "Talent Development Associate",
+      "reviewed_sha256": "508f585a68b98bb89ee613afd45ab3dcc89a41f589380503ff0bcd9d3fa18d01"
+    },
+    {
+      "id": "baf85399-16bc-582e-ad03-582db8703a39",
+      "name": "Employee Experience Coordinator",
+      "reviewed_sha256": "25aee40e0d86c664b4988c1eafabeadf7b5e56858131f97a7193049b49a97021"
+    },
+    {
+      "id": "733c2bed-d5c3-5c05-a726-dd8d0f8af9f6",
+      "name": "Sales Representative",
+      "reviewed_sha256": "e30bf02745c4a9c750f9f60cf4e3e4bbfc8ba142aef4ee1f3e6e7fd69641750f"
+    },
+    {
+      "id": "af93bab4-54f0-5803-8660-055f1743dfcc",
+      "name": "Customer Success Associate",
+      "reviewed_sha256": "8f27f1cccdfd4aadcf5112f4caed60e42b18c89ad84bcb1806fa5230b4f6f71b"
+    },
+    {
+      "id": "cae8553f-aee4-5903-94b1-f91607281516",
+      "name": "Customer Support Specialist",
+      "reviewed_sha256": "90cc2ab994b5d3f010f314c8005deed1743d37f8ffa4388dad9d7b533e70aa96"
+    },
+    {
+      "id": "863da592-825a-532b-a232-ae15dc880249",
+      "name": "Procurement Analyst",
+      "reviewed_sha256": "08a012782d8c5db67f9f8ef343fcf2a55bbaa08958269463aa0bd3512517d0a5"
+    },
+    {
+      "id": "74361a24-eec8-50f3-b286-095884fd5440",
+      "name": "Logistics Coordinator",
+      "reviewed_sha256": "dfca14b6cda1ed7618bf8f67e54cf789e75662fc0d9c7bf6661ad8b8fe218550"
+    },
+    {
+      "id": "44ba96be-6b0b-52c8-a225-54f7e14fe4eb",
+      "name": "Hospitality Operations Associate",
+      "reviewed_sha256": "0962e813676c3a9c5e2faec7325eab5ab6402f8e88fe0b1be70791a2d4313e75"
+    }
+  ],
+  "question_samples": [
+    {
+      "topic": "python",
+      "question_id": "career-cf8ac39b438ac7b771fb",
+      "reviewed_sha256": "42fc10122dd04a639b27c21f7b3acd53bf1cbfb6d23575f2eba9f81f2ab70c13",
+      "learning_reference": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/1-Tools/README.md"
+    },
+    {
+      "topic": "sql",
+      "question_id": "career-595d1c837fe9ececcaf5",
+      "reviewed_sha256": "903d693d09221569e2ea38f6b45c11db37e74a8459d61615f8467fc837aaf6c1",
+      "learning_reference": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN"
+    },
+    {
+      "topic": "visualization",
+      "question_id": "career-649b69b2190d83c44842",
+      "reviewed_sha256": "e18448092d1c8d7504246ebe05fb4556c8be41c564c19fd741bb868858c85f4a",
+      "learning_reference": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/09-visualization-quantities/README.md"
+    },
+    {
+      "topic": "web",
+      "question_id": "career-ab7cd144419c721f0c41",
+      "reviewed_sha256": "9065a4685abcfa90954d0794ffbdd9be2dbda2d5f3ce36c786e16ebf49aca267",
+      "learning_reference": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/1-intro-to-programming-languages/README.md"
+    },
+    {
+      "topic": "git",
+      "question_id": "career-36555e2e14fbb8a20986",
+      "reviewed_sha256": "bce8c55c2c1441ca92472f8ba5531a6ac0451abc67e35bc472e7de48ebdc32db",
+      "learning_reference": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control"
+    },
+    {
+      "topic": "algorithms",
+      "question_id": "career-350e057a08916b411caf",
+      "reviewed_sha256": "73133f99d996942dcfe4b1b4ffcabce927cc7330167436c2aa40a1a9480c43c3",
+      "learning_reference": "https://docs.python.org/3/tutorial/datastructures.html"
+    },
+    {
+      "topic": "machine-learning",
+      "question_id": "career-f8c92b660bef380715ab",
+      "reviewed_sha256": "8ad9b06c88f33099c65e22b3ae3f497cb5093bdf593705c16bff33aa0f3bfdd1",
+      "learning_reference": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/1-intro-to-ML/README.md"
+    },
+    {
+      "topic": "data-science",
+      "question_id": "career-798523b86486d9a1ff20",
+      "reviewed_sha256": "c2ced85bd821144b8ab148de5b9ab8088f195eaf19aee1ee61f93c69a083fbe0",
+      "learning_reference": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/01-defining-data-science/README.md"
+    },
+    {
+      "topic": "api",
+      "question_id": "career-3d64b05340315977dd77",
+      "reviewed_sha256": "5aae085336a91b56f99d6c5fa5155a1def6b14f8dc5ca06f1449b7c323d98901",
+      "learning_reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview"
+    },
+    {
+      "topic": "testing",
+      "question_id": "career-bad14a996077905dc1d1",
+      "reviewed_sha256": "a66464e2615146e96577b3cb46de72002b269fef5a941bac8b30657704d1a74b",
+      "learning_reference": "https://docs.pytest.org/en/stable/getting-started.html"
+    },
+    {
+      "topic": "linux",
+      "question_id": "career-59372028327674a9a5e5",
+      "reviewed_sha256": "ce8b1ecc0efc61c26287c32da55a271298db84d61917f5a92ecac03481db4e1b",
+      "learning_reference": "https://ubuntu.com/tutorials/command-line-for-beginners"
+    },
+    {
+      "topic": "networking",
+      "question_id": "career-6f4e8b768b290737083f",
+      "reviewed_sha256": "c15f42c3b15f3f7d138ab0f0fab5c4e70823c3469c6c6ce88e48cd0a8af4d688",
+      "learning_reference": "https://www.netacad.com/courses/networking-basics"
+    },
+    {
+      "topic": "cloud",
+      "question_id": "career-129c5fb5ea791c2e900f",
+      "reviewed_sha256": "25ffe25bc1709a49d3e18456bd202bb7827b1b23e9024bbd39aa9ac16e444460",
+      "learning_reference": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/"
+    },
+    {
+      "topic": "security",
+      "question_id": "career-1584ade210df21600444",
+      "reviewed_sha256": "7eea3185d5bef3db36c118750ccccef965199e4dd08517a7090d1d91e753d6f7",
+      "learning_reference": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+    },
+    {
+      "topic": "architecture",
+      "question_id": "career-895f2a02b7ed97f251c8",
+      "reviewed_sha256": "0bf0ef0897f7c795013d6eea2d4715ba648e90acf624bd0f8b38370bb1a519c2",
+      "learning_reference": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/"
+    },
+    {
+      "topic": "containers",
+      "question_id": "career-d50ca4831e75e4f0029d",
+      "reviewed_sha256": "ca7bd9034aa142efbd2e5ecd26e864c37167fe1982ad91a2a990e49592a3d04e",
+      "learning_reference": "https://docs.docker.com/get-started/docker-overview/"
+    },
+    {
+      "topic": "data-engineering",
+      "question_id": "career-be8649371a011a17b44f",
+      "reviewed_sha256": "365a6093cad4ce5febfa13c6c078b91949808426c8bdc222da6bcffc686e5628",
+      "learning_reference": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/"
+    },
+    {
+      "topic": "react",
+      "question_id": "career-4dabdcd82be7af677c05",
+      "reviewed_sha256": "9c3e59fb20be217db5b77fad6dc3107a8578b255ea3d8b3ec19a8fd5d85a43c1",
+      "learning_reference": "https://react.dev/learn"
+    },
+    {
+      "topic": "mobile",
+      "question_id": "career-f814ac2605ada2314d59",
+      "reviewed_sha256": "bbc34de5bb06262a740614cdfb3bd366ef09b6e2d3f2824dd8c9909080c3d3c7",
+      "learning_reference": "https://developer.android.com/topic/architecture"
+    },
+    {
+      "topic": "ml-operations",
+      "question_id": "career-8a54f5f29c1fba15fd78",
+      "reviewed_sha256": "8d2df0870d1f47c9b4be20bbe07b89e1fdcfae373329ae6611e41e907483e44b",
+      "learning_reference": "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning"
+    },
+    {
+      "topic": "cad",
+      "question_id": "career-668e4b3da66ce9adeacf",
+      "reviewed_sha256": "2ab44227087a802dd7aa7632d993b5e3654ab5e986341b23c62896c268a49345",
+      "learning_reference": "https://help.autodesk.com/view/ACD/2026/ENU/"
+    },
+    {
+      "topic": "manufacturing",
+      "question_id": "career-dac5c3bb2573bda42f4d",
+      "reviewed_sha256": "80ad76c2c32ab3c291baf78cbecb9c2e57d4208665f9afee097803af19761225",
+      "learning_reference": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/"
+    },
+    {
+      "topic": "quality",
+      "question_id": "career-f41b11c093c35f8d6c52",
+      "reviewed_sha256": "dc09c1c70f9eba3d33809b50b8cdd04fe45afe23255d14b6854a47c2ee646869",
+      "learning_reference": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/"
+    },
+    {
+      "topic": "automation",
+      "question_id": "career-3efd39bdd7723e7bd40d",
+      "reviewed_sha256": "11e4e862d76325bcb07a7908179af1b705afd52fa149b06f695ad423f19502e3",
+      "learning_reference": "https://library.automationdirect.com/what-is-a-plc/"
+    },
+    {
+      "topic": "electronics",
+      "question_id": "career-a4bedff5c55fcc12d83d",
+      "reviewed_sha256": "261174ecc105aaa87cf449765b1fd85556619f579fb02efab2d2ebda512d1597",
+      "learning_reference": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law"
+    },
+    {
+      "topic": "marketing",
+      "question_id": "career-8420067419af11b58025",
+      "reviewed_sha256": "02af9667891afbf9351a7ed2f852db2e62168729899f298ee96495ac2b16e566",
+      "learning_reference": "https://academy.hubspot.com/courses/digital-marketing"
+    },
+    {
+      "topic": "recruiting",
+      "question_id": "career-2384998517a9a25b4349",
+      "reviewed_sha256": "975290129f853c74fdb6205c32a09106b903757b34008740a193fd188384aa9c",
+      "learning_reference": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/"
+    },
+    {
+      "topic": "sales",
+      "question_id": "career-26e4efdc545347d83824",
+      "reviewed_sha256": "092ec61c365fff61f2ff1f09b2cdafd95d32b187ddce8ce179f5daff93241004",
+      "learning_reference": "https://academy.hubspot.com/courses/inbound-sales"
+    },
+    {
+      "topic": "success",
+      "question_id": "career-ce49e31f0308965c08f7",
+      "reviewed_sha256": "a32716dd1f7eb2535cfc95ba509080cf2a9364fb15138ac9eeeea46b84e2209d",
+      "learning_reference": "https://academy.hubspot.com/courses/delivering-exceptional-customer-support"
+    },
+    {
+      "topic": "projects",
+      "question_id": "career-f1df6fef4a02a19e66a6",
+      "reviewed_sha256": "1f61eb447d275d48268d0eb1260bc23f0871f9ddde25a7c3cafcac20408a1c77",
+      "learning_reference": "https://www.atlassian.com/work-management/project-management/project-risk-management"
+    },
+    {
+      "topic": "accounting",
+      "question_id": "career-12dbe15b0f73fcf1feb5",
+      "reviewed_sha256": "6ce672e3fcb055a9caa0f00281047704b0c2dc4a3272ce04a2e01abc56b608a2",
+      "learning_reference": "https://openstax.org/books/principles-financial-accounting/pages/1-why-it-matters"
+    },
+    {
+      "topic": "spreadsheets",
+      "question_id": "career-0884efeb8d1aa4e4255f",
+      "reviewed_sha256": "6df88c004662e70c1f12aab0aadf167deb49d90423032c3d175251d73a8a911b",
+      "learning_reference": "https://support.google.com/docs/answer/1272900?hl=en"
+    },
+    {
+      "topic": "communication",
+      "question_id": "career-278aa478927623ee977c",
+      "reviewed_sha256": "2f170ea36a219b3b7968fc80a2c68fe568ba069d31bc51ec0a026e4a7154254f",
+      "learning_reference": "https://www.skillsbuilder.org/global/universal-framework-steps/listening-step-7-active-listening"
+    },
+    {
+      "topic": "analysis",
+      "question_id": "career-ce09964a2d8f3d734711",
+      "reviewed_sha256": "10c74989b9899f5937acc8e3842b2952266b04e14c83bbb486a0640487aadea7",
+      "learning_reference": "https://www.iiba.org/knowledgehub/the-business-analysis-standard/"
+    },
+    {
+      "topic": "product",
+      "question_id": "career-e0d0667194755167742b",
+      "reviewed_sha256": "73b6412383eca6903a1d90ab67fc86bd11beea26b542bef4de27e652e1e3d767",
+      "learning_reference": "https://www.atlassian.com/agile/product-management"
+    },
+    {
+      "topic": "customer-research",
+      "question_id": "career-7befa481c64489385adf",
+      "reviewed_sha256": "f447e1809f54caa0a2d0575fbaa09664b929ee7f8f01b7f713918d5ef54a10f8",
+      "learning_reference": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service"
+    },
+    {
+      "topic": "ux",
+      "question_id": "career-023703fb9d7768ca9a38",
+      "reviewed_sha256": "7cc2da2f20f3e2ec6b4cf9a22005ca9193bb9b659ec6f50518932831684b073f",
+      "learning_reference": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing"
+    },
+    {
+      "topic": "accessibility",
+      "question_id": "career-63da4547944fd229c7e8",
+      "reviewed_sha256": "72b6504658606e4cfa00ceab3ae754c6066ae4796bdbe756b6fd4f5dc2c2a5a1",
+      "learning_reference": "https://www.w3.org/WAI/test-evaluate/"
+    },
+    {
+      "topic": "visual-design",
+      "question_id": "career-0cb9f21846f9c27fc1a4",
+      "reviewed_sha256": "98fb04c44430986219c2beb723790e5b5a927eb9086770ebc37c9087df280b40",
+      "learning_reference": "https://carbondesignsystem.com/elements/typography/overview/"
+    },
+    {
+      "topic": "content",
+      "question_id": "career-f6ce3e87454f14027762",
+      "reviewed_sha256": "5d99b7e2087810635ac58fdfca48b950e163bc09030b1009c084abf05b9220cc",
+      "learning_reference": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/"
+    },
+    {
+      "topic": "seo",
+      "question_id": "career-abcd464d5fdc2fc0c00d",
+      "reviewed_sha256": "41110afe4e156ca811fe0f96c80c2ed5a29a3a8ed9a43f4ed1a8df3632a1686d",
+      "learning_reference": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+    },
+    {
+      "topic": "research",
+      "question_id": "career-be8598b7670fb357f993",
+      "reviewed_sha256": "fa99fdac7fd5a0ff3b6c4998dccabf044a88007b97f505e9ac55289ca1930de7",
+      "learning_reference": "https://openstax.org/books/psychology-2e/pages/2-1-why-is-research-important"
+    },
+    {
+      "topic": "financial-analysis",
+      "question_id": "career-27c5611013fc20d19766",
+      "reviewed_sha256": "2ca76c764f2945cb110a19b80c7ca224f9a78d0e848fdf5787b9fa1e20eaf774",
+      "learning_reference": "https://openstax.org/books/principles-financial-accounting/pages/a-financial-statement-analysis"
+    },
+    {
+      "topic": "hr-operations",
+      "question_id": "career-fa75b17eb37e0da12e19",
+      "reviewed_sha256": "4692b82cc15e528e452558b4ab79b4992fa778f891c21e596e84eca36e8169de",
+      "learning_reference": "https://www.cipd.org/uk/knowledge/factsheets/induction-factsheet/"
+    },
+    {
+      "topic": "learning-design",
+      "question_id": "career-d918c716eed077f67292",
+      "reviewed_sha256": "759e3bf3c1e596c10ae749956710d777f3dca3e19fa533151b2c31cf52014d9f",
+      "learning_reference": "https://www.cmu.edu/teaching/designteach/design/learningobjectives.html"
+    },
+    {
+      "topic": "inventory",
+      "question_id": "career-063e8bdcd9fd07969e95",
+      "reviewed_sha256": "4d292de5f689b6624ade3ac89185879d31b323fbc7ceea6206e64bae2237833b",
+      "learning_reference": "https://www.lean.org/lexicon-terms/inventory/"
+    },
+    {
+      "topic": "supply-chain",
+      "question_id": "career-14ff3bf8a7c5201aabf0",
+      "reviewed_sha256": "376a8871094d0ae7a50b8b9063f7bc96002a381cdfe09bba30dff7c5cdb8204a",
+      "learning_reference": "https://ocw.mit.edu/course-lists/transportation-logistics-and-supply-chains/"
+    },
+    {
+      "topic": "brand",
+      "question_id": "career-b877eaff1b903f7fb58d",
+      "reviewed_sha256": "89dcf982827163785e80dfb2a1bec5c0ef189d62913b7710ad485b7e7eb2f4f2",
+      "learning_reference": "https://openstax.org/books/principles-marketing/pages/9-5-branding-and-brand-development"
+    },
+    {
+      "topic": "payroll",
+      "question_id": "career-a414429a831f4709169b",
+      "reviewed_sha256": "586c30662e2f6bc36d546398bb91d0a5c1b90648dbcf8a67692329aceb58e5ce",
+      "learning_reference": "https://openstax.org/books/principles-financial-accounting/pages/12-5-record-transactions-incurred-in-preparing-payroll"
+    },
+    {
+      "topic": "audit",
+      "question_id": "career-9a7b4071b84c65f124fc",
+      "reviewed_sha256": "74bd375fcc96d1a9a1a6831225961e010868e939d8d20b8de9bf5c363aad5c3b",
+      "learning_reference": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Tests-of-controls.aspx"
+    },
+    {
+      "topic": "procurement",
+      "question_id": "career-7d74fdeebd5e68d45bbb",
+      "reviewed_sha256": "a495fa6e79d02b614c5affd7f5328528fc756cadc00b10a79fd291519cd1818a",
+      "learning_reference": "https://www.cips.org/intelligence-hub/procurement/procurement-supply-cycle"
+    },
+    {
+      "topic": "technical-writing",
+      "question_id": "career-966b659da1b34598c472",
+      "reviewed_sha256": "8f3c4452725ae37566ba1d8e5d301a33bb2866b74ea6c5b5297a0ce1cb67840e",
+      "learning_reference": "https://developers.google.com/tech-writing/one"
+    },
+    {
+      "topic": "events",
+      "question_id": "career-01825cac3a7643852f60",
+      "reviewed_sha256": "56fdd27772fe78c71ae78366e3645e6bfec2acc59ea4179492adcf9e6324774d",
+      "learning_reference": "https://www.hse.gov.uk/event-safety/running.htm"
+    },
+    {
+      "topic": "hospitality",
+      "question_id": "career-983276c9096f2d45dbda",
+      "reviewed_sha256": "b6322ce156249255310480583c6ba452ca7e05e7333a377b665c9adac01ed7b1",
+      "learning_reference": "https://opentextbc.ca/introtourism2e/"
+    },
+    {
+      "topic": "account-management",
+      "question_id": "career-0162b1e61c665b727f03",
+      "reviewed_sha256": "45f3c3bf16d8f0bb1a1c18580325869ac678fb2860afbbf839eced97471eb183",
+      "learning_reference": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience"
+    }
+  ],
+  "primary_context_sources": [
+    {
+      "url": "https://www.postgresql.org/docs/current/queries-table-expressions.html",
+      "scope": "Join multiplicity and grouping order; SQL shipping clarification."
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/ddl-basics.html",
+      "scope": "Relational tables, not databases in general, have columns and rows; ambiguous legacy item excluded."
+    },
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html#default-argument-values",
+      "scope": "Mutable defaults are evaluated at function definition."
+    },
+    {
+      "url": "https://www.python.org/about/apps/",
+      "scope": "Python use cases do not establish an observable individual skill."
+    },
+    {
+      "url": "https://www.w3.org/WAI/tutorials/forms/labels/",
+      "scope": "Programmatic identification of form controls."
+    },
+    {
+      "url": "https://www.hse.gov.uk/work-equipment-machinery/puwer.htm",
+      "scope": "Industrial exercises need controlled training/competence and bounded safe scope, not independent live-machinery work."
+    },
+    {
+      "url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/",
+      "scope": "Structured, job-related selection criteria and evidence."
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/mpc/section1/mpc1.htm",
+      "scope": "Measurement-process error and variability."
+    },
+    {
+      "url": "https://www.cmu.edu/teaching/designteach/syllabus/newcourse/learningobjectives.html",
+      "scope": "Observable learning objectives and assessment alignment."
+    },
+    {
+      "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx",
+      "scope": "Relevant, reliable and sufficient evidence; investigate contradictions."
+    }
+  ]
+}

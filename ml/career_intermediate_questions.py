@@ -14,6 +14,12 @@ def scenarios(text):
     return result
 
 
+# Targeted references can be more precise than a topic's broad learning course.
+# The key is the stable authored topic/objective position, not a learner input.
+REFERENCE_OVERRIDES = {
+    ("sql", 0): ("PostgreSQL documentation", "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN"),
+}
+
 BANK = {
 "python": scenarios("""
 A function uses a list as its default argument and later calls see earlier results. What change addresses the cause? ~ Create a fresh list per call ~ Use a shared list but return a tuple|Clear the input list in every call|Assign a second variable to the same list ~ Default expressions are evaluated when the function is defined; a fresh per-call list avoids shared mutable state.
@@ -28,7 +34,7 @@ A numeric calculation sometimes divides by zero for an empty cohort. What is the
 A test intermittently fails because results arrive in different dictionary insertion orders from upstream data. Order is not part of the contract. What should it assert? ~ Compare meaningful content independently of order ~ Sort only the keys but ignore values|Assert the first observed order forever|Remove the assertion when order changes ~ Tests should enforce specified behavior and avoid incidental ordering assumptions.
 """),
 "sql": scenarios("""
-Joining orders to order_items doubles an order-level shipping charge when an order has two items. How should total shipping be calculated? ~ Aggregate shipping at order grain first ~ SUM the shipping after the item join|Use SUM(DISTINCT shipping_amount)|Average the joined shipping values ~ Join multiplicity changes the grain; an order-level amount must be counted once per order.
+Joining orders to order_items doubles an order-level shipping charge when an order has two items. How should total shipping be calculated? ~ Sum from one row per order ~ SUM the shipping after the item join|Use SUM(DISTINCT shipping_amount)|Average the joined shipping values ~ Calculate shipping from a relation with exactly one row per order, or aggregate item details to order grain before joining. Rejoining item rows can multiply an earlier shipping aggregate again. SUM(DISTINCT shipping) is not a general fix because different orders can have equal charges.
 A LEFT JOIN should retain customers with no paid invoices. Where should the paid-status condition go? ~ In the invoice join condition ~ WHERE invoice.status equals paid|WHERE invoice.id is not NULL|Filter customers after the join with COUNT(*) ~ A WHERE condition on the nullable joined side can remove the unmatched rows.
 An analyst wants the latest event per account, with ties resolved by unique event_id. Which approach is suitable? ~ Partitioned ROW_NUMBER with a deterministic order ~ MAX every column independently|DISTINCT on the complete event row|Order globally and return one row ~ Row ranking preserves the fields of the selected event and makes tie handling explicit.
 A nullable amount column has 100 rows but 8 NULL values. What do COUNT(*) and COUNT(amount) return? ~ 100 and 92 ~ 92 and 100|100 and 100|92 and 92 ~ COUNT(*) counts rows; COUNT(column) excludes NULL values.

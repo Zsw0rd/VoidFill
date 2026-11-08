@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { beginRuntimeObservation, privateRuntimeObservation } from "@/lib/runtimeTelemetry";
 
 export type LearningOperation = "assessment" | "recommendation" | "insight" | "resume" | "chat" | "practical";
 type SessionClient = { __demoToken?: string };
@@ -30,6 +31,7 @@ export function withApiTelemetry(operation: string, handler: (request: Request) 
   return async (request: Request) => {
     const requestId = randomUUID();
     const start = performance.now();
+    const runtimeStart = beginRuntimeObservation();
     let response: Response;
     try {
       const origin = request.headers.get("origin");
@@ -44,7 +46,7 @@ export function withApiTelemetry(operation: string, handler: (request: Request) 
     response.headers.set("X-Request-Id", requestId);
     response.headers.append("Server-Timing", `app;dur=${duration}`);
     response.headers.set("Cache-Control", "private, no-store");
-    console.info(JSON.stringify({ event: "api_request", operation, request_id: requestId, status: response.status, duration_ms: duration }));
+    console.info(JSON.stringify({ event: "api_request", operation, request_id: requestId, status: response.status, duration_ms: duration, runtime:privateRuntimeObservation(runtimeStart) }));
     return response;
   };
 }

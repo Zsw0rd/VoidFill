@@ -4,6 +4,7 @@ import threading
 from pathlib import Path
 
 import numpy as np
+from ml.telemetry import begin_initialization, finish_initialization
 
 
 class OnnxEncoder:
@@ -19,7 +20,13 @@ class OnnxEncoder:
             return
         with self.load_lock:
             if self.session is None:
-                self._initialize()
+                started = begin_initialization()
+                succeeded = False
+                try:
+                    self._initialize()
+                    succeeded = True
+                finally:
+                    finish_initialization("onnx_session", started, succeeded)
 
     def _initialize(self):
         import onnxruntime as ort

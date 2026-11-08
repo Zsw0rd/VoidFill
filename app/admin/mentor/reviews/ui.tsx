@@ -62,7 +62,7 @@ export function PracticalReviewQueue({initial}: {initial: PracticalWorkspace}) {
     } catch (issue) {setError(issue instanceof Error ? issue.message : "Could not save your review.");}
     finally {setBusy(false);}
   }
-  return <main className="practical-studio"><Link href="/admin/mentor" className="practical-back"><ArrowLeft size={15} /> Your mentoring circle</Link><header className="practical-heading"><div><p className="practical-eyebrow">FIELDWORK / THE REVIEW DESK</p><h1>Help good work get better.</h1><p>Review evidence learners explicitly shared with your current assignment. Private drafts and reflections stay with the learner.</p></div><span className="practical-stamp"><ClipboardCheck size={24} />{pendingCount} WAITING<br />FOR YOUR EYE</span></header>
+  return <div className="practical-studio"><Link href="/admin/mentor" className="practical-back"><ArrowLeft size={15} /> Your mentoring circle</Link><header className="practical-heading"><div><p className="practical-eyebrow">FIELDWORK / THE REVIEW DESK</p><h1>Help good work get better.</h1><p>Review evidence learners explicitly shared with your current assignment. Private drafts and reflections stay with the learner.</p></div><span className="practical-stamp"><ClipboardCheck size={24} />{pendingCount} WAITING<br />FOR YOUR EYE</span></header>
     {!workspace.available ? <p className="practical-notice">The practical review workspace will open once its database update is applied.</p> : <>
       {workspace.demo && <p className="practical-notice">Synthetic review examples. Feedback stays inside this disposable session and never contacts a real learner.</p>}
       <div className="practical-section-heading"><div className="practical-filter"><button aria-pressed={filter === "pending"} onClick={() => {if (choose("")) setFilter("pending");}}>Awaiting feedback ({pendingCount})</button><button aria-pressed={filter === "all"} onClick={() => {if (choose("")) setFilter("all");}}>All shared versions</button></div><Button variant="ghost" loading={busy} onClick={refresh}><RefreshCw size={14} /> Refresh</Button></div>
@@ -72,5 +72,5 @@ export function PracticalReviewQueue({initial}: {initial: PracticalWorkspace}) {
       {reviewDirty && <Button className="mt-4" variant="ghost" onClick={() => {setFeedback(""); setCriteria([]); setVerdict("revise"); setError("");}}>Discard this unsaved review</Button>}
       <div className="practical-messages" aria-live="polite">{message && <p role="status" className="practical-success"><CheckCircle2 size={17} />{message}</p>}{error && <p role="alert" className="practical-error">{error}</p>}</div>
     </>}
-  </main>;
+  </div>;
 }

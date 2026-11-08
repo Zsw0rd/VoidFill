@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T12:32:11.062334+00:00",
+  "checked_at": "2026-11-07T07:59:52.166151+00:00",
   "scope": "Public unauthenticated HTTP reachability; does not establish pedagogical quality or availability of every linked course activity.",
   "results": [
     {
@@ -480,7 +480,7 @@
       "title": "Airflow core concepts",
       "status": 200,
       "final_url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html",
-      "page_title": "Architecture Overview &mdash; Airflow 3.3.2 Documentation"
+      "page_title": "Architecture Overview &mdash; Airflow 3.4.0 Documentation"
     },
     {
       "id": "career-resource-87574ffc8f0e22125d0d",
@@ -656,7 +656,7 @@
       "title": "Carbon typography",
       "status": 200,
       "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/typography/overview",
-      "page_title": "Typography | Carbon Design System"
+      "page_title": "IBM logo"
     },
     {
       "id": "career-resource-3f269a13436440f7a0ac",
@@ -664,7 +664,7 @@
       "title": "Carbon color",
       "status": 200,
       "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/color/overview",
-      "page_title": "IBM logo"
+      "page_title": "Color | Carbon Design System"
     },
     {
       "id": "career-resource-1fe5a24da434da628d06",
@@ -672,7 +672,7 @@
       "title": "Carbon 2x grid",
       "status": 200,
       "final_url": "https://www.carbondesignsystem.com/building-blocks/foundations/2x-grid/guidelines",
-      "page_title": "2x Grid | Carbon Design System"
+      "page_title": "info icon"
     },
     {
       "id": "career-resource-5f84747293f7e2f35e19",
@@ -1160,7 +1160,7 @@
       "title": "Tests of controls",
       "status": 200,
       "final_url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Tests-of-controls.aspx",
-      "page_title": "Tests of controls"
+      "page_title": "European Court of Auditors"
     },
     {
       "id": "career-resource-ba8315fdb90559dfefc4",
@@ -1168,7 +1168,7 @@
       "title": "Substantive audit procedures",
       "status": 200,
       "final_url": "https://methodology.eca.europa.eu/aware/GAP/Pages/CA-FA/Examination/Substantive-procedures.aspx",
-      "page_title": "Substantive procedures"
+      "page_title": "European Court of Auditors"
     },
     {
       "id": "career-resource-bd45a349b1ac6a0648b5",
