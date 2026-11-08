@@ -214,3 +214,31 @@ speech session was run. The temporary viewport override was reset. Disposable
 mentor and learner demos were ended through their normal UI; the auxiliary tab
 then returned to login and was closed. No source fixes were needed during this
 final Chrome pass.
+
+## Hosted preview smoke — 8 November 2026
+
+Chrome also checked the ready Vercel preview for application commit
+`509f466375a6149c8bc34adb91ad4492adce1623` at
+[the release preview](https://void-fill-dcr2qa2ai-zsw0rds-projects.vercel.app).
+This was a brief deployment smoke check, separate from the deeper local checks
+above. No new authentication challenge was required.
+
+1. **Private demo entry — passed.** The existing private entry opened and a fresh
+   synthetic AI Applications Developer learner workspace was created.
+2. **Hosted question generation — passed.** Begin today's assessment returned a
+   real generated quiz showing Question 1 of 10 and selectable answers. This
+   confirms that the preview can reach its configured learning service; it does
+   not identify that service's model build or prove capacity. No result was
+   submitted. The sampled source question contains the spelling error
+   “proprtions,” a content-quality observation rather than a functional failure.
+3. **Practical route — passed.** The heading loaded, the browser title was
+   `Practical studio · VoidFill`, and the rendered page had one `main` landmark.
+4. **Demo cleanup — passed.** End demo & delete data returned to the public
+   `/?demo=ended` entry; the demo-ending control was absent afterward.
+
+The following exact Chrome screenshot was saved, opened and accepted. It uses
+only the disposable synthetic learner and contains no private entry key,
+credentials or real-account details. The main production college account was
+not accessed during this preview check.
+
+![Hosted preview showing a generated ten-question quiz](assets/ux-validation-20261108/12-hosted-preview-quiz.jpg)
