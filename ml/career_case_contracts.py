@@ -72,7 +72,7 @@ contract("Full-Stack Developer",
  "Changing a user identifier in the request must not authorize U2; the saved result must be visible only after the return commits.",
  "Handle E1's version-3 return competing with the staff version-4 correction, followed by a retry after interruption.",
  "A version-conflict sequence, recovery screen and repeat-safe command contract preserving the staff correction.",
- "A failed optimistic update must not display an unqualified success or overwrite version 4; show the reconciled server state.", "authorization transactions")
+ "A stale version-3 update must leave the staff's version-4 correction intact; the conflict response and recovery screen must identify that current version without claiming the return committed.", "authorization transactions")
 contract("QA Engineer",
  "Build a checkout test matrix for the 100-unit cart, one-use SAVE10 code, expired codes and one-order-per-payment rule.",
  "Expected totals, input boundaries and a reproducible test template that separates observations from predictions.",
@@ -83,10 +83,10 @@ contract("QA Engineer",
 contract("Mobile Developer",
  "Specify the offline note N1 editor with version 4 and distinct local-save, queued, syncing and failed states.",
  "An offline-notes state diagram and interruption test that reopens the locally saved text.",
- "The interface must not call a local-only draft synchronized; permission denial or restart must preserve a recoverable draft state.",
+ "Show distinct locally saved, queued, syncing and failed labels; no local-only state may imply server acceptance, including after permission denial.",
  "Resolve two devices editing N1 from version 4 and an upload interrupted after server acceptance. State the merge or user-choice policy.",
  "A two-device revision timeline, conflict choice and retry test with the final server/local text identified.",
- "A last-write-wins policy without disclosed data loss fails this case; accepted retries must not silently erase the other device's revision.", "offline transactions")
+ "Trace A's interrupted accepted upload and its retry using the same operation identity; the retry must not create a second revision or silently replace the server's later state.", "offline transactions")
 contract("Software Engineer",
  "Implement or specify the task queue with ascending priority and stable arrival order, including empty and single-item behavior.",
  "Pseudocode or code and a test table containing the expected D, A, B, C dequeue order.",
@@ -100,14 +100,14 @@ contract("Data Analyst",
  "Do not describe the 2-percentage-point drop as a 2% relative decline; no causal explanation is established by these totals.",
  "Recalculate week 2 after removing the six explicitly identified retry completion rows, then compare the corrected session conversion and order counts.",
  "A deduplication rule and before/after reconciliation showing 90 unique orders, 7.5% conversion and the remaining causal uncertainty.",
- "Deduplicating event IDs alone leaves repeated orders; report a 2.5-percentage-point conversion drop and a 10% order-count decline without claiming cause.", "grain evidence")
+ "Specify an order-ID deduplication rule that removes the six identified retry rows while retaining distinct orders; explain why their new event IDs cannot identify the duplicates.", "grain evidence")
 contract("AI Applications Developer",
  "Design answers to the three library questions using only P1/P2 and explain the missing evidence for a late-fee price.",
  "An answer/evidence table for loan length, renewal conditions and an unsupported fee question.",
  "A citation must actually support its claim; P1's loan duration cannot support a late-fee amount or remove P2's reservation condition.",
  "Evaluate the malicious retrieved note and fluent unsupported fee claim while retaining the approved collection's authority boundary.",
  "A threat/evaluation table separating retrieval relevance, citation support, instruction handling and abstention.",
- "Treat retrieved commands as untrusted content; a confidently phrased or cited answer still fails when no approved passage supports it.", "ai evidence")
+ "Show the answer with the malicious retrieved command present: it must retain P2's reservation condition and one-renewal limit instead of following the command to promise unlimited renewals.", "ai evidence")
 contract("BI Analyst",
  "Define order-revenue grain using O1/O2 and explain a separate opening-cohort retention definition before sketching the metric view.",
  "A semantic metric specification, source-grain diagram and 160-unit revenue control total.",
@@ -128,7 +128,7 @@ contract("Machine Learning Engineer",
  "The slice is part of the same evaluation set, not an extra ten examples; do not report significance or average away the slice failure.",
  "Decide how to stage or stop B's faster deployment when the high-impact slice loses three correct predictions and labels arrive a week late.",
  "A release decision, slice guardrail, delayed-label monitoring plan and compatible rollback trigger.",
- "A latency improvement cannot compensate for a failed prespecified quality gate without an explicitly reviewed trade-off; disclose unobserved live outcomes.", "ml ai")
+ "Separate immediately observable serving signals from prediction-quality measures that require the week-late labels; record the pending label window rather than reporting unobserved live slice accuracy.", "ml ai")
 contract("Data Scientist",
  "Audit which retention features exist at day 30 and define a prediction question that excludes future cancellation information.",
  "A feature-availability timeline and leakage-free baseline/evaluation plan with unit-of-analysis boundaries.",
@@ -163,7 +163,7 @@ contract("Systems Administrator",
  "A running process alone is insufficient acceptance evidence; an unrelated user must not gain configuration access.",
  "Diagnose the dependent file's denied svc-app access after the change and choose the smallest compatible repair or rollback.",
  "An effective-identity permission trace and post-recovery client check with configuration versions recorded.",
- "World-readable permissions are not an acceptable shortcut; check required access and prohibited access after the repair.", "authorization monitoring")
+ "Record separate post-change access results for svc-app and an unrelated identity: the required file must be readable by the service account and denied to the unrelated user without world-readable permissions.", "authorization monitoring")
 contract("DevOps Engineer",
  "Plan promotion of one immutable image with verification/readiness gates and runtime secret handling.",
  "A synthetic pipeline outline with image identity, checks, approval boundary and rollback conditions.",
@@ -191,14 +191,14 @@ contract("Automation Technician",
  "Reset must not energize motion; the simulation must state its initial state and the distinction between command and actual output.",
  "Test reset while jam remains true and a start input was held from before the fault; require a deliberate new valid start.",
  "A fault/recovery transition matrix and repeated-input test trace in a written or simulated environment.",
- "Neither reset nor a stale held start may cause automatic restart; ordinary logic is not evidence of a qualified safety function.", "measurement evidence")
+ "Neither reset with jam still true nor clearing the jam while start remains held may energize motion; include a separate fresh-start trace after valid recovery.", "measurement evidence")
 contract("Quality Engineer",
  "Compare the two defect samples with the changed gauge recorded, maintaining the same defect definition and denominators.",
  "A 4%/7.5% sample-rate table, measurement-method record and investigation hypotheses.",
  "A 3.5-percentage-point observed rise cannot establish process deterioration while the measurement system also changed.",
  "Design a paired gauge comparison on the ten retained measurements and isolate the coincident process adjustment in the investigation.",
  "A measurement-system comparison plan, containment decision and new-data effectiveness check.",
- "Do not widen specification limits or declare a cause merely to make the observed defect rate improve.", "measurement evidence")
+ "Keep the supplied defect definition and specification fixed in the containment/release decision; name the evidence needed to review that decision instead of relabelling failures as passes.", "measurement evidence")
 contract("Manufacturing Engineer",
  "Analyze the stated three-station serial line under seven productive hours and no downtime or yield loss.",
  "A capacity table and bottleneck explanation comparing ideal 56-unit supply with 60-unit demand.",
@@ -240,7 +240,7 @@ contract("UI Designer",
  "Color alone cannot identify a required field or error; long labels must retain an associated control and readable content.",
  "Adapt the same surfaces at 320 CSS pixels and 200% text size with three-line validation messages and wrapped headings.",
  "Annotated narrow/large-text states showing content order, controls and any justified table overflow region.",
- "A wider body page or clipped label is not a successful reflow; report actual text/background pairs and remaining manual checks.", "accessibility research")
+ "At 320 CSS pixels and 200% text size, show the three-line error, wrapped headings and associated controls without clipping or body-page overflow; identify any deliberately contained table overflow.", "accessibility research")
 contract("UX Researcher",
  "Plan research on first-time onboarding abandonment and audit the eight-experienced/two-novice recruitment list.",
  "A neutral task/interview guide, recruitment rationale, consent approach and minimal note template.",
@@ -268,7 +268,7 @@ contract("Project Coordinator",
  "The parallel one-day booking does not make the five-day critical path six days; state the working-day boundary.",
  "Replan after A slips one day, preserving B's required review while seeking a date/scope/resource decision.",
  "A six-day dependency schedule, options and concise status/decision update with accountable owners.",
- "Removing required review without authorization is not a recovered schedule; show the one-day variance explicitly.", "projects evidence")
+ "With A extended to three days, show the six-day A→B→C dependency path and one-day variance against the five-day window; the parallel room booking does not shorten that path.", "projects evidence")
 contract("Business Analyst",
  "Define both approval-time metrics and map the fictional request's creation, completeness and approval handoffs.",
  "A current-process map and metric dictionary with 48-hour and 24-hour examples.",
@@ -349,7 +349,7 @@ contract("Marketing Analyst",
 contract("Accounting Associate",
  "Reconcile the supplied bank and book balances, separating deposits/cheques in transit from the duplicated receipt and the next-period fee.",
  "A two-sided reconciliation, reconciling-item ledger and authorized correction note.",
- "Adjusted bank balance is 5,400 and corrected books are 5,600−200=5,400; the next-period 50-unit fee is outside this reconciliation.",
+ "Show both calculations: adjusted bank is 5,000+700−300=5,400 and corrected books are 5,600−200=5,400; an unexplained balancing amount fails.",
  "Defend the duplicate-receipt correction and period cutoff with a traceable ledger, without creating a balancing entry for the excluded fee.",
  "A corrected book entry, evidence/approval trail and cutoff explanation reconciling both sides to 5,400.",
  "Timing differences adjust the bank side but are not booked again; do not subtract the later-period fee just to force a match.", "accounting evidence")

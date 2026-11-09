@@ -1,6 +1,6 @@
 {
-  "version": "2026.11-case-packs-3",
-  "scope": "Agent-authored task/input/artifact/acceptance alignment across all120 levels, with independent numeric and relational/ordering boundary checks. No learner answers are automatically graded by this audit; no independent specialist or learner calibration claimed.",
+  "version": "2026.11-case-packs-4",
+  "scope": "Agent-authored task/input/artifact/acceptance alignment across all 120 levels, with independent numeric and relational/ordering boundary checks. No learner answers are automatically graded by this audit; no independent specialist or learner calibration claimed.",
   "role_count": 60,
   "level_count": 120,
   "reference_count": 23,
@@ -954,8 +954,8 @@
           "task": "Handle E1's version-3 return competing with the staff version-4 correction, followed by a retry after interruption.",
           "deliverable": "A version-conflict sequence, recovery screen and repeat-safe command contract preserving the staff correction.",
           "acceptance": [
-            "A failed optimistic update must not display an unqualified success or overwrite version 4; show the reconciled server state.",
-            "Define conflict and retry behavior without claiming success before commit; preserve the correction and show how the UI recovers."
+            "A stale version-3 update must leave the staff's version-4 correction intact; the conflict response and recovery screen must identify that current version without claiming the return committed.",
+            "Trace the interrupted request and repeat using a declared repeat-safe command identity; show the retry's stored result and number of effects separately from the displayed conflict."
           ],
           "sources": [
             {
@@ -967,7 +967,7 @@
               "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
             }
           ],
-          "contract_sha256": "aaba260e547f6b51bbaff54d2601ae7970bb6572a756b3a339a90a21528b60c2"
+          "contract_sha256": "e90c98ce1f8ffc14db6e26d7a70d7826168c1d7c1880fa3e39796cdefa5fcfa3"
         }
       ]
     },
@@ -1046,8 +1046,8 @@
           "task": "Specify the offline note N1 editor with version 4 and distinct local-save, queued, syncing and failed states.",
           "deliverable": "An offline-notes state diagram and interruption test that reopens the locally saved text.",
           "acceptance": [
-            "The interface must not call a local-only draft synchronized; permission denial or restart must preserve a recoverable draft state.",
-            "Demonstrate a draft surviving controlled background/foreground interruption without being presented as server-synchronized."
+            "Show distinct locally saved, queued, syncing and failed labels; no local-only state may imply server acceptance, including after permission denial.",
+            "Record the edited N1 text, interrupt and reopen the simulated app, then show the same draft text restored from local storage before any network sync."
           ],
           "sources": [
             {
@@ -1059,7 +1059,7 @@
               "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
             }
           ],
-          "contract_sha256": "10c8acdadceec9730dee795df563c4e3ea68af42dc7e3d9a542c0d316e532c8e"
+          "contract_sha256": "c93335bfa8e8316487104f7ce6b7efb9980ca00486dd00cf3e3fb38a9e9769c9"
         },
         {
           "level": "intermediate",
@@ -1072,8 +1072,8 @@
           "task": "Resolve two devices editing N1 from version 4 and an upload interrupted after server acceptance. State the merge or user-choice policy.",
           "deliverable": "A two-device revision timeline, conflict choice and retry test with the final server/local text identified.",
           "acceptance": [
-            "A last-write-wins policy without disclosed data loss fails this case; accepted retries must not silently erase the other device's revision.",
-            "Show a version-conflict choice and idempotent retry; neither device may silently erase the other's content."
+            "Trace A's interrupted accepted upload and its retry using the same operation identity; the retry must not create a second revision or silently replace the server's later state.",
+            "Show A's and B's conflicting edits from version 4, the disclosed merge or user choice and the final local/server text; neither device's content may disappear without that explicit choice."
           ],
           "sources": [
             {
@@ -1085,7 +1085,7 @@
               "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
             }
           ],
-          "contract_sha256": "547e5a10e3ce430cfcf643276229ad02c7b0f6a951fa32525d55a32c362ca5e1"
+          "contract_sha256": "42f9f3447128f85f4df5c7708a7fbe457a911a4baaaec731a8fd7954af396d40"
         }
       ]
     },
@@ -1190,7 +1190,7 @@
           "task": "Recalculate week 2 after removing the six explicitly identified retry completion rows, then compare the corrected session conversion and order counts.",
           "deliverable": "A deduplication rule and before/after reconciliation showing 90 unique orders, 7.5% conversion and the remaining causal uncertainty.",
           "acceptance": [
-            "Deduplicating event IDs alone leaves repeated orders; report a 2.5-percentage-point conversion drop and a 10% order-count decline without claiming cause.",
+            "Specify an order-ID deduplication rule that removes the six identified retry rows while retaining distinct orders; explain why their new event IDs cannot identify the duplicates.",
             "Reconcile 96 completion events to 90 unique orders and 7.5% conversion; report a 2.5-percentage-point conversion drop and 10% order-count decline without attributing cause from timing alone."
           ],
           "sources": [
@@ -1203,7 +1203,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "7e8898a1e06629e9be11bdb7195ca843baed6a857ea5f661b355cf46a36c5dba"
+          "contract_sha256": "2ad9896637ccab01242237cc973ea687bac5f2e02a7c23ba3fb2240561751548"
         }
       ]
     },
@@ -1249,8 +1249,8 @@
           "task": "Evaluate the malicious retrieved note and fluent unsupported fee claim while retaining the approved collection's authority boundary.",
           "deliverable": "A threat/evaluation table separating retrieval relevance, citation support, instruction handling and abstention.",
           "acceptance": [
-            "Treat retrieved commands as untrusted content; a confidently phrased or cited answer still fails when no approved passage supports it.",
-            "Separate untrusted text from instructions, reject unsupported citation claims and report retrieval relevance separately from answer faithfulness."
+            "Show the answer with the malicious retrieved command present: it must retain P2's reservation condition and one-renewal limit instead of following the command to promise unlimited renewals.",
+            "Mark the candidate's P1-backed 2-unit fee as unsupported and supply a missing-evidence response; score passage relevance separately from whether each answer claim has supporting text."
           ],
           "sources": [
             {
@@ -1262,7 +1262,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "a1a4dc64315c25e265ef9d43ca2f1cdef6dbab88935d597100ac84a661ae3c9f"
+          "contract_sha256": "35b57476d3995a2d0752e97e4b62a4c175a3ef9ec65d627b1bc263c156dbf6af"
         }
       ]
     },
@@ -1426,7 +1426,7 @@
           "task": "Decide how to stage or stop B's faster deployment when the high-impact slice loses three correct predictions and labels arrive a week late.",
           "deliverable": "A release decision, slice guardrail, delayed-label monitoring plan and compatible rollback trigger.",
           "acceptance": [
-            "A latency improvement cannot compensate for a failed prespecified quality gate without an explicitly reviewed trade-off; disclose unobserved live outcomes.",
+            "Separate immediately observable serving signals from prediction-quality measures that require the week-late labels; record the pending label window rather than reporting unobserved live slice accuracy.",
             "Define a quality gate, staged rollout and rollback criteria that do not equate faster service with better prediction quality."
           ],
           "sources": [
@@ -1439,7 +1439,7 @@
               "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
             }
           ],
-          "contract_sha256": "e095a4dfd73402c47be8ac7b18e6a238e578ccb830067a4653bfb678def791cb"
+          "contract_sha256": "436eefd079b24f12edb9b861667185e565f6076a7bf0902100afad2eb5316db7"
         }
       ]
     },
@@ -1460,7 +1460,7 @@
           "deliverable": "A feature-availability timeline and leakage-free baseline/evaluation plan with unit-of-analysis boundaries.",
           "acceptance": [
             "A post-cancellation survey answer is unavailable at prediction time even if present in the historical table; do not use it as a valid predictor.",
-            "Draw a feature-availability timeline and exclude post-cancellation survey responses from the day-30 predictor."
+            "State the customer-level prediction target and a future observation horizon, define a leakage-free baseline and evaluation boundary, and identify the observations needed before any performance claim."
           ],
           "sources": [
             {
@@ -1472,7 +1472,7 @@
               "url": "https://www.gov.uk/service-manual/user-research"
             }
           ],
-          "contract_sha256": "4935a13ce84d6905294b6531d3705d63e9513dd78cd073d26b6ce293fa4df292"
+          "contract_sha256": "dea6dce07c7b83565ee6dcdd558a2e4732d55e3180b4003d89b39590056fc503"
         },
         {
           "level": "intermediate",
@@ -1721,8 +1721,8 @@
           "task": "Diagnose the dependent file's denied svc-app access after the change and choose the smallest compatible repair or rollback.",
           "deliverable": "An effective-identity permission trace and post-recovery client check with configuration versions recorded.",
           "acceptance": [
-            "World-readable permissions are not an acceptable shortcut; check required access and prohibited access after the repair.",
-            "Demonstrate the failure using effective identity and end-to-end checks, define rollback triggers and avoid world-readable permissions as a shortcut."
+            "Record separate post-change access results for svc-app and an unrelated identity: the required file must be readable by the service account and denied to the unrelated user without world-readable permissions.",
+            "Trace the dependent-file failure as svc-app, record configuration versions and rollback triggers, and verify a normal client request after the scoped repair rather than relying on process startup."
           ],
           "sources": [
             {
@@ -1734,7 +1734,7 @@
               "url": "https://sre.google/sre-book/monitoring-distributed-systems/"
             }
           ],
-          "contract_sha256": "9019646fe704c657d721ad3fe11030184e0ce5314a5cc23137c1199b56cbbe1f"
+          "contract_sha256": "806faffb736135052bc988361a361d45e12a20b83c6d5b99f489010dd1dbb381"
         }
       ]
     },
@@ -1899,7 +1899,7 @@
           "deliverable": "A tolerance-stack calculation and revision/review note identifying the unmet requirement.",
           "acceptance": [
             "The 0.10 mm worst case fails the stated requirement; individually in-tolerance parts do not prove an acceptable assembly.",
-            "Calculate the 0.10 mm worst-case clearance, show the unmet fictional requirement and record the qualified design review needed before manufacture."
+            "Attach the failed-fit finding to the drawing's revision, datums and mating dimensions, and record a proposed revision for qualified design review; a calculated fit is not manufacturing approval."
           ],
           "sources": [
             {
@@ -1911,7 +1911,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "6cf586420e00a35a0e58ec6970ff95a310600c9240f3dad63445181772c6b594"
+          "contract_sha256": "dcabb1e6f6d616bb5c688321f039801461dafd04e75984da77520b2e8bb1e421"
         }
       ]
     },
@@ -1957,8 +1957,8 @@
           "task": "Test reset while jam remains true and a start input was held from before the fault; require a deliberate new valid start.",
           "deliverable": "A fault/recovery transition matrix and repeated-input test trace in a written or simulated environment.",
           "acceptance": [
-            "Neither reset nor a stale held start may cause automatic restart; ordinary logic is not evidence of a qualified safety function.",
-            "Show no automatic restart while conditions remain invalid; distinguish ordinary simulation interlocks from independently qualified safety functions."
+            "Neither reset with jam still true nor clearing the jam while start remains held may energize motion; include a separate fresh-start trace after valid recovery.",
+            "Label the evidence as desktop simulation, state the modeled command/output and initial-state assumptions, and identify the independent review needed before claiming a qualified machinery safety function."
           ],
           "sources": [
             {
@@ -1970,7 +1970,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "67b70ef30db46b4f1ff5ee7ffad925826dc4f71ae8e72b21fc7a79e6e25f9262"
+          "contract_sha256": "22ffd0ce88d6f99eafcb31d237ef1af105e99c4fdf943acdfb4a09db945b409b"
         }
       ]
     },
@@ -2016,8 +2016,8 @@
           "task": "Design a paired gauge comparison on the ten retained measurements and isolate the coincident process adjustment in the investigation.",
           "deliverable": "A measurement-system comparison plan, containment decision and new-data effectiveness check.",
           "acceptance": [
-            "Do not widen specification limits or declare a cause merely to make the observed defect rate improve.",
-            "Design a measurement-system comparison and cause investigation before attributing the rate change or widening acceptance limits."
+            "Keep the supplied defect definition and specification fixed in the containment/release decision; name the evidence needed to review that decision instead of relabelling failures as passes.",
+            "Pair both gauge results for each of the ten retained measurements and plan how to separate gauge disagreement from the same-day process adjustment; collect new comparable data before claiming cause or effectiveness."
           ],
           "sources": [
             {
@@ -2029,7 +2029,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "3dd0ca9eb90d0df5b38de86904e6b5cf55bef0cb2ca6e16a3927c52578b418b8"
+          "contract_sha256": "23c0897447851b2feca8e9540e9487a8bffad4f69844900b0933dfefbf48b045"
         }
       ]
     },
@@ -2135,7 +2135,7 @@
           "deliverable": "An equivalent-resistance circuit and loaded-voltage calculation, with measurement limitations.",
           "acceptance": [
             "The lower equivalent is 500 ohms and output about 3.33 V; applying the unloaded 5 V prediction after adding the load fails.",
-            "Calculate lower effective resistance 500 ohms and loaded output about 3.33 V; explain why loading changes the observed result."
+            "Draw the 1,000-ohm measuring input in parallel with the lower resistor, label the output/reference nodes and ideal-simulation assumptions, and identify which instrument/loading facts a real measurement comparison would require."
           ],
           "sources": [
             {
@@ -2147,7 +2147,7 @@
               "url": "https://www.itl.nist.gov/div898/handbook/mpc/section1/mpc1.htm"
             }
           ],
-          "contract_sha256": "47d29d67f3829504731bbd4e268265faf53d7e9c5d0e302dd8249c222c1ecd3b"
+          "contract_sha256": "6c29aff9c336d84d5bde75f505a66c355cd0c1054b2aba9dc6f1f8268bcade3e"
         }
       ]
     },
@@ -2370,8 +2370,8 @@
           "task": "Adapt the same surfaces at 320 CSS pixels and 200% text size with three-line validation messages and wrapped headings.",
           "deliverable": "Annotated narrow/large-text states showing content order, controls and any justified table overflow region.",
           "acceptance": [
-            "A wider body page or clipped label is not a successful reflow; report actual text/background pairs and remaining manual checks.",
-            "Demonstrate retained content and controls without overlap or clipped labels; document actual foreground/background pairs rather than a palette-only claim."
+            "At 320 CSS pixels and 200% text size, show the three-line error, wrapped headings and associated controls without clipping or body-page overflow; identify any deliberately contained table overflow.",
+            "Document the actual foreground/background pairs for normal, focus and error states, including a non-color error cue; distinguish measured contrast results from remaining manual interaction checks."
           ],
           "sources": [
             {
@@ -2383,7 +2383,7 @@
               "url": "https://www.gov.uk/service-manual/user-research"
             }
           ],
-          "contract_sha256": "e67373d153d7a5c173ed2bd66fd3d0fee772cfb2b75eeb5ea2d846439ffa49ec"
+          "contract_sha256": "628916bfc99a73e7702bbf28250645eb422c8f9d3413482c0e7ed0a73cd670f5"
         }
       ]
     },
@@ -2606,7 +2606,7 @@
           "task": "Replan after A slips one day, preserving B's required review while seeking a date/scope/resource decision.",
           "deliverable": "A six-day dependency schedule, options and concise status/decision update with accountable owners.",
           "acceptance": [
-            "Removing required review without authorization is not a recovered schedule; show the one-day variance explicitly.",
+            "With A extended to three days, show the six-day A→B→C dependency path and one-day variance against the five-day window; the parallel room booking does not shorten that path.",
             "Expose the one-day slip, obtain a decision on date/scope/resources and preserve required review instead of silently changing acceptance."
           ],
           "sources": [
@@ -2619,7 +2619,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "35c6038876e8703337cf5ae7e4b541caa7212269f499bbfb644b28e0c0eac6ce"
+          "contract_sha256": "23b44e4521729d84f9cbe098caf30800f523c3210c0b9757f8d32a4258abbf47"
         }
       ]
     },
@@ -3020,7 +3020,7 @@
           "deliverable": "A redirect/crawl verification record and monitoring plan with alternative explanations and limits.",
           "acceptance": [
             "Repairing a redirect does not establish that all traffic loss was caused by it or guarantee a ranking recovery date.",
-            "Separate demand change from technical discoverability evidence, verify the redirect path and avoid promising a ranking or attributing all traffic loss to one edit."
+            "Record the old/new URL redirect chain, destination status, crawlability, canonical target and internal-link checks, then define the monitoring period and owner for the migration evidence."
           ],
           "sources": [
             {
@@ -3032,7 +3032,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "5f38fc0f49299abf4cb985d1055b68ce27d820926b63887950cd8f873f09f657"
+          "contract_sha256": "4ce04df87ca0ded513ccf38b3b646febc00142d886ef422915836ea6ed7e3c22"
         }
       ]
     },
@@ -3197,7 +3197,7 @@
           "deliverable": "Annotated before/after output checks with actual text/background pairs and a print-verification limitation.",
           "acceptance": [
             "A screen color value alone is not evidence of printed legibility; retain all event facts while testing the actual output conditions.",
-            "Compare actual output conditions, revise contrast/spacing and retain all event details without claiming a screen mockup proves print quality."
+            "Show annotated before/after print and mobile layouts with actual text/background pairs, revised contrast/spacing and the retained event name, date, venue and action."
           ],
           "sources": [
             {
@@ -3209,7 +3209,7 @@
               "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/"
             }
           ],
-          "contract_sha256": "154c2db47c26ed6ab70922807c776d0d84dd38a3ababe3935e1df1ecb74bd782"
+          "contract_sha256": "aa2b00f99e6d514cfeb08b34407e6af53d2035582522ef616dc230afd3b2625b"
         }
       ]
     },
@@ -3288,8 +3288,8 @@
           "task": "Reconcile the supplied bank and book balances, separating deposits/cheques in transit from the duplicated receipt and the next-period fee.",
           "deliverable": "A two-sided reconciliation, reconciling-item ledger and authorized correction note.",
           "acceptance": [
-            "Adjusted bank balance is 5,400 and corrected books are 5,600−200=5,400; the next-period 50-unit fee is outside this reconciliation.",
-            "Calculate adjusted bank balance 5,400 and corrected books 5,600 minus the duplicate 200 = 5,400; exclude the later-period fee and retain evidence for the correction."
+            "Show both calculations: adjusted bank is 5,000+700−300=5,400 and corrected books are 5,600−200=5,400; an unexplained balancing amount fails.",
+            "For each reconciling item, record its period and supporting evidence; identify the authorized duplicate-receipt correction, avoid rebooking recorded timing items and explain why the next-period fee is excluded."
           ],
           "sources": [
             {
@@ -3301,7 +3301,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "71c0e85f1532d2c4f23749c9ff618823fa9b09b8ae8fb5d78ed4f2d8f069a17b"
+          "contract_sha256": "566805133b500c8656d2a854d7189e6b0121bc79060a54128c390fb02c7a8524"
         },
         {
           "level": "intermediate",
@@ -3407,7 +3407,7 @@
           "deliverable": "A gross/deduction/net calculation sheet and a period/rule-version approval checklist.",
           "acceptance": [
             "The result is 600/60/540; do not introduce real statutory rates or imply this fictional rule covers an actual employee.",
-            "Calculate gross 600, deduction 60 and net 540; record the employee, period, rule version and independent approval check."
+            "Record P1, the pay period, fictional rule version and independent approval status; distinguish a calculated draft from an approved payment release and identify any missing sign-off."
           ],
           "sources": [
             {
@@ -3419,7 +3419,7 @@
               "url": "https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html"
             }
           ],
-          "contract_sha256": "cc5fe043c536400de5aa53f4482867cee26df257d4129997bcfa158f94367ffa"
+          "contract_sha256": "9078b0ca7cd2591b6e49b3fb96796ce4018087826f26d5841b2c73696178d204"
         },
         {
           "level": "intermediate",
@@ -3930,7 +3930,7 @@
           "deliverable": "A touchpoint/owner map, response-composition table and privacy-preserving improvement hypothesis.",
           "acceptance": [
             "A 20% response rate and 80% departmental share among respondents do not establish representative employee sentiment.",
-            "Map onboarding touchpoints and owners, report the 20% response rate and avoid presenting the departmental mix as representative of everyone."
+            "Map onboarding touchpoints to responsible owners and route the time-sensitive individual access issue through its approved private support channel, with only aggregate improvement themes in the survey summary."
           ],
           "sources": [
             {
@@ -3942,7 +3942,7 @@
               "url": "https://www.gov.uk/service-manual/user-research"
             }
           ],
-          "contract_sha256": "aa7415e8da1352ab3bd34860f31d1933c1d7ab6e22be6642e5cdfbd969dcf44f"
+          "contract_sha256": "899fb361bd1e90327e2817da7d7059e5c064e9d2213d3da002ce60a708a6da17"
         },
         {
           "level": "intermediate",
@@ -4015,7 +4015,7 @@
           "deliverable": "A realistic follow-up, escalation owner and explicit open question tied to the buyer's decision.",
           "acceptance": [
             "An unsupported guarantee fails even if it helps the sale; record the agreed next step without claiming a contract was accepted.",
-            "State the current capability and approval boundary, seek a qualified answer and agree a realistic next step without inventing a delivery promise."
+            "Prepare an owned follow-up with the integration question still open, the evidence or qualified answer needed and the buyer's next decision; do not record the follow-up itself as contract acceptance."
           ],
           "sources": [
             {
@@ -4027,7 +4027,7 @@
               "url": "https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx"
             }
           ],
-          "contract_sha256": "41acd193974e65d6d3a2ea6234201563eeaac0951dbcd971aea23eec5df74488"
+          "contract_sha256": "8c194107179cbfbffd392776f3c63e0dcf4670fb4b2b88cd9101f983cff93243"
         }
       ]
     },
@@ -4048,7 +4048,7 @@
           "deliverable": "An owned onboarding plan with outcome milestones, mapping dependency and a blocker response.",
           "acceptance": [
             "Fifty logins and one valid export are not five completed exports; define what makes an export valid before counting adoption.",
-            "Create an owned onboarding milestone and distinguish activity counts from completion of the customer's actual workflow."
+            "Assign an owner and dependency for category mapping, define a checkpoint for a verified valid export and record who handles the blocker before the five-export outcome milestone."
           ],
           "sources": [
             {
@@ -4060,7 +4060,7 @@
               "url": "https://www.gov.uk/government/publications/project-delivery-functional-standard"
             }
           ],
-          "contract_sha256": "341594736d113d57d66341730040bbb7f5190ed72aa6e1944dd0f3e5d7d2ca7f"
+          "contract_sha256": "fef77746857f6881591f98644cc82b4201e09f961a1cb2cf96c493344babf9c8"
         },
         {
           "level": "intermediate",

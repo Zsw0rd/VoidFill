@@ -204,16 +204,15 @@ test("a slow final successful response cannot turn an over-deadline probe into a
 });
 
 test("request abort uses the remaining workload budget instead of the full per-request timeout",async()=>{
-  let calls=0,aborted=false;
-  const start=performance.now();
-  const report=await runLoadProbe({plan:{...probePlan({clients:1,rounds:1}),deadline_ms:150,timeout_ms:5000},clients:[{cookie:"synthetic-only"}],fetchImpl:async (url,init)=>{
-    if(++calls<3)return new Response(JSON.stringify(assessment));
+  let calls=0,aborted=false,clock=0;
+  const report=await runLoadProbe({plan:{...probePlan({clients:1,rounds:1}),deadline_ms:10000,timeout_ms:5000},clients:[{cookie:"synthetic-only"}],now:()=>clock,fetchImpl:async (url,init)=>{
+    if(++calls<3) {clock=calls===2?9900:10;return new Response(JSON.stringify(assessment));}
     return new Promise<Response>((resolve,reject)=>{
       const fallback=setTimeout(()=>resolve(new Response("this late response must never be a successful result")),1500);
-      init!.signal!.addEventListener("abort",()=>{aborted=true;clearTimeout(fallback);reject(new Error("synthetic timeout"));},{once:true});
+      init!.signal!.addEventListener("abort",()=>{aborted=true;clock=10000;clearTimeout(fallback);reject(new Error("synthetic timeout"));},{once:true});
     });
   }});
-  assert.equal(aborted,true);assert.ok(performance.now()-start<1200);
+  assert.equal(aborted,true);
   assert.equal(report.success,false);assert.equal(report.stopped_reason,"probe_deadline");
   assert.equal(report.completed_requests,3);assert.equal(report.stages[0].successful,2);
 });

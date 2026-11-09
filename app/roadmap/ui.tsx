@@ -39,6 +39,7 @@ import { QuestionOptions } from "@/components/QuestionOptions";
 import { FocusDialog } from "@/components/FocusDialog";
 import { useAssessmentDraft } from "@/components/useAssessmentDraft";
 import { AssessmentDraftNotice } from "@/components/AssessmentDraftNotice";
+import { useQuestionNavigation } from "@/components/useQuestionNavigation";
 import { LearningAtlas } from "./atlas-canvas";
 import type { Category, CourseAssessment, CourseType, RoadmapCourse, SkillNode } from "./types";
 
@@ -120,12 +121,15 @@ export function RoadmapClient({
   const [assessQuestions, setAssessQuestions] = useState<any[]>([]);
   const [assessToken, setAssessToken] = useState("");
   const [assessIndex, setAssessIndex] = useState(0);
+  const { questionHeading: assessmentQuestionHeading, moveQuestion: moveAssessmentQuestion } = useQuestionNavigation(assessIndex, setAssessIndex);
   const [assessAnswers, setAssessAnswers] = useState<Record<string, number>>(
     {},
   );
   const [assessLoading, setAssessLoading] = useState(false);
   const [assessResult, setAssessResult] = useState<any>(null);
   const [assessError, setAssessError] = useState<{message: string; restart: boolean} | null>(null);
+  const [assessGenerationError, setAssessGenerationError] = useState<string | null>(null);
+  const assessmentGenerationNotice = useRef<HTMLDivElement>(null);
   const [pausedAssessment, setPausedAssessment] = useState(false);
   const resumeAssessmentTrigger = useRef<HTMLButtonElement>(null);
   const roadmapHeading = useRef<HTMLHeadingElement>(null);
@@ -136,7 +140,7 @@ export function RoadmapClient({
     assessmentRequest.current?.abort(); ++assessmentVersion.current;
     setAssessTarget({ type: session.purpose, ...session.target });
     setAssessQuestions(session.questions); setAssessToken(saved.token); setAssessAnswers(saved.answers);
-    setAssessIndex(saved.index); setAssessResult(null); setAssessError(null); setAssessLoading(false); setPausedAssessment(false);
+    setAssessIndex(saved.index); setAssessResult(null); setAssessError(null); setAssessGenerationError(null); setAssessLoading(false); setPausedAssessment(false);
   } });
   const { persist: persistDraft, expiresAt } = draft;
   useEffect(() => {
@@ -144,6 +148,14 @@ export function RoadmapClient({
   }, [assessTarget, assessToken, expiresAt, assessIndex, assessAnswers, assessResult, persistDraft]);
 
   useEffect(() => () => assessmentRequest.current?.abort(), []);
+
+  useEffect(() => {
+    if (assessGenerationError && !assessLoading) assessmentGenerationNotice.current?.focus();
+  }, [assessGenerationError, assessLoading]);
+
+  useEffect(() => {
+    if (assessToken) assessmentQuestionHeading.current?.focus();
+  }, [assessToken, assessmentQuestionHeading]);
 
   const roleId = role?.id;
 
@@ -466,7 +478,7 @@ export function RoadmapClient({
 
   async function startAssessment(target: NonNullable<AssessmentTarget>, payload: Record<string, string>) {
     if (!draft.ready) return toast("Restoring assessment", "Please restore or discard your saved draft first.");
-    draft.discard(); setPausedAssessment(false); setAssessError(null);
+    draft.discard(); setPausedAssessment(false); setAssessError(null); setAssessGenerationError(null);
     assessmentRequest.current?.abort();
     const controller = new AbortController();
     assessmentRequest.current = controller;
@@ -495,8 +507,7 @@ export function RoadmapClient({
       draft.setExpiresAt(data.expires_at);
     } catch (error) {
       if (controller.signal.aborted || version !== assessmentVersion.current) return;
-      toast("Assessment generation failed", error instanceof Error ? error.message : "Please try again.");
-      setAssessTarget(null);
+      setAssessGenerationError(error instanceof Error ? error.message : "Please try again.");
     } finally {
       if (version === assessmentVersion.current) {
         assessmentRequest.current = null;
@@ -584,6 +595,7 @@ export function RoadmapClient({
     setAssessToken("");
     setAssessQuestions([]);
     setAssessResult(null);
+    setAssessGenerationError(null);
     void load();
   }
 
@@ -711,12 +723,23 @@ export function RoadmapClient({
                   </button>
                 </div>
 
-                {!assessResult && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} expired={draft.expired} onDiscard={() => closeAssessment(true)} />}
+                {!assessResult && !assessGenerationError && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} expired={draft.expired} onDiscard={() => closeAssessment(true)} />}
 
                 {assessLoading && (
                   <div className="mt-6 flex items-center justify-center gap-2 text-muted">
                     <Loader2 className="h-5 w-5 animate-spin" />
                     Generating assessment...
+                  </div>
+                )}
+
+                {!assessLoading && assessGenerationError && (
+                  <div ref={assessmentGenerationNotice} tabIndex={-1} role="alert" className="mt-6 rounded-xl border border-rust/30 bg-peach p-4 text-sm text-ink">
+                    <p className="font-semibold">Your check couldn’t start</p>
+                    <p className="mt-2">{assessGenerationError}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {assessTarget.type === "course" && <Button onClick={() => void startSkillAssessment(assessTarget.skillName, assessTarget.skillId)}>Check the broader skill</Button>}
+                      <Button variant="ghost" onClick={() => closeAssessment(true)}>Back to your atlas</Button>
+                    </div>
                   </div>
                 )}
 
@@ -740,7 +763,7 @@ export function RoadmapClient({
                         100
                       }
                     />
-                    <div className="text-lg font-medium" aria-live="polite" aria-atomic="true">
+                    <div ref={assessmentQuestionHeading} role="heading" aria-level={4} tabIndex={-1} className="text-lg font-medium" aria-live="polite" aria-atomic="true">
                       {activeQuestion.prompt}
                     </div>
                     <QuestionOptions
@@ -763,7 +786,7 @@ export function RoadmapClient({
                         variant="ghost"
                         disabled={assessIndex === 0}
                         onClick={() =>
-                          setAssessIndex((i) => Math.max(0, i - 1))
+                          moveAssessmentQuestion(Math.max(0, assessIndex - 1))
                         }
                       >
                         Previous
@@ -780,7 +803,7 @@ export function RoadmapClient({
                           }
 
                           if (assessIndex + 1 < assessQuestions.length) {
-                            setAssessIndex((current) => current + 1);
+                            moveAssessmentQuestion(assessIndex + 1);
                             return;
                           }
 

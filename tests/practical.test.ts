@@ -30,7 +30,7 @@ test("every new practical brief snapshots role-specific synthetic inputs and a l
     assert.equal(foundation.case_inputs?.length, 2, role.name);
     assert.equal(intermediate.case_inputs?.length, 3, role.name);
     assert.deepEqual(intermediate.case_inputs?.slice(0, 2), foundation.case_inputs);
-    assert.match(foundation.version, /case-packs-3$/);
+    assert.match(foundation.version, /case-packs-4$/);
     assert.equal(foundation.rubric.at(-1), role.curriculum.foundation.case_verification);
     assert.equal(intermediate.rubric.at(-1), role.curriculum.intermediate.case_verification);
     assert.notEqual(foundation.rubric.at(-1), intermediate.rubric.at(-1));

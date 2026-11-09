@@ -108,6 +108,15 @@ The sanitized build log has the form:
 Body byte counts exclude HTTP/TLS overhead and are not a billing report. A report
 is printed only after successful preparation and current career fingerprints.
 
+The 9 November native-install preview actually restored the prior build cache
+and emitted that zero-download result. Its compressed build cache was
+694,919,168 bytes against a reported 1,610,612,736-byte limit. Its Python learning
+bundle was 466,272,797 bytes (444.67 MiB), up from the custom-install preview's
+429.71 MiB. The archive remains excluded by `.vercel/**`; this is not a
+byte-identical runtime-bundle claim. The build log does not explain the smaller
+native-install packaging delta, so it is not attributed to a specific dependency.
+The model release, archive and extracted-file hashes remain unchanged.
+
 Before claiming hosted savings, record two consecutive successful preview builds
 using the existing build cache:
 

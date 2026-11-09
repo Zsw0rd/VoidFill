@@ -6,6 +6,7 @@ import { getLearningContext, prepareAssessmentContext } from "@/lib/learningCont
 import { assessmentResponseSchema, callLocalMl, LearningError } from "@/lib/localMl";
 import { createAssessment } from "@/lib/assessments";
 import { careerAssessmentDifficulty } from "@/lib/careerCatalog";
+import { loadCourseAssessmentContext } from "@/lib/assessmentSelection";
 
 const inputSchema = z.object({ purpose: z.enum(["practice", "course", "skill"]), skill_id: z.string().uuid().optional(), course_id: z.string().uuid().optional() });
 
@@ -26,21 +27,21 @@ async function handlePOST(req: Request) {
     let skills = context.skills;
     let courseTitle = "";
     let courseId: string | undefined;
+    let resourceUrl: string | undefined;
     if (body.purpose === "course") {
       if (!body.course_id) throw new LearningError("Choose a course to assess.", 400);
-      const { data: course, error } = await supabase.from("roadmap_courses").select("id, skill_id, title").eq("id", body.course_id).eq("user_id", user.id).maybeSingle();
-      if (error) throw new LearningError("Could not load the course.", 500);
-      if (!course) throw new LearningError("Course not found.", 404);
-      skills = skills.filter((s) => s.id === course.skill_id);
-      courseTitle = course.title;
-      courseId = course.id;
+      const course = await loadCourseAssessmentContext(supabase, user.id, body.course_id, skills);
+      skills = course.skills;
+      courseTitle = course.courseTitle;
+      courseId = course.courseId;
+      resourceUrl = course.resourceUrl;
     } else if (body.purpose === "skill") {
       skills = skills.filter((s) => s.id === body.skill_id);
     }
     if (!skills.length) throw new LearningError("This skill is not configured for your current role.", 400);
     const suggested = preparation ? preparation.difficulty : Math.max(1, Math.ceil((skills[0].score || 0) / 20));
     const difficulty = careerAssessmentDifficulty(context.level, suggested);
-    const result = await callLocalMl("/assessment", { skills, role: context.role, count: body.purpose === "course" && difficulty < 3 ? 12 : 10, difficulty, context: courseTitle }, assessmentResponseSchema);
+    const result = await callLocalMl("/assessment", { skills, role: context.role, count: body.purpose === "course" && difficulty < 3 ? 12 : 10, difficulty, context: courseTitle, purpose: body.purpose === "course" ? "course" : "skill", ...(resourceUrl ? {resource_url: resourceUrl} : {}) }, assessmentResponseSchema);
     const allowed = new Set(skills.map((s) => s.id));
     if (result.questions.some((q) => !allowed.has(q.skill_id))) throw new LearningError("Invalid assessment skill mapping.", 502);
     const session = createAssessment(user.id, result.questions, { purpose: body.purpose, difficulty: result.difficulty, contextKey: context.assessmentContext, ...(courseId ? { courseId } : {}), ...(body.purpose !== "practice" ? { skillId: skills[0].id } : {}) });

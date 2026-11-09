@@ -10,6 +10,7 @@ from ml.career_question_bank import BANK
 from ml.career_question_bank_phase2 import BANK as BANK2
 from ml.career_question_bank_phase3 import BANK as BANK3
 from ml.career_case_packs import PACKS, VERSION, case_pack
+from ml.career_case_contracts import case_contract
 from ml.career_curriculum import PATHS
 
 
@@ -132,4 +133,7 @@ def test_case_pack_arithmetic_preserves_units_denominators_and_constraints():
         ("Hospitality Operations Associate", "foundation", f"{40/50:.0%}"),
     ]
     for name, level, expected in checks:
-        assert expected in case_pack(name, level)["verification"], (name, level, expected)
+        # Arithmetic and evidence checks may occupy different rubric items.
+        # Assert against the complete acceptance text actually served in a brief.
+        acceptance = [case_contract(name, level)["boundary"], case_pack(name, level)["verification"]]
+        assert expected in " ".join(acceptance), (name, level, expected)

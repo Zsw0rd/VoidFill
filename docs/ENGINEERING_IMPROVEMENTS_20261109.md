@@ -9,7 +9,7 @@ change. The user-owned untracked backup folder is not part of this release.
 
 | Workstream | Required evidence |
 | --- | --- |
-| Model download efficiency | Verified cold/warm archive fixtures, actual consecutive hosted cache restoration, zero shard-download log on the warm build, unchanged runtime bundle/model hashes |
+| Model download efficiency | Verified cold/warm archive fixtures, actual consecutive hosted cache restoration, zero shard-download log on the warm build, build-cache exclusion from the measured runtime bundle and unchanged model hashes |
 | Hosted performance | Scoped baseline/follow-up core and private-inference reports, separately authenticated owner/learner probe, stopped failures retained, no progress mutation or unsupported capacity claim |
 | UX/accessibility | Fresh Chrome screenshots and numbered flow checks, repaired focus/validation states verified in the rebuilt candidate, phone/keyboard checks and explicit human/screen-reader limits |
 | All 60 career paths | All 120 authored task/input/deliverable contracts, concrete acceptance/counterexamples, cross-runtime frozen-brief parity, concept sources, all-role audit matrix and unchanged inference-input proof |
@@ -25,6 +25,12 @@ active native Vercel Python environment's cache-preserved directory. The runtime
 bundle explicitly excludes that build cache. Unknown layouts and missing or
 corrupt cache entries fall back to the verified download; unsafe paths fail closed.
 See [model download efficiency](MODEL_DOWNLOAD_EFFICIENCY.md).
+The first actual warm-cache experiment still downloaded all shards because the
+custom Python installer erased its restored venv. The follow-up uses native
+managed installation with an explicit serving-only manifest. Its actual hosted
+build restored that archive, verified it and downloaded zero shards/zero model
+bytes. The release record retains both the failed trial and successful follow-up,
+including the deployed bundle and cache sizes.
 
 Independent assessment-history reads run alongside profile/requirements reads
 after authentication and budget checks. The optional bounded synthetic-resume
@@ -48,6 +54,11 @@ atlas design. It addresses route-arrival focus, persistent personal-goal errors,
 paused-assessment discard focus, practical-link field errors and save feedback,
 pending-write interactions and career-copy contrast. The dated UX report records
 which repaired behaviors were actually observed in the candidate.
+Chrome also exposed lost question focus when navigation disabled its own button,
+and a course check that sampled unrelated questions from the wider skill bank.
+Question navigation now requests focus on the new prompt; course selection must
+respect explicit lesson-question bindings instead of presenting a broader quiz
+as evidence of that resource's completion.
 See the [eight-step Chrome audit](UX_ACCESSIBILITY_20261109.md), including its
 explicit baseline-versus-post-repair evidence boundary.
 

@@ -33,6 +33,8 @@ export class LearningError extends Error {
   }
 }
 
+export const RESOURCE_ASSESSMENT_UNAVAILABLE_MESSAGE = "No resource-specific check is available for this resource. Choose a skill check for broader practice.";
+
 export async function callLocalMl<T>(
   path: "/recommend" | "/assessment" | "/analyze",
   payload: unknown,
@@ -50,11 +52,15 @@ export async function callLocalMl<T>(
       cache: "no-store",
     });
     if (!response.ok) {
-      if (response.status === 422)
+      if (response.status === 422) {
+        const failure = await response.json().catch(() => null);
+        if (failure?.detail?.code === "resource_assessment_unavailable")
+          throw new LearningError(RESOURCE_ASSESSMENT_UNAVAILABLE_MESSAGE, 422);
         throw new LearningError(
           "The question bank does not yet cover the selected skills.",
           422,
         );
+      }
       console.error("Local ML service status:", response.status);
       throw new LearningError(
         "The learning service is currently unavailable. Please try again.",

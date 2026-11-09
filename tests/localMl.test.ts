@@ -1,7 +1,7 @@
 import test, { afterEach } from "node:test";
 import assert from "node:assert/strict";
 import { z } from "zod";
-import { callLocalMl, LearningError } from "../lib/localMl";
+import { callLocalMl, LearningError, RESOURCE_ASSESSMENT_UNAVAILABLE_MESSAGE } from "../lib/localMl";
 
 const originalFetch = globalThis.fetch;
 const originalToken = process.env.ML_SERVICE_TOKEN;
@@ -33,4 +33,21 @@ test("malformed and unavailable upstream responses fail closed", async () => {
   await assert.rejects(callLocalMl("/recommend", {}, z.object({ model: z.string() })), LearningError);
   globalThis.fetch = async () => { throw new Error("connection refused"); };
   await assert.rejects(callLocalMl("/recommend", {}, z.object({})), LearningError);
+});
+
+test("resource-bank absence reaches the UI as actionable guidance without leaking upstream detail", async () => {
+  process.env.ML_SERVICE_TOKEN = "test-only-service-token";
+  globalThis.fetch = async () => new Response(JSON.stringify({detail: {code: "resource_assessment_unavailable", message: "private upstream detail"}}), {status: 422});
+  await assert.rejects(callLocalMl("/assessment", {}, z.object({})), error => {
+    assert.ok(error instanceof LearningError);
+    assert.equal(error.status, 422);
+    assert.equal(error.message, RESOURCE_ASSESSMENT_UNAVAILABLE_MESSAGE);
+    return true;
+  });
+  globalThis.fetch = async () => new Response(JSON.stringify({detail: "private upstream detail"}), {status: 422});
+  await assert.rejects(callLocalMl("/assessment", {}, z.object({})), error => {
+    assert.ok(error instanceof LearningError);
+    assert.equal(error.message, "The question bank does not yet cover the selected skills.");
+    return true;
+  });
 });

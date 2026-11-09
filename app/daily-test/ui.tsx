@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,7 @@ import {
 import { QuestionOptions } from "@/components/QuestionOptions";
 import { useAssessmentDraft } from "@/components/useAssessmentDraft";
 import { AssessmentDraftNotice } from "@/components/AssessmentDraftNotice";
+import { useQuestionNavigation } from "@/components/useQuestionNavigation";
 
 type Question = {
   id: string;
@@ -43,6 +44,8 @@ export function DailyTestClient({ ownerId, contextKey, existingAttempt, coverage
   const [questions, setQuestions] = useState<Question[]>([]);
   const [assessmentToken, setAssessmentToken] = useState("");
   const [index, setIndex] = useState(0);
+  const { questionHeading, moveQuestion } = useQuestionNavigation(index, setIndex);
+  const startHeading = useRef<HTMLHeadingElement>(null);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<any>(null);
   const [submissionError, setSubmissionError] = useState<{message: string; restart: boolean} | null>(null);
@@ -64,6 +67,11 @@ export function DailyTestClient({ ownerId, contextKey, existingAttempt, coverage
   function discardDraft() {
     draft.discard(); setStage("start"); setQuestions([]); setAssessmentToken(""); setAnswers({});
     setIndex(0); setResult(null); setSubmissionError(null);
+  }
+
+  function discardAssessment() {
+    discardDraft();
+    requestAnimationFrame(() => startHeading.current?.focus());
   }
 
   const total = questions.length || 10;
@@ -157,7 +165,7 @@ export function DailyTestClient({ ownerId, contextKey, existingAttempt, coverage
     if (!q) return;
     if (answers[q.id] === undefined)
       return toast("Pick an option", "Choose one answer to continue.");
-    if (index + 1 < questions.length) setIndex((i) => i + 1);
+    if (index + 1 < questions.length) moveQuestion(index + 1);
     else submit();
   }
 
@@ -217,7 +225,7 @@ export function DailyTestClient({ ownerId, contextKey, existingAttempt, coverage
           <div className="flex items-center justify-between gap-3">
             <div>
               <p className="eyebrow mb-3">02 / A daily check-in</p>
-              <h1 className="page-title">A little practice goes a long way.</h1>
+              <h1 ref={startHeading} tabIndex={-1} className="page-title">A little practice goes a long way.</h1>
               <p className="mt-1 text-sm text-muted">
                 A focused assessment, shaped around your skills and your next
                 step.
@@ -245,7 +253,7 @@ export function DailyTestClient({ ownerId, contextKey, existingAttempt, coverage
         </CardHeader>
 
         <CardContent className="p-6">
-          {(stage === "start" || stage === "quiz") && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={discardDraft} />}
+          {(stage === "start" || stage === "quiz") && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={discardAssessment} />}
           {stage === "start" && (
             <div className="assessment-start">
               <span className="icon-tile !bg-surface mb-5">
@@ -311,7 +319,7 @@ export function DailyTestClient({ ownerId, contextKey, existingAttempt, coverage
                 </div>
                 <Badge tone="neutral">{q.skill_name}</Badge>
               </div>
-              <div className="text-xl font-semibold leading-snug" aria-live="polite" aria-atomic="true">
+              <div ref={questionHeading} role="heading" aria-level={2} tabIndex={-1} className="text-xl font-semibold leading-snug" aria-live="polite" aria-atomic="true">
                 {q.prompt}
               </div>
 
@@ -332,11 +340,11 @@ export function DailyTestClient({ ownerId, contextKey, existingAttempt, coverage
               </div>}
 
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <Button variant="ghost" disabled={loading} onClick={discardDraft}>Discard assessment</Button>
+                <Button variant="ghost" disabled={loading} onClick={discardAssessment}>Discard assessment</Button>
                 <Button
                   variant="ghost"
                   disabled={index === 0 || loading}
-                  onClick={() => setIndex((i) => Math.max(0, i - 1))}
+                  onClick={() => moveQuestion(Math.max(0, index - 1))}
                 >
                   <ArrowLeft size={14} />
                   Previous

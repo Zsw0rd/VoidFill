@@ -65,7 +65,8 @@ safety, additional keyboard/validation repairs and task/input alignment for all
 and publication gates are recorded in
 [the engineering follow-up](ENGINEERING_IMPROVEMENTS_20261109.md). Source changes
 and synthetic tests alone do not prove that a candidate is live or that Vercel
-retained its model archive between builds; use that release's actual evidence.
+retained its model archive between builds; use the actual source, deployment and
+acceptance evidence in [the PR 11 release record](https://github.com/Zsw0rd/VoidFill/pull/11).
 
 ## Where to look
 

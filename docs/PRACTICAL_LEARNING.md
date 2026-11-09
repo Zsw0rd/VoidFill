@@ -6,17 +6,20 @@ does not award XP, change assessment scores, mark roadmap courses complete or
 claim a professional qualification.
 
 Every one of the 60 catalogue careers has a foundation and intermediate activity.
-The chosen level's final curriculum milestone supplies the deliverable and review
-checks; the existing role activity supplies the context and instructions. The
+The chosen level's case contract supplies the concrete task, deliverable and
+acceptance checks; its curriculum milestone supplies broader review criteria and
+the existing role activity supplies context. The
 workspace can explore a different activity without changing the learner's career
 selection. Personal custom goals can use an explicitly chosen catalogue activity;
 the application does not invent an unsupported role-specific rubric.
 
-The [60 authored case packs](CAREER_CASE_PACKS.md) provide two synthetic inputs
-at foundation level and an additional intermediate change. Each adds a specific
-verification criterion to its new brief. Learner and mentor views render the
-same saved inputs. Existing projects/submissions retain their original versioned
-brief; updating the public catalogue never changes the basis of an earlier review.
+The [60 authored case packs](CAREER_CASE_PACKS.md) provide synthetic inputs and
+an intermediate change, with a task and deliverable aligned to each level's
+actual inputs. New edition-4 briefs include distinct acceptance checks and
+optional primary concept references, which are background reading rather than
+an endorsement. Learner and mentor views render the same frozen task, inputs
+and rubric. Existing projects/submissions retain their original versioned brief;
+updating the public catalogue never changes the basis of an earlier review.
 
 ## Learner workflow
 

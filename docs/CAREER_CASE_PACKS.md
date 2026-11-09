@@ -2,13 +2,13 @@
 
 These are fictional learning inputs for written work or safe desktop simulations. They are not employer records, professional approvals, statutory rules or real operational instructions. Physical equipment, safety, employment, financial and regulated decisions require appropriate qualified review outside these exercises.
 
-Practical Studio includes the inputs, assigned task, deliverable, two acceptance checks and concept references in every new brief. A submitted copy preserves those fields and its version for the assigned mentor. Existing projects/review history are not rewritten. Foundation and intermediate activities are separate; quiz scores do not grade practical work. References explain selected concepts, not professional endorsement or comprehensive training. The [contract review](CAREER_CASE_CONTRACT_REVIEW.md) records all60 rows and45 independent exercise checks.
+Practical Studio includes the inputs, assigned task, deliverable, two acceptance checks and concept references in every new brief. A submitted copy preserves those fields and its version for the assigned mentor. Existing projects/review history are not rewritten. Foundation and intermediate activities are separate; quiz scores do not grade practical work. References explain selected concepts, not professional endorsement or comprehensive training. The [contract review](CAREER_CASE_CONTRACT_REVIEW.md) records all 60 rows and 45 independent exercise checks.
 
 ## Frontend Developer
 
 Case: Workshop registration
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -45,7 +45,7 @@ Concept references: [W3C: reflow and small-screen content](https://www.w3.org/WA
 
 Case: The last room-booking slot
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -82,7 +82,7 @@ Concept references: [PostgreSQL: transaction isolation](https://www.postgresql.o
 
 Case: An equipment return with competing updates
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -110,8 +110,8 @@ What to produce: A version-conflict sequence, recovery screen and repeat-safe co
 
 Acceptance:
 
-- A failed optimistic update must not display an unqualified success or overwrite version 4; show the reconciled server state.
-- Define conflict and retry behavior without claiming success before commit; preserve the correction and show how the UI recovers.
+- A stale version-3 update must leave the staff's version-4 correction intact; the conflict response and recovery screen must identify that current version without claiming the return committed.
+- Trace the interrupted request and repeat using a declared repeat-safe command identity; show the retry's stored result and number of effects separately from the displayed conflict.
 
 Concept references: [OWASP: object-level authorization](https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html), [PostgreSQL: transaction isolation](https://www.postgresql.org/docs/current/transaction-iso.html).
 
@@ -119,7 +119,7 @@ Concept references: [OWASP: object-level authorization](https://cheatsheetseries
 
 Case: Checkout discounts and payment retries
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -156,7 +156,7 @@ Concept references: [PostgreSQL: transaction isolation](https://www.postgresql.o
 
 Case: Offline notes across two devices
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -169,8 +169,8 @@ What to produce: An offline-notes state diagram and interruption test that reope
 
 Acceptance:
 
-- The interface must not call a local-only draft synchronized; permission denial or restart must preserve a recoverable draft state.
-- Demonstrate a draft surviving controlled background/foreground interruption without being presented as server-synchronized.
+- Show distinct locally saved, queued, syncing and failed labels; no local-only state may imply server acceptance, including after permission denial.
+- Record the edited N1 text, interrupt and reopen the simulated app, then show the same draft text restored from local storage before any network sync.
 
 ### Intermediate
 
@@ -184,8 +184,8 @@ What to produce: A two-device revision timeline, conflict choice and retry test 
 
 Acceptance:
 
-- A last-write-wins policy without disclosed data loss fails this case; accepted retries must not silently erase the other device's revision.
-- Show a version-conflict choice and idempotent retry; neither device may silently erase the other's content.
+- Trace A's interrupted accepted upload and its retry using the same operation identity; the retry must not create a second revision or silently replace the server's later state.
+- Show A's and B's conflicting edits from version 4, the disclosed merge or user choice and the final local/server text; neither device's content may disappear without that explicit choice.
 
 Concept references: [Android Developers: offline-first data](https://developer.android.com/topic/architecture/data-layer/offline-first), [PostgreSQL: transaction isolation](https://www.postgresql.org/docs/current/transaction-iso.html).
 
@@ -193,7 +193,7 @@ Concept references: [Android Developers: offline-first data](https://developer.a
 
 Case: A stable priority queue
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -230,7 +230,7 @@ Concept references: [Python: priority-queue implementation notes](https://docs.p
 
 Case: Checkout conversion after a tracking change
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -258,7 +258,7 @@ What to produce: A deduplication rule and before/after reconciliation showing 90
 
 Acceptance:
 
-- Deduplicating event IDs alone leaves repeated orders; report a 2.5-percentage-point conversion drop and a 10% order-count decline without claiming cause.
+- Specify an order-ID deduplication rule that removes the six identified retry rows while retaining distinct orders; explain why their new event IDs cannot identify the duplicates.
 - Reconcile 96 completion events to 90 unique orders and 7.5% conversion; report a 2.5-percentage-point conversion drop and 10% order-count decline without attributing cause from timing alone.
 
 Concept references: [Microsoft: facts, dimensions and grain](https://learn.microsoft.com/en-us/power-bi/guidance/star-schema), [European Court of Auditors: evidence and corroboration](https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx).
@@ -267,7 +267,7 @@ Concept references: [Microsoft: facts, dimensions and grain](https://learn.micro
 
 Case: Answers from approved library passages
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -295,8 +295,8 @@ What to produce: A threat/evaluation table separating retrieval relevance, citat
 
 Acceptance:
 
-- Treat retrieved commands as untrusted content; a confidently phrased or cited answer still fails when no approved passage supports it.
-- Separate untrusted text from instructions, reject unsupported citation claims and report retrieval relevance separately from answer faithfulness.
+- Show the answer with the malicious retrieved command present: it must retain P2's reservation condition and one-renewal limit instead of following the command to promise unlimited renewals.
+- Mark the candidate's P1-backed 2-unit fee as unsupported and supply a missing-evidence response; score passage relevance separately from whether each answer claim has supporting text.
 
 Concept references: [NIST: generative-AI risk profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf), [European Court of Auditors: evidence and corroboration](https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx).
 
@@ -304,7 +304,7 @@ Concept references: [NIST: generative-AI risk profile](https://nvlpubs.nist.gov/
 
 Case: Order revenue without a multiplied join
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -341,7 +341,7 @@ Concept references: [Microsoft: facts, dimensions and grain](https://learn.micro
 
 Case: Late and corrected order records
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -378,7 +378,7 @@ Concept references: [Microsoft: facts, dimensions and grain](https://learn.micro
 
 Case: Model quality beyond aggregate accuracy
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -406,7 +406,7 @@ What to produce: A release decision, slice guardrail, delayed-label monitoring p
 
 Acceptance:
 
-- A latency improvement cannot compensate for a failed prespecified quality gate without an explicitly reviewed trade-off; disclose unobserved live outcomes.
+- Separate immediately observable serving signals from prediction-quality measures that require the week-late labels; record the pending label window rather than reporting unobserved live slice accuracy.
 - Define a quality gate, staged rollout and rollback criteria that do not equate faster service with better prediction quality.
 
 Concept references: [scikit-learn: data leakage and preprocessing](https://scikit-learn.org/stable/common_pitfalls.html), [NIST: generative-AI risk profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf).
@@ -415,7 +415,7 @@ Concept references: [scikit-learn: data leakage and preprocessing](https://sciki
 
 Case: A leakage-free retention analysis
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -429,7 +429,7 @@ What to produce: A feature-availability timeline and leakage-free baseline/evalu
 Acceptance:
 
 - A post-cancellation survey answer is unavailable at prediction time even if present in the historical table; do not use it as a valid predictor.
-- Draw a feature-availability timeline and exclude post-cancellation survey responses from the day-30 predictor.
+- State the customer-level prediction target and a future observation horizon, define a leakage-free baseline and evaluation boundary, and identify the observations needed before any performance claim.
 
 ### Intermediate
 
@@ -452,7 +452,7 @@ Concept references: [scikit-learn: data leakage and preprocessing](https://sciki
 
 Case: Search fails while health checks pass
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -489,7 +489,7 @@ Concept references: [Google SRE: monitoring distributed systems](https://sre.goo
 
 Case: A suspicious login and a fast device clock
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -526,7 +526,7 @@ Concept references: [OWASP: object-level authorization](https://cheatsheetseries
 
 Case: A user-specific service fault
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -563,7 +563,7 @@ Concept references: [Google SRE: monitoring distributed systems](https://sre.goo
 
 Case: A service account and a changed permission
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -591,8 +591,8 @@ What to produce: An effective-identity permission trace and post-recovery client
 
 Acceptance:
 
-- World-readable permissions are not an acceptable shortcut; check required access and prohibited access after the repair.
-- Demonstrate the failure using effective identity and end-to-end checks, define rollback triggers and avoid world-readable permissions as a shortcut.
+- Record separate post-change access results for svc-app and an unrelated identity: the required file must be readable by the service account and denied to the unrelated user without world-readable permissions.
+- Trace the dependent-file failure as svc-app, record configuration versions and rollback triggers, and verify a normal client request after the scoped repair rather than relying on process startup.
 
 Concept references: [OWASP: object-level authorization](https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html), [Google SRE: monitoring distributed systems](https://sre.google/sre-book/monitoring-distributed-systems/).
 
@@ -600,7 +600,7 @@ Concept references: [OWASP: object-level authorization](https://cheatsheetseries
 
 Case: A compatible application and schema release
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -637,7 +637,7 @@ Concept references: [Docker: reproducible image-building practices](https://docs
 
 Case: One branch and a stale resolver
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -674,7 +674,7 @@ Concept references: [Google SRE: monitoring distributed systems](https://sre.goo
 
 Case: Bracket fit under worst-case tolerances
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -703,7 +703,7 @@ What to produce: A tolerance-stack calculation and revision/review note identify
 Acceptance:
 
 - The 0.10 mm worst case fails the stated requirement; individually in-tolerance parts do not prove an acceptable assembly.
-- Calculate the 0.10 mm worst-case clearance, show the unmet fictional requirement and record the qualified design review needed before manufacture.
+- Attach the failed-fit finding to the drawing's revision, datums and mating dimensions, and record a proposed revision for qualified design review; a calculated fit is not manufacturing approval.
 
 Concept references: [NIST: measurement-process characterization](https://www.itl.nist.gov/div898/handbook/mpc/section1/mpc1.htm), [European Court of Auditors: evidence and corroboration](https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx).
 
@@ -711,7 +711,7 @@ Concept references: [NIST: measurement-process characterization](https://www.itl
 
 Case: A conveyor fault in simulation
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -739,8 +739,8 @@ What to produce: A fault/recovery transition matrix and repeated-input test trac
 
 Acceptance:
 
-- Neither reset nor a stale held start may cause automatic restart; ordinary logic is not evidence of a qualified safety function.
-- Show no automatic restart while conditions remain invalid; distinguish ordinary simulation interlocks from independently qualified safety functions.
+- Neither reset with jam still true nor clearing the jam while start remains held may energize motion; include a separate fresh-start trace after valid recovery.
+- Label the evidence as desktop simulation, state the modeled command/output and initial-state assumptions, and identify the independent review needed before claiming a qualified machinery safety function.
 
 Concept references: [NIST: measurement-process characterization](https://www.itl.nist.gov/div898/handbook/mpc/section1/mpc1.htm), [European Court of Auditors: evidence and corroboration](https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx).
 
@@ -748,7 +748,7 @@ Concept references: [NIST: measurement-process characterization](https://www.itl
 
 Case: Defect rates after a gauge change
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -776,8 +776,8 @@ What to produce: A measurement-system comparison plan, containment decision and 
 
 Acceptance:
 
-- Do not widen specification limits or declare a cause merely to make the observed defect rate improve.
-- Design a measurement-system comparison and cause investigation before attributing the rate change or widening acceptance limits.
+- Keep the supplied defect definition and specification fixed in the containment/release decision; name the evidence needed to review that decision instead of relabelling failures as passes.
+- Pair both gauge results for each of the ten retained measurements and plan how to separate gauge disagreement from the same-day process adjustment; collect new comparable data before claiming cause or effectiveness.
 
 Concept references: [NIST: measurement-process characterization](https://www.itl.nist.gov/div898/handbook/mpc/section1/mpc1.htm), [European Court of Auditors: evidence and corroboration](https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx).
 
@@ -785,7 +785,7 @@ Concept references: [NIST: measurement-process characterization](https://www.itl
 
 Case: Line capacity and good-output yield
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -822,7 +822,7 @@ Concept references: [NIST: measurement-process characterization](https://www.itl
 
 Case: A loaded voltage divider
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -851,7 +851,7 @@ What to produce: An equivalent-resistance circuit and loaded-voltage calculation
 Acceptance:
 
 - The lower equivalent is 500 ohms and output about 3.33 V; applying the unloaded 5 V prediction after adding the load fails.
-- Calculate lower effective resistance 500 ohms and loaded output about 3.33 V; explain why loading changes the observed result.
+- Draw the 1,000-ohm measuring input in parallel with the lower resistor, label the output/reference nodes and ideal-simulation assumptions, and identify which instrument/loading facts a real measurement comparison would require.
 
 Concept references: [OpenStax: series and parallel resistor circuits](https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel), [NIST: measurement-process characterization](https://www.itl.nist.gov/div898/handbook/mpc/section1/mpc1.htm).
 
@@ -859,7 +859,7 @@ Concept references: [OpenStax: series and parallel resistor circuits](https://op
 
 Case: Packing capacity and excess work in progress
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -896,7 +896,7 @@ Concept references: [NIST: measurement-process characterization](https://www.itl
 
 Case: Activation outcomes and a subgroup guardrail
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -933,7 +933,7 @@ Concept references: [GOV.UK: planning and conducting user research](https://www.
 
 Case: A three-step application after interruption
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -970,7 +970,7 @@ Concept references: [W3C: reflow and small-screen content](https://www.w3.org/WA
 
 Case: A form and comparison table at narrow width
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -998,8 +998,8 @@ What to produce: Annotated narrow/large-text states showing content order, contr
 
 Acceptance:
 
-- A wider body page or clipped label is not a successful reflow; report actual text/background pairs and remaining manual checks.
-- Demonstrate retained content and controls without overlap or clipped labels; document actual foreground/background pairs rather than a palette-only claim.
+- At 320 CSS pixels and 200% text size, show the three-line error, wrapped headings and associated controls without clipping or body-page overflow; identify any deliberately contained table overflow.
+- Document the actual foreground/background pairs for normal, focus and error states, including a non-color error cue; distinguish measured contrast results from remaining manual interaction checks.
 
 Concept references: [W3C: reflow and small-screen content](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html), [GOV.UK: planning and conducting user research](https://www.gov.uk/service-manual/user-research).
 
@@ -1007,7 +1007,7 @@ Concept references: [W3C: reflow and small-screen content](https://www.w3.org/WA
 
 Case: Research that includes first-time users
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1044,7 +1044,7 @@ Concept references: [GOV.UK: planning and conducting user research](https://www.
 
 Case: First-use and repeat-booking decisions
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1081,7 +1081,7 @@ Concept references: [GOV.UK: planning and conducting user research](https://www.
 
 Case: An API quickstart with minimum permissions
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1118,7 +1118,7 @@ Concept references: [GOV.UK: clear language for users](https://guidance.publishi
 
 Case: A launch dependency slips
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1146,7 +1146,7 @@ What to produce: A six-day dependency schedule, options and concise status/decis
 
 Acceptance:
 
-- Removing required review without authorization is not a recovered schedule; show the one-day variance explicitly.
+- With A extended to three days, show the six-day A→B→C dependency path and one-day variance against the five-day window; the parallel room booking does not shorten that path.
 - Expose the one-day slip, obtain a decision on date/scope/resources and preserve required review instead of silently changing acceptance.
 
 Concept references: [UK Government: project-delivery framework](https://www.gov.uk/government/publications/project-delivery-functional-standard), [European Court of Auditors: evidence and corroboration](https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx).
@@ -1155,7 +1155,7 @@ Concept references: [UK Government: project-delivery framework](https://www.gov.
 
 Case: Two definitions of approval time
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1192,7 +1192,7 @@ Concept references: [UK Government: project-delivery framework](https://www.gov.
 
 Case: Service backlog, ageing and reopened cases
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1229,7 +1229,7 @@ Concept references: [NIST: measurement-process characterization](https://www.itl
 
 Case: A launch with contested specialist time
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1266,7 +1266,7 @@ Concept references: [UK Government: project-delivery framework](https://www.gov.
 
 Case: Service costs with fixed and transition costs
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1303,7 +1303,7 @@ Concept references: [European Court of Auditors: evidence and corroboration](htt
 
 Case: An onboarding start date changes
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1340,7 +1340,7 @@ Concept references: [UK Government: project-delivery framework](https://www.gov.
 
 Case: Qualified enquiries across two campaigns
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1377,7 +1377,7 @@ Concept references: [European Court of Auditors: evidence and corroboration](htt
 
 Case: A service-page URL migration
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1406,7 +1406,7 @@ What to produce: A redirect/crawl verification record and monitoring plan with a
 Acceptance:
 
 - Repairing a redirect does not establish that all traffic loss was caused by it or guarantee a ranking recovery date.
-- Separate demand change from technical discoverability evidence, verify the redirect path and avoid promising a ranking or attributing all traffic loss to one edit.
+- Record the old/new URL redirect chain, destination status, crawlability, canonical target and internal-link checks, then define the monitoring period and owner for the migration evidence.
 
 Concept references: [Google Search Central: URL migrations](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes), [European Court of Auditors: evidence and corroboration](https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx).
 
@@ -1414,7 +1414,7 @@ Concept references: [Google Search Central: URL migrations](https://developers.g
 
 Case: A sourced guide with a service limitation
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1451,7 +1451,7 @@ Concept references: [GOV.UK: clear language for users](https://guidance.publishi
 
 Case: A post calendar during a service complaint
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1488,7 +1488,7 @@ Concept references: [GOV.UK: clear language for users](https://guidance.publishi
 
 Case: A workshop layout for print and mobile
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1517,7 +1517,7 @@ What to produce: Annotated before/after output checks with actual text/backgroun
 Acceptance:
 
 - A screen color value alone is not evidence of printed legibility; retain all event facts while testing the actual output conditions.
-- Compare actual output conditions, revise contrast/spacing and retain all event details without claiming a screen mockup proves print quality.
+- Show annotated before/after print and mobile layouts with actual text/background pairs, revised contrast/spacing and the retained event name, date, venue and action.
 
 Concept references: [W3C: reflow and small-screen content](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html), [GOV.UK: clear language for users](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/).
 
@@ -1525,7 +1525,7 @@ Concept references: [W3C: reflow and small-screen content](https://www.w3.org/WA
 
 Case: Platform attribution and unique orders
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1562,7 +1562,7 @@ Concept references: [Microsoft: facts, dimensions and grain](https://learn.micro
 
 Case: A cash reconciliation and duplicated receipt
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1575,8 +1575,8 @@ What to produce: A two-sided reconciliation, reconciling-item ledger and authori
 
 Acceptance:
 
-- Adjusted bank balance is 5,400 and corrected books are 5,600−200=5,400; the next-period 50-unit fee is outside this reconciliation.
-- Calculate adjusted bank balance 5,400 and corrected books 5,600 minus the duplicate 200 = 5,400; exclude the later-period fee and retain evidence for the correction.
+- Show both calculations: adjusted bank is 5,000+700−300=5,400 and corrected books are 5,600−200=5,400; an unexplained balancing amount fails.
+- For each reconciling item, record its period and supporting evidence; identify the authorized duplicate-receipt correction, avoid rebooking recorded timing items and explain why the next-period fee is excluded.
 
 ### Intermediate
 
@@ -1599,7 +1599,7 @@ Concept references: [OpenStax: bank reconciliation](https://openstax.org/books/p
 
 Case: Profit and working-capital cash demands
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1636,7 +1636,7 @@ Concept references: [OpenStax: financial ratios and their limits](https://openst
 
 Case: A fictional pay run before release
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1650,7 +1650,7 @@ What to produce: A gross/deduction/net calculation sheet and a period/rule-versi
 Acceptance:
 
 - The result is 600/60/540; do not introduce real statutory rates or imply this fictional rule covers an actual employee.
-- Calculate gross 600, deduction 60 and net 540; record the employee, period, rule version and independent approval check.
+- Record P1, the pay period, fictional rule version and independent approval status; distinguish a calculated draft from an approved payment release and identify any missing sign-off.
 
 ### Intermediate
 
@@ -1673,7 +1673,7 @@ Concept references: [European Court of Auditors: evidence and corroboration](htt
 
 Case: An invoice mismatch and bank-change request
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1710,7 +1710,7 @@ Concept references: [European Court of Auditors: evidence and corroboration](htt
 
 Case: A clean sample and an observed control bypass
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1747,7 +1747,7 @@ Concept references: [European Court of Auditors: evidence and corroboration](htt
 
 Case: Liquidity with concentrated receivables
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1784,7 +1784,7 @@ Concept references: [OpenStax: financial ratios and their limits](https://openst
 
 Case: A work sample and an unsupported impression
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1821,7 +1821,7 @@ Concept references: [CIPD: structured selection methods](https://www.cipd.org/en
 
 Case: A team transfer and queued access changes
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1858,7 +1858,7 @@ Concept references: [OWASP: object-level authorization](https://cheatsheetseries
 
 Case: Learning evidence beyond satisfaction
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1895,7 +1895,7 @@ Concept references: [Carnegie Mellon: objectives and assessment alignment](https
 
 Case: A people metric with a small subgroup
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1932,7 +1932,7 @@ Concept references: [CIPD: people analytics and evidence](https://www.cipd.org/e
 
 Case: Development access and task transfer
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1969,7 +1969,7 @@ Concept references: [Carnegie Mellon: objectives and assessment alignment](https
 
 Case: An onboarding survey with missing perspectives
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -1983,7 +1983,7 @@ What to produce: A touchpoint/owner map, response-composition table and privacy-
 Acceptance:
 
 - A 20% response rate and 80% departmental share among respondents do not establish representative employee sentiment.
-- Map onboarding touchpoints and owners, report the 20% response rate and avoid presenting the departmental mix as representative of everyone.
+- Map onboarding touchpoints to responsible owners and route the time-sensitive individual access issue through its approved private support channel, with only aggregate improvement themes in the survey summary.
 
 ### Intermediate
 
@@ -2006,7 +2006,7 @@ Concept references: [CIPD: people analytics and evidence](https://www.cipd.org/e
 
 Case: A buyer request beyond verified capability
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -2035,7 +2035,7 @@ What to produce: A realistic follow-up, escalation owner and explicit open quest
 Acceptance:
 
 - An unsupported guarantee fails even if it helps the sale; record the agreed next step without claiming a contract was accepted.
-- State the current capability and approval boundary, seek a qualified answer and agree a realistic next step without inventing a delivery promise.
+- Prepare an owned follow-up with the integration question still open, the evidence or qualified answer needed and the buyer's next decision; do not record the follow-up itself as contract acceptance.
 
 Concept references: [GOV.UK: clear language for users](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/), [European Court of Auditors: evidence and corroboration](https://methodology.eca.europa.eu/aware/GAP/Pages/Audit-evidence.aspx).
 
@@ -2043,7 +2043,7 @@ Concept references: [GOV.UK: clear language for users](https://guidance.publishi
 
 Case: Customer adoption beyond login counts
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -2057,7 +2057,7 @@ What to produce: An owned onboarding plan with outcome milestones, mapping depen
 Acceptance:
 
 - Fifty logins and one valid export are not five completed exports; define what makes an export valid before counting adoption.
-- Create an owned onboarding milestone and distinguish activity counts from completion of the customer's actual workflow.
+- Assign an owner and dependency for category mapping, define a checkpoint for a verified valid export and record who handles the blocker before the five-export outcome milestone.
 
 ### Intermediate
 
@@ -2080,7 +2080,7 @@ Concept references: [European Court of Auditors: evidence and corroboration](htt
 
 Case: An urgent request without invoice authority
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -2117,7 +2117,7 @@ Concept references: [OWASP: object-level authorization](https://cheatsheetseries
 
 Case: Supplier cost and unverified delivery
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -2154,7 +2154,7 @@ Concept references: [European Court of Auditors: evidence and corroboration](htt
 
 Case: Stock count, reorder trigger and inbound timing
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
@@ -2191,7 +2191,7 @@ Concept references: [Oracle Inventory: reorder-point planning](https://docs.orac
 
 Case: A group arrival and room readiness
 
-Brief edition: `2026.11-case-packs-3`.
+Brief edition: `2026.11-case-packs-4`.
 
 ### Foundation
 
