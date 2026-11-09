@@ -27,7 +27,9 @@ original BGE model, CLS pooling, tokenizer, 256-token truncation, normalization,
 catalogue vectors, source questions and answer keys are preserved. Exact public
 queries for supported catalogue skill names and public contexts are precomputed
 with the original model. The current corpus/cache metadata is recorded in
-`ml/data/careers/index.json`; rebuild it whenever content changes.
+`ml/data/careers/index.json`; rebuild it when embedding inputs change. A
+case-contract-only change may refresh its broader source fingerprint only after
+the exhaustive input/vector preservation proof passes; do not call that a reindex.
 Routine recommendations and context-free assessments can use these embeddings
 without loading the model graph. Dynamic resume input is never put in that cache.
 
@@ -64,6 +66,13 @@ missing, modified or extra file causes a fresh download of four shards in
 parallel, followed by shard, archive and extracted-file verification before
 publication. Symlinks, junctions, duplicate/colliding names and unsafe paths are
 rejected. An unbound cache marker is never trusted.
+
+Vercel discovers the serving-only `ml/pyproject.toml`, with exactly the twelve
+pins from `ml/requirements-cloud.txt`, and uses its native managed installer.
+The learning service must not override `installCommand`: Python builder 31
+deletes its restored virtual environment before a custom install command, which
+would erase the retained model archive. The separate `ml/requirements.txt` is
+for training/development and must not become the cloud dependency manifest.
 
 GitHub Actions restores the verified extracted model directory. Vercel's Python
 builder does not retain `ml/artifacts/cloud`; its native cache preserves its

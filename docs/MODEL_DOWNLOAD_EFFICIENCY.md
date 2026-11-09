@@ -13,6 +13,20 @@ builder-owned venv layouts inside this checkout. It retains one compressed publi
 model archive under that venv's `voidfill-model-cache/model.zip`. It does not add
 anything to executable Python package directories or modify dependencies.
 
+The learning service uses the native managed Python installer and an explicit
+`ml/pyproject.toml` containing exactly the existing twelve serving dependency
+pins. A regression test keeps it equal to `ml/requirements-cloud.txt` and prevents
+native discovery from selecting the separate training requirements. Python stays
+on the existing Vercel 3.12 runtime; the project is virtual, with no package build.
+
+This installer choice is essential. In Python builder 31, a custom
+`installCommand` deliberately deletes the restored venv before executing that
+command. The first hosted cache experiment retained the archive correctly but
+still downloaded all nine shards on its next build because that deletion removed
+it. Removing the custom override lets native dependency synchronization retain
+the venv and its verified archive. The failed experiment is retained in the
+release record; a restored-cache message alone is not proof of model reuse.
+
 The source release contains nine shards totaling **276,954,446 body bytes**. The
 archive expands to **442,549,415 bytes** across eight model/license files. Retaining
 the compressed archive costs less cache space than a second extracted tree. Each
@@ -48,7 +62,7 @@ public embeddings and the model release manifest do not change.
 
 ## Platform basis and limits
 
-Checked 8 November 2026 against the installed Vercel CLI **65.12.1** and official
+Checked 8–9 November 2026 against the installed Vercel CLI **65.12.1** and official
 `@vercel/python` **31.0.0** implementation. Its `prepareCache` preserves:
 
 ```text
@@ -66,9 +80,11 @@ Primary sources: [official Python builder](https://github.com/vercel/vercel/blob
 [runtime cache lifecycle](https://github.com/vercel/vercel/blob/main/DEVELOPING_A_RUNTIME.md#preparecache),
 and [Vercel build-cache behavior and limits](https://vercel.com/docs/deployments/troubleshoot-a-build#caching).
 
-Vercel documents a 1 GB build-cache limit. Dependency caches share available
-capacity; this archive may be evicted if the complete cache exceeds platform
-limits. The archive is public model material, not user data or credentials.
+Dependency caches share available capacity. Inspect the actual deployment's
+applicable limit rather than assuming a universal allowance: the first hosted
+candidate reported approximately 653.49 MiB against a 1.5 GiB cache limit.
+The archive may still be evicted or invalidated. It is public model material,
+not user data or credentials.
 
 ## Evidence and hosted release gate
 
@@ -78,6 +94,10 @@ fresh worktree, zero-network warm reuse, corrupt-cache recovery, unchanged file
 contents and all earlier path/hash protections. A separate check invoked the
 installed official Python builder's `prepareCache` on a synthetic named venv and
 confirmed that it included the model archive.
+An additional installer/manifest regression prevents reintroducing the custom
+installer that wipes it. The installed official requirements-discovery library
+was also invoked against the actual checkout: it selected `ml/pyproject.toml`
+and exactly the twelve serving pins, not the training dependency set.
 
 The sanitized build log has the form:
 

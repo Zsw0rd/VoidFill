@@ -20,7 +20,6 @@
       "root": ".",
       "framework": "fastapi",
       "entrypoint": "ml.cloud:app",
-      "installCommand": "python -m pip install -r ml/requirements-cloud.txt",
       "buildCommand": "python -m ml.cloud_build",
       "functions": {
         "ml/cloud.py": {

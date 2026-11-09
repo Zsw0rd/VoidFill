@@ -215,6 +215,8 @@ def vercel_archive_cache(project_root, environ=None):
 
     @vercel/python 31 preserves these venv roots, not arbitrary project files.
     The dedicated archive is outside site-packages and never used for imports.
+    The service must use native managed installation: a custom installCommand
+    makes Python 31 delete this venv after restoration and before our build.
     An unknown future builder layout safely falls back to a verified download.
     """
     environ = os.environ if environ is None else environ

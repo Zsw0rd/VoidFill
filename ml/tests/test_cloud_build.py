@@ -289,3 +289,21 @@ def test_build_cache_cannot_be_deployed_in_the_learning_bundle():
     config = json.loads((Path(__file__).resolve().parents[2] / "vercel.json").read_text())
     excludes = config["services"]["learning"]["functions"]["ml/cloud.py"]["excludeFiles"]
     assert ".vercel/**" in excludes.strip("{}").split(",")
+
+
+def test_native_installation_retains_the_cached_venv_and_uses_only_serving_dependencies():
+    """A custom Python31 installer deletes the restored venv before the build.
+
+    Cross-check the native-discovery manifest against the existing serving pins;
+    accidentally selecting ml/requirements.txt would install training packages.
+    """
+    import tomllib
+    root = Path(__file__).resolve().parents[2]
+    service = json.loads((root / "vercel.json").read_text())["services"]["learning"]
+    assert "installCommand" not in service
+    project = tomllib.loads((root / "ml/pyproject.toml").read_text())
+    serving = [line.strip() for line in (root / "ml/requirements-cloud.txt").read_text().splitlines() if line.strip() and not line.lstrip().startswith("#")]
+    assert project["project"]["dependencies"] == serving
+    assert project["project"]["requires-python"] == ">=3.12,<3.13"
+    assert project["tool"]["uv"]["package"] is False
+    assert not any("torch" in item or "transformers" in item for item in project["project"]["dependencies"])
