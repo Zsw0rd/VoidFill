@@ -1,5 +1,11 @@
 # Career quality review — 8 November 2026
 
+The9 November [case-contract review](CAREER_CASE_CONTRACT_REVIEW.md) supersedes
+the earlier Practical Studio task/input alignment. It covers all120 new briefs,
+45 independent exercise checks and current all60 role-review hashes. The question
+and resource findings below retain their original dates and scope; this follow-up
+does not claim a fresh specialist review of every question or a new learner study.
+
 This review covers every one of the 60 career profiles and 55 shared skills. It
 combines reproducible checks with an agent review of all case/complication/
 capstone/rubric combinations and one intermediate explanation per skill. It is

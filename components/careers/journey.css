@@ -53,3 +53,5 @@
   .career-compare > select { font-size:16px; }
   .career-compare-title button { min-width:44px; min-height:44px; }
 }
+
+.career-compare :is(button,select):disabled{opacity:.55;cursor:not-allowed}

@@ -80,3 +80,19 @@
 .career-result-description, .career-selection > p, .career-coverage, .career-skill-tags > span, .career-explorer-save p, .career-focus-options strong { font-size:12px; }
 .career-result > strong { font-size:15px; }
 @media(max-width:600px) { .career-picker input:not([type=checkbox]), .career-picker select, .career-picker textarea, .career-reflection { font-size:16px; } .career-focus summary > span { float:none; display:block; margin:6px 0 0; font-size:11px; } }
+
+/* Secondary copy remains readable on the cream and selected sage surfaces. */
+.career-result-count, .career-family-name, .career-result-description, .career-result-bottom,
+.career-match-reason, .career-help, .career-focus-options small, .career-source,
+.career-source p, .career-catalogue-credit, .career-discovery-heading p, .career-empty p,
+.career-picker label > span, .career-field-label > span, .career-selection > p,
+.career-explorer-save p, .career-focus summary > span, .career-activity p,
+.career-compare summary > span { color:#5d6754; }
+.career-result-count { font-size:12px; line-height:1.7; }
+.career-picker input::placeholder, .career-picker textarea::placeholder { color:#68715e; }
+.career-picker :is(input,select,textarea):focus-visible { outline:3px solid #bd482c; outline-offset:3px; }
+.career-picker [aria-invalid=true] { border-color:#a74027; }
+.career-focus-options[aria-invalid=true] { outline:2px solid #a74027; outline-offset:3px; }
+.career-validation-error { margin-top:10px; color:#9c3f28; font-size:12px; line-height:1.8; }
+.career-save-feedback { margin-top:16px; padding:14px 16px; border:1px solid #c9d4b8; border-radius:10px; background:#eff2e5; color:#334d36; font-size:12px; line-height:1.8; }
+.career-save-feedback.career-validation-error { border-color:#d4b3a4; background:#fff2e8; color:#9c3f28; }

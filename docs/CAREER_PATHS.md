@@ -4,13 +4,13 @@ Catalogue `2026.11-applied-paths-1` contains 60 curated paths across ten fields.
 
 All 55 shared skills have ten original intermediate scenario questions (550 items). The extension has 1,510 questions plus the unchanged base pack. The 960 foundation items retain their prompts, IDs, levels and explanations while their explicit edition-2 options replace weak distractors; see [the editorial record](FOUNDATION_EDITORIAL.md). Foundation selection uses introductory banks; intermediate selection requests level 3 and receives actual level-3 items. Intermediate course checks request ten questions so a single-skill bank need not repeat items to fill a longer session. Authored difficulty is not a calibrated ability scale.
 
-Every career now also has an authored synthetic input pack, a verifiable foundation task and an additional intermediate change with a distinct check. [The complete 60-role case packs](CAREER_CASE_PACKS.md) document exactly what is served in Practical Studio. New briefs snapshot the inputs and rubric for mentor review; older private drafts and submitted versions keep their original briefs. Knowledge questions are still shared by supported skill, not falsely advertised as 60 separate role-exclusive banks.
+Every career has an authored synthetic input pack, a foundation task and an additional intermediate change. Practical Studio now binds each of the120 level-specific briefs to those inputs with an explicit task, deliverable, positive/negative acceptance boundary and concept references. [The complete case packs](CAREER_CASE_PACKS.md) document what new briefs serve; [the all60 contract review](CAREER_CASE_CONTRACT_REVIEW.md) records the audit and limits. Existing saved briefs keep their original version. Knowledge questions remain shared by supported skill, not60 independent role-exclusive banks.
 
 Practical submissions are separate evidence. A quiz score or saved private reflection does not establish that a practical deliverable has been reviewed. Sharing with an assigned mentor and receiving a rubric review is a distinct workflow; it does not confer professional qualification or certify job readiness. Use synthetic or appropriately licensed public inputs, never confidential employer, employee or customer material. Regulated, legal, financial, employment and physical-engineering decisions need appropriate qualified review outside these exercises.
 
 ## Complete 60-path matrix
 
-The skill order is a learning sequence within the existing role requirements. No career/skill IDs, targets, weights or requirement mappings were changed. The capstones below are the authored intermediate deliverables, not claims of learner completion.
+The skill order is a learning sequence within the existing role requirements. No career/skill IDs, targets, weights or requirement mappings were changed. This matrix preserves the broader roadmap milestones; Practical Studio uses the narrower, input-aligned contracts in the case-pack document. Neither describes learner completion.
 
 | Career | Skill sequence | Foundation activity | Intermediate deliverable and complication |
 |---|---|---|---|

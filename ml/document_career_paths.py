@@ -9,10 +9,10 @@ lines = [
     "# All-career applied learning paths", "",
     f"Catalogue `{catalogue['version']}` contains 60 curated paths across ten fields. Every path has two foundation milestones followed by two intermediate milestones: prepare a case, produce its foundation activity, investigate a complication, then deliver and defend a decision. Prerequisite IDs make that sequence explicit; they are learning guidance, not evidence that an earlier activity was completed.", "",
     "All 55 shared skills have ten original intermediate scenario questions (550 items). The extension has 1,510 questions plus the unchanged base pack. The 960 foundation items retain their prompts, IDs, levels and explanations while their explicit edition-2 options replace weak distractors; see [the editorial record](FOUNDATION_EDITORIAL.md). Foundation selection uses introductory banks; intermediate selection requests level 3 and receives actual level-3 items. Intermediate course checks request ten questions so a single-skill bank need not repeat items to fill a longer session. Authored difficulty is not a calibrated ability scale.", "",
-    "Every career now also has an authored synthetic input pack, a verifiable foundation task and an additional intermediate change with a distinct check. [The complete 60-role case packs](CAREER_CASE_PACKS.md) document exactly what is served in Practical Studio. New briefs snapshot the inputs and rubric for mentor review; older private drafts and submitted versions keep their original briefs. Knowledge questions are still shared by supported skill, not falsely advertised as 60 separate role-exclusive banks.", "",
+    "Every career has an authored synthetic input pack, a foundation task and an additional intermediate change. Practical Studio now binds each of the120 level-specific briefs to those inputs with an explicit task, deliverable, positive/negative acceptance boundary and concept references. [The complete case packs](CAREER_CASE_PACKS.md) document what new briefs serve; [the all60 contract review](CAREER_CASE_CONTRACT_REVIEW.md) records the audit and limits. Existing saved briefs keep their original version. Knowledge questions remain shared by supported skill, not60 independent role-exclusive banks.", "",
     "Practical submissions are separate evidence. A quiz score or saved private reflection does not establish that a practical deliverable has been reviewed. Sharing with an assigned mentor and receiving a rubric review is a distinct workflow; it does not confer professional qualification or certify job readiness. Use synthetic or appropriately licensed public inputs, never confidential employer, employee or customer material. Regulated, legal, financial, employment and physical-engineering decisions need appropriate qualified review outside these exercises.", "",
     "## Complete 60-path matrix", "",
-    "The skill order is a learning sequence within the existing role requirements. No career/skill IDs, targets, weights or requirement mappings were changed. The capstones below are the authored intermediate deliverables, not claims of learner completion.", "",
+    "The skill order is a learning sequence within the existing role requirements. No career/skill IDs, targets, weights or requirement mappings were changed. This matrix preserves the broader roadmap milestones; Practical Studio uses the narrower, input-aligned contracts in the case-pack document. Neither describes learner completion.", "",
     "| Career | Skill sequence | Foundation activity | Intermediate deliverable and complication |", "|---|---|---|---|",
 ]
 for role in catalogue["roles"]:
@@ -40,12 +40,13 @@ print("Documented every career path in docs/CAREER_PATHS.md")
 
 details = ["# Synthetic practice cases for all 60 career paths", "",
            "These are fictional learning inputs for written work or safe desktop simulations. They are not employer records, professional approvals, statutory rules or real operational instructions. Physical equipment, safety, employment, financial and regulated decisions require appropriate qualified review outside these exercises.", "",
-           "Practical Studio includes the inputs in every new brief. A submitted copy preserves its version, inputs and rubric for the assigned mentor. Existing saved projects and review history are not rewritten. Foundation and intermediate activities are separate; quiz scores do not grade practical work.", ""]
+           "Practical Studio includes the inputs, assigned task, deliverable, two acceptance checks and concept references in every new brief. A submitted copy preserves those fields and its version for the assigned mentor. Existing projects/review history are not rewritten. Foundation and intermediate activities are separate; quiz scores do not grade practical work. References explain selected concepts, not professional endorsement or comprehensive training. The [contract review](CAREER_CASE_CONTRACT_REVIEW.md) records all60 rows and45 independent exercise checks.", ""]
 for role in catalogue["roles"]:
     block = role["curriculum"]
-    details.extend(["## " + role["name"], "", *["- " + value for value in block["foundation"]["case_inputs"]], "",
-                    "Foundation verification: " + block["foundation"]["case_verification"], "",
-                    block["intermediate"]["case_inputs"][-1], "",
-                    "Intermediate verification: " + block["intermediate"]["case_verification"], ""])
+    details.extend(["## " + role["name"], "", "Case: " + block["foundation"]["case_title"], "", "Brief edition: `" + block["case_pack_version"] + "`.", ""])
+    for level in ("foundation", "intermediate"):
+        stage = block[level]
+        details.extend(["### " + level.title(), "", *["- " + value for value in stage["case_inputs"]], "", "Assigned task: " + stage["case_task"], "", "What to produce: " + stage["case_deliverable"], "", "Acceptance:", "", *["- " + value for value in stage["case_acceptance"]], ""])
+    details.extend(["Concept references: " + ", ".join("["+source["title"]+"]("+source["url"]+")" for source in block["foundation"]["case_sources"]) + ".", ""])
 (ROOT / "docs/CAREER_CASE_PACKS.md").write_text("\n".join(details), encoding="utf8")
 print("Documented the authored inputs and checks in docs/CAREER_CASE_PACKS.md")

@@ -1,17 +1,14 @@
 import { z } from "zod";
 import { careerCatalogue, careerForName, type CareerLevel } from "./careerCatalog";
+import { normalizePracticalLink, PRACTICAL_LINK_ERROR } from "./practicalLinks";
 
 export const PRACTICAL_CONTENT_LIMIT = 12000;
 export const practicalLevels = ["foundation", "intermediate"] as const;
 export const practicalLinkSchema = z.string().trim().max(2000).transform((value, context) => {
-  try {
-    const url = new URL(value);
-    if (url.protocol !== "https:" || url.username || url.password || !url.hostname.includes(".") || /^(localhost|127\.|0\.|10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)/i.test(url.hostname)) throw new Error();
-    return url.href;
-  } catch {
-    context.addIssue({code: "custom", message: "Use a public HTTPS link without a password."});
-    return z.NEVER;
-  }
+  const normalized = normalizePracticalLink(value);
+  if (normalized) return normalized;
+  context.addIssue({code: "custom", message: PRACTICAL_LINK_ERROR});
+  return z.NEVER;
 });
 
 const saveSchema = z.object({
@@ -37,6 +34,7 @@ export type PracticalBrief = {
   version: string; role_id: string; role_name: string; role_key: string; level: CareerLevel;
   title: string; instructions: string; deliverable: string; rubric: string[]; note: string;
   case_inputs?: string[];
+  case_sources?: {title: string; url: string}[];
 };
 export type PracticalProject = {
   id: string; user_id: string; role_id: string; level: CareerLevel; brief: PracticalBrief;
@@ -65,10 +63,11 @@ export function practicalBrief(roleId: string, level: CareerLevel): PracticalBri
   const capstone = curriculum?.milestones.at(-1);
   return {
     version: role.curriculum?.case_pack_version ? `${careerCatalogue.version}/${role.curriculum.case_pack_version}` : careerCatalogue.version, role_id: role.id, role_name: role.name, role_key: role.key, level,
-    title: role.activity.title, instructions: role.activity.instructions,
-    deliverable: capstone?.deliverable || role.activity.evidence_type,
-    rubric: [...(capstone?.checks.length ? capstone.checks : role.activity.rubric), ...(curriculum?.case_verification ? [curriculum.case_verification] : [])].slice(0, 20),
+    title: curriculum?.case_title || role.activity.title, instructions: curriculum?.case_task || role.activity.instructions,
+    deliverable: curriculum?.case_deliverable || capstone?.deliverable || role.activity.evidence_type,
+    rubric: [...(curriculum?.case_acceptance?.length ? curriculum.case_acceptance : [...(capstone?.checks.length ? capstone.checks : role.activity.rubric), ...(curriculum?.case_verification ? [curriculum.case_verification] : [])])].slice(0, 20),
     ...(curriculum?.case_inputs?.length ? {case_inputs: [...curriculum.case_inputs]} : {}),
+    ...(curriculum?.case_sources?.length ? {case_sources: curriculum.case_sources.map(source => ({...source}))} : {}),
     note: role.activity.note,
   };
 }

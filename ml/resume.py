@@ -13,6 +13,10 @@ MAX_BYTES = 4 * 1024 * 1024
 MAX_PAGES = 12
 _ocr = None
 _ocr_lock = threading.Lock()
+# PDFium's native library is process-global and is not thread-safe, even when
+# documents differ. Keep creation, text/render calls and cleanup under one lock.
+# DOCX parsing and private model inference retain their own concurrency controls.
+_pdfium_lock = threading.Lock()
 SKILL_ALIASES = {
     "Python": ["python"], "SQL": ["sql", "mysql", "postgresql", "sqlite", "t-sql"],
     "JavaScript": ["javascript", "ecmascript"], "TypeScript": ["typescript"],
@@ -65,7 +69,7 @@ def extract_document(data: bytes, filename: str):
     if suffix == ".pdf" and data.startswith(b"%PDF-"):
         import pypdfium2 as pdfium
         try:
-            with pdfium.PdfDocument(data) as document:
+            with _pdfium_lock, pdfium.PdfDocument(data) as document:
                 pages = len(document)
                 if pages > MAX_PAGES:
                     raise HTTPException(422, f"Resume exceeds {MAX_PAGES} pages.")
@@ -80,9 +84,11 @@ def extract_document(data: bytes, filename: str):
                                 raise HTTPException(422, "Invalid PDF page dimensions.")
                             # Limit each raster to about four megapixels.
                             bitmap = page.render(scale=min(1.7, 2000 / max(width, height)))
-                            image = np.array(bitmap.to_pil().convert("RGB"))
-                            text = ocr_image(image)
-                            bitmap.close()
+                            try:
+                                image = np.array(bitmap.to_pil().convert("RGB"))
+                                text = ocr_image(image)
+                            finally:
+                                bitmap.close()
                             methods.append("local-ocr")
                         else:
                             methods.append("pdf-text")

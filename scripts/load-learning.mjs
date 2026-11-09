@@ -11,7 +11,7 @@ import { probePlan,runLoadProbe,validateProbeSessions } from "../lib/loadProbe.m
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const controlRequests={start:0,lease:0,end:0};
-const values=new Set(["--base","--mode","--clients","--rounds","--sessions","--output","--pause-ms"]), flags=new Set(["--live","--acknowledge-real-accounts","--help"]);
+const values=new Set(["--base","--mode","--clients","--rounds","--sessions","--output","--pause-ms","--workload"]), flags=new Set(["--live","--acknowledge-real-accounts","--help"]);
 function options(argv) {
   const result={};
   for(let i=0;i<argv.length;i++) {
@@ -67,9 +67,10 @@ try {
     console.log("Real mode requires --mode real --sessions ml/runtime/<private>.json --acknowledge-real-accounts and controlled, separately authenticated test users. Never extract browser cookies or put sessions in command arguments/source/CI artifacts.");
     console.log("File format: version=1, exact origin, sessions array containing only cookie fields. Obtain sessions through an authorized API login/SDK workflow; Google-only browser login does not authorize cookie extraction.");
     console.log("Workload only generates unsubmitted daily/practice quizzes and reads practical workspaces. Real account generation budgets are consumed. Live runs are capped at two rounds and two real accounts; stop on the first failure/throttle. Output is private ignored JSON.");
+    console.log("Optional --workload resume additionally parses a fictional one-page text PDF with varied private model input; no profile is applied. This workload defaults to and allows at most two clients (24 workload requests at two rounds). Scanned/OCR and large-document performance are outside this fixture.");
     process.exit(0);
   }
-  const plan=probePlan({origin:args["--base"],mode:args["--mode"]||"demo",clients:Number(args["--clients"]||(args["--mode"]==="real"?2:4)),rounds:Number(args["--rounds"]||2),live:!!args["--live"],pauseMs:Number(args["--pause-ms"]||0)});
+  const plan=probePlan({origin:args["--base"],mode:args["--mode"]||"demo",workload:args["--workload"]||"core",clients:Number(args["--clients"]||(args["--mode"]==="real"||args["--workload"]==="resume"?2:4)),rounds:Number(args["--rounds"]||2),live:!!args["--live"],pauseMs:Number(args["--pause-ms"]||0)});
   if(plan.mode==="real" && (!args["--acknowledge-real-accounts"] || !args["--sessions"])) throw new Error("Real mode requires explicit acknowledgement and private sessions from controlled users.");
   if(plan.mode==="demo" && (args["--sessions"] || args["--acknowledge-real-accounts"]))throw new Error("Real session options cannot be used in demo mode.");
   const output=privatePath(args["--output"]||`ml/runtime/performance/load-${new Date().toISOString().replace(/[:.]/g,"-")}-${randomUUID().slice(0,8)}.json`);

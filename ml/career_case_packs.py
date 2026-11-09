@@ -5,7 +5,7 @@ written/simulated exercises are learning materials, not operational instructions
 or permission to perform regulated work. No learner data is embedded here.
 """
 
-VERSION = "2026.11-case-packs-2"
+VERSION = "2026.11-case-packs-3"
 PACKS = {}
 
 def pack(role, inputs, foundation_check, extension, intermediate_check):
@@ -47,8 +47,8 @@ pack("Software Engineer",
 pack("Data Analyst",
  ["Week 1 records 1,000 checkout starts and 100 completed orders; week 2 records 1,200 starts and 96 completions.", "Treat starts as distinct checkout sessions and completion as one order per session; use weeks of equal duration."],
  "Calculate 10% versus 8% completion, a 2-percentage-point drop; distinguish that from the 4% decline in completed-order count.",
- "Halfway through week 2, retry events began sharing an order ID but receiving new event IDs.",
- "Recompute with a declared deduplication rule and schema boundary; state which comparison remains uncertain and avoid attributing cause from timing alone.")
+ "Halfway through week 2, retry completions began sharing an order ID but receiving new event IDs. Six of the 96 completion rows are identified retries of already counted orders; the 1,200 starts remain distinct sessions.",
+ "Reconcile 96 completion events to 90 unique orders and 7.5% conversion; report a 2.5-percentage-point conversion drop and 10% order-count decline without attributing cause from timing alone.")
 pack("AI Applications Developer",
  ["Approved passage P1: 'Library loans last 14 days.' P2: 'One renewal is allowed unless another reader has reserved the book.'", "Ask about loan length, renewal and late-fee price; no approved passage states a late-fee price."],
  "Return passage-backed answers for the first two questions and an explicit missing-evidence response for the fee question.",
@@ -225,8 +225,8 @@ pack("Marketing Analyst",
  "The team proposes dividing combined spend by combined platform conversions and calling the result incremental acquisition cost.",
  "Reconcile overlap where evidence permits, distinguish attributed from incremental effects and propose a controlled comparison rather than a causal claim from dashboard totals.")
 pack("Accounting Associate",
- ["Synthetic bank balance is 5,000, deposit in transit 700 and outstanding cheques 300. Book balance is 5,400 before the listed exceptions.", "A separate 200-unit book receipt was posted twice; a 50-unit bank fee belongs to the next reporting period."],
- "Calculate adjusted bank balance 5,400 for the first reconciliation and list the evidence needed before changing books for each exception.",
+ ["Synthetic bank balance is 5,000, deposit in transit 700 and outstanding cheques 300. Book balance is 5,600 before correcting the duplicated receipt; the timing items are already recorded in the books.", "A 200-unit book receipt was posted twice. A separate 50-unit bank fee belongs to the next reporting period and is absent from both current-period balances."],
+ "Calculate adjusted bank balance 5,400 and corrected books 5,600 minus the duplicate 200 = 5,400; exclude the later-period fee and retain evidence for the correction.",
  "The duplicate posting changes the current books while the later bank fee must not be shifted into the wrong period merely to force a match.",
  "Keep a reconciling-item ledger, separate timing from error corrections and show authorized adjustments without inventing an unexplained balancing entry.")
 pack("Financial Analyst",
@@ -270,7 +270,7 @@ pack("Learning & Development Coordinator",
  "The proposed success report uses the 90% satisfaction figure to declare workplace competence.",
  "Design follow-up practice and a task-transfer check, examine rubric/item clarity and non-training barriers, and avoid equating positive ratings with competence.")
 pack("People Analyst",
- ["A fictional opening workforce has 100 people; five leave during the month. A separate subgroup has five people and two leavers.", "Use opening headcount as the denominator for this exercise; no names or protected attributes are present."],
+ ["A fictional opening workforce has 100 people; five leave during the month. Within that workforce, a subgroup has five people and two of the five total leavers.", "Use opening headcount as the denominator for this exercise; no names or protected attributes are present."],
  "Calculate 5% overall and 40% subgroup departure rates with counts, explicit definitions and appropriate small-group suppression considerations.",
  "The team wants to publish the small subgroup's detail and attribute its rate to a particular manager without further evidence.",
  "Explain identification and small-sample risks, compare composition/context and propose a privacy-preserving investigation without causal or personnel conclusions.")
@@ -305,7 +305,7 @@ pack("Procurement Analyst",
  "C's cheapest offer depends on a delivery promise its production team has not confirmed.",
  "Use declared criteria and a sensitivity/exception review, obtain evidence on lead time and disclose conflicts instead of recommending from price alone.")
 pack("Logistics Coordinator",
- ["Fictional daily demand is 10 units, lead time 4 days and safety stock 15; the simple reorder point is demand during lead time plus safety stock.", "Recorded on-hand stock is 50, but a physical count reports 38; an order for 40 units is already confirmed."],
+ ["Fictional daily demand is 10 units, lead time 4 days and safety stock 15; the simple reorder point is demand during lead time plus safety stock.", "Recorded on-hand stock is 50, but a physical count reports 38; an order for 40 units is already confirmed. Assume no backorders or committed allocations; the inbound order's due date still needs verification."],
  "Calculate reorder point 55 and reconcile the 12-unit stock discrepancy before promising availability.",
  "The supplier delay extends lead time to 6 days while demand rises to 12 units/day.",
  "Recalculate the exercise's reorder point to 87, compare feasible allocation/replenishment options and communicate uncertainty without promising unavailable stock.")

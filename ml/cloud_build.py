@@ -210,31 +210,84 @@ def publish_verified(staging, directory, files):
         raise RuntimeError("Prepared model did not pass final file verification")
 
 
-def prepare_model(release, directory):
-    """Return True only for a fully verified existing-cache reuse."""
+def vercel_archive_cache(project_root, environ=None):
+    """Use only the active Python builder's cache-preserved virtual environment.
+
+    @vercel/python 31 preserves these venv roots, not arbitrary project files.
+    The dedicated archive is outside site-packages and never used for imports.
+    An unknown future builder layout safely falls back to a verified download.
+    """
+    environ = os.environ if environ is None else environ
+    if environ.get("VERCEL") != "1":
+        return None
+    raw = environ.get("VERCEL_PYTHON_VENV_PATH")
+    if not raw:
+        return None
+    root = Path(project_root)
+    venv = Path(raw)
+    allowed = [root / ".vercel/python/.venv", root / ".vercel/python/services/learning/.venv"]
+    if not venv.is_absolute() or venv not in allowed:
+        return None
+    # Check the original spelling before resolving: resolution must not hide links.
+    cache = venv / "voidfill-model-cache"
+    safe_path(root, cache.relative_to(root).as_posix())
+    return cache
+
+
+def prepare_model(release, directory, archive_cache=None, report=None):
+    """Prepare files, optionally retaining only the compressed, verified archive.
+
+    Both extracted trees and cached archives are untrusted inputs. Cache hits
+    never rely on a marker: source-controlled hashes and the full extracted-file
+    manifest remain authoritative. Return True when no shard downloads occurred.
+    """
     directory = Path(directory)
     files = validated_release(release)
+    archive_files = {"model.zip": {"sha256": release["sha256"], "bytes": sum(part["bytes"] for part in release["parts"])}}
+    archive_cache = Path(archive_cache) if archive_cache is not None else None
+    # Reject a malicious cache tree even when runtime files happen to be valid.
+    cached_archive = archive_cache is not None and cache_matches(archive_cache, archive_files)
+    stats = {"source": "existing_files", "shard_downloads": 0, "download_bytes": 0,
+             "archive_bytes": archive_files["model.zip"]["bytes"], "archive_cache_enabled": archive_cache is not None,
+             "archive_cache_saved": bool(cached_archive)}
     if cache_matches(directory, files):
+        if report is not None:
+            report.update(stats)
         return True
     with tempfile.TemporaryDirectory(prefix="voidfill-model-") as temporary:
         work = Path(temporary)
-        archive = download_archive(release, work)
+        if cached_archive:
+            archive = safe_path(archive_cache, "model.zip")
+            stats["source"] = "vercel_archive"
+        else:
+            archive = download_archive(release, work)
+            stats.update(source="download", shard_downloads=len(release["parts"]), download_bytes=archive_files["model.zip"]["bytes"])
         staging = work / "verified"
         extract_verified(archive, staging, files)
         publish_verified(staging, directory, files)
-    return False
+        if archive_cache is not None and not cached_archive:
+            # Only this owned subdirectory is replaced. The venv and other caches
+            # are untouched; no model files are placed in executable site-packages.
+            publish_verified(work, archive_cache, archive_files)
+            stats["archive_cache_saved"] = True
+    if report is not None:
+        report.update(stats)
+    return cached_archive
 
 
 def main():
     release = json.loads((ROOT / "cloud-release.json").read_text(encoding="utf8"))
-    reused = prepare_model(release, ROOT / "artifacts/cloud")
+    report = {}
+    reused = prepare_model(release, ROOT / "artifacts/cloud", vercel_archive_cache(ROOT.parent), report)
     from ml.career_catalogue import DIRECTORY, content_fingerprints
     extension = json.loads((DIRECTORY / "index.json").read_text(encoding="utf8"))
     actual = content_fingerprints()
     if extension["inputs"] != actual:
         changed = [name for name, digest in actual.items() if extension["inputs"].get(name) != digest]
         raise RuntimeError("Career content changed without rebuilding its public index: " + ", ".join(changed))
-    print(("Reused verified existing model files" if reused else "Downloaded and verified model files") + "; verified career fingerprints: " + release["backend"], flush=True)
+    print("Model artifact preparation: " + json.dumps(report, sort_keys=True), flush=True)
+    reused_description = "Reused verified Vercel model archive" if report["source"] == "vercel_archive" else "Reused verified existing model files"
+    print((reused_description if reused else "Downloaded and verified model files") + "; verified career fingerprints: " + release["backend"], flush=True)
 
 
 if __name__ == "__main__":

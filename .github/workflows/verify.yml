@@ -126,8 +126,10 @@ jobs:
           ml/tests/test_concurrent_serving.py
           ml/tests/test_question_selection.py ml/tests/test_career_quality_review.py
           ml/tests/test_foundation_editorial.py
+          ml/tests/test_career_case_contracts.py
           ml/tests/test_careers.py ml/tests/test_career_evaluation.py
           ml/tests/test_guest_resume.py ml/tests/test_staff_demo.py
+          ml/tests/test_pdf_concurrency.py
           ml/tests/test_practical_demo.py
       - run: npm run build
       - name: Install Chromium for local UX checks
@@ -151,6 +153,7 @@ jobs:
           npm run test:staff-demo
           npm run test:careers
           npm run test:practical
+          node scripts/test-resume-concurrency.mjs
           node scripts/test-account.mjs
           if [ "$RUN_BROWSER_REGRESSIONS" = "true" ]; then npm run test:ux; fi
       - name: Preserve isolated journey evidence

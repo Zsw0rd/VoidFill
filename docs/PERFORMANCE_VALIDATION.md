@@ -21,6 +21,13 @@ latency improvement claim or a held-out model-quality evaluation.
 
 ## Repeatable authenticated workload
 
+The current follow-up starts adaptive history reads alongside independent
+profile/requirements reads when preparing daily/practice assessments. Owner
+verification and request-budget checks still precede them; level caps, grading
+and saved progress are unchanged. A blocked-profile concurrency regression proves
+that history starts before that profile resolves. Actual hosted measurements
+belong in the release record; removing a dependency alone does not prove a speedup.
+
 ```text
 node scripts/load-learning.mjs --help
 node scripts/load-learning.mjs --base http://localhost:3000 --clients 4 --rounds 2
@@ -71,6 +78,55 @@ rank observed P95, maximum, throttling, auth errors and server errors. Failed fa
 requests do not improve the successful latency sample. Small samples, the fixed
 stage order, platform scaling, caches and network conditions prevent these short
 diagnostics from establishing an SLA or maximum user capacity.
+
+## Explicit private-inference fixture
+
+```text
+node scripts/load-learning.mjs --base http://localhost:3000 --workload resume --clients 2 --rounds 2
+node scripts/load-learning.mjs --base https://void-fill.vercel.app --live --workload resume --clients 2 --rounds 2
+```
+
+The optional resume workload adds a fictional one-page text PDF before each core
+round: 24 workload requests across one/two-client stages, including six resume
+parses with a distinct synthetic summary marker reaching the private encoder.
+It never applies extracted fields, submits a quiz or saves a project. This mode
+allows at most two clients, matching the existing parser admission bound. The
+default core workload and its live caps are unchanged. Real mode additionally
+requires the same verified, independently authenticated sessions and consumes
+normal resume/assessment budgets.
+
+The fixture is independently decoded with the actual PDF parser in CI. Reports
+contain only fixed operation labels, numeric status/timing/size data and scope
+metadata; parsed text, role suggestions, source PDFs, cookies and sealed tokens
+are not copied into them. PDF generation rejects arbitrary input and uses no
+real identity or document. These cases do not establish OCR, scanned-document,
+maximum-size-file or unrestricted-user capacity.
+
+All operations receive the smaller of their per-request timeout and remaining
+workload budget. Body consumption and the final successful response are checked
+against that budget too. A run outside its deadline cannot report success merely
+because every completed response was HTTP 200. Failure evidence is retained;
+no retries hide saturation or native crashes.
+
+## Concurrent PDF extraction
+
+The 8 November hosted private-inference baseline passed its one-client stage but
+returned two HTTP 503 responses on simultaneous PDFs; the platform log recorded
+`SIGSEGV`. The bounded probe stopped after ten total requests and ended both demo
+sessions. The baseline failure is retained in ignored performance evidence.
+
+PDFium is process-global and explicitly not thread-safe, including different
+documents. Resume extraction now holds a dedicated process mutex across native
+document creation, text/render calls and cleanup. Rendered bitmaps close even
+when OCR fails. DOCX handling, public-cache synchronization and the encoder's
+existing lock retain their own behavior. Parser admission, document bounds and
+model quality are unchanged.
+
+Tests prove a second document cannot enter a blocked native lifetime, lock release
+on failure, bitmap/page cleanup before native document exit, and distinct text
+from sixteen real PDFs under four parallel callers. The actual hosted mixed
+resume workload must pass after deployment before the production repair is
+claimed verified. Primary guidance: [PDFium thread incompatibility](https://pypdfium2-team.github.io/pypdfium2/python_api.html#thread-incompatibility).
 
 ## Recorded baseline before this runtime change
 

@@ -40,15 +40,49 @@ def test_case_inputs_survive_save_reload_and_future_catalogue_edits(monkeypatch)
     project = draft(store, first["token"])
     frozen = copy.deepcopy(project["brief"])
     assert frozen["case_inputs"] == original_inputs
+    assert frozen["instructions"] == role["curriculum"]["foundation"]["case_task"]
+    assert frozen["deliverable"] == role["curriculum"]["foundation"]["case_deliverable"]
+    assert frozen["case_sources"] == role["curriculum"]["foundation"]["case_sources"]
     assert frozen["rubric"][-1] == role["curriculum"]["foundation"]["case_verification"]
     assert frozen["version"].endswith("/" + role["curriculum"]["case_pack_version"])
     role["curriculum"]["foundation"]["case_inputs"] = ["A later synthetic case with different inputs."]
+    role["curriculum"]["foundation"]["case_task"] = "A future replacement task."
+    role["curriculum"]["foundation"]["case_deliverable"] = "A future replacement artifact."
+    role["curriculum"]["foundation"]["case_acceptance"] = ["An incompatible future criterion."]
+    role["curriculum"]["foundation"]["case_sources"][0]["url"] = "https://example.com/future-source"
     role["curriculum"]["case_pack_version"] = "future-case-pack"
     assert store.practical(first["token"], {"action": "load"})["projects"][0]["brief"] == frozen
     updated = store.practical(first["token"], {"action": "save", "project_id": project["id"], "expected_version": 1, "role_id": project["role_id"], "level": "foundation", "content": "A revision preserves its original brief and inputs.", "links": []})["project"]
     assert updated["brief"] == frozen
     second = store.create()
     assert draft(store, second["token"])["brief"]["case_inputs"] != original_inputs
+
+
+def test_all_120_application_and_demo_brief_builders_agree():
+    """Different runtime builders must freeze exactly the same public contract."""
+    import json
+    import shutil
+    import subprocess
+    from pathlib import Path
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required for the cross-runtime snapshot check")
+    root = Path(__file__).resolve().parents[2]
+    script = """
+      import {careerCatalogue} from './lib/careerCatalog.ts';
+      import {practicalBrief} from './lib/practical.ts';
+      process.stdout.write(JSON.stringify(careerCatalogue.roles.flatMap(role =>
+        ['foundation','intermediate'].map(level => practicalBrief(role.id, level)))));
+    """
+    result = subprocess.run([node, "--import", "tsx", "--input-type=module", "-e", script], cwd=root, capture_output=True, text=True, encoding="utf8", timeout=30)
+    assert result.returncode == 0, result.stderr
+    briefs = json.loads(result.stdout)
+    assert len(briefs) == 120
+    for expected in briefs:
+        actual = practical_demo.brief(expected["role_id"], expected["level"])
+        assert actual == expected, (expected["role_name"], expected["level"])
+        actual["case_sources"][0]["title"] = "A caller edit"
+        assert practical_demo.brief(expected["role_id"], expected["level"]) == expected
 
 
 def test_seeded_mentor_submissions_include_case_inputs_and_frozen_verification():

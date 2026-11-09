@@ -1,308 +1,308 @@
 {
-  "version": "career-quality-review-v2-2026-11-08",
-  "reviewed_at": "2026-11-08T08:56:54.053281+00:00",
+  "version": "career-quality-review-v3-2026-11-09",
+  "reviewed_at": "2026-11-09",
   "reviewer_kind": "coding-agent; no independent subject-matter-expert or participant review claimed",
-  "reviewed_scope": "All60 case/complication/capstone/rubric combinations and both level-specific synthetic input packs agent-reviewed for internal role relevance and safe educational scope; first intermediate explanation in each55skillbank retained; 27 identified intermediate arithmetic cases independently recomputed. The separate source-bound foundation editorial record covers all960 authored option sets. This is not independent specialist review, learner calibration or factual certification of all2121 stored questions.",
+  "reviewed_scope": "Agent review of all60 current foundation/intermediate input/task/deliverable/positive-and-negative acceptance contracts and concept-reference scope. The 45 independently recomputed case arithmetic/SQL/ordering/interval checks are recorded separately. Prior55 selected intermediate explanation reviews and the960foundation editorial record are retained, not claimed as newly specialist-reviewed. No independent specialist approval, learner calibration or factual certification of all2121 questions.",
   "roles": [
     {
       "id": "1072f095-2197-59cf-8d98-35603b7e2024",
       "name": "Frontend Developer",
-      "reviewed_sha256": "b5061a26783236b9ac282bebf6a1b704d0d04a2bb4132c0b5b500c93d1cf7915"
+      "reviewed_sha256": "5692d1820064fcd54db6e430aa40dab6698244d23a4f1e7180e5c5e061570c33"
     },
     {
       "id": "8b7132d8-ffb4-5553-a071-f9cca44c220f",
       "name": "Backend Developer",
-      "reviewed_sha256": "31c9e73e9841258bea20667b3bce4928f9754d68e21d3780ca5d6fc6a94911fd"
+      "reviewed_sha256": "c0739e94f4228faf2458bf2db43c2d166c1b4a18c304bee4153c60b005d9cd76"
     },
     {
       "id": "50a95cc7-eab5-5703-ac52-20d3af991d92",
       "name": "Full-Stack Developer",
-      "reviewed_sha256": "3d623659f16110919583440989b68635d565d5c036424e61ba176d006ecd1be0"
+      "reviewed_sha256": "7a64d90f85aa50ea43db1c66cdbf7784684dbbb1bea89ae785c5d1a7de387fb5"
     },
     {
       "id": "2608fad8-de6b-5f3b-bdd2-3fd3cddf6482",
       "name": "QA Engineer",
-      "reviewed_sha256": "e5c904cb431b570f393da459373993dfc20368f9152515a387ad0df8c592e3e1"
+      "reviewed_sha256": "754d7e7b3e76964eb4e6a8568be7006130be591b712aa9be79ef5d05469b106a"
     },
     {
       "id": "aeaa48d1-78c5-5886-96dd-bc35107ff142",
       "name": "Mobile Developer",
-      "reviewed_sha256": "183213065c4e0b540f59dd6848905fb7c27168a844b38259c9aaa03c2e8abb2c"
+      "reviewed_sha256": "3713efdd9582a54828fad987cb16261f79dbf995992089dddbde9d4e13196175"
     },
     {
       "id": "65a22fdb-df5e-5061-b45c-095082ce6cc9",
       "name": "Software Engineer",
-      "reviewed_sha256": "ae15cfa1983b02bfc250ded99b05ab4682f3a0f8d414623c649fc9286d5b781c"
+      "reviewed_sha256": "d384bd6fbfae25c340fe7b7df9b34a157c2001317730f373a441c14c7340475c"
     },
     {
       "id": "04bd798a-3e42-5635-8ab6-b632dd305e58",
       "name": "Data Analyst",
-      "reviewed_sha256": "bb291fc5a3c1cecc0e775b9bc999f989edbb648ad4af6842e939bc3dc07523ad"
+      "reviewed_sha256": "261916eca7695eeca08e7b18c2afbe55b7bd0df55f05e51b5ec2e7fa7fc68304"
     },
     {
       "id": "f415b124-7aec-56a0-917c-8abc1e214120",
       "name": "AI Applications Developer",
-      "reviewed_sha256": "a78fee90369a267f93121eb9aaa2219731109d3da0a9b14f7d1dc900631b866d"
+      "reviewed_sha256": "bc152c958b82569595aa69670a58f10525b59f7c1edc38f737aa1491d373737f"
     },
     {
       "id": "8e8ae3f8-5cc0-5e85-90d6-c58f5bc6be0e",
       "name": "BI Analyst",
-      "reviewed_sha256": "720ede0e732318b8e25bfa1112e1705673d3b3969809f36bfa11bb6045252be5"
+      "reviewed_sha256": "531473a2d0dc4f4ed91059885d51ca0f3ebab6fab3c5a1181fe827b566a59462"
     },
     {
       "id": "94410869-faf1-5bbf-9cbd-09b3f1b670fb",
       "name": "Data Engineer",
-      "reviewed_sha256": "08a8148438d147cef0d33f9ed4f808af97f585c5e02b4d05740e7b0fcab651d1"
+      "reviewed_sha256": "38dac058170f4704820e9ebf61889439c26e4953cf8e365695109f251408c8b5"
     },
     {
       "id": "7cc7d4a1-e62e-5144-a76f-eb37a1c8b681",
       "name": "Machine Learning Engineer",
-      "reviewed_sha256": "e08ff1e04b294a710f4d4e4a3e925df36e89a0b118d831efe08360297df2ec32"
+      "reviewed_sha256": "cfe3f2a9d459d73144860fca5017ef3699b34dc64c2c57c5ca312347293e69eb"
     },
     {
       "id": "077f749a-3430-5a16-b540-af7b47e912bd",
       "name": "Data Scientist",
-      "reviewed_sha256": "7ad4f03541a695f1e8370995d9a94eaf7aa1f82ada77d8247fe18291fe54cdfc"
+      "reviewed_sha256": "a855d670a257529f27d83cc6fd581a53bf6199120ae216a92b73db36ee5a4dd2"
     },
     {
       "id": "e5d6e722-af94-55d1-8d41-4087f277df16",
       "name": "Cloud Support Associate",
-      "reviewed_sha256": "e7e24c977309f5e45e8ab29edb6939f181ea100a3fc43edf5f5399ce7afdf5e8"
+      "reviewed_sha256": "da7a7c0070df5c43e492057e6df2a4e3bb4ecd7841cbe805a1d58e698931e743"
     },
     {
       "id": "5e735ace-f2e5-5d8c-9fb6-6d62973f3b03",
       "name": "Cybersecurity Analyst",
-      "reviewed_sha256": "001f200630aa63abe2db167ac698f09f1ec304e9cb1b8a11d65dab483ea0eca0"
+      "reviewed_sha256": "f6406ec14e5a478489b60a4d6d1270609022fdfd25f22591664dbe1c4b57e97a"
     },
     {
       "id": "25b1619f-f83d-50f2-9d48-5140b79adad6",
       "name": "IT Support Specialist",
-      "reviewed_sha256": "1ea136983ff2202c61c07d42014c5af7f18fe438d6f88fc9bfad466b6412cb4d"
+      "reviewed_sha256": "a9e037b26f4660b4529af79a282f96248b60ab266e2f1c3c6247d80fa2ff2357"
     },
     {
       "id": "5bedf9c6-49e5-554a-8b47-e62375763442",
       "name": "Systems Administrator",
-      "reviewed_sha256": "e7baf92c42d836a31d6e1f1e1a034c47cb124299af02fc806c4a398191f9039c"
+      "reviewed_sha256": "aacaad9164584a559e5014f068b8065de74009b7aee58b097d7858d1ec1613de"
     },
     {
       "id": "8c741a70-0cfa-572f-8bf0-84bb3eb907bd",
       "name": "DevOps Engineer",
-      "reviewed_sha256": "d319c4bd9f98f70e441d07c61d4b3afa3b4afe9bd21eee05d666829b712859ca"
+      "reviewed_sha256": "510b638bc0317ef2a04630b00092ba0de0f33b5e233509f4927b6a3f66eed6e4"
     },
     {
       "id": "f69b4d7e-2e18-5d7e-8b9e-5829d3af528e",
       "name": "Network Administrator",
-      "reviewed_sha256": "680fe4e4491cf55be29b282d6e0d6b7cb5cfd1c390cf351fe6d632e6e7b9ade9"
+      "reviewed_sha256": "e1a054c8173f8eeb83a5fbf022a21fd2eabe853e516d88b8432254aa2641a119"
     },
     {
       "id": "f4aa63fc-eb68-508b-9556-01f0162e29f8",
       "name": "CAD Technician",
-      "reviewed_sha256": "96d2fa28b58b9a87562b085fa5a49bd5f7c771d42ef8e5be1eab5c410f5a9ac0"
+      "reviewed_sha256": "492e3db193cba8e82cdc1fc6f69b8e0b766fd685ba79600a07ff235882a4f092"
     },
     {
       "id": "347fb9fb-44af-5d25-9a5d-22c2564c7c6b",
       "name": "Automation Technician",
-      "reviewed_sha256": "f5af1bd2aa68abb16c707bbb0a784cae51a1dd7550c70732c625c50b1fdacce7"
+      "reviewed_sha256": "5af8d5390ebefc1f7768279d5008bd35b4bd80044c0a4645df4d738b00c4e19a"
     },
     {
       "id": "c22326c1-0282-588b-b860-e530202ef85c",
       "name": "Quality Engineer",
-      "reviewed_sha256": "ad92b7f3e9d0951dd80df1daae3c805c70936dbc24cc808564b7a0f74dcdc6bd"
+      "reviewed_sha256": "30e8324e6b6d2db35b2bad1e1ae13ac7d98e0d1895e898528143d84166a89e03"
     },
     {
       "id": "d014ae22-eb0c-5ae5-a25a-c21f4da1f92c",
       "name": "Manufacturing Engineer",
-      "reviewed_sha256": "3428a90c3ec8559c853210e2883398b3e5f3e7b678ebdc703b2430fdc620bac9"
+      "reviewed_sha256": "eeb4192ba7a9c3870c3d757521d09549375228b2b2c2a7c6cc439606a8bf9016"
     },
     {
       "id": "6a6607ff-eaa2-579c-9bcc-4488db22e5bc",
       "name": "Electronics Technician",
-      "reviewed_sha256": "5af0f84380fff91ace810e5fb195278730494e759a0ea0993dce1227762deac7"
+      "reviewed_sha256": "9ff77cad90e655dd673e0da5a4d473b2d77cb0414b7197f07478f8add754e4e0"
     },
     {
       "id": "88563dc6-1e06-57dd-8f25-db0c4c8fa298",
       "name": "Industrial Engineering Associate",
-      "reviewed_sha256": "4c6215b6ad5570e38185d4497e602c5102a5ccfc4172f395d38ffd1fa7e48989"
+      "reviewed_sha256": "f65ee9a36d516162fdaf9c59e643a53491835e8dc55303a04be0838078852dd4"
     },
     {
       "id": "d1762b80-14d3-580f-ba02-cd40a5f54689",
       "name": "Product Manager",
-      "reviewed_sha256": "43a567af9384610d3179f477e1ed4f2cd5117edcd90a65b5791aebc98518c264"
+      "reviewed_sha256": "89f1324c9464f73d885da7a3dfc37e4caeebc89a7bf40495adfb1be7fd1f1b85"
     },
     {
       "id": "32b34a86-0b10-5dd1-a544-e548febba83d",
       "name": "UX Designer",
-      "reviewed_sha256": "3b9d59c9cffaa183a7e2ead7714824ef2e7435114b1d8707ef1d17b3b4f68c55"
+      "reviewed_sha256": "7dccf6464abf38d691f57acc864f140c622b7f266201f5a158216580ffceea06"
     },
     {
       "id": "709d19a9-814c-54c5-ad9f-9b9331d68fb8",
       "name": "UI Designer",
-      "reviewed_sha256": "d6f5d94fa669eb70de89481b28d1d068c84524a4e6d331d39d3a7ced42ca8984"
+      "reviewed_sha256": "6bbdfee4b3b405e59b9de3d9a863d48a4df09d1838f19529bba81306773ee48e"
     },
     {
       "id": "420dac4b-1d3a-5e1b-8077-e35bf641ba2f",
       "name": "UX Researcher",
-      "reviewed_sha256": "3c878c789814de3084a61876658e014183161d781a7fd50335ecb84ea5507e41"
+      "reviewed_sha256": "3a006abc2bc6d88fae5f1897dedca0876deaf63c223915da9c445dd0fa61f3e7"
     },
     {
       "id": "5a3966e4-ed79-5ad6-ade6-56b9b13f8625",
       "name": "Product Designer",
-      "reviewed_sha256": "3d5476dd1591d4bfa888188d8e2e42a38073760008e34543de78ed5c86b252b8"
+      "reviewed_sha256": "61c08ebfbe885b2f705b55d5b9efa07265e7235114a996dbdc2f2b77dc031f11"
     },
     {
       "id": "e7f18f90-4998-55ba-a9fe-cfc8f82ea716",
       "name": "Technical Writer",
-      "reviewed_sha256": "21f00250383548477ac221a748799508d0b5a82814c2f4739e0f30bf0ca06a7c"
+      "reviewed_sha256": "0596723cc9e2e9ed3f514ae9bba99f22ad657e285d4c5fa19f6e45f132e97c5a"
     },
     {
       "id": "191f9cc0-6dff-52bc-b055-a8e90d9772ac",
       "name": "Project Coordinator",
-      "reviewed_sha256": "343df3cde7bc1f676abbedc9b7d54728763b2592036b1e8afcb3e566f45c10c9"
+      "reviewed_sha256": "83a88f225b1dd301897cc58537b4e35aa40a1c6ef161394ca36f130e6e368484"
     },
     {
       "id": "f528233b-1625-551b-949e-86f3f78913d8",
       "name": "Business Analyst",
-      "reviewed_sha256": "aee0aa9135707ed0e22873603fad378d0fe3d06f69127acbb7670ea3303577c0"
+      "reviewed_sha256": "4032419c915d5980c28dba3dd5fe4beb1c360b00bfd88a2d417c7b368b7a3192"
     },
     {
       "id": "7abb4fbf-a99e-55c4-a683-5e2d459718ad",
       "name": "Operations Analyst",
-      "reviewed_sha256": "88245f8088a8430ffa2a276c700f378c3a7f19abddb3fd763829c79f5e0b1253"
+      "reviewed_sha256": "9b740c01c90df252e34fadb941fc69d189d4d2374151d40431690998cf49a89d"
     },
     {
       "id": "69cddbb3-7e8e-5487-b4df-b0f4bcb20f35",
       "name": "Project Manager",
-      "reviewed_sha256": "eabdf92bd78cbf864858780bc2b350c980717ea6795609c3a25d0434921f3c16"
+      "reviewed_sha256": "33036a74f4bc1bc12ac36955473e91c2e142f4163567aefcbd8ea43a20e1d276"
     },
     {
       "id": "64e74d51-c9ce-5c83-8c31-aa674ecbf48e",
       "name": "Management Analyst",
-      "reviewed_sha256": "d76f7cb15c4ff526459e6646f7a6046749e01d510c325dc8103c343cd93c77b3"
+      "reviewed_sha256": "1607844239614f296b9d767b73532d88ee253eab77134605bc39dfbbd737b6eb"
     },
     {
       "id": "42af7dec-0893-511c-bd1c-e7c113530b1f",
       "name": "Administrative Coordinator",
-      "reviewed_sha256": "ffbaa0b213f6523b00c498793107e004a1f0807a970bdd3f841926c828d2277c"
+      "reviewed_sha256": "1b63ebe962f5d142e3d81d3e838b9c143e0e02c332294b5c161343d015e290b2"
     },
     {
       "id": "df0857da-9c63-5fc6-ad3b-7419259c5f9f",
       "name": "Digital Marketing Associate",
-      "reviewed_sha256": "a00b7d90be8a60dab5646e7245334d3c5b0db2a1ac440192826e590ba5670b4d"
+      "reviewed_sha256": "39ab3ff91a044ed997135af4270922cb40cc0ef2293cf3cceb20908466f11ca8"
     },
     {
       "id": "40ad442d-84fc-5659-a385-f05dea7d67b7",
       "name": "SEO Specialist",
-      "reviewed_sha256": "9ed4357241f6a0b461045bc291497707563165f50678d279a3390b6bc4f86346"
+      "reviewed_sha256": "27d390c4693e00d408b67574672bd66c420339d86b714146a55c7b0f59e341db"
     },
     {
       "id": "4a3187b9-999b-50ee-b777-a132fd9fe4fa",
       "name": "Content Writer",
-      "reviewed_sha256": "47e0295952c513d82ca32849ae794bd4fd4c1f224490102c6bcd31d1bac03483"
+      "reviewed_sha256": "6c7ba8cbcef0d7c319620b08ce9667c877232b1d4bb7b71f5720ca14ba935cfc"
     },
     {
       "id": "f21bfdad-d16e-5e07-a72f-b683a11667cb",
       "name": "Social Media Coordinator",
-      "reviewed_sha256": "fc0d2810a21b82f90a9bba9f2475c3c32217ebe941b28254c1622d4b4504debb"
+      "reviewed_sha256": "47544d69aeebb7a66a7ce90387bdec4199c87b2e7ffe29bc91ac9e1184da94ff"
     },
     {
       "id": "3af20eb7-d8fb-501d-8c49-b0ffa7cbe02c",
       "name": "Graphic Designer",
-      "reviewed_sha256": "08c323d4bb44c50188419fe7a931110f899531379947d4fe68cc8dbcccd960eb"
+      "reviewed_sha256": "e6836a9bca268e53a9b1f39a324bc7d83dc11ebb98e5095897a8eddca99b617c"
     },
     {
       "id": "5fee9265-6915-5c1c-96bb-f85e88514584",
       "name": "Marketing Analyst",
-      "reviewed_sha256": "ea5083c92f13bdac7480edd76b29c6f1ea241a092ed57f65d117de1e728eeca7"
+      "reviewed_sha256": "48b15c3524ee2731479f9144882f9114c38a822635dd4d94e815817854f554d8"
     },
     {
       "id": "e8ef894f-0c39-52d4-8527-cd50d22f72cc",
       "name": "Accounting Associate",
-      "reviewed_sha256": "3412051eac009ece6bef1238fc0a053930dceb33abfef6c2755958d1612d55a5"
+      "reviewed_sha256": "223a1d7e4fb1fbc92dab9a7d226ca31e5dbca9458da0d3c443210369696800d0"
     },
     {
       "id": "fb022067-332d-54ce-8351-5ed85de3e052",
       "name": "Financial Analyst",
-      "reviewed_sha256": "0926a212331445f9a8856f284cd47f82604707b528d06b2c08377907d53f27c5"
+      "reviewed_sha256": "f089e1bc1c474e02e0e4ea19385c37ab0b9e3d2670b68aebd4659cfbaf4088a1"
     },
     {
       "id": "58736cf2-757a-5493-bff8-b7429ce42674",
       "name": "Payroll Specialist",
-      "reviewed_sha256": "c04a769d9ded80766a4dd6fa54aa18a059a9ba42cf4f9b44163bab043872c190"
+      "reviewed_sha256": "dcfc3419170cc7a74df6d6fca29a95799735d66ef5d1217f69979eebf0fea75d"
     },
     {
       "id": "2c5d8476-8772-53d3-8c06-010ebc292182",
       "name": "Accounts Payable Associate",
-      "reviewed_sha256": "6708920ada1c93d87c36e0ca54dfe73e370b80b82ed9cf8a14fae1d4f8895740"
+      "reviewed_sha256": "a3e28a34e92ccbe6b63583b0fb7d48de21678a5a39679ef816f3229c2eb2510c"
     },
     {
       "id": "2b5d03eb-2bb5-5430-8db6-fd0adb24b4c8",
       "name": "Audit Associate",
-      "reviewed_sha256": "638d85c7f89a87ac9ff61493ed2ab00be0fcf2ab7037c3cc1cd364e88e38f7d5"
+      "reviewed_sha256": "41b283be6d13bd02092a28c98471b490643920cf2451696cb8f179c02445e494"
     },
     {
       "id": "6df3c2ad-7d82-58ff-92cf-e326b9bd5a62",
       "name": "Credit Analyst",
-      "reviewed_sha256": "3b23b126ef36c652da3478c093cc1ae5abe5aca5b5a4fc2434262cb4f9121d30"
+      "reviewed_sha256": "3963374d3168890cf9646fb412e12d60efb8f223a6ecb09e774487ec38c29897"
     },
     {
       "id": "05f8f679-a65a-5725-9adc-691c258a4f92",
       "name": "Recruitment Associate",
-      "reviewed_sha256": "648d4967792b6c04d4ad751a0e27b6ddcd0bcb08208b2ef18f80a26f867a5dda"
+      "reviewed_sha256": "a9cbf1ca3d9fa21f0436ae7707700985dc971da5d3e31dcb2104b32cd1f4e2d3"
     },
     {
       "id": "e73bdcd8-d2a2-5a33-a457-bf07ee5f4323",
       "name": "HR Operations Associate",
-      "reviewed_sha256": "308f7b1cbea068aaeaea9d404e98f7e945765172b082aebb1536909c034cc458"
+      "reviewed_sha256": "83425f324279c199a73b251b9ed2a94db7e3b8ed58fa560d66af0507a7edb927"
     },
     {
       "id": "0c6195b9-841b-5d32-97c6-ef375df2ffec",
       "name": "Learning & Development Coordinator",
-      "reviewed_sha256": "bdd0ae4365897fb7033bcd53c860ed6ac27cef3018b736e7b908b0f368059858"
+      "reviewed_sha256": "b345369c7125dd1ff82f94f92fca68a05b8b72e35ca00e375cc1a5a49225d9e7"
     },
     {
       "id": "f74d6cf8-b1eb-5290-88a7-74a67868d1ef",
       "name": "People Analyst",
-      "reviewed_sha256": "1481f42aedac96a79e598eb7402d27ed6d09f6cd6a214106f5b29e1f020eec76"
+      "reviewed_sha256": "52057ff0723bec6de3a627fb9537e55ca05589e4491459f430a0947c938a0770"
     },
     {
       "id": "4e70f94f-5c53-5322-90c7-a666931b0251",
       "name": "Talent Development Associate",
-      "reviewed_sha256": "7aef786da5a71af343c0c054fdb277bb9725d1b2b37d1a2c741ec46f97f427e7"
+      "reviewed_sha256": "28a149ca4e6d592bba5963dc4c36a5e92197209f98d6496a0f54e43fb1c6b407"
     },
     {
       "id": "baf85399-16bc-582e-ad03-582db8703a39",
       "name": "Employee Experience Coordinator",
-      "reviewed_sha256": "45a8d6b2a2c8d388a62029fa4d9b12e581e569f73007069d6253912f097e50a1"
+      "reviewed_sha256": "d74d6165374a081b4c6e2e586afafab3b5eac5ce8a419ba200570fcd8b0651d7"
     },
     {
       "id": "733c2bed-d5c3-5c05-a726-dd8d0f8af9f6",
       "name": "Sales Representative",
-      "reviewed_sha256": "af7b9ed235f772e496f94096380cbf298e368a9cfd2b66958bdcec812e24823c"
+      "reviewed_sha256": "edecab4a1dd5a51a0a99ed166d53e197c6965e64ad776da4bc3f3392eb5366de"
     },
     {
       "id": "af93bab4-54f0-5803-8660-055f1743dfcc",
       "name": "Customer Success Associate",
-      "reviewed_sha256": "eefcff0a28f998f1fad625b872e2bac3c9a321551aeb2f654fdec647ed6d836c"
+      "reviewed_sha256": "6dc4e86f1f32a729cea79ea453da6d1eba562b78e1ce2ad6650816f4431c5024"
     },
     {
       "id": "cae8553f-aee4-5903-94b1-f91607281516",
       "name": "Customer Support Specialist",
-      "reviewed_sha256": "f00ee633f9b4c8cf9726b1e0b6f7b74519d393614df1a1877188bf5f480d97f0"
+      "reviewed_sha256": "233d3b6e9b73240ef9e14870e9a502800e4950abb52f13f59c082423850a34f8"
     },
     {
       "id": "863da592-825a-532b-a232-ae15dc880249",
       "name": "Procurement Analyst",
-      "reviewed_sha256": "2b86b9e9b86199509cd869a62868f5b7f1f5fafa4a752d4050c321cfbc705a40"
+      "reviewed_sha256": "2cd803b8345a46722f74dbabc825ea25ae429e099e0cc7aabad12313a8ba640c"
     },
     {
       "id": "74361a24-eec8-50f3-b286-095884fd5440",
       "name": "Logistics Coordinator",
-      "reviewed_sha256": "75121a3abe107d754c923973d61a78d5b6750fe96f2448035a39f9324188219e"
+      "reviewed_sha256": "3728d1067f6ef2ee6b03a21920bbb7db62fde237eec5579b9f752250b75cb203"
     },
     {
       "id": "44ba96be-6b0b-52c8-a225-54f7e14fe4eb",
       "name": "Hospitality Operations Associate",
-      "reviewed_sha256": "b6504b8ee4c323daf80f86eb7ed10fa5c884354cf51e1af1aae4762cfcb5f1be"
+      "reviewed_sha256": "01b3243c1fc36a1f9837f782cdb40072156a416b2c6b45f19fc2f90b87844dba"
     }
   ],
   "question_samples": [

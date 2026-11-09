@@ -593,6 +593,11 @@ export function RoadmapClient({
       ? `Assessment: ${assessTarget.course?.title}`
       : `Skill Assessment: ${assessTarget?.skillName}`;
 
+  function discardPausedAssessment() {
+    draft.discard(); setPausedAssessment(false);
+    roadmapHeading.current?.focus({preventScroll: true});
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 14 }}
@@ -619,8 +624,8 @@ export function RoadmapClient({
         </div>}
       </header>
       {!assessTarget && <>
-        <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={() => { draft.discard(); setPausedAssessment(false); }} />
-        {pausedAssessment && !draft.expired && <div className="flex flex-wrap items-center gap-4 rounded-xl border border-forest/20 bg-paper-soft p-4 text-sm"><p>Your unfinished assessment is saved in this tab.</p><button ref={resumeAssessmentTrigger} className="font-semibold underline text-forest" onClick={draft.retryRestore}>Resume saved assessment</button><button className="font-semibold underline text-rust" onClick={() => { draft.discard(); setPausedAssessment(false); }}>Discard saved draft</button></div>}
+        <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={discardPausedAssessment} />
+        {pausedAssessment && !draft.expired && <div className="flex flex-wrap items-center gap-4 rounded-xl border border-forest/20 bg-paper-soft p-4 text-sm"><p>Your unfinished assessment is saved in this tab.</p><button ref={resumeAssessmentTrigger} className="font-semibold underline text-forest" onClick={draft.retryRestore}>Resume saved assessment</button><button className="font-semibold underline text-rust" onClick={discardPausedAssessment}>Discard saved draft</button></div>}
       </>}
       {loadError && <div className="atlas-load-error" role="alert"><div><strong>Your map couldn’t load completely.</strong><p>{loadError}</p></div><button onClick={() => void load()} disabled={loading}>Try again</button></div>}
       {loading && computed.length === 0 && <div className="atlas-loading" role="status"><Loader2 className="animate-spin" size={25} /><span>Finding your place on the map…</span></div>}

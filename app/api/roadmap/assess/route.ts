@@ -2,7 +2,7 @@ import { operationBudget, withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
-import { adaptiveDifficulty, getLearningContext } from "@/lib/learningContext";
+import { getLearningContext, prepareAssessmentContext } from "@/lib/learningContext";
 import { assessmentResponseSchema, callLocalMl, LearningError } from "@/lib/localMl";
 import { createAssessment } from "@/lib/assessments";
 import { careerAssessmentDifficulty } from "@/lib/careerCatalog";
@@ -19,7 +19,10 @@ async function handlePOST(req: Request) {
   if (!parsed.success) return NextResponse.json({ error: "Invalid assessment request." }, { status: 400 });
   try {
     const body = parsed.data;
-    const context = await getLearningContext(supabase, user.id);
+    const preparation = body.purpose === "practice"
+      ? await prepareAssessmentContext(supabase, user.id, "practice")
+      : null;
+    const context = preparation || await getLearningContext(supabase, user.id);
     let skills = context.skills;
     let courseTitle = "";
     let courseId: string | undefined;
@@ -35,7 +38,7 @@ async function handlePOST(req: Request) {
       skills = skills.filter((s) => s.id === body.skill_id);
     }
     if (!skills.length) throw new LearningError("This skill is not configured for your current role.", 400);
-    const suggested = body.purpose === "practice" ? await adaptiveDifficulty(supabase, user.id, "practice") : Math.max(1, Math.ceil((skills[0].score || 0) / 20));
+    const suggested = preparation ? preparation.difficulty : Math.max(1, Math.ceil((skills[0].score || 0) / 20));
     const difficulty = careerAssessmentDifficulty(context.level, suggested);
     const result = await callLocalMl("/assessment", { skills, role: context.role, count: body.purpose === "course" && difficulty < 3 ? 12 : 10, difficulty, context: courseTitle }, assessmentResponseSchema);
     const allowed = new Set(skills.map((s) => s.id));

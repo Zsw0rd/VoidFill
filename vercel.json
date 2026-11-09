@@ -25,7 +25,7 @@
       "functions": {
         "ml/cloud.py": {
           "maxDuration": 300,
-          "excludeFiles": "{.venv-ml/**,node_modules/**,.next/**,ml/runtime/**,ml/data/raw/**,ml/artifacts/retriever*/**,ml/artifacts/bge-base-source/**,ml/artifacts/catalogue-cache/**,ml/tests/**,tests/**,.env*,.git/**}"
+          "excludeFiles": "{.vercel/**,.venv-ml/**,node_modules/**,.next/**,ml/runtime/**,ml/data/raw/**,ml/artifacts/retriever*/**,ml/artifacts/bge-base-source/**,ml/artifacts/catalogue-cache/**,ml/tests/**,tests/**,.env*,.git/**}"
         }
       }
     }

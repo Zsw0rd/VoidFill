@@ -1,7 +1,7 @@
-import { createClient } from "@/lib/supabase/server";
+import type { createClient } from "@/lib/supabase/server";
 import { LearningError, type LearningSkill } from "./localMl";
 import { roadmapProgress } from "./roadmapProgress";
-import { careerSkillForName, type CareerLevel } from "./careerCatalog";
+import { careerAssessmentDifficulty, careerSkillForName, type CareerLevel } from "./careerCatalog";
 import { loadCareerRequirements } from "./careerRequirements";
 import { assessmentContextKey } from "./assessmentContext";
 
@@ -37,6 +37,16 @@ export async function adaptiveDifficulty(supabase: Awaited<ReturnType<typeof cre
   const average = data.reduce((sum, a) => sum + (a.total_count ? a.correct_count / a.total_count * 100 : 0), 0) / data.length;
   const previous = Number(data[0].difficulty_level || 1);
   return Math.min(5, Math.max(1, previous + (average >= 80 ? 1 : average < 40 ? -1 : 0)));
+}
+
+/** Both reads use the already verified owner. History does not depend on the
+ * profile/requirements reads, so do not put its database round trip after them. */
+export async function prepareAssessmentContext(supabase: Awaited<ReturnType<typeof createClient>>, userId: string, kind: "daily" | "practice") {
+  const [context, suggestedDifficulty] = await Promise.all([
+    getLearningContext(supabase, userId),
+    adaptiveDifficulty(supabase, userId, kind),
+  ]);
+  return { ...context, difficulty: careerAssessmentDifficulty(context.level, suggestedDifficulty) };
 }
 
 export async function applySkillResults(supabase: Awaited<ReturnType<typeof createClient>>, userId: string, results: { skill_id: string; skill_name: string; score: number }[]) {
