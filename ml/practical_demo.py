@@ -23,15 +23,17 @@ def brief(role_id, level):
     curriculum = role.get("curriculum", {})
     stage = curriculum.get(level, {})
     capstone = stage.get("milestones", [{}])[-1]
-    rubric = list(capstone.get("checks") or activity["rubric"])
-    if stage.get("case_verification"):
+    rubric = list(stage.get("case_acceptance") or capstone.get("checks") or activity["rubric"])
+    if not stage.get("case_acceptance") and stage.get("case_verification"):
         rubric.append(stage["case_verification"])
     version = catalogue()["version"]
     if curriculum.get("case_pack_version"):
         version += "/" + curriculum["case_pack_version"]
-    result = {"version": version, "role_id": role["id"], "role_name": role["name"], "role_key": role["key"], "level": level, "title": activity["title"], "instructions": activity["instructions"], "deliverable": capstone.get("deliverable", activity["evidence_type"]), "rubric": rubric[:20], "note": activity["note"]}
+    result = {"version": version, "role_id": role["id"], "role_name": role["name"], "role_key": role["key"], "level": level, "title": stage.get("case_title") or activity["title"], "instructions": stage.get("case_task") or activity["instructions"], "deliverable": stage.get("case_deliverable") or capstone.get("deliverable", activity["evidence_type"]), "rubric": rubric[:20], "note": activity["note"]}
     if stage.get("case_inputs"):
         result["case_inputs"] = copy.deepcopy(stage["case_inputs"])
+    if stage.get("case_sources"):
+        result["case_sources"] = copy.deepcopy(stage["case_sources"])
     return result
 
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ import Link from "next/link";
 import { QuestionOptions } from "@/components/QuestionOptions";
 import { useAssessmentDraft } from "@/components/useAssessmentDraft";
 import { AssessmentDraftNotice } from "@/components/AssessmentDraftNotice";
+import { useQuestionNavigation } from "@/components/useQuestionNavigation";
 
 type Question = {
   id: string;
@@ -61,6 +62,8 @@ export function PracticeTestClient({ ownerId, contextKey, recentAttempts, skillN
   const [questions, setQuestions] = useState<Question[]>([]);
   const [assessmentToken, setAssessmentToken] = useState("");
   const [index, setIndex] = useState(0);
+  const { questionHeading, moveQuestion } = useQuestionNavigation(index, setIndex);
+  const startHeading = useRef<HTMLHeadingElement>(null);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<any>(null);
   const [submissionError, setSubmissionError] = useState<{message: string; restart: boolean} | null>(null);
@@ -205,6 +208,11 @@ export function PracticeTestClient({ ownerId, contextKey, recentAttempts, skillN
     setSubmissionError(null);
   }
 
+  function discardSession() {
+    resetTest();
+    requestAnimationFrame(() => startHeading.current?.focus());
+  }
+
   const q = questions[index];
   const diffTone = DIFF_TONES[difficulty] || "neutral";
 
@@ -226,7 +234,7 @@ export function PracticeTestClient({ ownerId, contextKey, recentAttempts, skillN
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
           <div className="flex items-center gap-3">
-            <h1 className="page-title">The practice lab.</h1>
+            <h1 ref={startHeading} tabIndex={-1} className="page-title">The practice lab.</h1>
             <Badge tone="neutral">Practice</Badge>
           </div>
           <p className="mt-2 text-sm text-muted">
@@ -242,7 +250,7 @@ export function PracticeTestClient({ ownerId, contextKey, recentAttempts, skillN
         )}
       </div>
 
-      {(stage === "start" || stage === "quiz") && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={resetTest} />}
+      {(stage === "start" || stage === "quiz") && <AssessmentDraftNotice message={draft.message} storageAvailable={draft.storageAvailable} retry={draft.retry} expired={draft.expired} onRetry={draft.retryRestore} onDiscard={discardSession} />}
 
       {/* Start Screen */}
       {stage === "start" && !loading && (
@@ -329,7 +337,7 @@ export function PracticeTestClient({ ownerId, contextKey, recentAttempts, skillN
 
           <Card>
             <CardContent className="p-6">
-              <div className="text-lg font-medium" aria-live="polite" aria-atomic="true">{q.prompt}</div>
+              <div ref={questionHeading} role="heading" aria-level={2} tabIndex={-1} className="text-lg font-medium" aria-live="polite" aria-atomic="true">{q.prompt}</div>
               <div className="mt-6">
                 <QuestionOptions
                   question={q.prompt}
@@ -346,13 +354,13 @@ export function PracticeTestClient({ ownerId, contextKey, recentAttempts, skillN
                 <Button
                   variant="ghost"
                   disabled={index === 0 || loading}
-                  onClick={() => setIndex((i) => Math.max(0, i - 1))}
+                  onClick={() => moveQuestion(Math.max(0, index - 1))}
                 >
                   <ArrowLeft size={14} />
                   Previous
                 </Button>
                 <span className="flex-1" />
-                <Button variant="ghost" disabled={loading} onClick={resetTest}>
+                <Button variant="ghost" disabled={loading} onClick={discardSession}>
                   Discard session
                 </Button>
                 <Button
@@ -361,7 +369,7 @@ export function PracticeTestClient({ ownerId, contextKey, recentAttempts, skillN
                   onClick={() => {
                     if (answers[q.id] === undefined)
                       return toast("Pick an answer");
-                    if (index + 1 < questions.length) setIndex((i) => i + 1);
+                    if (index + 1 < questions.length) moveQuestion(index + 1);
                     else submitTest();
                   }}
                 >

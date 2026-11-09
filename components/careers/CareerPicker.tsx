@@ -1,20 +1,31 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { BookOpen, Check, Compass, PenLine, Search } from "lucide-react";
 import { careerCatalogue, careerCoverage, careerForName, careerSkillForKey, careerSkillForName, matchCareers, MAX_FOCUS_SKILLS, PERSONAL_GOAL_NAME, type CareerLevel, type StoredCareer } from "@/lib/careerCatalog";
 import "./careers.css";
 
 export type AvailableSkill = {id: string; name: string};
 export type CareerChoice = {roleId: string; goal: string; level: CareerLevel; focusIds: string[]; context: string};
-type Props = {roles: StoredCareer[]; skills: AvailableSkill[]; value: CareerChoice; onChange: (value: CareerChoice) => void; disabled?: boolean};
+export type CareerValidation = {field: "role" | "goal" | "focus"; message: string; attempt: number};
+type Props = {roles: StoredCareer[]; skills: AvailableSkill[]; value: CareerChoice; onChange: (value: CareerChoice) => void; disabled?: boolean; validation?: CareerValidation | null};
 
-export function CareerPicker({roles, skills, value, onChange, disabled = false}: Props) {
+export function CareerPicker({roles, skills, value, onChange, disabled = false, validation}: Props) {
   const uid = useId();
   const [query, setQuery] = useState("");
   const [family, setFamily] = useState("");
   const [skillQuery, setSkillQuery] = useState("");
   const [visible, setVisible] = useState(8);
+  const searchField = useRef<HTMLInputElement>(null);
+  const goalField = useRef<HTMLInputElement>(null);
+  const focusGroup = useRef<HTMLDivElement>(null);
+  const focusDetails = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    if (!validation) return;
+    if (validation.field === "focus" && focusDetails.current) focusDetails.current.open = true;
+    const target = validation.field === "goal" ? goalField.current : validation.field === "focus" ? focusGroup.current : searchField.current;
+    target?.focus();
+  }, [validation]);
   const selected = roles.find(role => role.id === value.roleId);
   const profile = careerForName(selected?.name);
   const personal = selected?.name === PERSONAL_GOAL_NAME;
@@ -39,10 +50,10 @@ export function CareerPicker({roles, skills, value, onChange, disabled = false}:
   return <section className="career-picker" aria-label="Choose your career direction">
     <div className="career-discovery-heading"><Compass size={20} /><div><strong>Find your direction</strong><p>Explore technical, creative and business careers. Choose a foundation, then make it yours.</p></div></div>
     <div className="career-search-row">
-      <div><label htmlFor={`${uid}-search`}>Search a career or describe the work</label><div className="career-search-input"><Search size={16} /><input id={`${uid}-search`} type="search" placeholder="Try recruiter, cloud support, graphic designer…" value={query} maxLength={2000} disabled={disabled} onChange={event => {setQuery(event.target.value); setVisible(8);}} /></div></div>
+      <div><label htmlFor={`${uid}-search`}>Search a career or describe the work</label><div className="career-search-input"><Search size={16} /><input ref={searchField} id={`${uid}-search`} type="search" placeholder="Try recruiter, cloud support, graphic designer…" value={query} maxLength={2000} disabled={disabled} aria-invalid={validation?.field === "role" || undefined} aria-describedby={validation?.field === "role" ? `${uid}-role-error` : undefined} onChange={event => {setQuery(event.target.value); setVisible(8);}} /></div>{validation?.field === "role" && <p id={`${uid}-role-error`} className="career-validation-error">{validation.message}</p>}</div>
       <div><label htmlFor={`${uid}-family`}>Career field</label><select id={`${uid}-family`} value={family} disabled={disabled} onChange={event => {setFamily(event.target.value); setVisible(8);}}><option value="">All fields</option>{careerCatalogue.families.map(item => <option key={item.key} value={item.key}>{item.name}</option>)}</select></div>
     </div>
-    <p className="career-result-count" role="status">{results.length} {query ? "matching" : "available"} profiles{query && " · suggestions need your confirmation"}</p>
+    <p className="career-result-count" role="status">Showing {Math.min(visible, results.length)} of {results.length} {query ? "matching" : "available"} profiles{query && " · suggestions need your confirmation"}</p>
     <div className="career-results">
       {results.slice(0, visible).map(({stored, profile: item, evidence}) => {
         const itemCoverage = careerCoverage(item);
@@ -58,7 +69,7 @@ export function CareerPicker({roles, skills, value, onChange, disabled = false}:
     {results.length > visible && <button className="career-show-more" type="button" disabled={disabled} onClick={() => setVisible(count => count + 12)}>Show {Math.min(12, results.length - visible)} more careers</button>}
 
     <div className="career-personal-fields">
-      <div><label htmlFor={`${uid}-goal`}>Personal career goal <span>(optional)</span></label><input id={`${uid}-goal`} value={value.goal} maxLength={160} disabled={disabled} placeholder="For example: customer success in renewable energy" onChange={event => onChange({...value, goal: event.target.value})} /><div className="career-inline-actions"><button type="button" disabled={disabled || !value.goal.trim()} onClick={() => {setQuery(value.goal); setFamily(""); setVisible(8);}}>Find matching profiles</button>{personalRole && <button type="button" disabled={disabled || !value.goal.trim()} onClick={() => choose(personalRole.id)}>Build from my focus skills</button>}</div></div>
+      <div><label htmlFor={`${uid}-goal`}>Personal career goal <span>({personal ? "required" : "optional"})</span></label><input ref={goalField} id={`${uid}-goal`} value={value.goal} maxLength={160} disabled={disabled} aria-required={personal || undefined} aria-invalid={validation?.field === "goal" || undefined} aria-describedby={validation?.field === "goal" ? `${uid}-goal-error` : undefined} placeholder="For example: customer success in renewable energy" onChange={event => onChange({...value, goal: event.target.value})} />{validation?.field === "goal" && <p id={`${uid}-goal-error`} className="career-validation-error">{validation.message}</p>}<div className="career-inline-actions"><button type="button" disabled={disabled || !value.goal.trim()} onClick={() => {setQuery(value.goal); setFamily(""); setVisible(8);}}>Find matching profiles</button>{personalRole && <button type="button" disabled={disabled || !value.goal.trim()} onClick={() => choose(personalRole.id)}>Build from my focus skills</button>}</div></div>
       <div><label htmlFor={`${uid}-level`}>Learning level</label><select id={`${uid}-level`} value={value.level} disabled={disabled} onChange={event => onChange({...value, level: event.target.value as CareerLevel})}><option value="foundation">Foundation · build core knowledge</option><option value="intermediate">Intermediate · scenarios and tradeoffs</option></select><p className="career-help">Foundation checks build understanding. Intermediate scenarios test application and tradeoffs. These paths do not certify professional competence.</p></div>
     </div>
 
@@ -72,10 +83,11 @@ export function CareerPicker({roles, skills, value, onChange, disabled = false}:
       {profile && <details className="career-source"><summary>About this career profile</summary><p>VoidFill&apos;s curated foundation profile is related to <a href={profile.occupation.url} target="_blank" rel="noopener noreferrer">{profile.occupation.title}</a> in O*NET. Requirements vary by employer and country. Learning targets are curriculum goals.</p></details>}
     </div>}
 
-    <details className="career-focus" open={personal || value.focusIds.length > 0 ? true : undefined}>
-      <summary>{personal ? "Choose your focus skills" : "Add focus skills or work context"}<span>{value.focusIds.length}/{MAX_FOCUS_SKILLS} focus skills</span></summary>
+    <details ref={focusDetails} className="career-focus" open={personal || value.focusIds.length > 0 ? true : undefined}>
+      <summary id={`${uid}-focus-label`}>{personal ? "Choose your focus skills" : "Add focus skills or work context"}<span>{value.focusIds.length}/{MAX_FOCUS_SKILLS} focus skills</span></summary>
       <label htmlFor={`${uid}-skill-search`}>Find a focus skill</label><input id={`${uid}-skill-search`} type="search" value={skillQuery} disabled={disabled} placeholder="Search skills, such as accounting or React" onChange={event => setSkillQuery(event.target.value)} />
-      <div className="career-focus-options">{focusOptions.map(skill => {
+      {validation?.field === "focus" && <p id={`${uid}-focus-error`} className="career-validation-error">{validation.message}</p>}
+      <div ref={focusGroup} className="career-focus-options" role="group" aria-labelledby={`${uid}-focus-label`} aria-invalid={validation?.field === "focus" || undefined} aria-describedby={validation?.field === "focus" ? `${uid}-focus-error` : undefined} tabIndex={-1}>{focusOptions.map(skill => {
         const metadata = careerSkillForName(skill.name)!;
         const included = baseline.has(skill.name);
         const checked = included || value.focusIds.includes(skill.id);

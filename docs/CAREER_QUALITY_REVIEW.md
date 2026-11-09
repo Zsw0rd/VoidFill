@@ -1,10 +1,32 @@
 # Career quality review — 8 November 2026
 
+The 9 November [case-contract review](CAREER_CASE_CONTRACT_REVIEW.md) supersedes
+the earlier Practical Studio task/input alignment. It covers all 120 new briefs,
+45 independent exercise checks and current all 60 role-review hashes. The question
+and resource findings below retain their original dates and scope; this follow-up
+does not claim a fresh specialist review of every question or a new learner study.
+
 This review covers every one of the 60 career profiles and 55 shared skills. It
 combines reproducible checks with an agent review of all case/complication/
 capstone/rubric combinations and one intermediate explanation per skill. It is
 not independent subject-matter-expert review, a calibrated assessment study,
 real-user research, a hiring benchmark or professional certification.
+
+On 9 November, an additional selection review inspected all 22 base Python-tagged
+questions and their three source resources. Six questions linked to the imported
+Scikit-learn regression lesson (`d4efc35e0bb394adf9e02a90`) assess statistical
+variables, regression, overfitting, feature selection and train/test splitting.
+Their inherited `python` tag describes a tool used by the lesson; those questions
+are now omitted only from broad Python skill checks. The exact regression-lesson
+check still serves its six explicitly linked questions. After the existing global
+quality exclusions, broader Python foundation checks retain ten eligible unique
+items: seven language/container/control-flow questions and three Python/Pandas
+questions. All ten authored intermediate Python questions remain eligible. This
+is a narrow runtime scope rule, not a question-bank, topic-tag or vector rewrite;
+other topics and frozen case-pack edition 4 are unchanged. Regression tests force
+the off-scope questions to have overwhelming retrieval scores, verify they still
+cannot enter broader Python checks, and retain all 60 careers at both learning
+levels. This agent scope review adds no specialist or learner-calibration claim.
 
 ## Results and concrete repairs
 

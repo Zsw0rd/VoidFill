@@ -6,8 +6,8 @@ descriptions do not override the current architecture.
 
 ## Previous release baseline
 
-The verified production baseline is merged commit `0a30ce3`, released through
-[PR 9](https://github.com/Zsw0rd/VoidFill/pull/9) to
+The verified production baseline is merged commit `50cc8a0`, released through
+[PR 10](https://github.com/Zsw0rd/VoidFill/pull/10) to
 [void-fill.vercel.app](https://void-fill.vercel.app). Its three required CI groups
 and first public availability workflow passed. Local main was synchronized
 without rewriting remote history; the earlier local commits remain on
@@ -35,7 +35,7 @@ single-host file-ledger architecture describes local/disposable demos only.
 
 ## Implemented follow-up scope
 
-The current source adds the following work. Publication, exact source/deployment
+The PR 10 release added the following work. Publication, exact source/deployment
 identifiers and completed checks are recorded in its release pull request; a
 source checkout alone does not prove that version is live.
 
@@ -58,11 +58,22 @@ remain, and no learner calibration or independent specialist approval is claimed
 Backup changes, Gemini replacement and long-conversation changes are excluded.
 No paid plan, new inference provider or broad credential scope is introduced.
 
+The subsequent engineering batch addresses native Vercel model-build caching,
+bounded hosted performance including private resume inference, PDFium thread
+safety, additional keyboard/validation repairs and task/input alignment for all
+120 foundation/intermediate career exercises. Its implementation, measurements
+and publication gates are recorded in
+[the engineering follow-up](ENGINEERING_IMPROVEMENTS_20261109.md). Source changes
+and synthetic tests alone do not prove that a candidate is live or that Vercel
+retained its model archive between builds; use the actual source, deployment and
+acceptance evidence in [the PR 11 release record](https://github.com/Zsw0rd/VoidFill/pull/11).
+
 ## Where to look
 
 | Topic | Current source of truth |
 | --- | --- |
 | Hosting, model artifacts and deployment | [Cloud deployment](CLOUD_DEPLOYMENT.md) |
+| Verified model downloads between Vercel builds | [Model download efficiency](MODEL_DOWNLOAD_EFFICIENCY.md) |
 | Authentication and real-account acceptance | [Authentication](AUTHENTICATION.md) |
 | Password recovery, own-data export and deletion requests | [Account self-service](ACCOUNT_SELF_SERVICE.md) |
 | Unfinished assessments after refresh | [Assessment recovery](ASSESSMENT_RECOVERY.md) |

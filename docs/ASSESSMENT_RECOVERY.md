@@ -14,6 +14,18 @@ offers Retry restoring or Discard saved draft. Failed saves keep selected answer
 and show an inline error for all four assessment purposes. Retrying submits the
 same sealed assessment to the existing idempotent grading path.
 
+Course checks now use questions explicitly linked to the owner's saved resource
+and its configured skill. A similar title, embedding score or concept-reference
+URL cannot substitute a broader skill quiz. Short linked banks remain short;
+resources without a linked bank keep focused guidance in the dialog and offer a
+direct **Check the broader skill** action or a return to the atlas.
+Existing sealed drafts retain their original questions and grading contract.
+
+Deliberate Next/Previous navigation focuses the new question heading, including
+when the clicked button becomes disabled. Choosing an answer retains option
+focus. Discarding a daily/practice session returns focus to its page heading;
+discarding a roadmap session returns it to the atlas heading.
+
 ## What is stored
 
 Only the current tab's `sessionStorage` is used. There is one bounded, versioned

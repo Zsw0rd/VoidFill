@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {createServer} from "node:http";
 import {spawnSync} from "node:child_process";
 import {probePlan,runLoadProbe,validateProbeSessions,latencySummary} from "../lib/loadProbe.mjs";
+import {syntheticResumePdf} from "../lib/performanceFixtures.mjs";
 
 const questions=Array.from({length:10},(_,index)=>({id:`q-${index}`,options:["One","Two"]}));
 const assessment={questions,assessment_token:"synthetic-sealed-assessment-token-with-no-user-data"};
@@ -146,4 +147,72 @@ test("paced local stages keep idle future demo clients alive through ordinary re
   assert.equal(report.success,true);
   assert.equal(report.completed_requests,450);
   assert.equal(report.stages.length,4);
+});
+
+test("synthetic private-inference workload is explicitly selected, bounded and never applies extracted profile data",async()=>{
+  assert.throws(()=>probePlan({workload:"unknown"}));
+  assert.throws(()=>probePlan({workload:"resume",clients:4}));
+  const plan=probePlan({workload:"resume",clients:2,rounds:2});
+  assert.equal(plan.requests,24);
+  const seen: {path:string;method:string;body:string}[]=[];
+  const server=createServer(async(req,res)=>{
+    let body="";for await(const chunk of req)body+=chunk.toString();
+    seen.push({path:req.url||"",method:req.method||"",body});
+    res.setHeader("Content-Type","application/json");
+    if(req.url==="/api/resume") {
+      assert.match(req.headers["content-type"]||"",/^multipart\/form-data; boundary=/);
+      assert.match(body,/%PDF-1\.4/);
+      assert.match(body,/filename="synthetic-probe.pdf"/);
+      res.end(JSON.stringify({pages:1,methods:["pdf-text"],skills:[{name:"Python"},{name:"SQL"}],matched_app_skills:[{assessed:false}],text:"sensitive extracted fixture content never goes in metrics"}));
+    } else res.end(JSON.stringify(req.url==="/api/practical"?{demo:true,available:true,projects:[],submissions:[],reviews:[]}:assessment));
+  });
+  await new Promise<void>(resolve=>server.listen(0,"127.0.0.1",resolve));
+  try {
+    const port=(server.address() as {port:number}).port;
+    const report=await runLoadProbe({plan:{...plan,origin:`http://127.0.0.1:${port}`},clients:[{cookie:"synthetic-owner-a"},{cookie:"synthetic-owner-b"}]});
+    assert.equal(report.success,true);assert.equal(report.completed_requests,24);
+    const resumes=seen.filter(row=>row.path==="/api/resume");
+    assert.equal(resumes.length,6);
+    assert.equal(new Set(resumes.map(row=>row.body.match(/Synthetic performance case ([a-zA-Z0-9-]+);/)?.[1])).size,6,"every private encoder input must vary");
+    assert.ok(seen.every(row=>row.method===(row.path==="/api/practical"?"GET":"POST")));
+    assert.ok(!seen.some(row=>/apply|submit|profile/.test(row.path)));
+    const serialized=JSON.stringify(report);
+    for(const value of ["sensitive extracted fixture","synthetic-owner","probe@example.invalid","Fictional Probe","%PDF-"])assert.ok(!serialized.includes(value));
+    assert.match(report.synthetic_resume_scope,/never applied/);
+  } finally {await new Promise<void>((resolve,reject)=>server.close(error=>error?reject(error):resolve()));}
+  assert.throws(()=>syntheticResumePdf("untrusted (pdf) input"));
+});
+
+test("private-inference probe stops at parser saturation rather than hiding a fast rejection as success",async()=>{
+  let calls=0;
+  const report=await runLoadProbe({plan:probePlan({workload:"resume",clients:1,rounds:2}),clients:[{cookie:"synthetic-only"}],fetchImpl:async()=>{calls++;return new Response("private parser details",{status:429});}});
+  assert.equal(calls,1);assert.equal(report.success,false);
+  assert.equal(report.stopped_reason,"rate_limit");assert.equal(report.stages[0].successful,0);
+  assert.equal(report.stages[0].p50_ms,null);assert.equal(report.stages[0].throttled,1);
+  assert.ok(!JSON.stringify(report).includes("private parser details"));
+});
+
+test("a slow final successful response cannot turn an over-deadline probe into a pass",async()=>{
+  let clock=0,calls=0;
+  const report=await runLoadProbe({plan:{...probePlan({clients:1,rounds:1}),deadline_ms:100},clients:[{cookie:"synthetic-only"}],now:()=>clock,fetchImpl:async url=>{
+    clock+=(++calls===3?200:10);
+    return new Response(JSON.stringify(String(url).endsWith("/api/practical")?{demo:true,available:true,projects:[],submissions:[],reviews:[]}:assessment));
+  }});
+  assert.equal(calls,3);assert.equal(report.completed_requests,3);
+  assert.equal(report.success,false);assert.equal(report.stopped_reason,"probe_deadline");
+  assert.equal(report.duration_ms,220);assert.equal(report.stages[0].successful,3);
+});
+
+test("request abort uses the remaining workload budget instead of the full per-request timeout",async()=>{
+  let calls=0,aborted=false,clock=0;
+  const report=await runLoadProbe({plan:{...probePlan({clients:1,rounds:1}),deadline_ms:10000,timeout_ms:5000},clients:[{cookie:"synthetic-only"}],now:()=>clock,fetchImpl:async (url,init)=>{
+    if(++calls<3) {clock=calls===2?9900:10;return new Response(JSON.stringify(assessment));}
+    return new Promise<Response>((resolve,reject)=>{
+      const fallback=setTimeout(()=>resolve(new Response("this late response must never be a successful result")),1500);
+      init!.signal!.addEventListener("abort",()=>{aborted=true;clock=10000;clearTimeout(fallback);reject(new Error("synthetic timeout"));},{once:true});
+    });
+  }});
+  assert.equal(aborted,true);
+  assert.equal(report.success,false);assert.equal(report.stopped_reason,"probe_deadline");
+  assert.equal(report.completed_requests,3);assert.equal(report.stages[0].successful,2);
 });

@@ -3,6 +3,7 @@ import copy
 import hashlib
 import io
 import json
+import shutil
 import stat
 import zipfile
 from pathlib import Path
@@ -186,3 +187,123 @@ def test_shard_paths_and_missing_file_metadata_cannot_bypass_verification(model_
     with pytest.raises(RuntimeError, match="file and shard hashes"):
         cloud_build.prepare_model(original, target)
     assert not calls
+
+
+def test_fresh_build_downloads_once_and_restored_vercel_archive_needs_no_network(model_release, tmp_path, monkeypatch):
+    release, contents, _, calls, first_target, data = model_release
+    first_cache = tmp_path / "first/.vercel/python/services/learning/.venv/voidfill-model-cache"
+    cold = {}
+    assert cloud_build.prepare_model(release, first_target, first_cache, cold) is False
+    assert len(calls) == len(release["parts"])
+    assert cold == {"source": "download", "shard_downloads": 2, "download_bytes": len(data), "archive_bytes": len(data),
+                    "archive_cache_enabled": True, "archive_cache_saved": True}
+    assert (first_cache / "model.zip").read_bytes() == data
+    # Simulate Vercel restoring only its Python venv, not ml/artifacts/cloud.
+    restored_cache = tmp_path / "second/.vercel/python/services/learning/.venv/voidfill-model-cache"
+    shutil.copytree(first_cache, restored_cache)
+    second_target = tmp_path / "second/ml/artifacts/cloud"
+    assert not second_target.exists()
+
+    def no_network(*args, **kwargs):
+        pytest.fail("A restored verified build cache must not fetch any shard")
+
+    monkeypatch.setattr(cloud_build.urllib.request, "urlopen", no_network)
+    warm = {}
+    assert cloud_build.prepare_model(release, second_target, restored_cache, warm) is True
+    assert warm == {"source": "vercel_archive", "shard_downloads": 0, "download_bytes": 0, "archive_bytes": len(data),
+                    "archive_cache_enabled": True, "archive_cache_saved": True}
+    assert {path.relative_to(second_target).as_posix(): path.read_bytes() for path in second_target.rglob("*") if path.is_file()} == contents
+    assert (restored_cache / "model.zip").read_bytes() == data
+
+
+@pytest.mark.parametrize("damage", ["tampered", "missing", "extra", "directory_collision"])
+def test_corrupt_vercel_archive_is_refetched_and_warm_reuse_recovers(model_release, tmp_path, damage):
+    release, contents, _, calls, target, data = model_release
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    if damage == "tampered":
+        (cache / "model.zip").write_bytes(bytes([data[0] ^ 1]) + data[1:])
+    elif damage == "extra":
+        (cache / "model.zip").write_bytes(data)
+        (cache / "unbound-marker.json").write_text(json.dumps({"sha256": release["sha256"]}))
+    elif damage == "directory_collision":
+        (cache / "model.zip").mkdir()
+        (cache / "model.zip/extra").write_bytes(b"untrusted")
+    report = {}
+    assert cloud_build.prepare_model(release, target, cache, report) is False
+    assert len(calls) == 2
+    assert report["download_bytes"] == len(data)
+    assert cloud_build.model_tree(cache) == {"model.zip"}
+    assert (cache / "model.zip").read_bytes() == data
+    assert cloud_build.prepare_model(release, tmp_path / "next-build", cache) is True
+    assert len(calls) == 2
+    assert cloud_build.cache_matches(target, cloud_build.validated_release(release))
+
+
+def test_cached_archive_still_verifies_extracted_manifest_before_publication(model_release, tmp_path):
+    release, _, _, calls, target, data = model_release
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    (cache / "model.zip").write_bytes(data)
+    release["files"][0]["sha256"] = "0" * 64
+    with pytest.raises(RuntimeError, match="file checksum"):
+        cloud_build.prepare_model(release, target, cache)
+    assert not target.exists()
+    assert (cache / "model.zip").read_bytes() == data
+    assert calls == []
+
+
+def test_vercel_cache_symlinks_fail_closed_before_any_download(model_release, tmp_path):
+    release, _, _, calls, target, data = model_release
+    outside = tmp_path / "outside.zip"
+    outside.write_bytes(data)
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    try:
+        (cache / "model.zip").symlink_to(outside)
+    except OSError:
+        pytest.skip("This platform requires additional privileges to create symlinks")
+    with pytest.raises(RuntimeError, match="symlinks"):
+        cloud_build.prepare_model(release, target, cache)
+    assert outside.read_bytes() == data
+    assert not target.exists()
+    assert calls == []
+
+
+@pytest.mark.parametrize("layout", [".vercel/python/.venv", ".vercel/python/services/learning/.venv"])
+def test_only_the_active_vercel_python_builder_venv_is_used(tmp_path, layout):
+    env = {"VERCEL": "1", "VERCEL_PYTHON_VENV_PATH": str(tmp_path / layout)}
+    assert cloud_build.vercel_archive_cache(tmp_path, env) == tmp_path / layout / "voidfill-model-cache"
+    assert cloud_build.vercel_archive_cache(tmp_path, {**env, "VERCEL": "0"}) is None
+    assert cloud_build.vercel_archive_cache(tmp_path, {"VERCEL": "1", "VIRTUAL_ENV": env["VERCEL_PYTHON_VENV_PATH"]}) is None
+
+
+@pytest.mark.parametrize("value", ["relative/venv", "/outside/.venv", ".vercel/python/services/other/.venv", ".vercel/python/services/learning/../learning/.venv"])
+def test_unknown_builder_layout_falls_back_without_reading_or_writing(tmp_path, value):
+    venv = str(tmp_path / value) if value.startswith(".vercel/") else value
+    assert cloud_build.vercel_archive_cache(tmp_path, {"VERCEL": "1", "VERCEL_PYTHON_VENV_PATH": venv}) is None
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_build_cache_cannot_be_deployed_in_the_learning_bundle():
+    config = json.loads((Path(__file__).resolve().parents[2] / "vercel.json").read_text())
+    excludes = config["services"]["learning"]["functions"]["ml/cloud.py"]["excludeFiles"]
+    assert ".vercel/**" in excludes.strip("{}").split(",")
+
+
+def test_native_installation_retains_the_cached_venv_and_uses_only_serving_dependencies():
+    """A custom Python31 installer deletes the restored venv before the build.
+
+    Cross-check the native-discovery manifest against the existing serving pins;
+    accidentally selecting ml/requirements.txt would install training packages.
+    """
+    import tomllib
+    root = Path(__file__).resolve().parents[2]
+    service = json.loads((root / "vercel.json").read_text())["services"]["learning"]
+    assert "installCommand" not in service
+    project = tomllib.loads((root / "ml/pyproject.toml").read_text())
+    serving = [line.strip() for line in (root / "ml/requirements-cloud.txt").read_text().splitlines() if line.strip() and not line.lstrip().startswith("#")]
+    assert project["project"]["dependencies"] == serving
+    assert project["project"]["requires-python"] == ">=3.12,<3.13"
+    assert project["tool"]["uv"]["package"] is False
+    assert not any("torch" in item or "transformers" in item for item in project["project"]["dependencies"])

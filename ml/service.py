@@ -10,6 +10,7 @@ from collections import OrderedDict
 from contextlib import asynccontextmanager
 from pathlib import Path
 from urllib.parse import urlsplit
+from typing import Literal
 
 ROOT = Path(__file__).resolve().parent
 os.environ.setdefault("HF_HOME", str(ROOT / ".cache/huggingface"))
@@ -24,6 +25,7 @@ from ml.resume import parse_resume, MAX_BYTES
 from ml.retrieval import passages
 from ml.career_catalogue import CATALOGUE, DIRECTORY, TOPICS, content_fingerprints, load_learning_content, topic_for_skill
 from ml.telemetry import begin_request, finish_request, safe_operation, begin_initialization, finish_initialization
+from ml.assessment_selection import RESOURCE_ASSESSMENT_UNAVAILABLE, question_in_skill_scope, resource_question_indices
 
 class Skill(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -44,6 +46,8 @@ class AssessmentRequest(RecommendationRequest):
     count: int = Field(default=10, ge=1, le=20)
     difficulty: int = Field(default=1, ge=1, le=5)
     context: str = Field(default="", max_length=2000)
+    purpose: Literal["skill", "course"] = "skill"
+    resource_url: str = Field(default="", max_length=2000)
 
 
 class AnalysisRequest(RecommendationRequest):
@@ -257,17 +261,27 @@ class LearningEngine:
     def assessment(self, request: AssessmentRequest) -> dict:
         rng = np.random.default_rng()
         pools, unsupported = [], []
+        resource_scoped = request.purpose == "course" or bool(request.resource_url)
+        if resource_scoped and not request.resource_url.strip():
+            raise HTTPException(422, {"code": RESOURCE_ASSESSMENT_UNAVAILABLE})
+        candidate_pools = []
         available = []
         for skill in request.skills:
             topic = self.topic(skill.name)
-            levels = [q["difficulty"] for q in self.questions if q["id"] not in self.excluded_question_ids and topic and topic in q["topics"]]
+            indices = [i for i, q in enumerate(self.questions) if q["id"] not in self.excluded_question_ids and topic and topic in q["topics"]]
+            if resource_scoped:
+                linked = resource_question_indices(self.resources, self.questions, topic, request.resource_url)
+                indices = [i for i in indices if i in linked]
+            else:
+                indices = [i for i in indices if question_in_skill_scope(self.questions[i], topic)]
+            candidate_pools.append((skill, topic, indices))
+            levels = [self.questions[i]["difficulty"] for i in indices]
             if levels:
                 available.append(max(levels))
         # A foundation-only bank must never be labelled an expert assessment.
         effective_difficulty = min(request.difficulty, min(available)) if available else request.difficulty
-        for skill in request.skills:
-            topic = self.topic(skill.name)
-            candidates = [i for i, q in enumerate(self.questions) if q["id"] not in self.excluded_question_ids and topic in q["topics"] and (q["difficulty"] <= 2 if effective_difficulty <= 2 else q["difficulty"] == effective_difficulty)] if topic else []
+        for skill, topic, indices in candidate_pools:
+            candidates = [i for i in indices if (self.questions[i]["difficulty"] <= 2 if effective_difficulty <= 2 else self.questions[i]["difficulty"] == effective_difficulty)]
             if not candidates:
                 unsupported.append(skill.name)
                 continue
@@ -279,6 +293,8 @@ class LearningEngine:
             order = [candidates[int(i)] for i in np.argsort(-scores)]
             pools.append({"skill": skill, "indices": order, "weight": 2 if skill.score is None or skill.score < 50 else 1})
         if not pools:
+            if resource_scoped:
+                raise HTTPException(422, {"code": RESOURCE_ASSESSMENT_UNAVAILABLE})
             raise HTTPException(422, "No question-bank coverage for the requested skills")
         selected, seen = [], set()
         while len(selected) < request.count:
@@ -298,7 +314,7 @@ class LearningEngine:
             if not added:
                 break
         rng.shuffle(selected)
-        return {"questions": selected, "difficulty": effective_difficulty, "difficultyLabel": ["", "Easy", "Moderate", "Intermediate", "Hard", "Expert"][effective_difficulty], "question_source": "retrieved curriculum and original authored knowledge scenarios; practical work reviewed separately", "unsupported_skills": unsupported, "model": self.report["model"]}
+        return {"questions": selected, "difficulty": effective_difficulty, "difficultyLabel": ["", "Easy", "Moderate", "Intermediate", "Hard", "Expert"][effective_difficulty], "question_source": "explicitly linked resource questions" if resource_scoped else "retrieved curriculum and original authored knowledge scenarios; practical work reviewed separately", "unsupported_skills": unsupported, "model": self.report["model"]}
 
     def analyze(self, request: AnalysisRequest) -> dict:
         recommendations = self.recommend(request)

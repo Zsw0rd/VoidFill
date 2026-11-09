@@ -2,7 +2,7 @@ import raw from "@/ml/data/careers/catalogue.json";
 
 export type CareerLevel = "foundation" | "intermediate";
 export type CareerMilestone = { id: string; title: string; outcome: string; skill_keys: string[]; deliverable: string; checks: string[]; prerequisites: string[] };
-export type CareerCurriculumLevel = { milestones: CareerMilestone[]; case_inputs?: string[]; case_verification?: string; assessment: { difficulty_min: number; difficulty_max: number; note: string } };
+export type CareerCurriculumLevel = { milestones: CareerMilestone[]; case_inputs?: string[]; case_verification?: string; case_title?: string; case_task?: string; case_deliverable?: string; case_acceptance?: string[]; case_sources?: {title: string; url: string}[]; assessment: { difficulty_min: number; difficulty_max: number; note: string } };
 export type CareerCurriculum = { case: string; case_pack_version?: string; skill_sequence: string[]; foundation: CareerCurriculumLevel; intermediate: CareerCurriculumLevel; note: string };
 export type CareerRequirement = { skill: string; importance: number; target: number; essential: boolean };
 export type CareerSkill = { key: string; id: string; name: string; category: string; topic: string | null; assessment_mode: "objective" | "review"; aliases: string[]; description: string; coverage: { questions: number; resources: number; levels: number[]; scope: string } };

@@ -136,7 +136,7 @@ def audit():
         errors.append("Career cases or intermediate capstones are not distinct")
     return {
         "catalogue_version": catalogue["version"], "generated_at": datetime.now(timezone.utc).isoformat(),
-        "scope": "All60 case/rubric consistency review plus all2121 question contracts and arithmetic/surface-cue diagnostics. First intermediate explanation in each55 skill bank was agent-reviewed against stated assumptions and primary-source context. This is not independent subject-matter-expert review, calibrated educational effectiveness, hiring readiness or a certification.",
+        "scope": "All 60 case/rubric consistency review plus all 2121 question contracts and arithmetic/surface-cue diagnostics. First intermediate explanation in each of the 55 skill banks was agent-reviewed against stated assumptions and primary-source context. This is not independent subject-matter-expert review, calibrated educational effectiveness, hiring readiness or a certification.",
         "career_count": len(roles), "skill_count": len(skills), "stored_question_count": len(questions), "served_question_count": len(eligible_questions), "excluded_question_count": len(excluded_ids), "question_quality_registry": quality["version"], "served_resource_count": len(resources),
         "question_contract_errors": len([error for error in errors if error.startswith("Invalid question")]),
         "selected_explanation_reviews": samples, "arithmetic": calculations,

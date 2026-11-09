@@ -1,10 +1,9 @@
 import { operationBudget, withApiTelemetry } from "@/lib/apiOperations";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { adaptiveDifficulty, getLearningContext } from "@/lib/learningContext";
+import { prepareAssessmentContext } from "@/lib/learningContext";
 import { assessmentResponseSchema, callLocalMl, LearningError } from "@/lib/localMl";
 import { createAssessment } from "@/lib/assessments";
-import { careerAssessmentDifficulty } from "@/lib/careerCatalog";
 
 async function handlePOST() {
   const supabase = await createClient();
@@ -13,8 +12,8 @@ async function handlePOST() {
   const budgetResponse = await operationBudget(supabase, user.id, "assessment");
   if (budgetResponse) return budgetResponse;
   try {
-    const context = await getLearningContext(supabase, user.id);
-    const difficulty = careerAssessmentDifficulty(context.level, await adaptiveDifficulty(supabase, user.id, "daily"));
+    const context = await prepareAssessmentContext(supabase, user.id, "daily");
+    const difficulty = context.difficulty;
     const result = await callLocalMl("/assessment", { role: context.role, skills: context.skills, count: 10, difficulty }, assessmentResponseSchema);
     const allowed = new Set(context.skills.map((s) => s.id));
     if (result.questions.some((q) => !allowed.has(q.skill_id))) throw new LearningError("Invalid assessment skill mapping.", 502);

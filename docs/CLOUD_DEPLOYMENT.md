@@ -27,7 +27,9 @@ original BGE model, CLS pooling, tokenizer, 256-token truncation, normalization,
 catalogue vectors, source questions and answer keys are preserved. Exact public
 queries for supported catalogue skill names and public contexts are precomputed
 with the original model. The current corpus/cache metadata is recorded in
-`ml/data/careers/index.json`; rebuild it whenever content changes.
+`ml/data/careers/index.json`; rebuild it when embedding inputs change. A
+case-contract-only change may refresh its broader source fingerprint only after
+the exhaustive input/vector preservation proof passes; do not call that a reindex.
 Routine recommendations and context-free assessments can use these embeddings
 without loading the model graph. Dynamic resume input is never put in that cache.
 
@@ -65,19 +67,41 @@ parallel, followed by shard, archive and extracted-file verification before
 publication. Symlinks, junctions, duplicate/colliding names and unsafe paths are
 rejected. An unbound cache marker is never trusted.
 
-This avoids repeatedly downloading the unchanged 276,954,446-byte archive when
-the model directory is restored by GitHub Actions' configured cache or is already
-present locally. Vercel build-cache retention of this directory is not assumed;
-a fresh deployment still downloads and verifies the archive. Hash checks run at
-build time, not on learner requests. The existing archive, nine shards, weights,
-tokenizer and public precomputed embeddings are unchanged; no artifact upload
-was needed. `ml.package_cloud` derives future file manifests from the completed,
-archive-verified ZIP rather than trusting a cached marker.
+Vercel discovers the serving-only `ml/pyproject.toml`, with exactly the twelve
+pins from `ml/requirements-cloud.txt`, and uses its native managed installer.
+The learning service must not override `installCommand`: Python builder 31
+deletes its restored virtual environment before a custom install command, which
+would erase the retained model archive. The separate `ml/requirements.txt` is
+for training/development and must not become the cloud dependency manifest.
 
-`ml/tests/test_cloud_build.py` uses tiny synthetic archives to verify no-network
-cache hits, recovery from incomplete/tampered caches, checksum failures and path
-attacks. These tests are included in hosted CI. User requests do not download
-model weights.
+GitHub Actions restores the verified extracted model directory. Vercel's Python
+builder does not retain `ml/artifacts/cloud`; its native cache preserves its
+virtual environment instead. On a recognized Vercel build, the build script now
+retains the unchanged **276,954,446-byte compressed archive** in a dedicated
+`voidfill-model-cache/model.zip` directory under the active builder venv, outside
+`site-packages`. A subsequent clean build can verify that archive and all extracted
+files without downloading any shards. The runtime still receives only the
+442,549,415-byte extracted model tree; `.vercel/**` is explicitly excluded from
+the learning function, so the cache copy is not deployed or imported.
+
+The cache is an optimization: a missing, changed, evicted or unrecognized cache
+falls back to the existing verified download path. Unsafe links fail closed.
+Platform cache retention and Python-builder layouts are not guaranteed; a build
+without a recognized active venv does not read or write another environment.
+The sanitized `Model artifact preparation` build log distinguishes existing-file,
+Vercel-archive and download sources and records shard body bytes. Actual hosted
+reuse must be confirmed by consecutive deployment logs, not inferred from tests.
+See [download efficiency and verification](MODEL_DOWNLOAD_EFFICIENCY.md).
+
+Hash checks run at build time, not on learner requests. The existing archive,
+nine shards, weights, tokenizer and public precomputed embeddings are unchanged;
+no artifact upload was needed. `ml.package_cloud` derives future file manifests
+from the completed, archive-verified ZIP rather than trusting a cached marker.
+
+`ml/tests/test_cloud_build.py` uses tiny synthetic archives to verify fresh-worktree
+restoration from a Vercel archive with zero network calls, recovery from corrupt
+caches, checksum failures, builder-path validation and path attacks. These tests
+are included in hosted CI. User requests do not download model weights.
 
 The runtime bundle needs Vercel Large Functions (`VERCEL_SUPPORT_LARGE_FUNCTIONS=1`).
 The release uses unchanged pretrained BGE weights under MIT; its model card and

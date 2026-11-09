@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "baseline_commit": "50cc8a0e0c1ad18118229a35b1040368893a3681",
+  "scope": "Exhaustive ordered input and vector-byte equality for a case-contract-only update. No encoder inference or FP32 reindex was performed; only the changed catalogue source fingerprint is refreshed after proof passes.",
+  "model": "voidfill-bge-base-v3",
+  "backend": "onnx-fp32",
+  "checks": {
+    "all_ordered_embedding_inputs_equal": true,
+    "indexing_implementation_unchanged": true,
+    "retrieval_implementation_unchanged": true,
+    "vectors_bytes_equal": true,
+    "model_release_manifest_equal": true,
+    "all_questions_and_resources_equal": true,
+    "catalogue_storage_version_equal": true,
+    "all_skills_and_role_requirements_equal": true,
+    "all_original_milestones_equal": true,
+    "matcher_input_text_equal": true,
+    "matcher_executable_code_equal": true,
+    "fp32_backend_retained": true,
+    "content_fingerprints_current": true
+  },
+  "inputs": {
+    "resources": {
+      "count": 147,
+      "before_sha256": "331e83d74153e0392a82303d70309c588d1b1eb14a323254d84be5fb51507756",
+      "after_sha256": "331e83d74153e0392a82303d70309c588d1b1eb14a323254d84be5fb51507756",
+      "equal": true
+    },
+    "questions": {
+      "count": 1510,
+      "before_sha256": "5c3ab15cdd1cca69ec28e51b9640623298280bb8cf55985fb72d0861eb5d6bdb",
+      "after_sha256": "5c3ab15cdd1cca69ec28e51b9640623298280bb8cf55985fb72d0861eb5d6bdb",
+      "equal": true
+    },
+    "topics": {
+      "count": 55,
+      "before_sha256": "ea4ae4a29ea0bdfa16d00b17026763e26deef731bd2010f0b66dda1e98fcd9c4",
+      "after_sha256": "ea4ae4a29ea0bdfa16d00b17026763e26deef731bd2010f0b66dda1e98fcd9c4",
+      "equal": true
+    },
+    "passages": {
+      "count": 147,
+      "before_sha256": "2b0832d0411032144dfbff00e69b1ade86dcc6b231c90c0bae419b7f14351d51",
+      "after_sha256": "2b0832d0411032144dfbff00e69b1ade86dcc6b231c90c0bae419b7f14351d51",
+      "equal": true
+    },
+    "passage_owners": {
+      "count": 147,
+      "before_sha256": "24a22d5720e3228198df7b5c27f5bf64b733bdb24bbb33ae89365498aeea45e9",
+      "after_sha256": "24a22d5720e3228198df7b5c27f5bf64b733bdb24bbb33ae89365498aeea45e9",
+      "equal": true
+    },
+    "public_queries": {
+      "count": 408,
+      "before_sha256": "4530816fd2d489919a956e3aca5fc9ba52a5e1fac1a9dc97407ac5fd269fa711",
+      "after_sha256": "4530816fd2d489919a956e3aca5fc9ba52a5e1fac1a9dc97407ac5fd269fa711",
+      "equal": true
+    },
+    "roles": {
+      "count": 60,
+      "before_sha256": "9ba3c2e4fc03529b5646c8a27ed3cd960c62969502a40837b604b3b57adaa005",
+      "after_sha256": "9ba3c2e4fc03529b5646c8a27ed3cd960c62969502a40837b604b3b57adaa005",
+      "equal": true
+    },
+    "resource_ids": {
+      "count": 147,
+      "before_sha256": "c0057ec75f215686eb9472d08591e1e79249f85f29768c074f3db9b92ebfd2df",
+      "after_sha256": "c0057ec75f215686eb9472d08591e1e79249f85f29768c074f3db9b92ebfd2df",
+      "equal": true
+    },
+    "question_ids": {
+      "count": 1510,
+      "before_sha256": "a5da9defc0cef690f57d74a7a5e266cbc4043408916dbce9481e9c063feb9051",
+      "after_sha256": "a5da9defc0cef690f57d74a7a5e266cbc4043408916dbce9481e9c063feb9051",
+      "equal": true
+    }
+  },
+  "vectors_sha256": "134240caaaee4af3b44b084f65edd41641d9899aae3750f25f7570fb3a1bec96",
+  "baseline_vectors_sha256": "134240caaaee4af3b44b084f65edd41641d9899aae3750f25f7570fb3a1bec96",
+  "matcher_inputs_sha256": "4346179f03bb203d324b8a2e0322affcf137bb254850045f8d897b84b8099822",
+  "current_content_fingerprints": {
+    "data/resources.json": "be773fb99bfa5614ce24c050507e739f5569e58dce928aa5fdd42171d145d6cd",
+    "data/questions.json": "2408ec4dcd73a18c6ab75f69419752a8f9386432c572411e3210b1d5519e1e54",
+    "data/careers/resources.json": "e5cda81cd12038dddf9d440967329cd20466d8546a3330277261cd7d47c8b31f",
+    "data/careers/questions.json": "460a43830859c7a89600517740ceb63a9d8c170d88d99d1cd9057b7c44cb004a",
+    "data/careers/catalogue.json": "0dee71534e5546b0b78d5295fec138cee40eeaa2761444abdf2f55b08e86cf51",
+    "cloud-release.json": "fe79585a37bd49d92a14c834ce4a6250ddc29b2451abfee2bebe3258e6b59ff7"
+  },
+  "implementation_sha256": {
+    "ml/index_careers.py": "4714369df827b4a821d58c297775a7013b5232e30b01fdf778fe4f85a4d38864",
+    "ml/retrieval.py": "ecf6e6321ad861daa9d2f0567179d952ac686510c3a4aca396940ae47cb2ee2a",
+    "matcher_executable_js": "999f86055f6d32f50e7ad275aa3f62dcd8ea49922ab062baac1ec16c06a948e4"
+  }
+}

@@ -30,16 +30,52 @@ test("every new practical brief snapshots role-specific synthetic inputs and a l
     assert.equal(foundation.case_inputs?.length, 2, role.name);
     assert.equal(intermediate.case_inputs?.length, 3, role.name);
     assert.deepEqual(intermediate.case_inputs?.slice(0, 2), foundation.case_inputs);
-    assert.match(foundation.version, /case-packs-2$/);
+    assert.match(foundation.version, /case-packs-4$/);
     assert.equal(foundation.rubric.at(-1), role.curriculum.foundation.case_verification);
     assert.equal(intermediate.rubric.at(-1), role.curriculum.intermediate.case_verification);
     assert.notEqual(foundation.rubric.at(-1), intermediate.rubric.at(-1));
+    assert.equal(foundation.title, role.curriculum.foundation.case_title);
+    assert.equal(foundation.instructions, role.curriculum.foundation.case_task);
+    assert.equal(foundation.deliverable, role.curriculum.foundation.case_deliverable);
+    assert.deepEqual(foundation.rubric, role.curriculum.foundation.case_acceptance);
+    assert.notEqual(foundation.instructions, intermediate.instructions, role.name);
+    assert.notEqual(foundation.deliverable, intermediate.deliverable, role.name);
+    assert.ok(foundation.case_sources?.length, role.name);
+    const originalUrl = foundation.case_sources![0].url;
+    foundation.case_sources![0].url = "https://example.com/caller-change";
+    assert.equal(practicalBrief(role.id, "foundation")!.case_sources![0].url, originalUrl);
     foundationInputs.add(JSON.stringify(foundation.case_inputs));
     const original = foundation.case_inputs![0];
     foundation.case_inputs![0] = "Untrusted caller edit";
     assert.equal(practicalBrief(role.id, "foundation")!.case_inputs![0], original);
   }
   assert.equal(foundationInputs.size, 60);
+});
+
+test("new briefs bind equipment, notes and finance tasks to supplied inputs instead of unrelated broad activities", () => {
+  const brief = (name: string, level: "foundation" | "intermediate" = "foundation") => practicalBrief(careerCatalogue.roles.find(role => role.name === name)!.id, level)!;
+  assert.match(brief("Full-Stack Developer").instructions, /returning equipment E1/);
+  assert.doesNotMatch(brief("Full-Stack Developer").instructions, /booking/);
+  assert.match(brief("Mobile Developer").instructions, /offline note N1/i);
+  assert.doesNotMatch(brief("Mobile Developer").instructions, /appointment/);
+  assert.match(brief("Financial Analyst").rubric.join(" "), /cannot be calculated/);
+  assert.match(brief("Financial Analyst", "intermediate").instructions, /conditional cash sensitivity/);
+  assert.match(brief("Credit Analyst").rubric.join(" "), /53.3% of current assets/);
+});
+
+test("legacy catalogue metadata still produces a readable brief without inventing source references", () => {
+  const role = careerCatalogue.roles[0];
+  const original = role.curriculum.foundation;
+  const {case_title, case_task, case_deliverable, case_acceptance, case_sources, ...legacy} = original;
+  try {
+    role.curriculum.foundation = legacy;
+    const brief = practicalBrief(role.id, "foundation")!;
+    assert.equal(brief.title, role.activity.title);
+    assert.equal(brief.instructions, role.activity.instructions);
+    assert.equal(brief.deliverable, legacy.milestones.at(-1)!.deliverable);
+    assert.equal(brief.case_sources, undefined);
+    assert.equal(brief.rubric.at(-1), legacy.case_verification);
+  } finally { role.curriculum.foundation = original; }
 });
 
 test("evidence links accept only public HTTPS and never credentials or executable URLs", () => {

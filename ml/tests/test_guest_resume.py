@@ -19,6 +19,21 @@ def pdf_text_fixture(lines):
     return result.encode("ascii")
 
 
+def test_hosted_performance_fixture_is_a_readable_text_pdf():
+    """Validate the Node probe's actual bytes using the independent PDF parser."""
+    import subprocess
+    from pathlib import Path
+    result = subprocess.run(
+        ["node", "--input-type=module", "-e", "import {syntheticResumePdf} from './lib/performanceFixtures.mjs'; process.stdout.write(syntheticResumePdf('independent-fixture-check'));"],
+        cwd=Path(__file__).resolve().parents[2], capture_output=True, check=True, timeout=10,
+    )
+    text, pages, methods, warnings = extract_document(result.stdout, "synthetic-probe.pdf")
+    assert pages == 1 and methods == ["pdf-text"] and warnings == []
+    assert "Python and SQL" in text
+    assert "Synthetic performance case independent-fixture-check" in text
+    assert "Fictional" in text and "Education" in text
+
+
 def test_session_isolation_and_explicit_deletion():
     store = GuestStore(); a, b = store.create(), store.create()
     store.query(a["token"], {"table": "user_skill_scores", "operation": "insert", "values": {"user_id": b["user"]["id"], "skill_id": SKILLS[0]["id"], "score": 90}})

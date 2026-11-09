@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowUpRight, PenLine } from "lucide-react";
-import { CareerPicker, type AvailableSkill, type CareerChoice } from "@/components/careers/CareerPicker";
+import { CareerPicker, type AvailableSkill, type CareerChoice, type CareerValidation } from "@/components/careers/CareerPicker";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/toast/bus";
 import { careerCatalogue, careerForName, careerSkillForKey, PERSONAL_GOAL_NAME, type StoredCareer } from "@/lib/careerCatalog";
@@ -19,24 +19,39 @@ export function CareerExplorer({roles, skills, profile, reflections}: {roles: St
   const [noteBusy, setNoteBusy] = useState(false);
   const saving = useRef(false);
   const savingNote = useRef(false);
+  const [validation, setValidation] = useState<CareerValidation | null>(null);
+  const validationAttempt = useRef(0);
+  const [saveError, setSaveError] = useState("");
+  const [saveNotice, setSaveNotice] = useState("");
+  const saveFeedback = useRef<HTMLParagraphElement>(null);
+  useEffect(() => {if (saveError || saveNotice) saveFeedback.current?.focus();}, [saveError, saveNotice]);
   const selected = roles.find(role => role.id === choice.roleId);
   const career = careerForName(selected?.name);
   const personal = selected?.name === PERSONAL_GOAL_NAME;
+  function changeChoice(next: CareerChoice) {
+    if (saving.current) return;
+    setChoice(next); setValidation(null); setSaveError(""); setSaveNotice("");
+  }
   function previewCareer(roleId: string) {
     const profile=careerForName(roles.find(role=>role.id===roleId)?.name);
     const included=new Set(profile?.requirements.map(item=>careerSkillForKey(item.skill)?.name)||[]);
-    setChoice(current=>({...current,roleId,focusIds:current.focusIds.filter(id=>!included.has(skills.find(skill=>skill.id===id)?.name))}));
+    changeChoice({...choice,roleId,focusIds:choice.focusIds.filter(id=>!included.has(skills.find(skill=>skill.id===id)?.name))});
   }
   async function save() {
     if (saving.current) return;
-    if (!choice.roleId || (personal && (!choice.goal.trim() || !choice.focusIds.length))) return toast("Complete your direction", "Choose a profile, or name a personal goal and select focus skills.");
-    saving.current = true; setBusy(true);
+    const field = !choice.roleId ? "role" : personal && !choice.goal.trim() ? "goal" : personal && !choice.focusIds.length ? "focus" : null;
+    if (field) {
+      const message = field === "role" ? "Choose a career profile or build a personal goal from supported focus skills." : field === "goal" ? "Name your personal career goal before saving this direction." : "Choose at least one supported focus skill for your personal goal.";
+      setValidation({field, message, attempt: ++validationAttempt.current});
+      return;
+    }
+    saving.current = true; setBusy(true); setValidation(null); setSaveError(""); setSaveNotice("");
     try {
       const res = await fetch("/api/careers/profile", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({role_id: choice.roleId, goal: choice.goal, level: choice.level, focus_skill_ids: choice.focusIds, context: choice.context})});
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Please try again.");
-      toast("Direction saved", "Your atlas and learning activities now use this profile. Your earned progress is kept."); router.refresh();
-    } catch (error) {toast("Could not save", error instanceof Error ? error.message : "Please try again.");}
+      setSaveNotice("Direction saved. Your atlas and learning activities now use this profile. Your earned progress is kept."); router.refresh();
+    } catch (error) {setSaveError(error instanceof Error ? error.message : "Please try again.");}
     finally {saving.current = false; setBusy(false);}
   }
   async function saveNote() {
@@ -53,8 +68,8 @@ export function CareerExplorer({roles, skills, profile, reflections}: {roles: St
   }
   return <div className="max-w-6xl mx-auto">
     <div className="mb-7 flex flex-wrap justify-between items-end gap-4"><div><p className="eyebrow mb-3">Many fields. Your own direction.</p><h1 className="page-title">A career worth exploring.</h1><p className="mt-3 text-sm text-muted max-w-2xl">60 profiles across technical and non-technical fields. Start with a foundation, add focus skills, and build evidence through practice.</p></div><Link href="/roadmap" className="secondary-link">Open your atlas <ArrowUpRight size={15} /></Link></div>
-    <CareerCompare roles={roles} selectedId={choice.roleId} onChoose={previewCareer} />
-    <div className="career-explorer-layout"><div className="career-explorer-panel"><CareerPicker roles={roles} skills={skills} value={choice} onChange={setChoice} disabled={busy} /><div className="career-explorer-save"><Button onClick={save} disabled={busy || !choice.roleId}>{busy ? "Saving direction…" : "Save my direction"}</Button><p>Changing direction keeps your scores, XP and activity history.</p></div></div>
+    <CareerCompare roles={roles} selectedId={choice.roleId} onChoose={previewCareer} disabled={busy} />
+    <div className="career-explorer-layout"><div className="career-explorer-panel"><CareerPicker roles={roles} skills={skills} value={choice} onChange={changeChoice} disabled={busy} validation={validation} /><div className="career-explorer-save"><Button onClick={save} disabled={busy || !choice.roleId}>{busy ? "Saving direction…" : "Save my direction"}</Button><p>Changing direction keeps your scores, XP and activity history.</p></div>{(saveError || saveNotice) && <p ref={saveFeedback} tabIndex={-1} role={saveError ? "alert" : "status"} className={saveError ? "career-validation-error career-save-feedback" : "career-save-feedback"}>{saveError || saveNotice}</p>}</div>
       <aside className="career-explorer-side career-explorer-panel career-activity" aria-label="Practical career activity"><p className="eyebrow !mt-0 mb-3"><PenLine size={14} className="inline mr-1" /> Put it into practice</p><h2>{career?.activity.title || (personal ? "Make your goal concrete" : "Choose a career to begin")}</h2><p>{career?.activity.instructions || (personal ? "Create a small example of the work you want to do using your selected focus skills. Explain the intended audience, your approach and what you would improve after feedback." : "Preview a practical activity and its review criteria alongside each profile.")}</p>{career && <><ol>{career.activity.rubric.map(item => <li key={item}>{item}</li>)}</ol><p>{career.activity.note}</p><Link href={`/practical?career=${encodeURIComponent(selected?.id || "")}&level=${choice.level}`} className="secondary-link !mt-5">Open practical studio <ArrowUpRight size={15} /></Link></>}{selected && <div className="mt-6"><label htmlFor="career-reflection" className="text-xs font-semibold">Your private reflection</label><textarea id="career-reflection" className="career-reflection" maxLength={10000} value={notes[selected.id] || ""} onChange={event => setNotes({...notes, [selected.id]: event.target.value})} placeholder="What did you produce? What evidence supports your choices? What would you improve?" disabled={noteBusy} /><p className="!text-[10px] !mt-2">Ungraded notes do not award XP or skill scores. They are private to your account.</p><Button variant="soft" className="mt-4" onClick={saveNote} disabled={noteBusy}>{noteBusy ? "Saving reflection…" : "Save reflection"}</Button></div>}</aside>
     </div>
     {career && <CareerJourney career={career} level={choice.level} practicalRoleId={selected?.id} />}

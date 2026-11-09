@@ -104,6 +104,8 @@ export function WorkspaceShell({
   const sidebar = useRef<HTMLElement>(null);
   const workspaceContent = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
+  const previousPathname = useRef(pathname);
+  const pendingArrivalFocus = useRef(true);
   const groups = role ? staffGroups(role) : learnerGroups;
   const navigationGroups = role && learnerAccess ? [...groups, {label: "Your own growth", items: [{href: "/dashboard", icon: BookOpen, label: "My learning workspace"}]}] : groups;
   const profileHref = role ? "/admin/profile" : "/profile";
@@ -134,6 +136,27 @@ export function WorkspaceShell({
     document.title = `${pageTitle} · VoidFill`;
     return () => { document.title = previous; };
   }, [pageTitle]);
+  useEffect(() => {
+    if (previousPathname.current !== pathname) {
+      pendingArrivalFocus.current = true;
+      previousPathname.current = pathname;
+    }
+    // Escape/close without navigation keeps focus on the menu trigger. A real
+    // route change waits until menu cleanup has removed inert and restored it.
+    if (menuOpen || !pendingArrivalFocus.current) return;
+    // Page transitions can remove the clicked navigation link and leave focus
+    // on body. Wait for the menu cleanup, then start at the new main landmark.
+    const frame = requestAnimationFrame(() => {
+      const content = workspaceContent.current;
+      const active = document.activeElement;
+      pendingArrivalFocus.current = false;
+      if (!content || content.querySelector('[role="dialog"]')) return;
+      if (!active || active === document.body || active === trigger.current || sidebar.current?.contains(active)) {
+        content.querySelector<HTMLElement>("main")?.focus({preventScroll: true});
+      }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [menuOpen, pathname]);
   useEffect(() => {
     if (!menuOpen) return;
     const previous = document.body.style.overflow;

@@ -6,6 +6,7 @@ the stated exercise, not permission to perform regulated or hazardous work.
 """
 
 from ml.career_case_packs import VERSION as CASE_PACK_VERSION, PACKS, case_pack
+from ml.career_case_contracts import case_contract
 
 # role: (case, foundation preparation, intermediate deliverable, complication,
 #        evidence to check, relevant skill sequence)
@@ -109,4 +110,10 @@ def curriculum_for(name, keys, activity):
         details = case_pack(name, level)
         result[level]["case_inputs"] = details["case_inputs"]
         result[level]["case_verification"] = details["verification"]
+        contract = case_contract(name, level)
+        result[level]["case_title"] = contract["title"]
+        result[level]["case_task"] = contract["task"]
+        result[level]["case_deliverable"] = contract["deliverable"]
+        result[level]["case_acceptance"] = [contract["boundary"], details["verification"]]
+        result[level]["case_sources"] = contract["sources"]
     return result
