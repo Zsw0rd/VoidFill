@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const context = await getLearningContext(supabase, user.id);
     const [deps, resources, existing] = await Promise.all([
       supabase.from("skill_dependencies").select("prerequisite_skill_id,dependent_skill_id"),
-      supabase.from("roadmap_courses").select("skill_id,completed").eq("user_id", user.id),
+      supabase.from("roadmap_courses").select("skill_id,completed,url").eq("user_id", user.id),
       supabase.from("user_roadmap").select("skill_id,status").eq("user_id", user.id).eq("role_id", context.roleId),
     ]);
     if (deps.error || resources.error || existing.error) throw new LearningError("Could not load roadmap progress.", 500);

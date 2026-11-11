@@ -45,10 +45,28 @@ def topic_for_skill(name):
     return None
 
 
+def load_extension_content():
+    from ml.lesson_validation import validate_lesson_questions, validate_lesson_resources, validate_resource_scopes, validate_source_warnings
+    resources = json.loads((DIRECTORY / "resources.json").read_text(encoding="utf8"))
+    questions = json.loads((DIRECTORY / "questions.json").read_text(encoding="utf8"))
+    base_resources = json.loads((ROOT / "data/resources.json").read_text(encoding="utf8"))
+    base_questions = json.loads((ROOT / "data/questions.json").read_text(encoding="utf8"))
+    additions = json.loads((ROOT / "data/lessons/resources.json").read_text(encoding="utf8"))
+    validate_lesson_resources(additions, [*base_resources, *resources], TOPICS)
+    resources = [*resources, *additions]
+    lessons = json.loads((ROOT / "data/lessons/questions.json").read_text(encoding="utf8"))
+    validate_lesson_questions(lessons, [*base_resources, *resources], [row["id"] for row in [*base_questions, *questions]])
+    scopes = json.loads((ROOT / "data/lessons/resource-scopes.json").read_text(encoding="utf8"))
+    validate_resource_scopes(scopes, [*base_resources, *resources], lessons)
+    warnings = json.loads((ROOT / "data/lessons/resource-warnings.json").read_text(encoding="utf8"))
+    validate_source_warnings(warnings, [*base_resources, *resources])
+    return resources, [*questions, *lessons]
+
+
 def load_learning_content():
-    def rows(name):
-        return json.loads((ROOT / f"data/{name}.json").read_text(encoding="utf8")) + json.loads((DIRECTORY / f"{name}.json").read_text(encoding="utf8"))
-    return rows("resources"), rows("questions")
+    resources, questions = load_extension_content()
+    return (json.loads((ROOT / "data/resources.json").read_text(encoding="utf8")) + resources,
+            json.loads((ROOT / "data/questions.json").read_text(encoding="utf8")) + questions)
 
 
 def canonical_json_fingerprint(payload):
@@ -59,7 +77,9 @@ def canonical_json_fingerprint(payload):
 
 
 def content_fingerprints():
-    paths = [ROOT / "data/resources.json", ROOT / "data/questions.json", DIRECTORY / "resources.json", DIRECTORY / "questions.json", DIRECTORY / "catalogue.json", ROOT / "cloud-release.json"]
+    paths = [ROOT / "data/resources.json", ROOT / "data/questions.json", ROOT / "data/question-quality.json",
+             DIRECTORY / "resources.json", DIRECTORY / "questions.json", *sorted((ROOT / "data/lessons").glob("*.json")),
+             DIRECTORY / "catalogue.json", ROOT / "cloud-release.json"]
     return {str(path.relative_to(ROOT)).replace("\\", "/"): canonical_json_fingerprint(path.read_bytes()) for path in paths}
 
 

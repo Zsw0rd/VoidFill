@@ -222,6 +222,16 @@ svg {
 .workspace-main > div {
   min-width: 0;
 }
+.workspace-main :is(fieldset, input, textarea, select) {
+  min-width: 0;
+}
+.workspace-main :is(h1, h2, h3, p, legend),
+.assessment-option > span:last-child {
+  overflow-wrap: anywhere;
+}
+.assessment-option > span:last-child {
+  min-width: 0;
+}
 .workspace-main h1 {
   letter-spacing: -0.045em;
 }
@@ -292,6 +302,7 @@ svg {
   line-height: 0.99;
   font-weight: 500;
   letter-spacing: -0.075em;
+  overflow-wrap: anywhere;
 }
 .landing-headline em {
   font-family: "Instrument Serif", Georgia, serif;
@@ -550,10 +561,14 @@ svg {
     padding: 0 22px;
   }
   .landing-nav {
-    height: 80px;
+    height: auto;
+    min-height: 80px;
+    padding-block: 16px;
+    flex-wrap: wrap;
+    gap: 16px;
   }
   .landing-headline {
-    font-size: 64px;
+    font-size: clamp(2.5rem, 13vw, 4rem);
   }
   .landing-hero {
     padding: 44px 0;
@@ -619,6 +634,7 @@ svg {
 }
 .workspace-sidebar {
   overflow-y: auto;
+  max-width: calc(100vw - 24px);
   scrollbar-width: thin;
 }
 .workspace-sidebar > nav,
@@ -673,4 +689,38 @@ svg {
   .weekly-route-grid li:last-child { border-bottom:0; padding-bottom:0!important; }
   .weekly-route-number { font-size:23px; }
   .weekly-route-kind { margin-top:8px; }
+}
+
+/* Keep state and native controls recognizable when the OS replaces colors. */
+@media (forced-colors: active) {
+  :focus-visible,
+  .upload-zone:focus-within,
+  .career-picker :is(input, select, textarea):focus-visible {
+    outline-color: Highlight !important;
+  }
+  :is(button, input, select, textarea) { border-color: ButtonText; }
+  :is(button, input, select, textarea):disabled { color: GrayText; opacity: 1; }
+  a { color: LinkText; }
+  :is(button, a)[aria-current="page"],
+  button[aria-current="true"],
+  button[aria-pressed="true"],
+  .assessment-option:has(input:checked) {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+  .assessment-option input[type="radio"] {
+    position: static;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    margin: 0;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+    overflow: visible;
+    appearance: auto;
+  }
+  .assessment-option > span:first-of-type { display: none; }
+  .assessment-option:has(input:disabled) { color: GrayText; opacity: 1; }
+  :focus-visible { outline: 3px dashed Highlight !important; outline-offset: 4px; }
 }

@@ -65,7 +65,9 @@ def extract_document(data: bytes, filename: str):
         raise HTTPException(413, "Choose a PDF or DOCX up to 4 MB.")
     suffix = Path(filename).suffix.lower()
     warnings, methods = [], []
-    pages = 1
+    # DOCX is a flow format: physical pagination depends on a layout engine,
+    # fonts and paper settings. Do not fabricate a one-page count for it.
+    pages = None
     if suffix == ".pdf" and data.startswith(b"%PDF-"):
         import pypdfium2 as pdfium
         try:
@@ -190,4 +192,4 @@ def parse_resume(data, filename, engine):
     if not skills:
         warnings.append("No supported skill mentions were found. You can enter skills manually in your profile.")
     warnings.append("Designed layouts and scans are supported on a best-effort basis. Check the extracted text before applying fields.")
-    return {"filename": Path(filename).name[:150], "name": name, "email": email.group() if email else "", "phone": phone.group().strip() if phone else "", "skills": skills, "matched_app_skills": matched, "sections": sections, "role_suggestions": suggestions, "text": text, "pages": pages, "methods": methods, "warnings": warnings, "model": engine.report["model"], "note": "Resume skills are self-reported claims, not assessed proficiency. Original file and extraction are not retained by the server."}
+    return {"filename": Path(filename).name[:150], "name": name, "email": email.group() if email else "", "phone": phone.group().strip() if phone else "", "skills": skills, "matched_app_skills": matched, "sections": sections, "role_suggestions": suggestions, "text": text, "pages": pages, "page_count_known": pages is not None, "methods": methods, "warnings": warnings, "model": engine.report["model"], "note": "Resume skills are self-reported claims, not assessed proficiency. Original file and extraction are not retained by the server."}

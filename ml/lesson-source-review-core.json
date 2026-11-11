@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "scope": "Primary-source captures and literal fragment verification. Original examples were independently checked; this is not human/expert calibration.",
+  "sources": [
+    {
+      "url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "fetched_url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "reviewed_at": "2026-11-10",
+      "sha256": "66e9ee740dc848a8b7f9a77746442acf752fe4be078f69d4768a94dc48c23ce1",
+      "bytes": 111008,
+      "verified_fragments": [
+        "dictionaries",
+        "more-on-lists",
+        "sets",
+        "using-lists-as-queues"
+      ]
+    },
+    {
+      "url": "https://docs.python.org/3/library/bisect.html",
+      "fetched_url": "https://docs.python.org/3/library/bisect.html",
+      "reviewed_at": "2026-11-10",
+      "sha256": "10311e0f003c335b33b0e856e451b2e6ca0d4197b4e9ea8a350ffa058f19ecb5",
+      "bytes": 49902,
+      "verified_fragments": [
+        "bisect.bisect_left",
+        "bisect.bisect_right",
+        "bisect.insort_left",
+        "searching-sorted-lists"
+      ]
+    },
+    {
+      "url": "https://docs.python.org/3/library/heapq.html",
+      "fetched_url": "https://docs.python.org/3/library/heapq.html",
+      "reviewed_at": "2026-11-10",
+      "sha256": "f5fada9aea6e2a3b6e3c715e87fe6c7eaed95ae7116c337e8dfe8c43e6abbd65",
+      "bytes": 58610,
+      "verified_fragments": [
+        "heapq.heapify",
+        "heapq.heappop",
+        "heapq.heappushpop",
+        "heapq.heapreplace",
+        "priority-queue-implementation-notes",
+        "theory"
+      ]
+    },
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "fetched_url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "reviewed_at": "2026-11-10",
+      "sha256": "130418a7e65eb80dcfc78b5f948d4e7d81bf5d1182869a304a617a6557fcbca5",
+      "bytes": 140178,
+      "verified_fragments": [
+        "break-and-continue-statements",
+        "default-argument-values",
+        "defining-functions",
+        "else-clauses-on-loops",
+        "keyword-arguments",
+        "the-range-function"
+      ]
+    },
+    {
+      "url": "https://docs.python.org/3/library/collections.html",
+      "fetched_url": "https://docs.python.org/3/library/collections.html",
+      "reviewed_at": "2026-11-10",
+      "sha256": "3942ee0ccd8e526031a7c45d6c1014df51acf13054e36b67fbb20e76c1a012f8",
+      "bytes": 210533,
+      "verified_fragments": [
+        "collections.Counter",
+        "collections.Counter.update",
+        "collections.defaultdict",
+        "collections.deque"
+      ]
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "fetched_url": "https://www.postgresql.org/docs/current/tutorial-select.html",
+      "reviewed_at": "2026-11-10",
+      "sha256": "73e623874edf0767095d2f4df5a72d2674ac21e1db1b6fa4312a709055418fd2",
+      "bytes": 19770,
+      "verified_fragments": []
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/tutorial-join.html",
+      "fetched_url": "https://www.postgresql.org/docs/current/tutorial-join.html",
+      "reviewed_at": "2026-11-10",
+      "sha256": "422bcd5bf5b3922b003de96948e29530eae9cbb7a17932008d16343e4e3bc398",
+      "bytes": 22308,
+      "verified_fragments": []
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/tutorial-agg.html",
+      "fetched_url": "https://www.postgresql.org/docs/current/tutorial-agg.html",
+      "reviewed_at": "2026-11-10",
+      "sha256": "9d29d88ef26d72a5e2451af03898bac775116e6cf1a70a816589342d5e480ee3",
+      "bytes": 20692,
+      "verified_fragments": []
+    },
+    {
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/05-relational-databases/README.md",
+      "fetched_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/05-relational-databases/README.md",
+      "reviewed_at": "2026-11-10",
+      "sha256": "ba555c3a17f5bde2d98efb9f6a28c0591b38721fcd8f169838e874b49c4ddcdf",
+      "bytes": 10166,
+      "verified_fragments": [
+        "joining-data",
+        "retrieving-the-data",
+        "the-concepts-of-relationships"
+      ]
+    },
+    {
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/06-non-relational/README.md",
+      "fetched_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/06-non-relational/README.md",
+      "reviewed_at": "2026-11-10",
+      "sha256": "70be0c415a17274ad5f1fd697877de2c15bf6d125d4d05f709621b21eff79253",
+      "bytes": 12238,
+      "verified_fragments": [
+        "document-data-stores-with-the-azure-cosmos-db",
+        "querying-document-data-with-the-cosmos-db-emulator"
+      ]
+    },
+    {
+      "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/07-python/README.md",
+      "fetched_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/07-python/README.md",
+      "reviewed_at": "2026-11-10",
+      "sha256": "9be577d8b47e77027071531147cc32286aac1545c250d1aedd5c3883037dad3f",
+      "bytes": 20897,
+      "verified_fragments": [
+        "dataframe",
+        "series"
+      ]
+    },
+    {
+      "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/1-Tools/README.md",
+      "fetched_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/1-Tools/README.md",
+      "reviewed_at": "2026-11-10",
+      "sha256": "52860064c88fa41c5b1030ccc5b871abeec0b4154fbd11dffd5a55c3a3d36114",
+      "bytes": 14434,
+      "verified_fragments": []
+    }
+  ]
+}

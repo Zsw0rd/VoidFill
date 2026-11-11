@@ -26,6 +26,7 @@ from ml.retrieval import passages
 from ml.career_catalogue import CATALOGUE, DIRECTORY, TOPICS, content_fingerprints, load_learning_content, topic_for_skill
 from ml.telemetry import begin_request, finish_request, safe_operation, begin_initialization, finish_initialization
 from ml.assessment_selection import RESOURCE_ASSESSMENT_UNAVAILABLE, question_in_skill_scope, resource_question_indices
+from ml.resource_scopes import guide_for_resource, guide_only_question_ids
 
 class Skill(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -65,16 +66,26 @@ def load_question_exclusions(questions, registry_path=None) -> frozenset[str]:
             raise ValueError()
         if not isinstance(registry["excluded"], list) or not registry["excluded"]:
             raise ValueError()
+        additions = [] if registry_path else json.loads((ROOT / "data/lessons/question-exclusions.json").read_text(encoding="utf8"))
+        if not isinstance(additions, list):
+            raise ValueError()
         known = {question["id"]: question for question in questions}
         if len(known) != len(questions):
             raise ValueError()
         excluded = set()
-        for row in registry["excluded"]:
-            if not isinstance(row, dict) or set(row) != {"id", "prompt", "reason_code", "reason", "reference_urls"}:
+        for index, row in enumerate([*registry["excluded"], *additions]):
+            fields = {"id", "prompt", "reason_code", "reason", "reference_urls"}
+            newly_reviewed = index >= len(registry["excluded"])
+            if newly_reviewed:
+                fields.add("keyed_answer")
+            if not isinstance(row, dict) or set(row) != fields:
                 raise ValueError()
             if any(not isinstance(row[key], str) or not row[key].strip() for key in ["id", "prompt", "reason_code", "reason"]):
                 raise ValueError()
             if row["id"] not in known or row["id"] in excluded or row["prompt"] != known[row["id"]]["prompt"]:
+                raise ValueError()
+            question = known[row["id"]]
+            if newly_reviewed and row["keyed_answer"] != question["options"][question["correct_index"]]:
                 raise ValueError()
             if not isinstance(row["reference_urls"], list) or not row["reference_urls"]:
                 raise ValueError()
@@ -84,7 +95,7 @@ def load_question_exclusions(questions, registry_path=None) -> frozenset[str]:
                     raise ValueError()
             excluded.add(row["id"])
         return frozenset(excluded)
-    except (OSError, ValueError, TypeError, KeyError):
+    except (OSError, ValueError, TypeError, KeyError, IndexError):
         raise RuntimeError("Question-quality registry is missing, malformed, stale or references an unknown question.") from None
 
 
@@ -97,6 +108,7 @@ class LearningEngine:
         self.batch_size = 16
         self.resources, self.questions = load_learning_content()
         self.excluded_question_ids = load_question_exclusions(self.questions)
+        self.guide_only_question_ids = guide_only_question_ids(self.resources, self.questions)
         self.public_assessment_contexts = {topic: {r["title"][:500] for r in self.resources if topic in r["topics"]} for topic in TOPICS}
         if self.backend == "onnx":
             from ml.onnx_encoder import OnnxEncoder
@@ -133,7 +145,7 @@ class LearningEngine:
         # Only public catalogue/question embeddings enter this cache. Resume
         # vectors and guest inputs are never persisted here.
         digest = hashlib.sha256()
-        inputs = sorted(checkpoint.rglob("*.json")) + sorted(checkpoint.glob("*.safetensors")) + [ROOT / "data/resources.json", ROOT / "data/questions.json", DIRECTORY / "resources.json", DIRECTORY / "questions.json", DIRECTORY / "catalogue.json", ROOT / "retrieval.py"]
+        inputs = sorted(checkpoint.rglob("*.json")) + sorted(checkpoint.glob("*.safetensors")) + [ROOT / "data/resources.json", ROOT / "data/questions.json", DIRECTORY / "resources.json", DIRECTORY / "questions.json", *sorted((ROOT / "data/lessons").glob("*.json")), DIRECTORY / "catalogue.json", ROOT / "retrieval.py"]
         for filename in inputs:
             with filename.open("rb") as source:
                 digest.update(hashlib.file_digest(source, "sha256").digest())
@@ -233,7 +245,7 @@ class LearningEngine:
         results, unsupported = [], []
         for skill in request.skills:
             topic = self.topic(skill.name)
-            candidates = [i for i, r in enumerate(self.resources) if topic in r["topics"]] if topic else []
+            candidates = [i for i, r in enumerate(self.resources) if topic in r["topics"] and not guide_for_resource(r["url"], topic)] if topic else []
             if not candidates:
                 unsupported.append(skill.name)
                 results.append({"skill_id": skill.id, "skill_name": skill.name, "resources": []})
@@ -273,7 +285,7 @@ class LearningEngine:
                 linked = resource_question_indices(self.resources, self.questions, topic, request.resource_url)
                 indices = [i for i in indices if i in linked]
             else:
-                indices = [i for i in indices if question_in_skill_scope(self.questions[i], topic)]
+                indices = [i for i in indices if question_in_skill_scope(self.questions[i], topic) and self.questions[i]["id"] not in self.guide_only_question_ids]
             candidate_pools.append((skill, topic, indices))
             levels = [self.questions[i]["difficulty"] for i in indices]
             if levels:
@@ -285,12 +297,16 @@ class LearningEngine:
             if not candidates:
                 unsupported.append(skill.name)
                 continue
-            query = f"{skill.name}. {TOPICS[topic]}. {request.context[:500]}"
-            public_context = not request.context or request.context[:500] in self.public_assessment_contexts[topic]
-            similarities = self.encode_queries([query], public=public_context)[0] @ self.question_vectors[candidates].T
-            # Source pre/post labels and authored difficulty are estimates, not a learned ability scale.
-            scores = similarities - np.array([abs(self.questions[i]["difficulty"] - effective_difficulty) * .18 for i in candidates]) + rng.gumbel(0, .05, len(candidates))
-            order = [candidates[int(i)] for i in np.argsort(-scores)]
+            if resource_scoped and len(request.skills) == 1 and len(candidates) <= request.count:
+                # Every eligible item fits. Ranking would add inference without changing selection.
+                order = candidates
+            else:
+                query = f"{skill.name}. {TOPICS[topic]}. {request.context[:500]}"
+                public_context = not request.context or request.context[:500] in self.public_assessment_contexts[topic]
+                similarities = self.encode_queries([query], public=public_context)[0] @ self.question_vectors[candidates].T
+                # Source pre/post labels and authored difficulty are estimates, not a learned ability scale.
+                scores = similarities - np.array([abs(self.questions[i]["difficulty"] - effective_difficulty) * .18 for i in candidates]) + rng.gumbel(0, .05, len(candidates))
+                order = [candidates[int(i)] for i in np.argsort(-scores)]
             pools.append({"skill": skill, "indices": order, "weight": 2 if skill.score is None or skill.score < 50 else 1})
         if not pools:
             if resource_scoped:

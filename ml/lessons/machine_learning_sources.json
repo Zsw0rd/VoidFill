@@ -1,0 +1,1754 @@
+[
+  {
+    "resource_id": "adbcf17f64d9f66e17f7ce82",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/1-intro-to-ML/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/1-intro-to-ML/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "c40cec3eac4ccc2dde3d1958c62fb478b323b9cc8babddae502e53eacd9c61f6",
+    "bytes": 9418,
+    "section_slugs": [
+      "introduction-to-machine-learning",
+      "pre-lecture-quiz",
+      "getting-started-with-machine-learning",
+      "what-is-machine-learning",
+      "the-hype-curve",
+      "a-mysterious-universe",
+      "the-childs-brain",
+      "the-human-brain",
+      "some-terminology",
+      "ai-ml-deep-learning",
+      "concepts-to-cover",
+      "in-this-course-you-will-learn",
+      "what-we-will-not-cover",
+      "why-study-machine-learning",
+      "applications-of-machine-learning",
+      "examples-of-applied-ml",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "593b1f33ca4b39211c8eccd6",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/2-history-of-ML/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/2-history-of-ML/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "e854d2787411b95e48fb46833bcd06ce35c430f6298f7bd6006ac559584a6174",
+    "bytes": 11428,
+    "section_slugs": [
+      "history-of-machine-learning",
+      "pre-lecture-quiz",
+      "notable-discoveries",
+      "1950-machines-that-think",
+      "1956-dartmouth-summer-research-project",
+      "1956---1974-the-golden-years",
+      "1974---1980-ai-winter",
+      "1980s-expert-systems",
+      "1987---1993-ai-chill",
+      "1993---2011",
+      "now",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "3f9470d7f955bac6fe97bdfb",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/3-fairness/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/3-fairness/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "1b95ec437ee3c51394ed70e3517c3b491da2b65d21bcb92903140a60e6cb0c12",
+    "bytes": 15896,
+    "section_slugs": [
+      "building-machine-learning-solutions-with-responsible-ai",
+      "pre-lecture-quiz",
+      "introduction",
+      "prerequisite",
+      "fairness",
+      "reliability-and-safety",
+      "inclusiveness",
+      "security-and-privacy",
+      "transparency",
+      "accountability",
+      "impact-assessment",
+      "debugging-with-responsible-ai",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "8665cbcb49e8235c073ea410",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/4-techniques-of-ML/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/4-techniques-of-ML/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "e5240afed604fc57070276c8c84eef9c07cec839351fa67cc1f8aa0b7b3bf22d",
+    "bytes": 11507,
+    "section_slugs": [
+      "techniques-of-machine-learning",
+      "pre-lecture-quiz",
+      "introduction",
+      "what-question-to-ask",
+      "pre-building-tasks",
+      "data",
+      "features-and-target",
+      "selecting-your-feature-variable",
+      "visualize-your-data",
+      "split-your-dataset",
+      "building-a-model",
+      "decide-on-a-training-method",
+      "train-a-model",
+      "evaluate-the-model",
+      "parameter-tuning",
+      "prediction",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "64194972db5d31954d2eab14",
+      "9932de14f2896338373bd21c",
+      "9ad1b600e41c8b66e609173a",
+      "444dada88136c9d89d3748b1",
+      "ca35af5340dc07e76eca1c36"
+    ]
+  },
+  {
+    "resource_id": "650d1633208ac3bc22ff70dd",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "038556c2d0b8d460043b6de5c689aabf69bb1ba5edeeb3e17a8a074e42b2665b",
+    "bytes": 1542,
+    "section_slugs": [
+      "introduction-to-machine-learning",
+      "lessons",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "adbcf17f64d9f66e17f7ce82",
+      "593b1f33ca4b39211c8eccd6",
+      "3f9470d7f955bac6fe97bdfb",
+      "8665cbcb49e8235c073ea410"
+    ]
+  },
+  {
+    "resource_id": "89cd5bb2ed626c6062fa7c6a",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/2-Data/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/2-Data/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "661b87a0e86ef07ea5e7ec92adfdd087f596667326f00b9e5cf78bfe1c678f98",
+    "bytes": 11619,
+    "section_slugs": [
+      "build-a-regression-model-using-scikit-learn-prepare-and-visualize-data",
+      "pre-lecture-quiz",
+      "introduction",
+      "asking-the-right-question-of-your-data",
+      "case-study-the-pumpkin-market",
+      "preparing-data",
+      "the-pumpkin-data---early-conclusions",
+      "exercise---analyze-the-pumpkin-data",
+      "first-check-for-missing-dates",
+      "second-determine-average-price-of-pumpkin",
+      "but-wait-theres-something-odd-here",
+      "but-wait-theres-one-more-thing-to-do",
+      "visualization-strategies",
+      "exercise---experiment-with-matplotlib",
+      "make-it-useful",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "2b19a333828f0415582f2cc5",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/3-Linear/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/3-Linear/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "30b847b1cc41196b7b2d86ab7c238fef78795397d3d16f3f3b32667a8fe5fefe",
+    "bytes": 22078,
+    "section_slugs": [
+      "build-a-regression-model-using-scikit-learn-regression-four-ways",
+      "pre-lecture-quiz",
+      "introduction",
+      "prerequisite",
+      "preparation",
+      "a-linear-regression-line",
+      "correlation",
+      "looking-for-correlation",
+      "simple-linear-regression",
+      "polynomial-regression",
+      "categorical-features",
+      "putting-it-all-together",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "80fa4d18046d23b6fffe27dc",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/4-Logistic/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/4-Logistic/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "a2a1ce9f059c4b800bc4be70d4c0ba2bfcb0d83e0c750c92bb227a813559fdff",
+    "bytes": 20736,
+    "section_slugs": [
+      "logistic-regression-to-predict-categories",
+      "pre-lecture-quiz",
+      "introduction",
+      "prerequisite",
+      "define-the-question",
+      "about-logistic-regression",
+      "binary-classification",
+      "other-classifications",
+      "variables-do-not-have-to-correlate",
+      "you-need-a-lot-of-clean-data",
+      "exercise---tidy-the-data",
+      "visualization---categorical-plot",
+      "data-pre-processing-feature-and-label-encoding",
+      "analyse-relationships-between-variables",
+      "use-a-swarm-plot",
+      "build-your-model",
+      "better-comprehension-via-a-confusion-matrix",
+      "visualize-the-roc-curve-of-this-model",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "e0150a6104439992b3fd91fc",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "9518da8c2e64ae72c6fefbd7a73d4bab88599b1b71eff6e5c8dbd583accef854",
+    "bytes": 3130,
+    "section_slugs": [
+      "regression-models-for-machine-learning",
+      "regional-topic-regression-models-for-pumpkin-prices-in-north-america-",
+      "what-you-will-learn",
+      "lessons",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "d4efc35e0bb394adf9e02a90",
+      "89cd5bb2ed626c6062fa7c6a",
+      "2b19a333828f0415582f2cc5",
+      "80fa4d18046d23b6fffe27dc"
+    ]
+  },
+  {
+    "resource_id": "44a5f55f2274d16ffaa8a4a8",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/1-Web-App/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/1-Web-App/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "1fb8b039257756d8efc96bac34fa5f55bf42a9ea048326a356f3c09e3b112e33",
+    "bytes": 14768,
+    "section_slugs": [
+      "build-a-web-app-to-use-a-ml-model",
+      "pre-lecture-quiz",
+      "building-an-app",
+      "considerations",
+      "tool",
+      "exercise---clean-your-data",
+      "exercise---build-your-model",
+      "exercise---pickle-your-model",
+      "exercise---build-a-flask-app",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "9ad1b600e41c8b66e609173a",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "02d1c98d06ca80cd9f35d84c36e478f11e3e6666f779efdad19d58b40c8c2c37",
+    "bytes": 1400,
+    "section_slugs": [
+      "build-a-web-app-to-use-your-ml-model",
+      "lessons",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "44a5f55f2274d16ffaa8a4a8"
+    ]
+  },
+  {
+    "resource_id": "9932de14f2896338373bd21c",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/1-Introduction/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/1-Introduction/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "08b591aec72f86786e20e54656db9a4a9a14cddf810b868a7d0740c225ab73bf",
+    "bytes": 13586,
+    "section_slugs": [
+      "introduction-to-classification",
+      "pre-lecture-quiz",
+      "introduction",
+      "hello-classifier",
+      "exercise---clean-and-balance-your-data",
+      "exercise---learning-about-cuisines",
+      "discovering-ingredients",
+      "balance-the-dataset",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "444dada88136c9d89d3748b1",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/2-Classifiers-1/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/2-Classifiers-1/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "e48d4cb03293fa38ddf6d1f26e55454a7ee63db55ddca7044c3d59cb1b39a80d",
+    "bytes": 14186,
+    "section_slugs": [
+      "cuisine-classifiers-1",
+      "pre-lecture-quiz",
+      "preparation",
+      "exercise---predict-a-national-cuisine",
+      "choosing-your-classifier",
+      "what-classifier-to-go-with",
+      "a-better-approach",
+      "reasoning",
+      "using-scikit-learn",
+      "exercise---split-the-data",
+      "exercise---apply-logistic-regression",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "9932de14f2896338373bd21c"
+    ]
+  },
+  {
+    "resource_id": "1ff66fd8a070f3eb629997a8",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/3-Classifiers-2/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/3-Classifiers-2/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "6cce55f7ecce16885efd492ff1c0c2f94a44c28af9565b04ac79c189e4e2e592",
+    "bytes": 10069,
+    "section_slugs": [
+      "cuisine-classifiers-2",
+      "pre-lecture-quiz",
+      "prerequisite",
+      "preparation",
+      "a-classification-map",
+      "the-plan",
+      "exercise---split-the-data",
+      "linear-svc-classifier",
+      "exercise---apply-a-linear-svc",
+      "k-neighbors-classifier",
+      "exercise---apply-the-k-neighbors-classifier",
+      "support-vector-classifier",
+      "exercise---apply-a-support-vector-classifier",
+      "ensemble-classifiers",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "9d409b7e327d6e85d596caa5",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/4-Applied/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/4-Applied/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "9392737c7c09200600e820532476c74e7a7daf698ff3ab9e01395a134296f18b",
+    "bytes": 13164,
+    "section_slugs": [
+      "build-a-cuisine-recommender-web-app",
+      "pre-lecture-quiz",
+      "build-your-model",
+      "exercise---train-classification-model",
+      "commence-the-training-routine",
+      "convert-your-model-to-onnx",
+      "view-your-model",
+      "build-a-recommender-web-application",
+      "test-your-application",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "44a5f55f2274d16ffaa8a4a8"
+    ]
+  },
+  {
+    "resource_id": "1121a67935e8f40c613b313b",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "769d528600d0d1ca886ced2714583ee075995ce20156ad316ea20a40d3c90ae7",
+    "bytes": 1557,
+    "section_slugs": [
+      "getting-started-with-classification",
+      "regional-topic-delicious-asian-and-indian-cuisines-",
+      "what-you-will-learn",
+      "lessons",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "9932de14f2896338373bd21c",
+      "444dada88136c9d89d3748b1",
+      "1ff66fd8a070f3eb629997a8",
+      "9d409b7e327d6e85d596caa5"
+    ]
+  },
+  {
+    "resource_id": "64194972db5d31954d2eab14",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/1-Visualize/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/1-Visualize/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "227ac31db80603decc94aa562a93adddf4eb7f254c72252319d04c4813318df9",
+    "bytes": 23483,
+    "section_slugs": [
+      "introduction-to-clustering",
+      "pre-lecture-quiz",
+      "introduction",
+      "getting-started-with-clustering",
+      "clustering-algorithms",
+      "exercise---cluster-your-data",
+      "exercise---data-distribution",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "68f07271e7cd3852c7c9b888",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/2-K-Means/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/2-K-Means/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "83d781911876dc4ed69eea2f1d991f69630a52a0d22deb680571e960973d5c28",
+    "bytes": 11029,
+    "section_slugs": [
+      "k-means-clustering",
+      "pre-lecture-quiz",
+      "introduction",
+      "prerequisite",
+      "exercise---preparation",
+      "silhouette-score",
+      "exercise---build-a-model",
+      "elbow-method",
+      "exercise---display-the-clusters",
+      "variance",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "853f6cd5e85370015f2aa173",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "0e65f6fca21802118d061fba38e55a32a0462f69a0722567f5c27309c9765a2e",
+    "bytes": 2765,
+    "section_slugs": [
+      "clustering-models-for-machine-learning",
+      "regional-topic-clustering-models-for-a-nigerian-audiences-musical-taste-",
+      "lessons",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "64194972db5d31954d2eab14",
+      "68f07271e7cd3852c7c9b888"
+    ]
+  },
+  {
+    "resource_id": "415aa9bf5153db2f959b7f41",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/1-Introduction-to-NLP/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/1-Introduction-to-NLP/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "6f695eaf7f35a355592a894b09bfd5c69f0215156e91647676f60fca9fa04cae",
+    "bytes": 11423,
+    "section_slugs": [
+      "introduction-to-natural-language-processing",
+      "pre-lecture-quiz",
+      "introduction",
+      "computational-linguistics",
+      "example---phone-dictation",
+      "how-is-this-technology-made-possible",
+      "prerequisites",
+      "talking-to-machines",
+      "the-turing-test",
+      "the-inspiration---the-imitation-game",
+      "developing-eliza",
+      "exercise---coding-a-basic-conversational-bot",
+      "the-plan",
+      "building-the-bot",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "references",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "7d7d7e40def35e4fbc555ad2",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/2-Tasks/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/2-Tasks/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "3ad451b0165a7e69a85d79ec7279f39f38474ecfc1b4395700efc93b0c5b3b6b",
+    "bytes": 12040,
+    "section_slugs": [
+      "common-natural-language-processing-tasks-and-techniques",
+      "pre-lecture-quiz",
+      "tasks-common-to-nlp",
+      "tokenization",
+      "embeddings",
+      "parsing--part-of-speech-tagging",
+      "word-and-phrase-frequencies",
+      "n-grams",
+      "noun-phrase-extraction",
+      "sentiment-analysis",
+      "inflection",
+      "lemmatization",
+      "wordnet",
+      "nlp-libraries",
+      "exercise---using-textblob-library",
+      "challenge---improving-your-bot-with-nlp",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "77ed081e085b28907dec5676",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/3-Translation-Sentiment/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/3-Translation-Sentiment/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "d1cc3cf4c1010cd6b9fa2131b63ea2283370692f44b2a71fa1f82d971eb4e690",
+    "bytes": 14619,
+    "section_slugs": [
+      "translation-and-sentiment-analysis-with-ml",
+      "pre-lecture-quiz",
+      "example-sentence-english-to-irish",
+      "translation",
+      "machine-learning-approaches",
+      "exercise---translation",
+      "sentiment-analysis",
+      "ml-approaches",
+      "exercise---sentimental-sentences",
+      "challenge---check-sentiment-polarity",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "4514033c9679049ba71da6f1",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/4-Hotel-Reviews-1/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/4-Hotel-Reviews-1/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "427577554a8c1312f5d8f4e614f8712e93d78eb78c87bc4f984158661bee08aa",
+    "bytes": 33268,
+    "section_slugs": [
+      "sentiment-analysis-with-hotel-reviews---processing-the-data",
+      "pre-lecture-quiz",
+      "introduction",
+      "preparation",
+      "exploratory-data-analysis",
+      "dataset",
+      "hotel-columns",
+      "examples",
+      "tags",
+      "average-hotel-score",
+      "exercise----data-exploration",
+      "load-the-data",
+      "explore-the-data",
+      "dataframe-operations",
+      "code-answers",
+      "another-way",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "1fcb47b0e456d979ca226530",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/5-Hotel-Reviews-2/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/5-Hotel-Reviews-2/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "bcf1d286495a552f1bbdb957e059f662385b7d70be746b577ef944448d6a1ad7",
+    "bytes": 21310,
+    "section_slugs": [
+      "sentiment-analysis-with-hotel-reviews",
+      "pre-lecture-quiz",
+      "filtering--sentiment-analysis-operations",
+      "exercise-a-bit-more-data-processing",
+      "tag-columns",
+      "filtering-tags",
+      "removing-the-length-of-stay-tags",
+      "save-your-file",
+      "sentiment-analysis-operations",
+      "exercise-load-and-save-the-filtered-data",
+      "removing-stop-words",
+      "performing-sentiment-analysis",
+      "conclusion",
+      "post-lecture-quiz",
+      "challenge",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "dfdd34fd544e6f7c7b928edf",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "38515c07e5fa970215c7ab78acead496c7a5e4b3ee43efcdc11411633673f001",
+    "bytes": 2314,
+    "section_slugs": [
+      "getting-started-with-natural-language-processing",
+      "regional-topic-european-languages-and-literature-and-romantic-hotels-of-europe-",
+      "lessons",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "415aa9bf5153db2f959b7f41",
+      "7d7d7e40def35e4fbc555ad2",
+      "77ed081e085b28907dec5676",
+      "4514033c9679049ba71da6f1",
+      "1fcb47b0e456d979ca226530"
+    ]
+  },
+  {
+    "resource_id": "ca35af5340dc07e76eca1c36",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/1-Introduction/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/1-Introduction/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "484f7c257d0ee330f0a1186b926fa97974da0890ad84b667ff37fafd39248c37",
+    "bytes": 11106,
+    "section_slugs": [
+      "introduction-to-time-series-forecasting",
+      "pre-lecture-quiz",
+      "introduction",
+      "some-definitions",
+      "time-series-data-characteristics-to-consider",
+      "exercise---getting-started-with-power-usage-data",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "6e480609fa7263de12f2354d",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/2-ARIMA/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/2-ARIMA/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "7d207dab1ca6895d020ca7745e562634660730f8c9411fe52d4b8c1bade361b9",
+    "bytes": 17982,
+    "section_slugs": [
+      "time-series-forecasting-with-arima",
+      "pre-lecture-quiz",
+      "introduction",
+      "general-concepts",
+      "arima-in-the-context-of-time-series",
+      "exercise---build-an-arima-model",
+      "create-training-and-testing-datasets",
+      "prepare-the-data-for-training",
+      "implement-arima",
+      "evaluate-your-model",
+      "check-model-accuracy",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "d5aabaecb172aa8ce7253ddb",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/3-SVR/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/3-SVR/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "33b1861351ffb5d2359789923e4a5350247ab778c579f4d4e90d6250cd2e23f6",
+    "bytes": 14122,
+    "section_slugs": [
+      "time-series-forecasting-with-support-vector-regressor",
+      "pre-lecture-quiz",
+      "introduction",
+      "svr-in-the-context-of-time-series-1",
+      "why-svr-1",
+      "exercise---build-an-svr-model",
+      "create-training-and-testing-datasets",
+      "prepare-the-data-for-training",
+      "create-data-with-time-steps-1",
+      "implement-svr-1",
+      "fit-the-model-on-training-data-1",
+      "make-model-predictions-1",
+      "evaluate-your-model-1",
+      "check-model-performance-on-training-and-testing-data-1",
+      "check-model-performance-on-full-dataset-1",
+      "challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment",
+      "credits"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "d125ff2ef9ffefcf1f97be09",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "70ac9de6a21f773f69e01c8cc3937f4f203b1a743c9c5d73e12107bc7db90779",
+    "bytes": 1902,
+    "section_slugs": [
+      "introduction-to-time-series-forecasting",
+      "regional-topic-worldwide-electricity-usage-",
+      "lessons",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "ca35af5340dc07e76eca1c36",
+      "6e480609fa7263de12f2354d",
+      "d5aabaecb172aa8ce7253ddb"
+    ]
+  },
+  {
+    "resource_id": "0131853a327944e9e99b399d",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/1-QLearning/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/1-QLearning/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "736fd92ce8106019c0752b1727ffa81165d698f37f1e12da4d3af58badd53638",
+    "bytes": 18751,
+    "section_slugs": [
+      "introduction-to-reinforcement-learning-and-q-learning",
+      "pre-lecture-quiz",
+      "prerequisites-and-setup",
+      "introduction",
+      "the-environment",
+      "actions-and-policy",
+      "random-walk",
+      "reward-function",
+      "q-learning",
+      "essence-of-q-learning-bellman-equation",
+      "learning-algorithm",
+      "exploit-vs-explore",
+      "python-implementation",
+      "checking-the-policy",
+      "challenge",
+      "navigation",
+      "investigating-the-learning-process",
+      "post-lecture-quiz",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "e510c3148513e66df9d9e6d8",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/2-Gym/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/2-Gym/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "824d04909b064cee512aa2333163fae284fb8b1408bf9fff9ae0c8f2013ba4b0",
+    "bytes": 18524,
+    "section_slugs": [
+      "cartpole-skating",
+      "pre-lecture-quiz",
+      "introduction",
+      "prerequisites",
+      "openai-gym",
+      "exercise---initialize-a-cartpole-environment",
+      "state-discretization",
+      "the-q-table-structure",
+      "lets-start-q-learning",
+      "improve-the-algorithm",
+      "plotting-training-progress",
+      "varying-hyperparameters",
+      "seeing-the-result-in-action",
+      "challenge",
+      "post-lecture-quiz",
+      "assignment",
+      "conclusion"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "55d0840db6a74d586bfd327f",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "fdfde7ed5f1950ec622e53428304740fae49ef55ec5cd49c19849b2cf510d508",
+    "bytes": 4340,
+    "section_slugs": [
+      "introduction-to-reinforcement-learning",
+      "regional-topic-peter-and-the-wolf-russia",
+      "reinforcement-learning",
+      "example---computer-game",
+      "lessons",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "1121a67935e8f40c613b313b",
+      "e0150a6104439992b3fd91fc",
+      "853f6cd5e85370015f2aa173",
+      "0131853a327944e9e99b399d",
+      "e510c3148513e66df9d9e6d8"
+    ]
+  },
+  {
+    "resource_id": "f73cafa52d6650012359482a",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/1-Applications/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/1-Applications/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "5d07a236565b9e9dc50788049c1cf56b3beb6dbf11226da8d11fe7318c30ca2f",
+    "bytes": 13970,
+    "section_slugs": [
+      "postscript-machine-learning-in-the-real-world",
+      "pre-lecture-quiz",
+      "-finance",
+      "credit-card-fraud-detection",
+      "wealth-management",
+      "-education",
+      "predicting-student-behavior",
+      "mitigating-bias",
+      "-retail",
+      "personalizing-the-customer-journey",
+      "inventory-management",
+      "-health-care",
+      "managing-clinical-trials",
+      "hospital-readmission-management",
+      "disease-management",
+      "-ecology-and-green-tech",
+      "forest-management",
+      "motion-sensing-of-animals",
+      "-energy-management",
+      "-insurance",
+      "volatility-management",
+      "-arts-culture-and-literature",
+      "fake-news-detection",
+      "museum-ml",
+      "-marketing",
+      "customer-segmentation",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "68f07271e7cd3852c7c9b888",
+      "d4efc35e0bb394adf9e02a90",
+      "dfdd34fd544e6f7c7b928edf",
+      "3f9470d7f955bac6fe97bdfb",
+      "1121a67935e8f40c613b313b",
+      "853f6cd5e85370015f2aa173",
+      "55d0840db6a74d586bfd327f",
+      "d125ff2ef9ffefcf1f97be09"
+    ]
+  },
+  {
+    "resource_id": "93b2318d79f963858dd400fc",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/2-Debugging-ML-Models/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/2-Debugging-ML-Models/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "9cc222ec06bd67f6b4d301bcf5c09fec367e0847b2ba875bd14ab992246c9238",
+    "bytes": 18144,
+    "section_slugs": [
+      "postscript-model-debugging-in-machine-learning-using-responsible-ai-dashboard-components",
+      "pre-lecture-quiz",
+      "introduction",
+      "prerequisite",
+      "error-analysis",
+      "model-overview",
+      "data-analysis",
+      "model-interpretability",
+      "conclusion",
+      "azure-rai-dashboard",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "0768f09431d653c0e0085fd7",
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/ML-For-Beginners/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "3ae201c854d486a247711e4f29eb60179cf0d3307d438935756416cb5b9aef13",
+    "bytes": 1298,
+    "section_slugs": [
+      "postscript-real-world-applications-of-classic-machine-learning",
+      "lesson",
+      "credits"
+    ],
+    "catalogue_link_ids": [
+      "f73cafa52d6650012359482a",
+      "93b2318d79f963858dd400fc"
+    ]
+  },
+  {
+    "resource_id": "0c51048245d19180862ad9f3",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/1-Intro/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/1-Intro/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "ee5ad56727883f432494f675d68c1e787ae0045dbfe111a4ab3b26b93f9fef77",
+    "bytes": 15976,
+    "section_slugs": [
+      "introduction-to-ai",
+      "pre-lecture-quiz",
+      "weak-ai-vs-strong-ai",
+      "the-definition-of-intelligence-and-the-turing-test",
+      "different-approaches-to-ai",
+      "the-top-down-approach",
+      "bottom-up-approach",
+      "a-brief-history-of-ai",
+      "recent-ai-research",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study"
+    ],
+    "catalogue_link_ids": [
+      "525ec3a4405c46204b09761b",
+      "60ee3f7735dc148a75646c04"
+    ]
+  },
+  {
+    "resource_id": "d499068082f3cfa97d683053",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/2-Symbolic/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/2-Symbolic/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "0723e6ab49c9a38f21ca3cf531d46ce296e2628a631014e10e59210d508083ac",
+    "bytes": 19299,
+    "section_slugs": [
+      "knowledge-representation-and-expert-systems",
+      "pre-lecture-quiz",
+      "knowledge-representation",
+      "classifying-computer-knowledge-representations",
+      "expert-systems",
+      "forward-vs-backward-inference",
+      "implementing-expert-systems",
+      "-exercise-animal-inference",
+      "ontologies-and-the-semantic-web",
+      "-exercise-a-family-ontology",
+      "microsoft-concept-graph",
+      "-exercise-a-concept-graph",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "46a7e6a77b4dbc77f76db48a",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "d68d37f823e428ad869249b283567da7d5eb4e8c4e1936e6d563e96a80025aef",
+    "bytes": 5369,
+    "section_slugs": [
+      "introduction-to-neural-networks-perceptron",
+      "pre-lecture-quiz",
+      "perceptron-model",
+      "training-the-perceptron",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "911ffe1c58b8af2e5ba63de4"
+    ]
+  },
+  {
+    "resource_id": "911ffe1c58b8af2e5ba63de4",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "9a91346ba2026847f8a5c5b0416af5e39715c0ee369178c865d9c7c55052af1d",
+    "bytes": 1040,
+    "section_slugs": [
+      "multi-class-classification-with-perceptron",
+      "task",
+      "hints",
+      "stating-notebook"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "ff54a82ff50edcbd568943b3",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "4cffd781e64759667e3bd7e4d25d2cd24a169a5d9eb7740b82c55a025b019177",
+    "bytes": 5997,
+    "section_slugs": [
+      "introduction-to-neural-networks-multi-layered-perceptron",
+      "pre-lecture-quiz",
+      "formalization-of-machine-learning",
+      "gradient-descent-optimization",
+      "multi-layered-perceptrons-and-backpropagation",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "5271c4919333ec50a98efba8"
+    ]
+  },
+  {
+    "resource_id": "5271c4919333ec50a98efba8",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "7214e092047716a6d1213dd0a9689d72796bc025fe03782dfb7d70f61234f29e",
+    "bytes": 838,
+    "section_slugs": [
+      "mnist-classification-with-our-own-framework",
+      "task",
+      "stating-notebook",
+      "questions"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "297db38e16102576c4858f03",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "cdc7e574b76d9b9a635c8710bf547056f7023dd9c53ea10a8bcb28b22591c704",
+    "bytes": 8573,
+    "section_slugs": [
+      "neural-network-frameworks",
+      "pre-lecture-quiz",
+      "learning",
+      "-exercises-frameworks",
+      "overfitting",
+      "why-overfitting-occurs",
+      "how-to-detect-overfitting",
+      "how-to-prevent-overfitting",
+      "overfitting-and-bias-variance-tradeoff",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "9ee3a81370b41cd4740ae735"
+    ]
+  },
+  {
+    "resource_id": "9ee3a81370b41cd4740ae735",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "50a9756753b72912ae1a6c364449bf3b2fb94f7e01084304690d05c6945a35d0",
+    "bytes": 794,
+    "section_slugs": [
+      "classification-with-pytorchtensorflow",
+      "task",
+      "stating-notebook"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "1bd3c2667139203537686631",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "2e8e712063298ac1de4fe4ac49571236a20eea8e7c5bb7cb2815ff135153cfb8",
+    "bytes": 3808,
+    "section_slugs": [
+      "introduction-to-neural-networks",
+      "machine-learning",
+      "a-model-of-a-neuron",
+      "in-this-section"
+    ],
+    "catalogue_link_ids": [
+      "46a7e6a77b4dbc77f76db48a",
+      "ff54a82ff50edcbd568943b3",
+      "297db38e16102576c4858f03"
+    ]
+  },
+  {
+    "resource_id": "c7c56a433efa2ea3052c0a04",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "97d9559dbaebc279b8aaa77c383abfafdc842fe11ab0ebb8e73769e095e55939",
+    "bytes": 8471,
+    "section_slugs": [
+      "introduction-to-computer-vision",
+      "pre-lecture-quiz",
+      "opencv",
+      "loading-images",
+      "image-processing",
+      "examples-of-using-computer-vision",
+      "-example-notebooks-opencv-try-opencv-in-action",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "525ec3a4405c46204b09761b",
+      "d210658de51d5920ed3d5b78"
+    ]
+  },
+  {
+    "resource_id": "d210658de51d5920ed3d5b78",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "56fa6817795fbe67a7ebaf187bf9f2c94980b1f5027526fd59336424b7fb3126",
+    "bytes": 1045,
+    "section_slugs": [
+      "detecting-movements-using-optical-flow",
+      "task",
+      "starting-notebook",
+      "takeaway"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "525ec3a4405c46204b09761b",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "ff745db118e121a76cfe3b6ffd025ff5b535dd6514dbdb520745cba77570ade3",
+    "bytes": 4693,
+    "section_slugs": [
+      "convolutional-neural-networks",
+      "pre-lecture-quiz",
+      "main-ideas-behind-cnn",
+      "-exercises-convolutional-neural-networks",
+      "pyramid-architecture",
+      "best-known-cnn-architectures"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "b5fab1e2354cb85bd0cbc30b",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "1f3fb00ab204988fa26bf7dfaed4d46314ad6f819b00006822b61443c9b97cc9",
+    "bytes": 1352,
+    "section_slugs": [
+      "classification-of-pets-faces",
+      "task",
+      "the-dataset",
+      "stating-notebook",
+      "takeaway"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "e4fca6cf26190fda47db287a",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "867b2ea12712545e05b731ca0d701208659228f5394d3b917c03ba5522bc25c0",
+    "bytes": 6576,
+    "section_slugs": [
+      "pre-trained-networks-and-transfer-learning",
+      "pre-lecture-quiz",
+      "pre-trained-models-as-feature-extractors",
+      "cats-vs-dogs-dataset",
+      "-exercise-transfer-learning",
+      "visualizing-adversarial-cat",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "d15644edf9b9b956e6618b9d"
+    ]
+  },
+  {
+    "resource_id": "d15644edf9b9b956e6618b9d",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "969510f5c189f24bef06baac84df528b3454e20d7e3db3c2ed9099dcf7f07160",
+    "bytes": 1260,
+    "section_slugs": [
+      "classification-of-oxford-pets-using-transfer-learning",
+      "task",
+      "the-dataset",
+      "stating-notebook",
+      "takeaway"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "7d9a34064faa6f490016c776",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/09-Autoencoders/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/09-Autoencoders/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "67c5297c561eef64863c456d424905a9e131e711e434a6ad7004307f6b4b8baf",
+    "bytes": 7521,
+    "section_slugs": [
+      "autoencoders",
+      "pre-lecture-quiz",
+      "scenarios-for-using-autoencoders",
+      "variational-autoencoders-vae",
+      "-exercises-autoencoders",
+      "properties-of-autoencoders",
+      "post-lecture-quiz",
+      "conclusion",
+      "-challenge",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "3725a6a92e7b2dd17bc20532",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/10-GANs/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/10-GANs/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "e0068e57006525dac9e15d0a7c802439e83d4d61c06460e7d5b50a1d36bb5cf4",
+    "bytes": 7746,
+    "section_slugs": [
+      "generative-adversarial-networks",
+      "pre-lecture-quiz",
+      "discriminator",
+      "generator",
+      "training-the-gan",
+      "-exercises-gans",
+      "problems-with-gan-training",
+      "style-transfer",
+      "-example-style-transfer",
+      "post-lecture-quiz",
+      "conclusion",
+      "-challenge",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "525ec3a4405c46204b09761b",
+      "7d9a34064faa6f490016c776"
+    ]
+  },
+  {
+    "resource_id": "d78317785ba7cee2add3cbeb",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "aaefd8671cbe9f9035d749a7f31f0430808df2c945eeb328e8e4c1775bfd6b84",
+    "bytes": 9930,
+    "section_slugs": [
+      "object-detection",
+      "pre-lecture-quiz",
+      "a-naive-approach-to-object-detection",
+      "regression-for-object-detection",
+      "datasets-for-object-detection",
+      "object-detection-metrics",
+      "intersection-over-union",
+      "average-precision",
+      "ap-and-iou",
+      "mean-average-precision---map",
+      "different-object-detection-approaches",
+      "r-cnn-region-based-cnn",
+      "f-rcnn---fast-r-cnn",
+      "faster-r-cnn",
+      "r-fcn-region-based-fully-convolutional-network",
+      "yolo---you-only-look-once",
+      "other-algorithms",
+      "-exercises-object-detection",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment-object-detection"
+    ],
+    "catalogue_link_ids": [
+      "b3c2877b36e14c3bc41e623f"
+    ]
+  },
+  {
+    "resource_id": "b3c2877b36e14c3bc41e623f",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "c25e5b22845c307adebe8d249d2afcc3ce5a07eb884719c714dc6f5fa99e9910",
+    "bytes": 3125,
+    "section_slugs": [
+      "head-detection-using-hollywood-heads-dataset",
+      "task",
+      "the-dataset",
+      "training-object-detection",
+      "takeaway"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "8912ef2a4435e94decd28e50",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "c8efeef32ed1a62d08e18e56eb2c787f471c0178145ce553919271e7937ade89",
+    "bytes": 4697,
+    "section_slugs": [
+      "segmentation",
+      "pre-lecture-quiz",
+      "segmentation-for-medical-imaging",
+      "-exercises-semantic-segmentation",
+      "post-lecture-quiz",
+      "conclusion",
+      "-challenge",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "6086f4e27678b379699d4285"
+    ]
+  },
+  {
+    "resource_id": "6086f4e27678b379699d4285",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "c0c361e2bb87eb734424cc859eabe68baf278593e4c546fea000cb6e1f41c8a0",
+    "bytes": 1124,
+    "section_slugs": [
+      "human-body-segmentation",
+      "task",
+      "the-dataset",
+      "stating-notebook",
+      "takeaway"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "b91bb3ec6942f71f236cca82",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "6bc1de006fe94f77333ec7d37b839c03b600ba69439a2b7d83705d0d3fb58839",
+    "bytes": 546,
+    "section_slugs": [
+      "computer-vision"
+    ],
+    "catalogue_link_ids": [
+      "c7c56a433efa2ea3052c0a04",
+      "525ec3a4405c46204b09761b",
+      "e4fca6cf26190fda47db287a",
+      "7d9a34064faa6f490016c776",
+      "3725a6a92e7b2dd17bc20532",
+      "d78317785ba7cee2add3cbeb",
+      "8912ef2a4435e94decd28e50"
+    ]
+  },
+  {
+    "resource_id": "08c8de199e82fb31fc61c6c4",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/13-TextRep/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/13-TextRep/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "4e5cc9fa4a0bd89c189fb0937a45c9575f12404914d0aad7011fd4932b6e7403",
+    "bytes": 6416,
+    "section_slugs": [
+      "representing-text-as-tensors",
+      "pre-lecture-quiz",
+      "text-classification",
+      "representing-text",
+      "n-grams",
+      "bag-of-words-and-tfidf",
+      "-exercises-text-representation",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment-notebooks"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "e4c6fcd7da2e00369091132a",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/14-Embeddings/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/14-Embeddings/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "6c996067af6be54fb28200e6eaf7d13c1c264037592feb3e9769ae7de24c48dd",
+    "bytes": 5658,
+    "section_slugs": [
+      "embeddings",
+      "pre-lecture-quiz",
+      "-exercises-embeddings",
+      "semantic-embeddings-word2vec",
+      "contextual-embeddings",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment-notebooks"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "41ba0936bb2829fd45bbcaac",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "9eb81848ed00a2b07a2887988fc8b88a2050f495ea706f24f502b0f21472dc86",
+    "bytes": 2746,
+    "section_slugs": [
+      "language-modeling",
+      "pre-lecture-quiz",
+      "training-embeddings",
+      "-example-notebooks-training-cbow-model",
+      "conclusion",
+      "post-lecture-quiz",
+      "review--self-study",
+      "-assignment-train-skip-gram-model"
+    ],
+    "catalogue_link_ids": [
+      "5926ac09c5ed8e719c452a6c"
+    ]
+  },
+  {
+    "resource_id": "5926ac09c5ed8e719c452a6c",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "e08ce10af48962ab0228a1400bd7e9f438528702d2bbadc4a90f7342e1fbff33",
+    "bytes": 1373,
+    "section_slugs": [
+      "training-skip-gram-model",
+      "task",
+      "the-dataset",
+      "explore"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "cb2e525fedcd48a5178d3997",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/16-RNN/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/16-RNN/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "a384c1fc37ed1384172dbeb450864286c04fb80997e7933b5658c11a486fe37b",
+    "bytes": 7804,
+    "section_slugs": [
+      "recurrent-neural-networks",
+      "pre-lecture-quiz",
+      "anatomy-of-an-rnn-cell",
+      "long-short-term-memory-lstm",
+      "bidirectional-and-multilayer-rnns",
+      "-exercises-embeddings",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment-notebooks"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "9fd2c134937e8547b0a1c9c0",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "f0dbbf0357ba847e6cec11d8c6396d9dd1879ddb965ea8557ca0caf502648bcf",
+    "bytes": 6315,
+    "section_slugs": [
+      "generative-networks",
+      "pre-lecture-quiz",
+      "-exercises-generative-networks",
+      "soft-text-generation-and-temperature",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "ecb8ebc1b6fdb12650dbefd3"
+    ]
+  },
+  {
+    "resource_id": "ecb8ebc1b6fdb12650dbefd3",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "27ef6a4b667e1196bd993bcf8e7e6b1e6c0a71faf0f6cc34a5ddc385fd48c678",
+    "bytes": 522,
+    "section_slugs": [
+      "word-level-text-generation-using-rnns",
+      "task",
+      "the-dataset"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "07e15a8774b6359d837912eb",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/18-Transformers/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/18-Transformers/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "f8c354b291f9d918042f7cfc820df360ac32c58e2cd2f5c6bb3268292a73723b",
+    "bytes": 8439,
+    "section_slugs": [
+      "attention-mechanisms-and-transformers",
+      "pre-lecture-quiz",
+      "transformer-models",
+      "positional-encodingembedding",
+      "multi-head-self-attention",
+      "encoder-decoder-attention",
+      "bert",
+      "-exercises-transformers",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "c7731f3e10ba22ac11b6fbc7",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "d18689c517458babe3afd42212bfe735bb5601807ec134b711b6396864cedf32",
+    "bytes": 5072,
+    "section_slugs": [
+      "named-entity-recognition",
+      "pre-lecture-quiz",
+      "example-of-using-ner",
+      "ner-as-token-classification",
+      "training-ner-models",
+      "-example-notebooks-ner",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment"
+    ],
+    "catalogue_link_ids": [
+      "7c8a05902f3cd828d79eedda"
+    ]
+  },
+  {
+    "resource_id": "7c8a05902f3cd828d79eedda",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "de73b9004a8b5bc36d0e91b8e6810a4995622f61114e07122010fd3151ea11d1",
+    "bytes": 4240,
+    "section_slugs": [
+      "ner",
+      "task",
+      "the-dataset",
+      "the-network",
+      "takeaway"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "45e7b6b08a82e12efed49d33",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/20-LangModels/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/20-LangModels/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "98a60b07c2273a3d9c0539a244666dcdf22a9df93c002652806d3de8ef1a958d",
+    "bytes": 5242,
+    "section_slugs": [
+      "pre-trained-large-language-models",
+      "pre-lecture-quiz",
+      "text-generation-and-perplexity",
+      "gpt-is-a-family",
+      "prompt-engineering",
+      "-example-notebook-playing-with-openai-gpt",
+      "conclusion",
+      "post-lecture-quiz"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "60ee3f7735dc148a75646c04",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "f4044dcb3302cd9bb588057559d86a05f5afbb21989ac6d03a4e7213885d83ee",
+    "bytes": 6328,
+    "section_slugs": [
+      "natural-language-processing",
+      "install-libraries",
+      "gpu-warning",
+      "in-this-section"
+    ],
+    "catalogue_link_ids": [
+      "08c8de199e82fb31fc61c6c4",
+      "41ba0936bb2829fd45bbcaac",
+      "cb2e525fedcd48a5178d3997",
+      "9fd2c134937e8547b0a1c9c0",
+      "07e15a8774b6359d837912eb"
+    ]
+  },
+  {
+    "resource_id": "719503d74361a99df21f8afb",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/21-GeneticAlgorithms/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/21-GeneticAlgorithms/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "18952138c9f818b8e723f0fa3225e3e377e0ec90b25759321f618d90de45803c",
+    "bytes": 4013,
+    "section_slugs": [
+      "genetic-algorithms",
+      "pre-lecture-quiz",
+      "typical-tasks",
+      "-exercises-genetic-algorithms",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment-diophantine-equation"
+    ],
+    "catalogue_link_ids": [
+      "22a7bac053135218fc65a910"
+    ]
+  },
+  {
+    "resource_id": "22a7bac053135218fc65a910",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "9b6d66c9fbd6604c1f66bdc2fbe06d8f78a56aa19faff7bb09a0dd468379f93a",
+    "bytes": 8406,
+    "section_slugs": [
+      "deep-reinforcement-learning",
+      "pre-lecture-quiz",
+      "openai-gym",
+      "cartpole-balancing",
+      "policy-gradients-algorithm",
+      "actor-critic-algorithm",
+      "-exercises-policy-gradients-and-actor-critic-rl",
+      "other-rl-tasks",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "assignment-train-a-mountain-car"
+    ],
+    "catalogue_link_ids": [
+      "3725a6a92e7b2dd17bc20532",
+      "0b8817c3d2ac15166fe4cc81"
+    ]
+  },
+  {
+    "resource_id": "0b8817c3d2ac15166fe4cc81",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/lab/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "a63b5052e3dd720569e44729cae1dece6fa269f7718196fbd801996df7dbd451",
+    "bytes": 1147,
+    "section_slugs": [
+      "training-mountain-car-to-escape",
+      "task",
+      "the-environment",
+      "stating-notebook",
+      "takeaway"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "3077eb9ec19688e5bdc3b680",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/23-MultiagentSystems/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/23-MultiagentSystems/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "3134ac47ce0e9067ba2d41304bff3fedbd91b12607af5b501ebd7d15064e7309",
+    "bytes": 12666,
+    "section_slugs": [
+      "multi-agent-systems",
+      "pre-lecture-quiz",
+      "netlogo",
+      "models-library",
+      "main-principles",
+      "flocking",
+      "other-models-to-see",
+      "deliberative-agents",
+      "conclusion",
+      "-challenge",
+      "post-lecture-quiz",
+      "review--self-study",
+      "netlogo-assignment"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "020e28d47dc073e3e17b14ab",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/7-Ethics/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/7-Ethics/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "7054d55f9955c06e3be5f6c1204b007e11837f05195fbd779df6b4239d526c0b",
+    "bytes": 4393,
+    "section_slugs": [
+      "ethical-and-responsible-ai",
+      "pre-lecture-quiz",
+      "principles-of-responsible-ai",
+      "tools-for-responsible-ai",
+      "review--self-study",
+      "post-lecture-quiz"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "6cacd4c63fd96fb1f367587e",
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/X-Extras/X1-MultiModal/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/X-Extras/X1-MultiModal/README.md",
+    "reviewed_at": "2026-11-10",
+    "sha256": "520290b0f5fd1604cb685a36286b542599d3f52da62056120b1b22fe39a744ef",
+    "bytes": 6734,
+    "section_slugs": [
+      "multi-modal-networks",
+      "contrastive-image-pre-training-clip",
+      "-example-using-clip-for-image-classification-and-image-search",
+      "image-generation-with-vqgan-clip",
+      "dall-e",
+      "dall-e-1",
+      "dall-e-2",
+      "references"
+    ],
+    "catalogue_link_ids": [
+      "3725a6a92e7b2dd17bc20532",
+      "525ec3a4405c46204b09761b"
+    ]
+  }
+]

@@ -1,0 +1,744 @@
+[
+  {
+    "resource_ids": [
+      "0ad4c1aac9788e7c692ef68b"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/05-relational-databases/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "Joining data",
+    "detail": "Both displayed joined SELECT examples omit the comma between cities.city and rainfall.amount. Use SELECT cities.city, rainfall.amount; the lesson checks use valid syntax.",
+    "support_urls": [
+      "https://www.postgresql.org/docs/current/tutorial-join.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "c9b51ac25661fe54207ddcd9"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/07-python/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "DataFrame",
+    "detail": "The displayed transpose/rename expression contains two periods after T, which is invalid Python. Use .T.rename(...). The displayed string table also differs from the literal Series in its code, so compute example results from the code rather than copying the table. These checks do not depend on that mismatched table.",
+    "support_urls": [
+      "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transpose.html",
+      "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "2b19a333828f0415582f2cc5"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/3-Linear/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "a linear regression line",
+    "detail": "Use date as input and price as target for price prediction. Least squares minimizes squared prediction errors, not squared data points.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares"
+    ]
+  },
+  {
+    "resource_ids": [
+      "2b19a333828f0415582f2cc5"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/3-Linear/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "correlation",
+    "detail": "A strong negative linear relationship can also be fitted well. Signed correlation alone is not a general model-quality score.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares"
+    ]
+  },
+  {
+    "resource_ids": [
+      "2b19a333828f0415582f2cc5"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/3-Linear/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "simple linear regression",
+    "detail": "The shown square-root error is RMSE. Training R-squared is not held-out accuracy, and R-squared can be negative.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.root_mean_squared_error.html",
+      "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "80fa4d18046d23b6fffe27dc"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/4-Logistic/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "better comprehension via a confusion matrix",
+    "detail": "False positive means predicted positive but actually negative. False negative means predicted negative but actually positive. Follow the correct matrix layout and formulas.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "80fa4d18046d23b6fffe27dc"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/4-Logistic/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "variables do not have to correlate",
+    "detail": "Choose classification for a categorical target. Weak correlations alone do not establish that logistic regression is best.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression"
+    ]
+  },
+  {
+    "resource_ids": [
+      "9932de14f2896338373bd21c"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/1-Introduction/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "balance the dataset",
+    "detail": "Split before resampling. Apply SMOTE only within training data/folds and evaluate on untouched data; the tutorial's reported scores are not independent proof.",
+    "support_urls": [
+      "https://imbalanced-learn.org/stable/common_pitfalls.html#data-leakage"
+    ]
+  },
+  {
+    "resource_ids": [
+      "444dada88136c9d89d3748b1"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/2-Classifiers-1/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "preparation",
+    "detail": "Split before resampling. Apply SMOTE only within training data/folds and evaluate on untouched data; the tutorial's reported scores are not independent proof.",
+    "support_urls": [
+      "https://imbalanced-learn.org/stable/common_pitfalls.html#data-leakage"
+    ]
+  },
+  {
+    "resource_ids": [
+      "1ff66fd8a070f3eb629997a8"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/3-Classifiers-2/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "prerequisite",
+    "detail": "Split before resampling. Apply SMOTE only within training data/folds and evaluate on untouched data; the tutorial's reported scores are not independent proof.",
+    "support_urls": [
+      "https://imbalanced-learn.org/stable/common_pitfalls.html#data-leakage"
+    ]
+  },
+  {
+    "resource_ids": [
+      "9d409b7e327d6e85d596caa5"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/4-Applied/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "exercise   train classification model",
+    "detail": "Split before resampling. Apply SMOTE only within training data/folds and evaluate on untouched data; the tutorial's reported scores are not independent proof.",
+    "support_urls": [
+      "https://imbalanced-learn.org/stable/common_pitfalls.html#data-leakage"
+    ]
+  },
+  {
+    "resource_ids": [
+      "444dada88136c9d89d3748b1"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/2-Classifiers-1/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "reasoning",
+    "detail": "One-versus-rest is a valid multiclass strategy. The page's blanket classifier exclusions conflict with its own implementation.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/multiclass.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "1ff66fd8a070f3eb629997a8"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/3-Classifiers-2/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "linear svc classifier",
+    "detail": "SVC and KNeighborsClassifier are supervised classifiers. Regression and unsupervised neighbor tasks use different estimators. Read the metric's arrays, not its misleading printed label.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html",
+      "https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "68f07271e7cd3852c7c9b888"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/2-K-Means/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "exercise   display the clusters",
+    "detail": "Cluster IDs are arbitrary. Do not score raw cluster IDs as class labels or claim independent genre recovery from an input containing encoded genre.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation"
+    ]
+  },
+  {
+    "resource_ids": [
+      "64194972db5d31954d2eab14"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/1-Visualize/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "getting started with clustering",
+    "detail": "Density and noise are different concepts. Removing names or substituting cluster IDs does not establish anonymity; output labels differ from column headings.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/clustering.html#dbscan"
+    ]
+  },
+  {
+    "resource_ids": [
+      "77ed081e085b28907dec5676"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/3-Translation-Sentiment/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "exercise   translation",
+    "detail": "TextBlob's translation methods were removed in 0.18. This is a historical example, not a currently supported local translation feature.",
+    "support_urls": [
+      "https://textblob.readthedocs.io/en/dev/changelog.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "1fcb47b0e456d979ca226530"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/5-Hotel-Reviews-2/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "removing stop words",
+    "detail": "Do not assume stop-word removal preserves sentiment. Negation, punctuation and emphasis may change the result; compare preprocessing on suitable validation examples.",
+    "support_urls": [
+      "https://www.nltk.org/_modules/nltk/sentiment/vader.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "6e480609fa7263de12f2354d"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/2-ARIMA/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "arima in the context of time series",
+    "detail": "AR uses lagged series values; the MA component models lagged errors/innovations. They are different components.",
+    "support_urls": [
+      "https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "6e480609fa7263de12f2354d"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/2-ARIMA/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "create training and testing datasets",
+    "detail": "The described date ranges disagree with the code. Inspect the actual timestamp masks before interpreting any reported forecast score.",
+    "support_urls": []
+  },
+  {
+    "resource_ids": [
+      "d5aabaecb172aa8ce7253ddb"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/3-SVR/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "create training and testing datasets",
+    "detail": "The described date ranges disagree with the code. Inspect the actual timestamp masks before interpreting any reported forecast score.",
+    "support_urls": []
+  },
+  {
+    "resource_ids": [
+      "d5aabaecb172aa8ce7253ddb"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/3-SVR/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "svr in the context of time series 1",
+    "detail": "SVR is not defined by putting the most points on a hyperplane. Consult its epsilon-insensitive regression objective.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "0131853a327944e9e99b399d"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/1-QLearning/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "python implementation",
+    "detail": "The training loop needs terminal-state handling and terminal updates, plus current NumPy types. The mathematical nonterminal update is separate from those snippet defects.",
+    "support_urls": [
+      "https://gymnasium.farama.org/tutorials/gymnasium_basics/handling_time_limits/",
+      "https://numpy.org/doc/stable/release/1.24.0-notes.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "e510c3148513e66df9d9e6d8"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/8-Reinforcement/2-Gym/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "lets start q learning",
+    "detail": "Copy a mutable Q table when saving a snapshot. This lesson's Gym/NumPy calls and success threshold are version-specific historical examples.",
+    "support_urls": [
+      "https://gymnasium.farama.org/introduction/migration_guide/",
+      "https://docs.python.org/3/library/copy.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "46a7e6a77b4dbc77f76db48a"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/03-Perceptron/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "training the perceptron",
+    "detail": "The perceptron Python snippet is broken. For misclassified examples, use the input/label-based update stated in the formula, not weights.shape.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/linear_model.html#perceptron"
+    ]
+  },
+  {
+    "resource_ids": [
+      "ff54a82ff50edcbd568943b3"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "formalization of machine learning",
+    "detail": "Mean 0-1 loss is the fraction of wrong predictions, not accuracy. Minimize error; maximize accuracy.",
+    "support_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.zero_one_loss.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "d499068082f3cfa97d683053"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/2-Symbolic/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "classifying computer knowledge representations",
+    "detail": "The illustrative Python-is-untyped assertion is incorrect. Python objects have types; the language uses dynamic typing.",
+    "support_urls": [
+      "https://docs.python.org/3/reference/datamodel.html#objects-values-and-types"
+    ]
+  },
+  {
+    "resource_ids": [
+      "e4c6fcd7da2e00369091132a"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/14-Embeddings/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "semantic embeddings word2vec",
+    "detail": "CBoW predicts the center from context; skip-gram predicts neighboring context from the center. This page's skip-gram sentence reverses that direction.",
+    "support_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/README.md#training-embeddings",
+      "https://arxiv.org/abs/1301.3781"
+    ]
+  },
+  {
+    "resource_ids": [
+      "cb2e525fedcd48a5178d3997"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/16-RNN/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "long short term memory lstm",
+    "detail": "GRU means Gated Recurrent Unit. Keep LSTM cell state and hidden output distinct; the output gate controls hidden output from the cell state.",
+    "support_urls": [
+      "https://docs.pytorch.org/docs/stable/generated/torch.nn.LSTM.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "07e15a8774b6359d837912eb"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/18-Transformers/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "encoder decoder attention",
+    "detail": "Attention placement depends on architecture. The original encoder-decoder transformer also has masked decoder self-attention; do not memorize a universal count of two.",
+    "support_urls": [
+      "https://arxiv.org/abs/1706.03762"
+    ]
+  },
+  {
+    "resource_ids": [
+      "7c8a05902f3cd828d79eedda"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/19-NER/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "the network",
+    "detail": "Configure the token-classification label count using the library's supported model configuration, such as num_labels; do not copy the shown positional classes argument.",
+    "support_urls": [
+      "https://huggingface.co/docs/transformers/tasks/token_classification"
+    ]
+  },
+  {
+    "resource_ids": [
+      "45e7b6b08a82e12efed49d33"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/20-LangModels/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "gpt is a family",
+    "detail": "The GPT-4 parameter count in this table is unsupported. The technical report does not disclose model size.",
+    "support_urls": [
+      "https://cdn.openai.com/papers/gpt-4.pdf"
+    ]
+  },
+  {
+    "resource_ids": [
+      "22a7bac053135218fc65a910"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "policy gradients algorithm",
+    "detail": "Discount future rewards relative to the current decision when computing returns. The displayed Gym calls use an older API.",
+    "support_urls": [
+      "https://spinningup.openai.com/en/latest/spinningup/rl_intro.html",
+      "https://gymnasium.farama.org/introduction/migration_guide/"
+    ]
+  },
+  {
+    "resource_ids": [
+      "3077eb9ec19688e5bdc3b680"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/23-MultiagentSystems/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "main principles",
+    "detail": "NetLogo's ordinary ask is sequential in random agent order. A simulated group acting together does not imply parallel execution threads.",
+    "support_urls": [
+      "https://docs.netlogo.org/dict/ask.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "020e28d47dc073e3e17b14ab"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/7-Ethics/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "principles of responsible ai",
+    "detail": "Training a model does not automatically protect training-data privacy. Data governance and privacy/security safeguards remain necessary.",
+    "support_urls": [
+      "https://arxiv.org/abs/2012.07805"
+    ]
+  },
+  {
+    "resource_ids": [
+      "d15644edf9b9b956e6618b9d"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/lab/README.md",
+    "reviewed_at": "2026-11-10",
+    "section": "the dataset",
+    "detail": "The original Oxford-IIIT Pet dataset has 37 categories. Do not carry the page's 35-breed count into model output dimensions.",
+    "support_urls": [
+      "https://www.robots.ox.ac.uk/~vgg/data/pets/"
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-7bd7529c66041e326454"
+    ],
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/",
+    "reviewed_at": "2026-11-11",
+    "section": "Costs of Poor Quality",
+    "detail": "Classify a failure as internal when the defect is found before customer receipt and external when it is found afterward.",
+    "support_urls": [
+      "https://asq.org/quality-resources/cost-of-quality"
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-33d2114854f2f752b453"
+    ],
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-9-2/",
+    "reviewed_at": "2026-11-11",
+    "section": "Capability Studies",
+    "detail": "Distinguish population standard deviation from the sample estimate. The estimate can be above or below the population value.",
+    "support_urls": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
+    ]
+  },
+  {
+    "resource_ids": [
+      "lesson-resource-551bd480956b339a96c0"
+    ],
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/4-network-protocols",
+    "reviewed_at": "2026-11-11",
+    "section": "Network communication protocols",
+    "detail": "FTP and SFTP are separate protocols. SFTP uses an encrypted SSH transport.",
+    "support_urls": [
+      "https://www.rfc-editor.org/rfc/rfc959.html",
+      "https://man.openbsd.org/sftp.1"
+    ]
+  },
+  {
+    "resource_ids": [
+      "27d4e7f2501e411d385f5a88"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/01-defining-data-science/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "other related fields",
+    "detail": "Machine learning is one approach within the broader field of artificial intelligence.",
+    "support_urls": [
+      "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/1-intro-to-ML/README.md#some-terminology"
+    ]
+  },
+  {
+    "resource_ids": [
+      "acdab68f5b66b329d778b49b"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "confidence intervals",
+    "detail": "Read confidence as the long-run coverage of the interval procedure. Use the population mean as the fixed target and the sample-based limits as the varying quantities.",
+    "support_urls": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+    ]
+  },
+  {
+    "resource_ids": [
+      "acdab68f5b66b329d778b49b"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "hypothesis testing",
+    "detail": "Check that the code selects the intended groups. Use a test or confidence interval for their difference under the relevant assumptions, and report evidence with uncertainty.",
+    "support_urls": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm"
+    ]
+  },
+  {
+    "resource_ids": [
+      "acdab68f5b66b329d778b49b"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "law of large numbers and central limit theorem",
+    "detail": "For independent, identically distributed observations with finite nonzero variance, the standardized sample mean approaches normality as sample size grows. The weak law concerns closeness to the population mean.",
+    "support_urls": [
+      "https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/pages/part-ii-inference-limit-theorems/",
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm"
+    ]
+  },
+  {
+    "resource_ids": [
+      "acdab68f5b66b329d778b49b"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "covariance and correlation",
+    "detail": "Pearson correlation measures linear association. A value of zero leaves nonlinear dependence possible. Check for constant variables before interpreting a correlation matrix.",
+    "support_urls": [
+      "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "5b6039faba757e4d6dc1be12"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/08-data-preparation/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "dealing with missing data",
+    "detail": "Use isna() to detect missing entries across types. In current Pandas, use ffill() and bfill() for the lesson's directional fill examples.",
+    "support_urls": [
+      "https://pandas.pydata.org/docs/user_guide/missing_data.html",
+      "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.ffill.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "ea403329bb64b8f859715117"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/15-analyzing/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "sampling and querying",
+    "detail": "Use query() for row predicates and a column selection afterward when you need fewer output fields.",
+    "support_urls": [
+      "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "c5989308d51c40fa4397c350"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/18-Low-Code/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "32 endpoint consumption",
+    "detail": "Read DEATH_EVENT as a follow-up outcome among people who already had heart failure. The example illustrates a request and response, and clinical use would require separate validation.",
+    "support_urls": [
+      "https://link.springer.com/article/10.1186/s12911-020-1023-5"
+    ]
+  },
+  {
+    "resource_ids": [
+      "c5989308d51c40fa4397c350"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/18-Low-Code/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "31 model deployment",
+    "detail": "Treat the shown interface and URL as historical. Follow current endpoint documentation and use authenticated HTTPS for requests that carry credentials.",
+    "support_urls": [
+      "https://learn.microsoft.com/en-us/azure/machine-learning/migrate-to-v2-managed-online-endpoints?view=azureml-api-2"
+    ]
+  },
+  {
+    "resource_ids": [
+      "b599236b084e1d3583f503b7"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/19-Azure/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "32 model deployment",
+    "detail": "Use the SDK code to study the historical workflow. Consult SDK v2 and current endpoint documentation for implementation.",
+    "support_urls": [
+      "https://learn.microsoft.com/en-us/azure/machine-learning/how-to-migrate-from-v1?view=azureml-api-2",
+      "https://learn.microsoft.com/en-us/azure/machine-learning/migrate-to-v2-managed-online-endpoints?view=azureml-api-2"
+    ]
+  },
+  {
+    "resource_ids": [
+      "b599236b084e1d3583f503b7"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/19-Azure/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "12 heart failure prediction project and dataset introduction",
+    "detail": "Read the example as a historical follow-up outcome classification exercise. Its target and dataset population determine what its predictions can mean.",
+    "support_urls": [
+      "https://link.springer.com/article/10.1186/s12911-020-1023-5"
+    ]
+  },
+  {
+    "resource_ids": [
+      "0ec911c91765a7198cf26408"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "data science in the cloud",
+    "detail": "The cloud case study uses a follow-up outcome from patients with heart failure. The linked lessons teach the stages of an ML workflow.",
+    "support_urls": [
+      "https://link.springer.com/article/10.1186/s12911-020-1023-5"
+    ]
+  },
+  {
+    "resource_ids": [
+      "36542555913dc6f317da49c8"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/09-visualization-quantities/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "explore bar charts",
+    "detail": "Read plot.barh() as horizontal bars. birds['Category'].value_counts() directly counts the values in the category column.",
+    "support_urls": [
+      "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.value_counts.html",
+      "https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "55ab89f1e92450b866684121"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/09-visualization-quantities/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "build a line plot about bird wingspan values",
+    "detail": "Connect each label or theme layer to the ggplot expression with + and finish the final layer without a trailing operator.",
+    "support_urls": [
+      "https://ggplot2.tidyverse.org/reference/ggplot.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "55ab89f1e92450b866684121"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/09-visualization-quantities/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "comparing data",
+    "detail": "Check what each endpoint summarizes. To display the full category range, compute its smallest lower measurement and largest upper measurement, then plot both clearly.",
+    "support_urls": [
+      "https://dplyr.tidyverse.org/reference/summarise.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "aedd432f9b1ab8a2e1192fa2"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/10-visualization-distributions/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "explore the dataset for distributions using text data",
+    "detail": "Label the horizontal axis with the measured variable and the vertical axis with count. Use shared bin edges when comparing groups.",
+    "support_urls": [
+      "https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "8097fd9e97b247dce8439234"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/10-visualization-distributions/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "explore the dataset for distributions using text data",
+    "detail": "Match colors and labels explicitly to observed status levels, using named values and matching breaks where appropriate.",
+    "support_urls": [
+      "https://ggplot2.tidyverse.org/reference/scale_manual.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "77cfa91e79657e8c0c1eb0fc"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/11-visualization-proportions/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "get to know your mushrooms ",
+    "detail": "Inspect the actual text dtypes. For an intended count of every row in a category, use a group size instead of a non-null count in another field.",
+    "support_urls": [
+      "https://pandas.pydata.org/docs/user_guide/migration-3-strings.html",
+      "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.size.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "b9e1b048dcb1f2c56801144a"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/12-visualization-relationships/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "scatterplots",
+    "detail": "Read marker size using the year legend. Read price from the horizontal coordinate.",
+    "support_urls": [
+      "https://seaborn.pydata.org/generated/seaborn.scatterplot.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "b9e1b048dcb1f2c56801144a"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/12-visualization-relationships/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "line charts",
+    "detail": "Use errorbar=None to hide the interval in current Seaborn. Set estimator separately if the desired plot should use individual observations.",
+    "support_urls": [
+      "https://seaborn.pydata.org/generated/seaborn.lineplot.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "2b797a4603316f7bed637de5"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/12-visualization-relationships/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "scatterplots",
+    "detail": "Marker size encodes year in this example. Read price from the x-axis.",
+    "support_urls": [
+      "https://ggplot2.tidyverse.org/reference/geom_point.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "2b797a4603316f7bed637de5"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/12-visualization-relationships/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "line charts",
+    "detail": "Use ggplot() with a smoothing layer for the R trend example. Both displayed snippets are written in R.",
+    "support_urls": [
+      "https://ggplot2.tidyverse.org/reference/qplot.html",
+      "https://ggplot2.tidyverse.org/reference/geom_smooth.html"
+    ]
+  },
+  {
+    "resource_ids": [
+      "2b797a4603316f7bed637de5"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/12-visualization-relationships/README.md",
+    "reviewed_at": "2026-11-11",
+    "section": "dual line plots",
+    "detail": "Use the plotted second series for the right-axis ticks and label that scale with its own units.",
+    "support_urls": [
+      "https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/axis.html"
+    ]
+  }
+]

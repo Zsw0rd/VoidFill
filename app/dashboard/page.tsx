@@ -10,6 +10,7 @@ import { isoDate } from "@/lib/date";
 import { loadCareerRequirements } from "@/lib/careerRequirements";
 import { rankLearningSkills, weeklyLearningRoute } from "@/lib/learningPlan";
 import { WeeklyRoute } from "@/components/WeeklyRoute";
+import { roadmapProgress } from "@/lib/roadmapProgress";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -36,7 +37,7 @@ export default async function DashboardPage() {
     .maybeSingle();
   if (!profile?.onboarded) redirect("/onboarding");
 
-  const [statsRes, skillsRes, attemptsRes, roadmapRes, requirements, dependencyRes] = await Promise.all([
+  const [statsRes, skillsRes, attemptsRes, roadmapRes, requirements, dependencyRes, coursesRes] = await Promise.all([
     supabase
       .from("user_stats")
       .select("*")
@@ -67,6 +68,7 @@ export default async function DashboardPage() {
       .limit(100),
     loadCareerRequirements(supabase, profile),
     supabase.from("skill_dependencies").select("prerequisite_skill_id,dependent_skill_id"),
+    supabase.from("roadmap_courses").select("skill_id,completed,url").eq("user_id", user.id),
   ]);
 
   const stats = statsRes.data;
@@ -75,8 +77,13 @@ export default async function DashboardPage() {
   const skills = (skillsRes.data || []).filter(row => activeSkills.has(row.skill_id)).slice(0, 6);
   const scoreMap = new Map((skillsRes.data || []).map(row => [row.skill_id, Number(row.score)]));
   const planSkills = rankLearningSkills(requirements.map(row => ({id: row.skill_id, name: row.skills?.name || "Skill", target: row.target, importance: Number(row.weight ?? .8), score: scoreMap.get(row.skill_id) ?? null})), dependencyRes.data || []);
-  const partialLoad = statsRes.error || skillsRes.error || attemptsRes.error || roadmapRes.error || dependencyRes.error;
-  const roadmapItems = (roadmapRes.data || []).filter(row => activeSkills.has(row.skill_id)).slice(0, 5);
+  const partialLoad = statsRes.error || skillsRes.error || attemptsRes.error || roadmapRes.error || dependencyRes.error || coursesRes.error;
+  // A scope change can alter the resource fraction without a new assessment.
+  // Project current values for display; do not rewrite stored progress on a read.
+  const roadmapItems = skillsRes.error || coursesRes.error ? [] : (roadmapRes.data || [])
+    .filter(row => activeSkills.has(row.skill_id)).slice(0, 5)
+    .map(row => ({...row, progress: roadmapProgress(scoreMap.get(row.skill_id) ?? 0,
+      (coursesRes.data || []).filter(course => course.skill_id === row.skill_id))}));
 
   const xp = stats?.xp ?? 0;
   const level = stats?.level ?? 1;

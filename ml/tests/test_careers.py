@@ -36,12 +36,13 @@ def test_pilot_has_substantive_question_and_resource_coverage():
 
 
 def test_nontechnical_content_never_receives_a_programming_question(engine):
+    programming_topics = {"python", "algorithms", "web", "api", "git", "testing", "sql", "linux", "machine-learning", "containers", "data-engineering", "mobile", "security", "cloud", "networking", "architecture", "ml-operations"}
     for topic in ["marketing", "recruiting", "sales", "success", "projects", "accounting", "spreadsheets", "communication", "analysis"]:
         skill = next(item for item in CATALOGUE["skills"] if item["key"] == topic)
         request = AssessmentRequest(skills=[{"id": skill["id"], "name": skill["name"]}], count=10, difficulty=2)
         result = engine.assessment(request)
         assert len(result["questions"]) == 10
-        assert all(question["topics"] == [topic] for question in result["questions"])
+        assert all(topic in question["topics"] and not programming_topics.intersection(question["topics"]) for question in result["questions"])
         assert all(question["skill_id"] == skill["id"] for question in result["questions"])
 
 
@@ -109,7 +110,7 @@ def test_second_cohort_has_dedicated_banks_and_correct_numerical_examples(engine
         skill = next(item for item in CATALOGUE["skills"] if item["key"] == topic)
         result = engine.assessment(AssessmentRequest(skills=[{"id": skill["id"], "name": skill["name"]}], count=10, difficulty=2))
         assert len(result["questions"]) == 10, topic
-        assert all(question["topics"] == [topic] and question["skill_id"] == skill["id"] for question in result["questions"]), topic
+        assert all(topic in question["topics"] and question["skill_id"] == skill["id"] for question in result["questions"]), topic
         assert {row[-1] for row in BANK[topic]} == {1, 2}, topic
     expected = {
         "A circle has radius 8 mm. What is its diameter?": "16 mm",
@@ -136,7 +137,7 @@ def test_final_cohort_has_dedicated_knowledge_and_stated_calculation_rules(engin
         result = engine.assessment(AssessmentRequest(skills=[{"id": skill["id"], "name": skill["name"]}], count=10, difficulty=5))
         assert result["difficulty"] == 3
         assert len(result["questions"]) == 10
-        assert all(question["topics"] == [topic] and question["skill_id"] == skill["id"] for question in result["questions"]), topic
+        assert all(topic in question["topics"] and question["skill_id"] == skill["id"] for question in result["questions"]), topic
         assert {row[-1] for row in rows} == {1, 2}
     expected = {
         "An ideal 100-ohm resistor has 5 V across it. What current flows?": "0.05 A",
@@ -167,7 +168,8 @@ def test_index_provenance_and_resource_checks_match_the_current_pack():
     assert {row["id"] for row in audit["results"]} == {row["id"] for row in resources}
     assert all(row["status"] == 200 for row in audit["results"])
     with np.load(DIRECTORY / "vectors.npz", allow_pickle=False) as vectors:
-        assert vectors["questions"].shape == (1510, 768)
+        assert len(metadata["question_ids"]) >= 1510
+        assert vectors["questions"].shape == (len(metadata["question_ids"]), 768)
         assert np.isfinite(vectors["questions"]).all()
         assert vectors["roles"].shape == (60, 768)
 
@@ -233,7 +235,8 @@ def test_every_skill_has_real_intermediate_questions_and_foundation_isolated(eng
             result = engine.assessment(AssessmentRequest(skills=[{"id": skill["id"], "name": skill["name"]}], count=10, difficulty=requested))
             assert result["difficulty"] == expected
             assert len(result["questions"]) == 10, (skill["key"], requested)
-            assert all(row["topics"] == [skill["key"]] for row in result["questions"])
+            assert all(skill["key"] in row["topics"] for row in result["questions"])
+            assert all(row["topics"] == [skill["key"]] for row in result["questions"] if not row["id"].startswith("lesson-"))
             assert all(row["difficulty"] == 3 for row in result["questions"]) if requested == 3 else all(row["difficulty"] <= 2 for row in result["questions"])
 
 

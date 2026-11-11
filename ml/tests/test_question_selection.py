@@ -32,7 +32,14 @@ def registry():
 def test_registry_rejects_unknown_duplicate_stale_or_unexplained_exclusions(tmp_path):
     _, questions = load_learning_content()
     valid = registry()
-    assert len(load_question_exclusions(questions)) == 4
+    additional = json.loads((ROOT / "data/lessons/question-exclusions.json").read_text(encoding="utf8"))
+    assert len(valid["excluded"]) == 4
+    assert len(additional) >= 24
+    assert load_question_exclusions(questions) == {row["id"] for row in [*valid["excluded"], *additional]}
+    stale_key = additional[0]["id"]
+    altered = [dict(row, correct_index=(row["correct_index"] + 1) % len(row["options"])) if row["id"] == stale_key else row for row in questions]
+    with pytest.raises(RuntimeError, match="Question-quality registry"):
+        load_question_exclusions(altered)
     mutations = []
     for key, value in [("id", "unknown-question"), ("reason", "   "), ("reason_code", ""), ("prompt", "Stale edited stem"), ("reference_urls", ["http://unverified.invalid"]), ("reference_urls", ["https://secret@reference.invalid"]), ("reference_urls", [])]:
         changed = deepcopy(valid); changed["excluded"][0][key] = value; mutations.append(changed)
@@ -132,10 +139,15 @@ def test_python_data_structures_never_substitutes_regression_or_reference_only_q
     resource = next(row for row in engine.resources if row["id"] == "voidfill-python-1")
     assert any("Regression analysis-based" in row["prompt"] and "python" in row["topics"] for row in engine.questions)
     assert any(row.get("source_url") == resource["url"] for row in engine.questions)
-    monkeypatch.setattr(engine, "encode_queries", lambda *args, **kwargs: pytest.fail("A missing lesson bank must fail before encoder inference"))
+    explicit = resource_question_indices(engine.resources, engine.questions, "python", resource["url"])
+    for difficulty in [2, 3]:
+        expected = {engine.questions[i]["id"] for i in explicit if (engine.questions[i]["difficulty"] <= 2 if difficulty == 2 else engine.questions[i]["difficulty"] == 3)}
+        assert expected and all(key.startswith("lesson-") for key in expected)
+        result = engine.assessment(AssessmentRequest(purpose="course", resource_url=resource["url"], skills=[{"id": "fixture-python", "name": "Python Basics"}], context=resource["title"], difficulty=difficulty, count=12))
+        assert {row["id"] for row in result["questions"]} == expected
+        assert all("Regression analysis-based" not in row["prompt"] for row in result["questions"])
+    monkeypatch.setattr(engine, "encode_queries", lambda *args, **kwargs: pytest.fail("An unbound lesson must fail before encoder inference"))
     for options in [
-        {"purpose": "course", "resource_url": resource["url"]},
-        {"resource_url": resource["url"]},
         {"purpose": "course"},  # Legacy title-only course requests must fail honestly.
         {"purpose": "course", "resource_url": "https://unknown.example/python"},
     ]:
@@ -153,12 +165,12 @@ def test_linked_resource_bank_cannot_be_outscored_or_padded_by_other_lessons(eng
     for index, question in enumerate(engine.questions):
         fake_vectors[index, 0] = 1 if question.get("resource_id") == resource["id"] else 1_000_000
     monkeypatch.setattr(engine, "question_vectors", fake_vectors)
-    monkeypatch.setattr(engine, "encode_queries", lambda *args, **kwargs: np.eye(1, original_vectors.shape[1], dtype=np.float32))
+    monkeypatch.setattr(engine, "encode_queries", lambda *args, **kwargs: pytest.fail("A complete reviewed lesson bank must not need inference"))
     for difficulty in [1, 2, 3, 4, 5]:
-        expected = {row["id"] for row in engine.questions if row.get("resource_id") == resource["id"] and row["id"] not in engine.excluded_question_ids and (row["difficulty"] <= 2 if difficulty <= 2 else row["difficulty"] == difficulty)}
+        expected = {row["id"] for row in engine.questions if row.get("resource_id") == resource["id"] and row["id"].startswith("lesson-") and row["id"] not in engine.excluded_question_ids and (row["difficulty"] <= 2 if difficulty <= 2 else row["difficulty"] == 3)}
         result = engine.assessment(AssessmentRequest(purpose="course", resource_url=resource["url"], context=resource["title"], skills=[{"id": "fixture-python", "name": "Python Basics"}], difficulty=difficulty, count=20))
         assert {row["id"] for row in result["questions"]} == expected
-        assert len(result["questions"]) == len(expected) < 20
+        assert len(result["questions"]) == len(expected) == 3
         assert all(row.get("resource_id") == resource["id"] and row["topics"] == ["python"] for row in result["questions"])
         assert result["question_source"] == "explicitly linked resource questions"
     assert engine.questions == original_rows
@@ -200,18 +212,20 @@ def test_broad_python_check_excludes_the_regression_lesson_without_losing_ten_fo
         expected = {row["id"] for row in engine.questions if "python" in row["topics"] and row["id"] not in engine.excluded_question_ids and row["id"] not in regression and (row["difficulty"] <= 2 if difficulty <= 2 else row["difficulty"] == 3)}
         result = engine.assessment(AssessmentRequest(skills=[{"id": "fixture-python", "name": "Python Basics"}], difficulty=difficulty, count=20))
         assert len(expected) >= 10
-        assert {row["id"] for row in result["questions"]} == expected
+        assert {row["id"] for row in result["questions"]} <= expected
+        assert len(result["questions"]) == min(20, len(expected))
         assert not regression & {row["id"] for row in result["questions"]}
         if difficulty <= 2:
-            assert len(expected) == 10
-            assert {row.get("resource_id") for row in result["questions"]} == {"voidfill-python-0", "c9b51ac25661fe54207ddcd9"}
+            original_foundation = {row["id"] for row in engine.questions if "python" in row["topics"] and row["id"] not in engine.excluded_question_ids and row["id"] not in regression and row["difficulty"] <= 2 and not row["id"].startswith("lesson-")}
+            assert len(original_foundation) == 10
+            assert original_foundation <= expected
         else:
             assert len([row for row in result["questions"] if row["id"].startswith("career-")]) == 10
-    # The lesson's own six ML questions remain available when that exact lesson,
-    # rather than a broad Python-language skill check, is explicitly selected.
-    linked = engine.assessment(AssessmentRequest(purpose="course", resource_url=resource["url"], context=resource["title"], skills=[{"id": "fixture-python", "name": "Python Basics"}], difficulty=2, count=12))
-    assert {row["id"] for row in linked["questions"]} == regression
-    assert len(linked["questions"]) == 6
+    # The saved regression walkthrough is supplemental for Python. It has no
+    # new completion check, while its original rows and sealed history remain.
+    with pytest.raises(HTTPException) as caught:
+        engine.assessment(AssessmentRequest(purpose="course", resource_url=resource["url"], context=resource["title"], skills=[{"id": "fixture-python", "name": "Python Basics"}], difficulty=2, count=12))
+    assert caught.value.detail == {"code": RESOURCE_ASSESSMENT_UNAVAILABLE}
     assert engine.questions == original_rows
 
 

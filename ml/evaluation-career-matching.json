@@ -1,7 +1,7 @@
 {
   "scope": "Curated regression examples, not independently validated career advice. Ranked suggestions are explainable lexical matches, not fit probabilities.",
   "role_count": 60,
-  "role_recall_at_1": 0.9833333333333333,
+  "role_recall_at_1": 1,
   "role_recall_at_3": 1,
   "unsupported_and_ambiguous_abstentions": 20,
   "abstention_count": 20,
@@ -23,7 +23,8 @@
       "expected": "Backend Developer",
       "top_3": [
         "Backend Developer",
-        "Full-Stack Developer"
+        "Full-Stack Developer",
+        "Mobile Developer"
       ],
       "rank": 1
     },
@@ -32,8 +33,8 @@
       "expected": "Full-Stack Developer",
       "top_3": [
         "Full-Stack Developer",
-        "Backend Developer",
-        "Frontend Developer"
+        "Frontend Developer",
+        "QA Engineer"
       ],
       "rank": 1
     },
@@ -42,8 +43,8 @@
       "expected": "QA Engineer",
       "top_3": [
         "QA Engineer",
-        "Automation Technician",
-        "Software Engineer"
+        "Software Engineer",
+        "Mobile Developer"
       ],
       "rank": 1
     },
@@ -51,8 +52,7 @@
       "query": "I want to develop Android and iOS applications with offline sync",
       "expected": "Mobile Developer",
       "top_3": [
-        "Mobile Developer",
-        "Software Engineer"
+        "Mobile Developer"
       ],
       "rank": 1
     },
@@ -60,19 +60,17 @@
       "query": "I want software development with algorithms testing and system design",
       "expected": "Software Engineer",
       "top_3": [
-        "QA Engineer",
-        "Systems Administrator",
         "Software Engineer"
       ],
-      "rank": 3
+      "rank": 1
     },
     {
       "query": "I want data analytics with SQL Python charts and reporting",
       "expected": "Data Analyst",
       "top_3": [
         "Data Analyst",
-        "Data Engineer",
-        "Data Scientist"
+        "Data Scientist",
+        "AI Applications Developer"
       ],
       "rank": 1
     },
@@ -80,8 +78,7 @@
       "query": "I want to build applied AI document search applications",
       "expected": "AI Applications Developer",
       "top_3": [
-        "AI Applications Developer",
-        "Software Engineer"
+        "AI Applications Developer"
       ],
       "rank": 1
     },
@@ -90,7 +87,7 @@
       "expected": "BI Analyst",
       "top_3": [
         "BI Analyst",
-        "Credit Analyst",
+        "Data Analyst",
         "AI Applications Developer"
       ],
       "rank": 1
@@ -108,7 +105,6 @@
       "expected": "Machine Learning Engineer",
       "top_3": [
         "Machine Learning Engineer",
-        "Talent Development Associate",
         "DevOps Engineer"
       ],
       "rank": 1
@@ -117,7 +113,8 @@
       "query": "I want data science experiments statistics and predictive modelling",
       "expected": "Data Scientist",
       "top_3": [
-        "Data Scientist"
+        "Data Scientist",
+        "Machine Learning Engineer"
       ],
       "rank": 1
     },
@@ -125,9 +122,7 @@
       "query": "I want cloud support troubleshooting hosted services and customer outages",
       "expected": "Cloud Support Associate",
       "top_3": [
-        "Cloud Support Associate",
-        "Customer Support Specialist",
-        "IT Support Specialist"
+        "Cloud Support Associate"
       ],
       "rank": 1
     },
@@ -136,8 +131,8 @@
       "expected": "Cybersecurity Analyst",
       "top_3": [
         "Cybersecurity Analyst",
-        "Cloud Support Associate",
-        "Customer Support Specialist"
+        "Customer Support Specialist",
+        "IT Support Specialist"
       ],
       "rank": 1
     },
@@ -145,7 +140,9 @@
       "query": "I want help desk troubleshooting for desktop accounts and connectivity",
       "expected": "IT Support Specialist",
       "top_3": [
-        "IT Support Specialist"
+        "IT Support Specialist",
+        "Cybersecurity Analyst",
+        "Network Administrator"
       ],
       "rank": 1
     },
@@ -154,7 +151,8 @@
       "expected": "Systems Administrator",
       "top_3": [
         "Systems Administrator",
-        "IT Support Specialist"
+        "IT Support Specialist",
+        "Network Administrator"
       ],
       "rank": 1
     },
@@ -162,8 +160,7 @@
       "query": "I want DevOps release pipelines containers and infrastructure automation",
       "expected": "DevOps Engineer",
       "top_3": [
-        "DevOps Engineer",
-        "Automation Technician"
+        "DevOps Engineer"
       ],
       "rank": 1
     },
@@ -172,7 +169,8 @@
       "expected": "Network Administrator",
       "top_3": [
         "Network Administrator",
-        "Cloud Support Associate"
+        "Cloud Support Associate",
+        "Cybersecurity Analyst"
       ],
       "rank": 1
     },
@@ -189,7 +187,7 @@
       "expected": "Automation Technician",
       "top_3": [
         "Automation Technician",
-        "Industrial Engineering Associate",
+        "Electronics Technician",
         "QA Engineer"
       ],
       "rank": 1
@@ -218,7 +216,8 @@
       "query": "I want to diagnose electronics circuits voltage and current",
       "expected": "Electronics Technician",
       "top_3": [
-        "Electronics Technician"
+        "Electronics Technician",
+        "Automation Technician"
       ],
       "rank": 1
     },
@@ -227,8 +226,8 @@
       "expected": "Industrial Engineering Associate",
       "top_3": [
         "Industrial Engineering Associate",
-        "Data Engineer",
-        "Manufacturing Engineer"
+        "Manufacturing Engineer",
+        "Automation Technician"
       ],
       "rank": 1
     },
@@ -237,8 +236,7 @@
       "expected": "Product Manager",
       "top_3": [
         "Product Manager",
-        "Product Designer",
-        "Business Analyst"
+        "Product Designer"
       ],
       "rank": 1
     },
@@ -247,8 +245,8 @@
       "expected": "UX Designer",
       "top_3": [
         "UX Designer",
-        "UI Designer",
-        "Product Designer"
+        "Product Designer",
+        "UI Designer"
       ],
       "rank": 1
     },
@@ -268,7 +266,7 @@
       "top_3": [
         "UX Researcher",
         "UX Designer",
-        "Product Manager"
+        "UI Designer"
       ],
       "rank": 1
     },
@@ -277,8 +275,8 @@
       "expected": "Product Designer",
       "top_3": [
         "Product Designer",
-        "UX Designer",
-        "UI Designer"
+        "UX Researcher",
+        "UX Designer"
       ],
       "rank": 1
     },
@@ -286,8 +284,7 @@
       "query": "I want technical documentation and API integration guides",
       "expected": "Technical Writer",
       "top_3": [
-        "Technical Writer",
-        "Backend Developer"
+        "Technical Writer"
       ],
       "rank": 1
     },
@@ -296,8 +293,8 @@
       "expected": "Project Coordinator",
       "top_3": [
         "Project Coordinator",
-        "Learning & Development Coordinator",
-        "Project Manager"
+        "Project Manager",
+        "Administrative Coordinator"
       ],
       "rank": 1
     },
@@ -306,7 +303,7 @@
       "expected": "Business Analyst",
       "top_3": [
         "Business Analyst",
-        "Sales Representative",
+        "Manufacturing Engineer",
         "Industrial Engineering Associate"
       ],
       "rank": 1
@@ -316,8 +313,7 @@
       "expected": "Operations Analyst",
       "top_3": [
         "Operations Analyst",
-        "Business Analyst",
-        "Data Engineer"
+        "Industrial Engineering Associate"
       ],
       "rank": 1
     },
@@ -327,7 +323,7 @@
       "top_3": [
         "Project Manager",
         "Project Coordinator",
-        "Logistics Coordinator"
+        "Learning & Development Coordinator"
       ],
       "rank": 1
     },
@@ -335,8 +331,7 @@
       "query": "I want management consulting and organizational options appraisal",
       "expected": "Management Analyst",
       "top_3": [
-        "Management Analyst",
-        "Business Analyst"
+        "Management Analyst"
       ],
       "rank": 1
     },
@@ -345,7 +340,6 @@
       "expected": "Administrative Coordinator",
       "top_3": [
         "Administrative Coordinator",
-        "Learning & Development Coordinator",
         "Hospitality Operations Associate"
       ],
       "rank": 1
@@ -355,8 +349,8 @@
       "expected": "Digital Marketing Associate",
       "top_3": [
         "Digital Marketing Associate",
-        "Marketing Analyst",
-        "Social Media Coordinator"
+        "Social Media Coordinator",
+        "Marketing Analyst"
       ],
       "rank": 1
     },
@@ -381,9 +375,7 @@
       "query": "I want social media campaigns content calendars and community responses",
       "expected": "Social Media Coordinator",
       "top_3": [
-        "Social Media Coordinator",
-        "Marketing Analyst",
-        "Content Writer"
+        "Social Media Coordinator"
       ],
       "rank": 1
     },
@@ -392,8 +384,8 @@
       "expected": "Graphic Designer",
       "top_3": [
         "Graphic Designer",
-        "Marketing Analyst",
-        "Product Designer"
+        "Digital Marketing Associate",
+        "Marketing Analyst"
       ],
       "rank": 1
     },
@@ -402,8 +394,7 @@
       "expected": "Marketing Analyst",
       "top_3": [
         "Marketing Analyst",
-        "Data Engineer",
-        "Digital Marketing Associate"
+        "Content Writer"
       ],
       "rank": 1
     },
@@ -439,8 +430,7 @@
       "query": "I want accounts payable invoice matching and payment controls",
       "expected": "Accounts Payable Associate",
       "top_3": [
-        "Accounts Payable Associate",
-        "Customer Support Specialist"
+        "Accounts Payable Associate"
       ],
       "rank": 1
     },
@@ -449,8 +439,8 @@
       "expected": "Audit Associate",
       "top_3": [
         "Audit Associate",
-        "Quality Engineer",
-        "QA Engineer"
+        "UX Researcher",
+        "Quality Engineer"
       ],
       "rank": 1
     },
@@ -458,9 +448,7 @@
       "query": "I want credit risk analysis of borrower liquidity and repayment",
       "expected": "Credit Analyst",
       "top_3": [
-        "Credit Analyst",
-        "Data Engineer",
-        "Financial Analyst"
+        "Credit Analyst"
       ],
       "rank": 1
     },
@@ -477,9 +465,7 @@
       "query": "I want people operations joiner mover leaver workflows",
       "expected": "HR Operations Associate",
       "top_3": [
-        "HR Operations Associate",
-        "Payroll Specialist",
-        "People Analyst"
+        "HR Operations Associate"
       ],
       "rank": 1
     },
@@ -488,8 +474,8 @@
       "expected": "Learning & Development Coordinator",
       "top_3": [
         "Learning & Development Coordinator",
-        "Product Designer",
-        "UX Designer"
+        "Machine Learning Engineer",
+        "Talent Development Associate"
       ],
       "rank": 1
     },
@@ -498,8 +484,8 @@
       "expected": "People Analyst",
       "top_3": [
         "People Analyst",
-        "HR Operations Associate",
-        "Data Engineer"
+        "Employee Experience Coordinator",
+        "Administrative Coordinator"
       ],
       "rank": 1
     },
@@ -508,8 +494,7 @@
       "expected": "Talent Development Associate",
       "top_3": [
         "Talent Development Associate",
-        "Learning & Development Coordinator",
-        "Recruitment Associate"
+        "Learning & Development Coordinator"
       ],
       "rank": 1
     },
@@ -518,8 +503,8 @@
       "expected": "Employee Experience Coordinator",
       "top_3": [
         "Employee Experience Coordinator",
-        "IT Support Specialist",
-        "HR Operations Associate"
+        "UX Designer",
+        "UI Designer"
       ],
       "rank": 1
     },
@@ -545,9 +530,7 @@
       "query": "I want customer service troubleshooting and support escalations",
       "expected": "Customer Support Specialist",
       "top_3": [
-        "Customer Support Specialist",
-        "IT Support Specialist",
-        "Customer Success Associate"
+        "Customer Support Specialist"
       ],
       "rank": 1
     },
@@ -556,8 +539,8 @@
       "expected": "Procurement Analyst",
       "top_3": [
         "Procurement Analyst",
-        "Data Engineer",
-        "Accounts Payable Associate"
+        "Accounts Payable Associate",
+        "Logistics Coordinator"
       ],
       "rank": 1
     },
@@ -565,8 +548,7 @@
       "query": "I want logistics shipment coordination and stock replenishment",
       "expected": "Logistics Coordinator",
       "top_3": [
-        "Logistics Coordinator",
-        "Learning & Development Coordinator"
+        "Logistics Coordinator"
       ],
       "rank": 1
     },
@@ -669,7 +651,6 @@
       ],
       "top_3": [
         "Payroll Specialist",
-        "Data Engineer",
         "Audit Associate"
       ],
       "hit": true
@@ -681,9 +662,9 @@
         "UX Researcher"
       ],
       "top_3": [
-        "UX Researcher",
         "Technical Writer",
-        "Customer Support Specialist"
+        "UX Researcher",
+        "Content Writer"
       ],
       "hit": true
     },
@@ -704,8 +685,7 @@
         "UI Designer"
       ],
       "top_3": [
-        "Frontend Developer",
-        "UI Designer"
+        "Frontend Developer"
       ],
       "hit": true
     },
@@ -716,9 +696,7 @@
         "HR Operations Associate"
       ],
       "top_3": [
-        "HR Operations Associate",
-        "People Analyst",
-        "Recruitment Associate"
+        "HR Operations Associate"
       ],
       "hit": true
     },
@@ -729,8 +707,6 @@
         "Accounting Associate"
       ],
       "top_3": [
-        "Accounting Associate",
-        "Credit Analyst",
         "Financial Analyst"
       ],
       "hit": true
@@ -741,7 +717,8 @@
         "Procurement Analyst"
       ],
       "top_3": [
-        "Procurement Analyst"
+        "Procurement Analyst",
+        "Accounts Payable Associate"
       ],
       "hit": true
     },
@@ -764,8 +741,7 @@
         "Hospitality Operations Associate"
       ],
       "top_3": [
-        "Hospitality Operations Associate",
-        "Employee Experience Coordinator"
+        "Hospitality Operations Associate"
       ],
       "hit": true
     },
@@ -778,7 +754,7 @@
       "top_3": [
         "QA Engineer",
         "Backend Developer",
-        "Software Engineer"
+        "Mobile Developer"
       ],
       "hit": true
     }

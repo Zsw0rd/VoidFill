@@ -6,12 +6,11 @@ descriptions do not override the current architecture.
 
 ## Previous release baseline
 
-The verified production baseline is merged commit `50cc8a0`, released through
-[PR 10](https://github.com/Zsw0rd/VoidFill/pull/10) to
-[void-fill.vercel.app](https://void-fill.vercel.app). Its three required CI groups
-and first public availability workflow passed. Local main was synchronized
-without rewriting remote history; the earlier local commits remain on
-`codex/archive-local-main-20261107`.
+The verified production baseline for this follow-up is merged commit `f8ffd92`
+from [PR 11](https://github.com/Zsw0rd/VoidFill/pull/11). Deployment
+`dpl_4NUE1j6QxXgKaBAZDA7rnXy29hdn` serves
+[void-fill.vercel.app](https://void-fill.vercel.app). The earlier local commits
+remain on `codex/archive-local-main-20261107`.
 
 The runtime is Next.js 15.5 and a private FastAPI/float32 ONNX learning service
 on Vercel, with Supabase Auth, Postgres and Storage. Curated public embeddings
@@ -79,12 +78,16 @@ acceptance evidence in [the PR 11 release record](https://github.com/Zsw0rd/Void
 | Unfinished assessments after refresh | [Assessment recovery](ASSESSMENT_RECOVERY.md) |
 | Database installation, upgrades and transaction boundaries | [Database releases](DATABASE_RELEASES.md) |
 | Career content, matching and known quality limits | [Career quality review](CAREER_QUALITY_REVIEW.md) |
+| New lesson checks, source corrections and guide coverage | [Lesson expansion](EXPANSION_VALIDATION_20261110.md) |
+| Scope-aware progress and the ordered SQL upgrade | [Resource progress](RESOURCE_PROGRESS_SCOPES.md) |
+| Updated matching fixtures and residual ambiguities | [Matching review](MATCHING_REVIEW_20261110.md) |
 | Revised foundation options and before/after diagnostics | [Foundation editorial edition](FOUNDATION_EDITORIAL.md) |
 | Synthetic tasks and expected checks for every role | [Career case packs](CAREER_CASE_PACKS.md) |
 | Practical work and human mentor feedback | [Practical learning](PRACTICAL_LEARNING.md) |
 | Performance tools, sample sizes and monitoring | [Performance validation](PERFORMANCE_VALIDATION.md) |
 | Chrome UX evidence and accessibility limits | [Usability audit](USABILITY_ACCESSIBILITY_AUDIT.md) |
 | Human trial preparation | [Learner pilot protocol](LEARNER_PILOT.md) |
+| Coded records and specialist review pack | [Pilot engineering](PILOT_ENGINEERING_20261110.md) |
 | CI, migration order and publication gates | [Release checklist](RELEASE_CHECKLIST.md) |
 
 `LOCAL_ML.md` preserves research/training history; `SITE_DOCUMENTATION.md` and

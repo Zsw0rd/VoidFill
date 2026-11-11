@@ -1,0 +1,23 @@
+export const PILOT_VERSION:string;
+export const LEVELS:ReadonlyArray<"foundation"|"intermediate">;
+export const OUTCOMES:ReadonlyArray<string>;
+export const SEVERITIES:ReadonlyArray<string>;
+export const FRICTIONS:ReadonlyArray<string>;
+export const TASK_CARDS:ReadonlyArray<{id:string;prompt:string;observe:string}>;
+export class PilotError extends Error {code:string;constructor(code:string);}
+export type PilotSource={revision:string;content_digest:string;state:"committed"|"working_tree";environment:"local_demo"|"preview_demo"|"production_own_account";deployment:string;deployment_binding:"local_source"|"operator_attested"};
+export type PilotPack={protocol:string;status:"human_validation_pending";source:PilotSource;catalogue_version:string;cases:Array<Record<string,any>>;tasks:Array<{id:string;prompt:string;observe:string}>;questions:Array<Record<string,any>>;resources:Array<Record<string,any>>;excluded_question_ids:string[];pack_digest:string};
+export type PilotBundle={protocol:string;pack_digest:string;records:Array<Record<string,any>>};
+export function canonical(value:unknown):string;
+export function digest(value:unknown):string;
+export function validatePack(value:unknown):PilotPack;
+export function buildReviewPack(options:{source:PilotSource;catalogue:Record<string,any>;briefs:unknown[];evidence:Record<string,any>}):PilotPack;
+export function validateRecords(pack:unknown,value:unknown):PilotBundle;
+export function aggregateRecords(pack:unknown,value:unknown):Record<string,any>;
+export function emptyRecords(pack:unknown):PilotBundle;
+export function recordTemplates(pack:unknown):{notice:string;learner:Record<string,any>;specialist:Record<string,any>};
+export function privatePath(root:string,relative:string,options?:{existing?:boolean;directory?:boolean}):string;
+export function readPrivateJson(root:string,relative:string,maxBytes?:number):unknown;
+export function writePrivateJson(root:string,relative:string,value:unknown):string;
+export function createPrivateDirectory(root:string,relative:string):string;
+export function reviewerMarkdown(pack:unknown):string;

@@ -43,6 +43,7 @@ def main():
         for file in manifest["release"]:
             db.execute((ROOT / file).read_text(encoding="utf8"))
         db.execute((ROOT / "supabase/tests/atomic_grading.sql").read_text())
+        db.execute((ROOT / "supabase/tests/resource_progress_scope.sql").read_text(encoding="utf8"))
         if (ROOT / "supabase/tests/practical_learning.sql").exists():
             db.execute((ROOT / "supabase/tests/practical_learning.sql").read_text())
         db.execute((ROOT / "supabase/tests/operation_limits.sql").read_text())

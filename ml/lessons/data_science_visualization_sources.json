@@ -1,0 +1,476 @@
+[
+  {
+    "resource_id": "27d4e7f2501e411d385f5a88",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/01-defining-data-science/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/01-defining-data-science/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "0e2717435d0b99a0c19a54e825c881a6d0f0d22870123c5a02ff241ce033d2bc",
+    "bytes": 15502,
+    "section_slugs": [
+      "other-related-fields",
+      "types-of-data",
+      "what-is-data-science",
+      "what-you-can-do-with-data",
+      "where-to-get-data"
+    ],
+    "catalogue_link_ids": [
+      "1fcef905924496d4b2d1d551",
+      "6f2bb4eb8760256dfae8fc0f"
+    ]
+  },
+  {
+    "resource_id": "993db9cab0553748c936a092",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/02-ethics/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/02-ethics/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "4603d8e2278edddfc46cf2f19064e1db0cb620857a6f90936d25421bcc22491e",
+    "bytes": 26295,
+    "section_slugs": [
+      "2-ethics-checklists",
+      "22-informed-consent",
+      "26-dataset-bias",
+      "27-data-quality",
+      "29-misrepresentation"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "009c0a5726487f0e2b0d295f",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/03-defining-data/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/03-defining-data/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "e3ce3a4321a779b0061f0ec5ff8f51325b36f7b6c7443f7c7d8812bdda99607e",
+    "bytes": 7787,
+    "section_slugs": [
+      "qualitative-data",
+      "quantitative-data",
+      "semi-structured",
+      "sources-of-data",
+      "structured-data"
+    ],
+    "catalogue_link_ids": [
+      "1fcef905924496d4b2d1d551"
+    ]
+  },
+  {
+    "resource_id": "acdab68f5b66b329d778b49b",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "f426a7b3b620a22e3fd5747627b653d10411a76db765b6079cd853a99ea24b7c",
+    "bytes": 22972,
+    "section_slugs": [
+      "confidence-intervals",
+      "covariance-and-correlation",
+      "hypothesis-testing",
+      "law-of-large-numbers-and-central-limit-theorem",
+      "mean-variance-and-standard-deviation",
+      "mode-median-and-quartiles",
+      "probability-and-random-variables"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "5b6039faba757e4d6dc1be12",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/08-data-preparation/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/08-data-preparation/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "61f792d316822e0737660b1316fdcb112755a8dae85441d45f90ad3b6ce01f33",
+    "bytes": 17493,
+    "section_slugs": [
+      "dealing-with-missing-data",
+      "exploring-dataframe-information",
+      "removing-duplicate-data"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "a0062ec3693c2d5f7902a84e",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/14-Introduction/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/14-Introduction/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "fcb09886f4788fc36b2f1f2863cf7102820a0fc3b9e828d3a23b089833a56934",
+    "bytes": 8862,
+    "section_slugs": [
+      "capturing",
+      "maintaining",
+      "managing-data",
+      "processing",
+      "storing-data"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "ea403329bb64b8f859715117",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/15-analyzing/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/15-analyzing/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "9fa334e65c1cf0a2e2f7de5016a57d6978d2b8398c851312f6ac253e4cb30813",
+    "bytes": 5369,
+    "section_slugs": [
+      "data-profiling-descriptive-statistics-and-pandas",
+      "exploratory-data-analysis",
+      "exploring-to-identify-inconsistencies",
+      "sampling-and-querying"
+    ],
+    "catalogue_link_ids": [
+      "6f2bb4eb8760256dfae8fc0f"
+    ]
+  },
+  {
+    "resource_id": "9de0e1547939da2bcccf012d",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/16-communication/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/16-communication/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "1fe51bb7d61889cedf191bcd663a6bd7c532ac42effc0275c644c2cceca8a1dc",
+    "bytes": 21096,
+    "section_slugs": [
+      "1-understand-your-audience-your-channel--your-communication-method",
+      "2-begin-with-the-end-in-mind",
+      "3-approach-it-like-an-actual-story",
+      "4-use-meaningful-words--phrases",
+      "types-of-communication"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "a2d83fbecfe2497137ad34c8",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/17-Introduction/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/17-Introduction/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "31fc3a40cc2e9d4dee486115bd8d94e70c177ef0680a41a1449f71b6002a8dc5",
+    "bytes": 8748,
+    "section_slugs": [
+      "real-time-social-media-sentiment-analysis",
+      "scientific-papers-analysis",
+      "what-is-the-cloud",
+      "why-choose-the-cloud-for-data-science"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "c5989308d51c40fa4397c350",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/18-Low-Code/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/18-Low-Code/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "0120b7bcdf03ba823e56e4860a80d40ec8149ed06ff6f91c6f406e142609236d",
+    "bytes": 24228,
+    "section_slugs": [
+      "21-create-an-azure-ml-workspace",
+      "22-compute-resources",
+      "24-low-codeno-code-training-with-automl",
+      "31-model-deployment",
+      "32-endpoint-consumption"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "b599236b084e1d3583f503b7",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/19-Azure/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/19-Azure/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "8fca1c12b5c3ea7703d23ca8730bec5f41f7314c96f9a54d0e77ff2a10bb76c7",
+    "bytes": 16920,
+    "section_slugs": [
+      "12-heart-failure-prediction-project-and-dataset-introduction",
+      "252-automl-configuration-and-training",
+      "31-saving-the-best-model",
+      "32-model-deployment",
+      "33-endpoint-consumption"
+    ],
+    "catalogue_link_ids": [
+      "c5989308d51c40fa4397c350"
+    ]
+  },
+  {
+    "resource_id": "bb18a0136e645102f6afe82f",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/20-Real-World-Examples/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/20-Real-World-Examples/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "427dc0972a02dbc54a8b532f19b1cb316ae02f385cd59d0d50e0cc7c8fbc4ef6",
+    "bytes": 16921,
+    "section_slugs": [
+      "data-science--humanities",
+      "data-science--industry",
+      "data-science--research",
+      "data-science--sustainability"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "36542555913dc6f317da49c8",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/09-visualization-quantities/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/09-visualization-quantities/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "15def2c1f2cae8888f3f1e0286a093ab23c86ca1b587277a8b5ed0af6ae030db",
+    "bytes": 10974,
+    "section_slugs": [
+      "build-a-line-plot-about-bird-wingspan-values",
+      "explore-bar-charts",
+      "filter-your-data"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "55ab89f1e92450b866684121",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/09-visualization-quantities/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/09-visualization-quantities/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "04294dd8160d32642e551ae3ae03e78b307e4cea6c6158e9e1e25d65e66c3d66",
+    "bytes": 13349,
+    "section_slugs": [
+      "build-a-line-plot-about-bird-wingspan-values",
+      "comparing-data",
+      "explore-bar-charts",
+      "filter-your-data",
+      "observe-wingspan-with-ggplot2"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "aedd432f9b1ab8a2e1192fa2",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/10-visualization-distributions/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/10-visualization-distributions/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "54328b10c55b3a3e4620597608c44b4de20c6307e769bffd27521bfeb1ab2c39",
+    "bytes": 11302,
+    "section_slugs": [
+      "density-plots",
+      "explore-the-dataset-for-distributions-using-text-data",
+      "working-with-histograms"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "8097fd9e97b247dce8439234",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/10-visualization-distributions/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/10-visualization-distributions/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "0ce3f9b3172164d10eac853ed1d15ba3a1738882966122a466028b57ccd6d513",
+    "bytes": 10124,
+    "section_slugs": [
+      "density-plots",
+      "explore-the-dataset-for-distributions-using-text-data",
+      "working-with-histograms"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "77cfa91e79657e8c0c1eb0fc",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/11-visualization-proportions/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/11-visualization-proportions/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "c1311dbef2c48e35c90ea87147f51cd88eeab7119433035b944e5551254be291",
+    "bytes": 10714,
+    "section_slugs": [
+      "donuts",
+      "get-to-know-your-mushrooms-",
+      "pie",
+      "waffles"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "1247afec55e65feff5947891",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/11-visualization-proportions/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/11-visualization-proportions/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "6abb5e046aba1186822c3d90d0c7041a232ab31767a8c5b91d233ee446d89fdb",
+    "bytes": 9565,
+    "section_slugs": [
+      "get-to-know-your-mushrooms-",
+      "pie",
+      "waffles"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "b9e1b048dcb1f2c56801144a",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/12-visualization-relationships/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/12-visualization-relationships/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "dbaa34312e0fb8f59185f44699208705a1c4b0b570eb537a24c4842a16d15853",
+    "bytes": 10692,
+    "section_slugs": [
+      "dual-line-plots",
+      "facet-grids",
+      "line-charts",
+      "scatterplots"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "2b797a4603316f7bed637de5",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/12-visualization-relationships/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/12-visualization-relationships/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "e6d21ee14767fb87e0b7a1e53776d4393cacaee4b876888c185ece4861a2f7c9",
+    "bytes": 10275,
+    "section_slugs": [
+      "dual-line-plots",
+      "facet-grids",
+      "line-charts",
+      "scatterplots"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "a0f8e58d4753682edd5c341b",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "fd22056ddf5784c0d312533c96fd6d537412ab23b6116f872607e6cacd965cc2",
+    "bytes": 10716,
+    "section_slugs": [
+      "avoid-deception",
+      "choose-the-right-chart-type",
+      "color",
+      "project-build-a-chart-to-show-a-network-using-d3js",
+      "styling-your-charts-for-readability"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "e3b30b99d28cfb42530d10b4",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/13-meaningful-vizualizations/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/13-meaningful-vizualizations/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "93ba116679b9e3e7447851cb041cbc6f8ac78828d251cb5708c861563699cc02",
+    "bytes": 10693,
+    "section_slugs": [
+      "avoid-deception",
+      "choose-the-right-chart-type",
+      "color",
+      "styling-your-charts-for-readability"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "voidfill-visualization-0",
+    "url": "https://matplotlib.org/stable/users/getting_started/",
+    "raw_url": "https://matplotlib.org/stable/users/getting_started/",
+    "reviewed_at": "2026-11-11",
+    "sha256": "e20d20b3a828580e512f5569ce66e23444cba53310c9add840eb58906a00a9f8",
+    "bytes": 36936,
+    "section_slugs": [
+      "draw-a-first-plot"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "voidfill-visualization-1",
+    "url": "https://seaborn.pydata.org/tutorial/introduction.html",
+    "raw_url": "https://seaborn.pydata.org/tutorial/introduction.html",
+    "reviewed_at": "2026-11-11",
+    "sha256": "6408f99c55a9f6887a4864dfbe4bead2396e9ffca29fec7ce75cc67d69ce9716",
+    "bytes": 51503,
+    "section_slugs": [
+      "a-high-level-api-for-statistical-graphics",
+      "distributional-representations",
+      "multivariate-views-on-complex-datasets",
+      "statistical-estimation"
+    ],
+    "catalogue_link_ids": []
+  },
+  {
+    "resource_id": "59b7323b3873b9631e9b3e57",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "8d3ea251e03eb29e73fe5370cc8b437c0259bf6b7a7a9cda5b5c7623c63175f4",
+    "bytes": 1026,
+    "section_slugs": [],
+    "catalogue_link_ids": [
+      "009c0a5726487f0e2b0d295f",
+      "27d4e7f2501e411d385f5a88",
+      "993db9cab0553748c936a092",
+      "acdab68f5b66b329d778b49b"
+    ]
+  },
+  {
+    "resource_id": "1fcef905924496d4b2d1d551",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "ae06a890084700422acb02255c9a74085f92dc1154d0ad4d8acaed05f3958408",
+    "bytes": 1152,
+    "section_slugs": [],
+    "catalogue_link_ids": [
+      "0ad4c1aac9788e7c692ef68b",
+      "5b6039faba757e4d6dc1be12",
+      "84473a87643db1c9873ef626",
+      "c9b51ac25661fe54207ddcd9"
+    ]
+  },
+  {
+    "resource_id": "467e0d973c5c657c57833c4d",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "1fbf6ade34ed7b5ab16f97c02a64805c8964156930e43cfa03c015d6e18564d5",
+    "bytes": 778,
+    "section_slugs": [],
+    "catalogue_link_ids": [
+      "9de0e1547939da2bcccf012d",
+      "a0062ec3693c2d5f7902a84e",
+      "ea403329bb64b8f859715117"
+    ]
+  },
+  {
+    "resource_id": "0ec911c91765a7198cf26408",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "0a6659e3bac777e947ead34aaf82d004ae6e2c2d2fca46db5cab9e5dea79544e",
+    "bytes": 1538,
+    "section_slugs": [
+      "data-science-in-the-cloud"
+    ],
+    "catalogue_link_ids": [
+      "a2d83fbecfe2497137ad34c8",
+      "b599236b084e1d3583f503b7",
+      "c5989308d51c40fa4397c350"
+    ]
+  },
+  {
+    "resource_id": "21035d5c49c6d63d09a4bf84",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "de02c1bc0ebbf9567451d2201f8804bff56f3f14898eac90aee719086ecdd64a",
+    "bytes": 253,
+    "section_slugs": [],
+    "catalogue_link_ids": [
+      "bb18a0136e645102f6afe82f"
+    ]
+  },
+  {
+    "resource_id": "6f2bb4eb8760256dfae8fc0f",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "079f40d4264d3d3aba6f98256fd2edb3802119014b31ccb78295b117e08f0ed8",
+    "bytes": 3805,
+    "section_slugs": [],
+    "catalogue_link_ids": [
+      "36542555913dc6f317da49c8",
+      "55ab89f1e92450b866684121",
+      "77cfa91e79657e8c0c1eb0fc",
+      "8097fd9e97b247dce8439234",
+      "a0f8e58d4753682edd5c341b",
+      "aedd432f9b1ab8a2e1192fa2",
+      "b9e1b048dcb1f2c56801144a"
+    ]
+  },
+  {
+    "resource_id": "03f16408cfdc2cd68cadc2ff",
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/starter/README.md",
+    "raw_url": "https://raw.githubusercontent.com/microsoft/Data-Science-For-Beginners/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/starter/README.md",
+    "reviewed_at": "2026-11-11",
+    "sha256": "bee70ee9cfcf250d7f4aa1089ad43932d5bbfc62fd232e7605b9c8f7c18fc65d",
+    "bytes": 534,
+    "section_slugs": [],
+    "catalogue_link_ids": [],
+    "related_parent_resource_id": "a0f8e58d4753682edd5c341b"
+  }
+]

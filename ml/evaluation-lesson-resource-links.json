@@ -1,0 +1,319 @@
+{
+  "checked_at": "2026-11-11T02:36:56.403308+00:00",
+  "includes_inherited_base": false,
+  "scope": "Public unauthenticated HTTP reachability. HTTP 403, 406 and 429 can reflect automated request blocking. Availability of every linked activity and teaching quality require separate review.",
+  "results": [
+    {
+      "id": "lesson-resource-bff47ba8f88aee403376",
+      "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/",
+      "title": "Listening and recovery after a service failure",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/",
+      "page_title": "9.2 Communication Strategies &#8211; Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition"
+    },
+    {
+      "id": "lesson-resource-d5078a268cd3fea98b45",
+      "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience/accounts-and-contacts-lightning",
+      "title": "Store information about customers: accounts and contacts",
+      "status": 200,
+      "final_url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience/accounts-and-contacts-lightning",
+      "page_title": "Manage Business Accounts and Contacts"
+    },
+    {
+      "id": "lesson-resource-54956ac635829bf02555",
+      "url": "https://www.hse.gov.uk/event-safety/managing-an-event.htm",
+      "title": "Managing an event: coordination, briefings and monitoring",
+      "status": 200,
+      "final_url": "https://www.hse.gov.uk/event-safety/managing-an-event.htm",
+      "page_title": "Managing an event - HSE"
+    },
+    {
+      "id": "lesson-resource-b72b63f53c733b1580e5",
+      "url": "https://openstax.org/books/principles-marketing/pages/15-3-steps-in-the-personal-selling-process",
+      "title": "Personal selling: qualification, needs and follow-up",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-marketing/pages/15-3-steps-in-the-personal-selling-process",
+      "page_title": "15.3 Steps in the Personal Selling Process - Principles of Marketing | OpenStax"
+    },
+    {
+      "id": "lesson-resource-755dd3a3a6a47f624296",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries",
+      "title": "Adjusting entries: timing, supplies and accruals",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries",
+      "page_title": "4.2 Discuss the Adjustment Process and Illustrate Common Types of Adjusting Entries - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "lesson-resource-335534d6eca80844bd6d",
+      "url": "https://openstax.org/books/principles-financial-accounting/pages/4-5-prepare-financial-statements-using-the-adjusted-trial-balance",
+      "title": "Prepare linked statements from adjusted balances",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-financial-accounting/pages/4-5-prepare-financial-statements-using-the-adjusted-trial-balance",
+      "page_title": "4.5 Prepare Financial Statements Using the Adjusted Trial Balance - Principles of Accounting, Volume 1: Financial Accounting | OpenStax"
+    },
+    {
+      "id": "lesson-resource-b637f2999036f31ef02f",
+      "url": "https://www.hse.gov.uk/event-safety/getting-started.htm",
+      "title": "Plan an event: risk, resources and contractors",
+      "status": 200,
+      "final_url": "https://www.hse.gov.uk/event-safety/getting-started.htm",
+      "page_title": "Getting started - HSE"
+    },
+    {
+      "id": "lesson-resource-d007f79d00a91d58c001",
+      "url": "https://www.hse.gov.uk/event-safety/incidents-and-emergencies.htm",
+      "title": "Event contingency plans: roles, access and exercises",
+      "status": 200,
+      "final_url": "https://www.hse.gov.uk/event-safety/incidents-and-emergencies.htm",
+      "page_title": "Planning for incidents and emergencies - HSE"
+    },
+    {
+      "id": "lesson-resource-f44bf6167e0432e2fea2",
+      "url": "https://openstax.org/books/introduction-business/pages/8-4-employee-training-and-development",
+      "title": "Onboarding and job training: assess, teach and evaluate",
+      "status": 200,
+      "final_url": "https://openstax.org/books/introduction-business/pages/8-4-employee-training-and-development",
+      "page_title": "8.4 Employee Training and Development - Introduction to Business | OpenStax"
+    },
+    {
+      "id": "lesson-resource-7b54526cfd975ab2a2d7",
+      "url": "https://openstax.org/books/principles-management/pages/11-3-performance-management",
+      "title": "Performance management: goals, feedback and development",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-management/pages/11-3-performance-management",
+      "page_title": "11.3 Performance Management - Principles of Management | OpenStax"
+    },
+    {
+      "id": "lesson-resource-3f7bc7d66463310b3d0d",
+      "url": "https://openstax.org/books/principles-marketing/pages/16-1-traditional-direct-marketing",
+      "title": "Direct email: permission, messages and customer action",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-marketing/pages/16-1-traditional-direct-marketing",
+      "page_title": "16.1 Traditional Direct Marketing - Principles of Marketing | OpenStax"
+    },
+    {
+      "id": "lesson-resource-0e60f07a498eae3a6686",
+      "url": "https://mailchimp.com/help/create-and-send-regular-email/",
+      "title": "Prepare an email campaign: audience, sender and checklist",
+      "status": 200,
+      "final_url": "https://mailchimp.com/help/create-and-send-regular-email/",
+      "page_title": "Create a Regular Email | Mailchimp"
+    },
+    {
+      "id": "lesson-resource-23f8c68b00c89753fc90",
+      "url": "https://openstax.org/books/introduction-business/pages/8-2-employee-recruitment",
+      "title": "Recruit applicants: internal and external sourcing",
+      "status": 200,
+      "final_url": "https://openstax.org/books/introduction-business/pages/8-2-employee-recruitment",
+      "page_title": "8.2 Employee Recruitment - Introduction to Business | OpenStax"
+    },
+    {
+      "id": "lesson-resource-a73f588f78e6223ab58d",
+      "url": "https://www.opm.gov/policy-data-oversight/assessment-and-selection/other-assessment-methods/work-samples-and-simulations/",
+      "title": "Work samples: choose and score job-relevant tasks",
+      "status": 200,
+      "final_url": "https://www.opm.gov/policy-data-oversight/assessment-and-selection/other-assessment-methods/work-samples-and-simulations/",
+      "page_title": "Work Samples and Simulations"
+    },
+    {
+      "id": "lesson-resource-46815afdb2813d2d575f",
+      "url": "https://openstax.org/books/principles-marketing/pages/15-1-personal-selling-and-its-role-in-the-promotion-mix",
+      "title": "Choose personal selling for complex customer needs",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-marketing/pages/15-1-personal-selling-and-its-role-in-the-promotion-mix",
+      "page_title": "15.1 Personal Selling and Its Role in the Promotion Mix - Principles of Marketing | OpenStax"
+    },
+    {
+      "id": "lesson-resource-fbdfb42f8db86263b7f7",
+      "url": "https://openstax.org/books/principles-marketing/pages/15-7-ethical-issues-in-personal-selling-and-sales-promotion",
+      "title": "Honest selling: claims, expenses and transparent offers",
+      "status": 200,
+      "final_url": "https://openstax.org/books/principles-marketing/pages/15-7-ethical-issues-in-personal-selling-and-sales-promotion",
+      "page_title": "15.7 Ethical Issues in Personal Selling and Sales Promotion - Principles of Marketing | OpenStax"
+    },
+    {
+      "id": "lesson-resource-b9a573143dff97ec301c",
+      "url": "https://opentextbc.ca/introtourism2e/chapter/loyalty-and-customer-relationships/",
+      "title": "Customer loyalty: records, touchpoints and repeat value",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/chapter/loyalty-and-customer-relationships/",
+      "page_title": "9.4 Loyalty and Customer Relationships &#8211; Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition"
+    },
+    {
+      "id": "lesson-resource-b52d909b702a8e6ca216",
+      "url": "https://opentextbc.ca/introtourism2e/chapter/exceeding-expectations/",
+      "title": "Service quality: expectations and the RATER dimensions",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/chapter/exceeding-expectations/",
+      "page_title": "9.3 Exceeding Expectations with Remarkable Service &#8211; Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition"
+    },
+    {
+      "id": "lesson-resource-5fe0be85e44c0a78b086",
+      "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience/understand-account-and-contact-relationships-lightning",
+      "title": "Connect contacts, account hierarchies and account teams",
+      "status": 200,
+      "final_url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience/understand-account-and-contact-relationships-lightning",
+      "page_title": "Establish Contact and Account Relationships"
+    },
+    {
+      "id": "lesson-resource-c1481ef777184946c788",
+      "url": "https://www.atlassian.com/team-playbook/plays/5-whys",
+      "title": "5 Whys: investigate causes and verify a useful action",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/team-playbook/plays/5-whys",
+      "page_title": "Complete Guide to the 5 Whys Exercise | Atlassian"
+    },
+    {
+      "id": "lesson-resource-852a0775d96a0741c506",
+      "url": "https://opentextbc.ca/introtourism2e/chapter/4-operations/",
+      "title": "Food-service operations: location, costs and capacity",
+      "status": 200,
+      "final_url": "https://opentextbc.ca/introtourism2e/chapter/4-operations/",
+      "page_title": "4.4 Operations &#8211; Introduction to Tourism and Hospitality in BC &#8211; 2nd Edition"
+    },
+    {
+      "id": "lesson-resource-334ad49ad959a01ad6a5",
+      "url": "https://www.lean.org/lexicon-terms/pull-production/",
+      "title": "Pull production: replenishment, sequence and product mix",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/pull-production/",
+      "page_title": "Pull Production - Lean Enterprise Institute"
+    },
+    {
+      "id": "lesson-resource-5f2161b8710c6b47f641",
+      "url": "https://www.atlassian.com/team-playbook/plays/retrospective",
+      "title": "Retrospectives: feedback, patterns and owned improvements",
+      "status": 200,
+      "final_url": "https://www.atlassian.com/team-playbook/plays/retrospective",
+      "page_title": "Sprint Retrospective: How to Hold an Effective Meeting | Atlassian"
+    },
+    {
+      "id": "lesson-resource-409be2d800a9f1aad871",
+      "url": "https://www.lean.org/lexicon-terms/takt-time/",
+      "title": "Takt time: calculate the pace of customer demand",
+      "status": 200,
+      "final_url": "https://www.lean.org/lexicon-terms/takt-time/",
+      "page_title": "Takt Time - Lean Enterprise Institute"
+    },
+    {
+      "id": "lesson-resource-944256cb8f296ab56beb",
+      "url": "https://www.gnu.org/s/coreutils/manual/html_node/Mode-Structure.html",
+      "title": "File permission bits and directory access",
+      "status": 200,
+      "final_url": "https://www.gnu.org/software/coreutils/manual/html_node/Mode-Structure.html",
+      "page_title": "Mode Structure (GNU Coreutils 9.12)"
+    },
+    {
+      "id": "lesson-resource-551bd480956b339a96c0",
+      "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/4-network-protocols",
+      "title": "Network protocols, messages and ports",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/4-network-protocols",
+      "page_title": "Network protocols to use when you implement a network - Training | Microsoft Learn"
+    },
+    {
+      "id": "lesson-resource-e15866cbe792c0670b6a",
+      "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/3-network-infrastructure",
+      "title": "Network devices and forwarding",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/3-network-infrastructure",
+      "page_title": "Types of network devices to use when you build a network - Training | Microsoft Learn"
+    },
+    {
+      "id": "lesson-resource-d82de016401418596fe4",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models",
+      "title": "Public, private, hybrid and multicloud models",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models",
+      "page_title": "Define cloud models - Training | Microsoft Learn"
+    },
+    {
+      "id": "lesson-resource-7ded08605fe0337ea30a",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+      "title": "Availability and horizontal versus vertical scaling",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+      "page_title": "Describe the benefits of high availability and scalability in the cloud - Training | Microsoft Learn"
+    },
+    {
+      "id": "lesson-resource-aee21910d3cea2b515bd",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html",
+      "title": "Password hashing, salts and work factors",
+      "status": 200,
+      "final_url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html",
+      "page_title": "Password Storage - OWASP Cheat Sheet Series"
+    },
+    {
+      "id": "lesson-resource-9cd28f2d45732b7881d0",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html",
+      "title": "Airflow DAG task dependencies and control flow",
+      "status": 200,
+      "final_url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html",
+      "page_title": "Dags &mdash; Airflow 3.4.0 Documentation"
+    },
+    {
+      "id": "lesson-resource-003eedf593e1206a768e",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-OnBoarding/files/ACD_FOUNDATIONS_MAIN6.html",
+      "title": "Precise Cartesian and polar drawing coordinates",
+      "status": 200,
+      "final_url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-OnBoarding/files/ACD_FOUNDATIONS_MAIN6.html",
+      "page_title": "6. Create Objects with Precision and Accuracy"
+    },
+    {
+      "id": "lesson-resource-4379ed7c790f864d9b69",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-Core/files/GUID-8F5E5431-9EFB-414E-BC6D-2C65EFB2DAC3.htm",
+      "title": "Precise object snaps and running snap modes",
+      "status": 200,
+      "final_url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-Core/files/GUID-8F5E5431-9EFB-414E-BC6D-2C65EFB2DAC3.htm",
+      "page_title": "About Using Object Snaps"
+    },
+    {
+      "id": "lesson-resource-1375822fcfdecbc01dc5",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-2/",
+      "title": "Just-in-time, demand pull and takt calculations",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-2/",
+      "page_title": "Chapter 2: Just-In-Time Production Concepts &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "lesson-resource-fbec9992824c2ded68ac",
+      "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-3/",
+      "title": "Visual workplace, 5S and error prevention",
+      "status": 200,
+      "final_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-3/",
+      "page_title": "Chapter 3: Visual Workplace and Error-Proofing &#8211; SPC and Lean Manufacturing"
+    },
+    {
+      "id": "lesson-resource-f42c318274b5162bfd4c",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/",
+      "title": "Write content around the user's task",
+      "status": 200,
+      "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/",
+      "page_title": "Write content to meet user needs - GOV.UK content and publishing guidance"
+    },
+    {
+      "id": "lesson-resource-a37e908cbd04ecfff2e4",
+      "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/",
+      "title": "Frontloaded information and descriptive web headings",
+      "status": 200,
+      "final_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/",
+      "page_title": "Create a clear structure for your content - GOV.UK content and publishing guidance"
+    },
+    {
+      "id": "lesson-resource-e83f8b5a841308b92939",
+      "url": "https://developers.google.com/tech-writing/one/clear-sentences",
+      "title": "Clear technical sentences and specific verbs",
+      "status": 200,
+      "final_url": "https://developers.google.com/tech-writing/one/clear-sentences",
+      "page_title": "Clear sentences &nbsp;|&nbsp; Technical Writing &nbsp;|&nbsp; Google for Developers"
+    },
+    {
+      "id": "lesson-resource-d8687d530088d651c704",
+      "url": "https://developers.google.com/tech-writing/two/editing",
+      "title": "Iterative self-editing and audience review",
+      "status": 200,
+      "final_url": "https://developers.google.com/tech-writing/two/editing",
+      "page_title": "Self-editing &nbsp;|&nbsp; Technical Writing &nbsp;|&nbsp; Google for Developers"
+    }
+  ]
+}

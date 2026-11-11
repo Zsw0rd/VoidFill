@@ -12,6 +12,8 @@
     "supabase/migrations/20261106130000_practical_learning.sql",
     "supabase/migrations/20261106140000_operation_limits.sql",
     "supabase/migrations/20261106150000_applied_career_paths.sql",
-    "supabase/migrations/20261108120000_account_requests.sql"
+    "supabase/migrations/20261108120000_account_requests.sql",
+    "supabase/migrations/20261110130000_resource_progress_scope.sql",
+    "supabase/migrations/20261110130100_ungraded_resource_seed.sql"
   ]
 }
