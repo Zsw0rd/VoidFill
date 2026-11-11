@@ -1,0 +1,1983 @@
+[
+  {
+    "resource_ids": [
+      "voidfill-web-2"
+    ],
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The JavaScript Guide landing page introduces and links its chapters; it does not itself teach the chapter bodies. Those MDN chapter URLs are not separate catalogue resources, so this page has no fabricated checks or inferred child bindings.",
+    "child_resource_ids": [],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "a5d95e41d8d2b56ad5b25460"
+    ],
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/README.md",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Curriculum introduction and three-link topic index with author credits; the instructional bodies are its linked lessons.",
+    "child_resource_ids": [
+      "21d6f7b742af5ef625aa9253",
+      "093e7f299d5a4a42be6f9683",
+      "3f812fe641f4b86d2834366d"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "21d6f7b742af5ef625aa9253",
+        "title": "Introduction to Programming Languages and Tools of the Trade",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/1-intro-to-programming-languages/README.md"
+      },
+      {
+        "id": "093e7f299d5a4a42be6f9683",
+        "title": "Introduction to GitHub",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/2-github-basics/README.md"
+      },
+      {
+        "id": "3f812fe641f4b86d2834366d",
+        "title": "Creating Accessible Webpages",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/1-getting-started-lessons/3-accessibility/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "4156f71c085df6857a4f85c9"
+    ],
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/README.md",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "JavaScript module topic index and credits; variables, functions, decisions and loops are taught in the four linked lesson pages.",
+    "child_resource_ids": [
+      "45db1418a7051a3a68f47bc2",
+      "177807d185220783a0478e05",
+      "f96bb81b0ba769e1e46268cc",
+      "f816fe36c2142be298089ac3"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "45db1418a7051a3a68f47bc2",
+        "title": "JavaScript Basics: Data Types",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/1-data-types/README.md"
+      },
+      {
+        "id": "177807d185220783a0478e05",
+        "title": "JavaScript Basics: Methods and Functions",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/2-functions-methods/README.md"
+      },
+      {
+        "id": "f96bb81b0ba769e1e46268cc",
+        "title": "JavaScript Basics: Making Decisions",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/3-making-decisions/README.md"
+      },
+      {
+        "id": "f816fe36c2142be298089ac3",
+        "title": "JavaScript Basics: Arrays and Loops",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/2-js-basics/4-arrays-loops/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "0c8090f1641fa0e354d7d6c1"
+    ],
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/README.md",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Terrarium project overview, lesson links, credits and Azure deployment setup. It is an orientation/setup guide rather than the HTML, CSS or DOM teaching bodies.",
+    "child_resource_ids": [
+      "5147d258bf81618cfbce5a2a",
+      "b5bcddf9e8bafa4fdd75339f",
+      "5e6ca8a2d103dbc86238e618"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "5147d258bf81618cfbce5a2a",
+        "title": "Terrarium Project Part 1: Introduction to HTML",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/1-intro-to-html/README.md"
+      },
+      {
+        "id": "b5bcddf9e8bafa4fdd75339f",
+        "title": "Terrarium Project Part 2: Introduction to CSS",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/2-intro-to-css/README.md"
+      },
+      {
+        "id": "5e6ca8a2d103dbc86238e618",
+        "title": "Terrarium Project Part 3: DOM Manipulation and a Closure",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/3-terrarium/3-intro-to-DOM-and-closures/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "93ff58af448d4c3a22046ab6"
+    ],
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/4-typing-game/README.md",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Typing-game introduction, prerequisites and a link to the actual event-driven programming lesson; the page does not teach that lesson's implementation.",
+    "child_resource_ids": [
+      "e48d1a8b3020ba91c131475d"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "e48d1a8b3020ba91c131475d",
+        "title": "Creating a game using events",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/4-typing-game/typing-game/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "04da0d2cfe28593dd774821a"
+    ],
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/README.md",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Browser-extension project motivation, three lesson links and credits. Implementation objectives belong to the linked instructional pages.",
+    "child_resource_ids": [
+      "ccf09d85bb3979199f32a57b",
+      "7f95b0704dd938c21b8c7d50",
+      "91ebbdad08c0aa7018b889a2"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "ccf09d85bb3979199f32a57b",
+        "title": "Browser Extension Project Part 1: All about Browsers",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/1-about-browsers/README.md"
+      },
+      {
+        "id": "7f95b0704dd938c21b8c7d50",
+        "title": "Browser Extension Project Part 2: Call an API, use Local Storage",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/2-forms-browsers-local-storage/README.md"
+      },
+      {
+        "id": "91ebbdad08c0aa7018b889a2",
+        "title": "Browser Extension Project Part 3: Learn about Background Tasks and Performance",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/3-background-tasks-and-performance/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "d17ab6e6fc409dddc1c94d3a"
+    ],
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/5-browser-extension/start/README.md",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Starter-code setup guide: install dependencies, build, load unpacked, obtain a service key and choose a region. It neither supplies the implementation lessons nor links their catalogue URLs. Service availability was not certified.",
+    "child_resource_ids": [],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "d78c1f50cef12815d86705dc"
+    ],
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/README.md",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Space-game learning overview and six lesson links; mechanics and code are taught in those linked pages.",
+    "child_resource_ids": [
+      "a626753d5b4a2f04a087cf45",
+      "044151219efd503a941c1983",
+      "aabe132f4ffe9127fd7fc712",
+      "2c33319788e1916817c8f8f7",
+      "d4243ea043940885c2dc0588",
+      "e2ec4a1657965257b4205356"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "a626753d5b4a2f04a087cf45",
+        "title": "Build a Space Game Part 1: Introduction",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/1-introduction/README.md"
+      },
+      {
+        "id": "044151219efd503a941c1983",
+        "title": "Build a Space Game Part 2: Draw Hero and Monsters to Canvas",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/2-drawing-to-canvas/README.md"
+      },
+      {
+        "id": "aabe132f4ffe9127fd7fc712",
+        "title": "Build a Space Game Part 3: Adding Motion",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/3-moving-elements-around/README.md"
+      },
+      {
+        "id": "2c33319788e1916817c8f8f7",
+        "title": "Build a Space Game Part 4: Adding A Laser and Detect Collisions",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/4-collision-detection/README.md"
+      },
+      {
+        "id": "d4243ea043940885c2dc0588",
+        "title": "Build a Space Game Part 5: Scoring and Lives",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/5-keeping-score/README.md"
+      },
+      {
+        "id": "e2ec4a1657965257b4205356",
+        "title": "Build a Space Game Part 6: End and Restart",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/6-space-game/6-end-condition/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "ccd785680686c59c2fe16932"
+    ],
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/README.md",
+    "topics": [
+      "web"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Fictional-bank project overview with four instructional lesson links and a link to its sample API reference. It does not itself teach the implementations.",
+    "child_resource_ids": [
+      "db56078edbbfe68f42d8fa8e",
+      "d7daf65e177e2c6618c243b4",
+      "8adb506835ad31efc908cf41",
+      "f15bbbfc685089f0f0ef54c4",
+      "f397d1eb20ac49a8093f3c1c"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "db56078edbbfe68f42d8fa8e",
+        "title": "Build a Banking App Part 1: HTML Templates and Routes in a Web App",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/1-template-route/README.md"
+      },
+      {
+        "id": "d7daf65e177e2c6618c243b4",
+        "title": "Build a Banking App Part 2: Build a Login and Registration Form",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/2-forms/README.md"
+      },
+      {
+        "id": "8adb506835ad31efc908cf41",
+        "title": "Build a Banking App Part 3: Methods of Fetching and Using Data",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/3-data/README.md"
+      },
+      {
+        "id": "f15bbbfc685089f0f0ef54c4",
+        "title": "Build a Banking App Part 4: Concepts of State Management",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/4-state-management/README.md"
+      },
+      {
+        "id": "f397d1eb20ac49a8093f3c1c",
+        "title": "Bank API",
+        "url": "https://github.com/microsoft/Web-Dev-For-Beginners/blob/afcbf7b9134080479c6e6a247e8df5cacabe79a0/7-bank-project/api/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-6235acea9fd6cd99437e"
+    ],
+    "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience",
+    "topics": [
+      "account-management"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The module landing page shows its description, points, skills and links to units rather than the instructional text. The public Store Information About Your Customers child unit was separately reviewed and receives the checks.",
+    "child_resource_ids": [
+      "lesson-resource-d5078a268cd3fea98b45"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-d5078a268cd3fea98b45",
+        "title": "Store information about customers: accounts and contacts",
+        "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience/accounts-and-contacts-lightning"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-2bf2b9ef5c165605b608",
+      "career-resource-6050421d8b173b9ccb90"
+    ],
+    "url": "https://academy.hubspot.com/courses/hubspot-service-software",
+    "topics": [
+      "account-management",
+      "success"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public page shows a Service Hub course overview, objectives and lesson curriculum with Start course/sign-up controls. It also states certification practicals require a Pro or Enterprise subscription. No full software instruction or account access was used for a proficiency quiz.",
+    "child_resource_ids": [
+      "lesson-resource-d5078a268cd3fea98b45",
+      "lesson-resource-bff47ba8f88aee403376"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-d5078a268cd3fea98b45",
+        "title": "Store information about customers: accounts and contacts",
+        "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience/accounts-and-contacts-lightning"
+      },
+      {
+        "id": "lesson-resource-bff47ba8f88aee403376",
+        "title": "Listening and recovery after a service failure",
+        "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-a8434ccf2ed49ef540f9"
+    ],
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/1-why-it-matters",
+    "topics": [
+      "accounting"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The page introduces the chapter through a career vignette and lists the chapter outline. It does not teach journal-entry or statement-preparation procedures. The existing detailed section on statement elements has its own bounded checks.",
+    "child_resource_ids": [
+      "career-resource-885b19429d4477e02bed"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-885b19429d4477e02bed",
+        "title": "Elements of financial statements",
+        "url": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-c43ed057dfdb5fac89fd"
+    ],
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/4-why-it-matters",
+    "topics": [
+      "accounting"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The page frames the adjusting-process chapter through examples of timing questions and an outline. The detailed answers and adjustment methods are in child sections, not this introduction. It is ungraded rather than testing unseen adjustment procedures.",
+    "child_resource_ids": [],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "career-resource-48d98aa540da4ee261c8"
+    ],
+    "url": "https://openstax.org/books/principles-management/pages/11-introduction",
+    "topics": [
+      "hr-operations"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public chapter introduction presents learning questions and a career vignette. It outlines HR responsibilities but does not teach the detailed selection, training or performance methods of the linked chapter sections.",
+    "child_resource_ids": [
+      "career-resource-a50b42e3a8904f9df25c"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-a50b42e3a8904f9df25c",
+        "title": "People analytics",
+        "url": "https://www.cipd.org/uk/knowledge/factsheets/analytics-factsheet/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-4f32446aa47a509a4e17"
+    ],
+    "url": "https://www.cipd.org/uk/knowledge/factsheets/induction-factsheet/",
+    "topics": [
+      "hr-operations"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public introduction explains induction's purpose and lists intended sections, followed by an explicit To continue reading, log in or become a member boundary. The induction process/checklist is not publicly exposed in this review. No membership or gated content was accessed.",
+    "child_resource_ids": [],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "career-resource-4d7fdae98da8d4fd0a33"
+    ],
+    "url": "https://www.cipd.org/uk/topics/recruitment/",
+    "topics": [
+      "recruiting"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "This topic hub gives a short recruitment overview and lists factsheets, reports and insights, marking some as member content. The linked public Selection methods factsheet provides actual assessment instruction and receives its own checks.",
+    "child_resource_ids": [
+      "career-resource-7dc843950f5df38e2316"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-7dc843950f5df38e2316",
+        "title": "Selection methods",
+        "url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-692fd21959e2286d6d1c"
+    ],
+    "url": "https://opentextbc.ca/introtourism2e/",
+    "topics": [
+      "hospitality"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The book landing page exposes its description, downloads and table of contents. Hotel operations and communication strategies are taught in the separately reviewed chapter URLs, rather than assessed from a contents-page visit.",
+    "child_resource_ids": [
+      "career-resource-c9c9f1f734811b6816ea",
+      "career-resource-e30cda6088b0c7a99347"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-c9c9f1f734811b6816ea",
+        "title": "Accommodation operations",
+        "url": "https://opentextbc.ca/introtourism2e/chapter/operations/"
+      },
+      {
+        "id": "career-resource-e30cda6088b0c7a99347",
+        "title": "Customer service in hospitality",
+        "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-8a99b09111eb85dfd02b"
+    ],
+    "url": "https://ocw.mit.edu/course-lists/transportation-logistics-and-supply-chains/",
+    "topics": [
+      "supply-chain"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public response exposes a Transportation: Logistics and Supply Chains collection heading and site information, without a readable lesson body. It is a course-discovery guide, not evidence of supply-chain instruction. Existing reviewed Lean instruction supplies the bounded checks.",
+    "child_resource_ids": [
+      "career-resource-1a99e6f0c0ca5ce2fc1b",
+      "career-resource-3e9dbe524b6c4cfaf995"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-1a99e6f0c0ca5ce2fc1b",
+        "title": "Just-in-time production",
+        "url": "https://www.lean.org/lexicon-terms/just-in-time-production/"
+      },
+      {
+        "id": "career-resource-3e9dbe524b6c4cfaf995",
+        "title": "Value-stream mapping",
+        "url": "https://www.lean.org/lexicon-terms/value-stream-mapping/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-2ad2d6b09d9e6fc99bb7"
+    ],
+    "url": "https://www.hse.gov.uk/event-safety/running.htm",
+    "topics": [
+      "events"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The page lists Getting started, Managing an event and Planning for incidents and emergencies. Actual coordination and monitoring instruction is on the reviewed Managing an event child page.",
+    "child_resource_ids": [
+      "lesson-resource-54956ac635829bf02555"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-54956ac635829bf02555",
+        "title": "Managing an event: coordination, briefings and monitoring",
+        "url": "https://www.hse.gov.uk/event-safety/managing-an-event.htm"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-13216d1a8f3646866dfe"
+    ],
+    "url": "https://www.hse.gov.uk/event-safety/health-safety-topics.htm",
+    "topics": [
+      "events"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The page is a topic directory linking crowds, transport, structures, electrical and other safety guidance. It contains no specialist technique instruction itself. The general event-management child provides introductory operational checks, not certification in these specialist topics.",
+    "child_resource_ids": [
+      "lesson-resource-54956ac635829bf02555"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-54956ac635829bf02555",
+        "title": "Managing an event: coordination, briefings and monitoring",
+        "url": "https://www.hse.gov.uk/event-safety/managing-an-event.htm"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-fc830cebaa10205ed3f1"
+    ],
+    "url": "https://academy.hubspot.com/courses/digital-marketing",
+    "topics": [
+      "marketing"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public page presents course objectives, curriculum and sign-up/start controls, not full lesson instruction or transcripts.",
+    "child_resource_ids": [
+      "career-resource-194927714ef79e921ab4"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-194927714ef79e921ab4",
+        "title": "Search Engine Optimization Starter Guide",
+        "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-b7323e0bae5c7e69451b"
+    ],
+    "url": "https://academy.hubspot.com/courses/email-marketing",
+    "topics": [
+      "marketing"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The URL redirects to the email-marketing certification overview. The public response presents lesson summaries and enrolment controls; full email strategy instruction was not exposed.",
+    "child_resource_ids": [],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "career-resource-e8eedc80e0615420aedc"
+    ],
+    "url": "https://academy.hubspot.com/courses/inbound-sales",
+    "topics": [
+      "sales"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public page lists inbound-sales curriculum, learning objectives and start/sign-up controls. These summaries do not supply the underlying methods for a source-specific proficiency test.",
+    "child_resource_ids": [
+      "lesson-resource-b72b63f53c733b1580e5"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-b72b63f53c733b1580e5",
+        "title": "Personal selling: qualification, needs and follow-up",
+        "url": "https://openstax.org/books/principles-marketing/pages/15-3-steps-in-the-personal-selling-process"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-b40f1bf62bc60ee72b84"
+    ],
+    "url": "https://academy.hubspot.com/courses/Sales-Enablement",
+    "topics": [
+      "sales"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public page presents the sales-enablement course and lesson objectives with enrolment controls, rather than full instruction on its frameworks or service-level agreements.",
+    "child_resource_ids": [
+      "lesson-resource-b72b63f53c733b1580e5"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-b72b63f53c733b1580e5",
+        "title": "Personal selling: qualification, needs and follow-up",
+        "url": "https://openstax.org/books/principles-marketing/pages/15-3-steps-in-the-personal-selling-process"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-3af363d51f06e0efa77e"
+    ],
+    "url": "https://academy.hubspot.com/courses/delivering-exceptional-customer-support",
+    "topics": [
+      "success"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public page shows customer-support lesson summaries and an introductory video preview link. The full lesson instruction/transcripts were not accessed; outcomes on this landing page are not assessed as learned methods.",
+    "child_resource_ids": [
+      "lesson-resource-bff47ba8f88aee403376"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-bff47ba8f88aee403376",
+        "title": "Listening and recovery after a service failure",
+        "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-3333de15c00d5936d8fe"
+    ],
+    "url": "https://www.onetonline.org/link/summary/13-1111.00",
+    "topics": [
+      "analysis"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public O*NET summary for Management Analysts describes occupation tasks, skills, work activities and career information. It identifies what work involves; it does not teach how to perform those methods. Job-title/task recognition is not used as proficiency evidence.",
+    "child_resource_ids": [
+      "career-resource-09205585873f8f296ebe",
+      "career-resource-87499d1e1ec60bea0324"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-09205585873f8f296ebe",
+        "title": "The Business Analysis Standard",
+        "url": "https://www.iiba.org/knowledgehub/the-business-analysis-standard/"
+      },
+      {
+        "id": "career-resource-87499d1e1ec60bea0324",
+        "title": "Requirements gathering",
+        "url": "https://www.atlassian.com/work-management/project-management/requirements-gathering"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-c9e83f94ed6ab2b8292d"
+    ],
+    "url": "https://www.onetonline.org/link/summary/13-1121.00",
+    "topics": [
+      "events"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public O*NET summary for Meeting, Convention, and Event Planners describes occupation tasks, skills, work activities and career information. It identifies what work involves; it does not teach how to perform those methods. Job-title/task recognition is not used as proficiency evidence.",
+    "child_resource_ids": [
+      "lesson-resource-54956ac635829bf02555"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-54956ac635829bf02555",
+        "title": "Managing an event: coordination, briefings and monitoring",
+        "url": "https://www.hse.gov.uk/event-safety/managing-an-event.htm"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-3d8b99d3bfb64bc91fca"
+    ],
+    "url": "https://www.onetonline.org/link/summary/13-1081.00",
+    "topics": [
+      "inventory"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public O*NET summary for Logisticians describes occupation tasks, skills, work activities and career information. It identifies what work involves; it does not teach how to perform those methods. Job-title/task recognition is not used as proficiency evidence.",
+    "child_resource_ids": [
+      "career-resource-bf5907b7fb6a33f6aee8",
+      "career-resource-3206b0a4499800dbed77"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-bf5907b7fb6a33f6aee8",
+        "title": "Inventory",
+        "url": "https://www.lean.org/lexicon-terms/inventory/"
+      },
+      {
+        "id": "career-resource-3206b0a4499800dbed77",
+        "title": "Kanban",
+        "url": "https://www.lean.org/lexicon-terms/kanban/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-92c0b5216c6518077d8b"
+    ],
+    "url": "https://www.onetonline.org/link/summary/13-1082.00",
+    "topics": [
+      "projects"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public O*NET summary for Project Management Specialists describes occupation tasks, skills, work activities and career information. It identifies what work involves; it does not teach how to perform those methods. Job-title/task recognition is not used as proficiency evidence.",
+    "child_resource_ids": [
+      "career-resource-4a5e1f70f6f28e160f76",
+      "career-resource-fdff649e8ef4a980c759"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-4a5e1f70f6f28e160f76",
+        "title": "Project risk management",
+        "url": "https://www.atlassian.com/work-management/project-management/project-risk-management"
+      },
+      {
+        "id": "career-resource-fdff649e8ef4a980c759",
+        "title": "Project scope",
+        "url": "https://www.atlassian.com/work-management/project-management/project-scope"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-63095607c61d302f0758"
+    ],
+    "url": "https://www.onetonline.org/link/summary/13-1071.00",
+    "topics": [
+      "recruiting"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public O*NET summary for Human Resources Specialists describes occupation tasks, skills, work activities and career information. It identifies what work involves; it does not teach how to perform those methods. Job-title/task recognition is not used as proficiency evidence.",
+    "child_resource_ids": [
+      "career-resource-7dc843950f5df38e2316"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "career-resource-7dc843950f5df38e2316",
+        "title": "Selection methods",
+        "url": "https://www.cipd.org/uk/knowledge/factsheets/selection-factsheet/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-af992b76f66568b241b9"
+    ],
+    "url": "https://www.onetonline.org/link/summary/41-3091.00",
+    "topics": [
+      "sales"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public O*NET summary for Sales Representatives of Services describes occupation tasks, skills, work activities and career information. It identifies what work involves; it does not teach how to perform those methods. Job-title/task recognition is not used as proficiency evidence.",
+    "child_resource_ids": [
+      "lesson-resource-b72b63f53c733b1580e5"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-b72b63f53c733b1580e5",
+        "title": "Personal selling: qualification, needs and follow-up",
+        "url": "https://openstax.org/books/principles-marketing/pages/15-3-steps-in-the-personal-selling-process"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-10f59c55d3dee15b53c7"
+    ],
+    "url": "https://www.onetonline.org/link/summary/43-4051.00",
+    "topics": [
+      "success"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public O*NET summary for Customer Service Representatives describes occupation tasks, skills, work activities and career information. It identifies what work involves; it does not teach how to perform those methods. Job-title/task recognition is not used as proficiency evidence.",
+    "child_resource_ids": [
+      "lesson-resource-bff47ba8f88aee403376"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-bff47ba8f88aee403376",
+        "title": "Listening and recovery after a service failure",
+        "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "d4efc35e0bb394adf9e02a90"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/1-Tools/README.md",
+    "topics": [
+      "python"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "This applied machine-learning walkthrough covers notebook setup and Scikit-learn regression. Its catalogue tag is Python, but it assumes Python and does not provide a Python-language fundamentals lesson. It is retained as supplemental reading without a Python completion quiz; use the language lessons below for that skill. Existing assessment history is preserved.",
+    "child_resource_ids": [
+      "voidfill-python-0",
+      "voidfill-python-1"
+    ],
+    "kind": "scope-mismatch",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "voidfill-python-0",
+        "title": "Python control flow",
+        "url": "https://docs.python.org/3/tutorial/controlflow.html"
+      },
+      {
+        "id": "voidfill-python-1",
+        "title": "Python data structures",
+        "url": "https://docs.python.org/3/tutorial/datastructures.html"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "650d1633208ac3bc22ff70dd"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Module introduction, photographs, author credits and links to four substantive lessons. The teaching bodies are the linked pages, not this navigation page.",
+    "child_resource_ids": [
+      "adbcf17f64d9f66e17f7ce82",
+      "593b1f33ca4b39211c8eccd6",
+      "3f9470d7f955bac6fe97bdfb",
+      "8665cbcb49e8235c073ea410"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "adbcf17f64d9f66e17f7ce82",
+        "title": "Introduction to machine learning",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/1-intro-to-ML/README.md"
+      },
+      {
+        "id": "593b1f33ca4b39211c8eccd6",
+        "title": "History of machine learning",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/2-history-of-ML/README.md"
+      },
+      {
+        "id": "3f9470d7f955bac6fe97bdfb",
+        "title": "Building Machine Learning solutions with responsible AI",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/3-fairness/README.md"
+      },
+      {
+        "id": "8665cbcb49e8235c073ea410",
+        "title": "Techniques of Machine Learning",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/4-techniques-of-ML/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "e0150a6104439992b3fd91fc"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Pumpkin-project/module overview with short motivation, videos and four lesson links. It does not contain the data-preparation or regression implementation bodies.",
+    "child_resource_ids": [
+      "d4efc35e0bb394adf9e02a90",
+      "89cd5bb2ed626c6062fa7c6a",
+      "2b19a333828f0415582f2cc5",
+      "80fa4d18046d23b6fffe27dc"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "89cd5bb2ed626c6062fa7c6a",
+        "title": "Build a regression model using Scikit-learn: prepare and visualize data",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/2-Data/README.md"
+      },
+      {
+        "id": "2b19a333828f0415582f2cc5",
+        "title": "Build a regression model using Scikit-learn: regression four ways",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/3-Linear/README.md"
+      },
+      {
+        "id": "80fa4d18046d23b6fffe27dc",
+        "title": "Logistic regression to predict categories",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/2-Regression/4-Logistic/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "9ad1b600e41c8b66e609173a"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Applied-ML project motivation, dataset attribution and a link to its actual Flask/model-serving lesson; not a separate instruction body.",
+    "child_resource_ids": [
+      "44a5f55f2274d16ffaa8a4a8"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "44a5f55f2274d16ffaa8a4a8",
+        "title": "Build a Web App to use a ML Model",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/3-Web-App/1-Web-App/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "1121a67935e8f40c613b313b"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Cuisine project overview and four lesson links with credits. Classification implementation and evaluation are taught in the linked pages.",
+    "child_resource_ids": [
+      "9932de14f2896338373bd21c",
+      "444dada88136c9d89d3748b1",
+      "1ff66fd8a070f3eb629997a8",
+      "9d409b7e327d6e85d596caa5"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "9932de14f2896338373bd21c",
+        "title": "Introduction to classification",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/1-Introduction/README.md"
+      },
+      {
+        "id": "444dada88136c9d89d3748b1",
+        "title": "Cuisine classifiers 1",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/2-Classifiers-1/README.md"
+      },
+      {
+        "id": "1ff66fd8a070f3eb629997a8",
+        "title": "Cuisine classifiers 2",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/3-Classifiers-2/README.md"
+      },
+      {
+        "id": "9d409b7e327d6e85d596caa5",
+        "title": "Build a Cuisine Recommender Web App",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/4-Classification/4-Applied/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "853f6cd5e85370015f2aa173"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Music-clustering module introduction and dataset context followed by two instructional links. The clustering exploration and algorithm lessons have their own checks.",
+    "child_resource_ids": [
+      "64194972db5d31954d2eab14",
+      "68f07271e7cd3852c7c9b888"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "64194972db5d31954d2eab14",
+        "title": "Introduction to clustering",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/1-Visualize/README.md"
+      },
+      {
+        "id": "68f07271e7cd3852c7c9b888",
+        "title": "K-Means clustering",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/5-Clustering/2-K-Means/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "dfdd34fd544e6f7c7b928edf"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "NLP module overview with short field motivation and five lesson links; does not itself teach the linked bot, translation or review-analysis implementations.",
+    "child_resource_ids": [
+      "415aa9bf5153db2f959b7f41",
+      "7d7d7e40def35e4fbc555ad2",
+      "77ed081e085b28907dec5676",
+      "4514033c9679049ba71da6f1",
+      "1fcb47b0e456d979ca226530"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "415aa9bf5153db2f959b7f41",
+        "title": "Introduction to natural language processing",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/1-Introduction-to-NLP/README.md"
+      },
+      {
+        "id": "7d7d7e40def35e4fbc555ad2",
+        "title": "Common natural language processing tasks and techniques",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/2-Tasks/README.md"
+      },
+      {
+        "id": "77ed081e085b28907dec5676",
+        "title": "Translation and sentiment analysis with ML",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/3-Translation-Sentiment/README.md"
+      },
+      {
+        "id": "4514033c9679049ba71da6f1",
+        "title": "Sentiment analysis with hotel reviews - processing the data",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/4-Hotel-Reviews-1/README.md"
+      },
+      {
+        "id": "1fcb47b0e456d979ca226530",
+        "title": "Sentiment analysis with hotel reviews",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/6-NLP/5-Hotel-Reviews-2/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "d125ff2ef9ffefcf1f97be09"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Electricity-forecasting module overview and three lesson links. Its instructional definitions, ARIMA and SVR bodies are separate resources.",
+    "child_resource_ids": [
+      "ca35af5340dc07e76eca1c36",
+      "6e480609fa7263de12f2354d",
+      "d5aabaecb172aa8ce7253ddb"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "ca35af5340dc07e76eca1c36",
+        "title": "Introduction to time series forecasting",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/1-Introduction/README.md"
+      },
+      {
+        "id": "6e480609fa7263de12f2354d",
+        "title": "Time series forecasting with ARIMA",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/2-ARIMA/README.md"
+      },
+      {
+        "id": "d5aabaecb172aa8ce7253ddb",
+        "title": "Time Series Forecasting with Support Vector Regressor",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/3-SVR/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "0768f09431d653c0e0085fd7"
+    ],
+    "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Postscript module overview and two substantive lesson links; no independent experiment or implementation is taught on this index.",
+    "child_resource_ids": [
+      "f73cafa52d6650012359482a",
+      "93b2318d79f963858dd400fc"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "f73cafa52d6650012359482a",
+        "title": "Postscript: Machine learning in the real world",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/1-Applications/README.md"
+      },
+      {
+        "id": "93b2318d79f963858dd400fc",
+        "title": "Postscript: Model Debugging in Machine Learning using Responsible AI dashboard components",
+        "url": "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/9-Real-World/2-Debugging-ML-Models/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "5271c4919333ec50a98efba8"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/04-OwnFramework/lab/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Practice assignment to compare MNIST networks of different depths and inspect training behavior. It poses empirical questions without supplying answers; the linked notebook is not a separately stored resource. No experimental outcomes or proficiency checks are invented.",
+    "child_resource_ids": [],
+    "kind": "practice-guide",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "9ee3a81370b41cd4740ae735"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/3-NeuralNetworks/05-Frameworks/lab/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Practice brief assigning Iris and MNIST classification with different architectures. It points to a notebook but does not teach the implementations or establish their outcomes on this page.",
+    "child_resource_ids": [],
+    "kind": "practice-guide",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "d210658de51d5920ed3d5b78"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/lab/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Optical-flow practice brief with a video, movement-detection goal, optional tracking links and a notebook. It does not teach the flow algorithms on this page; the parent computer-vision lesson supplies instructional coverage.",
+    "child_resource_ids": [],
+    "kind": "practice-guide",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "b5fab1e2354cb85bd0cbc30b"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/lab/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Pet-face classification practice assignment, dataset download commands and a notebook link. Training implementation and results are not taught here. Its asserted breed count is not endorsed; no knowledge check is based on that potentially inaccurate metadata.",
+    "child_resource_ids": [],
+    "kind": "practice-guide",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "d15644edf9b9b956e6618b9d"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/lab/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Oxford Pets transfer-learning practice brief and dataset-download instructions. The substantive transfer lesson is separately stored; this brief does not teach the classifier implementation or prove an accuracy result. Its asserted breed count is not endorsed.",
+    "child_resource_ids": [],
+    "kind": "practice-guide",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "6086f4e27678b379699d4285"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/lab/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Human-body-segmentation assignment, dataset link and starting notebook. It specifies a goal and related topics but does not teach a model implementation or demonstrate a trained outcome on this page.",
+    "child_resource_ids": [],
+    "kind": "practice-guide",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "b91bb3ec6942f71f236cca82"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Computer-vision module index containing links to seven substantive lessons and a sketchnote. Navigation is not assessed as computer-vision proficiency.",
+    "child_resource_ids": [
+      "c7c56a433efa2ea3052c0a04",
+      "525ec3a4405c46204b09761b",
+      "e4fca6cf26190fda47db287a",
+      "7d9a34064faa6f490016c776",
+      "3725a6a92e7b2dd17bc20532",
+      "d78317785ba7cee2add3cbeb",
+      "8912ef2a4435e94decd28e50"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "c7c56a433efa2ea3052c0a04",
+        "title": "Introduction to Computer Vision",
+        "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/06-IntroCV/README.md"
+      },
+      {
+        "id": "525ec3a4405c46204b09761b",
+        "title": "Convolutional Neural Networks",
+        "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/07-ConvNets/README.md"
+      },
+      {
+        "id": "e4fca6cf26190fda47db287a",
+        "title": "Pre-trained Networks and Transfer Learning",
+        "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/08-TransferLearning/README.md"
+      },
+      {
+        "id": "7d9a34064faa6f490016c776",
+        "title": "Autoencoders",
+        "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/09-Autoencoders/README.md"
+      },
+      {
+        "id": "3725a6a92e7b2dd17bc20532",
+        "title": "Generative Adversarial Networks",
+        "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/10-GANs/README.md"
+      },
+      {
+        "id": "d78317785ba7cee2add3cbeb",
+        "title": "Object Detection",
+        "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/README.md"
+      },
+      {
+        "id": "8912ef2a4435e94decd28e50",
+        "title": "Segmentation",
+        "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "5926ac09c5ed8e719c452a6c"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/lab/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Skip-gram practice assignment with corpus-download code and open-ended questions about embeddings. It asks the learner to modify a linked notebook; it does not provide results or a self-contained model-training explanation to assess here.",
+    "child_resource_ids": [],
+    "kind": "practice-guide",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "ecb8ebc1b6fdb12650dbefd3"
+    ],
+    "url": "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/lab/README.md",
+    "topics": [
+      "machine-learning"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Very short practice brief asking for a word-level generator trained on a book. It contains a corpus link but no instructional algorithm, worked code or results; generating six knowledge checks from it would overstate its content.",
+    "child_resource_ids": [],
+    "kind": "practice-guide",
+    "assessment": "ungraded",
+    "related_lessons": []
+  },
+  {
+    "resource_ids": [
+      "career-resource-bbf85934c1076ecb7bc4"
+    ],
+    "url": "https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html",
+    "topics": [
+      "linux"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The GNU File permissions node introduces mode bits and links Structure, Symbolic, Numeric and Operator Numeric Modes; detailed directory-access instruction is in the separately reviewed Structure child. Public GNU cached source was readable despite direct-fetch timeouts.",
+    "child_resource_ids": [
+      "lesson-resource-944256cb8f296ab56beb"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-944256cb8f296ab56beb",
+        "title": "File permission bits and directory access",
+        "url": "https://www.gnu.org/s/coreutils/manual/html_node/Mode-Structure.html"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-1d3d89d0ade1c2f525bc"
+    ],
+    "url": "https://www.netacad.com/courses/networking-basics",
+    "topics": [
+      "networking"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Course/module discovery page: the public page exposes an app shell or learning objectives and unit links, rather than the full networking instruction. No enrollment or sign-in boundary was crossed.",
+    "child_resource_ids": [
+      "lesson-resource-551bd480956b339a96c0",
+      "lesson-resource-e15866cbe792c0670b6a"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-551bd480956b339a96c0",
+        "title": "Network protocols, messages and ports",
+        "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/4-network-protocols"
+      },
+      {
+        "id": "lesson-resource-e15866cbe792c0670b6a",
+        "title": "Network devices and forwarding",
+        "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/3-network-infrastructure"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-63fe998ebd1b2b8bc063"
+    ],
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+    "topics": [
+      "networking"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "Course/module discovery page: the public page exposes an app shell or learning objectives and unit links, rather than the full networking instruction. No enrollment or sign-in boundary was crossed.",
+    "child_resource_ids": [
+      "lesson-resource-551bd480956b339a96c0",
+      "lesson-resource-e15866cbe792c0670b6a"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-551bd480956b339a96c0",
+        "title": "Network protocols, messages and ports",
+        "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/4-network-protocols"
+      },
+      {
+        "id": "lesson-resource-e15866cbe792c0670b6a",
+        "title": "Network devices and forwarding",
+        "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/3-network-infrastructure"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-4261012b3fba6f5a37eb"
+    ],
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+    "topics": [
+      "cloud"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The module landing page lists objectives and units; deployment-model instruction is in the reviewed child unit.",
+    "child_resource_ids": [
+      "lesson-resource-d82de016401418596fe4"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-d82de016401418596fe4",
+        "title": "Public, private, hybrid and multicloud models",
+        "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-f7911eb3bf8a605bef8b"
+    ],
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+    "topics": [
+      "cloud"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The module landing page lists benefits and links to instruction. The reviewed availability/scaling child supplies the actual distinctions.",
+    "child_resource_ids": [
+      "lesson-resource-7ded08605fe0337ea30a"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-7ded08605fe0337ea30a",
+        "title": "Availability and horizontal versus vertical scaling",
+        "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-4df1fad12273bbad7733"
+    ],
+    "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+    "topics": [
+      "security"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The public course URL exposes a JavaScript/enrollment shell, not readable full instruction. No sign-in or course access was attempted; open OWASP instruction provides the replacement.",
+    "child_resource_ids": [
+      "lesson-resource-aee21910d3cea2b515bd"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-aee21910d3cea2b515bd",
+        "title": "Password hashing, salts and work factors",
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-1c87884f4ae9ada676c9"
+    ],
+    "url": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/",
+    "topics": [
+      "data-engineering"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The page lists modules, prerequisites and occupation framing; it does not teach a pipeline method. A separately reviewed open Airflow DAG lesson supplements the existing ETL and architecture instruction.",
+    "child_resource_ids": [
+      "lesson-resource-9cd28f2d45732b7881d0"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-9cd28f2d45732b7881d0",
+        "title": "Airflow DAG task dependencies and control flow",
+        "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-87574ffc8f0e22125d0d"
+    ],
+    "url": "https://help.autodesk.com/view/ACD/2026/ENU/",
+    "topics": [
+      "cad"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The Help home is a portal with feature, training and command directories. Its Foundations landing link returned Page Not Found during review; the actual public 2026 precision unit was read separately.",
+    "child_resource_ids": [
+      "lesson-resource-003eedf593e1206a768e",
+      "lesson-resource-4379ed7c790f864d9b69"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-003eedf593e1206a768e",
+        "title": "Precise Cartesian and polar drawing coordinates",
+        "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-OnBoarding/files/ACD_FOUNDATIONS_MAIN6.html"
+      },
+      {
+        "id": "lesson-resource-4379ed7c790f864d9b69",
+        "title": "Precise object snaps and running snap modes",
+        "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-Core/files/GUID-8F5E5431-9EFB-414E-BC6D-2C65EFB2DAC3.htm"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-4d18ad2623d6943dc768"
+    ],
+    "url": "https://www.onetonline.org/link/summary/17-3013.00",
+    "topics": [
+      "cad"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "O*NET describes Mechanical Drafters' occupation tasks and skills; it does not teach drafting methods. Job-title recognition is not proficiency evidence.",
+    "child_resource_ids": [
+      "lesson-resource-003eedf593e1206a768e",
+      "lesson-resource-4379ed7c790f864d9b69"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-003eedf593e1206a768e",
+        "title": "Precise Cartesian and polar drawing coordinates",
+        "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-OnBoarding/files/ACD_FOUNDATIONS_MAIN6.html"
+      },
+      {
+        "id": "lesson-resource-4379ed7c790f864d9b69",
+        "title": "Precise object snaps and running snap modes",
+        "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-Core/files/GUID-8F5E5431-9EFB-414E-BC6D-2C65EFB2DAC3.htm"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-d144480b460dce2a5847"
+    ],
+    "url": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/",
+    "topics": [
+      "manufacturing"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The MIT course home describes topics and links lectures/assignments; it does not teach the manufacturing methods on that page. Separately reviewed open textbook chapters provide bounded instruction.",
+    "child_resource_ids": [
+      "lesson-resource-1375822fcfdecbc01dc5",
+      "lesson-resource-fbec9992824c2ded68ac"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-1375822fcfdecbc01dc5",
+        "title": "Just-in-time, demand pull and takt calculations",
+        "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-2/"
+      },
+      {
+        "id": "lesson-resource-fbec9992824c2ded68ac",
+        "title": "Visual workplace, 5S and error prevention",
+        "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-3/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-08f9694a56604cee2e5c"
+    ],
+    "url": "https://www.onetonline.org/link/summary/17-2112.03",
+    "topics": [
+      "manufacturing"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "O*NET's Manufacturing Engineers summary is occupation context, not an instructional production lesson. No occupation recognition questions are used for proficiency.",
+    "child_resource_ids": [
+      "lesson-resource-1375822fcfdecbc01dc5",
+      "lesson-resource-fbec9992824c2ded68ac"
+    ],
+    "kind": "career-context",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-1375822fcfdecbc01dc5",
+        "title": "Just-in-time, demand pull and takt calculations",
+        "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-2/"
+      },
+      {
+        "id": "lesson-resource-fbec9992824c2ded68ac",
+        "title": "Visual workplace, 5S and error prevention",
+        "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-3/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-5f84747293f7e2f35e19"
+    ],
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+    "topics": [
+      "content"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "This topic landing page outlines content standards and links planning, style and writing guidance. It does not teach the detailed methods of those child pages.",
+    "child_resource_ids": [
+      "lesson-resource-f42c318274b5162bfd4c",
+      "lesson-resource-a37e908cbd04ecfff2e4"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-f42c318274b5162bfd4c",
+        "title": "Write content around the user's task",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/"
+      },
+      {
+        "id": "lesson-resource-a37e908cbd04ecfff2e4",
+        "title": "Frontloaded information and descriptive web headings",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-9300571363bf794738f5"
+    ],
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+    "topics": [
+      "content"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The page is a short introduction and directory of writing guidelines. Actual task/structure instruction was separately read on its public child pages.",
+    "child_resource_ids": [
+      "lesson-resource-f42c318274b5162bfd4c",
+      "lesson-resource-a37e908cbd04ecfff2e4"
+    ],
+    "kind": "reference-directory",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-f42c318274b5162bfd4c",
+        "title": "Write content around the user's task",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/"
+      },
+      {
+        "id": "lesson-resource-a37e908cbd04ecfff2e4",
+        "title": "Frontloaded information and descriptive web headings",
+        "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-05e8fe30d7ec36e9a040"
+    ],
+    "url": "https://developers.google.com/tech-writing/one",
+    "topics": [
+      "technical-writing"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The introduction lists audience, objectives and course structure. Actual sentence-writing methods were separately read in its Clear sentences child; course-objective recall is ungraded.",
+    "child_resource_ids": [
+      "lesson-resource-e83f8b5a841308b92939"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-e83f8b5a841308b92939",
+        "title": "Clear technical sentences and specific verbs",
+        "url": "https://developers.google.com/tech-writing/one/clear-sentences"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "career-resource-ebf55329602dcba4cf8f"
+    ],
+    "url": "https://developers.google.com/tech-writing/two",
+    "topics": [
+      "technical-writing"
+    ],
+    "reviewed_at": "2026-11-10",
+    "reason": "The introduction lists goals and pre-class structure, not the editing techniques. The separately reviewed Self-editing child provides instruction.",
+    "child_resource_ids": [
+      "lesson-resource-d8687d530088d651c704"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "lesson-resource-d8687d530088d651c704",
+        "title": "Iterative self-editing and audience review",
+        "url": "https://developers.google.com/tech-writing/two/editing"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "59b7323b3873b9631e9b3e57"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/README.md",
+    "topics": [
+      "data-science"
+    ],
+    "reviewed_at": "2026-11-11",
+    "reason": "This module index introduces the four subjects and links to their teaching pages.",
+    "child_resource_ids": [
+      "27d4e7f2501e411d385f5a88",
+      "993db9cab0553748c936a092",
+      "009c0a5726487f0e2b0d295f",
+      "acdab68f5b66b329d778b49b"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "27d4e7f2501e411d385f5a88",
+        "title": "Defining Data Science",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/01-defining-data-science/README.md"
+      },
+      {
+        "id": "993db9cab0553748c936a092",
+        "title": "Introduction to Data Ethics",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/02-ethics/README.md"
+      },
+      {
+        "id": "009c0a5726487f0e2b0d295f",
+        "title": "Defining Data",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/03-defining-data/README.md"
+      },
+      {
+        "id": "acdab68f5b66b329d778b49b",
+        "title": "A Brief Introduction to Statistics and Probability",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/1-Introduction/04-stats-and-probability/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "1fcef905924496d4b2d1d551"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/README.md",
+    "topics": [
+      "data-science"
+    ],
+    "reviewed_at": "2026-11-11",
+    "reason": "This topic list points to database, Python and preparation lessons with their own worked examples.",
+    "child_resource_ids": [
+      "0ad4c1aac9788e7c692ef68b",
+      "84473a87643db1c9873ef626",
+      "c9b51ac25661fe54207ddcd9",
+      "5b6039faba757e4d6dc1be12"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "0ad4c1aac9788e7c692ef68b",
+        "title": "Working with Data: Relational Databases",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/05-relational-databases/README.md"
+      },
+      {
+        "id": "84473a87643db1c9873ef626",
+        "title": "Working with Data: Non-Relational Data",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/06-non-relational/README.md"
+      },
+      {
+        "id": "c9b51ac25661fe54207ddcd9",
+        "title": "Working with Data: Python and the Pandas Library",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/07-python/README.md"
+      },
+      {
+        "id": "5b6039faba757e4d6dc1be12",
+        "title": "Working with Data: Data Preparation",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/2-Working-With-Data/08-data-preparation/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "467e0d973c5c657c57833c4d"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/README.md",
+    "topics": [
+      "data-science"
+    ],
+    "reviewed_at": "2026-11-11",
+    "reason": "This short overview links to the separate lifecycle, analysis and communication lessons.",
+    "child_resource_ids": [
+      "a0062ec3693c2d5f7902a84e",
+      "ea403329bb64b8f859715117",
+      "9de0e1547939da2bcccf012d"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "a0062ec3693c2d5f7902a84e",
+        "title": "Introduction to the Data Science Lifecycle",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/14-Introduction/README.md"
+      },
+      {
+        "id": "ea403329bb64b8f859715117",
+        "title": "The Data Science Lifecycle: Analyzing",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/15-analyzing/README.md"
+      },
+      {
+        "id": "9de0e1547939da2bcccf012d",
+        "title": "The Data Science Lifecycle: Communication",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/4-Data-Science-Lifecycle/16-communication/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "0ec911c91765a7198cf26408"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/README.md",
+    "topics": [
+      "data-science"
+    ],
+    "reviewed_at": "2026-11-11",
+    "reason": "This overview provides project context and a topic list. The linked pages explain service roles and walk through the historical workflows.",
+    "child_resource_ids": [
+      "a2d83fbecfe2497137ad34c8",
+      "c5989308d51c40fa4397c350",
+      "b599236b084e1d3583f503b7"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "a2d83fbecfe2497137ad34c8",
+        "title": "Introduction to Data Science in the Cloud",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/17-Introduction/README.md"
+      },
+      {
+        "id": "c5989308d51c40fa4397c350",
+        "title": "Data Science in the Cloud: The \"Low code/No code\" way",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/18-Low-Code/README.md"
+      },
+      {
+        "id": "b599236b084e1d3583f503b7",
+        "title": "Data Science in the Cloud: The \"Azure ML SDK\" way",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/5-Data-Science-In-Cloud/19-Azure/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "21035d5c49c6d63d09a4bf84"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/README.md",
+    "topics": [
+      "data-science"
+    ],
+    "reviewed_at": "2026-11-11",
+    "reason": "This index has a one-line introduction and links to the case-study lesson.",
+    "child_resource_ids": [
+      "bb18a0136e645102f6afe82f"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "bb18a0136e645102f6afe82f",
+        "title": "Data Science in the Real World",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/6-Data-Science-In-Wild/20-Real-World-Examples/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "6f2bb4eb8760256dfae8fc0f"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/README.md",
+    "topics": [
+      "visualization"
+    ],
+    "reviewed_at": "2026-11-11",
+    "reason": "This module index describes the goals and sources and links to the worked visualization lessons. Some of its R links are empty, so only its actual catalogue links are listed.",
+    "child_resource_ids": [
+      "36542555913dc6f317da49c8",
+      "55ab89f1e92450b866684121",
+      "aedd432f9b1ab8a2e1192fa2",
+      "8097fd9e97b247dce8439234",
+      "77cfa91e79657e8c0c1eb0fc",
+      "b9e1b048dcb1f2c56801144a",
+      "a0f8e58d4753682edd5c341b"
+    ],
+    "kind": "orientation",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "36542555913dc6f317da49c8",
+        "title": "Visualizing Quantities",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/09-visualization-quantities/README.md"
+      },
+      {
+        "id": "55ab89f1e92450b866684121",
+        "title": "Visualizing Quantities",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/09-visualization-quantities/README.md"
+      },
+      {
+        "id": "aedd432f9b1ab8a2e1192fa2",
+        "title": "Visualizing Distributions",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/10-visualization-distributions/README.md"
+      },
+      {
+        "id": "8097fd9e97b247dce8439234",
+        "title": "Visualizing Distributions",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/R/10-visualization-distributions/README.md"
+      },
+      {
+        "id": "77cfa91e79657e8c0c1eb0fc",
+        "title": "Visualizing Proportions",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/11-visualization-proportions/README.md"
+      },
+      {
+        "id": "b9e1b048dcb1f2c56801144a",
+        "title": "Visualizing Relationships: All About Honey 🍯",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/12-visualization-relationships/README.md"
+      },
+      {
+        "id": "a0f8e58d4753682edd5c341b",
+        "title": "Making Meaningful Visualizations",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/README.md"
+      }
+    ]
+  },
+  {
+    "resource_ids": [
+      "03f16408cfdc2cd68cadc2ff"
+    ],
+    "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/starter/README.md",
+    "topics": [
+      "visualization"
+    ],
+    "reviewed_at": "2026-11-11",
+    "reason": "This starter README lists dependency setup, development, build and lint commands. The chart-design teaching is on the parent lesson page.",
+    "child_resource_ids": [
+      "a0f8e58d4753682edd5c341b"
+    ],
+    "kind": "setup-guide",
+    "assessment": "ungraded",
+    "related_lessons": [
+      {
+        "id": "a0f8e58d4753682edd5c341b",
+        "title": "Making Meaningful Visualizations",
+        "url": "https://github.com/microsoft/Data-Science-For-Beginners/blob/0c7e46a0db1d6925982d6323b246299b3855ce32/3-Data-Visualization/13-meaningful-visualizations/README.md"
+      }
+    ]
+  }
+]

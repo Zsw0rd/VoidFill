@@ -1,0 +1,11 @@
+{
+  "fixture": "tests/fixtures/career-matching-challenge-v2.json",
+  "sha256_utf8_lf": "cddcd729a331bc6df04fe814d996f184a3f48be6f5ac75780d17a328f3fe4c27",
+  "baseline_matcher_sha256_utf8_lf": "2b11633ae8c0dc1d750c64475d8f242e2ea20299e6aba41230efd5d7a92deb12",
+  "frozen_before_first_matcher_execution": true,
+  "scope": "Synthetic task narratives authored and frozen before this matcher revision. The challenge labels are agent judgements, not independent career advice or a participant study. Its first post-change evaluation is retained even when a label misses; later tuning must not call this an untouched holdout.",
+  "methodology": "No challenge predictions were inspected before editing this matcher. Baseline and first candidate results are evaluated together after the candidate implementation is frozen. Old golden/adversarial cases are observed regressions, not untouched holdouts.",
+  "first_candidate_source_sha256_utf8_lf": "3e0ca21ba3d352aafdaa21f91cf8ea686d8c14cf1172af7d365801865a4a27d7",
+  "first_candidate_executable_sha256_utf8_lf": "45cf23e80fe01d0d7077860eb61ee26d69b08a858599ded50e422c2eb9093345",
+  "first_candidate_recorded_before_challenge_execution": true
+}

@@ -37,3 +37,13 @@ test("missing, unconfigured and URL-less legacy courses cannot launch a broader 
   const {client} = clientFor(null, {message: "private storage failure"});
   await assert.rejects(loadCourseAssessmentContext(client, "verified-owner", stored.id, [skill]), /Could not load the course/);
 });
+
+test("a saved ungraded guide cannot open a proficiency session", async () => {
+  const {client} = clientFor({...stored, url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"});
+  await assert.rejects(loadCourseAssessmentContext(client, "verified-owner", stored.id, [skill]), error => {
+    assert.ok(error instanceof LearningError);
+    assert.equal(error.status, 422);
+    assert.match(error.message, /ungraded guide/);
+    return true;
+  });
+});

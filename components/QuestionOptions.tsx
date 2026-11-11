@@ -33,6 +33,7 @@ export function QuestionOptions({
             value={index}
           />
           <span
+            aria-hidden="true"
             className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-xs font-semibold ${value === index ? "border-forest bg-forest text-white" : "border-line bg-paper text-muted"}`}
           >
             {value === index ? (

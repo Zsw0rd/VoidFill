@@ -1,0 +1,36 @@
+{
+  "version": "challenge-v2-2026-11-10",
+  "scope": "Synthetic task narratives authored and frozen before this matcher revision. The challenge labels are agent judgements, not independent career advice or a participant study. Its first post-change evaluation is retained even when a label misses; later tuning must not call this an untouched holdout.",
+  "roles": [
+    ["A neighbourhood sports club needs one person to implement both its member-facing web screens and the server endpoints that persist registrations.", "Full-Stack Developer"],
+    ["I would like to make Python and SQL records understandable to managers through cleaned datasets, charts and explanations of trends.", "Data Analyst"],
+    ["I want to keep a hosted platform usable during incidents by isolating cloud configuration faults and giving its customers clear recovery updates.", "Cloud Support Associate"],
+    ["I want to connect a searchable document collection to an assistant, verify the retrieved citations and measure unsupported responses.", "AI Applications Developer"],
+    ["I want to decide which customer problem a product team should address next and use outcome experiments to test that decision.", "Product Manager"],
+    ["I would like to improve the structure of software modules, review program changes and reason about algorithms and maintainability.", "Software Engineer"],
+    ["I want to design monthly adoption milestones with a business customer and notice risks to the account's renewal before it is too late.", "Customer Success Associate"],
+    ["I want to turn an API integration into clear developer instructions with working requests, prerequisites and useful troubleshooting steps.", "Technical Writer"],
+    ["I want to reconcile approved working hours, deductions and net pay while checking that each correction has the right authorization.", "Payroll Specialist"],
+    ["I want to compare supplier bids by delivered cost, lead time and required quality before preparing an approved purchase.", "Procurement Analyst"],
+    ["I want to test whether research participants can recover from a confusing navigation step in an interactive prototype.", "UX Researcher"],
+    ["I want to improve warehouse dispatch by keeping stock movement records reliable and coordinating shipment exceptions.", "Logistics Coordinator"]
+  ],
+  "custom": [
+    ["My work would join product adoption planning with writing support documentation for business users.", ["Customer Success Associate", "Technical Writer"]],
+    ["I want a mix of accessible browser components and server-side API implementation, with responsibility for the whole web service.", ["Full-Stack Developer"]],
+    ["I want to combine workforce spreadsheets with confidential employee joiner and leaver records.", ["People Analyst", "HR Operations Associate"]],
+    ["I want to combine physical stock counts and supplier purchase planning for a small shop.", ["Logistics Coordinator", "Procurement Analyst"]]
+  ],
+  "unsupported": [
+    "I want to become a licensed radiographer interpreting clinical patient images.",
+    "I want to qualify as an ocean vessel navigator responsible for safe offshore passage.",
+    "I want to work as an animal surgeon providing veterinary operations.",
+    "I want to represent clients as a licensed courtroom advocate."
+  ],
+  "ambiguous": [
+    "I want a job involving products and customers.",
+    "I like useful work and helping teams.",
+    "I want to change fields but have not chosen what to do.",
+    "I want a technical role with good prospects."
+  ]
+}

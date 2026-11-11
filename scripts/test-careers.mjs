@@ -6,7 +6,7 @@ import {configure, root} from "./runtime.mjs";
 configure();
 const base = process.env.TEST_BASE_URL || "http://localhost:3000";
 const catalogue = JSON.parse(readFileSync(join(root, "ml/data/careers/catalogue.json"), "utf8"));
-const questions = new Map(["ml/data/questions.json", "ml/data/careers/questions.json"].flatMap(file => JSON.parse(readFileSync(join(root, file), "utf8"))).map(row => [row.id, row]));
+const questions = new Map(["ml/data/questions.json", "ml/data/careers/questions.json", "ml/data/lessons/questions.json"].flatMap(file => JSON.parse(readFileSync(join(root, file), "utf8"))).map(row => [row.id, row]));
 const jars = [{cookie: ""}, {cookie: ""}];
 async function call(jar, path, body = {}, expected = 200, method = "POST") {
   const res = await fetch(base + path, {method, headers: {Cookie: jar.cookie, "Content-Type": "application/json"}, ...(method === "GET" ? {} : {body: JSON.stringify(body)}), redirect: "manual"});

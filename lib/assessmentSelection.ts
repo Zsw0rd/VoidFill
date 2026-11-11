@@ -1,5 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { LearningError, RESOURCE_ASSESSMENT_UNAVAILABLE_MESSAGE, type LearningSkill } from "@/lib/localMl";
+import { isUngradedResource, UNGRADED_GUIDE_MESSAGE } from "./resourceLearningScope";
 
 /** Bind a resource check to the caller's saved resource, not a submitted title/URL. */
 export async function loadCourseAssessmentContext(client: SupabaseClient, ownerId: string, courseId: string, configuredSkills: LearningSkill[]) {
@@ -12,5 +13,6 @@ export async function loadCourseAssessmentContext(client: SupabaseClient, ownerI
   try { url = new URL(course.url); }
   catch { throw new LearningError(RESOURCE_ASSESSMENT_UNAVAILABLE_MESSAGE, 422); }
   if (url.protocol !== "https:" || url.username || url.password) throw new LearningError(RESOURCE_ASSESSMENT_UNAVAILABLE_MESSAGE, 422);
+  if (isUngradedResource(course.url)) throw new LearningError(UNGRADED_GUIDE_MESSAGE, 422);
   return {skills, courseId: course.id as string, courseTitle: course.title as string, resourceUrl: course.url as string};
 }

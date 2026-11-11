@@ -39,6 +39,9 @@ import { QuestionOptions } from "@/components/QuestionOptions";
 import { FocusDialog } from "@/components/FocusDialog";
 import { useAssessmentDraft } from "@/components/useAssessmentDraft";
 import { AssessmentDraftNotice } from "@/components/AssessmentDraftNotice";
+import { RoadmapResourceNotices } from "./resource-notices";
+import { isUngradedResource, UNGRADED_GUIDE_MESSAGE } from "@/lib/resourceLearningScope";
+import { roadmapProgress } from "@/lib/roadmapProgress";
 import { useQuestionNavigation } from "@/components/useQuestionNavigation";
 import { LearningAtlas } from "./atlas-canvas";
 import type { Category, CourseAssessment, CourseType, RoadmapCourse, SkillNode } from "./types";
@@ -304,19 +307,16 @@ export function RoadmapClient({
       const skillAssessments = skillCourses.flatMap(
         (course) => assessmentsByCourse.get(course.id) || [],
       );
-      const completedCourses = skillCourses.filter(
+      const teachingCourses = skillCourses.filter(course => !isUngradedResource(course.url));
+      const completedCourses = teachingCourses.filter(
         (course) => course.completed,
       ).length;
-      const totalCourses = skillCourses.length;
+      const totalCourses = teachingCourses.length;
       const courseProgress = totalCourses
         ? Math.round((completedCourses / totalCourses) * 100)
         : 0;
       const skillProgress = clamp(Math.round(score), 0, 100);
-      const branchProgress = clamp(
-        Math.round(skillProgress * 0.68 + courseProgress * 0.32),
-        0,
-        100,
-      );
+      const branchProgress = roadmapProgress(score, skillCourses);
 
       return {
         skill_id: row.skill_id,
@@ -468,6 +468,7 @@ export function RoadmapClient({
     skillName: string,
     skillId: string,
   ) {
+    if (isUngradedResource(course.url)) return toast("Ungraded guide", UNGRADED_GUIDE_MESSAGE);
     await startAssessment({ type: "course", course, skillName, skillId }, { purpose: "course", course_id: course.id });
   }
 
@@ -937,14 +938,14 @@ function RoadmapClassicView(_: {
                     <span>{skill.assessed ? `Skill score: ${skill.score}%` : "Skill not assessed"}</span>
                     <span>Priority: {skill.priority}</span>
                     <span>
-                      Resources: {skill.completedCourses}/{skill.totalCourses || 0}
+                      Lessons: {skill.completedCourses}/{skill.totalCourses || 0}
                     </span>
                   </div>
                   <div className="mt-3">
                     <Progress value={skill.branchProgress} />
                     <div className="mt-1 text-xs text-muted">
                       Branch {skill.branchProgress}% - Skill{" "}
-                      {skill.skillProgress}% - Resources {skill.courseProgress}%
+                      {skill.skillProgress}% - Lessons {skill.courseProgress}%
                     </div>
                   </div>
                 </div>
@@ -1022,7 +1023,7 @@ function SkillDetailPanel(_: {
                 {skill.completedCourses}
               </div>
               <div className="mt-1 text-[11px] uppercase tracking-[0.16em] text-muted">
-                Resources done
+                Lessons done
               </div>
             </div>
             <div className="rounded-2xl border border-line bg-surface p-3">
@@ -1038,8 +1039,8 @@ function SkillDetailPanel(_: {
             <Progress value={skill.branchProgress} />
           </div>
           <div className="mt-2 text-sm text-muted">
-            Branch progress blends test mastery and completed resources so the
-            tree stays responsive to both.
+            Branch progress combines your knowledge score and completed teaching
+            lessons. Ungraded guides are excluded from lesson completion.
           </div>
         </div>
 
@@ -1064,7 +1065,8 @@ function SkillDetailPanel(_: {
           {skill.courses.map((course) => {
             const Icon = typeIcons[course.type] || BookOpen;
             const lastAssessment = latestAssessmentByCourse.get(course.id);
-            const completed = course.completed;
+            const guide = isUngradedResource(course.url);
+            const completed = course.completed && !guide;
 
             return (
               <div
@@ -1091,6 +1093,7 @@ function SkillDetailPanel(_: {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
                       <div className="truncate font-medium">{course.title}</div>
+                      {guide && <Badge tone="neutral">Ungraded guide</Badge>}
                       {completed && (
                         <CheckCircle className="h-4 w-4 shrink-0 text-forest" />
                       )}
@@ -1128,7 +1131,7 @@ function SkillDetailPanel(_: {
                               : "bg-rose-500/10 text-rust",
                           )}
                         >
-                          Last: {lastAssessment.score}%{" "}
+                          {guide ? "Earlier assessment: " : "Last: "}{lastAssessment.score}%{" "}
                           {lastAssessment.passed ? "Passed" : "Retry"}
                         </span>
                       )}
@@ -1147,7 +1150,7 @@ function SkillDetailPanel(_: {
                           Open resource
                         </a>
                       )}
-                      {!completed && (
+                      {!completed && !guide && (
                         <button
                           onClick={() =>
                             onOpenCourseAssessment(
@@ -1157,14 +1160,15 @@ function SkillDetailPanel(_: {
                             )
                           }
                           className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-xs text-forest transition hover:bg-emerald-500/20"
-                          title="Mark complete with AI test"
+                          title="Complete a lesson assessment"
                         >
                           <GraduationCap className="h-3.5 w-3.5" />
                           Mark complete
                         </button>
                       )}
                     </div>
-                    {!completed && (
+                    <RoadmapResourceNotices url={course.url} />
+                    {!completed && !guide && (
                       <div className="mt-2 text-xs text-muted">
                         Mark complete runs an assessment on this course. The
                         leaf is only completed after scoring{" "}

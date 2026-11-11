@@ -1,0 +1,626 @@
+[
+  {
+    "id": "lesson-resource-bff47ba8f88aee403376",
+    "title": "Listening and recovery after a service failure",
+    "url": "https://opentextbc.ca/introtourism2e/chapter/communication-strategies/",
+    "provider": "BCcampus Open Education",
+    "description": "Open introductory instruction on listening, understanding customer needs, service recovery and following up after complaints. Cases focus on service encounters rather than enterprise retention modelling.",
+    "text": "Open introductory instruction on listening, understanding customer needs, service recovery and following up after complaints. Cases focus on service encounters rather than enterprise retention modelling.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-d5078a268cd3fea98b45",
+    "title": "Store information about customers: accounts and contacts",
+    "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience/accounts-and-contacts-lightning",
+    "provider": "Salesforce Trailhead",
+    "description": "Public instructional unit explaining business accounts, related contacts, interaction records and naming conventions. The reading is open; an optional hands-on playground challenge requires a Salesforce account.",
+    "text": "Public instructional unit explaining business accounts, related contacts, interaction records and naming conventions. The reading is open; an optional hands-on playground challenge requires a Salesforce account.",
+    "topics": [
+      "account-management"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-54956ac635829bf02555",
+    "title": "Managing an event: coordination, briefings and monitoring",
+    "url": "https://www.hse.gov.uk/event-safety/managing-an-event.htm",
+    "provider": "UK Health and Safety Executive",
+    "description": "Open event-management guidance on build-up and breakdown, coordinating contractors, site information, competence and checking risk controls. Introductory operational knowledge; not a legal compliance certificate.",
+    "text": "Open event-management guidance on build-up and breakdown, coordinating contractors, site information, competence and checking risk controls. Introductory operational knowledge; not a legal compliance certificate.",
+    "topics": [
+      "events"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-b72b63f53c733b1580e5",
+    "title": "Personal selling: qualification, needs and follow-up",
+    "url": "https://openstax.org/books/principles-marketing/pages/15-3-steps-in-the-personal-selling-process",
+    "provider": "OpenStax",
+    "description": "Open instructional section on prospect qualification, preparation, needs-based presentations, handling concerns and follow-up. Original short checks use new fictional situations and do not reproduce publisher assessments.",
+    "text": "Open instructional section on prospect qualification, preparation, needs-based presentations, handling concerns and follow-up. Original short checks use new fictional situations and do not reproduce publisher assessments.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-755dd3a3a6a47f624296",
+    "title": "Adjusting entries: timing, supplies and accruals",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries",
+    "provider": "OpenStax",
+    "description": "Period-end adjustment purposes, deferrals versus accruals, used supplies and earned advances. Fictional amounts; no tax rules or publisher exercises.",
+    "text": "Period-end adjustment purposes, deferrals versus accruals, used supplies and earned advances. Fictional amounts; no tax rules or publisher exercises.",
+    "topics": [
+      "accounting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-335534d6eca80844bd6d",
+    "title": "Prepare linked statements from adjusted balances",
+    "url": "https://openstax.org/books/principles-financial-accounting/pages/4-5-prepare-financial-statements-using-the-adjusted-trial-balance",
+    "provider": "OpenStax",
+    "description": "Adjusted balances, income statement, retained earnings and balance-sheet links using independent fictional figures; no complete-report certification.",
+    "text": "Adjusted balances, income statement, retained earnings and balance-sheet links using independent fictional figures; no complete-report certification.",
+    "topics": [
+      "accounting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-b637f2999036f31ef02f",
+    "title": "Plan an event: risk, resources and contractors",
+    "url": "https://www.hse.gov.uk/event-safety/getting-started.htm",
+    "provider": "UK Health and Safety Executive",
+    "description": "General event planning, proportionate risk assessment, worker input and contractor competence. Short operational knowledge checks exclude legal interpretations and specialist safety certification.",
+    "text": "General event planning, proportionate risk assessment, worker input and contractor competence. Short operational knowledge checks exclude legal interpretations and specialist safety certification.",
+    "topics": [
+      "events"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-d007f79d00a91d58c001",
+    "title": "Event contingency plans: roles, access and exercises",
+    "url": "https://www.hse.gov.uk/event-safety/incidents-and-emergencies.htm",
+    "provider": "UK Health and Safety Executive",
+    "description": "Introductory emergency-planning coordination, accessible evacuation arrangements, roles and plan exercises. These are planning knowledge checks, not instructions for managing a real emergency or a compliance certificate.",
+    "text": "Introductory emergency-planning coordination, accessible evacuation arrangements, roles and plan exercises. These are planning knowledge checks, not instructions for managing a real emergency or a compliance certificate.",
+    "topics": [
+      "events"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-f44bf6167e0432e2fea2",
+    "title": "Onboarding and job training: assess, teach and evaluate",
+    "url": "https://openstax.org/books/introduction-business/pages/8-4-employee-training-and-development",
+    "provider": "OpenStax",
+    "description": "New-employee orientation, supervisor job briefings, coaching and training-needs/objective/evaluation sequence. Knowledge cases do not assess actual employee performance.",
+    "text": "New-employee orientation, supervisor job briefings, coaching and training-needs/objective/evaluation sequence. Knowledge cases do not assess actual employee performance.",
+    "topics": [
+      "hr-operations"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-7b54526cfd975ab2a2d7",
+    "title": "Performance management: goals, feedback and development",
+    "url": "https://openstax.org/books/principles-management/pages/11-3-performance-management",
+    "provider": "OpenStax",
+    "description": "Link individual work to organisational goals, share responsibility between HR and managers, and use ongoing feedback and development. Historical company examples are not current employment rules.",
+    "text": "Link individual work to organisational goals, share responsibility between HR and managers, and use ongoing feedback and development. Historical company examples are not current employment rules.",
+    "topics": [
+      "hr-operations"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-3f7bc7d66463310b3d0d",
+    "title": "Direct email: permission, messages and customer action",
+    "url": "https://openstax.org/books/principles-marketing/pages/16-1-traditional-direct-marketing",
+    "provider": "OpenStax",
+    "description": "The email/content sections of the direct-marketing chapter: transactional versus promotional messages, permission-based contact and relevant customer action. No legal interpretation or current usage statistics.",
+    "text": "The email/content sections of the direct-marketing chapter: transactional versus promotional messages, permission-based contact and relevant customer action. No legal interpretation or current usage statistics.",
+    "topics": [
+      "marketing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-0e60f07a498eae3a6686",
+    "title": "Prepare an email campaign: audience, sender and checklist",
+    "url": "https://mailchimp.com/help/create-and-send-regular-email/",
+    "provider": "Mailchimp",
+    "description": "Public regular-email instructions covering recipient segments/exclusions, sender identity, subject/preview and a final checklist. Paid AI or scheduling features and actual sending are not required.",
+    "text": "Public regular-email instructions covering recipient segments/exclusions, sender identity, subject/preview and a final checklist. Paid AI or scheduling features and actual sending are not required.",
+    "topics": [
+      "marketing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-23f8c68b00c89753fc90",
+    "title": "Recruit applicants: internal and external sourcing",
+    "url": "https://openstax.org/books/introduction-business/pages/8-2-employee-recruitment",
+    "provider": "OpenStax",
+    "description": "Recruitment as building a qualified applicant pool, internal versus external sourcing, job fairs and employee information. Historical platform claims and automated ranking assumptions excluded.",
+    "text": "Recruitment as building a qualified applicant pool, internal versus external sourcing, job fairs and employee information. Historical platform claims and automated ranking assumptions excluded.",
+    "topics": [
+      "recruiting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-a73f588f78e6223ab58d",
+    "title": "Work samples: choose and score job-relevant tasks",
+    "url": "https://www.opm.gov/policy-data-oversight/assessment-and-selection/other-assessment-methods/work-samples-and-simulations/",
+    "provider": "US Office of Personnel Management",
+    "description": "Public assessment-method guidance on representative tasks, entry competencies, trained observation and keeping simulations current. General method knowledge; no employment-law or subgroup-outcome guarantees.",
+    "text": "Public assessment-method guidance on representative tasks, entry competencies, trained observation and keeping simulations current. General method knowledge; no employment-law or subgroup-outcome guarantees.",
+    "topics": [
+      "recruiting"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-46815afdb2813d2d575f",
+    "title": "Choose personal selling for complex customer needs",
+    "url": "https://openstax.org/books/principles-marketing/pages/15-1-personal-selling-and-its-role-in-the-promotion-mix",
+    "provider": "OpenStax",
+    "description": "One-to-one selling, relationship development and fit for complex or customisable products. Original short cases exclude publisher exercises and do not claim observed sales competence.",
+    "text": "One-to-one selling, relationship development and fit for complex or customisable products. Original short cases exclude publisher exercises and do not claim observed sales competence.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-fbdfb42f8db86263b7f7",
+    "title": "Honest selling: claims, expenses and transparent offers",
+    "url": "https://openstax.org/books/principles-marketing/pages/15-7-ethical-issues-in-personal-selling-and-sales-promotion",
+    "provider": "OpenStax",
+    "description": "Honest product claims, documented expenses, sales-data integrity and clear promotional prices/terms. Fictional cases exclude jurisdictional bribery law and historical company incidents.",
+    "text": "Honest product claims, documented expenses, sales-data integrity and clear promotional prices/terms. Fictional cases exclude jurisdictional bribery law and historical company incidents.",
+    "topics": [
+      "sales"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-b9a573143dff97ec301c",
+    "title": "Customer loyalty: records, touchpoints and repeat value",
+    "url": "https://opentextbc.ca/introtourism2e/chapter/loyalty-and-customer-relationships/",
+    "provider": "BCcampus Open Education",
+    "description": "Customer retention, repeat/referral value, maintained preference records and coordinated touchpoints. Qualitative relationship knowledge; no universal acquisition-cost ratio or complete CLV financial model.",
+    "text": "Customer retention, repeat/referral value, maintained preference records and coordinated touchpoints. Qualitative relationship knowledge; no universal acquisition-cost ratio or complete CLV financial model.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-b52d909b702a8e6ca216",
+    "title": "Service quality: expectations and the RATER dimensions",
+    "url": "https://opentextbc.ca/introtourism2e/chapter/exceeding-expectations/",
+    "provider": "BCcampus Open Education",
+    "description": "Service expectations versus perceptions, reliability, assurance, tangibles, empathy and responsiveness. Introductory knowledge only; no numerical SERVQUAL scoring model or automatic satisfaction guarantee.",
+    "text": "Service expectations versus perceptions, reliability, assurance, tangibles, empathy and responsiveness. Introductory knowledge only; no numerical SERVQUAL scoring model or automatic satisfaction guarantee.",
+    "topics": [
+      "success"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-5fe0be85e44c0a78b086",
+    "title": "Connect contacts, account hierarchies and account teams",
+    "url": "https://trailhead.salesforce.com/content/learn/modules/accounts_contacts_lightning_experience/understand-account-and-contact-relationships-lightning",
+    "provider": "Salesforce Trailhead",
+    "description": "Public unit on direct/indirect contact relationships, parent-account hierarchies and internal account-team roles. No account setting, permission change or hands-on challenge is required for the reading/checks.",
+    "text": "Public unit on direct/indirect contact relationships, parent-account hierarchies and internal account-team roles. No account setting, permission change or hands-on challenge is required for the reading/checks.",
+    "topics": [
+      "account-management"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-c1481ef777184946c788",
+    "title": "5 Whys: investigate causes and verify a useful action",
+    "url": "https://www.atlassian.com/team-playbook/plays/5-whys",
+    "provider": "Atlassian",
+    "description": "A focused problem statement, iterative causal questioning, no-blame investigation and testing whether addressing the proposed root cause prevents recurrence. Not proof of causation from repetition alone.",
+    "text": "A focused problem statement, iterative causal questioning, no-blame investigation and testing whether addressing the proposed root cause prevents recurrence. Not proof of causation from repetition alone.",
+    "topics": [
+      "analysis"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-852a0775d96a0741c506",
+    "title": "Food-service operations: location, costs and capacity",
+    "url": "https://opentextbc.ca/introtourism2e/chapter/4-operations/",
+    "provider": "BCcampus Open Education",
+    "description": "Food/beverage operating costs, perishability, site analysis and existing-capacity revenue versus market share. Historical regional margins and wage/tax statements are excluded.",
+    "text": "Food/beverage operating costs, perishability, site analysis and existing-capacity revenue versus market share. Historical regional margins and wage/tax statements are excluded.",
+    "topics": [
+      "hospitality"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-334ad49ad959a01ad6a5",
+    "title": "Pull production: replenishment, sequence and product mix",
+    "url": "https://www.lean.org/lexicon-terms/pull-production/",
+    "provider": "Lean Enterprise Institute",
+    "description": "Downstream demand signals, supermarket replenishment, sequential pull and mixed systems. Scope is the public definition; no optimisation guarantee or full implementation prescription.",
+    "text": "Downstream demand signals, supermarket replenishment, sequential pull and mixed systems. Scope is the public definition; no optimisation guarantee or full implementation prescription.",
+    "topics": [
+      "inventory"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-5f2161b8710c6b47f641",
+    "title": "Retrospectives: feedback, patterns and owned improvements",
+    "url": "https://www.atlassian.com/team-playbook/plays/retrospective",
+    "provider": "Atlassian",
+    "description": "A no-blame retrospective gathers different perspectives, identifies useful patterns and assigns improvement actions with owners/deadlines. No AI tool or fixed ritual is required for these checks.",
+    "text": "A no-blame retrospective gathers different perspectives, identifies useful patterns and assigns improvement actions with owners/deadlines. No AI tool or fixed ritual is required for these checks.",
+    "topics": [
+      "projects"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-409be2d800a9f1aad871",
+    "title": "Takt time: calculate the pace of customer demand",
+    "url": "https://www.lean.org/lexicon-terms/takt-time/",
+    "provider": "Lean Enterprise Institute",
+    "description": "Available production time divided by demand, consistent units and how the required interval changes with demand. Fictional arithmetic; not a capacity feasibility or staffing model.",
+    "text": "Available production time divided by demand, consistent units and how the required interval changes with demand. Fictional arithmetic; not a capacity feasibility or staffing model.",
+    "topics": [
+      "supply-chain"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-944256cb8f296ab56beb",
+    "title": "File permission bits and directory access",
+    "url": "https://www.gnu.org/s/coreutils/manual/html_node/Mode-Structure.html",
+    "provider": "GNU Coreutils",
+    "description": "Open instruction on owner/group/other access and file versus directory read, write and search semantics.",
+    "text": "Open instruction on owner/group/other access and file versus directory read, write and search semantics.",
+    "topics": [
+      "linux"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-551bd480956b339a96c0",
+    "title": "Network protocols, messages and ports",
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/4-network-protocols",
+    "provider": "Microsoft Learn",
+    "description": "Open unit covering IP addressing, TCP/UDP, application protocols and network monitoring. Scope excludes the page's inaccurate FTP/SSH comparison.",
+    "text": "Open unit covering IP addressing, TCP/UDP, application protocols and network monitoring. Scope excludes the page's inaccurate FTP/SSH comparison.",
+    "topics": [
+      "networking"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-e15866cbe792c0670b6a",
+    "title": "Network devices and forwarding",
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/3-network-infrastructure",
+    "provider": "Microsoft Learn",
+    "description": "Open teaching unit on repeaters, hubs, switches, routers and managed-switch diagnostics.",
+    "text": "Open teaching unit on repeaters, hubs, switches, routers and managed-switch diagnostics.",
+    "topics": [
+      "networking"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-d82de016401418596fe4",
+    "title": "Public, private, hybrid and multicloud models",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models",
+    "provider": "Microsoft Learn",
+    "description": "Open unit contrasting cloud deployment models and their control and resource tradeoffs.",
+    "text": "Open unit contrasting cloud deployment models and their control and resource tradeoffs.",
+    "topics": [
+      "cloud"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-7ded08605fe0337ea30a",
+    "title": "Availability and horizontal versus vertical scaling",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+    "provider": "Microsoft Learn",
+    "description": "Open instruction on uptime, service-level agreements and matching resource capacity to demand.",
+    "text": "Open instruction on uptime, service-level agreements and matching resource capacity to demand.",
+    "topics": [
+      "cloud"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-aee21910d3cea2b515bd",
+    "title": "Password hashing, salts and work factors",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html",
+    "provider": "OWASP",
+    "description": "Open guidance on one-way password hashing, unique salts, protected peppers and work-factor migration.",
+    "text": "Open guidance on one-way password hashing, unique salts, protected peppers and work-factor migration.",
+    "topics": [
+      "security"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-9cd28f2d45732b7881d0",
+    "title": "Airflow DAG task dependencies and control flow",
+    "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html",
+    "provider": "Apache Airflow",
+    "description": "Open instruction on directed acyclic workflows, upstream/downstream dependencies and trigger rules.",
+    "text": "Open instruction on directed acyclic workflows, upstream/downstream dependencies and trigger rules.",
+    "topics": [
+      "data-engineering"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-003eedf593e1206a768e",
+    "title": "Precise Cartesian and polar drawing coordinates",
+    "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-OnBoarding/files/ACD_FOUNDATIONS_MAIN6.html",
+    "provider": "Autodesk",
+    "description": "Open AutoCAD foundations instruction on absolute/relative coordinates, polar coordinates, direct distances and precision aids.",
+    "text": "Open AutoCAD foundations instruction on absolute/relative coordinates, polar coordinates, direct distances and precision aids.",
+    "topics": [
+      "cad"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-4379ed7c790f864d9b69",
+    "title": "Precise object snaps and running snap modes",
+    "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-Core/files/GUID-8F5E5431-9EFB-414E-BC6D-2C65EFB2DAC3.htm",
+    "provider": "Autodesk",
+    "description": "Open instruction on prompted points, temporary overrides, persistent object snaps and cycling eligible locations.",
+    "text": "Open instruction on prompted points, temporary overrides, persistent object snaps and cycling eligible locations.",
+    "topics": [
+      "cad"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-1375822fcfdecbc01dc5",
+    "title": "Just-in-time, demand pull and takt calculations",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-2/",
+    "provider": "PALNI Pressbooks",
+    "description": "Open chapter on inventory reduction, demand pull, setup reduction and available-time/customer-demand calculations.",
+    "text": "Open chapter on inventory reduction, demand pull, setup reduction and available-time/customer-demand calculations.",
+    "topics": [
+      "manufacturing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-fbec9992824c2ded68ac",
+    "title": "Visual workplace, 5S and error prevention",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-3/",
+    "provider": "PALNI Pressbooks",
+    "description": "Open instruction on home locations/labels, visual status, 5S and error prevention. Unsupported memory/processing-speed ratios are outside the check scope.",
+    "text": "Open instruction on home locations/labels, visual status, 5S and error prevention. Unsupported memory/processing-speed ratios are outside the check scope.",
+    "topics": [
+      "manufacturing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-f42c318274b5162bfd4c",
+    "title": "Write content around the user's task",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/",
+    "provider": "Government Digital Service",
+    "description": "Open guidance on identifying a user need and publishing only the information required for task completion.",
+    "text": "Open guidance on identifying a user need and publishing only the information required for task completion.",
+    "topics": [
+      "content"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-a37e908cbd04ecfff2e4",
+    "title": "Frontloaded information and descriptive web headings",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/",
+    "provider": "Government Digital Service",
+    "description": "Open guidance on inverted-pyramid ordering, meaningful headings, lists and important information in the body.",
+    "text": "Open guidance on inverted-pyramid ordering, meaningful headings, lists and important information in the body.",
+    "topics": [
+      "content"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-e83f8b5a841308b92939",
+    "title": "Clear technical sentences and specific verbs",
+    "url": "https://developers.google.com/tech-writing/one/clear-sentences",
+    "provider": "Google for Developers",
+    "description": "Open lesson on explicit subjects, strong verbs, reducing there-is constructions and replacing vague claims with supported facts.",
+    "text": "Open lesson on explicit subjects, strong verbs, reducing there-is constructions and replacing vague claims with supported facts.",
+    "topics": [
+      "technical-writing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  },
+  {
+    "id": "lesson-resource-d8687d530088d651c704",
+    "title": "Iterative self-editing and audience review",
+    "url": "https://developers.google.com/tech-writing/two/editing",
+    "provider": "Google for Developers",
+    "description": "Open lesson on style guides, reader assumptions, reading aloud, fresh review contexts and peer editing.",
+    "text": "Open lesson on style guides, reader assumptions, reading aloud, fresh review contexts and peer editing.",
+    "topics": [
+      "technical-writing"
+    ],
+    "type": "tutorial",
+    "difficulty": "beginner",
+    "estimated_hours": null,
+    "source": "VoidFill public instructional source review 2026-11-10",
+    "license": "Original metadata; linked material retains publisher license"
+  }
+]

@@ -5,6 +5,9 @@ import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
 import { createPortal } from "react-dom";
 import { BarChart3, Briefcase, Calculator, Cloud, Compass, Handshake, LifeBuoy, Megaphone, MessagesSquare, Network, Palette, ShieldCheck, Table2, Users, Wrench, BookOpen, Check, ChevronRight, Circle, ClipboardCheck, Code2, ExternalLink, GitBranch, Globe2, Layers3, LocateFixed, Maximize2, Minimize2, Minus, Plus, RotateCcw, X } from "lucide-react";
 import { FocusDialog } from "@/components/FocusDialog";
+import { RoadmapResourceNotices } from "./resource-notices";
+import { isUngradedResource } from "@/lib/resourceLearningScope";
+import { activateModal, trapTabKey } from "@/lib/focusManagement";
 import { careerSkillForName } from "@/lib/careerCatalog";
 import { cn } from "@/components/ui/cn";
 import { ATLAS_NODE_SIZE, ATLAS_RESOURCE_HEIGHT, ATLAS_RESOURCE_WIDTH, createAtlasLayout, fitAtlas, zoomAtlas } from "@/lib/atlasLayout";
@@ -56,7 +59,8 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
   const previousFocusRequest = useRef(0);
   const dragRef = useRef<{ id: number; x: number; y: number; camera: Camera } | null>(null);
   const skill = skills.find(item => item.skill_id === selectedSkillId) || skills[0];
-  const suggestedCourse = skill?.courses.find(course => !course.completed) || skill?.courses[0];
+  const teachingCourses = skill?.courses.filter(course => !isUngradedResource(course.url));
+  const suggestedCourse = teachingCourses?.find(course => !course.completed) || teachingCourses?.[0] || skill?.courses[0];
   const course = skill?.courses.find(item => item.id === resourceId) || suggestedCourse;
   const courseUrl = safeResourceUrl(course?.url || null);
   const layout = useMemo(() => createAtlasLayout(skills.map(item => ({ id: item.skill_id, resourceIds: expanded && item.skill_id === skill?.skill_id ? item.courses.map(course => course.id) : [] })), skill?.skill_id || null), [skills, skill?.skill_id, expanded]);
@@ -66,7 +70,8 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
     setCamera(next);
   }, []);
   const restoreMapFocus = useCallback(() => {
-    sectionRef.current?.querySelector<HTMLButtonElement>('[data-atlas-expand]')?.focus();
+    const target = sectionRef.current?.querySelector<HTMLButtonElement>('[data-atlas-expand]');
+    if (target && !target.closest("[inert]")) target.focus();
   }, []);
 
   useEffect(() => {
@@ -97,22 +102,18 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
 
   useEffect(() => {
     if (!fullscreen) return;
-    const overflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const section = sectionRef.current;
+    if (!section) return;
+    const modal = activateModal(section);
     viewportRef.current?.focus();
     const escape = (event: globalThis.KeyboardEvent) => {
-      if (sectionRef.current?.querySelector('[role="dialog"]')) return;
+      if (!modal.isCurrent()) return;
       if (event.key === "Escape") setFullscreen(false);
-      if (event.key === "Tab") {
-        const nodes = Array.from(sectionRef.current?.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], select, [tabindex="0"]') || []).filter(node => node.getClientRects().length > 0);
-        const first = nodes[0], last = nodes[nodes.length - 1];
-        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
-        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
-      }
+      trapTabKey(event, section);
     };
     document.addEventListener("keydown", escape);
     return () => {
-      document.body.style.overflow = overflow;
+      modal.release();
       document.removeEventListener("keydown", escape);
       requestAnimationFrame(restoreMapFocus);
     };
@@ -169,7 +170,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
   }
 
   function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
-    if (event.target !== event.currentTarget) return;
+    if (event.target !== event.currentTarget || event.ctrlKey || event.metaKey || event.altKey) return;
     const directions: Record<string, [number, number]> = { ArrowLeft: [70, 0], ArrowRight: [-70, 0], ArrowUp: [0, 70], ArrowDown: [0, -70] };
     if (directions[event.key]) {
       event.preventDefault();
@@ -203,7 +204,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
   const compact = camera.scale < .45;
 
   const content = (
-    <section className={cn("learning-atlas", fullscreen && "atlas-fullscreen")} ref={sectionRef} aria-label="Your learning atlas">
+    <section className={cn("learning-atlas", fullscreen && "atlas-fullscreen")} ref={sectionRef} role={fullscreen ? "dialog" : undefined} aria-modal={fullscreen || undefined} tabIndex={fullscreen ? -1 : undefined} aria-label={fullscreen ? "Expanded learning atlas" : "Your learning atlas"}>
       <div className="atlas-map-wrap">
         <div className="atlas-legend" aria-label="Map legend">
           <span><Check size={13} className="atlas-legend-check" /> Completed resource</span>
@@ -239,7 +240,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
               const ring = 2 * Math.PI * 99;
               return (
                 <div className={cn("atlas-skill", active && "is-selected")} key={node.id} style={{ left: node.x - ATLAS_NODE_SIZE / 2, top: node.y - ATLAS_NODE_SIZE / 2 }}>
-                  <button className="atlas-skill-disc" aria-label={`${item.name}. ${item.assessed ? `Skill score ${item.score}%` : "Not assessed"}. ${item.completedCourses} of ${item.totalCourses} resources completed.`} aria-pressed={active} onClick={() => chooseSkill(item.skill_id)} onFocus={() => seePoint(node.x, node.y)}>
+                  <button className="atlas-skill-disc" aria-label={`${item.name}. ${item.assessed ? `Skill score ${item.score}%` : "Not assessed"}. ${item.completedCourses} of ${item.totalCourses} lessons completed.`} aria-pressed={active} onClick={() => chooseSkill(item.skill_id)} onFocus={() => seePoint(node.x, node.y)}>
                     <svg className="atlas-score-ring" viewBox="0 0 216 216" aria-hidden="true">
                       <circle cx="108" cy="108" r="104" className="atlas-ring-outline" />
                       <circle cx="108" cy="108" r="99" className="atlas-ring-track" />
@@ -248,7 +249,7 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
                     <Icon className="atlas-skill-icon" size={25} strokeWidth={1.5} />
                     <span className="atlas-skill-name">{item.name}</span>
                     <span className="atlas-score-label">{item.assessed ? `Score: ${item.skillProgress}%` : "Not assessed"}</span>
-                    <span className="atlas-resource-count"><Layers3 size={17} /><span>Resources<strong>{item.completedCourses}/{item.totalCourses} complete</strong></span></span>
+                    <span className="atlas-resource-count"><Layers3 size={17} /><span>Lessons<strong>{item.completedCourses}/{item.totalCourses} complete</strong></span></span>
                   </button>
                   <button className="atlas-expand" aria-expanded={active && expanded} onClick={() => { if (active) setExpanded(value => !value); else chooseSkill(item.skill_id); }}>
                     {active && expanded ? "Collapse branch" : "Expand branch"}<ChevronRight size={15} className={active && expanded ? "rotate-90" : ""} />
@@ -259,12 +260,13 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
 
             {layout.resources.map(node => {
               const resource = skill.courses.find(item => item.id === node.id)!;
-              const recommended = suggestedCourse?.id === resource.id && !resource.completed;
+              const guide = isUngradedResource(resource.url);
+              const recommended = suggestedCourse?.id === resource.id && !resource.completed && !guide;
               const current = course?.id === resource.id;
               return (
-                <button key={node.id} className={cn("atlas-resource", resource.completed && "is-completed", recommended && "is-next", current && "is-current")} style={{ left: node.x - ATLAS_RESOURCE_WIDTH / 2, top: node.y - ATLAS_RESOURCE_HEIGHT / 2 }} aria-pressed={current} onClick={() => setResourceId(resource.id)} onFocus={() => seePoint(node.x, node.y)} title={resource.title}>
-                  <span className="atlas-resource-icon">{resource.completed ? <Check size={20} /> : <BookOpen size={21} strokeWidth={1.6} />}</span>
-                  <span className="atlas-resource-text"><strong>{resource.title}</strong><span>{resource.completed ? "Completed" : recommended ? "Recommended next" : latestAssessmentByCourse.has(resource.id) || visited.has(resource.id) ? "In progress" : "Available to explore"}</span></span>
+                <button key={node.id} className={cn("atlas-resource", resource.completed && !guide && "is-completed", recommended && "is-next", current && "is-current")} style={{ left: node.x - ATLAS_RESOURCE_WIDTH / 2, top: node.y - ATLAS_RESOURCE_HEIGHT / 2 }} aria-pressed={current} onClick={() => setResourceId(resource.id)} onFocus={() => seePoint(node.x, node.y)} title={resource.title}>
+                  <span className="atlas-resource-icon">{resource.completed && !guide ? <Check size={20} /> : <BookOpen size={21} strokeWidth={1.6} />}</span>
+                  <span className="atlas-resource-text"><strong>{resource.title}</strong><span>{isUngradedResource(resource.url) ? "Ungraded guide" : resource.completed ? "Completed" : recommended ? "Recommended next" : latestAssessmentByCourse.has(resource.id) || visited.has(resource.id) ? "In progress" : "Available to explore"}</span></span>
                   <ChevronRight size={16} />
                 </button>
               );
@@ -297,9 +299,9 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
         {skill.assessable === false && <a href="/careers" className="atlas-secondary-action">Open practical career activity ↗</a>}
         <div className="atlas-dock-skill"><Globe2 size={25} strokeWidth={1.4} /><div><strong>{skill.name}</strong><span>{skill.assessable === false ? "Specialist practice · review needed" : skill.assessed ? `Knowledge score ${skill.skillProgress}%` : "Knowledge not assessed"}</span></div></div>
         <div className="atlas-dock-resource">
-          {course ? <><span className={cn("atlas-status-tag", course.completed && "is-completed")}>{course.completed ? "Completed resource" : suggestedCourse?.id === course.id ? "Recommended next" : "Selected resource"}</span><strong title={course.title}>{course.title}</strong><span>{course.provider || "Learning resource"}{course.estimated_hours ? ` · ~${course.estimated_hours} h` : ""}</span></> : <><strong>A new branch, ready to grow.</strong><span>{skill.assessable === false ? "Dedicated resources and knowledge checks are pending. Start with the practical career activity." : "Find learning resources for this skill, or start with a knowledge assessment."}</span></>}
+          {course ? <><span className={cn("atlas-status-tag", course.completed && !isUngradedResource(course.url) && "is-completed")}>{isUngradedResource(course.url) ? "Ungraded guide" : course.completed ? "Completed resource" : suggestedCourse?.id === course.id ? "Recommended next" : "Selected resource"}</span><strong title={course.title}>{course.title}</strong><span>{course.provider || "Learning resource"}{course.estimated_hours ? ` · ~${course.estimated_hours} h` : ""}</span></> : <><strong>A new branch, ready to grow.</strong><span>{skill.assessable === false ? "Dedicated resources and knowledge checks are pending. Start with the practical career activity." : "Find learning resources for this skill, or start with a knowledge assessment."}</span></>}
         </div>
-        <button className="atlas-dock-progress" onClick={() => setShowResources(true)} aria-label={`View all ${skill.totalCourses} resources for ${skill.name}`}><Layers3 size={18} /><span><strong>{skill.completedCourses} of {skill.totalCourses}</strong> resources completed</span><ChevronRight size={16} /></button>
+        <button className="atlas-dock-progress" onClick={() => setShowResources(true)} aria-label={`View all ${skill.courses.length} resources for ${skill.name}`}><Layers3 size={18} /><span><strong>{skill.completedCourses} of {skill.totalCourses}</strong> lessons completed</span><ChevronRight size={16} /></button>
         <div className="atlas-dock-actions">
           <button className="atlas-secondary-action" disabled={skill.assessable === false} onClick={() => void launchAssessment()}><ClipboardCheck size={17} /><span>{skill.assessable === false ? "Knowledge check pending" : "Take knowledge assessment"}</span></button>
           {courseUrl ? <a className="atlas-primary-action" href={courseUrl} target="_blank" rel="noopener noreferrer" onClick={() => setVisited(ids => new Set(ids).add(course!.id))}>Open resource<ExternalLink size={16} /></a> : <button className="atlas-primary-action" disabled={generatingResources || !!course || skill.assessable === false} onClick={onGenerateResources}>{generatingResources ? "Finding resources…" : course ? "No resource link" : skill.assessable === false ? "Resources pending" : "Find resources"}<ChevronRight size={16} /></button>}
@@ -310,17 +312,19 @@ export function LearningAtlas({ roleName, skills, selectedSkillId, latestAssessm
         <div className="atlas-resource-sheet">
           <FocusDialog label={`Resources for ${skill.name}`} onClose={() => setShowResources(false)}>
             <div className="atlas-sheet-heading"><div><p className="eyebrow">Your selected branch</p><h2>{skill.name}</h2></div><button onClick={() => setShowResources(false)} aria-label="Close resources"><X size={21} /></button></div>
-            <p className="atlas-sheet-intro">{skill.completedCourses} of {skill.totalCourses} resources completed. Pass a resource assessment at 65% to complete it. Your measured skill score comes from assessments.</p>
+            <p className="atlas-sheet-intro">{skill.completedCourses} of {skill.totalCourses} teaching lessons completed. Pass a lesson assessment at 65% to complete it. Ungraded guides provide context and are excluded from lesson completion.</p>
             {!skill.courses.length && <div className="atlas-sheet-empty"><BookOpen size={30} /><p>{skill.assessable === false ? "Dedicated resources for this specialist area are pending. Use the practical activity in Career explorer." : "No resources on this branch yet."}</p>{skill.assessable === false && <a href="/careers" className="atlas-secondary-action">Open practical activity ↗</a>}<button className="atlas-primary-action" onClick={onGenerateResources} disabled={generatingResources || skill.assessable === false}>{generatingResources ? "Finding resources…" : "Find learning resources"}</button></div>}
             {skill.courses.map(resource => {
               const url = safeResourceUrl(resource.url);
               const previous = latestAssessmentByCourse.get(resource.id);
+              const guide = isUngradedResource(resource.url);
               return <article key={resource.id} className="atlas-sheet-resource">
-                <div className="atlas-sheet-resource-title">{resource.completed ? <Check size={19} /> : <BookOpen size={19} />}<h3>{resource.title}</h3>{resource.completed && <span className="atlas-status-tag is-completed">Completed</span>}</div>
+                <div className="atlas-sheet-resource-title">{resource.completed && !guide ? <Check size={19} /> : <BookOpen size={19} />}<h3>{resource.title}</h3>{guide ? <span className="atlas-status-tag">Ungraded guide</span> : resource.completed && <span className="atlas-status-tag is-completed">Completed</span>}</div>
                 <p className="atlas-sheet-provider">{resource.provider || "Learning resource"}{resource.estimated_hours ? ` · ~${resource.estimated_hours} hours` : ""}{resource.difficulty ? ` · ${resource.difficulty}` : ""}</p>
                 {resource.description && <p>{resource.description}</p>}
-                {previous && <p className="atlas-sheet-previous">Last assessment: {Math.round(previous.score)}%{previous.passed ? " · passed" : " · keep practicing"}</p>}
-                <div className="atlas-sheet-resource-actions">{url && <a href={url} target="_blank" rel="noopener noreferrer" onClick={() => setVisited(ids => new Set(ids).add(resource.id))}>Open resource<ExternalLink size={15} /></a>}<button onClick={() => void launchAssessment(resource)}>{previous ? <RotateCcw size={16} /> : <ClipboardCheck size={16} />}{previous ? "Retake assessment" : "Check understanding"}</button></div>
+                <RoadmapResourceNotices url={resource.url} />
+                {previous && <p className="atlas-sheet-previous">{guide ? "Earlier assessment" : "Last assessment"}: {Math.round(previous.score)}%{previous.passed ? " · passed" : " · keep practicing"}</p>}
+                <div className="atlas-sheet-resource-actions">{url && <a href={url} target="_blank" rel="noopener noreferrer" onClick={() => setVisited(ids => new Set(ids).add(resource.id))}>Open resource<ExternalLink size={15} /></a>}{!guide && <button onClick={() => void launchAssessment(resource)}>{previous ? <RotateCcw size={16} /> : <ClipboardCheck size={16} />}{previous ? "Retake assessment" : "Check understanding"}</button>}</div>
               </article>;
             })}
           </FocusDialog>

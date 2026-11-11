@@ -1,0 +1,3674 @@
+{
+  "version": "matching-v2-2026-11-10",
+  "evaluated_at": "2026-11-10T06:25:25.582Z",
+  "scope": "Agent-authored synthetic ranking/abstention regression evidence, not independent user research, expert validation, fit probabilities or a professional-readiness measure. Golden/adversarial cases were observed during development. The new challenge's first candidate was frozen before its predictions were inspected; later executions are regressions.",
+  "matcher_source_sha256_utf8_lf": "3e0ca21ba3d352aafdaa21f91cf8ea686d8c14cf1172af7d365801865a4a27d7",
+  "matcher_executable_sha256_utf8_lf": "45cf23e80fe01d0d7077860eb61ee26d69b08a858599ded50e422c2eb9093345",
+  "challenge_fixture_sha256": "cddcd729a331bc6df04fe814d996f184a3f48be6f5ac75780d17a328f3fe4c27",
+  "candidate_matches_frozen_first_execution": true,
+  "role_count": 60,
+  "before": {
+    "golden": {
+      "scope": "Curated regression examples, not independently validated career advice. Ranked suggestions are explainable lexical matches, not fit probabilities.",
+      "metrics": {
+        "role_count": 60,
+        "role_first": 59,
+        "role_top_3": 60,
+        "abstentions": 20,
+        "abstention_count": 20,
+        "custom_hits": 10,
+        "custom_count": 10
+      },
+      "roles": [
+        {
+          "query": "I want to build browser interfaces with HTML CSS and JavaScript",
+          "expected": "Frontend Developer",
+          "top_3": [
+            "Frontend Developer",
+            "Full-Stack Developer",
+            "QA Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to develop Python backend APIs and database services",
+          "expected": "Backend Developer",
+          "top_3": [
+            "Backend Developer",
+            "Full-Stack Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to connect a web frontend to server APIs as a full stack developer",
+          "expected": "Full-Stack Developer",
+          "top_3": [
+            "Full-Stack Developer",
+            "Backend Developer",
+            "Frontend Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want software test automation and reproducible defect investigation",
+          "expected": "QA Engineer",
+          "top_3": [
+            "QA Engineer",
+            "Automation Technician",
+            "Software Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to develop Android and iOS applications with offline sync",
+          "expected": "Mobile Developer",
+          "top_3": [
+            "Mobile Developer",
+            "Software Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want software development with algorithms testing and system design",
+          "expected": "Software Engineer",
+          "top_3": [
+            "QA Engineer",
+            "Systems Administrator",
+            "Software Engineer"
+          ],
+          "rank": 3
+        },
+        {
+          "query": "I want data analytics with SQL Python charts and reporting",
+          "expected": "Data Analyst",
+          "top_3": [
+            "Data Analyst",
+            "Data Engineer",
+            "Data Scientist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to build applied AI document search applications",
+          "expected": "AI Applications Developer",
+          "top_3": [
+            "AI Applications Developer",
+            "Software Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want business intelligence dashboards using Power BI and SQL",
+          "expected": "BI Analyst",
+          "top_3": [
+            "BI Analyst",
+            "Credit Analyst",
+            "AI Applications Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want ETL pipelines and reliable data engineering",
+          "expected": "Data Engineer",
+          "top_3": [
+            "Data Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want ML model development deployment and monitoring",
+          "expected": "Machine Learning Engineer",
+          "top_3": [
+            "Machine Learning Engineer",
+            "Talent Development Associate",
+            "DevOps Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want data science experiments statistics and predictive modelling",
+          "expected": "Data Scientist",
+          "top_3": [
+            "Data Scientist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want cloud support troubleshooting hosted services and customer outages",
+          "expected": "Cloud Support Associate",
+          "top_3": [
+            "Cloud Support Associate",
+            "Customer Support Specialist",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want SOC alert triage and cybersecurity incident response",
+          "expected": "Cybersecurity Analyst",
+          "top_3": [
+            "Cybersecurity Analyst",
+            "Cloud Support Associate",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want help desk troubleshooting for desktop accounts and connectivity",
+          "expected": "IT Support Specialist",
+          "top_3": [
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to administer Linux systems permissions and services",
+          "expected": "Systems Administrator",
+          "top_3": [
+            "Systems Administrator",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want DevOps release pipelines containers and infrastructure automation",
+          "expected": "DevOps Engineer",
+          "top_3": [
+            "DevOps Engineer",
+            "Automation Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want network administration DNS routing and subnet troubleshooting",
+          "expected": "Network Administrator",
+          "top_3": [
+            "Network Administrator",
+            "Cloud Support Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want mechanical drafting with CAD dimensions and tolerances",
+          "expected": "CAD Technician",
+          "top_3": [
+            "CAD Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want PLC sequences and industrial automation fault recovery",
+          "expected": "Automation Technician",
+          "top_3": [
+            "Automation Technician",
+            "Industrial Engineering Associate",
+            "QA Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want manufacturing quality control and corrective action investigations",
+          "expected": "Quality Engineer",
+          "top_3": [
+            "Quality Engineer",
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want production engineering and manufacturing process improvement",
+          "expected": "Manufacturing Engineer",
+          "top_3": [
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate",
+            "Quality Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to diagnose electronics circuits voltage and current",
+          "expected": "Electronics Technician",
+          "top_3": [
+            "Electronics Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want industrial engineering line balancing and process capacity analysis",
+          "expected": "Industrial Engineering Associate",
+          "top_3": [
+            "Industrial Engineering Associate",
+            "Data Engineer",
+            "Manufacturing Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want product management prioritization and outcome-based roadmaps",
+          "expected": "Product Manager",
+          "top_3": [
+            "Product Manager",
+            "Product Designer",
+            "Business Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want interaction design and user experience prototypes",
+          "expected": "UX Designer",
+          "top_3": [
+            "UX Designer",
+            "UI Designer",
+            "Product Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want user interface typography and accessible component layouts",
+          "expected": "UI Designer",
+          "top_3": [
+            "UI Designer",
+            "Product Designer",
+            "UX Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want user research interviews and usability studies",
+          "expected": "UX Researcher",
+          "top_3": [
+            "UX Researcher",
+            "UX Designer",
+            "Product Manager"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want digital product design from research to visual prototypes",
+          "expected": "Product Designer",
+          "top_3": [
+            "Product Designer",
+            "UX Designer",
+            "UI Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want technical documentation and API integration guides",
+          "expected": "Technical Writer",
+          "top_3": [
+            "Technical Writer",
+            "Backend Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want project coordination milestones dependencies and status updates",
+          "expected": "Project Coordinator",
+          "top_3": [
+            "Project Coordinator",
+            "Learning & Development Coordinator",
+            "Project Manager"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want requirements gathering and business process analysis",
+          "expected": "Business Analyst",
+          "top_3": [
+            "Business Analyst",
+            "Sales Representative",
+            "Industrial Engineering Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want business operations analysis of queues and capacity",
+          "expected": "Operations Analyst",
+          "top_3": [
+            "Operations Analyst",
+            "Business Analyst",
+            "Data Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want project management scope resource decisions and delivery risks",
+          "expected": "Project Manager",
+          "top_3": [
+            "Project Manager",
+            "Project Coordinator",
+            "Logistics Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want management consulting and organizational options appraisal",
+          "expected": "Management Analyst",
+          "top_3": [
+            "Management Analyst",
+            "Business Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want office coordination schedules and administrative handovers",
+          "expected": "Administrative Coordinator",
+          "top_3": [
+            "Administrative Coordinator",
+            "Learning & Development Coordinator",
+            "Hospitality Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want digital marketing campaigns and qualified lead measurement",
+          "expected": "Digital Marketing Associate",
+          "top_3": [
+            "Digital Marketing Associate",
+            "Marketing Analyst",
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want search engine optimization and crawl diagnostics",
+          "expected": "SEO Specialist",
+          "top_3": [
+            "SEO Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want copywriting and audience-focused editorial content",
+          "expected": "Content Writer",
+          "top_3": [
+            "Content Writer",
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want social media campaigns content calendars and community responses",
+          "expected": "Social Media Coordinator",
+          "top_3": [
+            "Social Media Coordinator",
+            "Marketing Analyst",
+            "Content Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want graphic design for print and digital campaign assets",
+          "expected": "Graphic Designer",
+          "top_3": [
+            "Graphic Designer",
+            "Marketing Analyst",
+            "Product Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want market research and marketing campaign analytics",
+          "expected": "Marketing Analyst",
+          "top_3": [
+            "Marketing Analyst",
+            "Data Engineer",
+            "Digital Marketing Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want bookkeeping and bank reconciliation",
+          "expected": "Accounting Associate",
+          "top_3": [
+            "Accounting Associate",
+            "Payroll Specialist",
+            "Accounts Payable Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want financial modelling profit cash flow and scenario forecasts",
+          "expected": "Financial Analyst",
+          "top_3": [
+            "Financial Analyst",
+            "Credit Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want payroll gross-to-net reconciliation and timesheet corrections",
+          "expected": "Payroll Specialist",
+          "top_3": [
+            "Payroll Specialist",
+            "Accounting Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want accounts payable invoice matching and payment controls",
+          "expected": "Accounts Payable Associate",
+          "top_3": [
+            "Accounts Payable Associate",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want audit workpapers control evidence and assurance sampling",
+          "expected": "Audit Associate",
+          "top_3": [
+            "Audit Associate",
+            "Quality Engineer",
+            "QA Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want credit risk analysis of borrower liquidity and repayment",
+          "expected": "Credit Analyst",
+          "top_3": [
+            "Credit Analyst",
+            "Data Engineer",
+            "Financial Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want talent acquisition and structured candidate interviews",
+          "expected": "Recruitment Associate",
+          "top_3": [
+            "Recruitment Associate",
+            "HR Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want people operations joiner mover leaver workflows",
+          "expected": "HR Operations Associate",
+          "top_3": [
+            "HR Operations Associate",
+            "Payroll Specialist",
+            "People Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want training coordination and instructional design evaluation",
+          "expected": "Learning & Development Coordinator",
+          "top_3": [
+            "Learning & Development Coordinator",
+            "Product Designer",
+            "UX Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want workforce analytics and privacy-aware HR dashboards",
+          "expected": "People Analyst",
+          "top_3": [
+            "People Analyst",
+            "HR Operations Associate",
+            "Data Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want talent development pathways and workplace learning programs",
+          "expected": "Talent Development Associate",
+          "top_3": [
+            "Talent Development Associate",
+            "Learning & Development Coordinator",
+            "Recruitment Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want employee experience feedback and onboarding support",
+          "expected": "Employee Experience Coordinator",
+          "top_3": [
+            "Employee Experience Coordinator",
+            "IT Support Specialist",
+            "HR Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want sales discovery qualification and buyer follow up",
+          "expected": "Sales Representative",
+          "top_3": [
+            "Sales Representative"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want customer success onboarding and adoption outcomes",
+          "expected": "Customer Success Associate",
+          "top_3": [
+            "Customer Success Associate",
+            "Employee Experience Coordinator",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want customer service troubleshooting and support escalations",
+          "expected": "Customer Support Specialist",
+          "top_3": [
+            "Customer Support Specialist",
+            "IT Support Specialist",
+            "Customer Success Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want purchasing supplier evaluation and procurement cost analysis",
+          "expected": "Procurement Analyst",
+          "top_3": [
+            "Procurement Analyst",
+            "Data Engineer",
+            "Accounts Payable Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want logistics shipment coordination and stock replenishment",
+          "expected": "Logistics Coordinator",
+          "top_3": [
+            "Logistics Coordinator",
+            "Learning & Development Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want hotel front office and guest service recovery",
+          "expected": "Hospitality Operations Associate",
+          "top_3": [
+            "Hospitality Operations Associate"
+          ],
+          "rank": 1
+        }
+      ],
+      "rejected": [
+        {
+          "query": "Clinical surgery",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Spacecraft propulsion certification",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Underwater basket weaving instructor",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Dental implant surgery",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Veterinary anaesthesia",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Nuclear reactor licensing",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Maritime navigation certification",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Criminal litigation",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Air traffic control",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Pharmaceutical formulation",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "analyst",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "developer",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "manager",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "engineer",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "professional",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a better career",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I am looking for a job",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "something interesting",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "help me choose",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "a new opportunity",
+          "abstained": true,
+          "top_3": []
+        }
+      ],
+      "custom": [
+        {
+          "query": "I want to combine payroll and spreadsheet analysis for an internal role",
+          "expected": [
+            "Payroll Specialist"
+          ],
+          "top_3": [
+            "Payroll Specialist",
+            "Data Engineer",
+            "Audit Associate"
+          ],
+          "hit": true
+        },
+        {
+          "query": "My personal goal combines technical writing and customer research",
+          "expected": [
+            "Technical Writer",
+            "UX Researcher"
+          ],
+          "top_3": [
+            "UX Researcher",
+            "Technical Writer",
+            "Customer Support Specialist"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want both inventory control and supply chain planning",
+          "expected": [
+            "Logistics Coordinator"
+          ],
+          "top_3": [
+            "Logistics Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want a role that combines React and accessible web interfaces",
+          "expected": [
+            "Frontend Developer",
+            "UI Designer"
+          ],
+          "top_3": [
+            "Frontend Developer",
+            "UI Designer"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want to combine recruitment and HR operations",
+          "expected": [
+            "Recruitment Associate",
+            "HR Operations Associate"
+          ],
+          "top_3": [
+            "HR Operations Associate",
+            "People Analyst",
+            "Recruitment Associate"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want financial analysis and accounting for a small business",
+          "expected": [
+            "Financial Analyst",
+            "Accounting Associate"
+          ],
+          "top_3": [
+            "Accounting Associate",
+            "Credit Analyst",
+            "Financial Analyst"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want procurement and supplier comparison skills",
+          "expected": [
+            "Procurement Analyst"
+          ],
+          "top_3": [
+            "Procurement Analyst"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want Python and SQL for data analysis",
+          "expected": [
+            "Data Analyst",
+            "Data Engineer"
+          ],
+          "top_3": [
+            "Data Analyst",
+            "Data Engineer",
+            "Data Scientist"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want to learn event operations and hospitality guest service",
+          "expected": [
+            "Hospitality Operations Associate"
+          ],
+          "top_3": [
+            "Hospitality Operations Associate",
+            "Employee Experience Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want software testing and API validation",
+          "expected": [
+            "QA Engineer",
+            "Backend Developer"
+          ],
+          "top_3": [
+            "QA Engineer",
+            "Backend Developer",
+            "Software Engineer"
+          ],
+          "hit": true
+        }
+      ]
+    },
+    "adversarial": {
+      "scope": "Agent-authored task narratives frozen before any matcher execution on this fixture. Diagnostic cases may inform changes; sentinel labels and queries must remain unchanged. This is software evaluation, not independent user research, an untouched training holdout, domain-expert review or professional suitability validation. All text is synthetic and public.",
+      "metrics": {
+        "role_count": 60,
+        "role_first": 54,
+        "role_top_3": 59,
+        "abstentions": 20,
+        "abstention_count": 20,
+        "custom_hits": 7,
+        "custom_count": 8
+      },
+      "roles": [
+        {
+          "query": "A community theatre needs an accessible browser booking form, responsive CSS and JavaScript validation. I want to build the interface people use.",
+          "expected": "Frontend Developer",
+          "top_3": [
+            "Frontend Developer",
+            "Full-Stack Developer",
+            "UI Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to implement the server side of a ticketing service: HTTP API endpoints, database transactions, authorization and safe retries.",
+          "expected": "Backend Developer",
+          "top_3": [
+            "Backend Developer",
+            "Full-Stack Developer",
+            "Technical Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to deliver a complete web application, connecting its browser UI, API, persistent data and deployment rather than one layer alone.",
+          "expected": "Full-Stack Developer",
+          "top_3": [
+            "Backend Developer",
+            "Frontend Developer",
+            "Software Engineer"
+          ],
+          "rank": 4
+        },
+        {
+          "query": "I enjoy reproducing checkout defects, writing automated software tests and checking recovery when a response disappears after a payment.",
+          "expected": "QA Engineer",
+          "top_3": [
+            "QA Engineer",
+            "Software Engineer",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "My interest is an Android and iOS app that survives a lost connection, device rotation and conflicting offline edits.",
+          "expected": "Mobile Developer",
+          "top_3": [
+            "Mobile Developer",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I prefer general software programming: algorithms, maintainable modules, code review, testing and refactoring large codebases.",
+          "expected": "Software Engineer",
+          "top_3": [
+            "QA Engineer",
+            "Software Engineer"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I enjoy querying datasets with SQL, cleaning records in Python and explaining business patterns through charts, rather than shipping predictive models.",
+          "expected": "Data Analyst",
+          "top_3": [
+            "Data Scientist",
+            "Data Analyst",
+            "BI Analyst"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I want to build a document-search assistant with retrieval, source citations, evaluations and a clear response when the collection cannot answer.",
+          "expected": "AI Applications Developer",
+          "top_3": [
+            "SEO Specialist",
+            "AI Applications Developer",
+            "UX Designer"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I would like to define business intelligence measures and build Power BI dashboards whose revenue totals stay consistent across departments.",
+          "expected": "BI Analyst",
+          "top_3": [
+            "BI Analyst",
+            "Business Analyst",
+            "People Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to maintain ETL pipelines that ingest late events, validate schemas and safely backfill corrected warehouse partitions.",
+          "expected": "Data Engineer",
+          "top_3": [
+            "Data Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to build and deploy machine learning models, compare slice performance, version artifacts and monitor their production behavior.",
+          "expected": "Machine Learning Engineer",
+          "top_3": [
+            "Machine Learning Engineer",
+            "Learning & Development Coordinator",
+            "DevOps Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to investigate hypotheses using statistics, experiment design and predictive data science, including uncertainty and confounding.",
+          "expected": "Data Scientist",
+          "top_3": [
+            "Data Scientist",
+            "People Analyst",
+            "Marketing Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like responding to hosted-service tickets, diagnosing cloud outages and explaining mitigations clearly to customers.",
+          "expected": "Cloud Support Associate",
+          "top_3": [
+            "Customer Support Specialist",
+            "Cloud Support Associate",
+            "Customer Success Associate"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I want to triage SOC alerts, investigate suspicious logins and record cybersecurity incident evidence before choosing containment.",
+          "expected": "Cybersecurity Analyst",
+          "top_3": [
+            "Cybersecurity Analyst",
+            "Cloud Support Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to work on a help desk, troubleshooting employee desktops, accounts, printers and everyday connectivity problems.",
+          "expected": "IT Support Specialist",
+          "top_3": [
+            "IT Support Specialist",
+            "Employee Experience Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to administer Linux servers, service accounts, filesystem permissions, scheduled maintenance and recovery runbooks.",
+          "expected": "Systems Administrator",
+          "top_3": [
+            "Systems Administrator",
+            "Backend Developer",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like DevOps work: Docker images, CI/CD release pipelines, infrastructure automation and reversible deployments.",
+          "expected": "DevOps Engineer",
+          "top_3": [
+            "DevOps Engineer",
+            "Automation Technician",
+            "Machine Learning Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want responsibility for network switches, routing, DNS resolvers, subnet configuration and connectivity fault isolation.",
+          "expected": "Network Administrator",
+          "top_3": [
+            "Network Administrator",
+            "Cloud Support Associate",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy creating CAD manufacturing drawings with datums, dimensions, revision notes and tolerance-stack reasoning.",
+          "expected": "CAD Technician",
+          "top_3": [
+            "CAD Technician",
+            "Manufacturing Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to specify and troubleshoot simulated PLC conveyor logic, sensor interlocks and industrial automation restart sequences.",
+          "expected": "Automation Technician",
+          "top_3": [
+            "Automation Technician",
+            "Industrial Engineering Associate",
+            "Electronics Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to investigate production quality defects using measurement-system checks, containment, root cause and corrective-action verification.",
+          "expected": "Quality Engineer",
+          "top_3": [
+            "Quality Engineer",
+            "Systems Administrator",
+            "Manufacturing Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to improve manufacturing processes, production throughput, tooling choices and bottlenecks while controlling scrap and rework.",
+          "expected": "Manufacturing Engineer",
+          "top_3": [
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate",
+            "Quality Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like diagnosing low-voltage electronics: circuit diagrams, resistor measurements, voltage, current and instrument loading.",
+          "expected": "Electronics Technician",
+          "top_3": [
+            "Electronics Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to study industrial work methods, line balancing, time variation and inventory queues to improve whole-system efficiency.",
+          "expected": "Industrial Engineering Associate",
+          "top_3": [
+            "Industrial Engineering Associate",
+            "Systems Administrator",
+            "Manufacturing Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to own product prioritization: choose user problems, compare opportunities and decide experiments using outcome measures and guardrails.",
+          "expected": "Product Manager",
+          "top_3": [
+            "Product Designer",
+            "Product Manager",
+            "Digital Marketing Associate"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I enjoy user experience design: sketching interaction flows, prototyping task recovery and testing whether people can complete a booking.",
+          "expected": "UX Designer",
+          "top_3": [
+            "UX Designer",
+            "Product Designer",
+            "UI Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "My interest is user interface design: typography, spacing, responsive components, clear error states and accessible visual hierarchy.",
+          "expected": "UI Designer",
+          "top_3": [
+            "UI Designer",
+            "Product Designer",
+            "UX Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to run user research interviews and usability studies, recruit varied participants and synthesize contradictory qualitative evidence.",
+          "expected": "UX Researcher",
+          "top_3": [
+            "UX Researcher",
+            "UX Designer",
+            "Product Manager"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want digital product design from research through interaction and visual prototypes, balancing user needs with product trade-offs.",
+          "expected": "Product Designer",
+          "top_3": [
+            "Product Designer",
+            "UX Designer",
+            "UI Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy writing technical documentation: API task guides with prerequisites, working examples, troubleshooting and version migration notes.",
+          "expected": "Technical Writer",
+          "top_3": [
+            "Technical Writer",
+            "Backend Developer",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like coordinating projects by maintaining dependency logs, milestone trackers, meeting actions and concise stakeholder updates.",
+          "expected": "Project Coordinator",
+          "top_3": [
+            "Project Coordinator",
+            "Learning & Development Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to elicit business requirements, map approval processes and turn conflicting stakeholder requests into testable acceptance criteria.",
+          "expected": "Business Analyst",
+          "top_3": [
+            "Business Analyst",
+            "Procurement Analyst",
+            "Industrial Engineering Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want operations analysis: quantify service queues, capacity constraints and handoff delays using reliable operational measures.",
+          "expected": "Operations Analyst",
+          "top_3": [
+            "Operations Analyst",
+            "Data Engineer",
+            "Hospitality Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to manage projects with authority over scope, delivery risk, resources and approved changes rather than only maintain trackers.",
+          "expected": "Project Manager",
+          "top_3": [
+            "Project Manager",
+            "Project Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like management consulting, comparing organizational operating models and making evidence-based recommendations to leadership.",
+          "expected": "Management Analyst",
+          "top_3": [
+            "Management Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want office administration work: maintain calendars, coordinate travel and meetings, prepare records and organize a dependable handover.",
+          "expected": "Administrative Coordinator",
+          "top_3": [
+            "Administrative Coordinator",
+            "Learning & Development Coordinator",
+            "Hospitality Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want digital marketing campaign work: audience targeting, channel experiments, landing pages and qualified lead measurement.",
+          "expected": "Digital Marketing Associate",
+          "top_3": [
+            "Digital Marketing Associate",
+            "Marketing Analyst",
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy SEO troubleshooting: crawl accessibility, indexing, redirects, search intent and organic-search performance after a URL migration.",
+          "expected": "SEO Specialist",
+          "top_3": [
+            "SEO Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy content writing and editing: audience-focused articles, credible claims, useful structure and an editorial brief.",
+          "expected": "Content Writer",
+          "top_3": [
+            "Content Writer",
+            "Social Media Coordinator",
+            "Technical Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to coordinate social media publishing calendars, moderate community replies and compare channel engagement quality.",
+          "expected": "Social Media Coordinator",
+          "top_3": [
+            "Social Media Coordinator",
+            "Learning & Development Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want graphic design work on visual identities, typography, image composition and print or digital campaign layouts.",
+          "expected": "Graphic Designer",
+          "top_3": [
+            "Graphic Designer",
+            "UI Designer",
+            "Marketing Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want marketing analysis: reconcile campaign attribution, investigate conversion changes and compare customer segments with clear denominators.",
+          "expected": "Marketing Analyst",
+          "top_3": [
+            "Marketing Analyst",
+            "Digital Marketing Associate",
+            "Data Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy bookkeeping and accounting: record accruals, reconcile cashbook entries and prepare a reliable month-end balance.",
+          "expected": "Accounting Associate",
+          "top_3": [
+            "Accounting Associate",
+            "Financial Analyst",
+            "Full-Stack Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want financial analysis: forecast cash, connect profit to working capital and compare investment scenarios under explicit assumptions.",
+          "expected": "Financial Analyst",
+          "top_3": [
+            "Financial Analyst",
+            "Data Engineer",
+            "Credit Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want payroll work: reconcile approved timesheets, calculate stated gross-to-net pay and control authorized pay corrections.",
+          "expected": "Payroll Specialist",
+          "top_3": [
+            "Payroll Specialist",
+            "Accounting Associate",
+            "Financial Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy accounts payable work: match purchase orders to receipts and invoices, identify duplicates and resolve payment exceptions.",
+          "expected": "Accounts Payable Associate",
+          "top_3": [
+            "Accounts Payable Associate",
+            "Customer Support Specialist",
+            "Procurement Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want audit work linking assertions to sufficient evidence, documenting control exceptions and maintaining traceable workpapers.",
+          "expected": "Audit Associate",
+          "top_3": [
+            "Audit Associate",
+            "Accounts Payable Associate",
+            "Logistics Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to analyze business credit applications, examine repayment cash flows and document lending-risk assumptions for an authorized reviewer.",
+          "expected": "Credit Analyst",
+          "top_3": [
+            "Credit Analyst",
+            "Business Analyst",
+            "Accounting Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy recruitment: write job-related selection criteria, coordinate structured interviews and compare candidate work samples consistently.",
+          "expected": "Recruitment Associate",
+          "top_3": [
+            "Recruitment Associate",
+            "Learning & Development Coordinator",
+            "Product Manager"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want HR operations work maintaining confidential employee records, joiner-mover-leaver processes and approved access changes.",
+          "expected": "HR Operations Associate",
+          "top_3": [
+            "HR Operations Associate",
+            "People Analyst",
+            "Payroll Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to coordinate workplace learning programmes, align training objectives with practice and measure transfer back to job tasks.",
+          "expected": "Learning & Development Coordinator",
+          "top_3": [
+            "Learning & Development Coordinator",
+            "Project Manager",
+            "Talent Development Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want people analytics: clean HR datasets, define employee metrics and study turnover patterns without presenting correlation as causation.",
+          "expected": "People Analyst",
+          "top_3": [
+            "People Analyst",
+            "HR Operations Associate",
+            "Data Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want talent development work designing progression and coaching opportunities with transparent skills criteria and follow-up evidence.",
+          "expected": "Talent Development Associate",
+          "top_3": [
+            "Talent Development Associate",
+            "Learning & Development Coordinator",
+            "Sales Representative"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want employee experience coordination, gathering staff feedback and improving onboarding and workplace touchpoints with privacy safeguards.",
+          "expected": "Employee Experience Coordinator",
+          "top_3": [
+            "Employee Experience Coordinator",
+            "Learning & Development Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy sales discovery calls, qualifying a business buyer's needs and agreeing a realistic proposal and next step.",
+          "expected": "Sales Representative",
+          "top_3": [
+            "Sales Representative",
+            "Business Analyst",
+            "Digital Marketing Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want customer success work helping an account adopt a product, reach onboarding outcomes and address renewal risks before the contract ends.",
+          "expected": "Customer Success Associate",
+          "top_3": [
+            "Customer Success Associate",
+            "Employee Experience Coordinator",
+            "Product Manager"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want customer support work: reproduce a user's immediate problem, explain a workaround and hand off unresolved cases clearly.",
+          "expected": "Customer Support Specialist",
+          "top_3": [
+            "Customer Support Specialist",
+            "IT Support Specialist",
+            "UX Researcher"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want procurement work comparing supplier quotations, delivered cost, quality requirements and authorized purchase approvals.",
+          "expected": "Procurement Analyst",
+          "top_3": [
+            "Procurement Analyst",
+            "Business Analyst",
+            "Accounts Payable Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy logistics coordination: stock movements, warehouse dispatch, shipment exceptions, inventory records and clear handovers.",
+          "expected": "Logistics Coordinator",
+          "top_3": [
+            "Logistics Coordinator",
+            "Learning & Development Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want hotel hospitality operations: coordinate room readiness, guest service recovery, occupancy and a busy shift handover.",
+          "expected": "Hospitality Operations Associate",
+          "top_3": [
+            "Hospitality Operations Associate",
+            "Learning & Development Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        }
+      ],
+      "rejected": [
+        {
+          "query": "I want to qualify as an orthopaedic surgeon and perform joint replacement procedures.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a career as a licensed anaesthesiologist managing clinical anaesthesia.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to practise criminal defence litigation and represent defendants in court.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a certified airline pilot and command commercial passenger flights.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a veterinary dentist performing animal oral surgery.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to practise as a licensed structural engineer approving building-load calculations.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a paediatric psychiatrist diagnosing and prescribing treatment for children.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to design rocket turbopumps and certify spacecraft propulsion hardware.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to conduct archaeological excavation and classify ancient ceramic assemblages.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a licensed maritime deck officer responsible for ocean navigation.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to formulate pharmaceutical compounds and validate drug chemistry.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a geophysicist interpreting seismic surveys for subsurface geology.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a better career",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Can you choose a manager role for me?",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I am looking for something senior",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "My goal is to become an analyst",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to work with people",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I enjoy solving problems",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a job in the industry",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Suggest a professional opportunity",
+          "abstained": true,
+          "top_3": []
+        }
+      ],
+      "custom": [
+        {
+          "query": "Coordinate a museum's volunteer recruitment interviews and public event schedules",
+          "expected": [
+            "Recruitment Associate",
+            "Project Coordinator"
+          ],
+          "top_3": [
+            "Recruitment Associate",
+            "Learning & Development Coordinator",
+            "Administrative Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Use spreadsheet forecasts and supplier quotations to plan a small bakery's ingredient purchases",
+          "expected": [
+            "Procurement Analyst",
+            "Financial Analyst"
+          ],
+          "top_3": [
+            "Accounts Payable Associate",
+            "Procurement Analyst",
+            "Logistics Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Write clear API documentation and test whether new developers can complete the integration steps",
+          "expected": [
+            "Technical Writer",
+            "UX Researcher"
+          ],
+          "top_3": [
+            "Technical Writer",
+            "QA Engineer",
+            "Backend Developer"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Build an accessible React interface for a community organization's donation website",
+          "expected": [
+            "Frontend Developer",
+            "UI Designer"
+          ],
+          "top_3": [
+            "Frontend Developer",
+            "Social Media Coordinator",
+            "UI Designer"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Study warehouse inventory errors using SQL analysis and stock movement records",
+          "expected": [
+            "Logistics Coordinator",
+            "Data Analyst"
+          ],
+          "top_3": [
+            "Data Engineer",
+            "Logistics Coordinator",
+            "Industrial Engineering Associate"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Improve employee onboarding using neutral interviews and confidential HR operations records",
+          "expected": [
+            "Employee Experience Coordinator",
+            "HR Operations Associate"
+          ],
+          "top_3": [
+            "HR Operations Associate",
+            "People Analyst",
+            "Employee Experience Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Help software customers adopt a product and publish useful troubleshooting guides",
+          "expected": [
+            "Customer Success Associate",
+            "Technical Writer"
+          ],
+          "top_3": [
+            "Product Manager",
+            "Customer Support Specialist",
+            "IT Support Specialist"
+          ],
+          "hit": false
+        },
+        {
+          "query": "Use quality-control evidence and manufacturing capacity measures to improve a production line",
+          "expected": [
+            "Quality Engineer",
+            "Manufacturing Engineer"
+          ],
+          "top_3": [
+            "Quality Engineer",
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate"
+          ],
+          "hit": true
+        }
+      ]
+    },
+    "challenge": {
+      "scope": "Synthetic task narratives authored and frozen before this matcher revision. The challenge labels are agent judgements, not independent career advice or a participant study. Its first post-change evaluation is retained even when a label misses; later tuning must not call this an untouched holdout.",
+      "metrics": {
+        "role_count": 12,
+        "role_first": 7,
+        "role_top_3": 12,
+        "abstentions": 7,
+        "abstention_count": 8,
+        "custom_hits": 4,
+        "custom_count": 4
+      },
+      "roles": [
+        {
+          "query": "A neighbourhood sports club needs one person to implement both its member-facing web screens and the server endpoints that persist registrations.",
+          "expected": "Full-Stack Developer",
+          "top_3": [
+            "Frontend Developer",
+            "Backend Developer",
+            "Full-Stack Developer"
+          ],
+          "rank": 3
+        },
+        {
+          "query": "I would like to make Python and SQL records understandable to managers through cleaned datasets, charts and explanations of trends.",
+          "expected": "Data Analyst",
+          "top_3": [
+            "Data Analyst",
+            "Data Scientist",
+            "AI Applications Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to keep a hosted platform usable during incidents by isolating cloud configuration faults and giving its customers clear recovery updates.",
+          "expected": "Cloud Support Associate",
+          "top_3": [
+            "Cloud Support Associate",
+            "DevOps Engineer",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to connect a searchable document collection to an assistant, verify the retrieved citations and measure unsupported responses.",
+          "expected": "AI Applications Developer",
+          "top_3": [
+            "AI Applications Developer",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to decide which customer problem a product team should address next and use outcome experiments to test that decision.",
+          "expected": "Product Manager",
+          "top_3": [
+            "QA Engineer",
+            "Product Manager",
+            "Product Designer"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I would like to improve the structure of software modules, review program changes and reason about algorithms and maintainability.",
+          "expected": "Software Engineer",
+          "top_3": [
+            "Software Engineer",
+            "Content Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to design monthly adoption milestones with a business customer and notice risks to the account's renewal before it is too late.",
+          "expected": "Customer Success Associate",
+          "top_3": [
+            "Project Manager",
+            "Customer Success Associate",
+            "Business Analyst"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I want to turn an API integration into clear developer instructions with working requests, prerequisites and useful troubleshooting steps.",
+          "expected": "Technical Writer",
+          "top_3": [
+            "Backend Developer",
+            "Technical Writer",
+            "QA Engineer"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I want to reconcile approved working hours, deductions and net pay while checking that each correction has the right authorization.",
+          "expected": "Payroll Specialist",
+          "top_3": [
+            "Payroll Specialist",
+            "Full-Stack Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to compare supplier bids by delivered cost, lead time and required quality before preparing an approved purchase.",
+          "expected": "Procurement Analyst",
+          "top_3": [
+            "Procurement Analyst",
+            "Accounts Payable Associate",
+            "Logistics Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to test whether research participants can recover from a confusing navigation step in an interactive prototype.",
+          "expected": "UX Researcher",
+          "top_3": [
+            "QA Engineer",
+            "UX Researcher",
+            "UX Designer"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I want to improve warehouse dispatch by keeping stock movement records reliable and coordinating shipment exceptions.",
+          "expected": "Logistics Coordinator",
+          "top_3": [
+            "Logistics Coordinator",
+            "Learning & Development Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        }
+      ],
+      "rejected": [
+        {
+          "query": "I want to become a licensed radiographer interpreting clinical patient images.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to qualify as an ocean vessel navigator responsible for safe offshore passage.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to work as an animal surgeon providing veterinary operations.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to represent clients as a licensed courtroom advocate.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a job involving products and customers.",
+          "abstained": false,
+          "top_3": [
+            "Product Manager",
+            "Product Designer"
+          ]
+        },
+        {
+          "query": "I like useful work and helping teams.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to change fields but have not chosen what to do.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a technical role with good prospects.",
+          "abstained": true,
+          "top_3": []
+        }
+      ],
+      "custom": [
+        {
+          "query": "My work would join product adoption planning with writing support documentation for business users.",
+          "expected": [
+            "Customer Success Associate",
+            "Technical Writer"
+          ],
+          "top_3": [
+            "Technical Writer",
+            "Product Manager",
+            "Customer Support Specialist"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want a mix of accessible browser components and server-side API implementation, with responsibility for the whole web service.",
+          "expected": [
+            "Full-Stack Developer"
+          ],
+          "top_3": [
+            "Backend Developer",
+            "Frontend Developer",
+            "Full-Stack Developer"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want to combine workforce spreadsheets with confidential employee joiner and leaver records.",
+          "expected": [
+            "People Analyst",
+            "HR Operations Associate"
+          ],
+          "top_3": [
+            "People Analyst",
+            "HR Operations Associate",
+            "Payroll Specialist"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want to combine physical stock counts and supplier purchase planning for a small shop.",
+          "expected": [
+            "Logistics Coordinator",
+            "Procurement Analyst"
+          ],
+          "top_3": [
+            "Logistics Coordinator",
+            "Accounts Payable Associate",
+            "Procurement Analyst"
+          ],
+          "hit": true
+        }
+      ]
+    }
+  },
+  "after": {
+    "golden": {
+      "scope": "Curated regression examples, not independently validated career advice. Ranked suggestions are explainable lexical matches, not fit probabilities.",
+      "metrics": {
+        "role_count": 60,
+        "role_first": 60,
+        "role_top_3": 60,
+        "abstentions": 20,
+        "abstention_count": 20,
+        "custom_hits": 10,
+        "custom_count": 10
+      },
+      "roles": [
+        {
+          "query": "I want to build browser interfaces with HTML CSS and JavaScript",
+          "expected": "Frontend Developer",
+          "top_3": [
+            "Frontend Developer",
+            "Full-Stack Developer",
+            "QA Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to develop Python backend APIs and database services",
+          "expected": "Backend Developer",
+          "top_3": [
+            "Backend Developer",
+            "Full-Stack Developer",
+            "Mobile Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to connect a web frontend to server APIs as a full stack developer",
+          "expected": "Full-Stack Developer",
+          "top_3": [
+            "Full-Stack Developer",
+            "Frontend Developer",
+            "QA Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want software test automation and reproducible defect investigation",
+          "expected": "QA Engineer",
+          "top_3": [
+            "QA Engineer",
+            "Software Engineer",
+            "Mobile Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to develop Android and iOS applications with offline sync",
+          "expected": "Mobile Developer",
+          "top_3": [
+            "Mobile Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want software development with algorithms testing and system design",
+          "expected": "Software Engineer",
+          "top_3": [
+            "Software Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want data analytics with SQL Python charts and reporting",
+          "expected": "Data Analyst",
+          "top_3": [
+            "Data Analyst",
+            "Data Scientist",
+            "AI Applications Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to build applied AI document search applications",
+          "expected": "AI Applications Developer",
+          "top_3": [
+            "AI Applications Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want business intelligence dashboards using Power BI and SQL",
+          "expected": "BI Analyst",
+          "top_3": [
+            "BI Analyst",
+            "Data Analyst",
+            "AI Applications Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want ETL pipelines and reliable data engineering",
+          "expected": "Data Engineer",
+          "top_3": [
+            "Data Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want ML model development deployment and monitoring",
+          "expected": "Machine Learning Engineer",
+          "top_3": [
+            "Machine Learning Engineer",
+            "DevOps Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want data science experiments statistics and predictive modelling",
+          "expected": "Data Scientist",
+          "top_3": [
+            "Data Scientist",
+            "Machine Learning Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want cloud support troubleshooting hosted services and customer outages",
+          "expected": "Cloud Support Associate",
+          "top_3": [
+            "Cloud Support Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want SOC alert triage and cybersecurity incident response",
+          "expected": "Cybersecurity Analyst",
+          "top_3": [
+            "Cybersecurity Analyst",
+            "Customer Support Specialist",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want help desk troubleshooting for desktop accounts and connectivity",
+          "expected": "IT Support Specialist",
+          "top_3": [
+            "IT Support Specialist",
+            "Cybersecurity Analyst",
+            "Network Administrator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to administer Linux systems permissions and services",
+          "expected": "Systems Administrator",
+          "top_3": [
+            "Systems Administrator",
+            "IT Support Specialist",
+            "Network Administrator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want DevOps release pipelines containers and infrastructure automation",
+          "expected": "DevOps Engineer",
+          "top_3": [
+            "DevOps Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want network administration DNS routing and subnet troubleshooting",
+          "expected": "Network Administrator",
+          "top_3": [
+            "Network Administrator",
+            "Cloud Support Associate",
+            "Cybersecurity Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want mechanical drafting with CAD dimensions and tolerances",
+          "expected": "CAD Technician",
+          "top_3": [
+            "CAD Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want PLC sequences and industrial automation fault recovery",
+          "expected": "Automation Technician",
+          "top_3": [
+            "Automation Technician",
+            "Electronics Technician",
+            "QA Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want manufacturing quality control and corrective action investigations",
+          "expected": "Quality Engineer",
+          "top_3": [
+            "Quality Engineer",
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want production engineering and manufacturing process improvement",
+          "expected": "Manufacturing Engineer",
+          "top_3": [
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate",
+            "Quality Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to diagnose electronics circuits voltage and current",
+          "expected": "Electronics Technician",
+          "top_3": [
+            "Electronics Technician",
+            "Automation Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want industrial engineering line balancing and process capacity analysis",
+          "expected": "Industrial Engineering Associate",
+          "top_3": [
+            "Industrial Engineering Associate",
+            "Manufacturing Engineer",
+            "Automation Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want product management prioritization and outcome-based roadmaps",
+          "expected": "Product Manager",
+          "top_3": [
+            "Product Manager",
+            "Product Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want interaction design and user experience prototypes",
+          "expected": "UX Designer",
+          "top_3": [
+            "UX Designer",
+            "Product Designer",
+            "UI Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want user interface typography and accessible component layouts",
+          "expected": "UI Designer",
+          "top_3": [
+            "UI Designer",
+            "Product Designer",
+            "UX Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want user research interviews and usability studies",
+          "expected": "UX Researcher",
+          "top_3": [
+            "UX Researcher",
+            "UX Designer",
+            "UI Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want digital product design from research to visual prototypes",
+          "expected": "Product Designer",
+          "top_3": [
+            "Product Designer",
+            "UX Researcher",
+            "UX Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want technical documentation and API integration guides",
+          "expected": "Technical Writer",
+          "top_3": [
+            "Technical Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want project coordination milestones dependencies and status updates",
+          "expected": "Project Coordinator",
+          "top_3": [
+            "Project Coordinator",
+            "Project Manager",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want requirements gathering and business process analysis",
+          "expected": "Business Analyst",
+          "top_3": [
+            "Business Analyst",
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want business operations analysis of queues and capacity",
+          "expected": "Operations Analyst",
+          "top_3": [
+            "Operations Analyst",
+            "Industrial Engineering Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want project management scope resource decisions and delivery risks",
+          "expected": "Project Manager",
+          "top_3": [
+            "Project Manager",
+            "Project Coordinator",
+            "Learning & Development Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want management consulting and organizational options appraisal",
+          "expected": "Management Analyst",
+          "top_3": [
+            "Management Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want office coordination schedules and administrative handovers",
+          "expected": "Administrative Coordinator",
+          "top_3": [
+            "Administrative Coordinator",
+            "Hospitality Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want digital marketing campaigns and qualified lead measurement",
+          "expected": "Digital Marketing Associate",
+          "top_3": [
+            "Digital Marketing Associate",
+            "Social Media Coordinator",
+            "Marketing Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want search engine optimization and crawl diagnostics",
+          "expected": "SEO Specialist",
+          "top_3": [
+            "SEO Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want copywriting and audience-focused editorial content",
+          "expected": "Content Writer",
+          "top_3": [
+            "Content Writer",
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want social media campaigns content calendars and community responses",
+          "expected": "Social Media Coordinator",
+          "top_3": [
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want graphic design for print and digital campaign assets",
+          "expected": "Graphic Designer",
+          "top_3": [
+            "Graphic Designer",
+            "Digital Marketing Associate",
+            "Marketing Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want market research and marketing campaign analytics",
+          "expected": "Marketing Analyst",
+          "top_3": [
+            "Marketing Analyst",
+            "Content Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want bookkeeping and bank reconciliation",
+          "expected": "Accounting Associate",
+          "top_3": [
+            "Accounting Associate",
+            "Payroll Specialist",
+            "Accounts Payable Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want financial modelling profit cash flow and scenario forecasts",
+          "expected": "Financial Analyst",
+          "top_3": [
+            "Financial Analyst",
+            "Credit Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want payroll gross-to-net reconciliation and timesheet corrections",
+          "expected": "Payroll Specialist",
+          "top_3": [
+            "Payroll Specialist",
+            "Accounting Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want accounts payable invoice matching and payment controls",
+          "expected": "Accounts Payable Associate",
+          "top_3": [
+            "Accounts Payable Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want audit workpapers control evidence and assurance sampling",
+          "expected": "Audit Associate",
+          "top_3": [
+            "Audit Associate",
+            "UX Researcher",
+            "Quality Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want credit risk analysis of borrower liquidity and repayment",
+          "expected": "Credit Analyst",
+          "top_3": [
+            "Credit Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want talent acquisition and structured candidate interviews",
+          "expected": "Recruitment Associate",
+          "top_3": [
+            "Recruitment Associate",
+            "HR Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want people operations joiner mover leaver workflows",
+          "expected": "HR Operations Associate",
+          "top_3": [
+            "HR Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want training coordination and instructional design evaluation",
+          "expected": "Learning & Development Coordinator",
+          "top_3": [
+            "Learning & Development Coordinator",
+            "Machine Learning Engineer",
+            "Talent Development Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want workforce analytics and privacy-aware HR dashboards",
+          "expected": "People Analyst",
+          "top_3": [
+            "People Analyst",
+            "Employee Experience Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want talent development pathways and workplace learning programs",
+          "expected": "Talent Development Associate",
+          "top_3": [
+            "Talent Development Associate",
+            "Learning & Development Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want employee experience feedback and onboarding support",
+          "expected": "Employee Experience Coordinator",
+          "top_3": [
+            "Employee Experience Coordinator",
+            "UX Designer",
+            "UI Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want sales discovery qualification and buyer follow up",
+          "expected": "Sales Representative",
+          "top_3": [
+            "Sales Representative"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want customer success onboarding and adoption outcomes",
+          "expected": "Customer Success Associate",
+          "top_3": [
+            "Customer Success Associate",
+            "Employee Experience Coordinator",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want customer service troubleshooting and support escalations",
+          "expected": "Customer Support Specialist",
+          "top_3": [
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want purchasing supplier evaluation and procurement cost analysis",
+          "expected": "Procurement Analyst",
+          "top_3": [
+            "Procurement Analyst",
+            "Accounts Payable Associate",
+            "Logistics Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want logistics shipment coordination and stock replenishment",
+          "expected": "Logistics Coordinator",
+          "top_3": [
+            "Logistics Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want hotel front office and guest service recovery",
+          "expected": "Hospitality Operations Associate",
+          "top_3": [
+            "Hospitality Operations Associate"
+          ],
+          "rank": 1
+        }
+      ],
+      "rejected": [
+        {
+          "query": "Clinical surgery",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Spacecraft propulsion certification",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Underwater basket weaving instructor",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Dental implant surgery",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Veterinary anaesthesia",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Nuclear reactor licensing",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Maritime navigation certification",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Criminal litigation",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Air traffic control",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Pharmaceutical formulation",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "analyst",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "developer",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "manager",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "engineer",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "professional",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a better career",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I am looking for a job",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "something interesting",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "help me choose",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "a new opportunity",
+          "abstained": true,
+          "top_3": []
+        }
+      ],
+      "custom": [
+        {
+          "query": "I want to combine payroll and spreadsheet analysis for an internal role",
+          "expected": [
+            "Payroll Specialist"
+          ],
+          "top_3": [
+            "Payroll Specialist",
+            "Audit Associate"
+          ],
+          "hit": true
+        },
+        {
+          "query": "My personal goal combines technical writing and customer research",
+          "expected": [
+            "Technical Writer",
+            "UX Researcher"
+          ],
+          "top_3": [
+            "Technical Writer",
+            "UX Researcher",
+            "Content Writer"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want both inventory control and supply chain planning",
+          "expected": [
+            "Logistics Coordinator"
+          ],
+          "top_3": [
+            "Logistics Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want a role that combines React and accessible web interfaces",
+          "expected": [
+            "Frontend Developer",
+            "UI Designer"
+          ],
+          "top_3": [
+            "Frontend Developer"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want to combine recruitment and HR operations",
+          "expected": [
+            "Recruitment Associate",
+            "HR Operations Associate"
+          ],
+          "top_3": [
+            "HR Operations Associate"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want financial analysis and accounting for a small business",
+          "expected": [
+            "Financial Analyst",
+            "Accounting Associate"
+          ],
+          "top_3": [
+            "Financial Analyst"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want procurement and supplier comparison skills",
+          "expected": [
+            "Procurement Analyst"
+          ],
+          "top_3": [
+            "Procurement Analyst",
+            "Accounts Payable Associate"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want Python and SQL for data analysis",
+          "expected": [
+            "Data Analyst",
+            "Data Engineer"
+          ],
+          "top_3": [
+            "Data Analyst",
+            "Data Engineer",
+            "Data Scientist"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want to learn event operations and hospitality guest service",
+          "expected": [
+            "Hospitality Operations Associate"
+          ],
+          "top_3": [
+            "Hospitality Operations Associate"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want software testing and API validation",
+          "expected": [
+            "QA Engineer",
+            "Backend Developer"
+          ],
+          "top_3": [
+            "QA Engineer",
+            "Backend Developer",
+            "Mobile Developer"
+          ],
+          "hit": true
+        }
+      ]
+    },
+    "adversarial": {
+      "scope": "Agent-authored task narratives frozen before any matcher execution on this fixture. Diagnostic cases may inform changes; sentinel labels and queries must remain unchanged. This is software evaluation, not independent user research, an untouched training holdout, domain-expert review or professional suitability validation. All text is synthetic and public.",
+      "metrics": {
+        "role_count": 60,
+        "role_first": 60,
+        "role_top_3": 60,
+        "abstentions": 20,
+        "abstention_count": 20,
+        "custom_hits": 8,
+        "custom_count": 8
+      },
+      "roles": [
+        {
+          "query": "A community theatre needs an accessible browser booking form, responsive CSS and JavaScript validation. I want to build the interface people use.",
+          "expected": "Frontend Developer",
+          "top_3": [
+            "Frontend Developer",
+            "Full-Stack Developer",
+            "UI Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to implement the server side of a ticketing service: HTTP API endpoints, database transactions, authorization and safe retries.",
+          "expected": "Backend Developer",
+          "top_3": [
+            "Backend Developer",
+            "Full-Stack Developer",
+            "Technical Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to deliver a complete web application, connecting its browser UI, API, persistent data and deployment rather than one layer alone.",
+          "expected": "Full-Stack Developer",
+          "top_3": [
+            "Full-Stack Developer",
+            "DevOps Engineer",
+            "QA Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy reproducing checkout defects, writing automated software tests and checking recovery when a response disappears after a payment.",
+          "expected": "QA Engineer",
+          "top_3": [
+            "QA Engineer",
+            "Customer Support Specialist",
+            "Cybersecurity Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "My interest is an Android and iOS app that survives a lost connection, device rotation and conflicting offline edits.",
+          "expected": "Mobile Developer",
+          "top_3": [
+            "Mobile Developer",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I prefer general software programming: algorithms, maintainable modules, code review, testing and refactoring large codebases.",
+          "expected": "Software Engineer",
+          "top_3": [
+            "Software Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy querying datasets with SQL, cleaning records in Python and explaining business patterns through charts, rather than shipping predictive models.",
+          "expected": "Data Analyst",
+          "top_3": [
+            "Data Analyst",
+            "Data Scientist",
+            "AI Applications Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to build a document-search assistant with retrieval, source citations, evaluations and a clear response when the collection cannot answer.",
+          "expected": "AI Applications Developer",
+          "top_3": [
+            "AI Applications Developer",
+            "SEO Specialist",
+            "Product Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I would like to define business intelligence measures and build Power BI dashboards whose revenue totals stay consistent across departments.",
+          "expected": "BI Analyst",
+          "top_3": [
+            "BI Analyst",
+            "People Analyst",
+            "Data Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to maintain ETL pipelines that ingest late events, validate schemas and safely backfill corrected warehouse partitions.",
+          "expected": "Data Engineer",
+          "top_3": [
+            "Data Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to build and deploy machine learning models, compare slice performance, version artifacts and monitor their production behavior.",
+          "expected": "Machine Learning Engineer",
+          "top_3": [
+            "Machine Learning Engineer",
+            "DevOps Engineer",
+            "Full-Stack Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to investigate hypotheses using statistics, experiment design and predictive data science, including uncertainty and confounding.",
+          "expected": "Data Scientist",
+          "top_3": [
+            "Data Scientist",
+            "Product Manager",
+            "Product Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like responding to hosted-service tickets, diagnosing cloud outages and explaining mitigations clearly to customers.",
+          "expected": "Cloud Support Associate",
+          "top_3": [
+            "Cloud Support Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to triage SOC alerts, investigate suspicious logins and record cybersecurity incident evidence before choosing containment.",
+          "expected": "Cybersecurity Analyst",
+          "top_3": [
+            "Cybersecurity Analyst",
+            "Cloud Support Associate",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to work on a help desk, troubleshooting employee desktops, accounts, printers and everyday connectivity problems.",
+          "expected": "IT Support Specialist",
+          "top_3": [
+            "IT Support Specialist",
+            "Cybersecurity Analyst",
+            "Network Administrator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to administer Linux servers, service accounts, filesystem permissions, scheduled maintenance and recovery runbooks.",
+          "expected": "Systems Administrator",
+          "top_3": [
+            "Systems Administrator",
+            "Cloud Support Associate",
+            "IT Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like DevOps work: Docker images, CI/CD release pipelines, infrastructure automation and reversible deployments.",
+          "expected": "DevOps Engineer",
+          "top_3": [
+            "DevOps Engineer",
+            "Machine Learning Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want responsibility for network switches, routing, DNS resolvers, subnet configuration and connectivity fault isolation.",
+          "expected": "Network Administrator",
+          "top_3": [
+            "Network Administrator",
+            "IT Support Specialist",
+            "Cloud Support Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy creating CAD manufacturing drawings with datums, dimensions, revision notes and tolerance-stack reasoning.",
+          "expected": "CAD Technician",
+          "top_3": [
+            "CAD Technician",
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to specify and troubleshoot simulated PLC conveyor logic, sensor interlocks and industrial automation restart sequences.",
+          "expected": "Automation Technician",
+          "top_3": [
+            "Automation Technician",
+            "Electronics Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to investigate production quality defects using measurement-system checks, containment, root cause and corrective-action verification.",
+          "expected": "Quality Engineer",
+          "top_3": [
+            "Quality Engineer",
+            "Industrial Engineering Associate",
+            "Manufacturing Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to improve manufacturing processes, production throughput, tooling choices and bottlenecks while controlling scrap and rework.",
+          "expected": "Manufacturing Engineer",
+          "top_3": [
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate",
+            "Quality Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like diagnosing low-voltage electronics: circuit diagrams, resistor measurements, voltage, current and instrument loading.",
+          "expected": "Electronics Technician",
+          "top_3": [
+            "Electronics Technician",
+            "Automation Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to study industrial work methods, line balancing, time variation and inventory queues to improve whole-system efficiency.",
+          "expected": "Industrial Engineering Associate",
+          "top_3": [
+            "Industrial Engineering Associate",
+            "Manufacturing Engineer",
+            "Automation Technician"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to own product prioritization: choose user problems, compare opportunities and decide experiments using outcome measures and guardrails.",
+          "expected": "Product Manager",
+          "top_3": [
+            "Product Manager",
+            "Product Designer",
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy user experience design: sketching interaction flows, prototyping task recovery and testing whether people can complete a booking.",
+          "expected": "UX Designer",
+          "top_3": [
+            "UX Designer",
+            "Product Designer",
+            "UX Researcher"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "My interest is user interface design: typography, spacing, responsive components, clear error states and accessible visual hierarchy.",
+          "expected": "UI Designer",
+          "top_3": [
+            "UI Designer",
+            "Product Designer",
+            "UX Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to run user research interviews and usability studies, recruit varied participants and synthesize contradictory qualitative evidence.",
+          "expected": "UX Researcher",
+          "top_3": [
+            "UX Researcher",
+            "UX Designer",
+            "Content Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want digital product design from research through interaction and visual prototypes, balancing user needs with product trade-offs.",
+          "expected": "Product Designer",
+          "top_3": [
+            "Product Designer",
+            "UX Designer",
+            "UX Researcher"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy writing technical documentation: API task guides with prerequisites, working examples, troubleshooting and version migration notes.",
+          "expected": "Technical Writer",
+          "top_3": [
+            "Technical Writer",
+            "Backend Developer",
+            "Content Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like coordinating projects by maintaining dependency logs, milestone trackers, meeting actions and concise stakeholder updates.",
+          "expected": "Project Coordinator",
+          "top_3": [
+            "Project Coordinator",
+            "Administrative Coordinator",
+            "Project Manager"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to elicit business requirements, map approval processes and turn conflicting stakeholder requests into testable acceptance criteria.",
+          "expected": "Business Analyst",
+          "top_3": [
+            "Business Analyst",
+            "Manufacturing Engineer",
+            "Operations Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want operations analysis: quantify service queues, capacity constraints and handoff delays using reliable operational measures.",
+          "expected": "Operations Analyst",
+          "top_3": [
+            "Operations Analyst",
+            "Logistics Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to manage projects with authority over scope, delivery risk, resources and approved changes rather than only maintain trackers.",
+          "expected": "Project Manager",
+          "top_3": [
+            "Project Manager",
+            "Project Coordinator",
+            "Learning & Development Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I like management consulting, comparing organizational operating models and making evidence-based recommendations to leadership.",
+          "expected": "Management Analyst",
+          "top_3": [
+            "Management Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want office administration work: maintain calendars, coordinate travel and meetings, prepare records and organize a dependable handover.",
+          "expected": "Administrative Coordinator",
+          "top_3": [
+            "Administrative Coordinator",
+            "Hospitality Operations Associate",
+            "Content Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want digital marketing campaign work: audience targeting, channel experiments, landing pages and qualified lead measurement.",
+          "expected": "Digital Marketing Associate",
+          "top_3": [
+            "Digital Marketing Associate",
+            "Social Media Coordinator",
+            "Marketing Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy SEO troubleshooting: crawl accessibility, indexing, redirects, search intent and organic-search performance after a URL migration.",
+          "expected": "SEO Specialist",
+          "top_3": [
+            "SEO Specialist",
+            "Digital Marketing Associate",
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy content writing and editing: audience-focused articles, credible claims, useful structure and an editorial brief.",
+          "expected": "Content Writer",
+          "top_3": [
+            "Content Writer",
+            "Technical Writer",
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to coordinate social media publishing calendars, moderate community replies and compare channel engagement quality.",
+          "expected": "Social Media Coordinator",
+          "top_3": [
+            "Social Media Coordinator",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want graphic design work on visual identities, typography, image composition and print or digital campaign layouts.",
+          "expected": "Graphic Designer",
+          "top_3": [
+            "Graphic Designer",
+            "UI Designer",
+            "Product Designer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want marketing analysis: reconcile campaign attribution, investigate conversion changes and compare customer segments with clear denominators.",
+          "expected": "Marketing Analyst",
+          "top_3": [
+            "Marketing Analyst",
+            "Digital Marketing Associate",
+            "Social Media Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy bookkeeping and accounting: record accruals, reconcile cashbook entries and prepare a reliable month-end balance.",
+          "expected": "Accounting Associate",
+          "top_3": [
+            "Accounting Associate",
+            "Financial Analyst",
+            "Accounts Payable Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want financial analysis: forecast cash, connect profit to working capital and compare investment scenarios under explicit assumptions.",
+          "expected": "Financial Analyst",
+          "top_3": [
+            "Financial Analyst",
+            "Credit Analyst",
+            "Management Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want payroll work: reconcile approved timesheets, calculate stated gross-to-net pay and control authorized pay corrections.",
+          "expected": "Payroll Specialist",
+          "top_3": [
+            "Payroll Specialist",
+            "Accounting Associate",
+            "Logistics Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy accounts payable work: match purchase orders to receipts and invoices, identify duplicates and resolve payment exceptions.",
+          "expected": "Accounts Payable Associate",
+          "top_3": [
+            "Accounts Payable Associate",
+            "Procurement Analyst",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want audit work linking assertions to sufficient evidence, documenting control exceptions and maintaining traceable workpapers.",
+          "expected": "Audit Associate",
+          "top_3": [
+            "Audit Associate",
+            "Accounts Payable Associate",
+            "Logistics Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to analyze business credit applications, examine repayment cash flows and document lending-risk assumptions for an authorized reviewer.",
+          "expected": "Credit Analyst",
+          "top_3": [
+            "Credit Analyst",
+            "Financial Analyst",
+            "Accounting Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy recruitment: write job-related selection criteria, coordinate structured interviews and compare candidate work samples consistently.",
+          "expected": "Recruitment Associate",
+          "top_3": [
+            "Recruitment Associate",
+            "Product Manager",
+            "Learning & Development Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want HR operations work maintaining confidential employee records, joiner-mover-leaver processes and approved access changes.",
+          "expected": "HR Operations Associate",
+          "top_3": [
+            "HR Operations Associate",
+            "People Analyst",
+            "Customer Support Specialist"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to coordinate workplace learning programmes, align training objectives with practice and measure transfer back to job tasks.",
+          "expected": "Learning & Development Coordinator",
+          "top_3": [
+            "Learning & Development Coordinator",
+            "Talent Development Associate",
+            "Administrative Coordinator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want people analytics: clean HR datasets, define employee metrics and study turnover patterns without presenting correlation as causation.",
+          "expected": "People Analyst",
+          "top_3": [
+            "People Analyst",
+            "Data Scientist",
+            "Marketing Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want talent development work designing progression and coaching opportunities with transparent skills criteria and follow-up evidence.",
+          "expected": "Talent Development Associate",
+          "top_3": [
+            "Talent Development Associate",
+            "Sales Representative",
+            "Operations Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want employee experience coordination, gathering staff feedback and improving onboarding and workplace touchpoints with privacy safeguards.",
+          "expected": "Employee Experience Coordinator",
+          "top_3": [
+            "Employee Experience Coordinator",
+            "Administrative Coordinator",
+            "Hospitality Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy sales discovery calls, qualifying a business buyer's needs and agreeing a realistic proposal and next step.",
+          "expected": "Sales Representative",
+          "top_3": [
+            "Sales Representative",
+            "Content Writer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want customer success work helping an account adopt a product, reach onboarding outcomes and address renewal risks before the contract ends.",
+          "expected": "Customer Success Associate",
+          "top_3": [
+            "Customer Success Associate",
+            "Employee Experience Coordinator",
+            "Project Manager"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want customer support work: reproduce a user's immediate problem, explain a workaround and hand off unresolved cases clearly.",
+          "expected": "Customer Support Specialist",
+          "top_3": [
+            "Customer Support Specialist",
+            "Product Designer",
+            "Product Manager"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want procurement work comparing supplier quotations, delivered cost, quality requirements and authorized purchase approvals.",
+          "expected": "Procurement Analyst",
+          "top_3": [
+            "Procurement Analyst",
+            "Accounts Payable Associate",
+            "Business Analyst"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I enjoy logistics coordination: stock movements, warehouse dispatch, shipment exceptions, inventory records and clear handovers.",
+          "expected": "Logistics Coordinator",
+          "top_3": [
+            "Logistics Coordinator",
+            "Administrative Coordinator",
+            "Hospitality Operations Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want hotel hospitality operations: coordinate room readiness, guest service recovery, occupancy and a busy shift handover.",
+          "expected": "Hospitality Operations Associate",
+          "top_3": [
+            "Hospitality Operations Associate",
+            "Administrative Coordinator",
+            "Project Coordinator"
+          ],
+          "rank": 1
+        }
+      ],
+      "rejected": [
+        {
+          "query": "I want to qualify as an orthopaedic surgeon and perform joint replacement procedures.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a career as a licensed anaesthesiologist managing clinical anaesthesia.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to practise criminal defence litigation and represent defendants in court.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a certified airline pilot and command commercial passenger flights.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a veterinary dentist performing animal oral surgery.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to practise as a licensed structural engineer approving building-load calculations.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a paediatric psychiatrist diagnosing and prescribing treatment for children.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to design rocket turbopumps and certify spacecraft propulsion hardware.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to conduct archaeological excavation and classify ancient ceramic assemblages.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a licensed maritime deck officer responsible for ocean navigation.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to formulate pharmaceutical compounds and validate drug chemistry.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to become a geophysicist interpreting seismic surveys for subsurface geology.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a better career",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Can you choose a manager role for me?",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I am looking for something senior",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "My goal is to become an analyst",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to work with people",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I enjoy solving problems",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a job in the industry",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "Suggest a professional opportunity",
+          "abstained": true,
+          "top_3": []
+        }
+      ],
+      "custom": [
+        {
+          "query": "Coordinate a museum's volunteer recruitment interviews and public event schedules",
+          "expected": [
+            "Recruitment Associate",
+            "Project Coordinator"
+          ],
+          "top_3": [
+            "Recruitment Associate",
+            "Administrative Coordinator",
+            "Product Manager"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Use spreadsheet forecasts and supplier quotations to plan a small bakery's ingredient purchases",
+          "expected": [
+            "Procurement Analyst",
+            "Financial Analyst"
+          ],
+          "top_3": [
+            "Procurement Analyst",
+            "Accounts Payable Associate",
+            "Logistics Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Write clear API documentation and test whether new developers can complete the integration steps",
+          "expected": [
+            "Technical Writer",
+            "UX Researcher"
+          ],
+          "top_3": [
+            "Technical Writer",
+            "QA Engineer",
+            "Backend Developer"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Build an accessible React interface for a community organization's donation website",
+          "expected": [
+            "Frontend Developer",
+            "UI Designer"
+          ],
+          "top_3": [
+            "Frontend Developer",
+            "Social Media Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Study warehouse inventory errors using SQL analysis and stock movement records",
+          "expected": [
+            "Logistics Coordinator",
+            "Data Analyst"
+          ],
+          "top_3": [
+            "Logistics Coordinator"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Improve employee onboarding using neutral interviews and confidential HR operations records",
+          "expected": [
+            "Employee Experience Coordinator",
+            "HR Operations Associate"
+          ],
+          "top_3": [
+            "HR Operations Associate",
+            "Employee Experience Coordinator",
+            "People Analyst"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Help software customers adopt a product and publish useful troubleshooting guides",
+          "expected": [
+            "Customer Success Associate",
+            "Technical Writer"
+          ],
+          "top_3": [
+            "Technical Writer",
+            "Customer Success Associate"
+          ],
+          "hit": true
+        },
+        {
+          "query": "Use quality-control evidence and manufacturing capacity measures to improve a production line",
+          "expected": [
+            "Quality Engineer",
+            "Manufacturing Engineer"
+          ],
+          "top_3": [
+            "Quality Engineer",
+            "Manufacturing Engineer",
+            "Industrial Engineering Associate"
+          ],
+          "hit": true
+        }
+      ]
+    },
+    "challenge": {
+      "scope": "Synthetic task narratives authored and frozen before this matcher revision. The challenge labels are agent judgements, not independent career advice or a participant study. Its first post-change evaluation is retained even when a label misses; later tuning must not call this an untouched holdout.",
+      "metrics": {
+        "role_count": 12,
+        "role_first": 10,
+        "role_top_3": 12,
+        "abstentions": 8,
+        "abstention_count": 8,
+        "custom_hits": 4,
+        "custom_count": 4
+      },
+      "roles": [
+        {
+          "query": "A neighbourhood sports club needs one person to implement both its member-facing web screens and the server endpoints that persist registrations.",
+          "expected": "Full-Stack Developer",
+          "top_3": [
+            "Frontend Developer",
+            "Full-Stack Developer"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I would like to make Python and SQL records understandable to managers through cleaned datasets, charts and explanations of trends.",
+          "expected": "Data Analyst",
+          "top_3": [
+            "Data Analyst",
+            "Data Scientist",
+            "AI Applications Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to keep a hosted platform usable during incidents by isolating cloud configuration faults and giving its customers clear recovery updates.",
+          "expected": "Cloud Support Associate",
+          "top_3": [
+            "Cloud Support Associate",
+            "Systems Administrator",
+            "DevOps Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to connect a searchable document collection to an assistant, verify the retrieved citations and measure unsupported responses.",
+          "expected": "AI Applications Developer",
+          "top_3": [
+            "AI Applications Developer",
+            "IT Support Specialist",
+            "Network Administrator"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to decide which customer problem a product team should address next and use outcome experiments to test that decision.",
+          "expected": "Product Manager",
+          "top_3": [
+            "Product Manager",
+            "Product Designer",
+            "Sales Representative"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I would like to improve the structure of software modules, review program changes and reason about algorithms and maintainability.",
+          "expected": "Software Engineer",
+          "top_3": [
+            "Software Engineer",
+            "Employee Experience Coordinator",
+            "Frontend Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to design monthly adoption milestones with a business customer and notice risks to the account's renewal before it is too late.",
+          "expected": "Customer Success Associate",
+          "top_3": [
+            "Project Manager",
+            "Customer Success Associate",
+            "Project Coordinator"
+          ],
+          "rank": 2
+        },
+        {
+          "query": "I want to turn an API integration into clear developer instructions with working requests, prerequisites and useful troubleshooting steps.",
+          "expected": "Technical Writer",
+          "top_3": [
+            "Technical Writer",
+            "Backend Developer",
+            "QA Engineer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to reconcile approved working hours, deductions and net pay while checking that each correction has the right authorization.",
+          "expected": "Payroll Specialist",
+          "top_3": [
+            "Payroll Specialist",
+            "Full-Stack Developer",
+            "Accounting Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to compare supplier bids by delivered cost, lead time and required quality before preparing an approved purchase.",
+          "expected": "Procurement Analyst",
+          "top_3": [
+            "Procurement Analyst",
+            "Logistics Coordinator",
+            "Accounts Payable Associate"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to test whether research participants can recover from a confusing navigation step in an interactive prototype.",
+          "expected": "UX Researcher",
+          "top_3": [
+            "UX Researcher",
+            "UX Designer",
+            "Mobile Developer"
+          ],
+          "rank": 1
+        },
+        {
+          "query": "I want to improve warehouse dispatch by keeping stock movement records reliable and coordinating shipment exceptions.",
+          "expected": "Logistics Coordinator",
+          "top_3": [
+            "Logistics Coordinator",
+            "Administrative Coordinator",
+            "HR Operations Associate"
+          ],
+          "rank": 1
+        }
+      ],
+      "rejected": [
+        {
+          "query": "I want to become a licensed radiographer interpreting clinical patient images.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to qualify as an ocean vessel navigator responsible for safe offshore passage.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to work as an animal surgeon providing veterinary operations.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to represent clients as a licensed courtroom advocate.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a job involving products and customers.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I like useful work and helping teams.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want to change fields but have not chosen what to do.",
+          "abstained": true,
+          "top_3": []
+        },
+        {
+          "query": "I want a technical role with good prospects.",
+          "abstained": true,
+          "top_3": []
+        }
+      ],
+      "custom": [
+        {
+          "query": "My work would join product adoption planning with writing support documentation for business users.",
+          "expected": [
+            "Customer Success Associate",
+            "Technical Writer"
+          ],
+          "top_3": [
+            "Technical Writer",
+            "Content Writer",
+            "UX Researcher"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want a mix of accessible browser components and server-side API implementation, with responsibility for the whole web service.",
+          "expected": [
+            "Full-Stack Developer"
+          ],
+          "top_3": [
+            "Full-Stack Developer",
+            "QA Engineer",
+            "Frontend Developer"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want to combine workforce spreadsheets with confidential employee joiner and leaver records.",
+          "expected": [
+            "People Analyst",
+            "HR Operations Associate"
+          ],
+          "top_3": [
+            "HR Operations Associate",
+            "People Analyst"
+          ],
+          "hit": true
+        },
+        {
+          "query": "I want to combine physical stock counts and supplier purchase planning for a small shop.",
+          "expected": [
+            "Logistics Coordinator",
+            "Procurement Analyst"
+          ],
+          "top_3": [
+            "Logistics Coordinator",
+            "Procurement Analyst",
+            "Accounts Payable Associate"
+          ],
+          "hit": true
+        }
+      ]
+    }
+  }
+}

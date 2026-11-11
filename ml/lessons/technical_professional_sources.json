@@ -1,0 +1,1543 @@
+[
+  {
+    "resource_id": "career-resource-d569b55a6483bffb303d",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+    "response_sha256": "383299dc5cedbbd10156b9277eb004005f5f564255b61b25ddd1268cac2b6155",
+    "verified_sections": [
+      "Components of HTTP-based systems",
+      "Basic aspects of HTTP",
+      "HTTP Messages"
+    ]
+  },
+  {
+    "resource_id": "career-resource-0dbd3d2673dacc913410",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+    "response_sha256": "215372632122194984f14b8d5967ac761d1f5a7ed4f316c7ecbb35e66c9a498a",
+    "verified_sections": [
+      "GET",
+      "HEAD",
+      "PUT",
+      "PATCH",
+      "Safe, idempotent, and cacheable request methods"
+    ]
+  },
+  {
+    "resource_id": "career-resource-a7cc285b4fd506c52384",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+    "response_sha256": "82e6f8e88f0560cab959e334724da67f04682ffd08df995724c1241649c4438a",
+    "verified_sections": [
+      "Successful responses",
+      "Client error responses",
+      "Server error responses"
+    ]
+  },
+  {
+    "resource_id": "career-resource-797d980153ad152d04b6",
+    "url": "https://docs.pytest.org/en/stable/getting-started.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://docs.pytest.org/en/stable/getting-started.html",
+    "response_sha256": "78186eac1ea16c6cbd4a679bb2f8842fc8b39e0a1701d88a87b83f03f2a522a5",
+    "verified_sections": [
+      "Create your first test",
+      "Run multiple tests",
+      "Assert that a certain exception is raised",
+      "Request a unique temporary directory for functional tests"
+    ]
+  },
+  {
+    "resource_id": "career-resource-ecb53596f43cde370334",
+    "url": "https://playwright.dev/docs/best-practices",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://playwright.dev/docs/best-practices",
+    "response_sha256": "5103eb90fcf92837dfdfac89afb24ad003affea94d48f3f9d31e8e8c31e5193a",
+    "verified_sections": [
+      "Testing philosophy",
+      "Make tests as isolated as possible",
+      "Use locators",
+      "Use web-first assertions"
+    ]
+  },
+  {
+    "resource_id": "career-resource-391e6ffb0b3c224e01b0",
+    "url": "https://playwright.dev/docs/test-assertions",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://playwright.dev/docs/test-assertions",
+    "response_sha256": "0c54e77ac6e5213a550f93b052031548acdde7830667907345595407a13ad221",
+    "verified_sections": [
+      "Auto-retrying assertions",
+      "Non-retrying assertions",
+      "Negating matchers",
+      "Soft assertions"
+    ]
+  },
+  {
+    "resource_id": "career-resource-8a7935c43ef9083e3b12",
+    "url": "https://ubuntu.com/tutorials/command-line-for-beginners",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://ubuntu.com/tutorials/command-line-for-beginners",
+    "response_sha256": "ae6424a40e47d06ab0a89466791b85e7ce8d95565c150541166ddf646815f476",
+    "verified_sections": [
+      "Opening a terminal",
+      "Moving around",
+      "Relative and absolute paths",
+      "A bit of plumbing"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-944256cb8f296ab56beb",
+    "url": "https://www.gnu.org/s/coreutils/manual/html_node/Mode-Structure.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_manual_source",
+    "source_locator": "Structure of file mode bits",
+    "direct_capture_status": "fetch_failed",
+    "evidence_url": "https://raw.githubusercontent.com/coreutils/coreutils/master/doc/coreutils.texi",
+    "response_sha256": "2f6cb840affe0da9414edc59f5145ee3298405ae67a27ac47cde4b87353bbee8",
+    "verified_sections": [
+      "Structure of File Mode Bits"
+    ]
+  },
+  {
+    "resource_id": "career-resource-64e32e8afc70b96abb18",
+    "url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_manual_archive",
+    "source_locator": "bash-5.3/doc/bashref.texi, Pipelines",
+    "direct_capture_status": 403,
+    "evidence_url": "https://ftp.gnu.org/gnu/bash/bash-5.3.tar.gz",
+    "response_sha256": "0d5cd86965f869a26cf64f4b71be7b96f90a3ba8b3d74e27e8e9d9d5550f31ba",
+    "verified_sections": [
+      "3.2.3 Pipelines"
+    ],
+    "document_sha256": "f3d37d57a1061e24d266051de9bd47ffa43dc86584afea11576c535ad2be32d5"
+  },
+  {
+    "resource_id": "lesson-resource-551bd480956b339a96c0",
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/4-network-protocols",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/4-network-protocols",
+    "response_sha256": "44eb5d402d9e09c0976c7aa3f1381572cfd0a8f1835e0615f3b85af820bf4743",
+    "verified_sections": [
+      "Network communication protocols",
+      "Network management protocols",
+      "Ports"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-e15866cbe792c0670b6a",
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/3-network-infrastructure",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/3-network-infrastructure",
+    "response_sha256": "8d136acfcaf102cf27cb4f6ac78866bbf483d70d482c4f7649e8f546235d32b8",
+    "verified_sections": [
+      "Network infrastructure",
+      "Hub",
+      "Switch",
+      "Router"
+    ]
+  },
+  {
+    "resource_id": "career-resource-76629e940c5d1b561f03",
+    "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+    "response_sha256": "80de045d76f8b3cd3ec1a51fe8073e702a8f18fc599c423948e752f04050ede4",
+    "verified_sections": [
+      "Communicate between Azure resources",
+      "Communicate with on-premises resources",
+      "Filter network traffic",
+      "Route network traffic"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-d82de016401418596fe4",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models",
+    "response_sha256": "e0c1ea8001d21b4bec4b0f329ce0d79b2c73a91f060acaaae78fe93ec2eecf56",
+    "verified_sections": [
+      "Private cloud",
+      "Public cloud",
+      "Hybrid cloud",
+      "Multicloud"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-7ded08605fe0337ea30a",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+    "response_sha256": "bf9936aad7a2a706df3cb1015a93548f56a6e11253d283165668b8c06253563d",
+    "verified_sections": [
+      "High availability",
+      "Scalability",
+      "Vertical scaling",
+      "Horizontal scaling"
+    ]
+  },
+  {
+    "resource_id": "career-resource-03bc8731f1f09255ab35",
+    "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+    "response_sha256": "dcdadeaf607310668fb4b50b272127a48a1895c5c899cd390e5318192b05158b",
+    "verified_sections": [
+      "AWS responsibility Security of the Cloud",
+      "Customer responsibility Security in the Cloud"
+    ]
+  },
+  {
+    "resource_id": "career-resource-422c2f722165341ac595",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+    "response_sha256": "1231671e0d3eca4039574e4b43f347afb09ccf80fd43cce3ff13d6d4febbe14c",
+    "verified_sections": [
+      "Enforce Least Privileges",
+      "Deny by Default",
+      "Validate the Permissions on Every Request",
+      "Verify that Authorization Checks are Performed in the Right Location"
+    ]
+  },
+  {
+    "resource_id": "career-resource-cb74541bed9d1fcd2109",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+    "response_sha256": "a11908713a4cc840888cba1f7a8ab85bfb5289d22de4ab15227eea5613856657",
+    "verified_sections": [
+      "Authentication and Error Messages",
+      "Multi-Factor Authentication",
+      "Login Throttling",
+      "Require Re-authentication for Sensitive Features"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-aee21910d3cea2b515bd",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html",
+    "response_sha256": "35d96a3012bcf1398cd49ca401bd229b322d704eb5c1e3d016fb8e24ca543d35",
+    "verified_sections": [
+      "Hashing vs Encryption",
+      "Salting",
+      "Peppering",
+      "Using Work Factors"
+    ]
+  },
+  {
+    "resource_id": "career-resource-3a1f7637048a5f7b789a",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/",
+    "response_sha256": "217f4a9c7d474d4e2a19d1e0fa9e92209dbdc3f17b4831e2f1a36f25d3148a4d",
+    "verified_sections": [
+      "A quick tour of the styles",
+      "Architecture styles as constraints",
+      "Consider challenges and benefits"
+    ]
+  },
+  {
+    "resource_id": "career-resource-dcf410e61f8a24340539",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/",
+    "response_sha256": "93529cd7b855aa0827a4776b7222526474b8ab1004aa0d1529d1b93355ed1a69",
+    "verified_sections": [
+      "Select a pattern",
+      "Pattern catalog",
+      "Combine patterns"
+    ]
+  },
+  {
+    "resource_id": "career-resource-10bd02065585320e1882",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/",
+    "response_sha256": "7c7a3b8f9ca1ddecd7676546b85fa32d55f5debfdb7768877370b6a82f8ef1c8",
+    "verified_sections": [
+      "Core principles",
+      "Operational principles",
+      "Strategic principles"
+    ]
+  },
+  {
+    "resource_id": "career-resource-c201a6433fd48e43ec16",
+    "url": "https://docs.docker.com/get-started/docker-overview/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://docs.docker.com/get-started/docker-overview/",
+    "response_sha256": "5244f0214f3db04aefb73cdfa10e2ec25266a39331a738cb1552614252db5fc7",
+    "verified_sections": [
+      "Docker architecture",
+      "Docker registries",
+      "Docker objects"
+    ]
+  },
+  {
+    "resource_id": "career-resource-94d354da5943e2cf4a68",
+    "url": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://docs.github.com/en/actions/get-started/understand-github-actions",
+    "response_sha256": "cce19ae14814bdf87b2bbe1d551984ad45af9c9e5c0b52189b4bd1a93ad584e5",
+    "verified_sections": [
+      "The components of GitHub Actions",
+      "Workflows",
+      "Jobs",
+      "Steps",
+      "Runners"
+    ]
+  },
+  {
+    "resource_id": "career-resource-bef9d1ba64c268354452",
+    "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments",
+    "response_sha256": "5cb0d369fe447a0e2dacb314cb674233d3fc141cf301f9dfa5ec07dc4d13ea2f",
+    "verified_sections": [
+      "Deployment protection rules",
+      "Required reviewers",
+      "Wait timer",
+      "Deployment branches and tags",
+      "Environment secrets"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-9cd28f2d45732b7881d0",
+    "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html",
+    "response_sha256": "d56c6a746865546c0c2d4e7c716f0e209dd263050a59dfc556ad8772cd470c62",
+    "verified_sections": [
+      "Dags",
+      "Task Dependencies",
+      "Control Flow",
+      "Trigger Rules"
+    ]
+  },
+  {
+    "resource_id": "career-resource-5c380dc7e3726249884d",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl",
+    "response_sha256": "34945fc114e0173cb7f8a26fc4eb6b2e828cf5d342ca6f08b378e86469cac1af",
+    "verified_sections": [
+      "Extract, transform, load (ETL) process",
+      "Extract, load, transform (ELT)",
+      "Data flow and control flow"
+    ]
+  },
+  {
+    "resource_id": "career-resource-a69937ce1d022d1da1f1",
+    "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html",
+    "response_sha256": "c36da9b8c214cc80abc161ad084b083e349757db034a4a68db3176aa91a0ff68",
+    "verified_sections": [
+      "Required components",
+      "Optional components",
+      "Workloads",
+      "Control Flow"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-003eedf593e1206a768e",
+    "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-OnBoarding/files/ACD_FOUNDATIONS_MAIN6.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-OnBoarding/files/ACD_FOUNDATIONS_MAIN6.html",
+    "response_sha256": "b0eedfbf7674b9d86711aecc04fbd129d242285335eae41b9630f73f63e47f8d",
+    "verified_sections": [
+      "Use Cartesian and Polar Coordinates",
+      "Draw with Relative Cartesian Coordinates",
+      "Draw with Polar Coordinates"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-4379ed7c790f864d9b69",
+    "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-Core/files/GUID-8F5E5431-9EFB-414E-BC6D-2C65EFB2DAC3.htm",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-Core/files/GUID-8F5E5431-9EFB-414E-BC6D-2C65EFB2DAC3.htm",
+    "response_sha256": "d92f458ad291483efeeb0e4f5516b0224b0ec5aec9f2ef6f27a4836d0710e8ec",
+    "verified_sections": [
+      "Specify an Object Snap",
+      "Use Running Object Snaps"
+    ]
+  },
+  {
+    "resource_id": "career-resource-fe6920d531e32636a5bd",
+    "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-DidYouKnow/files/GUID-7B14AAA4-3208-4384-A444-8A29231C4A02.htm",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-DidYouKnow/files/GUID-7B14AAA4-3208-4384-A444-8A29231C4A02.htm",
+    "response_sha256": "da31ac57da2ebe814fd7e7f72cfe727094a287bd836226f444f4e10a0a88d019",
+    "verified_sections": [
+      "Creating Linear Dimensions",
+      "Dimensioning in Paper Space"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-1375822fcfdecbc01dc5",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-2/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-2/",
+    "response_sha256": "c2b855622df174db2e649a4ca6ce42d4a0aab208046cd262e222375e93477313",
+    "verified_sections": [
+      "Takt Time",
+      "Ways to Meet JIT Goals",
+      "Demand-Pull Production System",
+      "Reduce Lot Sizes"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-fbec9992824c2ded68ac",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-3/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-3/",
+    "response_sha256": "23eb42e2edd46df7c575bb527ba21ce44739f8ecfd6282fce54f7f05c4221571",
+    "verified_sections": [
+      "Three Part System for Visual Management",
+      "Error Proofing or Poka-Yoke",
+      "5 S Method"
+    ]
+  },
+  {
+    "resource_id": "career-resource-6fcd993f77edab3476d3",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-1/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-1/",
+    "response_sha256": "ec07b25cbcd498c12c92b8e1aa481811997b4b206cdbfd2e13df7a7850b2697c",
+    "verified_sections": [
+      "Lean Operations",
+      "Value and Value Stream",
+      "Flow",
+      "Pull and Pursuit of Perfection"
+    ]
+  },
+  {
+    "resource_id": "career-resource-7bd7529c66041e326454",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-7-2/",
+    "response_sha256": "83c871068507e2c181107dab691f4c3a36b4fad85990b74de5ce8d6bb1fc9855",
+    "verified_sections": [
+      "Overview",
+      "Product Quality",
+      "Costs of Good Quality"
+    ]
+  },
+  {
+    "resource_id": "career-resource-049f69195e2737250f56",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-8a/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-8a/",
+    "response_sha256": "0a0dbd011892d15415035234ea5cd7f4c1a7edc2d73468a3b1e280a3615077bc",
+    "verified_sections": [
+      "Data Collection Rules",
+      "Importance of Stratification"
+    ]
+  },
+  {
+    "resource_id": "career-resource-33d2114854f2f752b453",
+    "url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-9-2/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://pressbooks.palni.org/spcleanmanufacturing/chapter/chapter-9-2/",
+    "response_sha256": "a1088603372e95cc1e5c9234fc006498bdec1ff10996a19bcebb50ef03a9bef5",
+    "verified_sections": [
+      "Law of Variation",
+      "Capability Studies",
+      "Best Practices"
+    ]
+  },
+  {
+    "resource_id": "career-resource-e814fb3d73b456c99cfb",
+    "url": "https://carbondesignsystem.com/elements/typography/overview/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.carbondesignsystem.com/building-blocks/foundations/typography/overview",
+    "response_sha256": "fa6b1ed2434f10768e27bccd7380b0ea179e6a4ffca77c2d05f331a6368f140c",
+    "verified_sections": [
+      "Type tokens and sets",
+      "Productive and expressive type sets",
+      "Style",
+      "Type color"
+    ]
+  },
+  {
+    "resource_id": "career-resource-3f269a13436440f7a0ac",
+    "url": "https://carbondesignsystem.com/elements/color/overview/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.carbondesignsystem.com/building-blocks/foundations/color/overview",
+    "response_sha256": "25f2d9521c8596e880f4528110761f89cfd7ec137f4ad14f5dba14f393a6ece0",
+    "verified_sections": [
+      "Tokens",
+      "Token names",
+      "Core tokens",
+      "Component tokens",
+      "Interaction states"
+    ]
+  },
+  {
+    "resource_id": "career-resource-1fe5a24da434da628d06",
+    "url": "https://www.carbondesignsystem.com/building-blocks/foundations/2x-grid/guidelines",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.carbondesignsystem.com/building-blocks/foundations/2x-grid/guidelines",
+    "response_sha256": "f91ea7c5762021698f937af407d4c0437ee3e76945d020c64f77ffe1d4a97cd0",
+    "verified_sections": [
+      "Content hierarchy",
+      "Style models",
+      "Gutter modes"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-f42c318274b5162bfd4c",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/meet-user-needs/",
+    "response_sha256": "5e5f54fdf3cec993287f36076e04e3fd77d2806234e88632494af16cd844c0fc",
+    "verified_sections": [
+      "Write content to meet user needs"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-a37e908cbd04ecfff2e4",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-structure/",
+    "response_sha256": "e2c7ca751ecead1060593c750a517056f492f4468db4c2551788e785b0b4ec81",
+    "verified_sections": [
+      "Frontload your content",
+      "Break up the text with headings",
+      "Use bullet point lists and steps",
+      "Avoid footnotes"
+    ]
+  },
+  {
+    "resource_id": "career-resource-f9e5f0abca79cbb5957d",
+    "url": "https://developers.google.com/style/highlights",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/style/highlights",
+    "response_sha256": "3852b0baa5ff50b8e7d409ac648c8b43ec3b0326847aeb28a3eb92982c842903",
+    "verified_sections": [
+      "Tone and content",
+      "Language and grammar",
+      "Formatting, punctuation, and organization",
+      "Images"
+    ]
+  },
+  {
+    "resource_id": "career-resource-5ce7f185ec30de2b8efa",
+    "url": "https://developers.google.com/style/highlights",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/style/highlights",
+    "response_sha256": "3852b0baa5ff50b8e7d409ac648c8b43ec3b0326847aeb28a3eb92982c842903",
+    "verified_sections": [
+      "Tone and content",
+      "Language and grammar",
+      "Formatting, punctuation, and organization",
+      "Images"
+    ]
+  },
+  {
+    "resource_id": "career-resource-c93a5d8aa925695e8d6f",
+    "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "response_sha256": "5c813035110316a7ca1c6b0fa1945afabc6e5406f4f615e3e58876fd2d32c930",
+    "verified_sections": [
+      "Help Google find your content",
+      "Check if Google can see your page the same way a user does",
+      "Organize your site",
+      "Use descriptive URLs"
+    ]
+  },
+  {
+    "resource_id": "career-resource-4e3012bf615912b48457",
+    "url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+    "response_sha256": "b84969af34776715151569e0616e063f22e3ac38b5d32ce2ce9e82e14157ee8a",
+    "verified_sections": [
+      "Crawling",
+      "Indexing",
+      "Serving search results"
+    ]
+  },
+  {
+    "resource_id": "career-resource-40a369af16eb2f08c5bb",
+    "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    "response_sha256": "880143f90526f9dc4c1780512a128ebae60f54dc7225c3be0fcdc2c673b6d30f",
+    "verified_sections": [
+      "Self-assess your content",
+      "Content and quality questions",
+      "Expertise questions",
+      "Focus on people-first content"
+    ]
+  },
+  {
+    "resource_id": "career-resource-30a3e8cf122a3f5ea41e",
+    "url": "https://openstax.org/books/psychology-2e/pages/2-1-why-is-research-important",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/psychology-2e/pages/2-1-why-is-research-important",
+    "response_sha256": "c6295a1baa00e219bae6993702a2dc3c8140b950d36c78d204c547413c542e6f",
+    "verified_sections": [
+      "Scientific Research",
+      "The Process of Scientific Research"
+    ]
+  },
+  {
+    "resource_id": "career-resource-78c7aaad27dca4d36489",
+    "url": "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research",
+    "response_sha256": "3393e9bfe3d5fa96287c37cd66e2e60136e0629bc29732810c1ecd7759ed9c16",
+    "verified_sections": [
+      "Clinical or Case Studies",
+      "Naturalistic Observation",
+      "Surveys",
+      "Longitudinal and Cross-Sectional Research"
+    ]
+  },
+  {
+    "resource_id": "career-resource-6aa901ec2dece00296dc",
+    "url": "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings",
+    "response_sha256": "76c9dde9158622c996d1f1f21711ec03149577fe873c2f9c5b612c22e123d82c",
+    "verified_sections": [
+      "Correlational Research",
+      "Causality: Conducting Experiments and Using the Data",
+      "Designing an Experiment"
+    ]
+  },
+  {
+    "resource_id": "career-resource-b5b6a6bd9e98829639a6",
+    "url": "https://www.atlassian.com/agile/product-management",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.atlassian.com/agile/product-management",
+    "response_sha256": "33219556f17f109f5cc8aec3ce6f3bc2066ffe3f8238ef46cd546a067795fb1e",
+    "verified_sections": [
+      "What is product management?",
+      "Product strategy",
+      "What are the essential skills in product management?"
+    ]
+  },
+  {
+    "resource_id": "career-resource-6d988cb475640460df9c",
+    "url": "https://www.atlassian.com/agile/product-management/product-roadmaps",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.atlassian.com/agile/product-management/product-roadmaps",
+    "response_sha256": "1d242dfdd813dfeee893a1facf49e7e250dce40429812119b232d83284266832",
+    "verified_sections": [
+      "What is a product roadmap?",
+      "How to create a product roadmap",
+      "Why are product roadmaps important?"
+    ]
+  },
+  {
+    "resource_id": "career-resource-aac2ac4fa455d1624a8b",
+    "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+    "response_sha256": "272ffd057f69a7b5e53cd206f461e1f548bcc8f04714b9baaf340a7ad2671acc",
+    "verified_sections": [
+      "Understanding users and their context",
+      "Understanding constraints",
+      "Identify improvements you might be able to make",
+      "How you know discovery is finished"
+    ]
+  },
+  {
+    "resource_id": "career-resource-1c6204578e39314b32b2",
+    "url": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service",
+    "response_sha256": "8e0c508580775353ed43dba87a7467aeee0f92aab2e1d8080a023f61c8ae12ce",
+    "verified_sections": [
+      "Agree research questions",
+      "Choose relevant research activities",
+      "Map out rounds of research",
+      "Be inclusive"
+    ]
+  },
+  {
+    "resource_id": "career-resource-4cd9a3e8fd9cdb70a621",
+    "url": "https://www.gov.uk/service-manual/user-research/using-in-depth-interviews",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.gov.uk/service-manual/user-research/using-in-depth-interviews",
+    "response_sha256": "94cdc31510b170a97e5438ff4c457bec94d96d4060d114c9975c448078890b85",
+    "verified_sections": [
+      "Plan the sessions",
+      "Steps to follow",
+      "During the interview"
+    ]
+  },
+  {
+    "resource_id": "career-resource-0572919473dc573c9917",
+    "url": "https://www.gov.uk/service-manual/user-research/analyse-a-research-session",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.gov.uk/service-manual/user-research/analyse-a-research-session",
+    "response_sha256": "20a008ceed1340829cdad86e2450d99b678ed6a30827b57d48cda3404d1c75df",
+    "verified_sections": [
+      "Extract observations",
+      "Sort observations",
+      "Determine findings",
+      "Decide actions",
+      "Share your findings"
+    ]
+  },
+  {
+    "resource_id": "career-resource-9b28d8a6fa476dd6f25a",
+    "url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+    "response_sha256": "d9b86f4cfd1eb317a5df928921af2b94a5130cf6b43b2224162e7bd556ae883d",
+    "verified_sections": [
+      "When to use moderated usability testing",
+      "Plan the sessions",
+      "Using dummy data",
+      "Researching with assistive technologies"
+    ]
+  },
+  {
+    "resource_id": "career-resource-b0b13c65ff1c6a1e7409",
+    "url": "https://www.gov.uk/service-manual/design/making-prototypes",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.gov.uk/service-manual/design/making-prototypes",
+    "response_sha256": "fc97de26221cbc3aceb012a454205d641069c34e1e0e5b7daca857b6d11ce73e",
+    "verified_sections": [
+      "When to use prototypes",
+      "Types of prototype",
+      "Using code prototypes",
+      "Using the GOV.UK Prototype Kit"
+    ]
+  },
+  {
+    "resource_id": "career-resource-dbf351af061e5c1f76b0",
+    "url": "https://www.gov.uk/service-manual/user-research/user-research-in-alpha",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.gov.uk/service-manual/user-research/user-research-in-alpha",
+    "response_sha256": "6039b45e9a1492b23179f8810c92d580781680c860d6723cd1e8195bd1113e8f",
+    "verified_sections": [
+      "How to do user research in alpha",
+      "Who to research with",
+      "Typical user research activities"
+    ]
+  },
+  {
+    "resource_id": "career-resource-0554685c7aec1df24c4d",
+    "url": "https://developer.android.com/topic/architecture",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developer.android.com/topic/architecture",
+    "response_sha256": "b53f89c1f5ae86c0b9f0af21142f48789e0adb33ebfe4af19894eaf381593de1",
+    "verified_sections": [
+      "Separation of concerns",
+      "Single source of truth",
+      "Unidirectional Data Flow",
+      "Recommended app architecture",
+      "The data layer"
+    ]
+  },
+  {
+    "resource_id": "career-resource-3411b1cf9681efbcce08",
+    "url": "https://docs.flutter.dev/app-architecture/design-patterns/offline-first",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://docs.flutter.dev/app-architecture/design-patterns/offline-first",
+    "response_sha256": "ed2a79e8bdb42d3654fb8aaca189b17a87f6269f3a0f35b55949b2544907e144",
+    "verified_sections": [
+      "Reading data",
+      "Writing data",
+      "Offline-first writing",
+      "Synchronizing state"
+    ]
+  },
+  {
+    "resource_id": "career-resource-36c2b198de2f94cbd97c",
+    "url": "https://developer.android.com/training/permissions/requesting",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developer.android.com/training/permissions/requesting",
+    "response_sha256": "fd4b94719bc8564109240f0c5f151e1b75c9fc84c99a40a09d0e2056065b92f3",
+    "verified_sections": [
+      "Basic principles",
+      "Workflow for requesting permissions",
+      "Determine whether your app was already granted the permission",
+      "Explain why your app needs the permission",
+      "Request permissions"
+    ]
+  },
+  {
+    "resource_id": "career-resource-7b4f10400a9d9f370625",
+    "url": "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+    "response_sha256": "d8af8fbddf1f0f0339d7067f55b9bf34664fa75c07e20cc53110dd3110600ba2",
+    "verified_sections": [
+      "MLOps level 1: ML pipeline automation",
+      "Data and model validation",
+      "MLOps level 2: CI/CD pipeline automation",
+      "ML pipeline triggers"
+    ]
+  },
+  {
+    "resource_id": "career-resource-a54ba3f7f51e5090e631",
+    "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+    "response_sha256": "e7526392f5276c7e19188282eff2e8f4485b128816814ee6eb0a95d20ecafec5",
+    "verified_sections": [
+      "Rule #1",
+      "Rule #2",
+      "Rule #4",
+      "Training-Serving Skew",
+      "Rule #32"
+    ]
+  },
+  {
+    "resource_id": "career-resource-05ef05f91ad144abdba1",
+    "url": "https://mlflow.org/docs/latest/ml/model-registry/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://mlflow.org/docs/latest/ml/model-registry/",
+    "response_sha256": "883852d16811ab6f231cde7585a3793fb3c4d70647f616adc6eea38e6d4d38fb",
+    "verified_sections": [
+      "Why Model Registry?",
+      "Registered Model",
+      "Model Version",
+      "Model Alias",
+      "Model Registry in OSS MLflow"
+    ]
+  },
+  {
+    "resource_id": "career-resource-62e8683a344264cd3143",
+    "url": "https://library.automationdirect.com/what-is-a-plc/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_indexed_text",
+    "evidence_url": "https://library.automationdirect.com/what-is-a-plc/",
+    "direct_capture_status": 406,
+    "verified_sections": [
+      "PLC Definition",
+      "The CPU Explained",
+      "The Input/Output (I/O) Interface System"
+    ]
+  },
+  {
+    "resource_id": "career-resource-1f67db3107f492c26540",
+    "url": "https://library.automationdirect.com/plc-scan-fundamentals/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_indexed_text",
+    "evidence_url": "https://library.automationdirect.com/plc-scan-fundamentals/",
+    "direct_capture_status": 406,
+    "verified_sections": [
+      "The PLC Scan Sequence",
+      "What To Watch For"
+    ]
+  },
+  {
+    "resource_id": "career-resource-e7d7d709cb43381f6a54",
+    "url": "https://docs.arduino.cc/built-in-examples/basics/DigitalReadSerial/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_lesson_source",
+    "source_locator": "DigitalReadSerial.md",
+    "direct_capture_status": 200,
+    "evidence_url": "https://raw.githubusercontent.com/arduino/docs-content/main/content/built-in-examples/01.basics/DigitalReadSerial/DigitalReadSerial.md",
+    "response_sha256": "be1f203da80f17b28c31fe6de291847d4d4e134f9ae545d63468f957b7cce113",
+    "verified_sections": [
+      "Circuit",
+      "Code"
+    ]
+  },
+  {
+    "resource_id": "career-resource-2884fbc11338745ebd89",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law",
+    "response_sha256": "c55b17fd79ac591b34ff772a64b574e3835aae7d0cec23a6ed6852bb524a9c02",
+    "verified_sections": [
+      "Description of Ohm's Law",
+      "Ohm's Experiment"
+    ]
+  },
+  {
+    "resource_id": "career-resource-da94afaa042f85cfdb0a",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power",
+    "response_sha256": "4933d999b67f3c1cfe14f4cc6de2a7f97254970afbc3587d51a90104cdc9f3a0",
+    "verified_sections": [
+      "Power in Electric Circuits",
+      "The Power Dissipated by a Resistor"
+    ]
+  },
+  {
+    "resource_id": "career-resource-884ce43eb1c4495ab6f0",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel",
+    "response_sha256": "8e88e6b9c3107a5d9da4fe8b283944bd3bc7da34f0a8632b0566d50f0f53f79f",
+    "verified_sections": [
+      "Resistors in Series",
+      "Resistors in Parallel"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-e83f8b5a841308b92939",
+    "url": "https://developers.google.com/tech-writing/one/clear-sentences",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/tech-writing/one/clear-sentences",
+    "response_sha256": "37e72445749928bcb11e5a2e07b2ceae5b1edd2aefc688940a0d25ee51bcf022",
+    "verified_sections": [
+      "Choose strong verbs",
+      "Reduce there is / there are",
+      "Minimize certain adjectives and adverbs"
+    ]
+  },
+  {
+    "resource_id": "lesson-resource-d8687d530088d651c704",
+    "url": "https://developers.google.com/tech-writing/two/editing",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/tech-writing/two/editing",
+    "response_sha256": "11b4587f1f59b688e8ccf48ffdf2b58cb6d878f7ce42d02abeb62e7376e57ed2",
+    "verified_sections": [
+      "Adopt a style guide",
+      "Think like your audience",
+      "Read it out loud",
+      "Come back to it later",
+      "Find a peer editor"
+    ]
+  },
+  {
+    "resource_id": "career-resource-4576e2deb314bb46ecf0",
+    "url": "https://openstax.org/books/principles-marketing/pages/9-5-branding-and-brand-development",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/principles-marketing/pages/9-5-branding-and-brand-development",
+    "response_sha256": "122c125e3ef3225eb815a4b0dac1b21643812415a23acd1f1088aca628a3bd8f",
+    "verified_sections": [
+      "Branding",
+      "Benefits of Branding",
+      "Building Strong Brands"
+    ]
+  },
+  {
+    "resource_id": "career-resource-f6a722d508bb6da642ff",
+    "url": "https://openstax.org/books/entrepreneurship/pages/8-4-entrepreneurial-branding",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/entrepreneurship/pages/8-4-entrepreneurial-branding",
+    "response_sha256": "3835ccea3a6c1e317135ab67c197a98504d4f075075ee514a94e314649e3a108",
+    "verified_sections": [
+      "Customer-Focused Branding",
+      "Developing a Brand"
+    ]
+  },
+  {
+    "resource_id": "career-resource-3c2650e9fe2381a9d402",
+    "url": "https://openstax.org/books/principles-marketing/pages/5-1-market-segmentation-and-consumer-markets",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "teaching",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://openstax.org/books/principles-marketing/pages/5-1-market-segmentation-and-consumer-markets",
+    "response_sha256": "3ef0ce51e3e7b0ab3e38cf3df2663fcf189dd335215f414f6ef263330b4a92f3",
+    "verified_sections": [
+      "Market Segmentation Defined",
+      "Methods of Segmenting Consumer Markets"
+    ]
+  },
+  {
+    "resource_id": "career-resource-bbf85934c1076ecb7bc4",
+    "url": "https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_manual_source",
+    "source_locator": "File permissions",
+    "direct_capture_status": "fetch_failed",
+    "evidence_url": "https://raw.githubusercontent.com/coreutils/coreutils/master/doc/coreutils.texi",
+    "response_sha256": "2f6cb840affe0da9414edc59f5145ee3298405ae67a27ac47cde4b87353bbee8",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-944256cb8f296ab56beb",
+        "relationship": "linked_unit"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-1d3d89d0ade1c2f525bc",
+    "url": "https://www.netacad.com/courses/networking-basics",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.netacad.com/courses/networking-basics",
+    "response_sha256": "ce35780c0c228fd277621511517d7a39d297980b9aaf9dd97af7689a66e1bb99",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-551bd480956b339a96c0",
+        "relationship": "editorial_alternative"
+      },
+      {
+        "resource_id": "lesson-resource-e15866cbe792c0670b6a",
+        "relationship": "editorial_alternative"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-63fe998ebd1b2b8bc063",
+    "url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/training/modules/network-fundamentals/",
+    "response_sha256": "f0663589342b3ff95c498dc36ec674e48643829ddde1f9d118841b761bc95b0a",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-551bd480956b339a96c0",
+        "relationship": "linked_unit"
+      },
+      {
+        "resource_id": "lesson-resource-e15866cbe792c0670b6a",
+        "relationship": "linked_unit"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-4261012b3fba6f5a37eb",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+    "response_sha256": "54263cb42f4d5c7b4c77b82a04b0eb1f694f04902580a2ec57458724f4c5301c",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-d82de016401418596fe4",
+        "relationship": "linked_unit"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-f7911eb3bf8a605bef8b",
+    "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+    "response_sha256": "f0e203c61c8669fb58cf4fe67a5db296fe881f1b4a270a0fae3e00bdd75dad13",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-7ded08605fe0337ea30a",
+        "relationship": "linked_unit"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-4df1fad12273bbad7733",
+    "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+    "response_sha256": "f54bf70cde8441062c2a8d9d756d1f347434d19cf87906a7ee79507a820af608",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-aee21910d3cea2b515bd",
+        "relationship": "editorial_alternative"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-1c87884f4ae9ada676c9",
+    "url": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://learn.microsoft.com/en-us/training/paths/get-started-data-engineering/",
+    "response_sha256": "59fb8b65ffbbeb3fdae7fd1d87de4aa05a6a967639b5bb63d515d537e410f5e6",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-9cd28f2d45732b7881d0",
+        "relationship": "editorial_alternative"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-87574ffc8f0e22125d0d",
+    "url": "https://help.autodesk.com/view/ACD/2026/ENU/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://help.autodesk.com/view/ACD/2026/ENU/",
+    "response_sha256": "d827b4a342c1fd7c19778957071ac9aaed67adeef228f36cc735c1a4dd0b26da",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-003eedf593e1206a768e",
+        "relationship": "editorial_alternative"
+      },
+      {
+        "resource_id": "lesson-resource-4379ed7c790f864d9b69",
+        "relationship": "editorial_alternative"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-4d18ad2623d6943dc768",
+    "url": "https://www.onetonline.org/link/summary/17-3013.00",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.onetonline.org/link/summary/17-3013.00",
+    "response_sha256": "9ad670183b4e4fc09c2064b95920bbf045f53d9b6d272c3cb0ce88444f15f508",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-003eedf593e1206a768e",
+        "relationship": "editorial_alternative"
+      },
+      {
+        "resource_id": "lesson-resource-4379ed7c790f864d9b69",
+        "relationship": "editorial_alternative"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-d144480b460dce2a5847",
+    "url": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://ocw.mit.edu/courses/2-008-design-and-manufacturing-ii-spring-2025/",
+    "response_sha256": "c508a80dd4b66068172ee2bec60ec420cdaa8c88f6142b7f47421f7322106c59",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-1375822fcfdecbc01dc5",
+        "relationship": "editorial_alternative"
+      },
+      {
+        "resource_id": "lesson-resource-fbec9992824c2ded68ac",
+        "relationship": "editorial_alternative"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-08f9694a56604cee2e5c",
+    "url": "https://www.onetonline.org/link/summary/17-2112.03",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://www.onetonline.org/link/summary/17-2112.03",
+    "response_sha256": "09b47bf8ab327b1af7d9a94f7b79fef70e1999d6930a708a97c5ec2692e48aaa",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-1375822fcfdecbc01dc5",
+        "relationship": "editorial_alternative"
+      },
+      {
+        "resource_id": "lesson-resource-fbec9992824c2ded68ac",
+        "relationship": "editorial_alternative"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-5f84747293f7e2f35e19",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/",
+    "response_sha256": "37e221e1b058937cfacdfce2cae1cdc6c1675c04a1c4dc0f14e804916cd0ed91",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-f42c318274b5162bfd4c",
+        "relationship": "editorial_alternative"
+      },
+      {
+        "resource_id": "lesson-resource-a37e908cbd04ecfff2e4",
+        "relationship": "editorial_alternative"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-9300571363bf794738f5",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/",
+    "response_sha256": "8312b951176be665fc927848574450b0ba149653ee02bfa8401125b763770037",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-f42c318274b5162bfd4c",
+        "relationship": "linked_unit"
+      },
+      {
+        "resource_id": "lesson-resource-a37e908cbd04ecfff2e4",
+        "relationship": "linked_unit"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-05e8fe30d7ec36e9a040",
+    "url": "https://developers.google.com/tech-writing/one",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/tech-writing/one",
+    "response_sha256": "35fdccc8b87b533d173877fec4f8e4145389c110bbd50df66cacd6120026080f",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-e83f8b5a841308b92939",
+        "relationship": "linked_unit"
+      }
+    ]
+  },
+  {
+    "resource_id": "career-resource-ebf55329602dcba4cf8f",
+    "url": "https://developers.google.com/tech-writing/two",
+    "reviewed_at": "2026-11-10",
+    "evidence_checked_at": "2026-11-11",
+    "decision": "ungraded_guide",
+    "reference": "full_page",
+    "method": "publisher_page_capture",
+    "evidence_url": "https://developers.google.com/tech-writing/two",
+    "response_sha256": "f05e4b57918e6a82255d81a484c4d1b30e48f593abd3ef39cfc098af8751691a",
+    "verified_sections": [],
+    "related_lessons": [
+      {
+        "resource_id": "lesson-resource-d8687d530088d651c704",
+        "relationship": "linked_unit"
+      }
+    ]
+  }
+]

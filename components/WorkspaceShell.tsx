@@ -2,6 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MotionConfig } from "framer-motion";
+import { activateModal, trapTabKey } from "@/lib/focusManagement";
 import {
   ArrowUpRight,
   BookOpen,
@@ -102,6 +104,7 @@ export function WorkspaceShell({
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const sidebar = useRef<HTMLElement>(null);
+  const backdrop = useRef<HTMLButtonElement>(null);
   const workspaceContent = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const previousPathname = useRef(pathname);
@@ -132,6 +135,12 @@ export function WorkspaceShell({
     setMenuOpen(false);
   }, [pathname]);
   useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 901px)");
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
+  useEffect(() => {
     const previous = document.title;
     document.title = `${pageTitle} · VoidFill`;
     return () => { document.title = previous; };
@@ -159,49 +168,35 @@ export function WorkspaceShell({
   }, [menuOpen, pathname]);
   useEffect(() => {
     if (!menuOpen) return;
-    const previous = document.body.style.overflow;
-    const content = workspaceContent.current;
-    const previousInert = content?.inert || false;
-    if (content) content.inert = true;
+    const menu = sidebar.current;
+    if (!menu) return;
+    const modal = activateModal(menu, backdrop.current);
     const menuTrigger = trigger.current;
-    document.body.style.overflow = "hidden";
+    const content = workspaceContent.current;
     sidebar.current
       ?.querySelector<HTMLButtonElement>(".sidebar-close")
       ?.focus();
     const handler = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
-      if (event.key === "Tab") {
-        const elements = Array.from(
-          sidebar.current?.querySelectorAll<HTMLElement>(
-            "a[href], button:not([disabled])",
-          ) || [],
-        );
-        const first = elements[0],
-          last = elements[elements.length - 1];
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault();
-          last?.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault();
-          first?.focus();
-        }
-      }
+      if (!modal.isCurrent()) return;
+      if (event.key === "Escape") { event.preventDefault(); setMenuOpen(false); }
+      trapTabKey(event, menu);
     };
     document.addEventListener("keydown", handler);
     return () => {
-      document.body.style.overflow = previous;
-      if (content) content.inert = previousInert;
+      modal.release();
       document.removeEventListener("keydown", handler);
-      menuTrigger?.focus();
+      if (menuTrigger?.getClientRects().length) menuTrigger.focus();
+      else content?.querySelector<HTMLElement>("main")?.focus({preventScroll: true});
     };
   }, [menuOpen]);
   return (
-    <div className="workspace">
+    <MotionConfig reducedMotion="user"><div className="workspace">
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
       {menuOpen && (
         <button
+          ref={backdrop}
           className="sidebar-backdrop"
           aria-label="Close navigation"
           onClick={() => setMenuOpen(false)}
@@ -213,6 +208,7 @@ export function WorkspaceShell({
         role={menuOpen ? "dialog" : undefined}
         aria-modal={menuOpen || undefined}
         aria-label={menuOpen ? "Workspace navigation" : undefined}
+        tabIndex={menuOpen ? -1 : undefined}
         id="workspace-navigation"
         className="workspace-sidebar"
         data-open={menuOpen}
@@ -353,6 +349,6 @@ export function WorkspaceShell({
           {children}
         </main>
       </div>
-    </div>
+    </div></MotionConfig>
   );
 }

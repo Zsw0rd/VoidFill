@@ -139,14 +139,12 @@
       ],
       "description": "Python programming syntax functions dictionaries lists pandas",
       "coverage": {
-        "questions": 32,
-        "resources": 4,
+        "questions": 39,
+        "resources": 3,
         "levels": [
           1,
           2,
-          3,
-          4,
-          5
+          3
         ],
         "scope": "foundation and intermediate scenario knowledge; practical ability requires separate evidence"
       }
@@ -163,14 +161,12 @@
       ],
       "description": "SQL relational databases queries SELECT joins GROUP BY",
       "coverage": {
-        "questions": 32,
+        "questions": 59,
         "resources": 5,
         "levels": [
           1,
           2,
-          3,
-          4,
-          5
+          3
         ],
         "scope": "foundation and intermediate scenario knowledge; practical ability requires separate evidence"
       }
@@ -190,14 +186,12 @@
       ],
       "description": "Data visualization charts matplotlib seaborn graphs dashboards",
       "coverage": {
-        "questions": 50,
-        "resources": 14,
+        "questions": 116,
+        "resources": 12,
         "levels": [
           1,
           2,
-          3,
-          4,
-          5
+          3
         ],
         "scope": "foundation and intermediate scenario knowledge; practical ability requires separate evidence"
       }
@@ -217,14 +211,12 @@
       ],
       "description": "Web development HTML CSS JavaScript browser DOM frontend",
       "coverage": {
-        "questions": 163,
-        "resources": 36,
+        "questions": 323,
+        "resources": 27,
         "levels": [
           1,
           2,
-          3,
-          4,
-          5
+          3
         ],
         "scope": "foundation and intermediate scenario knowledge; practical ability requires separate evidence"
       }
@@ -244,14 +236,12 @@
       ],
       "description": "Git version control commits branches repositories merge",
       "coverage": {
-        "questions": 30,
+        "questions": 70,
         "resources": 7,
         "levels": [
           1,
           2,
-          3,
-          4,
-          5
+          3
         ],
         "scope": "foundation and intermediate scenario knowledge; practical ability requires separate evidence"
       }
@@ -268,14 +258,12 @@
       ],
       "description": "Data structures algorithms complexity stacks queues sorting binary search",
       "coverage": {
-        "questions": 30,
-        "resources": 6,
+        "questions": 52,
+        "resources": 4,
         "levels": [
           1,
           2,
-          3,
-          4,
-          5
+          3
         ],
         "scope": "foundation and intermediate scenario knowledge; practical ability requires separate evidence"
       }
@@ -292,8 +280,8 @@
       ],
       "description": "Machine learning artificial intelligence models regression classification neural networks",
       "coverage": {
-        "questions": 295,
-        "resources": 75,
+        "questions": 619,
+        "resources": 58,
         "levels": [
           1,
           2,
@@ -314,8 +302,8 @@
       ],
       "description": "Data science statistics probability data cleaning analysis",
       "coverage": {
-        "questions": 79,
-        "resources": 17,
+        "questions": 145,
+        "resources": 12,
         "levels": [
           1,
           2,
@@ -339,7 +327,7 @@
       ],
       "description": "HTTP methods status codes API authentication validation pagination idempotency",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -365,7 +353,7 @@
       ],
       "description": "Software testing unit integration regression test cases boundaries reproducible defects",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -387,7 +375,7 @@
       ],
       "description": "Linux shell files permissions processes logs command line operating systems",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -412,7 +400,7 @@
       ],
       "description": "Networking IP DNS DHCP TCP routing subnets connectivity troubleshooting",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -437,7 +425,7 @@
       ],
       "description": "Cloud computing shared responsibility availability backups scalability monitoring costs",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -462,7 +450,7 @@
       ],
       "description": "Cybersecurity least privilege authentication phishing encryption incident response risk",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -487,7 +475,7 @@
       ],
       "description": "Digital marketing audiences positioning campaigns channels search conversion measurement experiments",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -513,7 +501,7 @@
       ],
       "description": "Recruitment role requirements structured interviews selection sourcing candidate communication",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -539,7 +527,7 @@
       ],
       "description": "Sales discovery qualification customer needs pipeline objections follow up ethical selling",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -564,7 +552,7 @@
       ],
       "description": "Customer success onboarding service support escalation adoption retention customer outcomes",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -589,7 +577,7 @@
       ],
       "description": "Project management scope requirements milestones dependencies risk stakeholders change control",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -615,7 +603,7 @@
       ],
       "description": "Financial accounting assets liabilities equity double entry cash accrual reconciliation financial statements",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -640,7 +628,7 @@
       ],
       "description": "Spreadsheets formulas references filters data validation summaries percentages pivot tables",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -665,7 +653,7 @@
       ],
       "description": "Workplace communication clear writing audience active listening feedback meeting notes collaboration",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -689,7 +677,7 @@
       ],
       "description": "Business analysis requirements stakeholders process mapping root causes acceptance criteria evidence",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -712,7 +700,7 @@
       ],
       "description": "Software architecture components interfaces cohesion coupling requirements trade-offs reliability caching queues",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -737,7 +725,7 @@
       ],
       "description": "Containers Docker images volumes ports CI CD reproducible builds deployment health checks rollback secrets",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -763,7 +751,7 @@
       ],
       "description": "Data engineering pipelines ETL ELT schemas idempotency incremental loads orchestration lineage data quality",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -789,7 +777,7 @@
       ],
       "description": "Computer aided design CAD coordinates units layers dimensions constraints orthographic views scale revisions",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -812,7 +800,7 @@
       ],
       "description": "Manufacturing processes materials machining casting forming additive production tolerances capacity flow waste",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -837,7 +825,7 @@
       ],
       "description": "Industrial quality systems inspection variation control charts root cause corrective action measurement traceability",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -861,7 +849,7 @@
       ],
       "description": "Product strategy user problems outcomes prioritization hypotheses roadmaps discovery experiments metrics trade-offs",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -884,7 +872,7 @@
       ],
       "description": "Customer research research questions recruitment interviews observation consent synthesis sampling bias evidence",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -910,7 +898,7 @@
       ],
       "description": "User experience interaction design task flows prototypes usability feedback information architecture errors research",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -935,7 +923,7 @@
       ],
       "description": "Accessibility evaluation keyboard focus labels headings alternative text contrast captions manual testing assistive technology",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -959,7 +947,7 @@
       ],
       "description": "Visual design hierarchy typography spacing alignment layout color contrast grids consistency responsive interfaces",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -985,7 +973,7 @@
       ],
       "description": "Editorial content strategy audience user needs briefs structure plain language editing evidence governance maintenance",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1008,7 +996,7 @@
       ],
       "description": "Search engine optimization crawl indexing search intent titles descriptions internal links canonical URLs structured data measurement",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1032,7 +1020,7 @@
       ],
       "description": "Research methods hypotheses variables sampling surveys qualitative quantitative evidence bias correlation causation replication",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1056,7 +1044,7 @@
       ],
       "description": "Financial analysis financial statements ratios margins liquidity cash flow common size variance budgets scenarios",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1080,7 +1068,7 @@
       ],
       "description": "People operations onboarding employee records confidentiality service requests offboarding policies data quality escalation",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1104,7 +1092,7 @@
       ],
       "description": "Learning design measurable objectives assessment alignment practice feedback accessibility transfer evaluation",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1129,7 +1117,7 @@
       ],
       "description": "Inventory logistics stock records receipts dispatch cycle counts reorder points lead time safety stock traceability",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1154,7 +1142,7 @@
       ],
       "description": "Supply chain planning demand capacity supply lead time forecasting bottlenecks service risk coordination bullwhip",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1179,7 +1167,7 @@
       ],
       "description": "React components props state hooks rendering lists keys forms effects immutable updates accessible UI",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1206,7 +1194,7 @@
       ],
       "description": "Mobile application lifecycle navigation permissions offline storage network errors responsive touch accessibility testing",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1231,7 +1219,7 @@
       ],
       "description": "MLOps model data versioning reproducibility training serving skew evaluation drift monitoring deployment rollback",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1255,7 +1243,7 @@
       ],
       "description": "Brand strategy audience positioning identity promise differentiation consistency evidence guidelines brand equity",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1279,7 +1267,7 @@
       ],
       "description": "Payroll operations gross net pay timesheets deductions approvals reconciliation confidentiality corrections payroll controls",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1304,7 +1292,7 @@
       ],
       "description": "Audit assurance evidence risk assertions sampling documentation internal controls independence professional skepticism",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1328,7 +1316,7 @@
       ],
       "description": "Procurement requirements supplier evaluation quotations total cost purchase orders receipt matching ethics supplier risk",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1351,7 +1339,7 @@
       ],
       "description": "Industrial automation sensors actuators PLC inputs outputs scan cycles interlocks feedback alarms diagnostics simulation",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1375,7 +1363,7 @@
       ],
       "description": "Electronics fundamentals voltage current resistance Ohm law power series parallel components polarity measurements circuit diagrams",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1399,7 +1387,7 @@
       ],
       "description": "Technical writing audience task prerequisites procedures examples reference documentation accuracy versioning accessibility review",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1422,7 +1410,7 @@
       ],
       "description": "Event operations objectives venue scheduling run sheet capacity accessibility suppliers contingencies communication debrief",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1446,7 +1434,7 @@
       ],
       "description": "Hospitality operations reservations arrivals room status housekeeping handovers service recovery guest privacy occupancy coordination",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,
@@ -1470,7 +1458,7 @@
       ],
       "description": "Account management customer outcomes stakeholders account plans relationship health renewals risks commitments value reviews CRM",
       "coverage": {
-        "questions": 30,
+        "questions": 48,
         "resources": 3,
         "levels": [
           1,

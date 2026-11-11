@@ -1,0 +1,358 @@
+[
+  {
+    "id": "a7a706f1747be2da6f6e8318",
+    "prompt": "Machine learning algorithms are meant to simulate",
+    "keyed_answer": "the human brain",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "ML generally learns patterns from data; it need not simulate a brain. The source only makes a loose motivational analogy, so the categorical keyed statement overclaims.",
+    "reference_urls": [
+      "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/1-Introduction/1-intro-to-ML/README.md#why-study-machine-learning",
+      "https://scikit-learn.org/stable/supervised_learning.html"
+    ]
+  },
+  {
+    "id": "4478a1e34e0931dad7504a35",
+    "prompt": "A good Linear Regression model has a ___ Correlation Coefficient",
+    "keyed_answer": "high",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The unqualified signed-correlation criterion rejects perfect negative linear relationships. A simple y=-x example has correlation -1 and zero linear prediction error.",
+    "reference_urls": [
+      "https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares"
+    ]
+  },
+  {
+    "id": "c8cc1a4896842f146826686e",
+    "prompt": "Least-Squares Regression means that all the datapoints surrounding the regression line are:",
+    "keyed_answer": "squared and then added up",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Least squares squares residuals between targets and predictions, not the data points themselves. None of this wording identifies the correct error objective.",
+    "reference_urls": [
+      "https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares"
+    ]
+  },
+  {
+    "id": "ac54a3d9d081577597a6dc3a",
+    "prompt": "Your data has weak correlations. The best type of Regression to use is:",
+    "keyed_answer": "Logistic",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Weak correlations do not determine the best estimator. Logistic regression is classification for a categorical target; target type and other assumptions must be specified.",
+    "reference_urls": [
+      "https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression"
+    ]
+  },
+  {
+    "id": "fdb3d56d3bc2bded5a5f553f",
+    "prompt": "K-Neighbors classifier can be used for:",
+    "keyed_answer": "both of these",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The listed alternatives are supervised and unsupervised learning. KNeighborsClassifier uses labeled targets; the wider neighbors family also contains separate unsupervised estimators.",
+    "reference_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html"
+    ]
+  },
+  {
+    "id": "5f205c7c2a7f251a5557e4df",
+    "prompt": "Support-Vector classifiers can be used for",
+    "keyed_answer": "both of these",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The options are classification and regression. An SVC is a classifier; SVR is the separate regression estimator. The question conflates a classifier with the wider SVM family.",
+    "reference_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html",
+      "https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html"
+    ]
+  },
+  {
+    "id": "5238bef55b4b1618f4747a69",
+    "prompt": "What are stop words?",
+    "keyed_answer": "both of the above",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "One included assertion says stop words do not change sentiment. Negation such as not affects VADER, so blanket safe removal is false.",
+    "reference_urls": [
+      "https://www.nltk.org/_modules/nltk/sentiment/vader.html"
+    ]
+  },
+  {
+    "id": "1c0859df589ea5def8850a69",
+    "prompt": "A time series is a sequence taken at:",
+    "keyed_answer": "successive equally spaced points in time",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Equal spacing is common but not required for the general definition. The source itself says most commonly; irregularly sampled time series also exist.",
+    "reference_urls": [
+      "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/1-Introduction/README.md#some-definitions",
+      "https://pandas.pydata.org/docs/user_guide/timeseries.html"
+    ]
+  },
+  {
+    "id": "33dd0221ac512c6b5a3fab9d",
+    "prompt": "Time Series Forecasting is most useful for",
+    "keyed_answer": "Econometrics",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The page lists many valid industries and does not establish a universally most useful field. This subjective superlative has no defensible single correct answer.",
+    "reference_urls": [
+      "https://github.com/microsoft/ML-For-Beginners/blob/653bc95f0df772b6910c5aab8a7d9db351d454e5/7-TimeSeries/1-Introduction/README.md"
+    ]
+  },
+  {
+    "id": "17fe25168cae5e524a00f84d",
+    "prompt": "Differencing",
+    "keyed_answer": "eliminates trend and seasonality",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Differencing must use suitable orders/lags and does not universally remove every trend or seasonal structure. The key states a guarantee instead of a conditional technique.",
+    "reference_urls": [
+      "https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.tools.diff.html"
+    ]
+  },
+  {
+    "id": "911402b4575557fc2e9ef20f",
+    "prompt": "By which of these methods does an SVR learn?",
+    "keyed_answer": "Finding the best fit hyperplane that has the maximum number of data points",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "SVR uses an epsilon-insensitive regularized regression objective; maximizing the number of points on a hyperplane is not its definition.",
+    "reference_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html"
+    ]
+  },
+  {
+    "id": "bc12e351257de1a230d87208",
+    "prompt": "How many objects can an object detection model detect?",
+    "keyed_answer": "any number",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "A detector can handle multiple objects, but any number implies no architecture/output limits. Many detectors have finite proposals, queries or output caps; no model is specified.",
+    "reference_urls": [
+      "https://arxiv.org/abs/2005.12872",
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/11-ObjectDetection/README.md"
+    ]
+  },
+  {
+    "id": "7d43580f65d0353f5efdd696",
+    "prompt": "How many segmentation algorithm are there?",
+    "keyed_answer": "2",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Semantic and instance segmentation are task categories discussed by the page, not the total number of segmentation algorithms. The source also points to panoptic segmentation.",
+    "reference_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/12-Segmentation/README.md",
+      "https://arxiv.org/abs/1801.00868"
+    ]
+  },
+  {
+    "id": "a2e4a1337651e5b823c39bfb",
+    "prompt": "Text can be represented using _____ approaches",
+    "keyed_answer": "2",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Character and word representations are examples, not an exhaustive count. The same source explicitly mentions part-of-word tokens.",
+    "reference_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/13-TextRep/README.md#representing-text"
+    ]
+  },
+  {
+    "id": "3601cdf6cd430898de932492",
+    "prompt": "Which of the following can be considered a language model?",
+    "keyed_answer": "Word2Vec embeddings",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Embedding vectors alone are representations, not a model assigning sequence/conditional token probabilities. The source describes semantic embeddings as a first step toward language modeling; the options conflate artifacts and models.",
+    "reference_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/15-LanguageModeling/README.md",
+      "https://arxiv.org/abs/1301.3781"
+    ]
+  },
+  {
+    "id": "110dfe285b0e163140a81328",
+    "prompt": "Output encoder converts hidden state into _____ output",
+    "keyed_answer": "one-hot-encoded",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The generation page describes the cell output as a probability distribution. A distribution is not a one-hot choice; sampling or argmax chooses a token afterward.",
+    "reference_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/17-GenerativeNetworks/README.md#soft-text-generation-and-temperature"
+    ]
+  },
+  {
+    "id": "fc173215596db4a606d1f517",
+    "prompt": "In positional encoding the relative position of the token is represented by number of steps",
+    "keyed_answer": "true",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The source attributes implicit step-position information to RNNs, then introduces explicit positional representations for transformers. The quiz confuses those explanations.",
+    "reference_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/18-Transformers/README.md#positional-encodingembedding",
+      "https://arxiv.org/abs/1706.03762"
+    ]
+  },
+  {
+    "id": "70be64bb79408bdaa0630d5b",
+    "prompt": "In transformers attention is used in _____ instances",
+    "keyed_answer": "2",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "No architecture or counting unit is specified. Original encoder-decoder transformers also include masked decoder self-attention; a universal two-instance key is unsupported.",
+    "reference_urls": [
+      "https://arxiv.org/abs/1706.03762"
+    ]
+  },
+  {
+    "id": "036dd550539f168f6ae14931",
+    "prompt": "What is zero-shot learning?",
+    "keyed_answer": "Getting an answer from pre-trained network",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "This omits the defining absence of task demonstrations/examples and also describes few-shot inference. The options provide no precise zero-shot definition.",
+    "reference_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/5-NLP/20-LangModels/README.md#conclusion",
+      "https://arxiv.org/abs/2005.14165"
+    ]
+  },
+  {
+    "id": "46b88337ce4f936f1cd6f624",
+    "prompt": "In Actor-Critic model, critic predicts",
+    "keyed_answer": "Reward function",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The described critic estimates expected total return/value from the state, not the definition of the reward function. The source's actor-critic section gives the correct role.",
+    "reference_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/6-Other/22-DeepRL/README.md#actor-critic-algorithm",
+      "https://spinningup.openai.com/en/latest/algorithms/vpg.html"
+    ]
+  },
+  {
+    "id": "3fdc8a2fd5955758afadcb06",
+    "prompt": "All but one is a type of classification loss function",
+    "keyed_answer": "binary loss",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Binary loss is undefined here and can refer to real binary-classification losses. A vague name cannot serve as an unambiguous non-classification distractor.",
+    "reference_urls": [
+      "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html"
+    ]
+  },
+  {
+    "id": "dae59a100e158339bea6ef64",
+    "prompt": "VAE is short for?",
+    "keyed_answer": "Variation auto-encoder",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The correct name is Variational Autoencoder. None of the supplied choices gives that name accurately.",
+    "reference_urls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/49ab6e2e51bf1f80f442a74cefe0b68a5dcfc73e/lessons/4-ComputerVision/09-Autoencoders/README.md#variational-autoencoders-vae",
+      "https://arxiv.org/abs/1312.6114"
+    ]
+  },
+  {
+    "id": "954406425ba97bf269c0252e",
+    "prompt": "Underlying TextBlob's translation library is:",
+    "keyed_answer": "Google Translate",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "This is a historical API statement without a version qualifier; TextBlob removed translation in 0.18. Presenting it as an active current feature is unsupported.",
+    "reference_urls": [
+      "https://textblob.readthedocs.io/en/dev/changelog.html"
+    ]
+  },
+  {
+    "id": "1d2504e11667234785e53fe9",
+    "prompt": "To use `blob.translate` you need:",
+    "keyed_answer": "an internet connection",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The method itself was removed in TextBlob 0.18. Internet access alone cannot make the current API work; the versionless quiz describes a removed feature.",
+    "reference_urls": [
+      "https://textblob.readthedocs.io/en/dev/changelog.html"
+    ]
+  },
+  {
+    "id": "7b1662e98103dd39df223194",
+    "prompt": "We want to prove that basketball players are taller than average people. We have collected heights of 20 people from both groups. What do we need to do?",
+    "keyed_answer": "use t-test",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "A sample size alone does not establish representativeness, independence or the correct test. Even a correctly applied t-test supplies statistical evidence about a defined population contrast, rather than proof.",
+    "reference_urls": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm"
+    ]
+  },
+  {
+    "id": "99f4d908e584d6b2c53395f7",
+    "prompt": "How can we demonstrate that income of a person is dependent on the level of education?",
+    "keyed_answer": "compute correlation coefficient",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The stem does not define a dependence measure, the education coding or the population assumptions. A sample Pearson coefficient by itself summarizes linear association. It cannot settle general dependence or a causal claim.",
+    "reference_urls": [
+      "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html"
+    ]
+  },
+  {
+    "id": "d6ce2e1a8fe610d9988568f4",
+    "prompt": "We throw the dice 100 times and compute the average value. What would be the distribution of the result?",
+    "keyed_answer": "normal",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The 100-roll average has a finite discrete support. A normal distribution can approximate its shape under standard assumptions. The question omits the approximation qualifier even though it offers a choice of none of the above.",
+    "reference_urls": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+      "https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/pages/part-ii-inference-limit-theorems/"
+    ]
+  },
+  {
+    "id": "43acb266277b20000d15b5e8",
+    "prompt": "Histograms are overall more sophisticated types of chart than scatterplots",
+    "keyed_answer": "True",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The cited lesson describes different purposes for the two displays. Overall sophistication is undefined and has no objectively correct rank.",
+    "reference_urls": [
+      "https://ggplot2.tidyverse.org/reference/geom_histogram.html",
+      "https://ggplot2.tidyverse.org/reference/geom_point.html"
+    ]
+  },
+  {
+    "id": "17b8004f30d4b9e73bf7627c",
+    "prompt": "You can visualize distributions using this type of chart:",
+    "keyed_answer": "scatterplot",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The stem does not say which distribution is needed. A scatterplot can show two-variable observations, while column and pie charts can both show categorical distributions. Several choices can be valid.",
+    "reference_urls": [
+      "https://ggplot2.tidyverse.org/reference/geom_histogram.html",
+      "https://ggplot2.tidyverse.org/reference/geom_point.html",
+      "https://ggplot2.tidyverse.org/reference/geom_bar.html"
+    ]
+  },
+  {
+    "id": "177d0c96c3156a3ce40f0e9e",
+    "prompt": "By editing a scatterplot's hue, you can:",
+    "keyed_answer": "display a dataset's distribution",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "A hue mapping assigns point colors using a named variable. The offered item-colors choice fits that mechanism, while the generic distribution choice leaves the encoded variable and intended display undefined.",
+    "reference_urls": [
+      "https://ggplot2.tidyverse.org/reference/geom_point.html",
+      "https://seaborn.pydata.org/generated/seaborn.scatterplot.html"
+    ]
+  },
+  {
+    "id": "0c7fb21a8d501a6bf5ac047a",
+    "prompt": "A more accessible way to display distribution is:",
+    "keyed_answer": "Using either of the above",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "Shape or size can supply a non-color cue, but their effectiveness depends on what the marks encode, how well the cue is distinguishable and what readers need to access. The stem lacks that context.",
+    "reference_urls": [
+      "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html"
+    ]
+  },
+  {
+    "id": "2bbd43132b6deefa9b801167",
+    "prompt": "In which case do you need GPU over CPU?",
+    "keyed_answer": "When you do Deep Learning",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "GPU acceleration can improve performance on suitable workloads, but its necessity depends on the specific model, computation, memory and throughput. Deep learning can also execute on a CPU.",
+    "reference_urls": [
+      "https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html"
+    ]
+  },
+  {
+    "id": "c6d0391aac43d96762f16ad8",
+    "prompt": "Which of these would be affected by increasing the cluster size?",
+    "keyed_answer": "Model performance",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "A larger cluster can change resource cost, concurrency or training duration. The question specifies no workload, search budget or definition of performance to establish a unique answer about model quality.",
+    "reference_urls": [
+      "https://learn.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2",
+      "https://learn.microsoft.com/en-us/azure/machine-learning/concept-automated-ml?view=azureml-api-2"
+    ]
+  },
+  {
+    "id": "f257ade925a780c722e327c5",
+    "prompt": "What is AutoML?",
+    "keyed_answer": "A tool for automating the deployment of models",
+    "reason_code": "reviewed_lesson_source_issue",
+    "reason": "The lesson describes iterating over models and hyperparameters during training. Deployment comes after a candidate is selected. The keyed definition conflates the two stages.",
+    "reference_urls": [
+      "https://learn.microsoft.com/en-us/azure/machine-learning/concept-automated-ml?view=azureml-api-2"
+    ]
+  }
+]

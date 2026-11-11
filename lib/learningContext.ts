@@ -54,7 +54,7 @@ export async function applySkillResults(supabase: Awaited<ReturnType<typeof crea
   const ids = results.map((r) => r.skill_id);
   const [scoresRes, coursesRes] = await Promise.all([
     supabase.from("user_skill_scores").select("skill_id, score").eq("user_id", userId).in("skill_id", ids),
-    supabase.from("roadmap_courses").select("skill_id, completed").eq("user_id", userId).in("skill_id", ids),
+    supabase.from("roadmap_courses").select("skill_id, completed, url").eq("user_id", userId).in("skill_id", ids),
   ]);
   if (scoresRes.error || coursesRes.error) throw new LearningError("Could not load skill progress.", 500);
   const previous = new Map((scoresRes.data || []).map((s) => [s.skill_id, Number(s.score)]));

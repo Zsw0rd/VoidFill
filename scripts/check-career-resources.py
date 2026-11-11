@@ -55,13 +55,19 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--retry-failed", action="store_true", help="Recheck failed entries from a complete audit of the current resources.")
     parser.add_argument("--include-base", action="store_true", help="Also check the 158 inherited resources served alongside the extension; writes a separate full-catalogue report.")
+    parser.add_argument("--lesson-additions", action="store_true", help="Check the newly added teaching URLs and write a separate release report.")
     parser.add_argument("--system-tls", action="store_true", help="Use system curl HEAD requests with normal certificate validation and HTTPS-only redirects; never disables TLS checks.")
     args = parser.parse_args()
+    if args.include_base and args.lesson_additions:
+        parser.error("Choose the original catalogue or the lesson additions report.")
     resources = json.loads((PACK / "resources.json").read_text(encoding="utf8"))
     output = PACK / "resource-check.json"
     if args.include_base:
         resources = json.loads((ROOT / "ml/data/resources.json").read_text(encoding="utf8")) + resources
         output = ROOT / "ml/evaluation-career-resources.json"
+    if args.lesson_additions:
+        resources = json.loads((ROOT / "ml/data/lessons/resources.json").read_text(encoding="utf8"))
+        output = ROOT / "ml/evaluation-lesson-resource-links.json"
     previous = {}
     if args.retry_failed:
         previous = {row["id"]: row for row in json.loads(output.read_text(encoding="utf8"))["results"]}
@@ -72,7 +78,7 @@ def main():
         checked = list(pool.map(lambda resource: check(resource,args.system_tls), pending))
     current = {**previous, **{row["id"]: row for row in checked}}
     results = [current[row["id"]] for row in resources]
-    report = {"checked_at": datetime.now(timezone.utc).isoformat(), "includes_inherited_base": args.include_base, "scope": "Public unauthenticated HTTP reachability; does not establish pedagogical quality or availability of every linked course activity. HTTP 403/429 can reflect automated-request blocking, not a missing resource.", "results": results}
+    report = {"checked_at": datetime.now(timezone.utc).isoformat(), "includes_inherited_base": args.include_base, "scope": "Public unauthenticated HTTP reachability. HTTP 403, 406 and 429 can reflect automated request blocking. Availability of every linked activity and teaching quality require separate review.", "results": results}
     output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf8")
     for result in checked:
         print(result["status"], result["title"], "->", result.get("page_title") or result.get("error"))

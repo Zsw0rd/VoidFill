@@ -1,6 +1,6 @@
 "use client";
 import { PERSONAL_GOAL_NAME } from "@/lib/careerCatalog";
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -26,7 +26,8 @@ type Parsed = {
   sections: Record<string, string[]>;
   role_suggestions: { name: string; similarity: number }[];
   text: string;
-  pages: number;
+  pages: number | null;
+  page_count_known: boolean;
   methods: string[];
   warnings: string[];
   note: string;
@@ -52,15 +53,27 @@ export function ResumeUI({
   const [existingSkills, setExistingSkills] = useState(
     profile?.current_skills_text || "",
   );
+  const busyRequest = useRef(false), savingRequest = useRef(false);
+  const uploadInput = useRef<HTMLInputElement>(null);
+  const reviewHeading = useRef<HTMLHeadingElement>(null);
+  const errorNotice = useRef<HTMLParagraphElement>(null);
+  const savedNotice = useRef<HTMLDivElement>(null);
+  const evidenceId = useId();
+  const [focusIntent, setFocusIntent] = useState<{ target: "upload" | "review" | "error" | "saved" } | null>(null);
+  useEffect(() => {
+    if (!focusIntent) return;
+    ({upload: uploadInput, review: reviewHeading, error: errorNotice, saved: savedNotice})[focusIntent.target].current?.focus();
+  }, [focusIntent]);
   async function upload(file?: File) {
-    if (!file) return;
+    if (!file || busyRequest.current || savingRequest.current) return;
     setError("");
     setSaved(false);
-    setResult(null);
     if (file.size > 4 * 1024 * 1024 || !/\.(pdf|docx)$/i.test(file.name)) {
       setError("Choose a PDF or DOCX up to 4 MB.");
+      setFocusIntent({target: "error"});
       return;
     }
+    busyRequest.current = true;
     setBusy(true);
     try {
       const form = new FormData();
@@ -74,13 +87,18 @@ export function ResumeUI({
       setResult(parsed);
       setSelected(parsed.skills.map((s: any) => s.name));
       setName(parsed.name || profile?.full_name || "");
+      setFocusIntent({target: "review"});
     } catch (e: any) {
       setError(e.message);
+      setFocusIntent({target: "error"});
     } finally {
+      busyRequest.current = false;
       setBusy(false);
     }
   }
   async function apply() {
+    if (!result || busyRequest.current || savingRequest.current) return;
+    savingRequest.current = true;
     setSaving(true);
     setError("");
     try {
@@ -104,9 +122,12 @@ export function ResumeUI({
       if (!response.ok) throw new Error(data.error);
       setExistingSkills(nextSkills.join(", "));
       setSaved(true);
+      setFocusIntent({target: "saved"});
     } catch (e: any) {
       setError(e.message);
+      setFocusIntent({target: "error"});
     } finally {
+      savingRequest.current = false;
       setSaving(false);
     }
   }
@@ -139,13 +160,13 @@ export function ResumeUI({
           data-dragging={dragging}
           onDragOver={(e) => {
             e.preventDefault();
-            if (!busy) setDragging(true);
+            if (!busy && !saving) setDragging(true);
           }}
           onDragLeave={() => setDragging(false)}
           onDrop={(e) => {
             e.preventDefault();
             setDragging(false);
-            if (!busy) void upload(e.dataTransfer.files[0]);
+            if (!busy && !saving) void upload(e.dataTransfer.files[0]);
           }}
         >
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-surface border border-forest/15 text-forest">
@@ -176,10 +197,11 @@ export function ResumeUI({
             PDF or DOCX · up to 4 MB · up to 12 PDF pages
           </span>
           <input
+            ref={uploadInput}
             aria-label="Upload resume"
             type="file"
             accept=".pdf,.docx"
-            disabled={busy}
+            disabled={busy || saving}
             className="sr-only"
             onChange={(e) => {
               void upload(e.target.files?.[0]);
@@ -235,6 +257,8 @@ export function ResumeUI({
       )}
       {error && (
         <p
+          ref={errorNotice}
+          tabIndex={-1}
           role="alert"
           className="rounded-xl border border-rust/20 p-4 bg-rust/5 text-sm text-rust"
         >
@@ -243,7 +267,7 @@ export function ResumeUI({
       )}
       {result && (
         <>
-          <section className="panel p-6 md:p-8 space-y-6">
+          <section className="panel p-6 md:p-8 space-y-6" aria-busy={busy || saving || undefined}>
             <div className="flex flex-wrap gap-3 items-center justify-between">
               <div className="flex gap-3 items-center">
                 <span className="icon-tile">
@@ -251,14 +275,15 @@ export function ResumeUI({
                 </span>
                 <div>
                   <p className="eyebrow mb-1">02 / Review & refine</p>
-                  <h2 className="font-semibold">Here’s what we found.</h2>
+                  <h2 ref={reviewHeading} tabIndex={-1} className="font-semibold">Here’s what we found.</h2>
                 </div>
               </div>
               <Badge tone="good">{selected.length} skills selected</Badge>
             </div>
             <p className="text-[11px] text-muted">
-              {result.filename} · {result.pages}{" "}
-              {result.pages === 1 ? "page" : "pages"}
+              {result.filename} · {result.pages === null || result.page_count_known === false
+                ? "DOCX document · page count unavailable"
+                : `${result.pages} ${result.pages === 1 ? "page" : "pages"}`}
             </p>
             <div className="grid md:grid-cols-2 gap-5">
               <label className="block text-xs font-semibold">
@@ -266,8 +291,9 @@ export function ResumeUI({
                 <Input
                   className="mt-2"
                   value={name}
+                  disabled={busy || saving}
                   maxLength={120}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => {setName(e.target.value); setSaved(false);}}
                 />
               </label>
               <label className="block text-xs font-semibold">
@@ -275,7 +301,8 @@ export function ResumeUI({
                 <select
                   className="block mt-2 w-full min-h-12 p-3 rounded-xl bg-surface border border-line text-sm font-normal"
                   value={role}
-                  onChange={(e) => setRole(e.target.value)}
+                  disabled={busy || saving}
+                  onChange={(e) => {setRole(e.target.value); setSaved(false);}}
                 >
                   <option value="">Keep current target</option>
                   {roles.filter(r => r.name !== PERSONAL_GOAL_NAME).map((r) => (
@@ -291,11 +318,11 @@ export function ResumeUI({
                 Skills to bring into your profile
               </h3>
               <p className="mt-2 text-[11px] text-muted">
-                Select the skills you want to keep. Hover over a skill to see
-                where it was mentioned.
+                Select the skills you want to keep. Expand “Take a closer look
+                at the extraction” below to review where each skill was mentioned.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {result.skills.map((skill) => (
+                {result.skills.map((skill, index) => (
                   <label
                     key={skill.name}
                     title={skill.evidence}
@@ -305,15 +332,19 @@ export function ResumeUI({
                       className="mr-2 accent-forest"
                       type="checkbox"
                       checked={selected.includes(skill.name)}
-                      onChange={(e) =>
+                      disabled={busy || saving}
+                      aria-describedby={`${evidenceId}-${index}`}
+                      onChange={(e) => {
+                        setSaved(false);
                         setSelected((s) =>
                           e.target.checked
                             ? [...s, skill.name]
                             : s.filter((n) => n !== skill.name),
-                        )
-                      }
+                        );
+                      }}
                     />
                     {skill.name}
+                    <span hidden id={`${evidenceId}-${index}`}>{skill.evidence}</span>
                   </label>
                 ))}
               </div>
@@ -323,12 +354,13 @@ export function ResumeUI({
                   your profile.
                 </p>
               )}
-              <label className="block mt-5 text-xs text-muted">
+              <label className="flex min-h-11 items-center mt-5 text-xs text-muted">
                 <input
                   className="mr-2 accent-forest"
                   type="checkbox"
                   checked={keepExisting}
-                  onChange={(e) => setKeepExisting(e.target.checked)}
+                  disabled={busy || saving}
+                  onChange={(e) => {setKeepExisting(e.target.checked); setSaved(false);}}
                 />
                 Keep skills already in my profile
               </label>
@@ -356,7 +388,7 @@ export function ResumeUI({
                 </p>
               )}
             </div>
-            <Button loading={saving} onClick={apply}>
+            <Button disabled={busy} loading={saving} onClick={apply}>
               {saving ? (
                 "Saving your changes…"
               ) : (
@@ -368,6 +400,8 @@ export function ResumeUI({
             </Button>
             {saved && (
               <div
+                ref={savedNotice}
+                tabIndex={-1}
                 role="status"
                 className="rounded-xl border border-forest/20 bg-forest/5 p-4 text-forest flex flex-wrap items-center gap-3 text-xs"
               >
@@ -431,12 +465,14 @@ export function ResumeUI({
             </div>
           </details>
           <button
+            disabled={busy || saving}
             className="text-xs underline underline-offset-4 text-muted"
             onClick={() => {
               setResult(null);
               setSelected([]);
               setName(profile?.full_name || "");
               setSaved(false);
+              setFocusIntent({target: "upload"});
             }}
           >
             Clear this extraction

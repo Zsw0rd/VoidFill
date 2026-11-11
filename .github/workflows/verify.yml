@@ -32,6 +32,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: node scripts/generate-resource-scope-sql.mjs --check
       - run: npx next typegen
       - run: npx tsc --noEmit
       - run: npm run lint
@@ -93,6 +94,9 @@ jobs:
       NEXT_TELEMETRY_DISABLED: '1'
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Append-only content/index proof compares the deployed source tree.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -101,11 +105,17 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: ml/requirements-cloud.txt
+          cache-dependency-path: |
+            ml/requirements-cloud.txt
+            ml/requirements-content-review.txt
       - run: npm ci
       - run: |
           python -m venv .venv-ml
-          .venv-ml/bin/python -m pip install -r ml/requirements-cloud.txt pytest==9.1.1 Pillow==13.0.0
+          .venv-ml/bin/python -m pip install -r ml/requirements-cloud.txt -r ml/requirements-content-review.txt pytest==9.1.1 Pillow==13.0.0
+      - name: Verify lesson manifests and teaching coverage
+        run: |
+          .venv-ml/bin/python -m ml.lesson_questions --check
+          .venv-ml/bin/python -m ml.lesson_coverage --check
       - uses: actions/cache/restore@v4
         id: model-cache
         with:
@@ -131,6 +141,14 @@ jobs:
           ml/tests/test_guest_resume.py ml/tests/test_staff_demo.py
           ml/tests/test_pdf_concurrency.py
           ml/tests/test_practical_demo.py
+          ml/tests/test_lesson_coverage.py ml/tests/test_lesson_questions.py
+          ml/tests/test_lesson_validation.py ml/tests/test_incremental_index.py
+          ml/tests/test_document_probe_fixtures.py
+          ml/tests/test_lesson_web_git.py ml/tests/test_core_programming_lessons.py
+          ml/tests/test_lesson_machine_learning.py ml/tests/test_lesson_technical_professional.py
+          ml/tests/test_lesson_data_science_visualization.py
+          ml/tests/test_business_lessons.py ml/tests/test_business_additions.py
+          ml/tests/test_resource_scopes.py
       - run: npm run build
       - name: Install Chromium for local UX checks
         if: github.event_name == 'workflow_dispatch' && inputs.browser_regressions
@@ -154,6 +172,7 @@ jobs:
           npm run test:careers
           npm run test:practical
           node scripts/test-resume-concurrency.mjs
+          node scripts/test-document-matrix.mjs --base http://localhost:3000
           node scripts/test-account.mjs
           if [ "$RUN_BROWSER_REGRESSIONS" = "true" ]; then npm run test:ux; fi
       - name: Preserve isolated journey evidence
