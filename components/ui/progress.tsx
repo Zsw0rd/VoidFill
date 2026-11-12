@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "./cn";
 
 export function Progress({
@@ -11,7 +10,6 @@ export function Progress({
   className?: string;
 }) {
   const v = Math.max(0, Math.min(100, value));
-  const reducedMotion = useReducedMotion();
   return (
     <div
       role="progressbar"
@@ -24,11 +22,9 @@ export function Progress({
         className,
       )}
     >
-      <motion.div
-        className="h-full bg-forest rounded-full"
-        initial={reducedMotion ? false : { width: 0 }}
-        animate={{ width: `${v}%` }}
-        transition={reducedMotion ? { duration: 0 } : { type: "spring", stiffness: 160, damping: 22 }}
+      <div
+        className="h-full rounded-full bg-forest transition-[width] duration-300 ease-out motion-reduce:transition-none"
+        style={{ width: `${v}%` }}
       />
     </div>
   );
