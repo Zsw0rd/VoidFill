@@ -73,3 +73,26 @@ Development Coordinator name, moved keyboard focus from Your activity to
 Learning stage, and measured a document width equal to the 306-pixel client
 width. The app's viewport was 320 CSS pixels. The release record has the
 production verification. [Practical Studio change](https://github.com/Zsw0rd/VoidFill/pull/13)
+
+## Native Chrome zoom and media preferences
+
+A dedicated Chrome window exposed the browser's actual page zoom. The Chrome
+controls reported 200% and 400%. The live landing page and Practical Studio
+had equal document and client widths at both settings. At 400%, the viewport
+was 508 by 238 CSS pixels. The local production build kept the resume upload
+available, and the expanded atlas scrolled inside its dialog. The Python lesson
+list opened by keyboard, and Next moved focus to the new question heading.
+
+Chrome DevTools' Rendering panel enabled `forced-colors: active`. The atlas
+removed its background image and used system colors for the selected ring and
+connection. The lesson exposed 16-pixel native radios, and keyboard selection
+showed a system-color outline around the checked answer.
+
+When the Rendering panel enabled `prefers-reduced-motion: reduce` while the
+lesson was open, CSS transitions shortened immediately. Advancing a question
+still animated the old progress fill while its accessible value had already
+updated. The fill now uses a CSS width transition controlled by the same media
+preference. To reproduce the check, open a disposable lesson, toggle reduced
+motion without reloading, advance a question, then compare the progressbar's
+accessible value with the rendered fill. Disable emulation to verify the normal
+transition and restore the original browser zoom afterward.
