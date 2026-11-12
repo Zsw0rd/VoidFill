@@ -63,3 +63,13 @@ The connected Chrome profile exercised the production build on a disposable Data
 5. **Replacement and save recovery.** The first Chrome run exposed a cleared extraction after a rejected PDF. The rebuilt app kept the DOCX and the edited two-skill selection, then focused the error. Applying the fictional selection focused the save status. Clearing the extraction returned focus to Upload resume. [Replacement recovery](assets/accessibility-depth-20261110/07-resume-replacement-recovery.jpg)
 
 The screenshots were reopened and inspected. The temporary viewport was reset and the disposable test tab closed. Chrome's keyboard zoom chord did not change the measured viewport or device pixel ratio in this session. Actual 200% and 400% browser zoom, forced colors, reduced motion, and long-label practical studio scenarios still need rendered checks. Participant feedback and spoken screen-reader output remain deferred.
+
+## Practical Studio retest on 12 November
+
+At 320 CSS pixels, Chrome truncated the longest activity name in the native
+selector. The controls now show the full selected activity in the note below
+them. In a disposable learner workspace, Chrome displayed the full Learning &
+Development Coordinator name, moved keyboard focus from Your activity to
+Learning stage, and measured a document width equal to the 306-pixel client
+width. The app's viewport was 320 CSS pixels. The release record has the
+production verification. [Practical Studio change](https://github.com/Zsw0rd/VoidFill/pull/13)

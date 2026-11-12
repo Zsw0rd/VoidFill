@@ -77,6 +77,13 @@ Node regression coverage. Current release checks and Chrome-only UX evidence are
 recorded in `VALIDATION_AND_OPERATIONS.md`; the HTTP auth script also checks
 callback errors, cancellation, return-path validation and POST-only logout.
 
+On 11 November, Chrome repeated the production callback on the release from
+[PR 12](https://github.com/Zsw0rd/VoidFill/pull/12). The returning staff account
+reached its admin dashboard and opened My learners. The returning college
+account reached its learner dashboard from both the login and signup forms.
+Google Cloud showed the audience as **External / In production**. The original
+first-time account test above supplies the separate evidence for onboarding.
+
 ```powershell
 npm test
 $env:TEST_BASE_URL='http://localhost:3001'
